@@ -6,4 +6,4 @@ Please give me feedback (drstephanhuber@yahoo.com). Especially, if something doe
 
 
 - [Quantitative & Qualitative Methods for Business _(Studymag for private self-study hours)_](https://hubchev.github.io/qqmb/)
-- [Link to my personal homepage](www.t1p.de/stephanhuber)
+- [Link to my personal homepage](https://www.t1p.de/stephanhuber)
