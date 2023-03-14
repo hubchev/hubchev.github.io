@@ -48,7 +48,6 @@
 
 
 
-
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
@@ -145,7 +144,7 @@ for taking actively part in class. Do not distribute without permission.</p>
 <div id="about-the-author" class="section level2 unlisted unnumbered hasAnchor">
 <h2>About the author<a href="index.html#about-the-author" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="figure"><span style="display:block;" id="fig:itsme"></span>
-<img src="/home/sthu/Dropbox/hsf/lit/fig/huber2.jpeg" style="width:25.0%" alt="" />
+<img src="fig/huber2.jpeg" style="width:25.0%" alt="" />
 <p class="caption">Figure 0.1:  Prof. Dr. Stephan Huber<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 </div>
 <p>Prof. Dr. Stephan Huber is Professor of International Economics and Data Science at <em>HS Fresenius</em> and holds a Diploma in Economics from the <em>University of Regensburg</em> and a Doctoral Degree (summa cum laude) from the University of Trier. He completed postgraduate studies at the <em>Interdisciplinary Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU)</em> in Trier. He was a research assistant to Prof. Dr. Dr. h.c. Joachim Möller at the <em>University of Regensburg</em>, post-doc at the <em>Leibniz Institute for East and Southeast European Studies (IOS)</em> in Regensburg and freelancer at <em>Charles University</em> in Prague.</p>
@@ -246,7 +245,6 @@ I am convinced that reading the lecture notes, preparing for class, taking activ
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -259,8 +257,8 @@ gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
-"facebook": false,
-"twitter": false,
+"facebook": true,
+"twitter": true,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
@@ -273,7 +271,10 @@ gitbook.start({
 "family": "sans",
 "size": 2
 },
-"edit": null,
+"edit": {
+"link": null,
+"text": null
+},
 "history": {
 "link": null,
 "text": null
@@ -284,20 +285,12 @@ gitbook.start({
 },
 "download": ["_main.pdf"],
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
-"collapse": "subsection",
-"scroll_highlight": true
-},
-"number_sections": false,
-"toc_depth": 1,
-"toolbar": {
-"position": "fixed"
-},
-"book_filename": "_main.pdf",
-"info": true
+"collapse": "subsection"
+}
 });
 });
 </script>
