@@ -13,8 +13,7 @@ Please give me feedback (drstephanhuber@yahoo.com) if something doesn't work or 
 
 ## Data Science
 
-- [HTML: How to Use R for Data Science (Lecture Notes)](https://hubchev.github.io/ds/)
-- <a href="https://github.com/hubchev/hubchev.github.io/blob/main/ds/_main.pdf" target="_blank">PDF: How to Use R for Data Science (Lecture Notes)</a> 
+- How to Use R for Data Science (Lecture Notes): [HTML](https://hubchev.github.io/ds/) <a href="https://github.com/hubchev/hubchev.github.io/blob/main/ds/_main.pdf" target="_blank">PDF</a> 
 - <a href="https://github.com/hubchev/hubchev.github.io/raw/main/various/rcourse_book.pdf" target="_blank">Old lecture notes: Analyzing Data with R – An Introduction</a> 
 
 
