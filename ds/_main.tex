@@ -1,0 +1,625 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12pt,
+  oneside]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage[natbibapa]{apacite}
+\usepackage{lmodern}
+\usepackage{hyperref}
+%\hypersetup{colorlinks=false, pdfborderstyle={/S/U/W 1} }
+
+%\geometry{executivepaper}
+\geometry{a4paper}
+\usepackage{makeidx}
+%\usepackage{imakeidx} % Uncomment to get correct page numbers in index
+\makeindex
+
+
+
+
+%% Note: Pandoc (which is doing all of the output conversion behind the scenes) does not parse the content of LaTeX environments. This creates problems when you try to include LaTeX commands with curly brackets directly in your Rmd file. E.g. You can't just use `\begin{multicols}{2}` directly in your Rmd file. Luckily, a straightforward workaround is to simply define some new shortcut commands yourself as per the below.
+%% See: https://stackoverflow.com/questions/25849814/rstudio-rmarkdown-both-portrait-and-landscape-layout-in-a-single-pdf/27334272#27334272
+\newcommand{\btwocol}{\begin{multicols}{2}}
+\newcommand{\etwocol}{\end{multicols}}
+
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apacite}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={How to Use R for Data Science},
+  pdfauthor={© Prof.~Dr.~Stephan Huber (Stephan.Huber@hs-fresenius.de)},
+  colorlinks=true,
+  linkcolor={red},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{How to Use R for Data Science}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Lecture Notes}
+\author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
+\date{Last compiled on 22 March, 2023}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
+\addcontentsline{toc}{chapter}{Preface}
+
+\hypertarget{about-the-notes}{%
+\section*{About the notes}\label{about-the-notes}}
+
+\begin{itemize}
+\tightlist
+\item
+  This script aims to support my lecture at the HS Fresenius. It is incomplete and no substitute for taking actively part in class.
+\item
+  The old version of the notes can be found here PDF.
+\item
+  I appreciate you reading it, and I appreciate any comments.
+\item
+  This is work in progress so please check for updates regularly.
+\item
+  The lecture notes are available online or you can download it as a pdf file.
+\item
+  These notes are published under a Creative Commons BY-SA license (CC BY-SA) version 4.0. This means it can be reused, remixed, retained, revised and redistributed as long as appropriate credit is given to the authors. If you remix, or modify the original version of this open textbook, you must redistribute all versions of this open textbook under the same license---CC BY-SA. This script is build on the work of \citet{Navarro2020Learning}, \citet{Muschelli2022Introduction}, \citet{Thulin2021Modern}, and \citet{Ismay2022Statistical} which is also published under CC BY-SA.
+\end{itemize}
+
+\hypertarget{about-the-author}{%
+\section*{About the author}\label{about-the-author}}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.25\textwidth,height=\textheight]{fig/huber2.jpeg}
+\caption[\label{fig:itsme} Prof.~Dr.~Stephan Huber]{\label{fig:itsme} Prof.~Dr.~Stephan Huber\footnotemark{}}
+\end{figure}
+\footnotetext{Picture is taken from \url{https://sites.google.com/view/stephanhuber}}
+
+Prof.~Dr.~Stephan Huber is Professor of International Economics and Data Science at \emph{HS Fresenius} and holds a Diploma in Economics from the \emph{University of Regensburg} and a Doctoral Degree (summa cum laude) from the University of Trier. He completed postgraduate studies at the \emph{Interdisciplinary Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU)} in Trier. He was a research assistant to Prof.~Dr.~Dr.~h.c. Joachim Möller at the \emph{University of Regensburg}, post-doc at the \emph{Leibniz Institute for East and Southeast European Studies (IOS)} in Regensburg and freelancer at \emph{Charles University} in Prague.
+
+He has worked as a lecturer at various institutions including the \emph{TU Munich}, the \emph{University of Regensburg}, \emph{Saarland University}, and the \emph{Universities of Applied Sciences in Frankfurt and Augsburg}. He has also taught abroad for the \emph{University of Cordoba} in Spain and the \emph{University of Perugia}. Professor Huber has published his work in international journals such as the \emph{Canadian Journal of Economics} and the \emph{Stata Journal}. More on his work can be found on his private homepage \href{https://www.t1p.de/stephanhuber}{www.t1p.de/stephanhuber}.
+
+\textbf{Contact}
+
+\begin{verbatim}
+   Hochschule Fresenius für Wirtschaft & Medien GmbH
+   Im MediaPark 4c
+   50670 Cologne
+   
+   Office: 4b OG-1 Bü01 (Office hour: Thursday 1-2 p.m.)
+   Telefon: +49 221 973199-523
+   Mail: stephan.huber@hs-fresenius.de
+   Private homepage: www.t1p.de/stephanhuber
+   Github: https://github.com/hubchev
+\end{verbatim}
+
+\vfill
+
+\hypertarget{getting-started}{%
+\chapter{Getting Started with R}\label{getting-started}}
+
+Before we can start exploring data in R, there are some key concepts to understand first:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Why R?
+\item
+  How to learn R?
+\item
+  What are R and RStudio?
+\item
+  How to use R and RStudio without installation
+\item
+  How to install R and RStudio
+\item
+  How to write and run code in R
+\item
+  What are R packages?
+\end{enumerate}
+
+\hypertarget{sec:whyR}{%
+\section{Why R?}\label{sec:whyR}}
+
+R is a free and open-source programming language that provides a wide range of advanced statistics capabilities, state-of-the-art graphics, and powerful data manipulation capabilities. It supports larger data sets, reads any type of data, and runs on multiple platforms. R makes it easier to automate tasks, organize projects, ensure reproducibility, and find and fix errors, and anyone can contribute packages to improve its functionality. Moreover, the following points are worth to emphasize:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{R is an artist!} Check out:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \url{https://www.r-graph-gallery.com/}
+  \item
+    \url{http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html}
+  \item
+    \url{https://www.r-bloggers.com/2020/05/7-useful-interactive-charts-in-r/}
+  \end{itemize}
+\item
+  \textbf{R is an employment insurance.} If you are good in R programming or if you are good in writing programming code in general, you have plenty of opportunities to earn a decent salary.
+\item
+  \textbf{R uses the computer and computers are great!} Doing statistics on a computer is faster, easier and more powerful than doing it by hand. Computers excel at mindless repetitive tasks. For most people, the only reason to ever do statistical calculations with pencil and paper is for learning purposes.
+\item
+  \textbf{Excel is bad!} Doing statistics in a spreadsheet (e.g., Microsoft Excel) is often a bad idea. Although many people are likely feel more familiar with them, spreadsheets are very limited in terms of what analyses they allow you to do. You can easily lose the overview and it is hard to keep track of what you have done and in comparison with command line driven programs. In particular, the ability to make your analysis \emph{replicable} is limited.
+\item
+  \textbf{R is good, proprietary software is bad!} Avoiding proprietary software is a very good idea because it costly, support is exclusively provided by the owner of the software (if they stop supporting your version you are lost), security issues cannot be checked as the source code is not available, and possibilities for customization are limited.
+\item
+  \textbf{R is big!} Something that you might not appreciate now, but will love later on if you do anything involving data analysis, is the fact that R is highly extensible. When you download and install R, you get all the basic packages, and those are very powerful on their own. However, because R is so open and so widely used, it's become something of a standard tool in statistics, and so lots of people write their own packages that extend the system. And these are freely available too. One of the consequences of this, I've noticed, is that if you open up an advanced textbook (a recent one, that is) rather than introductory textbooks, is that a \emph{lot} of them use R. In other words, if you learn how to do your basic statistics in R, then you're a lot closer to being able to use the state of the art methods than you would be if you'd started out with a ``simpler'' system: so if you want to become a genuine expert in data analysis, learning R is a very good use of your time.
+\item
+  \textbf{R is the future!} Programming is a core skill in research, economics, and business. R is one of the most widely used programming languages in the world today. It is used in almost every industry such as finance, banking, medicine or manufacturing. R is used for portfolio management, risk analytics in finance and banking industries.
+\end{itemize}
+
+\hypertarget{howtolearnr}{%
+\section{How to learn R}\label{howtolearnr}}
+
+There are many different approaches to learning R. It pretty much depends on your preferences, needs, goals, prerequisites and limitations. It is up to you to search and find a suitable way to achieve the learning goals. However, I offer these notes and if you are in one of my classes, you can ask at any time for help.
+
+The notes should walk you through many of the things that are important when working in R, and it should help you dig deeper and learn more if you want to. In particular, I recommend my swirl courses. However, there are thousands of other resources for learning R: textbooks, online courses, videos, guided tutorials, and so (see section \ref{Rlearninglit}).
+
+Below, I'll give you a list of resources that are worth a look. You might find what you're looking for there. If not, just keep reading this book. Above all, those who have personally taken one of my courses are welcome to contact me if they think I can help them.
+
+\textbf{Warning:} R is not without its weaknesses: It's not easy to learn, it has some very annoying quirks that we all have to deal with, it's slower than other languages (Phyton, MATLAB), and R's algorithms and sources are spread across many packages (since there's no big company behind it that wants you to buy it). This sometimes makes it very difficult for beginners to find what they are looking for. In simple words: you can get lost!
+
+\textbf{Tips on learning to code:}
+Learning to code/program is quite similar to learning a foreign language. It can be daunting and frustrating at first. Such frustrations are common and it is normal to feel discouraged as you learn. However, just as with learning a foreign language, if you put in the effort and are not afraid to make mistakes, anybody can learn and improve.
+
+Here are a few useful tips to keep in mind as you learn to program:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Remember that computers are not actually that smart}: You may think your computer or smartphone is ``smart,'' but really people spent a lot of time and energy designing them to appear ``smart.'' In reality, you have to tell a computer everything it needs to do. Furthermore, the instructions you give your computer can't have any mistakes in them, nor can they be ambiguous in any way.
+\item
+  \textbf{Take the ``copy, paste, and tweak'' approach}: Especially when you learn your first programming language or you need to understand particularly complicated code, it is often much easier to take existing code that you know works and modify it to suit your ends. This is as opposed to trying to type out the code from scratch. We call this the \emph{``copy, paste, and tweak''} approach. So early on, we suggest not trying to write code from memory, but rather take existing examples we have provided you, then copy, paste, and tweak them to suit your goals. After you start feeling more confident, you can slowly move away from this approach and write code from scratch. Think of the ``copy, paste, and tweak'' approach as training wheels for a child learning to ride a bike. After getting comfortable, they won't need them anymore.
+\item
+  \textbf{The best way to learn to code is by doing}: Rather than learning to code for its own sake, we find that learning to code goes much smoother when you have a goal in mind or when you are working on a particular project, like analyzing data that you are interested in and that is important to you.
+\item
+  \textbf{Practice is key}: Just as the only method to improve your foreign language skills is through lots of practice and speaking, the only method to improving your coding skills is through lots of practice. Don't worry, however, we'll give you plenty of opportunities to do so!
+\end{itemize}
+
+\hypertarget{Rlearninglit}{%
+\section{Learning resources}\label{Rlearninglit}}
+
+\includegraphics[width=0.4\textwidth,height=\textheight]{fig/aweres.png}
+
+Thousand of freely available books and resources exist. On (\url{https://bookdown.org/}) and in the \href{www.bigbookofr.com}{Big Book of R} is a big collection of links to R books that verifies my claim. Another nice collection of learning ressources can be found here:
+\href{https://github.com/iamericfletcher/awesome-r-learning-resources}{AWESOME R Learning-Resources}
+
+In Rstudio you find in the left panel at the bottom a panel that is called \emph{Help}. There you find a lot of links, manuals, and references that offer you tons of resources to learn R for free including:
+(\url{https://education.rstudio.com/})
+and (\url{https://support.rstudio.com/hc/en-us/articles/200552336-Getting-Help-with-R})
+
+Since you may feel overwhelmed by the number of resources, I would like to highlight four books:
+
+\includegraphics[width=0.3\textwidth,height=\textheight]{fig/ds-a-first-intro-cover.jpg}
+\includegraphics[width=0.3\textwidth,height=\textheight]{fig/rfordatas.png}
+\includegraphics[width=0.3\textwidth,height=\textheight]{fig/irizarrybook.png}
+
+\citet{Timbers2022Data}: \href{https://datasciencebook.ca/}{\textbf{Data Science: A First Introduction}} is a free and up to date book that comes with exercises with worksheets that are available on \href{https://github.com/UBC-DSCI/data-science-a-first-intro-worksheets}{UBC-DSCI GitHub repository}
+
+\citet{Wickham2023R}: \href{https://r4ds.hadley.nz/}{\textbf{R for Data Science: Import, Tidy, Transform, Visualize, and Model Data}} is the most popular source to learn R. It focuses on introducing the tidyverse package and is freely available online.
+
+\citet{Irizarry2022Introduction}: \href{http://rafalab.dfci.harvard.edu/dsbook/}{\textbf{Introduction to Data Science: Data Analysis and Prediction Algorithms With R}} is a complete, up to date, and applied introduction.
+
+\citet{Venables2022Introduction} \href{https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf}{\textbf{An Introduction to R: Notes on R: A Programming Environment for Data Analysis and Graphics}} is a manual from the R Core Development Team that shows how to use R without having to install and load additional packages.
+
+Some other sources that are worth mentioning are these:
+
+\begin{itemize}
+\tightlist
+\item
+  The search engine \href{http://www.rseek.org}{www.rseek.org} is R specific and often better than \href{http://www.google.com}{www.google.com} as it only searches for content that has to do with the programming language R.
+\item
+  On \href{http://www.rdocumentation.org}{www.rdocumentation.org} you can find the complete documentation of all R packages.
+\item
+  Many find these \href{https://rstudio.com/resources/cheatsheets/}{cheatsheets} helpful.
+\end{itemize}
+
+\hypertarget{r-rstudio}{%
+\section{What are R and RStudio?}\label{r-rstudio}}
+
+Throughout this book, we will assume that you are using R via RStudio. First time users often confuse the two. At its simplest, R is like a car's engine\index{R} while RStudio is like a car's dashboard\index{RStudio} as illustrated in Figure \ref{fig:R-vs-RStudio-1}.
+
+\begin{figure}
+\includegraphics[width=0.95\linewidth]{fig/R_vs_RStudio_1} \caption{Analogy of difference between R and RStudio.}\label{fig:R-vs-RStudio-1}
+\end{figure}
+
+More precisely, R is a programming language that runs computations, while RStudio is an \emph{integrated development environment (IDE)} that provides an interface by adding many convenient features and tools. So just as the way of having access to a speedometer, rearview mirrors, and a navigation system makes driving much easier, using RStudio's interface makes using R much easier as well.
+
+Much as we don't drive a car by interacting directly with the engine but rather by interacting with elements on the car's dashboard, we won't be using R directly but rather we will use RStudio's interface. After you install R and RStudio on your computer, you'll have two new \emph{programs} (also called \emph{applications}) you can open. We'll always work in RStudio and not in the R application. Figure \ref{fig:R-vs-RStudio-2a} shows what icon you should be clicking on your computer.
+
+\begin{figure}
+\includegraphics[width=0.9\linewidth]{fig/R_vs_RStudio} \caption{Icons of R versus RStudio on your computer.}\label{fig:R-vs-RStudio-2a}
+\end{figure}
+
+After you open RStudio, you should see something similar to Figure \ref{fig:RStudio-interfacea} where three or four panels dividing the screen.
+
+\begin{figure}
+\includegraphics[width=0.93\linewidth]{fig/rstudio2} \caption{RStudio interface to R.}\label{fig:RStudio-interfacea}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The \emph{Environment} panel, where a list of the data you have imported and created can be found.
+\item
+  The \emph{Files}, \emph{Plots} and \emph{Help} panel, where you can see a list of available files, will be able to view graphs that you produce, and can find help documents for different parts of R.
+\item
+  The \emph{Console} panel, used for running code. This is where we'll start with the first few examples.
+\item
+  The \emph{Script} panel, used for writing code. This is where you'll spend most of your time working.
+\end{enumerate}
+
+The \emph{Console} panel will contain R's startup message, which shows information about which version of R you're running. My startup message at the time of writing was as follows:
+
+\begin{quote}
+R version 4.1.2 (2021-11-01) -- ``Bird Hippie''
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86\_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type `license()' or `licence()' for distribution details.
+
+Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type `contributors()' for more information and
+`citation()' on how to cite R or R packages in publications.
+
+Type `demo()' for some demos, `help()' for on-line help, or
+`help.start()' for an HTML browser interface to help.
+Type `q()' to quit R.
+\end{quote}
+
+If you don't have panel number 4, open it by opening an existing R-script or creating a new one. You can create a new on by clicking \emph{Ctrl+Shift+N} (alternatively, you can use the menu: File\(\rightarrow\)New File\(\rightarrow\)R Script).
+
+You can resize the panels as you like, either by clicking and dragging their borders or using the minimise/maximise buttons in the upper right corner of each panel. Clicking \emph{Ctrl++} and \emph{Ctrl+-} allows to make the fonts larger or smaller.
+
+When you exit RStudio, you will be asked if you wish to \emph{save your workspace}, meaning that the data that you've worked with will be stored so that it is available the next time you run R. That might sound like a good idea, but in general, I recommend that you don't save your workspace, as that often turns out to cause problems down the line. It is almost invariably a much better idea to simply rerun the code you worked with in your next R session.
+
+\hypertarget{how-to-use-r-and-rstudio-without-installation}{%
+\section{How to use R and RStudio without installation}\label{how-to-use-r-and-rstudio-without-installation}}
+
+If you don't want to install R on your PC or you don't have admin rights to do so, you can use RStudio online doing \emph{cloud computing} on \url{https://posit.cloud/}.
+Posit Cloud (formerly RStudio Cloud) is a cloud-based solution that allows anyone to do, share, teach and learn data science online. It is free for individuals with some restrictions and limited capacities.
+
+\hypertarget{installing}{%
+\section{Installing R and RStudio}\label{installing}}
+
+You will first need to download and install both R and RStudio (Desktop version) on your computer. It is important that you install R first and then install RStudio.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{You must do this first:} Download and install R by going to \url{https://cloud.r-project.org/}. \index{R!installation}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  If you are a Windows user: Click on ``Download R for Windows'', then click on ``base'', then click on the Download link.
+\item
+  If you are macOS user: Click on ``Download R for (Mac) OS X'', then under ``Latest release:'' click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of November 25, 2019 was R-3.6.1.
+\item
+  If you are a Linux user: Click on ``Download R for Linux'' and choose your distribution for more information on installing R for your setup.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{You must do this second:} Download and install RStudio at \url{https://www.rstudio.com/products/rstudio/download/}.
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Scroll down to ``Installers for Supported Platforms'' near the bottom of the page.
+\item
+  Click on the download link corresponding to your computer's operating system.
+  \index{RStudio!installation}
+\end{itemize}
+
+\hypertarget{packages}{%
+\section{What are R packages?}\label{packages}}
+
+A package is basically just a big collection of functions, data sets and other R objects that are all grouped together under a common name. Some packages are already installed when you put R on your computer, but the vast majority of them of R packages are out there on the internet, waiting for you to download, install and use them.
+R packages are collections of functions and data sets developed by the community. They increase the power of R by improving existing base R functionalities, or by adding new ones. For example, if you are usually working with data frames, probably you will have heard about \emph{dplyr} or \emph{data.table}, two of the most popular R packages. More than 10,000 packages are available at the official repository (CRAN) and many more are publicly available through the internet.
+
+In this section, I'll describe how to work with packages using the Rstudio tools. Along the way, you'll see that whenever you get Rstudio to do something (e.g., install a package), you'll actually see the R commands that get created.
+
+However, before we get started, there's a critical distinction that you need to understand, which is the difference between having a package \textbf{installed} on your computer, and having a package \textbf{loaded} in R. When you install R on your computer only a small number of packages come bundled with the basic R installation. The installed packages are on your computer. The critical thing to remember is that just because something is on your computer doesn't mean R can use it. In order for R to be able to \emph{use} one of your installed packages, that package must also be \emph{loaded}. Generally, when you open up R, only a few of these packages (about 7 or 8) are actually loaded. Basically what it boils down to is this:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A package must be installed before it can be loaded.
+\item
+  A package must be loaded before it can be used.
+\end{enumerate}
+
+We only need to install a package once on our computer. However, to use the package, we need to load the library every time we start a new R environment. You can think of this as installing a bulb versus turning on the light.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{fig/lightpackage.jpeg}
+\caption{\label{fig:lightpackage} Installing packages}
+\end{figure}
+
+The two step process might seem a little odd at first, but the designers of R had very good reasons to do it this way. That is, there are more than 10.000 packages, and probably about 8000 authors of packages, and no-one really knows what all of them do. Keeping the installation separate from the loading minimizes the chances that two packages will interact with each other in a nasty way. Moreover having installed all available packages would probably blow your hard disk.
+
+Another good analogy for R packages \index{R packages} is they are like apps you can download onto a mobile phone:
+
+\begin{figure}
+\includegraphics[width=0.7\linewidth]{fig/R_vs_R_packages} \caption{Analogy of R versus R packages.}\label{fig:R-vs-R-packages}
+\end{figure}
+
+So R is like a new mobile phone: while it has a certain amount of features when you use it for the first time, it doesn't have everything. R packages are like the apps you can download onto your phone from Apple's App Store or Android's Google Play.
+
+\hypertarget{package-installation}{%
+\subsection{Package installation}\label{package-installation}}
+
+There are two ways to install an R package: an easy way and a very easy way. \index{R packages!installation} Let's install the \texttt{ggplot2} package the easy way first as shown in Figure \ref{fig:easy-way-install}. In the Files pane of RStudio:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Click on the ``Packages'' tab.
+\item
+  Click on ``Install'' next to Update.
+\item
+  Type the name of the package under ``Packages (separate multiple with space or comma):'' In this case, type \texttt{ggplot2}.
+\item
+  Click ``Install.''
+\end{enumerate}
+
+\begin{figure}
+\includegraphics[width=0.55\linewidth,height=0.55\textheight]{fig/install_packages_easy_way} \caption{Installing packages in R the easy way.}\label{fig:easy-way-install}
+\end{figure}
+
+An alternative way to install a package is by typing \texttt{install.packages("ggplot2")} in the console pane of RStudio and pressing Return/Enter on your keyboard. Note you must include the quotation marks around the name of the package.
+
+Much like an app on your phone, you only have to install a package once. However, if you want to update a previously installed package to a newer version, you need to reinstall it by repeating the earlier steps.
+
+\hypertarget{package-loading}{%
+\subsection{Package loading}\label{package-loading}}
+
+Recall that after you've installed a package, you need to \emph{load it}. In other words, you need to \emph{open it}. We do this by using the \texttt{library()} command. \index{R packages!loading}
+
+For example, to load the \texttt{ggplot2} package, run the following code in the console pane. What do we mean by ``run the following code''? Either type or copy-and-paste the following code into the console pane and then hit the Enter key.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+If after running the earlier code, a blinking cursor returns next to the \texttt{\textgreater{}} ``prompt'' sign, it means you were successful and the \texttt{ggplot2} package is now loaded and ready to use. If, however, you get a red ``error message'' that reads \texttt{...} \index{R packages!loading error}
+
+\begin{verbatim}
+Error in library(ggplot2) : there is no package called ‘ggplot2’
+\end{verbatim}
+
+\texttt{...} it means that you didn't successfully install it. If you get this error message, go back to section \ref{package-installation} on R package installation and make sure to install the \texttt{ggplot2} package before proceeding.
+
+\hypertarget{package-use}{%
+\subsection{Package use}\label{package-use}}
+
+One very common mistake new R users make when wanting to use particular packages is they forget to \emph{load} them first by using the \texttt{library()} command we just saw. Remember: \emph{you have to load each package you want to use every time you start RStudio.} If you don't first \emph{load} a package, but attempt to use one of its features, you'll see an error message similar to:
+
+\begin{verbatim}
+Error: could not find function
+\end{verbatim}
+
+This is a different error message than the one you just saw on a package not having been installed yet. R is telling you that you are trying to use a function in a package that has not yet been \emph{loaded}. R doesn't know where to find the function you are using. Almost all new users forget to do this when starting out, and it is a little annoying to get used to doing it. However, you'll remember with practice and after some time it will become second nature for you.
+
+\hypertarget{learn-interactively-with-swirl}{%
+\chapter{\texorpdfstring{Learn interactively with \emph{swirl}}{Learn interactively with swirl}}\label{learn-interactively-with-swirl}}
+
+The \emph{swirl} R package makes it fun and easy to learn R programming and data science.
+\emph{swirl} teaches you R programming and data science interactively, at your own pace,
+and right in the R console!
+If you are new to R, have no fear. \emph{swirl} will walk you through each of the steps
+required to employ Rstudio and R for your purpose.
+To start it, please follow my instructions precisely:
+
+Open Rstudio and type in the console the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"swirl"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"swirl"}\NormalTok{)}
+\FunctionTok{ls}\NormalTok{()}
+\FunctionTok{rm}\NormalTok{(}\AttributeTok{list=}\FunctionTok{ls}\NormalTok{())}
+\FunctionTok{install\_course\_github}\NormalTok{(}\StringTok{"hubchev"}\NormalTok{, }\StringTok{"swirl{-}it"}\NormalTok{)}
+\FunctionTok{swirl}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+The above lines of code do the following:
+
+\begin{itemize}
+\tightlist
+\item
+  Install the \emph{swirl} package.
+\item
+  Load the \emph{swirl} package.
+\item
+  List the content of the environment.
+\item
+  Remove everything from the environment.
+\item
+  Start \emph{swirl}.
+\item
+  Install my \emph{swirl} course that is hosted on GitHub.
+\item
+  With \emph{swirl} you start \emph{swirl} and your learning experience.
+\end{itemize}
+
+If the course has failed to install, you can try to download the file \texttt{swirl-it.swc} from \url{https://github.com/hubchev/swirl-it} and install the course with \texttt{install\textbackslash{}\_course()}
+
+Please choose the course \emph{swirl-it} and the learning module \emph{huber-intro-1}.
+You can exit \emph{swirl} at any time by typing \texttt{bye()} or by clicking the \emph{Esc} on your keyboard.
+
+After you have successfully finished learning module \emph{huber-intro-1} please go ahead with the learning module \emph{huber-intro-2} that is also part of my swirl course \emph{swirl-it}.
+
+\hypertarget{swirl-module-on-data-analytical-basics}{%
+\subsubsection{\texorpdfstring{\emph{swirl} module on data analytical basics}{swirl module on data analytical basics}}\label{swirl-module-on-data-analytical-basics}}
+
+In my swirl modules \emph{huber-data-1}, \emph{huber-data-2}, and \emph{huber-data-3} I introduce some very basic statistical principles on how to analyse data.
+
+\hypertarget{swirl-module-on-the-tidyverse-package}{%
+\subsubsection{\texorpdfstring{\emph{swirl} module on the \texttt{tidyverse} package}{swirl module on the tidyverse package}}\label{swirl-module-on-the-tidyverse-package}}
+
+I compiled a short \emph{swirl} module to introduce the \emph{tidyverse} universe. This is a powerful collection of packages which I discuss later on. The learning module is also part of my \emph{swirl-it} course.
+
+\hypertarget{other-swirl-modules}{%
+\subsubsection{\texorpdfstring{Other \emph{swirl} modules}{Other swirl modules}}\label{other-swirl-modules}}
+
+You can also install some other courses. You find a list of courses here \url{http://swirlstats.com/scn/index.html} or here \url{https://github.com/swirldev/swirl_courses}
+
+I can recommend the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    swirl}\SpecialCharTok{::}\FunctionTok{install\_course\_github}\NormalTok{(}\StringTok{"swirldev"}\NormalTok{, }\StringTok{"R\_Programming\_E"}\NormalTok{)}
+\NormalTok{    swirl}\SpecialCharTok{::}\FunctionTok{install\_course\_github}\NormalTok{(}\StringTok{"matt{-}dray"}\NormalTok{, }\StringTok{"tidyswirl"}\NormalTok{)}
+\NormalTok{    swirl}\SpecialCharTok{::}\FunctionTok{install\_course}\NormalTok{(}\StringTok{"Getting and Cleaning Data"}\NormalTok{)}
+\NormalTok{    swirl}\SpecialCharTok{::}\FunctionTok{install\_course\_github}\NormalTok{(}\StringTok{"sysilviakim"}\NormalTok{, }\StringTok{"swirl{-}tidy"}\NormalTok{)}
+\NormalTok{    swirl}\SpecialCharTok{::}\FunctionTok{install\_course}\NormalTok{(}\StringTok{"Regression Models"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{literature}{%
+\chapter*{Literature}\label{literature}}
+\addcontentsline{toc}{chapter}{Literature}
+
+  \bibliography{book.bib}
+
+\end{document}
