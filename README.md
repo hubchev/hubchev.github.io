@@ -8,15 +8,18 @@ Please give me feedback (drstephanhuber@yahoo.com) if something doesn't work or 
 ## Quantitative Methods
 - [Quantitative Methods (Lecture Notes)](https://hubchev.github.io/qm/)   
 
-
 ## Managerial Economics
 - [Managerial Economics (Lecture Notes)](https://hubchev.github.io/me/)
 
 ## Data Science
-
 - How to Use R for Data Science (Lecture Notes): [HTML](https://hubchev.github.io/ds/) [PDF](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/ds/_main.pdf)
 - <a href="https://github.com/hubchev/hubchev.github.io/raw/main/various/rcourse_book.pdf" target="_blank">Old lecture notes: Analyzing Data with R – An Introduction</a> 
 
+## Mathematics and Statistics
+- [Mathematics and Statistics I - Calculus and Linear Algebra (Lecture Notes)](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/cla_A4.pdf)
+
+## International Economics
+- [International Economics (Lecture Notes)](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/ie_A4.pdf)
 
 # Stuff
 
