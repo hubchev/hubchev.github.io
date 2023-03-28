@@ -5,8 +5,8 @@ I would appreciate if you would let me know if something doesn't work or is fals
 
 ### Data Science
 - How to Use R for Data Science (Lecture Notes): [HTML](https://hubchev.github.io/ds/) [PDF](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/ds/_main.pdf)
-- <a href="https://github.com/hubchev/hubchev.github.io/raw/main/various/rcourse_book.pdf" target="_blank">Old lecture notes: Analyzing Data with R – An Introduction</a> 
-
+- [Analyzing Data with R – An Introduction (Old lecture notes)](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/rcourse_book.pdf)
+ 
 ### International Economics
 - [International Economics (Lecture Notes)](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/ie_a4.pdf)
 
