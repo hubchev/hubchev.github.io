@@ -17,7 +17,7 @@ I would appreciate if you would let me know if something doesn't work or is fals
 - [Calculus and Linear Algebra (Lecture Notes)](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/cla_A4.pdf)
 
 ### Quantitative Methods
-- [Quantitative Methods (Lecture Notes)](https://hubchev.github.io/qm/)   
+- Quantitative Methods (Lecture Notes): [HTML](https://hubchev.github.io/qm/)  [PDF](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/qm/_main.pdf)  
 
 # Stuff
 
