@@ -1,6 +1,7 @@
 I am Stephan Huber (drstephanhuber@yahoo.com) and I host files and links here that may be of some value for students.
+I would appreciate if you would let me know if something doesn't work or is false.
 
-Please give me feedback if something doesn't work or if you find errors and the like.
+# Courses
 
 ### Data Science
 - How to Use R for Data Science (Lecture Notes): [HTML](https://hubchev.github.io/ds/) [PDF](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/ds/_main.pdf)
@@ -10,7 +11,7 @@ Please give me feedback if something doesn't work or if you find errors and the 
 - [International Economics (Lecture Notes)](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/ie_a4.pdf)
 
 ### Managerial Economics
-- Managerial Economics (Lecture Notes)[HTML](https://hubchev.github.io/me/) [PDF](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/me/_main.pdf)
+- Managerial Economics (Lecture Notes): [HTML](https://hubchev.github.io/me/) [PDF](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/me/_main.pdf)
 
 ### Mathematics and Statistics
 - [Calculus and Linear Algebra (Lecture Notes)](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/cla_A4.pdf)

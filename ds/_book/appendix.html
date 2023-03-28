@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Appendix | How to Use R for Data Science</title>
+  <meta name="description" content="4 Appendix | How to Use R for Data Science" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Appendix | How to Use R for Data Science" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Appendix | How to Use R for Data Science" />
+  
+  
+  
+
+<meta name="author" content="© Prof. Dr. Stephan Huber (Stephan.Huber@hs-fresenius.de)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="how-to-work-with-r-scripts.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="preamble.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Managerial Economics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting Started with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#sec:whyR"><i class="fa fa-check"></i><b>1.1</b> Why R?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#howtolearnr"><i class="fa fa-check"></i><b>1.2</b> How to learn R</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#Rlearninglit"><i class="fa fa-check"></i><b>1.3</b> Learning resources</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#r-rstudio"><i class="fa fa-check"></i><b>1.4</b> What are R and RStudio?</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#how-to-use-r-and-rstudio-without-installation"><i class="fa fa-check"></i><b>1.5</b> How to use R and RStudio without installation</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#installing"><i class="fa fa-check"></i><b>1.6</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.7" data-path="getting-started.html"><a href="getting-started.html#packages"><i class="fa fa-check"></i><b>1.7</b> What are R packages?</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="getting-started.html"><a href="getting-started.html#package-installation"><i class="fa fa-check"></i><b>1.7.1</b> Package installation</a></li>
+<li class="chapter" data-level="1.7.2" data-path="getting-started.html"><a href="getting-started.html#package-loading"><i class="fa fa-check"></i><b>1.7.2</b> Package loading</a></li>
+<li class="chapter" data-level="1.7.3" data-path="getting-started.html"><a href="getting-started.html#package-use"><i class="fa fa-check"></i><b>1.7.3</b> Package use</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="sec:swirl.html"><a href="sec:swirl.html"><i class="fa fa-check"></i><b>2</b> Learn interactively with <em>swirl</em></a></li>
+<li class="chapter" data-level="3" data-path="how-to-work-with-r-scripts.html"><a href="how-to-work-with-r-scripts.html"><i class="fa fa-check"></i><b>3</b> How to work with R scripts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="how-to-work-with-r-scripts.html"><a href="how-to-work-with-r-scripts.html#r-scripts-why-they-are-useful"><i class="fa fa-check"></i><b>3.1</b> R Scripts: Why they are useful</a></li>
+<li class="chapter" data-level="3.2" data-path="how-to-work-with-r-scripts.html"><a href="how-to-work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write and run R scripts</a></li>
+<li class="chapter" data-level="3.3" data-path="how-to-work-with-r-scripts.html"><a href="how-to-work-with-r-scripts.html#sec:assignmentoper"><i class="fa fa-check"></i><b>3.3</b> The assignment operator: <code>&lt;-</code></a></li>
+<li class="chapter" data-level="3.4" data-path="how-to-work-with-r-scripts.html"><a href="how-to-work-with-r-scripts.html#doing-calculation-in-scripts"><i class="fa fa-check"></i><b>3.4</b> Doing calculation in scripts</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="how-to-work-with-r-scripts.html"><a href="how-to-work-with-r-scripts.html#sec:generics"><i class="fa fa-check"></i><b>3.4.1</b> User-defined functions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>4</b> Appendix</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="appendix.html"><a href="appendix.html#sec:navigation"><i class="fa fa-check"></i><b>4.1</b> Navigating the file system</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="appendix.html"><a href="appendix.html#sec:filesystem"><i class="fa fa-check"></i><b>4.1.1</b> The file system</a></li>
+<li class="chapter" data-level="4.1.2" data-path="appendix.html"><a href="appendix.html#working-directory"><i class="fa fa-check"></i><b>4.1.2</b> Working directory</a></li>
+<li class="chapter" data-level="4.1.3" data-path="appendix.html"><a href="appendix.html#sec:navigationR"><i class="fa fa-check"></i><b>4.1.3</b> Navigating the file system using the R console</a></li>
+<li class="chapter" data-level="4.1.4" data-path="appendix.html"><a href="appendix.html#sec:winbackslash"><i class="fa fa-check"></i><b>4.1.4</b> Why do the Windows paths use the back-slash?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li>&copy; Prof. Dr. Stephan Huber.</li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">How to Use R for Data Science</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="appendix" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Appendix<a href="appendix.html#appendix" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="sec:navigation" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Navigating the file system<a href="appendix.html#sec:navigation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is essential to know how R interacts with the file system on your computer. Modern operating systems are incredibly user-friendly and try to hide boring and annoying stuff from the customer. In the following, I will try to give a brief introduction on how to navigate around a computer using a DOS or UNIX shell. If you familiar with that, you can skip this part of the notes.</p>
+<div id="sec:filesystem" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> The file system<a href="appendix.html#sec:filesystem" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In this section, I describe the basic idea behind file locations and file paths. Regardless of whether you are using Windows, macOS, or Linux, every file on the computer is assigned a human-readable address, and every address has the same basic structure: it describes a path that starts from a root location, through a series of folders (or directories), and finally ends up at the file.</p>
+<p>On a Windows computer, the root is the storage device on which the file is stored, and for many home computers, the name of the storage device that stores all your files is <code>C:</code>. After that comes the folders, and on Windows, the folder names are separated by a backslash symbol <code>\</code>. So, the complete path to this book on my Windows computer might be something like this:</p>
+<pre><code>C:\Users\huber\Rbook\rcourse-book.pdf</code></pre>
+<p>On Linux, Unix, and macOS systems, the addresses look a little different, but they are more or less identical in spirit. Instead of using the backslash, folders are separated using a forward slash, and unlike Windows, they do not treat the storage device as being the root of the file system. So, the path on a Mac might be something like this:</p>
+<pre><code>/Users/huber/Rbook/rcourse-book.pdf</code></pre>
+<p>That is what we mean by the <em>path</em> to a file. The next concept to grasp is the idea of a working directory and how to change it. For those of you who have used command-line interfaces previously, this should be obvious already. But if not, here is what I mean. The working directory is just whatever folder I am currently looking at. Suppose that I am currently looking for files in Explorer (if you are using Windows) or using Finder (on a Mac). The folder I currently have open is my user directory (i.e., <code>C:\Users\huber</code> or <code>/Users/huber</code>). That is my current working directory.</p>
+</div>
+<div id="working-directory" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Working directory<a href="appendix.html#working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The next concept to grasp is the idea of a <em>working directory</em> and how to change it. For those of you who have used command line interfaces previously, this should be obvious already. But if not, here’s what I mean. The working directory is just “whatever folder I’m currently looking at”. Suppose that I’m currently looking for files in Explorer (if you’re using Windows) or using Finder (on a Mac). The folder I currently have open is my user directory (i.e., <code>C:\Users\huber</code> or <code>/Users/huber</code>). That’s my current working directory.</p>
+<p>The fact that we can imagine that the program is “in” a particular directory means that we can talk about moving <em>from</em> our current location <em>to</em> a new one. What that means is that we might want to specify a new location in relation to our current location. To do so, we need to introduce two new conventions. Regardless of what operating system you’re using, we use <code>.</code> to refer to the current working directory, and <code>..</code> to refer to the directory above it. This allows us to specify a path to a new location in relation to our current location, as the following examples illustrate. Let’s assume that I’m using my Windows computer, and my working directory is <code>C:\Users\huber\Rbook</code>. The table below shows several addresses in relation to my current one:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Absolute path</th>
+<th>Relative path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>C:\Users\huber</code></td>
+<td><code>..</code></td>
+</tr>
+<tr class="even">
+<td><code>C:\Users</code></td>
+<td><code>..\..</code></td>
+</tr>
+<tr class="odd">
+<td><code>C:\Users\huber\Rbook\source</code></td>
+<td><code>.\source</code></td>
+</tr>
+<tr class="even">
+<td><code>C:\Users\huber\nerdstuff</code></td>
+<td><code>..\nerdstuff</code></td>
+</tr>
+</tbody>
+</table>
+<p>It is quite common on computers that have multiple users to define <code>~</code> to be the user’s <em>home directory</em>. The home directory on a Mac for the `<code>huber'' user is</code>/Users/huber/<code>. And so, not surprisingly, it is possible to define other directories in terms of their relationship to the home directory. For example, an alternative way to describe the location of the</code>rcourse-book.pdf<code>file on a Mac would be  ``` ~\Rbook\rcourse-book.pdf ``` You can find out your home directory with the</code>path.expand()` function:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="appendix.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">path.expand</span>(<span class="st">&quot;~&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;/home/sthu&quot;</code></pre>
+<p>Thus, on my machine ~ is an abbreviation for the path /home/sthu.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="appendix.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;/home/sthu/Dropbox/hsf/23-ss/ds&quot;</code></pre>
+</div>
+<div id="sec:navigationR" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Navigating the file system using the R console<a href="appendix.html#sec:navigationR" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When you want to load or save a file in R it’s important to know what the working directory is. You can find out by using the <code>getwd()</code> command. For the moment, let’s assume that I’m using Mac OS or Linux, since things are different on Windows, see section <a href="appendix.html#sec:winbackslash">4.1.4</a>.
+Let’s check the current active working directory:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="appendix.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;/home/sthu/Dropbox/hsf/23-ss/ds&quot;</code></pre>
+<p>The function <code>setwd()</code> allows to change the working directory:</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="appendix.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/Users/huber/Rbook/data&quot;</span>)</span>
+<span id="cb66-2"><a href="appendix.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./Rbook/data&quot;</span>)</span></code></pre></div>
+<p>The function <code>list.files()</code> lists all the files in that directory:</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="appendix.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
+</div>
+<div id="sec:winbackslash" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Why do the Windows paths use the back-slash?<a href="appendix.html#sec:winbackslash" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s suppose I’m using a computer with Windows. As before, I can find out what my current working directory is like this:</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="appendix.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb68-2"><a href="appendix.html#cb68-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;C:/Users/huber/</span></span></code></pre></div>
+<p>R is displaying a Windows path using the wrong type of slash, the back-slash. The answer has to do with the fact that R treats the <code>\</code> character as <em>special</em>. If you’re deeply wedded to the idea of specifying a path using the Windows style slashes, then what you need to use two back-slashes <code>\\</code> whenever you mean <code>\</code>. In other words, if you want to specify the working directory on a Windows computer, you need to use one of the following commands:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="appendix.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>( <span class="st">&quot;C:/Users/huber&quot;</span> )</span>
+<span id="cb69-2"><a href="appendix.html#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>( <span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">huber&quot;</span> )</span></code></pre></div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="how-to-work-with-r-scripts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+bookdown::gitbook:
+  css: preamble.css
+  config:
+    toolbar:
+      position: static
+    toc:
+      before: |
+        <li><a href="./">Managerial Economics</a></li>
+      after: |
+        <li>&copy; Prof. Dr. Stephan Huber.</li>
+    edit:
+    download: ["pdf"]
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  latex_engine: pdflatex
+  citation_package: natbib
+  keep_tex: yes
+

@@ -102,13 +102,15 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
-\usepackage{booktabs}
+\usepackage{booktabs,multirow,color,eurosym}
 \usepackage{amsthm}
 \usepackage{multicol}
 \usepackage{geometry}
 \usepackage[natbibapa]{apacite}
-\usepackage{lmodern}
+\usepackage{txfonts} %txfonts iwona lmodern
 \usepackage{hyperref}
+
+\renewcommand{\texteuro}{\text{\euro}} 
 %\hypersetup{colorlinks=false, pdfborderstyle={/S/U/W 1} }
 
 %\geometry{executivepaper}
@@ -126,6 +128,7 @@
 \newcommand{\etwocol}{\end{multicols}}
 
 
+\usepackage{tikz}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -153,13 +156,16 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 22 March, 2023}
+\date{Last compiled on 28 March, 2023}
 
 \begin{document}
 \maketitle
 
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
 \tableofcontents
-
+}
 \hypertarget{preface}{%
 \chapter*{Preface}\label{preface}}
 \addcontentsline{toc}{chapter}{Preface}
@@ -178,7 +184,7 @@
 \item
   This is work in progress so please check for updates regularly.
 \item
-  The lecture notes are available online or you can download it as a pdf file: here
+  The lecture notes are available online or you can download it as a \href{https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/ds/_main.pdf}{pdf file here}
 \item
   These notes are published under a Creative Commons BY-SA license (CC BY-SA) version 4.0. This means it can be reused, remixed, retained, revised and redistributed as long as appropriate credit is given to the authors. If you remix, or modify the original version of this open textbook, you must redistribute all versions of this open textbook under the same license---CC BY-SA. This script is build on the work of \citet{Navarro2020Learning}, \citet{Muschelli2022Introduction}, \citet{Thulin2021Modern}, and \citet{Ismay2022Statistical} which is also published under CC BY-SA.
 \end{itemize}
@@ -210,8 +216,6 @@ He has worked as a lecturer at various institutions including the \emph{TU Munic
    Private homepage: www.t1p.de/stephanhuber
    Github: https://github.com/hubchev
 \end{verbatim}
-
-\vfill
 
 \hypertarget{getting-started}{%
 \chapter{Getting Started with R}\label{getting-started}}
@@ -275,7 +279,7 @@ R is a free and open-source programming language that provides a wide range of a
 
 There are many different approaches to learning R. It pretty much depends on your preferences, needs, goals, prerequisites and limitations. It is up to you to search and find a suitable way to achieve the learning goals. However, I offer these notes and if you are in one of my classes, you can ask at any time for help.
 
-The notes should walk you through many of the things that are important when working in R, and it should help you dig deeper and learn more if you want to. In particular, I recommend my swirl courses. However, there are thousands of other resources for learning R: textbooks, online courses, videos, guided tutorials, and so (see section \ref{Rlearninglit}).
+The notes should walk you through many of the things that are important when working in R, and it should help you dig deeper and learn more if you want to. For beginners, I recommend starting with my swirl courses, see section \ref{sec:swirl}. However, there are thousands of other resources for learning R: textbooks, online courses, videos, guided tutorials, etc.. I give some recommendations about learning resources in section \ref{Rlearninglit}.
 
 Below, I'll give you a list of resources that are worth a look. You might find what you're looking for there. If not, just keep reading this book. Above all, those who have personally taken one of my courses are welcome to contact me if they think I can help them.
 
@@ -316,13 +320,18 @@ Since you may feel overwhelmed by the number of resources, I would like to highl
 \includegraphics[width=0.3\textwidth,height=\textheight]{fig/rfordatas.png}
 \includegraphics[width=0.3\textwidth,height=\textheight]{fig/irizarrybook.png}
 
-\citet{Timbers2022Data}: \href{https://datasciencebook.ca/}{\textbf{Data Science: A First Introduction}} is a free and up to date book that comes with exercises with worksheets that are available on \href{https://github.com/UBC-DSCI/data-science-a-first-intro-worksheets}{UBC-DSCI GitHub repository}
-
-\citet{Wickham2023R}: \href{https://r4ds.hadley.nz/}{\textbf{R for Data Science: Import, Tidy, Transform, Visualize, and Model Data}} is the most popular source to learn R. It focuses on introducing the tidyverse package and is freely available online.
-
-\citet{Irizarry2022Introduction}: \href{http://rafalab.dfci.harvard.edu/dsbook/}{\textbf{Introduction to Data Science: Data Analysis and Prediction Algorithms With R}} is a complete, up to date, and applied introduction.
-
-\citet{Venables2022Introduction} \href{https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf}{\textbf{An Introduction to R: Notes on R: A Programming Environment for Data Analysis and Graphics}} is a manual from the R Core Development Team that shows how to use R without having to install and load additional packages.
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \citet{Timbers2022Data}: \href{https://datasciencebook.ca/}{\textbf{Data Science: A First Introduction}} is a free and up to date book that comes with exercises with worksheets that are available on \href{https://github.com/UBC-DSCI/data-science-a-first-intro-worksheets}{UBC-DSCI GitHub repository}
+\item
+  \citet{Wickham2023R}: \href{https://r4ds.hadley.nz/}{\textbf{R for Data Science: Import, Tidy, Transform, Visualize, and Model Data}} is the most popular source to learn R. It focuses on introducing the tidyverse package and is freely available online.
+\item
+  \citet{Irizarry2022Introduction}: \href{http://rafalab.dfci.harvard.edu/dsbook/}{\textbf{Introduction to Data Science: Data Analysis and Prediction Algorithms With R}} is a complete, up to date, and applied introduction.
+\item
+  \citet{Venables2022Introduction} \href{https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf}{\textbf{An Introduction to R: Notes on R: A Programming Environment for Data Analysis and Graphics}} is a manual from the R Core Development Team that shows how to use R without having to install and load additional packages.
+\end{enumerate}
 
 Some other sources that are worth mentioning are these:
 
@@ -503,7 +512,15 @@ There are two ways to install an R package: an easy way and a very easy way. \in
 \includegraphics[width=0.55\linewidth,height=0.55\textheight]{fig/install_packages_easy_way} \caption{Installing packages in R the easy way.}\label{fig:easy-way-install}
 \end{figure}
 
-An alternative way to install a package is by typing \texttt{install.packages("ggplot2")} in the console pane of RStudio and pressing Return/Enter on your keyboard. Note you must include the quotation marks around the name of the package.
+An alternative way to install a package is by typing
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+in the console pane of RStudio and pressing Return/Enter on your keyboard. Note you must include the quotation marks around the name of the package.
 
 Much like an app on your phone, you only have to install a package once. However, if you want to update a previously installed package to a newer version, you need to reinstall it by repeating the earlier steps.
 
@@ -516,7 +533,7 @@ For example, to load the \texttt{ggplot2} package, run the following code in the
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -539,15 +556,15 @@ Error: could not find function
 
 This is a different error message than the one you just saw on a package not having been installed yet. R is telling you that you are trying to use a function in a package that has not yet been \emph{loaded}. R doesn't know where to find the function you are using. Almost all new users forget to do this when starting out, and it is a little annoying to get used to doing it. However, you'll remember with practice and after some time it will become second nature for you.
 
-\hypertarget{learn-interactively-with-swirl}{%
-\chapter{\texorpdfstring{Learn interactively with \emph{swirl}}{Learn interactively with swirl}}\label{learn-interactively-with-swirl}}
+\hypertarget{sec:swirl}{%
+\chapter{\texorpdfstring{Learn interactively with \emph{swirl}}{Learn interactively with swirl}}\label{sec:swirl}}
 
-The \emph{swirl} R package makes it fun and easy to learn R programming and data science.
+The R package \emph{swirl} makes it fun and easy to learn R programming and data science.
 \emph{swirl} teaches you R programming and data science interactively, at your own pace,
-and right in the R console!
+and right in the R console! You get immediate feedback on your progress.
 If you are new to R, have no fear. \emph{swirl} will walk you through each of the steps
 required to employ Rstudio and R for your purpose.
-To start it, please follow my instructions precisely:
+To start it, please follow my instructions precisely!
 
 Open Rstudio and type in the console the following:
 
@@ -575,8 +592,6 @@ The above lines of code do the following:
 \item
   Remove everything from the environment.
 \item
-  Start \emph{swirl}.
-\item
   Install my \emph{swirl} course that is hosted on GitHub.
 \item
   With \emph{swirl} you start \emph{swirl} and your learning experience.
@@ -602,23 +617,586 @@ I compiled a short \emph{swirl} module to introduce the \emph{tidyverse} univers
 \hypertarget{other-swirl-modules}{%
 \subsubsection*{\texorpdfstring{Other \emph{swirl} modules}{Other swirl modules}}\label{other-swirl-modules}}
 
-You can also install some other courses. You find a list of courses here \url{http://swirlstats.com/scn/index.html} or here \url{https://github.com/swirldev/swirl_courses}
+You can also install some other courses. You find a list of courses here \url{http://swirlstats.com/scn/index.html} or here \url{https://github.com/swirldev/swirl_courses}.
 
-I can recommend the following:
+I recommend this one as it gives a general overview on very basic principles of R:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{    swirl}\SpecialCharTok{::}\FunctionTok{install\_course\_github}\NormalTok{(}\StringTok{"swirldev"}\NormalTok{, }\StringTok{"R\_Programming\_E"}\NormalTok{)}
-\NormalTok{    swirl}\SpecialCharTok{::}\FunctionTok{install\_course\_github}\NormalTok{(}\StringTok{"matt{-}dray"}\NormalTok{, }\StringTok{"tidyswirl"}\NormalTok{)}
-\NormalTok{    swirl}\SpecialCharTok{::}\FunctionTok{install\_course}\NormalTok{(}\StringTok{"Getting and Cleaning Data"}\NormalTok{)}
-\NormalTok{    swirl}\SpecialCharTok{::}\FunctionTok{install\_course\_github}\NormalTok{(}\StringTok{"sysilviakim"}\NormalTok{, }\StringTok{"swirl{-}tidy"}\NormalTok{)}
-\NormalTok{    swirl}\SpecialCharTok{::}\FunctionTok{install\_course}\NormalTok{(}\StringTok{"Regression Models"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(swirl)}
+\FunctionTok{install\_course\_github}\NormalTok{(}\StringTok{"swirldev"}\NormalTok{, }\StringTok{"R\_Programming\_E"}\NormalTok{)}
+\FunctionTok{swirl}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{literature}{%
-\chapter*{Literature}\label{literature}}
-\addcontentsline{toc}{chapter}{Literature}
+\hypertarget{how-to-work-with-r-scripts}{%
+\chapter{How to work with R scripts}\label{how-to-work-with-r-scripts}}
+
+\hypertarget{r-scripts-why-they-are-useful}{%
+\section{R Scripts: Why they are useful}\label{r-scripts-why-they-are-useful}}
+
+Typing functions into the console to run code may seem simple, but this interactive style has limitations:
+
+\begin{itemize}
+\tightlist
+\item
+  Typing commands one at a time can be cumbersome and time-consuming.
+\item
+  It's hard to save your work effectively.
+\item
+  Going back to the beginning when you make a mistake is annoying.
+\item
+  You can't leave notes for yourself.
+\item
+  Reusing and adapting analyses can be difficult.
+\item
+  It's hard to do anything except the basics.
+\item
+  Sharing your work with others can be challenging.
+\end{itemize}
+
+That's where having a transcript of all the code, which can be re-run and edited at any time, becomes useful. An R script is precisely that - a plain text file that contains code and comments and this comes with advantages:
+
+\begin{itemize}
+\tightlist
+\item
+  Scripts provide a record of everything you did during your data analysis.
+\item
+  You can easily edit and re-run code in a script.
+\item
+  Scripts allow you to leave notes for yourself.
+\item
+  Scripts make it easy to reuse and adapt analyses.
+\item
+  Scripts allow you to do more complex analyses.
+\item
+  Scripts make it easy to share your work with others.
+\end{itemize}
+
+\hypertarget{generate-write-and-run-r-scripts}{%
+\section{Generate, write and run R scripts}\label{generate-write-and-run-r-scripts}}
+
+To \textbf{generate a script} you can
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Go to the \emph{File} menu, select \emph{New File} and then choose \emph{R Script} or
+\item
+  Use the keyboard shortcut \emph{Ctrl+Shift+N} (Windows) or \emph{Cmd+Shift+N} (Mac) or
+\item
+  Type the following command in the Console:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{file.create}\NormalTok{(}\StringTok{"hello.R"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+In the first two ways, a new R script window will open which can be edited and should be saved either by clicking on the \emph{File} menu and selecting \emph{Save}, clicking the disk icon, or by using the shortcut \emph{Ctrl+S} (Windows) or \emph{Cmd+S} (Mac).
+If you go for the third way, you need to open it manually.
+
+Regardless of your preferred way of generating a script, we can now start \textbf{writing} our first script:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"/home/sthu/Documents/scr/"}\NormalTok{)}
+\NormalTok{x }\OtherTok{\textless{}{-}} \StringTok{"hello world"}
+\FunctionTok{print}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "hello world"
+\end{verbatim}
+
+Then save the script using the menus (File \textgreater{} Save) as hello.R.
+
+The above lines of code do the following:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{setwd()} allows to set the working directory. If you are not familiar with file systems, please read section @ref(\#sec:navigation) in the appendix.
+\item
+  With the assignment operator \texttt{\textless{}-} we create an object that stores the words ``hello world'' in an object entitled \texttt{x}. In the next section \ref{sec:assignmentoper} the assignment operator is further explained.
+\item
+  With the third input we print the content of the object \texttt{x}.
+\end{itemize}
+
+So how do we \textbf{run the script}? Assuming that the \texttt{hello.R} file has been saved to your working directory, then you can run the script using the following command:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{source}\NormalTok{( }\StringTok{"hello.R"}\NormalTok{ )}
+\end{Highlighting}
+\end{Shaded}
+
+Suppose you saved the script in a sub-folder called \texttt{scripts} of your working directory, then you need to run the script using the following command:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{source}\NormalTok{(}\StringTok{"./scripts/hello.R"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+Just note that \texttt{.\textquotesingle{}\ means\ the\ current\ folder.\ \ Instead\ of\ using\ the}source\texttt{function,\ you\ can\ click\ on\ the}source` button in Rstudio.
+
+With the character \texttt{\#} you can write a comment in a script and R will simply ignore everything that follows in that line onwards.
+
+\hypertarget{sec:assignmentoper}{%
+\section{\texorpdfstring{The assignment operator: \texttt{\textless{}-}}{The assignment operator: \textless-}}\label{sec:assignmentoper}}
+
+Suppose I'm trying to calculate how much money I'm going to make from this book. I agree, it is an unrealistic example but it will help you to understand R.
+Let's assume I'm only going to sell 350 copies. To create a variable called \texttt{sales} that assign a \textbackslash keyterm\{value\texttt{to\ my\ variable}sales\texttt{,\ we\ need\ to\ use\ the\ \_assignment\ operator\_\ of\ R,\ which\ is}\textless-` as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sales }\OtherTok{\textless{}{-}} \DecValTok{350}
+\end{Highlighting}
+\end{Shaded}
+
+When you hit enter, R doesn't print out any output. If you are using Rstudio, and the \emph{environment panel} you can see that something happened there, can you? It just gives you another command prompt. However, behind the scenes R has created a variable called \texttt{sales} and given it a value of \texttt{350}. You can check that this has happened by asking R to print the variable on screen. And the simplest way to do that is to type the name of the variable and hit enter.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sales}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 350
+\end{verbatim}
+
+Worth a mentioning is the curious features of R that there are several different ways of making assignments. In addition to the \texttt{\textless{}-} operator, we can also use \texttt{-\textgreater{}} and \texttt{=}. If you want to use \texttt{-\textgreater{}}, you might expect from just looking at the symbol you should write it like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{350} \OtherTok{{-}\textgreater{}}\NormalTok{ sales}
+\end{Highlighting}
+\end{Shaded}
+
+However, it is common practice to use \texttt{\textless{}-} and I recommend only to use this one because it is easier to read in scripts.
+
+\hypertarget{doing-calculation-in-scripts}{%
+\section{Doing calculation in scripts}\label{doing-calculation-in-scripts}}
+
+R can do any kind of arithmetic calculation with the arithmetic operators given in the table below. Using the assignment operator, R functions, and the features of a R script is easy and gives an idea how R works and how you should embrace the power of the programming language.
+
+\begin{longtable}[]{@{}lccc@{}}
+\toprule()
+operation & operator & example input & example output \\
+\midrule()
+\endhead
+addition & + & 10+2 & 12 \\
+subtraction & - & 9-3 & 6 \\
+multiplication & * & 5*5 & 25 \\
+division & / & 10/3 & 3 \\
+power & - & 5-2 & 25 \\
+\bottomrule()
+\end{longtable}
+
+So please copy and past the following script, try to run it on your PC, and try to understand it. Of course, you have to tweak the script a bit to make it run on your PC. For example, I doubt you have the same working directory that I decided to use.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Set working directory}
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"\textasciitilde{}/Dropbox/hsf/23{-}ss/ds"}\NormalTok{)}
+\CommentTok{\# Create a vector that contains the sales data}
+\NormalTok{sales\_by\_month }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{sales\_by\_month}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]   0 100 200  50   3   4   8   0   0   0   0   0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sales\_by\_month[}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 100
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sales\_by\_month[}\DecValTok{4}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 50
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{february\_sales }\OtherTok{\textless{}{-}}\NormalTok{ sales\_by\_month[}\DecValTok{2}\NormalTok{]}
+\NormalTok{february\_sales}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 100
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sales\_by\_month[}\DecValTok{5}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{25} \CommentTok{\# added May sales data}
+\NormalTok{sales\_by\_month}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]   0 100 200  50  25   4   8   0   0   0   0   0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Do I have 12 month?}
+\FunctionTok{length}\NormalTok{( }\AttributeTok{x =}\NormalTok{ sales\_by\_month )}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Assume each unit costs 7 Euro, then the revenue is}
+\NormalTok{price }\OtherTok{\textless{}{-}} \DecValTok{7}
+\NormalTok{revenue }\OtherTok{\textless{}{-}}\NormalTok{ sales\_by\_month}\SpecialCharTok{*}\NormalTok{price}
+\NormalTok{revenue}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]    0  700 1400  350  175   28   56    0    0    0    0    0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# To get statistics for daily revenue we define the number of days:}
+\NormalTok{days\_per\_month }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{31}\NormalTok{, }\DecValTok{28}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{31}\NormalTok{)}
+\CommentTok{\# Calculate the daily revenue}
+\NormalTok{revenue\_per\_day }\OtherTok{\textless{}{-}}\NormalTok{ revenue}\SpecialCharTok{/}\NormalTok{days\_per\_month}
+\NormalTok{revenue\_per\_day }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  0.0000000 25.0000000 45.1612903 11.6666667  5.6451613  0.9333333  1.8064516  0.0000000  0.0000000  0.0000000  0.0000000
+## [12]  0.0000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# round number }
+\FunctionTok{round}\NormalTok{(revenue\_per\_day) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]  0 25 45 12  6  1  2  0  0  0  0  0
+\end{verbatim}
+
+Use the ``\texttt{?}'' to search for the documentation of all functions used. In particular, do you understand how the function \texttt{round()} works? What arguments does the function contain? How can you manipulate the pre-defined arguments. For example, can you calculate the rounded revenue per day with two or four digits? Try it out!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{?}\FunctionTok{round}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sec:generics}{%
+\subsection{User-defined functions}\label{sec:generics}}
+
+One of the great strengths of R is the user's ability to add functions. Sometimes there is a small task (or series of tasks) you need done and you find yourself having to repeat it multiple times. In these types of situations it can be helpful to create your own custom function. The structure of a function is given below:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{name\_of\_function }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(argument1, argument2) \{}
+\NormalTok{    statements or code that does something}
+    \FunctionTok{return}\NormalTok{(something)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+First you give your function a name.
+Then you assign value to it, where the value is the function.
+When defining the function you will want to provide the list of arguments required (inputs and/or options to modify behavior of the function), and wrapped between curly brackets place the tasks that are being executed on/using those arguments. The argument(s) can be any type of object (like a scalar, a matrix, a dataframe, a vector, a logical, etc), and it's not necessary to define what it is in any way.
+Finally, you can return the value of the object from the function, meaning pass the value of it into the global environment. The important idea behind functions is that objects that are created within the function are local to the environment of the function -- they don't exist outside of the function. Note, a function doesn't require any arguments.
+
+Let's try creating a simple example function. This function will take in a numeric value as input, and return the squared value.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{square\_it }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) \{ }
+\NormalTok{   square }\OtherTok{\textless{}{-}}\NormalTok{ x }\SpecialCharTok{*}\NormalTok{ x}
+   \FunctionTok{return}\NormalTok{(square)}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+Now, we can use the function as we would any other function. We type out the name of the function, and inside the parentheses we provide a numeric value \texttt{x}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{square\_it}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 25
+\end{verbatim}
+
+Let us get back to script with sales and try to calculate the monthly growth rates of revenue using a self-written function.
+
+The formula of a growth rate is clear:
+
+\[g=\left(\frac{y_t-y_{t-1}}{y_{t-1}}\cdot 100\right)=\left(\frac{y_t}{y_{t-1}}-1\right)\cdot 100\]
+So the challenge is to divide the value of \texttt{revenue} with the value of the previous period, a.k.a. the lagged value. Let us assume that the function \texttt{lag()} can give you exactly that value of a vector. Lets try it out:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{lag}\NormalTok{(revenue)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]    0  700 1400  350  175   28   56    0    0    0    0    0
+## attr(,"tsp")
+## [1]  0 11  1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(revenue}\SpecialCharTok{/}\FunctionTok{lag}\NormalTok{(revenue)}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)}\SpecialCharTok{*}\DecValTok{100} 
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] NaN   0   0   0   0   0   0 NaN NaN NaN NaN NaN
+## attr(,"tsp")
+## [1]  0 11  1
+\end{verbatim}
+
+Unfortunately, this does not work out. The \texttt{lag()} function does not work as we think it should. Well, the reason is simply that we are using the wrong function. The current \texttt{lag()} function is part of the stats package which is part of R base and is always loaded. The \texttt{lag()} function we aim to use stems from the dplyr package which we must install and load to be able to use it. So let's do it:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# check if the package is installed}
+\FunctionTok{find.package}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.1/dplyr"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# I already installed the package so I can just load it}
+\CommentTok{\# install.packages("dplyr")}
+\FunctionTok{library}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+Now, we was informed that among other functions the \texttt{lag()} function is \emph{masked}. That means that now the function of the newly loaded package is active. So, let's try again:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{lag}\NormalTok{(revenue)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(revenue}\SpecialCharTok{/}\FunctionTok{lag}\NormalTok{(revenue)}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)}\SpecialCharTok{*}\DecValTok{100} 
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+\end{verbatim}
+
+That looks good now. And here is a way to calculate growth rates with a self-written function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{growth\_rate }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x)(x}\SpecialCharTok{/}\FunctionTok{lag}\NormalTok{(x)}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)}\SpecialCharTok{*}\DecValTok{100} 
+\FunctionTok{growth\_rate}\NormalTok{(revenue)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sales\_gr\_rate }\OtherTok{\textless{}{-}} \FunctionTok{growth\_rate}\NormalTok{(revenue)}
+\NormalTok{sales\_gr\_rate}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+\end{verbatim}
+
+You know, all functions in R are user-written and sometimes it happens that two people had the idea to name functions identically. In such a case we have to deal with that conflict as we cannot use both functions at the same time. Also, it is a very realistic case that you find a solution somewhere that should work out your problem but you fail to make it run. In such a case it is often a forgotten package that needs to be loaded.
+
+\hypertarget{appendix}{%
+\chapter{Appendix}\label{appendix}}
+
+\hypertarget{sec:navigation}{%
+\section{Navigating the file system}\label{sec:navigation}}
+
+It is essential to know how R interacts with the file system on your computer. Modern operating systems are incredibly user-friendly and try to hide boring and annoying stuff from the customer. In the following, I will try to give a brief introduction on how to navigate around a computer using a DOS or UNIX shell. If you familiar with that, you can skip this part of the notes.
+
+\hypertarget{sec:filesystem}{%
+\subsection{The file system}\label{sec:filesystem}}
+
+In this section, I describe the basic idea behind file locations and file paths. Regardless of whether you are using Windows, macOS, or Linux, every file on the computer is assigned a human-readable address, and every address has the same basic structure: it describes a path that starts from a root location, through a series of folders (or directories), and finally ends up at the file.
+
+On a Windows computer, the root is the storage device on which the file is stored, and for many home computers, the name of the storage device that stores all your files is \texttt{C:}. After that comes the folders, and on Windows, the folder names are separated by a backslash symbol \texttt{\textbackslash{}}. So, the complete path to this book on my Windows computer might be something like this:
+
+\begin{verbatim}
+C:\Users\huber\Rbook\rcourse-book.pdf
+\end{verbatim}
+
+On Linux, Unix, and macOS systems, the addresses look a little different, but they are more or less identical in spirit. Instead of using the backslash, folders are separated using a forward slash, and unlike Windows, they do not treat the storage device as being the root of the file system. So, the path on a Mac might be something like this:
+
+\begin{verbatim}
+/Users/huber/Rbook/rcourse-book.pdf
+\end{verbatim}
+
+That is what we mean by the \emph{path} to a file. The next concept to grasp is the idea of a working directory and how to change it. For those of you who have used command-line interfaces previously, this should be obvious already. But if not, here is what I mean. The working directory is just whatever folder I am currently looking at. Suppose that I am currently looking for files in Explorer (if you are using Windows) or using Finder (on a Mac). The folder I currently have open is my user directory (i.e., \texttt{C:\textbackslash{}Users\textbackslash{}huber} or \texttt{/Users/huber}). That is my current working directory.
+
+\hypertarget{working-directory}{%
+\subsection{Working directory}\label{working-directory}}
+
+The next concept to grasp is the idea of a \emph{working directory} and how to change it. For those of you who have used command line interfaces previously, this should be obvious already. But if not, here's what I mean. The working directory is just ``whatever folder I'm currently looking at''. Suppose that I'm currently looking for files in Explorer (if you're using Windows) or using Finder (on a Mac). The folder I currently have open is my user directory (i.e., \texttt{C:\textbackslash{}Users\textbackslash{}huber} or \texttt{/Users/huber}). That's my current working directory.
+
+The fact that we can imagine that the program is ``in'' a particular directory means that we can talk about moving \emph{from} our current location \emph{to} a new one. What that means is that we might want to specify a new location in relation to our current location. To do so, we need to introduce two new conventions. Regardless of what operating system you're using, we use \texttt{.} to refer to the current working directory, and \texttt{..} to refer to the directory above it. This allows us to specify a path to a new location in relation to our current location, as the following examples illustrate. Let's assume that I'm using my Windows computer, and my working directory is \texttt{C:\textbackslash{}Users\textbackslash{}huber\textbackslash{}Rbook}. The table below shows several addresses in relation to my current one:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule()
+Absolute path & Relative path \\
+\midrule()
+\endhead
+\texttt{C:\textbackslash{}Users\textbackslash{}huber} & \texttt{..} \\
+\texttt{C:\textbackslash{}Users} & \texttt{..\textbackslash{}..} \\
+\texttt{C:\textbackslash{}Users\textbackslash{}huber\textbackslash{}Rbook\textbackslash{}source} & \texttt{.\textbackslash{}source} \\
+\texttt{C:\textbackslash{}Users\textbackslash{}huber\textbackslash{}nerdstuff} & \texttt{..\textbackslash{}nerdstuff} \\
+\bottomrule()
+\end{longtable}
+
+It is quite common on computers that have multiple users to define \texttt{\textasciitilde{}} to be the user's \emph{home directory}. The home directory on a Mac for the `\texttt{huber\textquotesingle{}\textquotesingle{}\ user\ is}/Users/huber/\texttt{.\ And\ so,\ not\ surprisingly,\ it\ is\ possible\ to\ define\ other\ directories\ in\ terms\ of\ their\ relationship\ to\ the\ home\ directory.\ For\ example,\ an\ alternative\ way\ to\ describe\ the\ location\ of\ the}rcourse-book.pdf\texttt{file\ on\ a\ Mac\ would\ be\ \ \textasciigrave{}\textasciigrave{}\textasciigrave{}\ \textasciitilde{}\textbackslash{}Rbook\textbackslash{}rcourse-book.pdf\ \textasciigrave{}\textasciigrave{}\textasciigrave{}\ You\ can\ find\ out\ your\ home\ directory\ with\ the}path.expand()` function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{path.expand}\NormalTok{(}\StringTok{"\textasciitilde{}"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "/home/sthu"
+\end{verbatim}
+
+Thus, on my machine \textasciitilde{} is an abbreviation for the path /home/sthu.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{getwd}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "/home/sthu/Dropbox/hsf/23-ss/ds"
+\end{verbatim}
+
+\hypertarget{sec:navigationR}{%
+\subsection{Navigating the file system using the R console}\label{sec:navigationR}}
+
+When you want to load or save a file in R it's important to know what the working directory is. You can find out by using the \texttt{getwd()} command. For the moment, let's assume that I'm using Mac OS or Linux, since things are different on Windows, see section \ref{sec:winbackslash}.
+Let's check the current active working directory:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{getwd}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "/home/sthu/Dropbox/hsf/23-ss/ds"
+\end{verbatim}
+
+The function \texttt{setwd()} allows to change the working directory:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"/Users/huber/Rbook/data"}\NormalTok{)}
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"./Rbook/data"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The function \texttt{list.files()} lists all the files in that directory:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{list.files}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sec:winbackslash}{%
+\subsection{Why do the Windows paths use the back-slash?}\label{sec:winbackslash}}
+
+Let's suppose I'm using a computer with Windows. As before, I can find out what my current working directory is like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{getwd}\NormalTok{()}
+\NormalTok{[}\DecValTok{1}\NormalTok{] }\StringTok{"C:/Users/huber/}
+\end{Highlighting}
+\end{Shaded}
+
+R is displaying a Windows path using the wrong type of slash, the back-slash. The answer has to do with the fact that R treats the \texttt{\textbackslash{}} character as \emph{special}. If you're deeply wedded to the idea of specifying a path using the Windows style slashes, then what you need to use two back-slashes \texttt{\textbackslash{}\textbackslash{}} whenever you mean \texttt{\textbackslash{}}. In other words, if you want to specify the working directory on a Windows computer, you need to use one of the following commands:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{setwd}\NormalTok{( }\StringTok{"C:/Users/huber"}\NormalTok{ )}
+\FunctionTok{setwd}\NormalTok{( }\StringTok{"C:}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{Users}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{huber"}\NormalTok{ )}
+\end{Highlighting}
+\end{Shaded}
+
 
   \bibliography{book.bib}
 

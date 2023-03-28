@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Learn interactively with swirl | How to Use R for Data Science</title>
-  <meta name="description" content="2 Learn interactively with swirl | How to Use R for Data Science" />
+  <title>4 Navigating the file system | How to Use R for Data Science</title>
+  <meta name="description" content="4 Navigating the file system | How to Use R for Data Science" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Learn interactively with swirl | How to Use R for Data Science" />
+  <meta property="og:title" content="4 Navigating the file system | How to Use R for Data Science" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Learn interactively with swirl | How to Use R for Data Science" />
+  <meta name="twitter:title" content="4 Navigating the file system | How to Use R for Data Science" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="getting-started.html"/>
-<link rel="next" href="literature.html"/>
+<link rel="prev" href="literature.html"/>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -154,7 +154,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">How to Use R for Data Science</a></li>
+<li><a href="./">Managerial Economics</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
@@ -173,8 +173,18 @@ div.csl-indent {
 <li class="chapter" data-level="1.7.3" data-path="getting-started.html"><a href="getting-started.html#package-use"><i class="fa fa-check"></i><b>1.7.3</b> Package use</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="learn-interactively-with-swirl.html"><a href="learn-interactively-with-swirl.html"><i class="fa fa-check"></i><b>2</b> Learn interactively with <em>swirl</em></a></li>
+<li class="chapter" data-level="2" data-path="sec:swirl.html"><a href="sec:swirl.html"><i class="fa fa-check"></i><b>2</b> Learn interactively with <em>swirl</em></a></li>
+<li class="chapter" data-level="3" data-path="how-to-work-with-r-scripts.html"><a href="how-to-work-with-r-scripts.html"><i class="fa fa-check"></i><b>3</b> How to work with R scripts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="how-to-work-with-r-scripts.html"><a href="how-to-work-with-r-scripts.html#r-scripts-why-they-are-useful"><i class="fa fa-check"></i><b>3.1</b> R Scripts: Why they are useful</a></li>
+<li class="chapter" data-level="3.2" data-path="how-to-work-with-r-scripts.html"><a href="how-to-work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write and run R scripts</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i>Literature</a></li>
+<li class="chapter" data-level="4" data-path="sec:navigation.html"><a href="sec:navigation.html"><i class="fa fa-check"></i><b>4</b> Navigating the file system</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="sec:navigation.html"><a href="sec:navigation.html#sec:filesystem"><i class="fa fa-check"></i><b>4.1</b> The file system</a></li>
+<li class="chapter" data-level="4.2" data-path="sec:navigation.html"><a href="sec:navigation.html#working-directory"><i class="fa fa-check"></i><b>4.2</b> Working directory</a></li>
+</ul></li>
 <li class="divider"></li>
 <li>&copy; Prof. Dr. Stephan Huber.</li>
 
@@ -195,62 +205,90 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="learn-interactively-with-swirl" class="section level1 hasAnchor" number="2">
-<h1><span class="header-section-number">2</span> Learn interactively with <em>swirl</em><a href="learn-interactively-with-swirl.html#learn-interactively-with-swirl" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>The <em>swirl</em> R package makes it fun and easy to learn R programming and data science.
-<em>swirl</em> teaches you R programming and data science interactively, at your own pace,
-and right in the R console!
-If you are new to R, have no fear. <em>swirl</em> will walk you through each of the steps
-required to employ Rstudio and R for your purpose.
-To start it, please follow my instructions precisely:</p>
-<p>Open Rstudio and type in the console the following:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="learn-interactively-with-swirl.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;swirl&quot;</span>)</span>
-<span id="cb5-2"><a href="learn-interactively-with-swirl.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;swirl&quot;</span>)</span>
-<span id="cb5-3"><a href="learn-interactively-with-swirl.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span>
-<span id="cb5-4"><a href="learn-interactively-with-swirl.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
-<span id="cb5-5"><a href="learn-interactively-with-swirl.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install_course_github</span>(<span class="st">&quot;hubchev&quot;</span>, <span class="st">&quot;swirl-it&quot;</span>)</span>
-<span id="cb5-6"><a href="learn-interactively-with-swirl.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
-<p>The above lines of code do the following:</p>
-<ul>
-<li>Install the <em>swirl</em> package.</li>
-<li>Load the <em>swirl</em> package.</li>
-<li>List the content of the environment.</li>
-<li>Remove everything from the environment.</li>
-<li>Start <em>swirl</em>.</li>
-<li>Install my <em>swirl</em> course that is hosted on GitHub.</li>
-<li>With <em>swirl</em> you start <em>swirl</em> and your learning experience.</li>
-</ul>
-<p>If the course has failed to install, you can try to download the file <code>swirl-it.swc</code> from <a href="https://github.com/hubchev/swirl-it" class="uri">https://github.com/hubchev/swirl-it</a> and install the course with <code>install\_course()</code></p>
-<p>Please choose the course <em>swirl-it</em> and the learning module <em>huber-intro-1</em>.
-You can exit <em>swirl</em> at any time by typing <code>bye()</code> or by clicking the <em>Esc</em> on your keyboard.</p>
-<p>After you have successfully finished learning module <em>huber-intro-1</em> please go ahead with the learning module <em>huber-intro-2</em> that is also part of my swirl course <em>swirl-it</em>.</p>
-<div id="swirl-modules-on-data-analytical-basics" class="section level4 unlisted unnumbered hasAnchor">
-<h4><em>swirl</em> modules on data analytical basics<a href="learn-interactively-with-swirl.html#swirl-modules-on-data-analytical-basics" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>In my swirl modules <em>huber-data-1</em>, <em>huber-data-2</em>, and <em>huber-data-3</em> I introduce some very basic statistical principles on how to analyse data.</p>
+<div id="sec:navigation" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Navigating the file system<a href="sec:navigation.html#sec:navigation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>It is essential to know how R interacts with the file system on your computer. Modern operating systems are incredibly user-friendly and try to hide boring and annoying stuff from the customer. In the following, I will try to give a brief introduction on how to navigate around a computer using a DOS or UNIX shell. If you familiar with that, you can skip this part of the notes.</p>
+<div id="sec:filesystem" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> The file system<a href="sec:navigation.html#sec:filesystem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this section, I describe the basic idea behind file locations and file paths. Regardless of whether you are using Windows, macOS, or Linux, every file on the computer is assigned a human-readable address, and every address has the same basic structure: it describes a path that starts from a root location, through a series of folders (or directories), and finally ends up at the file.</p>
+<p>On a Windows computer, the root is the storage device on which the file is stored, and for many home computers, the name of the storage device that stores all your files is <code>C:</code>. After that comes the folders, and on Windows, the folder names are separated by a backslash symbol <code>\</code>. So, the complete path to this book on my Windows computer might be something like this:</p>
+<pre><code>C:\Users\huber\Rbook\rcourse-book.pdf</code></pre>
+<p>On Linux, Unix, and macOS systems, the addresses look a little different, but they are more or less identical in spirit. Instead of using the backslash, folders are separated using a forward slash, and unlike Windows, they do not treat the storage device as being the root of the file system. So, the path on a Mac might be something like this:</p>
+<pre><code>/Users/huber/Rbook/rcourse-book.pdf</code></pre>
+<p>That is what we mean by the <em>path</em> to a file. The next concept to grasp is the idea of a working directory and how to change it. For those of you who have used command-line interfaces previously, this should be obvious already. But if not, here is what I mean. The working directory is just whatever folder I am currently looking at. Suppose that I am currently looking for files in Explorer (if you are using Windows) or using Finder (on a Mac). The folder I currently have open is my user directory (i.e., C:or /Users/huber). That is my current working directory.</p>
 </div>
-<div id="swirl-module-on-the-tidyverse-package" class="section level4 unlisted unnumbered hasAnchor">
-<h4><em>swirl</em> module on the <code>tidyverse</code> package<a href="learn-interactively-with-swirl.html#swirl-module-on-the-tidyverse-package" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>I compiled a short <em>swirl</em> module to introduce the <em>tidyverse</em> universe. This is a powerful collection of packages which I discuss later on. The learning module is also part of my <em>swirl-it</em> course.</p>
-</div>
-<div id="other-swirl-modules" class="section level4 unlisted unnumbered hasAnchor">
-<h4>Other <em>swirl</em> modules<a href="learn-interactively-with-swirl.html#other-swirl-modules" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>You can also install some other courses. You find a list of courses here <a href="http://swirlstats.com/scn/index.html" class="uri">http://swirlstats.com/scn/index.html</a> or here <a href="https://github.com/swirldev/swirl_courses" class="uri">https://github.com/swirldev/swirl_courses</a></p>
-<p>I can recommend the following:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="learn-interactively-with-swirl.html#cb6-1" aria-hidden="true" tabindex="-1"></a>    swirl<span class="sc">::</span><span class="fu">install_course_github</span>(<span class="st">&quot;swirldev&quot;</span>, <span class="st">&quot;R_Programming_E&quot;</span>)</span>
-<span id="cb6-2"><a href="learn-interactively-with-swirl.html#cb6-2" aria-hidden="true" tabindex="-1"></a>    swirl<span class="sc">::</span><span class="fu">install_course_github</span>(<span class="st">&quot;matt-dray&quot;</span>, <span class="st">&quot;tidyswirl&quot;</span>)</span>
-<span id="cb6-3"><a href="learn-interactively-with-swirl.html#cb6-3" aria-hidden="true" tabindex="-1"></a>    swirl<span class="sc">::</span><span class="fu">install_course</span>(<span class="st">&quot;Getting and Cleaning Data&quot;</span>)</span>
-<span id="cb6-4"><a href="learn-interactively-with-swirl.html#cb6-4" aria-hidden="true" tabindex="-1"></a>    swirl<span class="sc">::</span><span class="fu">install_course_github</span>(<span class="st">&quot;sysilviakim&quot;</span>, <span class="st">&quot;swirl-tidy&quot;</span>)</span>
-<span id="cb6-5"><a href="learn-interactively-with-swirl.html#cb6-5" aria-hidden="true" tabindex="-1"></a>    swirl<span class="sc">::</span><span class="fu">install_course</span>(<span class="st">&quot;Regression Models&quot;</span>)</span></code></pre></div>
+<div id="working-directory" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Working directory<a href="sec:navigation.html#working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The next concept to grasp is the idea of a <em>working directory</em> and how to change it. For those of you who have used command line interfaces previously, this should be obvious already. But if not, here’s what I mean. The working directory is just “whatever folder I’m currently looking at”. Suppose that I’m currently looking for files in Explorer (if you’re using Windows) or using Finder (on a Mac). The folder I currently have open is my user directory (i.e., <code>C:\Users\huber</code> or <code>/Users/huber</code>). That’s my current working directory.</p>
+<p>The fact that we can imagine that the program is “in” a particular directory means that we can talk about moving <em>from</em> our current location <em>to</em> a new one. What that means is that we might want to specify a new location in relation to our current location. To do so, we need to introduce two new conventions. Regardless of what operating system you’re using, we use <code>.</code> to refer to the current working directory, and <code>..</code> to refer to the directory above it. This allows us to specify a path to a new location in relation to our current location, as the following examples illustrate. Let’s assume that I’m using my Windows computer, and my working directory is <code>C:\Users\huber\Rbook</code>. The table below shows several addresses in relation to my current one:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Absolute path</th>
+<th>Relative path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>C:\Users\huber</code></td>
+<td><code>..</code></td>
+</tr>
+<tr class="even">
+<td><code>C:\Users</code></td>
+<td><code>..\..</code></td>
+</tr>
+<tr class="odd">
+<td><code>C:\Users\huber\Rbook\source</code></td>
+<td><code>.\source</code></td>
+</tr>
+<tr class="even">
+<td><code>C:\Users\huber\nerdstuff</code></td>
+<td><code>..\nerdstuff</code></td>
+</tr>
+</tbody>
+</table>
 
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Irizarry2022Introduction" class="csl-entry">
+Irizarry, Rafael A. 2022. <em>Introduction to Data Science: Data Analysis and Prediction Algorithms with <span>R</span></em>. Accessed January 30, 2023; CRC Press. <a href="https://rafalab.github.io/dsbook/">https://rafalab.github.io/dsbook/</a>.
+</div>
+<div id="ref-Ismay2022Statistical" class="csl-entry">
+Ismay, Chester, and Albert Y. Kim. 2022. <em>Statistical Inference via Data Science: A ModernDive into <span>R</span> and the Tidyverse</em>. Accessed January 30, 2023; CRC Press. <a href="https://moderndive.com/">https://moderndive.com/</a>.
+</div>
+<div id="ref-Muschelli2022Introduction" class="csl-entry">
+Muschelli, John, and Andrew Jaffe. 2022. <span>“Introduction to r for Public Health Researchers.”</span> This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. GitHub.
+</div>
+<div id="ref-Navarro2020Learning" class="csl-entry">
+Navarro, Danielle. 2020. <em>Learning Statistics with r</em>. Version 0.6.
+</div>
+<div id="ref-Thulin2021Modern" class="csl-entry">
+Thulin, Måns. 2021. <em>Modern Statistics with r: From Wrangling and Exploring Data to Inference and Predictive Modelling</em>. Accessed February 30, 2023; Eos Chasma Press. <a href="https://www.modernstatisticswithr.com/">https://www.modernstatisticswithr.com/</a>.
+</div>
+<div id="ref-Timbers2022Data" class="csl-entry">
+Timbers, Tiffany, Trevor Campbell, and Melissa Lee. 2022. <em>Data Science: A First Introduction</em>. Accessed January 30, 2023; CRC Press. <a href="https://datasciencebook.ca/">https://datasciencebook.ca/</a>.
+</div>
+<div id="ref-Venables2022Introduction" class="csl-entry">
+Venables, William N, David M Smith, and R Core Team. 2022. <em>An Introduction to <span>R</span>: Notes on <span>R</span>: A Programming Environment for Data Analysis and Graphics</em>. This manual is for R, version 4.1.3 (2022-03-10).
+</div>
+<div id="ref-Wickham2023R" class="csl-entry">
+Wickham, Hadley, and Garrett Grolemund. 2023. <span>“R for Data Science (2e).”</span> Accessed January 30, 2023. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>.
 </div>
 </div>
+</div>
+</div>
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="getting-started.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="literature.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="literature.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -289,13 +327,16 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["_main.pdf", "_main.epub"],
+"download": ["_main.pdf"],
 "search": {
 "engine": "fuse",
 "options": null
 },
 "toc": {
 "collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
 }
 });
 });
