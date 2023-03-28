@@ -19,7 +19,7 @@ Please give me feedback (drstephanhuber@yahoo.com) if something doesn't work or 
 - [Mathematics and Statistics I - Calculus and Linear Algebra (Lecture Notes)](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/cla_A4.pdf)
 
 ## International Economics
-- [International Economics (Lecture Notes)](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/ie_A4.pdf)
+- [International Economics (Lecture Notes)](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/ie_a4.pdf)
 
 # Stuff
 
