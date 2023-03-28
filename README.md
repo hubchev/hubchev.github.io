@@ -10,10 +10,10 @@ Please give me feedback if something doesn't work or if you find errors and the 
 - [International Economics (Lecture Notes)](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/ie_a4.pdf)
 
 ### Managerial Economics
-- [Managerial Economics (Lecture Notes)](https://hubchev.github.io/me/)
+- Managerial Economics (Lecture Notes)[HTML](https://hubchev.github.io/me/) [PDF](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/me/_main.pdf)
 
 ### Mathematics and Statistics
-- [Mathematics and Statistics I - Calculus and Linear Algebra (Lecture Notes)](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/cla_A4.pdf)
+- [Calculus and Linear Algebra (Lecture Notes)](https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/cla_A4.pdf)
 
 ### Quantitative Methods
 - [Quantitative Methods (Lecture Notes)](https://hubchev.github.io/qm/)   
