@@ -1,4 +1,4 @@
-I am Stephan Huber (drstephanhuber@yahoo.com) and I host files and links here that may be of some value for students.
+I am Stephan Huber (drstephanhuber@yahoo.com) and I host files and links here that may be of some value for students. More on me on my [private homepage](www.t1p.de/stephanhuber).
 I would appreciate if you would let me know if something doesn't work or is false.
 
 # Courses

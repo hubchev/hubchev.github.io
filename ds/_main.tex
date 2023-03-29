@@ -556,8 +556,8 @@ Error: could not find function
 
 This is a different error message than the one you just saw on a package not having been installed yet. R is telling you that you are trying to use a function in a package that has not yet been \emph{loaded}. R doesn't know where to find the function you are using. Almost all new users forget to do this when starting out, and it is a little annoying to get used to doing it. However, you'll remember with practice and after some time it will become second nature for you.
 
-\hypertarget{learn-interactively-with-swirl}{%
-\chapter{Learn interactively with swirl}\label{learn-interactively-with-swirl}}
+\hypertarget{sec:swirl}{%
+\chapter{Learn interactively with swirl}\label{sec:swirl}}
 
 The R package \emph{swirl} makes it fun and easy to learn R programming and data science.
 \emph{swirl} teaches you R programming and data science interactively, at your own pace,
@@ -597,7 +597,7 @@ The above lines of code do the following:
   With \emph{swirl} you start \emph{swirl} and your learning experience.
 \end{itemize}
 
-If the course has failed to install, you can try to download the file \texttt{swirl-it.swc} from \url{https://github.com/hubchev/swirl-it} and install the course with \texttt{install\textbackslash{}\_course()}
+If the course has failed to install, you can try to download the file \texttt{swirl-it.swc} from \url{https://github.com/hubchev/swirl-it} and install the course with loading the swirl package and typing \texttt{install\_course()} into the console.
 
 Please choose the course \emph{swirl-it} and the learning module \emph{huber-intro-1}.
 You can exit \emph{swirl} at any time by typing \texttt{bye()} or by clicking the \emph{Esc} on your keyboard.
@@ -888,118 +888,15 @@ So the challenge is to divide the value of \texttt{revenue} with the value of th
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Set working directory}
-\FunctionTok{setwd}\NormalTok{(}\StringTok{"\textasciitilde{}/Dropbox/hsf/23{-}ss/ds"}\NormalTok{)}
-\CommentTok{\# Create a vector that contains the sales data}
-\NormalTok{sales\_by\_month }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)}
-\NormalTok{sales\_by\_month}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1]   0 100 200  50   3   4   8   0   0   0   0   0
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{sales\_by\_month[}\DecValTok{2}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 100
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{sales\_by\_month[}\DecValTok{4}\NormalTok{]}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 50
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{february\_sales }\OtherTok{\textless{}{-}}\NormalTok{ sales\_by\_month[}\DecValTok{2}\NormalTok{]}
-\NormalTok{february\_sales}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 100
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{sales\_by\_month[}\DecValTok{5}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{25} \CommentTok{\# added May sales data}
-\NormalTok{sales\_by\_month}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1]   0 100 200  50  25   4   8   0   0   0   0   0
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Do I have 12 month?}
-\FunctionTok{length}\NormalTok{( }\AttributeTok{x =}\NormalTok{ sales\_by\_month )}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 12
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Assume each unit costs 7 Euro, then the revenue is}
-\NormalTok{price }\OtherTok{\textless{}{-}} \DecValTok{7}
-\NormalTok{revenue }\OtherTok{\textless{}{-}}\NormalTok{ sales\_by\_month}\SpecialCharTok{*}\NormalTok{price}
-\NormalTok{revenue}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1]    0  700 1400  350  175   28   56    0    0    0    0    0
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# To get statistics for daily revenue we define the number of days:}
-\NormalTok{days\_per\_month }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{31}\NormalTok{, }\DecValTok{28}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{31}\NormalTok{)}
-\CommentTok{\# Calculate the daily revenue}
-\NormalTok{revenue\_per\_day }\OtherTok{\textless{}{-}}\NormalTok{ revenue}\SpecialCharTok{/}\NormalTok{days\_per\_month}
-\NormalTok{revenue\_per\_day }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1]  0.0000000 25.0000000 45.1612903 11.6666667  5.6451613  0.9333333  1.8064516
-##  [8]  0.0000000  0.0000000  0.0000000  0.0000000  0.0000000
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# round number }
-\FunctionTok{round}\NormalTok{(revenue\_per\_day) }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1]  0 25 45 12  6  1  2  0  0  0  0  0
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{lag}\NormalTok{(revenue)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0
+##  [1]    0  700 1400  350  175   28   56    0
+##  [9]    0    0    0    0
+## attr(,"tsp")
+## [1]  0 11  1
 \end{verbatim}
 
 \begin{Shaded}
@@ -1009,7 +906,10 @@ So the challenge is to divide the value of \texttt{revenue} with the value of th
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+##  [1] NaN   0   0   0   0   0   0 NaN NaN NaN
+## [11] NaN NaN
+## attr(,"tsp")
+## [1]  0 11  1
 \end{verbatim}
 
 Unfortunately, this does not work out. The \texttt{lag()} function does not work as we think it should. Well, the reason is simply that we are using the wrong function. The current \texttt{lag()} function is part of the stats package which is part of R base and is always loaded. The \texttt{lag()} function we aim to use stems from the dplyr package which we must install and load to be able to use it. So let's do it:
@@ -1033,6 +933,23 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
 Now, we was informed that among other functions the \texttt{lag()} function is \emph{masked}. That means that now the function of the newly loaded package is active. So, let's try again:
 
 \begin{Shaded}
@@ -1042,7 +959,8 @@ Now, we was informed that among other functions the \texttt{lag()} function is \
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0
+##  [1]   NA    0  700 1400  350  175   28   56
+##  [9]    0    0    0    0
 \end{verbatim}
 
 \begin{Shaded}
@@ -1052,7 +970,8 @@ Now, we was informed that among other functions the \texttt{lag()} function is \
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100
+##  [9]  NaN  NaN  NaN  NaN
 \end{verbatim}
 
 That looks good now. And here is a way to calculate growth rates with a self-written function:
@@ -1065,7 +984,8 @@ That looks good now. And here is a way to calculate growth rates with a self-wri
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100
+##  [9]  NaN  NaN  NaN  NaN
 \end{verbatim}
 
 \begin{Shaded}
@@ -1076,7 +996,8 @@ That looks good now. And here is a way to calculate growth rates with a self-wri
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100
+##  [9]  NaN  NaN  NaN  NaN
 \end{verbatim}
 
 You know, all functions in R are user-written and sometimes it happens that two people had the idea to name functions identically. In such a case we have to deal with that conflict as we cannot use both functions at the same time. Also, it is a very realistic case that you find a solution somewhere that should work out your problem but you fail to make it run. In such a case it is often a forgotten package that needs to be loaded.
