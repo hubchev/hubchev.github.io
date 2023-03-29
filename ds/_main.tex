@@ -156,7 +156,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 28 March, 2023}
+\date{Last compiled on 29 March, 2023}
 
 \begin{document}
 \maketitle
@@ -557,7 +557,7 @@ Error: could not find function
 This is a different error message than the one you just saw on a package not having been installed yet. R is telling you that you are trying to use a function in a package that has not yet been \emph{loaded}. R doesn't know where to find the function you are using. Almost all new users forget to do this when starting out, and it is a little annoying to get used to doing it. However, you'll remember with practice and after some time it will become second nature for you.
 
 \hypertarget{sec:swirl}{%
-\chapter{\texorpdfstring{Learn interactively with \emph{swirl}}{Learn interactively with swirl}}\label{sec:swirl}}
+\chapter{Learn interactively with swirl}\label{sec:swirl}}
 
 The R package \emph{swirl} makes it fun and easy to learn R programming and data science.
 \emph{swirl} teaches you R programming and data science interactively, at your own pace,
@@ -629,8 +629,8 @@ I recommend this one as it gives a general overview on very basic principles of 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{how-to-work-with-r-scripts}{%
-\chapter{How to work with R scripts}\label{how-to-work-with-r-scripts}}
+\hypertarget{sec:scripts}{%
+\chapter{How to work with R scripts}\label{sec:scripts}}
 
 \hypertarget{r-scripts-why-they-are-useful}{%
 \section{R Scripts: Why they are useful}\label{r-scripts-why-they-are-useful}}
@@ -719,7 +719,7 @@ The above lines of code do the following:
 \begin{itemize}
 \tightlist
 \item
-  \texttt{setwd()} allows to set the working directory. If you are not familiar with file systems, please read section @ref(\#sec:navigation) in the appendix.
+  \texttt{setwd()} allows to set the working directory. If you are not familiar with file systems, please read section \ref{sec:navigation} in the appendix.
 \item
   With the assignment operator \texttt{\textless{}-} we create an object that stores the words ``hello world'' in an object entitled \texttt{x}. In the next section \ref{sec:assignmentoper} the assignment operator is further explained.
 \item
@@ -794,11 +794,97 @@ addition & + & 10+2 & 12 \\
 subtraction & - & 9-3 & 6 \\
 multiplication & * & 5*5 & 25 \\
 division & / & 10/3 & 3 \\
-power & - & 5-2 & 25 \\
+power & \texttt{\^{}} & \(5^2\) & 25 \\
 \bottomrule()
 \end{longtable}
 
 So please copy and past the following script, try to run it on your PC, and try to understand it. Of course, you have to tweak the script a bit to make it run on your PC. For example, I doubt you have the same working directory that I decided to use.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Set working directory}
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"\textasciitilde{}/Dropbox/hsf/23{-}ss/ds"}\NormalTok{)}
+\CommentTok{\# Create a vector that contains the sales data}
+\NormalTok{sales\_by\_month }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{50}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{sales\_by\_month}
+\NormalTok{sales\_by\_month[}\DecValTok{2}\NormalTok{]}
+\NormalTok{sales\_by\_month[}\DecValTok{4}\NormalTok{]}
+\NormalTok{february\_sales }\OtherTok{\textless{}{-}}\NormalTok{ sales\_by\_month[}\DecValTok{2}\NormalTok{]}
+\NormalTok{february\_sales}
+\NormalTok{sales\_by\_month[}\DecValTok{5}\NormalTok{] }\OtherTok{\textless{}{-}} \DecValTok{25} \CommentTok{\# added May sales data}
+\NormalTok{sales\_by\_month}
+\CommentTok{\# Do I have 12 month?}
+\FunctionTok{length}\NormalTok{( }\AttributeTok{x =}\NormalTok{ sales\_by\_month )}
+\CommentTok{\# Assume each unit costs 7 Euro, then the revenue is}
+\NormalTok{price }\OtherTok{\textless{}{-}} \DecValTok{7}
+\NormalTok{revenue }\OtherTok{\textless{}{-}}\NormalTok{ sales\_by\_month}\SpecialCharTok{*}\NormalTok{price}
+\NormalTok{revenue}
+\CommentTok{\# To get statistics for daily revenue we define the number of days:}
+\NormalTok{days\_per\_month }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{31}\NormalTok{, }\DecValTok{28}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{31}\NormalTok{, }\DecValTok{30}\NormalTok{, }\DecValTok{31}\NormalTok{)}
+\CommentTok{\# Calculate the daily revenue}
+\NormalTok{revenue\_per\_day }\OtherTok{\textless{}{-}}\NormalTok{ revenue}\SpecialCharTok{/}\NormalTok{days\_per\_month}
+\NormalTok{revenue\_per\_day }
+\CommentTok{\# round number }
+\FunctionTok{round}\NormalTok{(revenue\_per\_day) }
+\end{Highlighting}
+\end{Shaded}
+
+Use the ``\texttt{?}'' to search for the documentation of all functions used. In particular, do you understand how the function \texttt{round()} works? What arguments does the function contain? How can you manipulate the pre-defined arguments. For example, can you calculate the rounded revenue per day with two or four digits? Try it out!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{?}\FunctionTok{round}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sec:generics}{%
+\subsection{User-defined functions}\label{sec:generics}}
+
+One of the great strengths of R is the user's ability to add functions. Sometimes there is a small task (or series of tasks) you need done and you find yourself having to repeat it multiple times. In these types of situations it can be helpful to create your own custom function. The structure of a function is given below:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{name\_of\_function }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(argument1, argument2) \{}
+\NormalTok{    statements or code that does something}
+    \FunctionTok{return}\NormalTok{(something)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+First you give your function a name.
+Then you assign value to it, where the value is the function.
+When defining the function you will want to provide the list of arguments required (inputs and/or options to modify behavior of the function), and wrapped between curly brackets place the tasks that are being executed on/using those arguments. The argument(s) can be any type of object (like a scalar, a matrix, a dataframe, a vector, a logical, etc), and it's not necessary to define what it is in any way.
+Finally, you can return the value of the object from the function, meaning pass the value of it into the global environment. The important idea behind functions is that objects that are created within the function are local to the environment of the function -- they don't exist outside of the function. Note, a function doesn't require any arguments.
+
+Let's try creating a simple example function. This function will take in a numeric value as input, and return the squared value.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{square\_it }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) \{ }
+\NormalTok{   square }\OtherTok{\textless{}{-}}\NormalTok{ x }\SpecialCharTok{*}\NormalTok{ x}
+   \FunctionTok{return}\NormalTok{(square)}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+Now, we can use the function as we would any other function. We type out the name of the function, and inside the parentheses we provide a numeric value \texttt{x}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{square\_it}\NormalTok{(}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 25
+\end{verbatim}
+
+Let us get back to script with sales and try to calculate the monthly growth rates of revenue using a self-written function.
+
+The formula of a growth rate is clear:
+
+\[g=\left(\frac{y_t-y_{t-1}}{y_{t-1}}\cdot 100\right)=\left(\frac{y_t}{y_{t-1}}-1\right)\cdot 100\]
+So the challenge is to divide the value of \texttt{revenue} with the value of the previous period, a.k.a. the lagged value. Let us assume that the function \texttt{lag()} can give you exactly that value of a vector. Lets try it out:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -891,8 +977,8 @@ So please copy and past the following script, try to run it on your PC, and try 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  0.0000000 25.0000000 45.1612903 11.6666667  5.6451613  0.9333333  1.8064516  0.0000000  0.0000000  0.0000000  0.0000000
-## [12]  0.0000000
+##  [1]  0.0000000 25.0000000 45.1612903 11.6666667  5.6451613  0.9333333  1.8064516
+##  [8]  0.0000000  0.0000000  0.0000000  0.0000000  0.0000000
 \end{verbatim}
 
 \begin{Shaded}
@@ -906,63 +992,6 @@ So please copy and past the following script, try to run it on your PC, and try 
 ##  [1]  0 25 45 12  6  1  2  0  0  0  0  0
 \end{verbatim}
 
-Use the ``\texttt{?}'' to search for the documentation of all functions used. In particular, do you understand how the function \texttt{round()} works? What arguments does the function contain? How can you manipulate the pre-defined arguments. For example, can you calculate the rounded revenue per day with two or four digits? Try it out!
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{?}\FunctionTok{round}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{sec:generics}{%
-\subsection{User-defined functions}\label{sec:generics}}
-
-One of the great strengths of R is the user's ability to add functions. Sometimes there is a small task (or series of tasks) you need done and you find yourself having to repeat it multiple times. In these types of situations it can be helpful to create your own custom function. The structure of a function is given below:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{name\_of\_function }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(argument1, argument2) \{}
-\NormalTok{    statements or code that does something}
-    \FunctionTok{return}\NormalTok{(something)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-First you give your function a name.
-Then you assign value to it, where the value is the function.
-When defining the function you will want to provide the list of arguments required (inputs and/or options to modify behavior of the function), and wrapped between curly brackets place the tasks that are being executed on/using those arguments. The argument(s) can be any type of object (like a scalar, a matrix, a dataframe, a vector, a logical, etc), and it's not necessary to define what it is in any way.
-Finally, you can return the value of the object from the function, meaning pass the value of it into the global environment. The important idea behind functions is that objects that are created within the function are local to the environment of the function -- they don't exist outside of the function. Note, a function doesn't require any arguments.
-
-Let's try creating a simple example function. This function will take in a numeric value as input, and return the squared value.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{square\_it }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x) \{ }
-\NormalTok{   square }\OtherTok{\textless{}{-}}\NormalTok{ x }\SpecialCharTok{*}\NormalTok{ x}
-   \FunctionTok{return}\NormalTok{(square)}
-\NormalTok{\} }
-\end{Highlighting}
-\end{Shaded}
-
-Now, we can use the function as we would any other function. We type out the name of the function, and inside the parentheses we provide a numeric value \texttt{x}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{square\_it}\NormalTok{(}\DecValTok{5}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 25
-\end{verbatim}
-
-Let us get back to script with sales and try to calculate the monthly growth rates of revenue using a self-written function.
-
-The formula of a growth rate is clear:
-
-\[g=\left(\frac{y_t-y_{t-1}}{y_{t-1}}\cdot 100\right)=\left(\frac{y_t}{y_{t-1}}-1\right)\cdot 100\]
-So the challenge is to divide the value of \texttt{revenue} with the value of the previous period, a.k.a. the lagged value. Let us assume that the function \texttt{lag()} can give you exactly that value of a vector. Lets try it out:
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{lag}\NormalTok{(revenue)}
@@ -970,9 +999,7 @@ So the challenge is to divide the value of \texttt{revenue} with the value of th
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]    0  700 1400  350  175   28   56    0    0    0    0    0
-## attr(,"tsp")
-## [1]  0 11  1
+##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0
 \end{verbatim}
 
 \begin{Shaded}
@@ -982,9 +1009,7 @@ So the challenge is to divide the value of \texttt{revenue} with the value of th
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] NaN   0   0   0   0   0   0 NaN NaN NaN NaN NaN
-## attr(,"tsp")
-## [1]  0 11  1
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
 
 Unfortunately, this does not work out. The \texttt{lag()} function does not work as we think it should. Well, the reason is simply that we are using the wrong function. The current \texttt{lag()} function is part of the stats package which is part of R base and is always loaded. The \texttt{lag()} function we aim to use stems from the dplyr package which we must install and load to be able to use it. So let's do it:
@@ -997,7 +1022,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.1/dplyr"
+## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1007,23 +1032,6 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \FunctionTok{library}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## 
-## Attaching package: 'dplyr'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-\end{verbatim}
 
 Now, we was informed that among other functions the \texttt{lag()} function is \emph{masked}. That means that now the function of the newly loaded package is active. So, let's try again:
 
