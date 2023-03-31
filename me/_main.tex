@@ -117,7 +117,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 28 March, 2023}
+\date{Last compiled on 31 March, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -184,7 +184,7 @@ He has worked as a lecturer at various institutions including the \emph{TU Munic
 \textbf{Workload:}
 125 h = 42 h (in-class) + 21 h (guided private study hours) - 62 h (private self-study).
 
-\textbf{Assesment}
+\textbf{Assessment}
 Students complete this module with a written exam of 90 minutes. A passing grade in this module is achieved when the overall grade is greater than or equal to 4.0.
 
 \textbf{Learning outcomes:}
@@ -1158,27 +1158,6 @@ For the following payoff-matrix, calculate the order of preferences based on the
 Please find solution to the exercise \protect\hyperlink{sol:koerth-example}{in the appendix.}
 \end{exercise}
 
-\begin{exercise}
-\protect\hypertarget{exr:finne}{}\label{exr:finne}Three categories
-
-Read \citet{Finne1998three} and answer the following questions:
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi})}
-\tightlist
-\item
-  Explain the three categories of decision making.
-\item
-  Give examples of the three categories of decision making.
-\item
-  Explain the four criteria for decision making under uncertainty.
-\item
-  Table 7 is full of errors. Can you play referee and correct them.
-\end{enumerate}
-
-Please find solution to the exercise \protect\hyperlink{sol:finne}{in the appendix.}
-\end{exercise}
-
 \hypertarget{lagrange-multiplier-method}{%
 \subsection{Lagrange Multiplier Method}\label{lagrange-multiplier-method}}
 
@@ -1323,15 +1302,39 @@ For each decision alternative, the weight \(\alpha\) is used to compute Hurwicz 
 where \(\overline{O}_i=\max_{j=1,\dots,p}{O_{ij}}\qquad \forall i\) and \(\underline{O}_i=\min_{j=1,\dots,p}{O_{ij}}\qquad \forall i\), i.e., the respective maximum and minimum Output for each alternative, \(i\).
 The example that is shown in Figure 7 of \citet[p.401]{Finne1998three} contains some errors. Here is the \emph{correct table} including the Hurwicz-values (we assume a \(\alpha=.5\)):
 
-\begin{tabular}{l|ccc}
-    $O_{ij}$ & $min(\theta_1)$ & $max(\theta_2)$ & $H_i$ \\\hline
-    $a_1$ & 36 & 110 & 73 \\
-    $a_2$ & 40 & 100 & 70 \\
-    $a_3$ & 58 & 74  & 66 \\
-    $a_4$ & 61 & 66  & 63.5 \\
-\end{tabular}
+\begin{longtable}[]{@{}lccc@{}}
+\toprule()
+\(O_{ij}\) & \(min(\theta_1)\) & \(max(\theta_2)\) & \(H_i\) \\
+\midrule()
+\endhead
+\(a_1\) & 36 & 110 & 73 \\
+\(a_2\) & 40 & 100 & 70 \\
+\(a_3\) & 58 & 74 & 66 \\
+\(a_4\) & 61 & 66 & 63.5 \\
+\bottomrule()
+\end{longtable}
 
 Thus, the order of preference is \(a_4\succ a_3 \succ a_1 \succ a_2\).
+
+\begin{exercise}
+\protect\hypertarget{exr:finne}{}\label{exr:finne}
+
+Three categories
+
+Read \citet{Finne1998three} and answer the following questions:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Explain the three categories of decision making.
+\item
+  Give examples of the three categories of decision making.
+\item
+  Explain the four criteria for decision making under uncertainty.
+\end{enumerate}
+
+\end{exercise}
 
 \hypertarget{decision-making-under-risk}{%
 \section{Decision making under risk}\label{decision-making-under-risk}}
@@ -1916,25 +1919,6 @@ Let \(A\) be the event of the Baby has a Down syndrom and \(B\) the test is posi
 \end{longtable}
 
 \(a_4\succ a_1 \sim a_2 \succ a_3\)
-
-\hypertarget{sol:finne}{%
-\subsection*{Solution to exercise \ref{exr:finne}: Optimal vs.~satisfactory solution}\label{sol:finne}}
-
-The example that is shown in Figure 7 of \citet[p.~401]{Finne1998three} contains some errors. Here is the \emph{correct table} including the Hurwicz-values (we assume \(\alpha=.5\)):
-
-\begin{longtable}[]{@{}lccc@{}}
-\toprule()
-\(O_{ij}\) & \(min(\theta_1)\) & \(max(\theta_2)\) & \(H_i\) \\
-\midrule()
-\endhead
-\(a_1\) & 36 & 110 & 73 \\
-\(a_2\) & 40 & 100 & 70 \\
-\(a_3\) & 58 & 74 & 66 \\
-\(a_4\) & 61 & 66 & 63.5 \\
-\bottomrule()
-\end{longtable}
-
-Thus, the order of preference is \(a_4\succ a_3 \succ a_1 \succ a_2\).
 
 \hypertarget{sol:burger}{%
 \subsection*{Solution to exercise \ref{exr:burger}: Burgers and drinks}\label{sol:burger}}
