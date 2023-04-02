@@ -545,9 +545,6 @@ Error in library(ggplot2) : there is no package called ‘ggplot2’
 
 It means that you didn't successfully install it. If you get this error message, go back to section \ref{package-installation} on R package installation and make sure to install the \texttt{ggplot2} package before proceeding.
 
-\hypertarget{package-use}{%
-\subsection{Package use}\label{package-use}}
-
 One very common mistake new R users make when wanting to use particular packages is they forget to \emph{load} them first by using the \texttt{library()} command we just saw. Remember: \emph{you have to load each package you want to use every time you start RStudio.} If you don't first \emph{load} a package, but attempt to use one of its features, you'll see an error message similar to:
 
 \begin{verbatim}
@@ -742,7 +739,8 @@ Suppose you saved the script in a sub-folder called \texttt{scripts} of your wor
 \end{Highlighting}
 \end{Shaded}
 
-Just note that \texttt{.\textquotesingle{}\ means\ the\ current\ folder.\ \ Instead\ of\ using\ the}source\texttt{function,\ you\ can\ click\ on\ the}source` button in Rstudio.
+Just note that the dot, \texttt{.}, means the current folder.
+Instead of using the \texttt{source} function, you can click on the \texttt{source} button in Rstudio.
 
 With the character \texttt{\#} you can write a comment in a script and R will simply ignore everything that follows in that line onwards.
 
@@ -750,7 +748,7 @@ With the character \texttt{\#} you can write a comment in a script and R will si
 \section{\texorpdfstring{The assignment operator: \texttt{\textless{}-}}{The assignment operator: \textless-}}\label{sec:assignmentoper}}
 
 Suppose I'm trying to calculate how much money I'm going to make from this book. I agree, it is an unrealistic example but it will help you to understand R.
-Let's assume I'm only going to sell 350 copies. To create a variable called \texttt{sales} that assign a \textbackslash keyterm\{value\texttt{to\ my\ variable}sales\texttt{,\ we\ need\ to\ use\ the\ \_assignment\ operator\_\ of\ R,\ which\ is}\textless-` as follows:
+Let's assume I'm only going to sell 350 copies. To create a variable called \texttt{sales} and assigns a value to it, we need to use the \emph{assignment operator} of R, which is \texttt{\textless{}-} as follows:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -794,11 +792,11 @@ addition & + & 10+2 & 12 \\
 subtraction & - & 9-3 & 6 \\
 multiplication & * & 5*5 & 25 \\
 division & / & 10/3 & 3 \\
-power & \texttt{\^{}} & \(5^2\) & 25 \\
+power & \texttt{\^{}} & 5\^{}2 & 25 \\
 \bottomrule()
 \end{longtable}
 
-So please copy and past the following script, try to run it on your PC, and try to understand it. Of course, you have to tweak the script a bit to make it run on your PC. For example, I doubt you have the same working directory that I decided to use.
+So please copy and past the following lines of code into a R script of yours, try to run it on your PC, and try to understand it. Of course, you have to tweak the script a bit to make it run on your PC. For example, I doubt you have the same working directory that I decided to use.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -883,7 +881,8 @@ Let us get back to script with sales and try to calculate the monthly growth rat
 
 The formula of a growth rate is clear:
 
-\[g=\left(\frac{y_t-y_{t-1}}{y_{t-1}}\cdot 100\right)=\left(\frac{y_t}{y_{t-1}}-1\right)\cdot 100\]
+\[ g=\left(\frac{y_t-y_{t-1}}{y_{t-1}}\right)\cdot 100=\left(\frac{y_t}{y_{t-1}}-1\right)\cdot 100 \]
+
 So the challenge is to divide the value of \texttt{revenue} with the value of the previous period, a.k.a. the lagged value. Let us assume that the function \texttt{lag()} can give you exactly that value of a vector. Lets try it out:
 
 \begin{Shaded}

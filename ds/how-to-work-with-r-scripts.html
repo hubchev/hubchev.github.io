@@ -170,7 +170,6 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="1.7.1" data-path="getting-started.html"><a href="getting-started.html#package-installation"><i class="fa fa-check"></i><b>1.7.1</b> Package installation</a></li>
 <li class="chapter" data-level="1.7.2" data-path="getting-started.html"><a href="getting-started.html#package-loading"><i class="fa fa-check"></i><b>1.7.2</b> Package loading</a></li>
-<li class="chapter" data-level="1.7.3" data-path="getting-started.html"><a href="getting-started.html#package-use"><i class="fa fa-check"></i><b>1.7.3</b> Package use</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="swirl.html"><a href="swirl.html"><i class="fa fa-check"></i><b>2</b> Learn interactively with swirl</a></li>
@@ -266,13 +265,14 @@ If you go for the third way, you need to open it manually.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="how-to-work-with-r-scripts.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>( <span class="st">&quot;hello.R&quot;</span> )</span></code></pre></div>
 <p>Suppose you saved the script in a sub-folder called of your working directory, then you need to run the script using the following command:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="how-to-work-with-r-scripts.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;./scripts/hello.R&quot;</span>) </span></code></pre></div>
-<p>Just note that <code>.' means the current folder.  Instead of using the</code>source<code>function, you can click on the</code>source` button in Rstudio.</p>
+<p>Just note that the dot, <code>.</code>, means the current folder.
+Instead of using the <code>source</code> function, you can click on the <code>source</code> button in Rstudio.</p>
 <p>With the character <code>#</code> you can write a comment in a script and R will simply ignore everything that follows in that line onwards.</p>
 </div>
 <div id="sec:assignmentoper" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> The assignment operator: <code>&lt;-</code><a href="how-to-work-with-r-scripts.html#sec:assignmentoper" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Suppose I’m trying to calculate how much money I’m going to make from this book. I agree, it is an unrealistic example but it will help you to understand R.
-Let’s assume I’m only going to sell 350 copies. To create a variable called <code>sales</code> that assign a \keyterm{value<code>to my variable</code>sales<code>, we need to use the _assignment operator_ of R, which is</code>&lt;-` as follows:</p>
+Let’s assume I’m only going to sell 350 copies. To create a variable called <code>sales</code> and assigns a value to it, we need to use the <em>assignment operator</em> of R, which is <code>&lt;-</code> as follows:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="how-to-work-with-r-scripts.html#cb13-1" aria-hidden="true" tabindex="-1"></a>sales <span class="ot">&lt;-</span> <span class="dv">350</span></span></code></pre></div>
 <p>When you hit enter, R doesn’t print out any output. If you are using Rstudio, and the <em>environment panel</em> you can see that something happened there, can you? It just gives you another command prompt. However, behind the scenes R has created a variable called <code>sales</code> and given it a value of <code>350</code>. You can check that this has happened by asking R to print the variable on screen. And the simplest way to do that is to type the name of the variable and hit enter.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="how-to-work-with-r-scripts.html#cb14-1" aria-hidden="true" tabindex="-1"></a>sales</span></code></pre></div>
@@ -321,12 +321,12 @@ Let’s assume I’m only going to sell 350 copies. To create a variable called 
 <tr class="odd">
 <td align="left">power</td>
 <td align="center"><code>^</code></td>
-<td align="center"><span class="math inline">\(5^2\)</span></td>
+<td align="center">5^2</td>
 <td align="center">25</td>
 </tr>
 </tbody>
 </table>
-<p>So please copy and past the following script, try to run it on your PC, and try to understand it. Of course, you have to tweak the script a bit to make it run on your PC. For example, I doubt you have the same working directory that I decided to use.</p>
+<p>So please copy and past the following lines of code into a R script of yours, try to run it on your PC, and try to understand it. Of course, you have to tweak the script a bit to make it run on your PC. For example, I doubt you have the same working directory that I decided to use.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="how-to-work-with-r-scripts.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set working directory</span></span>
 <span id="cb17-2"><a href="how-to-work-with-r-scripts.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Dropbox/hsf/23-ss/ds&quot;</span>)</span>
 <span id="cb17-3"><a href="how-to-work-with-r-scripts.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a vector that contains the sales data</span></span>
@@ -374,12 +374,16 @@ Finally, you can return the value of the object from the function, meaning pass 
 <pre><code>## [1] 25</code></pre>
 <p>Let us get back to script with sales and try to calculate the monthly growth rates of revenue using a self-written function.</p>
 <p>The formula of a growth rate is clear:</p>
-<p><span class="math display">\[g=\left(\frac{y_t-y_{t-1}}{y_{t-1}}\cdot 100\right)=\left(\frac{y_t}{y_{t-1}}-1\right)\cdot 100\]</span>
-So the challenge is to divide the value of <code>revenue</code> with the value of the previous period, a.k.a. the lagged value. Let us assume that the function <code>lag()</code> can give you exactly that value of a vector. Lets try it out:</p>
+<p><span class="math display">\[ g=\left(\frac{y_t-y_{t-1}}{y_{t-1}}\right)\cdot 100=\left(\frac{y_t}{y_{t-1}}-1\right)\cdot 100 \]</span></p>
+<p>So the challenge is to divide the value of <code>revenue</code> with the value of the previous period, a.k.a. the lagged value. Let us assume that the function <code>lag()</code> can give you exactly that value of a vector. Lets try it out:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="how-to-work-with-r-scripts.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(revenue)</span></code></pre></div>
-<pre><code>##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0</code></pre>
+<pre><code>##  [1]    0  700 1400  350  175   28   56    0    0    0    0    0
+## attr(,&quot;tsp&quot;)
+## [1]  0 11  1</code></pre>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="how-to-work-with-r-scripts.html#cb25-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">lag</span>(revenue)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span></code></pre></div>
-<pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
+<pre><code>##  [1] NaN   0   0   0   0   0   0 NaN NaN NaN NaN NaN
+## attr(,&quot;tsp&quot;)
+## [1]  0 11  1</code></pre>
 <p>Unfortunately, this does not work out. The <code>lag()</code> function does not work as we think it should. Well, the reason is simply that we are using the wrong function. The current <code>lag()</code> function is part of the stats package which is part of R base and is always loaded. The <code>lag()</code> function we aim to use stems from the dplyr package which we must install and load to be able to use it. So let’s do it:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="how-to-work-with-r-scripts.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if the package is installed</span></span>
 <span id="cb27-2"><a href="how-to-work-with-r-scripts.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">find.package</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
@@ -387,17 +391,25 @@ So the challenge is to divide the value of <code>revenue</code> with the value o
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="how-to-work-with-r-scripts.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I already installed the package so I can just load it</span></span>
 <span id="cb29-2"><a href="how-to-work-with-r-scripts.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
 <span id="cb29-3"><a href="how-to-work-with-r-scripts.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
 <p>Now, we was informed that among other functions the <code>lag()</code> function is <em>masked</em>. That means that now the function of the newly loaded package is active. So, let’s try again:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="how-to-work-with-r-scripts.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(revenue)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="how-to-work-with-r-scripts.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(revenue)</span></code></pre></div>
 <pre><code>##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="how-to-work-with-r-scripts.html#cb32-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">lag</span>(revenue)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="how-to-work-with-r-scripts.html#cb35-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">lag</span>(revenue)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span></code></pre></div>
 <pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
 <p>That looks good now. And here is a way to calculate growth rates with a self-written function:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="how-to-work-with-r-scripts.html#cb34-1" aria-hidden="true" tabindex="-1"></a>growth_rate <span class="ot">&lt;-</span> <span class="cf">function</span>(x)(x<span class="sc">/</span><span class="fu">lag</span>(x)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span>
-<span id="cb34-2"><a href="how-to-work-with-r-scripts.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">growth_rate</span>(revenue)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="how-to-work-with-r-scripts.html#cb37-1" aria-hidden="true" tabindex="-1"></a>growth_rate <span class="ot">&lt;-</span> <span class="cf">function</span>(x)(x<span class="sc">/</span><span class="fu">lag</span>(x)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span>
+<span id="cb37-2"><a href="how-to-work-with-r-scripts.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">growth_rate</span>(revenue)</span></code></pre></div>
 <pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="how-to-work-with-r-scripts.html#cb36-1" aria-hidden="true" tabindex="-1"></a>sales_gr_rate <span class="ot">&lt;-</span> <span class="fu">growth_rate</span>(revenue)</span>
-<span id="cb36-2"><a href="how-to-work-with-r-scripts.html#cb36-2" aria-hidden="true" tabindex="-1"></a>sales_gr_rate</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="how-to-work-with-r-scripts.html#cb39-1" aria-hidden="true" tabindex="-1"></a>sales_gr_rate <span class="ot">&lt;-</span> <span class="fu">growth_rate</span>(revenue)</span>
+<span id="cb39-2"><a href="how-to-work-with-r-scripts.html#cb39-2" aria-hidden="true" tabindex="-1"></a>sales_gr_rate</span></code></pre></div>
 <pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
 <p>You know, all functions in R are user-written and sometimes it happens that two people had the idea to name functions identically. In such a case we have to deal with that conflict as we cannot use both functions at the same time. Also, it is a very realistic case that you find a solution somewhere that should work out your problem but you fail to make it run. In such a case it is often a forgotten package that needs to be loaded.</p>
 
