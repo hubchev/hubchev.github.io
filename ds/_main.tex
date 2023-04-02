@@ -156,7 +156,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 29 March, 2023}
+\date{Last compiled on 02 April, 2023}
 
 \begin{document}
 \maketitle
@@ -279,7 +279,7 @@ R is a free and open-source programming language that provides a wide range of a
 
 There are many different approaches to learning R. It pretty much depends on your preferences, needs, goals, prerequisites and limitations. It is up to you to search and find a suitable way to achieve the learning goals. However, I offer these notes and if you are in one of my classes, you can ask at any time for help.
 
-The notes should walk you through many of the things that are important when working in R, and it should help you dig deeper and learn more if you want to. For beginners, I recommend starting with my swirl courses, see section \ref{sec:swirl}. However, there are thousands of other resources for learning R: textbooks, online courses, videos, guided tutorials, etc.. I give some recommendations about learning resources in section \ref{Rlearninglit}.
+The notes should walk you through many of the things that are important when working in R, and it should help you dig deeper and learn more if you want to. For beginners, I recommend starting with my swirl courses, see section \ref{swirl}. However, there are thousands of other resources for learning R: textbooks, online courses, videos, guided tutorials, etc.. I give some recommendations about learning resources in section \ref{Rlearninglit}.
 
 Below, I'll give you a list of resources that are worth a look. You might find what you're looking for there. If not, just keep reading this book. Above all, those who have personally taken one of my courses are welcome to contact me if they think I can help them.
 
@@ -537,13 +537,13 @@ For example, to load the \texttt{ggplot2} package, run the following code in the
 \end{Highlighting}
 \end{Shaded}
 
-If after running the earlier code, a blinking cursor returns next to the \texttt{\textgreater{}} ``prompt'' sign, it means you were successful and the \texttt{ggplot2} package is now loaded and ready to use. If, however, you get a red ``error message'' that reads \texttt{...} \index{R packages!loading error}
+If after running the earlier code, a blinking cursor returns next to the \texttt{\textgreater{}} ``prompt'' sign, it means you were successful and the \texttt{ggplot2} package is now loaded and ready to use. If, however, you get a red ``error message'' that reads
 
 \begin{verbatim}
 Error in library(ggplot2) : there is no package called ‘ggplot2’
 \end{verbatim}
 
-\texttt{...} it means that you didn't successfully install it. If you get this error message, go back to section \ref{package-installation} on R package installation and make sure to install the \texttt{ggplot2} package before proceeding.
+It means that you didn't successfully install it. If you get this error message, go back to section \ref{package-installation} on R package installation and make sure to install the \texttt{ggplot2} package before proceeding.
 
 \hypertarget{package-use}{%
 \subsection{Package use}\label{package-use}}
@@ -556,8 +556,8 @@ Error: could not find function
 
 This is a different error message than the one you just saw on a package not having been installed yet. R is telling you that you are trying to use a function in a package that has not yet been \emph{loaded}. R doesn't know where to find the function you are using. Almost all new users forget to do this when starting out, and it is a little annoying to get used to doing it. However, you'll remember with practice and after some time it will become second nature for you.
 
-\hypertarget{sec:swirl}{%
-\chapter{Learn interactively with swirl}\label{sec:swirl}}
+\hypertarget{swirl}{%
+\chapter{Learn interactively with swirl}\label{swirl}}
 
 The R package \emph{swirl} makes it fun and easy to learn R programming and data science.
 \emph{swirl} teaches you R programming and data science interactively, at your own pace,
@@ -893,10 +893,7 @@ So the challenge is to divide the value of \texttt{revenue} with the value of th
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]    0  700 1400  350  175   28   56    0
-##  [9]    0    0    0    0
-## attr(,"tsp")
-## [1]  0 11  1
+##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0
 \end{verbatim}
 
 \begin{Shaded}
@@ -906,10 +903,7 @@ So the challenge is to divide the value of \texttt{revenue} with the value of th
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] NaN   0   0   0   0   0   0 NaN NaN NaN
-## [11] NaN NaN
-## attr(,"tsp")
-## [1]  0 11  1
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
 
 Unfortunately, this does not work out. The \texttt{lag()} function does not work as we think it should. Well, the reason is simply that we are using the wrong function. The current \texttt{lag()} function is part of the stats package which is part of R base and is always loaded. The \texttt{lag()} function we aim to use stems from the dplyr package which we must install and load to be able to use it. So let's do it:
@@ -922,7 +916,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr"
+## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.1/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -933,23 +927,6 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-## 
-## Attaching package: 'dplyr'
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-\end{verbatim}
-
-\begin{verbatim}
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-\end{verbatim}
-
 Now, we was informed that among other functions the \texttt{lag()} function is \emph{masked}. That means that now the function of the newly loaded package is active. So, let's try again:
 
 \begin{Shaded}
@@ -959,8 +936,7 @@ Now, we was informed that among other functions the \texttt{lag()} function is \
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA    0  700 1400  350  175   28   56
-##  [9]    0    0    0    0
+##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0
 \end{verbatim}
 
 \begin{Shaded}
@@ -970,8 +946,7 @@ Now, we was informed that among other functions the \texttt{lag()} function is \
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100
-##  [9]  NaN  NaN  NaN  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
 
 That looks good now. And here is a way to calculate growth rates with a self-written function:
@@ -984,8 +959,7 @@ That looks good now. And here is a way to calculate growth rates with a self-wri
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100
-##  [9]  NaN  NaN  NaN  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
 
 \begin{Shaded}
@@ -996,8 +970,7 @@ That looks good now. And here is a way to calculate growth rates with a self-wri
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100
-##  [9]  NaN  NaN  NaN  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
 
 You know, all functions in R are user-written and sometimes it happens that two people had the idea to name functions identically. In such a case we have to deal with that conflict as we cannot use both functions at the same time. Also, it is a very realistic case that you find a solution somewhere that should work out your problem but you fail to make it run. In such a case it is often a forgotten package that needs to be loaded.
