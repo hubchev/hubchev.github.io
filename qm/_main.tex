@@ -116,7 +116,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 29 March, 2023}
+\date{Last compiled on 12 April, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -1261,8 +1261,142 @@ Given the some assumptions, the Rubin Causal Model allows for estimation of the 
 Please find solution to the exercise \protect\hyperlink{sol:treatmenteffects}{in the appendix.}
 \end{exercise}
 
+\hypertarget{hands-on-experiments}{%
+\chapter{Hands on experiments}\label{hands-on-experiments}}
+
+\hypertarget{natural-experiments}{%
+\section{Natural experiments}\label{natural-experiments}}
+
+In social science, a \emph{natural experiment} is a research design that exploits naturally occurring circumstances or events to study the effects of an intervention or treatment. In these experiments, the treatment is not manipulated by the researcher, but is instead determined by exogenous, or external, factors. \emph{Exogenous variations} refer to changes in the independent variable that are not caused by the researcher's actions but instead occur naturally or through some external factor. These variations are often unpredictable and occur without the intervention of the researcher, making them an ideal source of variation to study the causal effects of a treatment or intervention.
+One example of a natural experiment is the partition of Germany after World War II, which created two economies that were initially similar but experienced vastly different economic and institutional environments. Another example is the introduction of a new policy or technology in one state or country but not in another, allowing for a comparison of outcomes before and after the treatment.
+A natural experiment might involve comparing the outcomes of two groups of people who were exposed to different levels of air pollution due to a policy change or a natural disaster. In this case, the variation in air pollution levels is exogenous, since it is not controlled by the researcher but rather determined by external factors.
+
+By leveraging these exogenous variations, researchers can better estimate the causal effects of an intervention or treatment, and provide evidence for policy-makers to make more informed decisions. In the following, we will get known to some studies that are based on natural experiments.
+
+\hypertarget{empirical-evidence-bombing}{%
+\section{Empirical evidence: Bombing}\label{empirical-evidence-bombing}}
+
+In their article ``Bones, Bombs, and Break Points: The Geography of Economic Activity,'' \citet{Davis2002Bones} explore another natural experiment that has shaped the economic geography of the world: the natural endowment of different regions with physical and institutional factors that affect their productivity and attractiveness to economic activity. Using a spatial econometric model, they test the relative importance of three such factors: climate, natural resources, and political borders. They find that political borders, such as the ones that emerged from colonialism or ethnic conflict, have the strongest effect on economic activity, even after controlling for other factors. This has important implications for policy, as it suggests that changing the institutional environment of a region can have a significant impact on its economic performance.
+
+Overall, Davis and Weinstein's article demonstrates the power of natural experiments to shed light on important economic questions and inform policy debates. By examining the historical and geographical factors that have shaped economic activity around the world, they offer valuable insights into the mechanisms that drive economic growth and inequality.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.3\textwidth,height=\textheight]{fig/krugman.jpeg}
+\caption[\label{fig:krugman} Paul Krugman *1953]{\label{fig:krugman} Paul Krugman *1953\footnotemark{}}
+\end{figure}
+\footnotetext{Picture is taken from \url{https://commons.wikimedia.org/wiki/File:Paul_Krugman-press_conference_Dec_07th,_2008-8.jpg}}
+
+Before you read this article, let me explain that the theory which this article elaborates and tests goes back to the 2008 nobel-prize winner Paul Krugman (*1953) who founded the so-called \emph{New Economic Geography} (NEG).
+Here is an excerpt of how the Royal Swedish Academy of Sciences summarizes Krugman's contribution to the field (RSA2008Prize, 3):
+
+\begin{quote}
+Economic geography deals not only with what goods are produced where, but also with the distribution of capital and labor over countries and regions. The approach Krugman used in his foreign trade theory -- the assumption of economies of scale in production and a preference for diversity in consumption -- was also found to be appropriate for analyzing geographical issues. This allowed Krugman to integrate two disparate fields in a cohesive model.
+\end{quote}
+
+\begin{quote}
+The embryo of the theory which would come to be called the ``new economic geography'\,' had already appeared in Krugman's 1979 article. In the final pages, he asks what would happen if foreign trade became impossible, for instance due to excessively high transport costs or other obstacles. His line of reasoning is as follows. If two countries are exactly alike, then welfare will be the same in both countries. But if the countries are alike in all respects except that one of them has a slightly larger population than the other, then the real wages of labor will be somewhat higher in the country with more inhabitants. The reason is that firms in the more highly populated country can make better use of economies of scale, which implies lower prices to consumers and/or greater diversity in the supply of goods. This, in turn, enhances the welfare of consumers. As a result, labor, i.e., consumers, will tend to move to the country with more inhabitants, thereby increasing its population. Real wages and the supply of goods will then continue to increase even more in that country, thereby giving rise to further migration, and so on.
+\end{quote}
+
+\begin{quote}
+Twelve years would pass, however, before Krugman reconsidered these ideas. In an article published in 1991, he developed these concepts into a comprehensive theory of location of labor and firms. Here, he assumes that although trade is possible, it is obstructed due to transport costs. Otherwise, labor is free to move to the country or region which can offer the highest welfare, in terms of real wages and diversity of goods. Firms' location decisions imply a trade-off between utilizing economies of scale and saving on transport costs.
+\end{quote}
+
+\begin{quote}
+\textbf{Concentration or Decentralization?}
+\end{quote}
+
+\begin{quote}
+The above considerations evolved into the so-called core-periphery model, which shows that the relation between economies of scale and transport costs can result in either concentration or decentralization of communities. Under certain conditions, the forces which contribute to concentration will dominate. Regional imbalances arise and most of the population will be concentrated in a high-technology core, whereas a small minority will inhabit the periphery and live off agriculture. Such a mechanism could underlie the explosive urbanization witnessed today throughout the world, with rapidly growing megacities surrounded by increasingly depopulated rural areas. This is not necessarily the only possibility, however. Under different conditions, the forces which give rise to decentralization will dominate. This promotes somewhat more balanced development. Krugman's model can be used to account for the mechanisms at work in both directions. For example, his model indicates that declining transport costs easily generate concentration and urbanization -- which seems particularly noteworthy since transport costs have exhibited a declining trend throughout the twentieth century.
+\end{quote}
+
+Numerous research papers inspired by Krugman's New Economic Geography (NEG) focus on the origins and implications of the so-called first and second nature effects. These effects are used to explain the uneven distribution of economic activity both across countries and within regions of a country. Two primary explanations have been investigated: (1) \emph{Fundamentals}, which refer to differences in the fundamental productivity of locations, and (2) \emph{Agglomeration forces}, which are related to the proximity of economic agents that boost productivity and make a location more attractive.
+
+These two mechanisms are obviously not exclusive and can both operate simultaneously. The key empirical question is to what extent observed patterns of economic activity are explained by these two mechanisms. Understanding whether fundamentals or agglomeration forces are responsible for the pattern of economic activity has significant implications for the persistence of spatial equilibria and policy making.
+
+For instance, suppose only agglomeration forces are at play. In that case, the location of economic activity is relatively arbitrary, and a particular location is attractive mainly because other workers are choosing to locate there. This phenomenon is similar to selecting a nightclub: club A is crowded and everybody wants to be there only because it was the club had attracted the first person that night.
+
+In contrast, if only fundamentals are in operation, the distribution of activity is determined by the distribution of these underlying factors. When agglomeration forces dominate fundamentals, the spatial distribution of activity becomes a matter of political interest. For example, regional policies can aim to move the distribution of economic activity between different equilibria. Using a temporary subsidy, regions can try to attract a `critical mass' of economic activity. Once established, this critical mass will make the location more attractive, even when the subsidy has ended.
+
+This approach is similar to nightclub policies, such as offering free entry or other discounts to the first people who are searching for a club. These incentives are an attempt to attract a critical mass of party-goers, making the nightclub more attractive and increasing the likelihood that other party-goers will choose the same club later.
+
+\begin{exercise}
+\protect\hypertarget{exr:bombs}{}\label{exr:bombs}
+
+The impact of nuclear bombs on agglomerations
+
+\textbf{Background:} The bombing of Japan during the Second World War devastated 66 cities that were targeted, leading to the destruction of approximately half of their housing stock and the deaths of around 300,000 Japanese. Although Hiroshima and Nagasaki are more well-known due to the nuclear bombs that were dropped on them, the majority of cities in the sample suffered little to no destruction, including several large cities. Despite the scale of the bombing, it was clearly a temporary shock that did not change the fundamental attractiveness of locations. However, the nuclear radiation in Hiroshima and Nagasaki could be considered an exception.
+
+\textbf{Data:} The data set used in the paper consists of information on 303 Japanese cities with a population exceeding 30,000 in 1925. Population figures are recorded every five years, with the exception of the 1945 census, which took place in 1947. One way to gauge the intensity of the shocks experienced by the cities is by looking at the number of dead or missing residents.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Read \citet{Davis2002Bones}\footnote{It is available here: \url{https://blogs.cuit.columbia.edu/dew35/files/2016/08/BBB.pdf}} and explain the implications of the following figures:
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth,height=\textheight]{fig/fig1weinstein.png}
+\caption{\label{fig:fig1weinstein} Figure 1 of \citet{Davis2002Bones}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth,height=\textheight]{fig/fig2weinstein.png}
+\caption{\label{fig:fig2weinstein} Figure 2 of \citet{Davis2002Bones}}
+\end{figure}
+
+The results of Davis and Weinstein (2002) show a striking persistence of city size even after terrible wartime destruction. This has important implications for attempts to use regional policy to shift economic activity between spatial equilibria. The following quote sums it up well:
+\textgreater{} ``An important practical question, then, is whether such spatial catastrophes are theoretical curiosa or a central tendency in the data. Our results provide an unambiguous answer: Even nuclear bombs have little effect on relative city sizes over the course of a couple of decades. The theoretical possibility of spatial catastrophes due to temporary shocks is not a central tendency borne out in the data.'' \citet[p.~1284]{Davis2002Bones}
+
+The use of bombing as a temporary shock, however, can be seen as problematic:
+Although bombing causes casualties and destroys housing and social structures, legal property rights and operating licenses are not destroyed. Therefore, rebuilding cities may prove less burdensome than building new settlements from scratch. Moreover, even after a nuclear explosion, functioning infrastructure may still be in place, which could make rebuilding at the old site less costly.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Read \citet{Bleakley2012Portage} and discuss how this is confronting the insights from \citet{Davies2002Bones}. It is freely available here: \url{https://personal.lse.ac.uk/sturmd/brixen/pdf/Bleakley-Lin-QJE-2012.pdf}
+\end{enumerate}
+
+\end{exercise}
+
+\begin{exercise}
+\protect\hypertarget{exr:natexperiments}{}\label{exr:natexperiments}
+
+Natural experiments in research
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  Think of other natural experiments that can be scientifically exploited.
+\item
+  Download \citet{Sieweke2020Natural}. It is freely available here: \url{https://openaccess.city.ac.uk/id/eprint/23363/1/}
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Read section 3.1.
+\item
+  Study table V.
+\end{itemize}
+
+\end{exercise}
+
+\hypertarget{field-experiments}{%
+\section{Field experiments}\label{field-experiments}}
+
+Read: \citet{Bandiera2011Field}
+
+\hypertarget{hands-on-observational-data}{%
+\chapter{Hands on observational data}\label{hands-on-observational-data}}
+
 \hypertarget{difference-in-difference}{%
-\chapter{Difference in difference}\label{difference-in-difference}}
+\section{Difference in difference}\label{difference-in-difference}}
 
 \begin{figure}
 \centering

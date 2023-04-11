@@ -171,6 +171,7 @@ div.csl-indent {
 <li class="chapter" data-level="1.7.1" data-path="getting-started.html"><a href="getting-started.html#package-installation"><i class="fa fa-check"></i><b>1.7.1</b> Package installation</a></li>
 <li class="chapter" data-level="1.7.2" data-path="getting-started.html"><a href="getting-started.html#package-loading"><i class="fa fa-check"></i><b>1.7.2</b> Package loading</a></li>
 </ul></li>
+<li class="chapter" data-level="1.8" data-path="getting-started.html"><a href="getting-started.html#dont-do-it"><i class="fa fa-check"></i><b>1.8</b> Don’t do it</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="swirl.html"><a href="swirl.html"><i class="fa fa-check"></i><b>2</b> Learn interactively with swirl</a></li>
 <li class="chapter" data-level="3" data-path="how-to-work-with-r-scripts.html"><a href="how-to-work-with-r-scripts.html"><i class="fa fa-check"></i><b>3</b> How to work with R scripts</a>
@@ -181,14 +182,15 @@ div.csl-indent {
 <li class="chapter" data-level="3.4" data-path="how-to-work-with-r-scripts.html"><a href="how-to-work-with-r-scripts.html#doing-calculation-in-scripts"><i class="fa fa-check"></i><b>3.4</b> Doing calculation in scripts</a></li>
 <li class="chapter" data-level="3.5" data-path="how-to-work-with-r-scripts.html"><a href="how-to-work-with-r-scripts.html#sec:generics"><i class="fa fa-check"></i><b>3.5</b> User-defined functions</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>4</b> Appendix</a>
+<li class="chapter" data-level="4" data-path="how-to-visualize-data.html"><a href="how-to-visualize-data.html"><i class="fa fa-check"></i><b>4</b> How to visualize data</a></li>
+<li class="chapter" data-level="5" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>5</b> Appendix</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="appendix.html"><a href="appendix.html#sec:navigation"><i class="fa fa-check"></i><b>4.1</b> Navigating the file system</a>
+<li class="chapter" data-level="5.1" data-path="appendix.html"><a href="appendix.html#sec:navigation"><i class="fa fa-check"></i><b>5.1</b> Navigating the file system</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="appendix.html"><a href="appendix.html#sec:filesystem"><i class="fa fa-check"></i><b>4.1.1</b> The file system</a></li>
-<li class="chapter" data-level="4.1.2" data-path="appendix.html"><a href="appendix.html#working-directory"><i class="fa fa-check"></i><b>4.1.2</b> Working directory</a></li>
-<li class="chapter" data-level="4.1.3" data-path="appendix.html"><a href="appendix.html#sec:navigationR"><i class="fa fa-check"></i><b>4.1.3</b> Navigating the file system using the R console</a></li>
-<li class="chapter" data-level="4.1.4" data-path="appendix.html"><a href="appendix.html#sec:winbackslash"><i class="fa fa-check"></i><b>4.1.4</b> Why do the Windows paths use the back-slash?</a></li>
+<li class="chapter" data-level="5.1.1" data-path="appendix.html"><a href="appendix.html#sec:filesystem"><i class="fa fa-check"></i><b>5.1.1</b> The file system</a></li>
+<li class="chapter" data-level="5.1.2" data-path="appendix.html"><a href="appendix.html#working-directory"><i class="fa fa-check"></i><b>5.1.2</b> Working directory</a></li>
+<li class="chapter" data-level="5.1.3" data-path="appendix.html"><a href="appendix.html#sec:navigationR"><i class="fa fa-check"></i><b>5.1.3</b> Navigating the file system using the R console</a></li>
+<li class="chapter" data-level="5.1.4" data-path="appendix.html"><a href="appendix.html#sec:winbackslash"><i class="fa fa-check"></i><b>5.1.4</b> Why do the Windows paths use the back-slash?</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -428,8 +430,29 @@ Figure 1.6: Installing packages in R the easy way.
 <p>One very common mistake new R users make when wanting to use particular packages is they forget to <em>load</em> them first by using the <code>library()</code> command we just saw. Remember: <em>you have to load each package you want to use every time you start RStudio.</em> If you don’t first <em>load</em> a package, but attempt to use one of its features, you’ll see an error message similar to:</p>
 <pre><code>Error: could not find function</code></pre>
 <p>This is a different error message than the one you just saw on a package not having been installed yet. R is telling you that you are trying to use a function in a package that has not yet been <em>loaded</em>. R doesn’t know where to find the function you are using. Almost all new users forget to do this when starting out, and it is a little annoying to get used to doing it. However, you’ll remember with practice and after some time it will become second nature for you.</p>
-
 </div>
+</div>
+<div id="dont-do-it" class="section level2 hasAnchor" number="1.8">
+<h2><span class="header-section-number">1.8</span> Don’t do it<a href="getting-started.html#dont-do-it" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are many conventions, rules and specific things that you should know better in order not to get into trouble with R so easily. It is tedious to explain all these dos and don’ts in detail, so please obey. It will make your life with R easier. I assure you, will understand later on why it is beneficial to follow these suggested conventions. So here is a non-exhaustive list of things to know:</p>
+<p><strong>Don’t…</strong></p>
+<ul>
+<li>…forget: R is <strong>case sensitive</strong>.</li>
+<li>…name of objects such as vectors, numbers, variables, and data frames with a starting number.</li>
+<li>…use dots in names of objects.</li>
+<li>…use the following keywords in naming objects: if , else , repeat , while , function , for , in , next , break , TRUE , FALSE , NULL , Inf , NaN ,
+NA.</li>
+<li>…use the back slash <code>\</code> but the front slash <code>/</code> for navigating the file system.</li>
+<li>…use whitespace and indentation for naming files, directories, or objects.</li>
+<li>…ignore warnings or errors unless you know what they mean.</li>
+<li>…use hard-coded values. Instead, define objects to represent these values.</li>
+<li>…forget to (install and) load packages that contains functions you want to use.</li>
+<li>…forget to set your working directory.</li>
+<li>…forget to comment your code.</li>
+<li>…use =, for assignment but &lt;-.</li>
+</ul>
+<p>An exhaustive style guide on how to write code can be found here: <a href="https://style.tidyverse.org" class="uri">https://style.tidyverse.org</a></p>
+
 </div>
 </div>
             </section>

@@ -156,8 +156,25 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 02 April, 2023}
+\date{Last compiled on 12 April, 2023}
 
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{definition}
+\newtheorem{hypothesis}{Hypothesis}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
 \begin{document}
 \maketitle
 
@@ -552,6 +569,44 @@ Error: could not find function
 \end{verbatim}
 
 This is a different error message than the one you just saw on a package not having been installed yet. R is telling you that you are trying to use a function in a package that has not yet been \emph{loaded}. R doesn't know where to find the function you are using. Almost all new users forget to do this when starting out, and it is a little annoying to get used to doing it. However, you'll remember with practice and after some time it will become second nature for you.
+
+\hypertarget{dont-do-it}{%
+\section{Don't do it}\label{dont-do-it}}
+
+There are many conventions, rules and specific things that you should know better in order not to get into trouble with R so easily. It is tedious to explain all these dos and don'ts in detail, so please obey. It will make your life with R easier. I assure you, will understand later on why it is beneficial to follow these suggested conventions. So here is a non-exhaustive list of things to know:
+
+\textbf{Don't\ldots{}}
+
+\begin{itemize}
+\tightlist
+\item
+  \ldots forget: R is \textbf{case sensitive}.
+\item
+  \ldots name of objects such as vectors, numbers, variables, and data frames with a starting number.
+\item
+  \ldots use dots in names of objects.
+\item
+  \ldots use the following keywords in naming objects: if , else , repeat , while , function , for , in , next , break , TRUE , FALSE , NULL , Inf , NaN ,
+  NA.
+\item
+  \ldots use the back slash \texttt{\textbackslash{}} but the front slash \texttt{/} for navigating the file system.
+\item
+  \ldots use whitespace and indentation for naming files, directories, or objects.
+\item
+  \ldots ignore warnings or errors unless you know what they mean.
+\item
+  \ldots use hard-coded values. Instead, define objects to represent these values.
+\item
+  \ldots forget to (install and) load packages that contains functions you want to use.
+\item
+  \ldots forget to set your working directory.
+\item
+  \ldots forget to comment your code.
+\item
+  \ldots use =, for assignment but \textless-.
+\end{itemize}
+
+An exhaustive style guide on how to write code can be found here: \url{https://style.tidyverse.org}
 
 \hypertarget{swirl}{%
 \chapter{Learn interactively with swirl}\label{swirl}}
@@ -973,6 +1028,47 @@ That looks good now. And here is a way to calculate growth rates with a self-wri
 \end{verbatim}
 
 You know, all functions in R are user-written and sometimes it happens that two people had the idea to name functions identically. In such a case we have to deal with that conflict as we cannot use both functions at the same time. Also, it is a very realistic case that you find a solution somewhere that should work out your problem but you fail to make it run. In such a case it is often a forgotten package that needs to be loaded.
+
+\begin{exercise}
+\protect\hypertarget{exr:growthrate}{}\label{exr:growthrate}All roads lead to R(ome)
+
+If you ask ten programmers to solve a particular problem, you will probably receive ten different soltuions that are all valid. R is no exception here. This can be very confussing when just started to learn R.
+
+Below you find two more ways to calculate the a growth rate. Do you understand them?
+\end{exercise}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{c}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\FunctionTok{diff}\NormalTok{(revenue)}\SpecialCharTok{/}\FunctionTok{head}\NormalTok{(revenue, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{))}\SpecialCharTok{*}\DecValTok{100}        
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(revenue}\SpecialCharTok{/}\FunctionTok{c}\NormalTok{(}\ConstantTok{NA}\NormalTok{,revenue[}\SpecialCharTok{{-}}\FunctionTok{length}\NormalTok{(revenue)])}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)}\SpecialCharTok{*}\DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+\end{verbatim}
+
+\hypertarget{how-to-visualize-data}{%
+\chapter{How to visualize data}\label{how-to-visualize-data}}
+
+When it comes to data visualization, there's no better resource than the book by \citet{Wickham2023R}, which is available online for free at \url{https://r4ds.hadley.nz}. The book introduces the tidyverse package and ggplot function, making it easy to create beautiful and informative graphs. If you haven't already done so, I recommend working through the tidyverse module of my swirl package, called \emph{swirl-it}, for an interactive and engaging learning experience.
+
+When it comes to data visualization, there is no introduction that is more up-to-date
+and more popular that to the wonderful book of \citet{Wickham2023R} that you find online freely available here: \url{https://r4ds.hadley.nz}
+The book introduces the tidyverse package and the ggplot function that allows to make nice graphs comparably easy. Please, work through the
+tidyverse module of my swirl module \emph{swirl-it} now, if you haven't done it so far (see section \ref{swirl}).
+
+Now, read chapters 1 and 2 of \citet{Wickham2023R}. Copy all the code that is shown in the book into a script and try to run it on your machine.
+That is the best way to learn, understand, and create your own notes that may guide you later on. I highly recommend the exercises of the book. Don't skip them. If you have troubles finding the solutions, there are some guy
 
 \hypertarget{appendix}{%
 \chapter{Appendix}\label{appendix}}
