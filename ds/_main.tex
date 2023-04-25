@@ -156,7 +156,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 13 April, 2023}
+\date{Last compiled on 26 April, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -969,7 +969,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr"
+## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.1/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1068,6 +1068,95 @@ tidyverse module of my swirl module \emph{swirl-it} now, if you haven't done it 
 
 Now, read chapters 1 and 2 of \citet{Wickham2023R}. Copy all the code that is shown in the book into a script and try to run it on your machine.
 That is the best way to learn, understand, and create your own notes that may guide you later on. I highly recommend the exercises of the book. Don't skip them. If you have troubles finding the solutions, there are some guy
+
+\hypertarget{how-to-write-reports-with-r-markdown}{%
+\chapter{How to write reports with R Markdown}\label{how-to-write-reports-with-r-markdown}}
+
+\hypertarget{what-is-r-markdown-good-for}{%
+\section{What is R Markdown good for?}\label{what-is-r-markdown-good-for}}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth,height=\textheight]{fig/rmstudio.png}
+\caption{\label{fig:examplermd} Example of an R Markdown file}
+\end{figure}
+
+R Markdown provides an authoring framework for data science. You can use a single
+R Markdown file to transcript your work, run code, and generate high quality reports, books, websites, articles, theses, blogs, and many more.
+
+In contrast to Quarto (see: \url{https://quarto.org} and \url{https://quarto.org/docs/get-started/hello/rstudio.html}), which is the more recent format, R Markdown is around for some time and hence there are uncountable resources to learn it. For example:
+
+\begin{itemize}
+\tightlist
+\item
+  The \href{https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf}{R Markdown Cheatsheet} from posit offers an overview on the most important features of R Markdown.
+\end{itemize}
+
+\includegraphics[width=0.5\textwidth,height=\textheight]{fig/rmdcheat.png}
+
+\begin{itemize}
+\tightlist
+\item
+  The book \emph{R Markdown Cookbook} by \citet{Xie2020R} offers an introduction. The \href{https://bookdown.org/yihui/rmarkdown-cookbook}{online version of the book} is regularly updated and free of costs.
+\end{itemize}
+
+\includegraphics[width=0.25\textwidth,height=\textheight]{fig/rmarkdownbook.png}
+
+\begin{itemize}
+\tightlist
+\item
+  The book \emph{R Markdown: The Definitive Guide} by \citet{Xie2018R} offers a comprehensive introduction. \href{https://bookdown.org/yihui/rmarkdown}{The online version of the book} is regularly updated and free of costs.
+\end{itemize}
+
+\includegraphics[width=0.25\textwidth,height=\textheight]{fig/rmcb.png}
+
+Please watch the video \href{https://vimeo.com/178485416}{What is R Markdown?} and then study the \href{https://rmarkdown.rstudio.com/lesson-1.html}{R Markdown tutorial from RStudio}.
+
+\begin{exercise}
+\protect\hypertarget{exr:rmdfirst}{}\label{exr:rmdfirst}
+
+Start Markdown and R markdown
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  You can learn Markdown in 10 minutes. Just go to \url{https://www.markdowntutorial.com} and work throught the interactive lessons.
+\item
+  Now create your first R Markdown file in 3 minutes by doing the following:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  click in RStudio on \emph{File \textgreater{} New File \textgreater{} R Markdown}
+\item
+  click \emph{OK}
+\item
+  look for a button entitled \emph{Knit} and click it
+\item
+  save your file (it will be saved with .Rmd file extension)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Play around with the file. For example, change the output format can you create a word file or a presentation. Play around with the code chunks. Add a picture that you find somewhere online.
+\item
+  Set your working directory to the folder where you have saved your first Rmd-file. Can you come up with a way to generate different output format with just one function.
+\end{enumerate}
+
+\end{exercise}
+
+\begin{exercise}
+\protect\hypertarget{exr:rmdsecond}{}\label{exr:rmdsecond}Please download and open the file ``23-04\_ds-project-desc.Rmd'' from my GitHub account here. Save the file in your working directory and try to run it using the knit function. It may not work properly at first, so you may need to troubleshoot some issues. However, do not worry, as it are usually simply problems that occur and often the error message provided can guide you.
+
+For instance, I use BibTeX to cite literature. It is an excellent method to make the computer perform tedious tasks for you, such as citing papers and generating reference lists based on citation styles. This can save you a significant amount of time and reduce the likelihood of errors while citing literature. The literature I cite is in a separate file, which you can find on one of my GitHub repositories.
+
+Moreover, the YAML header is quite sensitive to spacing and will break you code.
+\end{exercise}
 
 \hypertarget{appendix}{%
 \chapter{Appendix}\label{appendix}}

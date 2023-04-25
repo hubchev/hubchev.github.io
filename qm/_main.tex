@@ -116,7 +116,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 12 April, 2023}
+\date{Last compiled on 25 April, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -1087,8 +1087,8 @@ Please find solution to the exercise \protect\hyperlink{sol:methodsinresearch}{h
   many cases, it is possible to write a one page executive summary to the said decision-makers.
 \end{enumerate}
 
-\hypertarget{correlation-does-not-imply-causation}{%
-\section{Correlation does not imply causation}\label{correlation-does-not-imply-causation}}
+\hypertarget{cornotcaus}{%
+\section{Correlation does not imply causation}\label{cornotcaus}}
 
 Correlation refers to a statistical relationship between two variables, where one variable tends to increase or decrease as the other variable also increases or decreases. However, just because two variables are correlated does not necessarily mean that one variable causes the other. This is known as the \emph{correlation does not imply causation} principle.
 
@@ -1150,7 +1150,7 @@ Discrimination is bad. Whenever we see it, we should try to find ways to overcom
 
 \begin{figure}
 \centering
-\includegraphics[width=0.75\textwidth,height=\textheight]{fig/berkley.png}
+\includegraphics[width=0.6\textwidth,height=\textheight]{fig/berkley.png}
 \caption{\label{fig:berkley} Graph taken from \citet[page 403]{Bickel1975Sex}}
 \end{figure}
 
@@ -1225,9 +1225,36 @@ Please find solution to the exercise \protect\hyperlink{sol:simpsonpara}{here}
 \citet[page 314]{Keele2015statistics}: \emph{``An identification analysis identifies the assumptions needed for statistical estimates to be given a causal interpretation.''}
 \end{quote}
 
-If we are interested in the causal effect of a certain treatment on an outcome, we need to compare the outcome of the individuals who received the treatment to the outcome of the individuals who did not receive the treatment. However, if the counterfactual outcome is missing for some individuals, we cannot make this comparison and therefore cannot estimate the causal effect. Unfortunately, the counterfactual is very often missing. For example, if we want to measure the effect of a vaccine we never can have a person who is vaccinated and not vaccinated at the same time.
+If we are interested in the causal effect of a certain treatment on an outcome, we need to compare the outcome of the individuals who received the treatment to the outcome of the individuals who did not receive the treatment. However, if the counterfactual outcome is missing for some individuals, we cannot make this comparison and therefore cannot estimate the causal effect. Unfortunately, the counterfactual is usually non-existing.
+For example, if we want to measure the effect of a vaccine we never can have a person who is vaccinated and not vaccinated at the same time. Formally, we have either \(Y_i(1)\) or \(Y_i(1)\), where \(Y_i\) denotes the effect/output of individual \(i\) in case of being vaccinated (1) and not vaccinated (0).
 
-The Rubin Causal Model, also known as the potential outcomes framework, is a statistical framework for analyzing causality in the context of missing data. It goes back to Donald B. Rubin (*1943) a statistician and is now a widely used method for causal inference. The basic premise of the Rubin Causal Model is that for each individual in a study, there are two potential outcomes: the outcome that would occur if the individual were exposed to a certain treatment or intervention (the ``treatment group''), and the outcome that would occur if the individual were not exposed to that treatment (the ``control group''). The key idea is that these potential outcomes can be used to infer causality by comparing the outcomes between the treatment and control groups even if we do not have a full set of data.
+Thus, the so-called individual treatment effect (ITE) does not exist for person \(i\):
+\[
+ITE_i=Y_i(1)-Y_i(0)
+\]
+
+The Rubin Causal Model, also known as the potential outcomes framework, is a statistical framework for analyzing causality in the context of missing data.
+Table \ref{tab:tab21} is taken from \citet{Neal2020Introduction} and shows some example data to illustrate that the fundamental problem of causal inference is actually a missing data problem.
+The Model goes back to Donald B. Rubin (*1943) a statistician and is now a widely used method for causal inference. The basic premise of the Rubin Causal Model is that for each individual in a study, there are two potential outcomes: the outcome that would occur if the individual were exposed to a certain treatment or intervention (the ``treatment group''), and the outcome that would occur if the individual were not exposed to that treatment (the ``control group''). The key idea is that these potential outcomes can be used to infer causality by comparing the outcomes between the treatment and control groups even if we do not have a full set of data.
+
+\begin{longtable}[]{@{}cccccc@{}}
+\caption{\label{tab:tab21} Example data to illustrate that the fundamental problem of causal inference}\tabularnewline
+\toprule()
+i & T & Y & Y(1) & Y(0) & Y(1)-Y(0) \\
+\midrule()
+\endfirsthead
+\toprule()
+i & T & Y & Y(1) & Y(0) & Y(1)-Y(0) \\
+\midrule()
+\endhead
+1 & 0 & 0 & ? & 0 & ? \\
+2 & 1 & 1 & 1 & ? & ? \\
+3 & 1 & 0 & 0 & ? & ? \\
+4 & 0 & 0 & ? & 0 & ? \\
+5 & 0 & 1 & ? & 1 & ? \\
+6 & 1 & 1 & 1 & ? & ? \\
+\bottomrule()
+\end{longtable}
 
 \begin{figure}
 \centering
@@ -1238,10 +1265,54 @@ The Rubin Causal Model, also known as the potential outcomes framework, is a sta
 
 Watch Brady Neal's lecture on \emph{What Does Imply Causation? Randomized Control Trials} which can be found here: \url{https://youtu.be/gGaWU8XEoGk}. Alternatively, you can read chapter 2 of his lecture notes \citep{Neal2020Introduction} which you find \url{https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf}.
 
-Given the some assumptions, the Rubin Causal Model allows for estimation of the average treatment effect (ATE) - the difference in the expected outcomes between the treatment and control groups. There are several ways to estimate the ATE under the Rubin Causal Model some of which will be part of this course. Applied correctly, it can provide valuable insights into causality and inform decision making. However, the Rubin Causal Model has its limitations and assumptions that need to be met in order for the inferences to be valid.
+Under certain assumptions, the Rubin Causal Model allows for the estimation of the Average Treatment Effect (ATE), which is the difference in the expected outcomes between the treatment and control groups, given by the formula:
+\[
+ATE\triangleq \mathbb{E}[Y(1)-Y(0)]
+\]
+
+There are several ways to estimate the ATE under the Rubin Causal Model some of which will be part of this course. Applied correctly, it can provide valuable insights into causality and inform decision making. However, the Rubin Causal Model has its limitations and assumptions that need to be met in order for the inferences to be valid.
+
+To get the average treatment effect (ATE) we can take the average of the individual treatment effects (ITE):
+\begin{equation}
+  ATE\triangleq \mathbb{E}[Y(1)-Y(0)] = \mathbb{E} [\underbrace{Y_i(1)-Y(0)}_{ITE}]
+\label{eq:feq}
+\end{equation}
+
+\hypertarget{its-difficult-to-overcome-the-fundamental-problem}{%
+\section{Its difficult to overcome the fundamental problem}\label{its-difficult-to-overcome-the-fundamental-problem}}
+
+In the following we will discuss conditions that need to hold in order to empirically draw causal conclusions from the ATE without bias. This is important because equation \eqref{eq:feq} does very often not hold when using observational data.
+
+\hypertarget{ignorability}{%
+\subsection{Ignorability}\label{ignorability}}
+
+Refering to table \ref{tab:tab21}, Brady \citet{Neal2020Introduction} wrote:
+
+\begin{quote}
+\emph{``what makes it valid to calculate the ATE by taking the average of the Y(0) column, ignoring the question marks, and subtracting that from the average of the Y(1) column, ignoring the question marks?'' This ignoring of the question marks (missing data) is known as ignorability. Assuming ignorability is like ignoring how people ended up selecting the treatment they selected and just assuming they were randomly assigned their treatment''} \citep[p.~9]{Neal2020Introduction}
+\end{quote}
+
+Randomized controlled trials (RCTs) are characterized by randomly assigning individuals to different treatment groups and comparing the outcomes of those groups. Thus, they are build on the assumption of \emph{ignorability}
+\[
+(Y(1), Y(0)) \perp T
+\]
+which allows to write the ATE as follows:
+\begin{align}
+\mathbb{E}[Y(1)]-\mathbb{E}[Y(0)] & =\mathbb{E}[Y(1) \mid T=1]-\mathbb{E}[Y(0) \mid T=0] \\
+& =\mathbb{E}[Y \mid T=1]-\mathbb{E}[Y \mid T=0].\label{eq:feq2}
+\end{align}
+
+Another perspective on this assumption is the concept of exchangeability. Exchangeability refers to the idea that the treatment groups can be interchanged such that if they were switched, the new treatment group would have the same outcomes as the old treatment group, and the new control group would have the same outcomes as the old control group.
+
+\hypertarget{unconfoundedness}{%
+\subsection{Unconfoundedness}\label{unconfoundedness}}
+
+While randomized controlled trials (RCTs) assume the concept of ignoreability, most observational data present challenges in drawing causal conclusions due to the presence of confounding factors that affect both (1) the likelihood of individuals being part of the treatment group and (2) the observed outcome. For instance, regional factors can affect both the number of storks and the number of babies born in a region. These factors are typically referred to as confounders, which we discussed in section \citet{ref}(cornotcaus) as having the potential to create the illusion of a causal impact where none exists. However, empirical methods are available \emph{to control for} these confounders and prevent the violation of the ignoreability assumption.
 
 \begin{exercise}
 \protect\hypertarget{exr:treatmenteffects}{}\label{exr:treatmenteffects}Treatment effects
+
+Read sections 2.1 and 2.3 of \citet{Neal2020Introduction}.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1359,7 +1430,7 @@ Although bombing causes casualties and destroys housing and social structures, l
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Read \citet{Bleakley2012Portage} and discuss how this is confronting the insights from \citet{Davies2002Bones}. It is freely available here: \url{https://personal.lse.ac.uk/sturmd/brixen/pdf/Bleakley-Lin-QJE-2012.pdf}
+  Read \citet{Bleakley2012Portage} and discuss how this is confronting the insights from \citet{Davis2002Bones}. It is freely available here: \url{https://personal.lse.ac.uk/sturmd/brixen/pdf/Bleakley-Lin-QJE-2012.pdf}
 \end{enumerate}
 
 \end{exercise}
@@ -1371,6 +1442,7 @@ Natural experiments in research
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
+\tightlist
 \item
   Think of other natural experiments that can be scientifically exploited.
 \item
@@ -1387,10 +1459,32 @@ Natural experiments in research
 
 \end{exercise}
 
-\hypertarget{field-experiments}{%
-\section{Field experiments}\label{field-experiments}}
+\hypertarget{field-experiments-would-you-work-more-if-wages-are-high}{%
+\section{Field experiments: Would you work more if wages are high?}\label{field-experiments-would-you-work-more-if-wages-are-high}}
 
-Read: \citet{Bandiera2011Field}
+Unlike laboratory experiments, which are conducted in a controlled environment, field experiments are conducted in real-world settings, such as schools, workplaces, and communities. They allow for testing causality by controlling the independent variable while observing the dependent variable in a naturalistic setting. They are a valuable tool for testing the effectiveness of policies and interventions in real-world situations. The level of external validity is usually much higher than alternative methods, meaning that the results can be generalized to other similar contexts beyond the specific setting where the experiment was conducted. In addition, field experiments can help identify unintended consequences of policies or interventions that might not be observable in laboratory experiments or observational studies.
+
+Another advantage of field experiments is that they can be used to test theories in contexts where observational studies may be limited. For example, a theory may predict that a certain policy or intervention will have a specific effect, but it may be difficult to test this theory through observational studies due to confounding variables or selection bias.
+
+However, field experiments can be costly and time-consuming to conduct. Please give \citet{Harrison2004Field} article a quick read, as it explains the nature and advantages of field experiments well.
+
+\begin{exercise}
+\protect\hypertarget{exr:fieldexperiments}{}\label{exr:fieldexperiments}
+
+Field experiments in research
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Read \citet{Fehr2007Do}. Summarize the results.
+\item
+  Explain the identification strategy and the experimental design.
+\item
+  Read \citet{Bandiera2011Field}. Can you think of field studies that organizations could conduct to improve their business?
+\end{enumerate}
+
+\end{exercise}
 
 \hypertarget{hands-on-observational-data}{%
 \chapter{Hands on observational data}\label{hands-on-observational-data}}
@@ -1573,7 +1667,14 @@ The UC Berkley case is just one of many examples to illustrate that uniformity o
 \hypertarget{sol:simpsonpara}{%
 \subsection*{Solution to exercise \ref{exr:simpsonpara}: Simpson's Paradox}\label{sol:simpsonpara}}
 
-Answers: 1. a), 2. c) and d)
+Answers:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  a), 2. c) and d)
+\end{enumerate}
 
 \hypertarget{sol:treatmenteffects}{%
 \subsection*{Solution to exercise \ref{exr:treatmenteffects}: Treatment effects}\label{sol:treatmenteffects}}
