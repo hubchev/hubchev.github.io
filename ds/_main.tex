@@ -946,7 +946,8 @@ So the challenge is to divide the value of \texttt{revenue} with the value of th
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0
+##  [1]   NA    0  700 1400  350  175   28   56    0    0    0
+## [12]    0
 \end{verbatim}
 
 \begin{Shaded}
@@ -956,7 +957,8 @@ So the challenge is to divide the value of \texttt{revenue} with the value of th
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
+## [12]  NaN
 \end{verbatim}
 
 Unfortunately, this does not work out. The \texttt{lag()} function does not work as we think it should. Well, the reason is simply that we are using the wrong function. The current \texttt{lag()} function is part of the stats package which is part of R base and is always loaded. The \texttt{lag()} function we aim to use stems from the dplyr package which we must install and load to be able to use it. So let's do it:
@@ -989,7 +991,8 @@ Now, we was informed that among other functions the \texttt{lag()} function is \
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0
+##  [1]   NA    0  700 1400  350  175   28   56    0    0    0
+## [12]    0
 \end{verbatim}
 
 \begin{Shaded}
@@ -999,7 +1002,8 @@ Now, we was informed that among other functions the \texttt{lag()} function is \
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
+## [12]  NaN
 \end{verbatim}
 
 That looks good now. And here is a way to calculate growth rates with a self-written function:
@@ -1012,7 +1016,8 @@ That looks good now. And here is a way to calculate growth rates with a self-wri
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
+## [12]  NaN
 \end{verbatim}
 
 \begin{Shaded}
@@ -1023,7 +1028,8 @@ That looks good now. And here is a way to calculate growth rates with a self-wri
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
+## [12]  NaN
 \end{verbatim}
 
 You know, all functions in R are user-written and sometimes it happens that two people had the idea to name functions identically. In such a case we have to deal with that conflict as we cannot use both functions at the same time. Also, it is a very realistic case that you find a solution somewhere that should work out your problem but you fail to make it run. In such a case it is often a forgotten package that needs to be loaded.
@@ -1043,7 +1049,8 @@ Below you find two more ways to calculate the a growth rate. Do you understand t
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
+## [12]  NaN
 \end{verbatim}
 
 \begin{Shaded}
@@ -1053,7 +1060,8 @@ Below you find two more ways to calculate the a growth rate. Do you understand t
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
+## [12]  NaN
 \end{verbatim}
 
 \hypertarget{how-to-manage-data}{%
@@ -1100,8 +1108,9 @@ As R is a functional language, code often contains a lot of parenthesis, ( and )
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.216407397 -1.024432890 -0.462035460 -0.004008021 -0.663588378
-## [6] -1.951928221 -4.074541935 -0.187535124 -0.097612829
+## [1] -2.216407397 -1.024432890 -0.462035460 -0.004008021
+## [5] -0.663588378 -1.951928221 -4.074541935 -0.187535124
+## [9] -0.097612829
 \end{verbatim}
 
 \begin{Shaded}
@@ -1113,8 +1122,8 @@ As R is a functional language, code often contains a lot of parenthesis, ( and )
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  1.19197451  0.56239743  0.45802744 -0.65958036 -1.28833984
-## [6] -2.12261371  3.88700681  0.08992229
+## [1]  1.19197451  0.56239743  0.45802744 -0.65958036
+## [5] -1.28833984 -2.12261371  3.88700681  0.08992229
 \end{verbatim}
 
 \begin{Shaded}
@@ -1164,8 +1173,7 @@ This is short but you easily loose overview. The solution is the \emph{pipe}:
 You can read the \%\textgreater\% with ``and then'' because it takes the results of some function ``and then'' does something with that in the next.
 Another example can be found in this short clip: \href{https://youtu.be/PX5NuteZ3Vg}{Using the pipe operator in R}
 
-\hypertarget{read-out-loud-the-following-code}{%
-\chapter{Read out loud the following code:}\label{read-out-loud-the-following-code}}
+Read out loud the following code:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1177,10 +1185,14 @@ Another example can be found in this short clip: \href{https://youtu.be/PX5NuteZ
 \end{Shaded}
 
 \begin{verbatim}
-##      Species Sepal.Length Sepal.Width Petal.Length Petal.Width
-## 1     setosa     5.313636    3.713636     1.509091   0.2772727
-## 2 versicolor     5.997872    2.804255     4.317021   1.3468085
-## 3  virginica     6.622449    2.983673     5.573469   2.0326531
+##      Species Sepal.Length Sepal.Width Petal.Length
+## 1     setosa     5.313636    3.713636     1.509091
+## 2 versicolor     5.997872    2.804255     4.317021
+## 3  virginica     6.622449    2.983673     5.573469
+##   Petal.Width
+## 1   0.2772727
+## 2   1.3468085
+## 3   2.0326531
 \end{verbatim}
 
 A solution may be the following: ``you take the Iris data \emph{and then} you subset the data \emph{and then} you aggregate the data and show the mean''.
