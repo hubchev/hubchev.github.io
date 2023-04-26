@@ -116,7 +116,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 25 April, 2023}
+\date{Last compiled on 26 April, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -1274,7 +1274,7 @@ There are several ways to estimate the ATE under the Rubin Causal Model some of 
 
 To get the average treatment effect (ATE) we can take the average of the individual treatment effects (ITE):
 \begin{equation}
-  ATE\triangleq \mathbb{E}[Y(1)-Y(0)] = \mathbb{E} [\underbrace{Y_i(1)-Y(0)}_{ITE}]
+  ATE\triangleq \mathbb{E}[Y(1)-Y(0)] = \mathbb{E} [\underbrace{Y_i(1)-Y_i(0)}_{ITE}]
 \label{eq:feq}
 \end{equation}
 
@@ -1307,7 +1307,7 @@ Another perspective on this assumption is the concept of exchangeability. Exchan
 \hypertarget{unconfoundedness}{%
 \subsection{Unconfoundedness}\label{unconfoundedness}}
 
-While randomized controlled trials (RCTs) assume the concept of ignoreability, most observational data present challenges in drawing causal conclusions due to the presence of confounding factors that affect both (1) the likelihood of individuals being part of the treatment group and (2) the observed outcome. For instance, regional factors can affect both the number of storks and the number of babies born in a region. These factors are typically referred to as confounders, which we discussed in section \citet{ref}(cornotcaus) as having the potential to create the illusion of a causal impact where none exists. However, empirical methods are available \emph{to control for} these confounders and prevent the violation of the ignoreability assumption.
+While randomized controlled trials (RCTs) assume the concept of ignoreability, most observational data present challenges in drawing causal conclusions due to the presence of confounding factors that affect both (1) the likelihood of individuals being part of the treatment group and (2) the observed outcome. For instance, regional factors can affect both the number of storks and the number of babies born in a region. These factors are typically referred to as confounders, which we discussed in section \ref{cornotcaus} as having the potential to create the illusion of a causal impact where none exists. However, empirical methods are available \emph{to control for} these confounders and prevent the violation of the ignoreability assumption.
 
 \begin{exercise}
 \protect\hypertarget{exr:treatmenteffects}{}\label{exr:treatmenteffects}Treatment effects

@@ -488,7 +488,7 @@ ATE\triangleq \mathbb{E}[Y(1)-Y(0)]
 <p>There are several ways to estimate the ATE under the Rubin Causal Model some of which will be part of this course. Applied correctly, it can provide valuable insights into causality and inform decision making. However, the Rubin Causal Model has its limitations and assumptions that need to be met in order for the inferences to be valid.</p>
 <p>To get the average treatment effect (ATE) we can take the average of the individual treatment effects (ITE):
 <span class="math display" id="eq:feq">\[\begin{equation}
-  ATE\triangleq \mathbb{E}[Y(1)-Y(0)] = \mathbb{E} [\underbrace{Y_i(1)-Y(0)}_{ITE}]
+  ATE\triangleq \mathbb{E}[Y(1)-Y(0)] = \mathbb{E} [\underbrace{Y_i(1)-Y_i(0)}_{ITE}]
 \tag{2.1}
 \end{equation}\]</span></p>
 </div>
@@ -515,7 +515,7 @@ which allows to write the ATE as follows:
 </div>
 <div id="unconfoundedness" class="section level3 hasAnchor" number="2.4.2">
 <h3><span class="header-section-number">2.4.2</span> Unconfoundedness<a href="identification.html#unconfoundedness" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>While randomized controlled trials (RCTs) assume the concept of ignoreability, most observational data present challenges in drawing causal conclusions due to the presence of confounding factors that affect both (1) the likelihood of individuals being part of the treatment group and (2) the observed outcome. For instance, regional factors can affect both the number of storks and the number of babies born in a region. These factors are typically referred to as confounders, which we discussed in section <span class="citation">(<a href="#ref-ref" role="doc-biblioref"><strong>ref?</strong></a>)</span>(cornotcaus) as having the potential to create the illusion of a causal impact where none exists. However, empirical methods are available <em>to control for</em> these confounders and prevent the violation of the ignoreability assumption.</p>
+<p>While randomized controlled trials (RCTs) assume the concept of ignoreability, most observational data present challenges in drawing causal conclusions due to the presence of confounding factors that affect both (1) the likelihood of individuals being part of the treatment group and (2) the observed outcome. For instance, regional factors can affect both the number of storks and the number of babies born in a region. These factors are typically referred to as confounders, which we discussed in section <a href="identification.html#cornotcaus">2.2</a> as having the potential to create the illusion of a causal impact where none exists. However, empirical methods are available <em>to control for</em> these confounders and prevent the violation of the ignoreability assumption.</p>
 <div class="exercise">
 <p><span id="exr:treatmenteffects" class="exercise"><strong>Exercise 2.5  </strong></span>Treatment effects</p>
 <p>Read sections 2.1 and 2.3 of <span class="citation">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>)</span>.</p>

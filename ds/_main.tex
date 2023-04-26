@@ -969,7 +969,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.1/dplyr"
+## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1055,6 +1055,200 @@ Below you find two more ways to calculate the a growth rate. Do you understand t
 \begin{verbatim}
 ##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
+
+\hypertarget{how-to-manage-data}{%
+\chapter{How to manage data}\label{how-to-manage-data}}
+
+\hypertarget{the-tidyverse-universe}{%
+\section{The tidyverse universe}\label{the-tidyverse-universe}}
+
+If you want to work with R, you should get known to the \emph{tidyverse} package. The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.
+The core packages are ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats, which provide functionality to model, transform, and visualize data. An additional 12 packages assist the core. As of November 2018, the tidyverse package and some of its individual packages comprise 5 out of the top 10 most downloaded R packages. The tidyverse is the subject of multiple books and papers and \citet{Wickham2023R} is all about it. Thus, read sections 3 (\href{https://r4ds.hadley.nz/workflow-basics.html}{Workflow: basics}) and 4 (\href{https://r4ds.hadley.nz/data-transform.html}{Data transformation}) of \citet{Wickham2023R}, visit the website www.tidyverse.org, and, if you still haven`t done, do the tidyverse module of my swirl package, called \emph{swirl-it}.
+
+Install the complete tidyverse with:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+    \FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{the-pipe-operator}{%
+\section{The pipe operator}\label{the-pipe-operator}}
+
+The pipe operator, \%\textgreater\%, comes from the magrittr package which is also a part of the tidyverse package. The \emph{base} pipe operator, \textbar\textgreater, is since R.4.1.0 part of base R. For most cases these two are identical. The pipe is to help you write code in a way that is easier to read and understand.
+As R is a functional language, code often contains a lot of parenthesis, ( and ). Nesting those parentheses together is complex and you easily get lost. This makes your R code hard to read and understand. Here's where \%\textgreater\% comes in to the rescue! Consider the following chunk of code to explain the usage of the pipe:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create some data \textasciigrave{}x\textasciigrave{}}
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.109}\NormalTok{, }\FloatTok{0.359}\NormalTok{, }\FloatTok{0.63}\NormalTok{, }\FloatTok{0.996}\NormalTok{, }\FloatTok{0.515}\NormalTok{, }\FloatTok{0.142}\NormalTok{, }\FloatTok{0.017}\NormalTok{, }\FloatTok{0.829}\NormalTok{, }\FloatTok{0.907}\NormalTok{)}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.109 0.359 0.630 0.996 0.515 0.142 0.017 0.829 0.907
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# take the logarithm of \textasciigrave{}x\textasciigrave{}, }
+\NormalTok{x2 }\OtherTok{\textless{}{-}} \FunctionTok{log}\NormalTok{(x)}
+\NormalTok{x2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -2.216407397 -1.024432890 -0.462035460 -0.004008021 -0.663588378
+## [6] -1.951928221 -4.074541935 -0.187535124 -0.097612829
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# compute the lagged and iterated differences (see \textasciigrave{}diff()\textasciigrave{})}
+\NormalTok{x3 }\OtherTok{\textless{}{-}} \FunctionTok{diff}\NormalTok{(x2)}
+\NormalTok{x3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  1.19197451  0.56239743  0.45802744 -0.65958036 -1.28833984
+## [6] -2.12261371  3.88700681  0.08992229
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#  Make yourself familiar with the functions round() and round the result (1 digit)}
+\NormalTok{x4 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(x3, }\DecValTok{1}\NormalTok{)}
+\NormalTok{x4}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  1.2  0.6  0.5 -0.7 -1.3 -2.1  3.9  0.1
+\end{verbatim}
+
+That is rather long and we actually don't need objects x2, x3, and x4. Well, then let us write that in a nested function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.109}\NormalTok{, }\FloatTok{0.359}\NormalTok{, }\FloatTok{0.63}\NormalTok{, }\FloatTok{0.996}\NormalTok{, }\FloatTok{0.515}\NormalTok{, }\FloatTok{0.142}\NormalTok{, }\FloatTok{0.017}\NormalTok{, }\FloatTok{0.829}\NormalTok{, }\FloatTok{0.907}\NormalTok{)}
+
+\FunctionTok{round}\NormalTok{(}\FunctionTok{diff}\NormalTok{(}\FunctionTok{log}\NormalTok{(x)), }\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  1.2  0.6  0.5 -0.7 -1.3 -2.1  3.9  0.1
+\end{verbatim}
+
+This is short but you easily loose overview. The solution is the \emph{pipe}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# load one of these packages: \textasciigrave{}magrittr\textasciigrave{} or \textasciigrave{}tidyverse\textasciigrave{}}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+
+\CommentTok{\# Perform the same computations on \textasciigrave{}x\textasciigrave{} as above}
+\NormalTok{x }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{log}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{diff}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
+    \FunctionTok{round}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  1.2  0.6  0.5 -0.7 -1.3 -2.1  3.9  0.1
+\end{verbatim}
+
+You can read the \%\textgreater\% with ``and then'' because it takes the results of some function ``and then'' does something with that in the next.
+Another example can be found in this short clip: \href{https://youtu.be/PX5NuteZ3Vg}{Using the pipe operator in R}
+
+\hypertarget{read-out-loud-the-following-code}{%
+\chapter{Read out loud the following code:}\label{read-out-loud-the-following-code}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"datasets"}\NormalTok{)}
+\NormalTok{iris }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{subset}\NormalTok{(Sepal.Length }\SpecialCharTok{\textgreater{}} \DecValTok{5}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{aggregate}\NormalTok{(. }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Species , . , mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      Species Sepal.Length Sepal.Width Petal.Length Petal.Width
+## 1     setosa     5.313636    3.713636     1.509091   0.2772727
+## 2 versicolor     5.997872    2.804255     4.317021   1.3468085
+## 3  virginica     6.622449    2.983673     5.573469   2.0326531
+\end{verbatim}
+
+A solution may be the following: ``you take the Iris data \emph{and then} you subset the data \emph{and then} you aggregate the data and show the mean''.
+
+\hypertarget{data-manipulation-with-dplyr}{%
+\section{Data manipulation with dplyr}\label{data-manipulation-with-dplyr}}
+
+The dplyr package, which is part of tidyverse, make data manipulation easy:
+- Pick observations by their values (\texttt{filter()}).
+- Reorder the rows (\texttt{arrange()}).
+- Pick variables by their names (\texttt{select()}).
+- Create new variables with functions of existing variables
+(\texttt{mutate()}).
+- Collapse many values down to a single summary (\texttt{summarise()}).
+
+These functions can all be used in conjunction with \texttt{group\_by()} , which changes the scope of each function from operating on the entire dataset to operating on it group-by-group.
+
+All functions work similarly:
+1. The first argument is a data frame.
+2. The subsequent arguments describe what to do with the data frame.
+3. The result is a new data frame.
+
+\begin{exercise}
+\protect\hypertarget{exr:subsetting}{}\label{exr:subsetting}Subsetting
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Check to see if you have the mtcars dataset by entering the command mtcars.
+\item
+  Save the mtcars dataset in an object named cars.
+\item
+  What class is cars?
+\item
+  How many observations (rows) and variables (columns) are in the mtcars dataset?
+\item
+  Rename mpg in cars to MPG. Use rename().
+\item
+  Convert the column names of cars to all upper case. Use rename\_all, and the toupper command.
+\item
+  Convert the rownames of cars to a column called car using rownames\_to\_column.
+\item
+  Subset the columns from cars that end in ``p'' and call it pvars using ends\_with().
+\item
+  Create a subset cars that only contains the columns: wt, qsec, and hp and assign this object to carsSub. (Use select().)
+\item
+  What are the dimensions of carsSub? (Use dim().)
+\item
+  Convert the column names of carsSub to all upper case. Use rename\_all(), and toupper() (or colnames()).
+\item
+  Subset the rows of cars that get more than 20 miles per gallon (mpg) of fuel efficiency. How many are there? (Use filter().)
+\item
+  Subset the rows that get less than 16 miles per gallon (mpg) of fuel efficiency and have more than 100 horsepower (hp). How many are there? (Use filter() and the pipe operator.)
+\item
+  Create a subset of the cars data that only contains the columns: wt, qsec, and hp for cars with 8 cylinders (cyl) and reassign this object to carsSub. What are the dimensions of this dataset? Do not use the pipe operator.
+\item
+  Create a subset of the cars data that only contains the columns: wt, qsec, and hp for cars with 8 cylinders (cyl) and reassign this object to carsSub2. Use the pipe operator.
+\item
+  Re-order the rows of carsSub by weight (wt) in increasing order. (Use arrange().)
+\item
+  Create a new variable in carsSub called wt2, which is equal to wt\^{}2, using mutate() and piping \%\textgreater\%.
+\end{enumerate}
+
+Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_subset.R}{here}.
+\end{exercise}
+
+Solutions
 
 \hypertarget{how-to-visualize-data}{%
 \chapter{How to visualize data}\label{how-to-visualize-data}}
