@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 How to visualize data | How to Use R for Data Science</title>
   <meta name="description" content="5 How to visualize data | How to Use R for Data Science" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 How to visualize data | How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -223,14 +223,35 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="how-to-visualize-data" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">5</span> How to visualize data<a href="how-to-visualize-data.html#how-to-visualize-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>When it comes to data visualization, there’s no better resource than the book by <span class="citation">Wickham and Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>, which is available online for free at <a href="https://r4ds.hadley.nz" class="uri">https://r4ds.hadley.nz</a>. The book introduces the tidyverse package and ggplot function, making it easy to create beautiful and informative graphs. If you haven’t already done so, I recommend working through the tidyverse module of my swirl package, called <em>swirl-it</em>, for an interactive and engaging learning experience.</p>
-<p>When it comes to data visualization, there is no introduction that is more up-to-date
-and more popular that to the wonderful book of <span class="citation">Wickham and Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span> that you find online freely available here: <a href="https://r4ds.hadley.nz" class="uri">https://r4ds.hadley.nz</a>
-The book introduces the tidyverse package and the ggplot function that allows to make nice graphs comparably easy. Please, work through the
-tidyverse module of my swirl module <em>swirl-it</em> now, if you haven’t done it so far (see section <a href="swirl.html#swirl">2</a>).</p>
-<p>Now, read chapters 1 and 2 of <span class="citation">Wickham and Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. Copy all the code that is shown in the book into a script and try to run it on your machine.
-That is the best way to learn, understand, and create your own notes that may guide you later on. I highly recommend the exercises of the book. Don’t skip them. If you have troubles finding the solutions, there are some guy</p>
+<p>Data visualization is an art. The purposes of visualizing data are manifold. You can emphasize facts, get known to data, detect anomalies, and communicate a large amount of infirmation simply and intuitive. Whatever your goal is, thousand of appropiate ways exist to visualize data. Many decisions to take are simply a matter of taste. However, there are some conventions and guidelines that help you to make on average better decisions when designing a visualization:</p>
+<ul>
+<li>Good graphs are easy to understand and eye catching.</li>
+<li>Graphs can be misleading and manipulative and that is opposing to the ideas of science. Thus, be responsible and honest.</li>
+<li>Minimize colors and other attention-grabbing elements that are not directly related to the data of interest. Worldwide, there are approximately 300 million color blind people. In particular, red, green or blue light are problematic to color blind people. Thus, better rely on color schemes that are designed for colorblind people.</li>
+<li>Don’t truncate an axis or change the scaling within an axis just to make you your story more appealing. Show the full scale of the graph, then zoom to show the data of interest, if necessary.</li>
+<li>Label and describe your chart sufficiently so that everybody can fully understand the content of the shown data set and statistics without having to study the notes of the graph for too long.</li>
+<li>Don’t do pie charts. They may look simple, but they’re tricky to get right and there are usually better alternatives. Humans are not very good at comparing the size of angles and as there’s no scale in pie plots, reading accurate values is difficult. Figure <a href="how-to-visualize-data.html#fig:piebad">5.1</a> may proof this.</li>
+<li>For more tips, see:
+<ul>
+<li><a href="https://guides.library.duke.edu/datavis/topten">Data Visualization: Chart Dos and Don’ts (by Duke University)</a></li>
+<li><a href="https://www.kirchkamp.de/graph/">Graphs and Visualising Data</a> by Oliver Kirchkamp. In particular, I highly recommend his <a href="https://www.kirchkamp.de/oekonometrie/pdf/gra-p.pdf">handout</a> <span class="citation">(<a href="references.html#ref-Kirchkamp2018Using" role="doc-biblioref">Kirchkamp 2018</a>)</span>. It discusses many pitfalls of visualizing data, instructs how to do good graphs, and he shows the corresponding R code of all graphs.<br />
+</li>
+<li>The <a href="https://www.r-graph-gallery.com">R Graph Gallery</a> offers shows graphs and the corresponding R code to replicate the graphs</li>
+<li>The work of <a href="www.edwardtufte.com">Edward Tufte</a> and his book <em>The Visual Display of Quantitative Information</em> <span class="citation">(<a href="references.html#ref-Tufte2022Visual" role="doc-biblioref">Tufte 2022</a>)</span> are classical readings.</li>
+</ul></li>
+</ul>
+<div class="figure"><span style="display:block;" id="fig:piebad"></span>
+<img src="fig/piebad.jpeg" style="width:75.0%" alt="" />
+<p class="caption">Figure 5.1:  Pie charts are problematic<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+</div>
+<p>When it comes to data visualization, there’s no better resource than the book by <span class="citation">Wickham and Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. It introduces the ggplot function which is part of the ggplot2 package which, in turn, is part of the tidyverse package. Thus, if you’ve installed and loaded tidyverse, you automatically have access to ggplot. Creating beautiful and informative graphs is easy with ggplot. To proof that claim, study chapters 1 and 2 of <span class="citation">Wickham and Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. To reap the best benefits from studying, I recommend to copy all the code that is shown in the book into a R script and try to run it on your PC. That is the best way to learn, understand, and create your own notes that may guide you later on. Whenever you see interesting code somewhere, try to run it on your PC. Moreover, I recommend the exercises of the book, they are challenging sometimes but to really understand code you need to run code yourself.</p>
 
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>Picture is taken from <a href="https://en.wikipedia.org/wiki/Pie_chart" class="uri">https://en.wikipedia.org/wiki/Pie_chart</a><a href="how-to-visualize-data.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

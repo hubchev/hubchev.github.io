@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 How to work with R scripts | How to Use R for Data Science</title>
   <meta name="description" content="3 How to work with R scripts | How to Use R for Data Science" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 How to work with R scripts | How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -385,57 +385,38 @@ Finally, you can return the value of the object from the function, meaning pass 
 <p><span class="math display">\[ g=\left(\frac{y_t-y_{t-1}}{y_{t-1}}\right)\cdot 100=\left(\frac{y_t}{y_{t-1}}-1\right)\cdot 100 \]</span></p>
 <p>So the challenge is to divide the value of <code>revenue</code> with the value of the previous period, a.k.a. the lagged value. Let us assume that the function <code>lag()</code> can give you exactly that value of a vector. Lets try it out:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="how-to-work-with-r-scripts.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(revenue)</span></code></pre></div>
-<pre><code>##  [1]    0  700 1400  350  175   28   56    0    0    0    0
-## [12]    0
-## attr(,&quot;tsp&quot;)
-## [1]  0 11  1</code></pre>
+<pre><code>##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0</code></pre>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="how-to-work-with-r-scripts.html#cb25-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">lag</span>(revenue)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span></code></pre></div>
-<pre><code>##  [1] NaN   0   0   0   0   0   0 NaN NaN NaN NaN NaN
-## attr(,&quot;tsp&quot;)
-## [1]  0 11  1</code></pre>
+<pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
 <p>Unfortunately, this does not work out. The <code>lag()</code> function does not work as we think it should. Well, the reason is simply that we are using the wrong function. The current <code>lag()</code> function is part of the stats package which is part of R base and is always loaded. The <code>lag()</code> function we aim to use stems from the dplyr package which we must install and load to be able to use it. So let’s do it:</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="how-to-work-with-r-scripts.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if the package is installed</span></span>
 <span id="cb27-2"><a href="how-to-work-with-r-scripts.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">find.package</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr&quot;</code></pre>
+<pre><code>## [1] &quot;/usr/local/lib/R/site-library/dplyr&quot;</code></pre>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="how-to-work-with-r-scripts.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I already installed the package so I can just load it</span></span>
 <span id="cb29-2"><a href="how-to-work-with-r-scripts.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
 <span id="cb29-3"><a href="how-to-work-with-r-scripts.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
 <p>Now, we was informed that among other functions the <code>lag()</code> function is <em>masked</em>. That means that now the function of the newly loaded package is active. So, let’s try again:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="how-to-work-with-r-scripts.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(revenue)</span></code></pre></div>
-<pre><code>##  [1]   NA    0  700 1400  350  175   28   56    0    0    0
-## [12]    0</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="how-to-work-with-r-scripts.html#cb35-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">lag</span>(revenue)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span></code></pre></div>
-<pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
-## [12]  NaN</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="how-to-work-with-r-scripts.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(revenue)</span></code></pre></div>
+<pre><code>##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="how-to-work-with-r-scripts.html#cb32-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">lag</span>(revenue)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span></code></pre></div>
+<pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
 <p>That looks good now. And here is a way to calculate growth rates with a self-written function:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="how-to-work-with-r-scripts.html#cb37-1" aria-hidden="true" tabindex="-1"></a>growth_rate <span class="ot">&lt;-</span> <span class="cf">function</span>(x)(x<span class="sc">/</span><span class="fu">lag</span>(x)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span>
-<span id="cb37-2"><a href="how-to-work-with-r-scripts.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">growth_rate</span>(revenue)</span></code></pre></div>
-<pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
-## [12]  NaN</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="how-to-work-with-r-scripts.html#cb39-1" aria-hidden="true" tabindex="-1"></a>sales_gr_rate <span class="ot">&lt;-</span> <span class="fu">growth_rate</span>(revenue)</span>
-<span id="cb39-2"><a href="how-to-work-with-r-scripts.html#cb39-2" aria-hidden="true" tabindex="-1"></a>sales_gr_rate</span></code></pre></div>
-<pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
-## [12]  NaN</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="how-to-work-with-r-scripts.html#cb34-1" aria-hidden="true" tabindex="-1"></a>growth_rate <span class="ot">&lt;-</span> <span class="cf">function</span>(x)(x<span class="sc">/</span><span class="fu">lag</span>(x)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span>
+<span id="cb34-2"><a href="how-to-work-with-r-scripts.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">growth_rate</span>(revenue)</span></code></pre></div>
+<pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="how-to-work-with-r-scripts.html#cb36-1" aria-hidden="true" tabindex="-1"></a>sales_gr_rate <span class="ot">&lt;-</span> <span class="fu">growth_rate</span>(revenue)</span>
+<span id="cb36-2"><a href="how-to-work-with-r-scripts.html#cb36-2" aria-hidden="true" tabindex="-1"></a>sales_gr_rate</span></code></pre></div>
+<pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
 <p>You know, all functions in R are user-written and sometimes it happens that two people had the idea to name functions identically. In such a case we have to deal with that conflict as we cannot use both functions at the same time. Also, it is a very realistic case that you find a solution somewhere that should work out your problem but you fail to make it run. In such a case it is often a forgotten package that needs to be loaded.</p>
 <div class="exercise">
 <p><span id="exr:growthrate" class="exercise"><strong>Exercise 3.1  </strong></span>All roads lead to R(ome)</p>
 <p>If you ask ten programmers to solve a particular problem, you will probably receive ten different soltuions that are all valid. R is no exception here. This can be very confussing when just started to learn R.</p>
 <p>Below you find two more ways to calculate the a growth rate. Do you understand them?</p>
 </div>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="how-to-work-with-r-scripts.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(revenue)<span class="sc">/</span><span class="fu">head</span>(revenue, <span class="sc">-</span><span class="dv">1</span>))<span class="sc">*</span><span class="dv">100</span>        </span></code></pre></div>
-<pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
-## [12]  NaN</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="how-to-work-with-r-scripts.html#cb43-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">c</span>(<span class="cn">NA</span>,revenue[<span class="sc">-</span><span class="fu">length</span>(revenue)])<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
-<pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
-## [12]  NaN</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="how-to-work-with-r-scripts.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(revenue)<span class="sc">/</span><span class="fu">head</span>(revenue, <span class="sc">-</span><span class="dv">1</span>))<span class="sc">*</span><span class="dv">100</span>        </span></code></pre></div>
+<pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="how-to-work-with-r-scripts.html#cb40-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">c</span>(<span class="cn">NA</span>,revenue[<span class="sc">-</span><span class="fu">length</span>(revenue)])<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
+<pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
 
 </div>
 </div>

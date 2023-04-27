@@ -156,7 +156,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 26 April, 2023}
+\date{Last compiled on 27 April, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -680,8 +680,8 @@ I recommend this one as it gives a general overview on very basic principles of 
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{how-to-work-with-r-scripts}{%
-\chapter{How to work with R scripts}\label{how-to-work-with-r-scripts}}
+\hypertarget{work-with-r-scripts}{%
+\chapter{Work with R scripts}\label{work-with-r-scripts}}
 
 \hypertarget{r-scripts-why-they-are-useful}{%
 \section{R Scripts: Why they are useful}\label{r-scripts-why-they-are-useful}}
@@ -946,8 +946,7 @@ So the challenge is to divide the value of \texttt{revenue} with the value of th
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA    0  700 1400  350  175   28   56    0    0    0
-## [12]    0
+##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0
 \end{verbatim}
 
 \begin{Shaded}
@@ -957,8 +956,7 @@ So the challenge is to divide the value of \texttt{revenue} with the value of th
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
-## [12]  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
 
 Unfortunately, this does not work out. The \texttt{lag()} function does not work as we think it should. Well, the reason is simply that we are using the wrong function. The current \texttt{lag()} function is part of the stats package which is part of R base and is always loaded. The \texttt{lag()} function we aim to use stems from the dplyr package which we must install and load to be able to use it. So let's do it:
@@ -971,7 +969,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr"
+## [1] "/usr/local/lib/R/site-library/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -991,8 +989,7 @@ Now, we was informed that among other functions the \texttt{lag()} function is \
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA    0  700 1400  350  175   28   56    0    0    0
-## [12]    0
+##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0
 \end{verbatim}
 
 \begin{Shaded}
@@ -1002,8 +999,7 @@ Now, we was informed that among other functions the \texttt{lag()} function is \
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
-## [12]  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
 
 That looks good now. And here is a way to calculate growth rates with a self-written function:
@@ -1016,8 +1012,7 @@ That looks good now. And here is a way to calculate growth rates with a self-wri
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
-## [12]  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
 
 \begin{Shaded}
@@ -1028,8 +1023,7 @@ That looks good now. And here is a way to calculate growth rates with a self-wri
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
-## [12]  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
 
 You know, all functions in R are user-written and sometimes it happens that two people had the idea to name functions identically. In such a case we have to deal with that conflict as we cannot use both functions at the same time. Also, it is a very realistic case that you find a solution somewhere that should work out your problem but you fail to make it run. In such a case it is often a forgotten package that needs to be loaded.
@@ -1049,8 +1043,7 @@ Below you find two more ways to calculate the a growth rate. Do you understand t
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
-## [12]  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
 
 \begin{Shaded}
@@ -1060,24 +1053,24 @@ Below you find two more ways to calculate the a growth rate. Do you understand t
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN
-## [12]  NaN
+##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
 
-\hypertarget{how-to-manage-data}{%
-\chapter{How to manage data}\label{how-to-manage-data}}
+\hypertarget{manage-data}{%
+\chapter{Manage data}\label{manage-data}}
 
 \hypertarget{the-tidyverse-universe}{%
 \section{The tidyverse universe}\label{the-tidyverse-universe}}
 
-If you want to work with R, you should get known to the \emph{tidyverse} package. The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.
-The core packages are ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats, which provide functionality to model, transform, and visualize data. An additional 12 packages assist the core. As of November 2018, the tidyverse package and some of its individual packages comprise 5 out of the top 10 most downloaded R packages. The tidyverse is the subject of multiple books and papers and \citet{Wickham2023R} is all about it. Thus, read sections 3 (\href{https://r4ds.hadley.nz/workflow-basics.html}{Workflow: basics}) and 4 (\href{https://r4ds.hadley.nz/data-transform.html}{Data transformation}) of \citet{Wickham2023R}, visit the website www.tidyverse.org, and, if you still haven`t done, do the tidyverse module of my swirl package, called \emph{swirl-it}.
+The R package \emph{tidyverse} is a collection of R packages. All packages share an underlying design philosophy, grammar, and data structures.
+The most popular packages are ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats. They provide functionality to model, transform, and visualize data. Tidyverse is extremely popular and many individual packages of tidyverse are regularly in the top 10 most downloaded R packages on CRAN\footnote{CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R, see: \url{https://cran.r-project.org}.}. How to do data science with tidyverse is the subject of multiple books and tutorials. The popular book \emph{R for Data Science} by \citet{Wickham2023R} is all about the tidyverse universe. Thus, I highly recommend reading sections 3 (\href{https://r4ds.hadley.nz/workflow-basics.html}{Workflow: basics}) and 4 (\href{https://r4ds.hadley.nz/data-transform.html}{Data transformation}) of \citet{Wickham2023R}. Addidionally, visit www.tidyverse.org and, if you still haven`t done so, do the tidyverse module of my swirl package, called \emph{swirl-it}, see section @swirl.
 
-Install the complete tidyverse with:
+To install and load tidyverse run the following lines of code:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-    \FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1108,9 +1101,7 @@ As R is a functional language, code often contains a lot of parenthesis, ( and )
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.216407397 -1.024432890 -0.462035460 -0.004008021
-## [5] -0.663588378 -1.951928221 -4.074541935 -0.187535124
-## [9] -0.097612829
+## [1] -2.216407397 -1.024432890 -0.462035460 -0.004008021 -0.663588378 -1.951928221 -4.074541935 -0.187535124 -0.097612829
 \end{verbatim}
 
 \begin{Shaded}
@@ -1122,8 +1113,7 @@ As R is a functional language, code often contains a lot of parenthesis, ( and )
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  1.19197451  0.56239743  0.45802744 -0.65958036
-## [5] -1.28833984 -2.12261371  3.88700681  0.08992229
+## [1]  1.19197451  0.56239743  0.45802744 -0.65958036 -1.28833984 -2.12261371  3.88700681  0.08992229
 \end{verbatim}
 
 \begin{Shaded}
@@ -1185,14 +1175,10 @@ Read out loud the following code:
 \end{Shaded}
 
 \begin{verbatim}
-##      Species Sepal.Length Sepal.Width Petal.Length
-## 1     setosa     5.313636    3.713636     1.509091
-## 2 versicolor     5.997872    2.804255     4.317021
-## 3  virginica     6.622449    2.983673     5.573469
-##   Petal.Width
-## 1   0.2772727
-## 2   1.3468085
-## 3   2.0326531
+##      Species Sepal.Length Sepal.Width Petal.Length Petal.Width
+## 1     setosa     5.313636    3.713636     1.509091   0.2772727
+## 2 versicolor     5.997872    2.804255     4.317021   1.3468085
+## 3  virginica     6.622449    2.983673     5.573469   2.0326531
 \end{verbatim}
 
 A solution may be the following: ``you take the Iris data \emph{and then} you subset the data \emph{and then} you aggregate the data and show the mean''.
@@ -1262,21 +1248,52 @@ Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/ma
 
 Solutions
 
-\hypertarget{how-to-visualize-data}{%
-\chapter{How to visualize data}\label{how-to-visualize-data}}
+\hypertarget{visualizing-data}{%
+\chapter{Visualizing data}\label{visualizing-data}}
 
-When it comes to data visualization, there's no better resource than the book by \citet{Wickham2023R}, which is available online for free at \url{https://r4ds.hadley.nz}. The book introduces the tidyverse package and ggplot function, making it easy to create beautiful and informative graphs. If you haven't already done so, I recommend working through the tidyverse module of my swirl package, called \emph{swirl-it}, for an interactive and engaging learning experience.
+Data visualization is an art. The purposes of visualizing data are manifold. You can emphasize facts, get known to data, detect anomalies, and communicate a large amount of infirmation simply and intuitive. Whatever your goal is, thousand of appropiate ways exist to visualize data. Many decisions to take are simply a matter of taste. However, there are some conventions and guidelines that help you to make on average better decisions when designing a visualization:
 
-When it comes to data visualization, there is no introduction that is more up-to-date
-and more popular that to the wonderful book of \citet{Wickham2023R} that you find online freely available here: \url{https://r4ds.hadley.nz}
-The book introduces the tidyverse package and the ggplot function that allows to make nice graphs comparably easy. Please, work through the
-tidyverse module of my swirl module \emph{swirl-it} now, if you haven't done it so far (see section \ref{swirl}).
+\begin{itemize}
+\tightlist
+\item
+  Good graphs are easy to understand and eye catching.
+\item
+  Graphs can be misleading and manipulative and that is opposing to the ideas of science. Thus, be responsible and honest.
+\item
+  Minimize colors and other attention-grabbing elements that are not directly related to the data of interest. Worldwide, there are approximately 300 million color blind people. In particular, red, green or blue light are problematic to color blind people. Thus, better rely on color schemes that are designed for colorblind people.
+\item
+  Don't truncate an axis or change the scaling within an axis just to make you your story more appealing. Show the full scale of the graph, then zoom to show the data of interest, if necessary.
+\item
+  Label and describe your chart sufficiently so that everybody can fully understand the content of the shown data set and statistics without having to study the notes of the graph for too long.
+\item
+  Don't do pie charts. They may look simple, but they're tricky to get right and there are usually better alternatives. Humans are not very good at comparing the size of angles and as there's no scale in pie plots, reading accurate values is difficult. Figure \ref{fig:piebad} may proof this.
+\item
+  For more tips, see:
 
-Now, read chapters 1 and 2 of \citet{Wickham2023R}. Copy all the code that is shown in the book into a script and try to run it on your machine.
-That is the best way to learn, understand, and create your own notes that may guide you later on. I highly recommend the exercises of the book. Don't skip them. If you have troubles finding the solutions, there are some guy
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://guides.library.duke.edu/datavis/topten}{Data Visualization: Chart Dos and Don'ts (by Duke University)}
+  \item
+    \href{https://www.kirchkamp.de/graph/}{Graphs and Visualising Data} by Oliver Kirchkamp. In particular, I highly recommend his \href{https://www.kirchkamp.de/oekonometrie/pdf/gra-p.pdf}{handout} \citep{Kirchkamp2018Using}. It discusses many pitfalls of visualizing data, instructs how to do good graphs, and he shows the corresponding R code of all graphs.\\
+  \item
+    The \href{https://www.r-graph-gallery.com}{R Graph Gallery} offers shows graphs and the corresponding R code to replicate the graphs
+  \item
+    The work of \href{www.edwardtufte.com}{Edward Tufte} and his book \emph{The Visual Display of Quantitative Information} \citep{Tufte2022Visual} are classical readings.
+  \end{itemize}
+\end{itemize}
 
-\hypertarget{how-to-write-reports-with-r-markdown}{%
-\chapter{How to write reports with R Markdown}\label{how-to-write-reports-with-r-markdown}}
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth,height=\textheight]{fig/piebad.jpeg}
+\caption[\label{fig:piebad} Pie charts are problematic]{\label{fig:piebad} Pie charts are problematic\footnotemark{}}
+\end{figure}
+\footnotetext{Picture is taken from \url{https://en.wikipedia.org/wiki/Pie_chart}}
+
+When it comes to data visualization, there's no better resource than the book by \citet{Wickham2023R}. It introduces the ggplot function which is part of the ggplot2 package which, in turn, is part of the tidyverse package. Thus, if you've installed and loaded tidyverse, you automatically have access to ggplot. Creating beautiful and informative graphs is easy with ggplot. To proof that claim, study chapters 1 and 2 of \citet{Wickham2023R}. To reap the best benefits from studying, I recommend to copy all the code that is shown in the book into a R script and try to run it on your PC. That is the best way to learn, understand, and create your own notes that may guide you later on. Whenever you see interesting code somewhere, try to run it on your PC. Moreover, I recommend the exercises of the book, they are challenging sometimes but to really understand code you need to run code yourself.
+
+\hypertarget{write-with-r-markdown}{%
+\chapter{Write with R Markdown}\label{write-with-r-markdown}}
 
 \begin{figure}
 \centering

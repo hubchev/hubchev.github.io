@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 How to manage data | How to Use R for Data Science</title>
   <meta name="description" content="4 How to manage data | How to Use R for Data Science" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 How to manage data | How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -225,73 +225,57 @@ div.csl-indent {
 <h1><span class="header-section-number">4</span> How to manage data<a href="how-to-manage-data.html#how-to-manage-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="the-tidyverse-universe" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> The tidyverse universe<a href="how-to-manage-data.html#the-tidyverse-universe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If you want to work with R, you should get known to the <em>tidyverse</em> package. The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.
-The core packages are ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats, which provide functionality to model, transform, and visualize data. An additional 12 packages assist the core. As of November 2018, the tidyverse package and some of its individual packages comprise 5 out of the top 10 most downloaded R packages. The tidyverse is the subject of multiple books and papers and <span class="citation">Wickham and Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span> is all about it. Thus, read sections 3 (<a href="https://r4ds.hadley.nz/workflow-basics.html">Workflow: basics</a>) and 4 (<a href="https://r4ds.hadley.nz/data-transform.html">Data transformation</a>) of <span class="citation">Wickham and Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>, visit the website www.tidyverse.org, and, if you still haven`t done, do the tidyverse module of my swirl package, called <em>swirl-it</em>.</p>
-<p>Install the complete tidyverse with:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="how-to-manage-data.html#cb45-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<p>The R package <em>tidyverse</em> is a collection of R packages. All packages share an underlying design philosophy, grammar, and data structures.
+The most popular packages are ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats. They provide functionality to model, transform, and visualize data. Tidyverse is extremely popular and many individual packages of tidyverse are regularly in the top 10 most downloaded R packages on CRAN<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. How to do data science with tidyverse is the subject of multiple books and tutorials. The popular book <em>R for Data Science</em> by <span class="citation">Wickham and Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span> is all about the tidyverse universe. Thus, I highly recommend reading sections 3 (<a href="https://r4ds.hadley.nz/workflow-basics.html">Workflow: basics</a>) and 4 (<a href="https://r4ds.hadley.nz/data-transform.html">Data transformation</a>) of <span class="citation">Wickham and Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. Addidionally, visit www.tidyverse.org and, if you still haven`t done so, do the tidyverse module of my swirl package, called <em>swirl-it</em>, see section @swirl.</p>
+<p>To install and load tidyverse run the following lines of code:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="how-to-manage-data.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb42-2"><a href="how-to-manage-data.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
 </div>
 <div id="the-pipe-operator" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> The pipe operator<a href="how-to-manage-data.html#the-pipe-operator" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The pipe operator, %&gt;%, comes from the magrittr package which is also a part of the tidyverse package. The <em>base</em> pipe operator, |&gt;, is since R.4.1.0 part of base R. For most cases these two are identical. The pipe is to help you write code in a way that is easier to read and understand.
 As R is a functional language, code often contains a lot of parenthesis, ( and ). Nesting those parentheses together is complex and you easily get lost. This makes your R code hard to read and understand. Here’s where %&gt;% comes in to the rescue! Consider the following chunk of code to explain the usage of the pipe:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="how-to-manage-data.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create some data `x`</span></span>
-<span id="cb46-2"><a href="how-to-manage-data.html#cb46-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.109</span>, <span class="fl">0.359</span>, <span class="fl">0.63</span>, <span class="fl">0.996</span>, <span class="fl">0.515</span>, <span class="fl">0.142</span>, <span class="fl">0.017</span>, <span class="fl">0.829</span>, <span class="fl">0.907</span>)</span>
-<span id="cb46-3"><a href="how-to-manage-data.html#cb46-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="how-to-manage-data.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create some data `x`</span></span>
+<span id="cb43-2"><a href="how-to-manage-data.html#cb43-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.109</span>, <span class="fl">0.359</span>, <span class="fl">0.63</span>, <span class="fl">0.996</span>, <span class="fl">0.515</span>, <span class="fl">0.142</span>, <span class="fl">0.017</span>, <span class="fl">0.829</span>, <span class="fl">0.907</span>)</span>
+<span id="cb43-3"><a href="how-to-manage-data.html#cb43-3" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] 0.109 0.359 0.630 0.996 0.515 0.142 0.017 0.829 0.907</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="how-to-manage-data.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># take the logarithm of `x`, </span></span>
-<span id="cb48-2"><a href="how-to-manage-data.html#cb48-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">log</span>(x)</span>
-<span id="cb48-3"><a href="how-to-manage-data.html#cb48-3" aria-hidden="true" tabindex="-1"></a>x2</span></code></pre></div>
-<pre><code>## [1] -2.216407397 -1.024432890 -0.462035460 -0.004008021
-## [5] -0.663588378 -1.951928221 -4.074541935 -0.187535124
-## [9] -0.097612829</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="how-to-manage-data.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the lagged and iterated differences (see `diff()`)</span></span>
-<span id="cb50-2"><a href="how-to-manage-data.html#cb50-2" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> <span class="fu">diff</span>(x2)</span>
-<span id="cb50-3"><a href="how-to-manage-data.html#cb50-3" aria-hidden="true" tabindex="-1"></a>x3</span></code></pre></div>
-<pre><code>## [1]  1.19197451  0.56239743  0.45802744 -0.65958036
-## [5] -1.28833984 -2.12261371  3.88700681  0.08992229</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="how-to-manage-data.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  Make yourself familiar with the functions round() and round the result (1 digit)</span></span>
-<span id="cb52-2"><a href="how-to-manage-data.html#cb52-2" aria-hidden="true" tabindex="-1"></a>x4 <span class="ot">&lt;-</span> <span class="fu">round</span>(x3, <span class="dv">1</span>)</span>
-<span id="cb52-3"><a href="how-to-manage-data.html#cb52-3" aria-hidden="true" tabindex="-1"></a>x4</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="how-to-manage-data.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># take the logarithm of `x`, </span></span>
+<span id="cb45-2"><a href="how-to-manage-data.html#cb45-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">log</span>(x)</span>
+<span id="cb45-3"><a href="how-to-manage-data.html#cb45-3" aria-hidden="true" tabindex="-1"></a>x2</span></code></pre></div>
+<pre><code>## [1] -2.216407397 -1.024432890 -0.462035460 -0.004008021 -0.663588378 -1.951928221 -4.074541935 -0.187535124 -0.097612829</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="how-to-manage-data.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the lagged and iterated differences (see `diff()`)</span></span>
+<span id="cb47-2"><a href="how-to-manage-data.html#cb47-2" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> <span class="fu">diff</span>(x2)</span>
+<span id="cb47-3"><a href="how-to-manage-data.html#cb47-3" aria-hidden="true" tabindex="-1"></a>x3</span></code></pre></div>
+<pre><code>## [1]  1.19197451  0.56239743  0.45802744 -0.65958036 -1.28833984 -2.12261371  3.88700681  0.08992229</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="how-to-manage-data.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  Make yourself familiar with the functions round() and round the result (1 digit)</span></span>
+<span id="cb49-2"><a href="how-to-manage-data.html#cb49-2" aria-hidden="true" tabindex="-1"></a>x4 <span class="ot">&lt;-</span> <span class="fu">round</span>(x3, <span class="dv">1</span>)</span>
+<span id="cb49-3"><a href="how-to-manage-data.html#cb49-3" aria-hidden="true" tabindex="-1"></a>x4</span></code></pre></div>
 <pre><code>## [1]  1.2  0.6  0.5 -0.7 -1.3 -2.1  3.9  0.1</code></pre>
 <p>That is rather long and we actually don’t need objects x2, x3, and x4. Well, then let us write that in a nested function:</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="how-to-manage-data.html#cb54-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.109</span>, <span class="fl">0.359</span>, <span class="fl">0.63</span>, <span class="fl">0.996</span>, <span class="fl">0.515</span>, <span class="fl">0.142</span>, <span class="fl">0.017</span>, <span class="fl">0.829</span>, <span class="fl">0.907</span>)</span>
-<span id="cb54-2"><a href="how-to-manage-data.html#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-3"><a href="how-to-manage-data.html#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">diff</span>(<span class="fu">log</span>(x)), <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="how-to-manage-data.html#cb51-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.109</span>, <span class="fl">0.359</span>, <span class="fl">0.63</span>, <span class="fl">0.996</span>, <span class="fl">0.515</span>, <span class="fl">0.142</span>, <span class="fl">0.017</span>, <span class="fl">0.829</span>, <span class="fl">0.907</span>)</span>
+<span id="cb51-2"><a href="how-to-manage-data.html#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-3"><a href="how-to-manage-data.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">diff</span>(<span class="fu">log</span>(x)), <span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1]  1.2  0.6  0.5 -0.7 -1.3 -2.1  3.9  0.1</code></pre>
 <p>This is short but you easily loose overview. The solution is the <em>pipe</em>:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="how-to-manage-data.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load one of these packages: `magrittr` or `tidyverse`</span></span>
-<span id="cb56-2"><a href="how-to-manage-data.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## ── Attaching core tidyverse packages ───────────────────────
-## ✔ forcats   1.0.0     ✔ readr     2.1.4
-## ✔ ggplot2   3.4.1     ✔ stringr   1.5.0
-## ✔ lubridate 1.9.2     ✔ tibble    3.1.8
-## ✔ purrr     1.0.1     ✔ tidyr     1.3.0
-## ── Conflicts ────────────────────── tidyverse_conflicts() ──
-## ✖ readr::col_factor() masks scales::col_factor()
-## ✖ purrr::discard()    masks scales::discard()
-## ✖ dplyr::filter()     masks stats::filter()
-## ✖ dplyr::lag()        masks stats::lag()
-## ℹ Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="how-to-manage-data.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform the same computations on `x` as above</span></span>
-<span id="cb58-2"><a href="how-to-manage-data.html#cb58-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%&gt;%</span> <span class="fu">log</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb58-3"><a href="how-to-manage-data.html#cb58-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">diff</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb58-4"><a href="how-to-manage-data.html#cb58-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="how-to-manage-data.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load one of these packages: `magrittr` or `tidyverse`</span></span>
+<span id="cb53-2"><a href="how-to-manage-data.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb53-3"><a href="how-to-manage-data.html#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="how-to-manage-data.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform the same computations on `x` as above</span></span>
+<span id="cb53-5"><a href="how-to-manage-data.html#cb53-5" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%&gt;%</span> <span class="fu">log</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb53-6"><a href="how-to-manage-data.html#cb53-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">diff</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb53-7"><a href="how-to-manage-data.html#cb53-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1]  1.2  0.6  0.5 -0.7 -1.3 -2.1  3.9  0.1</code></pre>
 <p>You can read the %&gt;% with “and then” because it takes the results of some function “and then” does something with that in the next.
 Another example can be found in this short clip: <a href="https://youtu.be/PX5NuteZ3Vg">Using the pipe operator in R</a></p>
 <p>Read out loud the following code:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="how-to-manage-data.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;datasets&quot;</span>)</span>
-<span id="cb60-2"><a href="how-to-manage-data.html#cb60-2" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb60-3"><a href="how-to-manage-data.html#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(Sepal.Length <span class="sc">&gt;</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb60-4"><a href="how-to-manage-data.html#cb60-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate</span>(. <span class="sc">~</span> Species , . , mean)</span></code></pre></div>
-<pre><code>##      Species Sepal.Length Sepal.Width Petal.Length
-## 1     setosa     5.313636    3.713636     1.509091
-## 2 versicolor     5.997872    2.804255     4.317021
-## 3  virginica     6.622449    2.983673     5.573469
-##   Petal.Width
-## 1   0.2772727
-## 2   1.3468085
-## 3   2.0326531</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="how-to-manage-data.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;datasets&quot;</span>)</span>
+<span id="cb55-2"><a href="how-to-manage-data.html#cb55-2" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb55-3"><a href="how-to-manage-data.html#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(Sepal.Length <span class="sc">&gt;</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb55-4"><a href="how-to-manage-data.html#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate</span>(. <span class="sc">~</span> Species , . , mean)</span></code></pre></div>
+<pre><code>##      Species Sepal.Length Sepal.Width Petal.Length Petal.Width
+## 1     setosa     5.313636    3.713636     1.509091   0.2772727
+## 2 versicolor     5.997872    2.804255     4.317021   1.3468085
+## 3  virginica     6.622449    2.983673     5.573469   2.0326531</code></pre>
 <p>A solution may be the following: “you take the Iris data <em>and then</em> you subset the data <em>and then</em> you aggregate the data and show the mean”.</p>
 </div>
 <div id="data-manipulation-with-dplyr" class="section level2 hasAnchor" number="4.3">
@@ -333,6 +317,12 @@ Another example can be found in this short clip: <a href="https://youtu.be/PX5Nu
 </div>
 <p>Solutions</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p>CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R, see: <a href="https://cran.r-project.org" class="uri">https://cran.r-project.org</a>.<a href="how-to-manage-data.html#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
