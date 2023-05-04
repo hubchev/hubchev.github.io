@@ -156,7 +156,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 27 April, 2023}
+\date{Last compiled on 04 May, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -314,7 +314,7 @@ Here are a few useful tips to keep in mind as you learn to program:
 \item
   \textbf{Take the ``copy, paste, and tweak'' approach}: Especially when you learn your first programming language or you need to understand particularly complicated code, it is often much easier to take existing code that you know works and modify it to suit your ends. This is as opposed to trying to type out the code from scratch. We call this the \emph{``copy, paste, and tweak''} approach. So early on, we suggest not trying to write code from memory, but rather take existing examples we have provided you, then copy, paste, and tweak them to suit your goals. After you start feeling more confident, you can slowly move away from this approach and write code from scratch. Think of the ``copy, paste, and tweak'' approach as training wheels for a child learning to ride a bike. After getting comfortable, they won't need them anymore.
 \item
-  \textbf{The best way to learn to code is by doing}: Rather than learning to code for its own sake, we find that learning to code goes much smoother when you have a goal in mind or when you are working on a particular project, like analyzing data that you are interested in and that is important to you.
+  \textbf{Have a purpose when coding}: Rather than learning to code for its own sake, it goes much smoother when you have a goal in mind or when you are working on a particular project, like analyzing data that you are interested in, replicating a paper to understand it, or do something with R that is important to you.
 \item
   \textbf{Practice is key}: Just as the only method to improve your foreign language skills is through lots of practice and speaking, the only method to improving your coding skills is through lots of practice. Don't worry, however, we'll give you plenty of opportunities to do so!
 \end{itemize}
@@ -570,40 +570,39 @@ Error: could not find function
 
 This is a different error message than the one you just saw on a package not having been installed yet. R is telling you that you are trying to use a function in a package that has not yet been \emph{loaded}. R doesn't know where to find the function you are using. Almost all new users forget to do this when starting out, and it is a little annoying to get used to doing it. However, you'll remember with practice and after some time it will become second nature for you.
 
-\hypertarget{dont-do-it}{%
-\section{Don't do it}\label{dont-do-it}}
+\hypertarget{key-guidelines-on-working-with-r}{%
+\section{Key guidelines on working with R}\label{key-guidelines-on-working-with-r}}
 
-There are many conventions, rules and specific things that you should know better in order not to get into trouble with R so easily. It is tedious to explain all these dos and don'ts in detail, so please obey. It will make your life with R easier. I assure you, will understand later on why it is beneficial to follow these suggested conventions. So here is a non-exhaustive list of things to know:
+To avoid running into issues with R, it's important to be aware of the some conventions, rules, and best practices that apply to the language. While it can be tedious to go through all of the do's and don'ts in detail, following them can make your life with R much easier. Trust me, the benefits of adhering to these guidelines will become clear over time. Here is a non-exhaustive list:
 
-\textbf{Don't\ldots{}}
-
-\begin{itemize}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Don't forget that R programming language is case sensitive.
+  Do remember that R programming language is case sensitive.
 \item
-  Don't name objects such as vectors, numbers, variables, and data frames with a starting number.
+  Do start names of objects such as vectors, numbers, variables, and data frames with a letter, not a number.
 \item
-  Don't use dots in names of objects.
+  Do avoid using dots in names of objects.
 \item
-  Don't use certain keywords in naming objects, such as if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, and NA.
+  Do avoid using certain keywords in naming objects, such as if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, and NA.
 \item
-  Don't use backslash \texttt{\textbackslash{}} for navigating the file system; use front slash \texttt{/} instead.
+  Do use front slash \texttt{/} instead of backslash \texttt{\textbackslash{}} for navigating the file system.
 \item
-  Don't use whitespace and indentation for naming files, directories, or objects.
+  Do not use whitespace and indentation for naming files, directories, or objects.
 \item
-  Don't ignore warnings or errors unless you know what they mean.
+  Do not ignore warnings or errors unless you know what they mean.
 \item
-  Don't use hard-coded values; instead, define objects to represent these values.
+  Do define objects to represent hard-coded values instead of using them directly in code.
 \item
-  Don't forget to (install and) load packages that contain functions you want to use.
+  Do remember to (install and) load packages that contain functions you want to use.
 \item
-  Don't forget to set your working directory.
+  Do remember to set your working directory. (Tip: Use R Studio projects, see \ref{sec:rstudioprojects})
 \item
-  Don't forget to comment your code.
+  Do remember to comment your code.
 \item
-  Don't use \texttt{=}, for assignment but \texttt{\textless{}-}.
-\end{itemize}
+  Do use \texttt{\textless{}-} instead of \texttt{=} for assignment.
+\end{enumerate}
 
 An exhaustive style guide on how to write code can be found here: \url{https://style.tidyverse.org}
 
@@ -1056,6 +1055,50 @@ Below you find two more ways to calculate the a growth rate. Do you understand t
 ##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
 
+\hypertarget{visualizing-data}{%
+\chapter{Visualizing data}\label{visualizing-data}}
+
+Data visualization is an art. The purposes of visualizing data are manifold. You can emphasize facts, get known to data, detect anomalies, and communicate a large amount of infirmation simply and intuitive. Whatever your goal is, thousand of appropiate ways exist to visualize data. Many decisions to take are simply a matter of taste. However, there are some conventions and guidelines that help you to make on average better decisions when designing a visualization:
+
+\begin{itemize}
+\tightlist
+\item
+  Good graphs are easy to understand and eye catching.
+\item
+  Graphs can be misleading and manipulative and that is opposing to the ideas of science. Thus, be responsible and honest.
+\item
+  Minimize colors and other attention-grabbing elements that are not directly related to the data of interest. Worldwide, there are approximately 300 million color blind people. In particular, red, green or blue light are problematic to color blind people. Thus, better rely on color schemes that are designed for colorblind people.
+\item
+  Don't truncate an axis or change the scaling within an axis just to make you your story more appealing. Show the full scale of the graph, then zoom to show the data of interest, if necessary.
+\item
+  Label and describe your chart sufficiently so that everybody can fully understand the content of the shown data set and statistics without having to study the notes of the graph for too long.
+\item
+  Don't do pie charts. They may look simple, but they're tricky to get right and there are usually better alternatives. Humans are not very good at comparing the size of angles and as there's no scale in pie plots, reading accurate values is difficult. Figure \ref{fig:piebad} may proof this.
+\item
+  For more tips, see:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://guides.library.duke.edu/datavis/topten}{Data Visualization: Chart Dos and Don'ts (by Duke University)}
+  \end{itemize}
+\item
+  \href{https://www.kirchkamp.de/graph/}{Graphs and Visualising Data} by Oliver Kirchkamp. In particular, I highly recommend his \href{https://www.kirchkamp.de/oekonometrie/pdf/gra-p.pdf}{handout} \citep{Kirchkamp2018Using}. It discusses many pitfalls of visualizing data, instructs how to do good graphs, and he shows the corresponding R code of all graphs.\\
+\item
+  The \href{https://www.r-graph-gallery.com}{R Graph Gallery} offers shows graphs and the corresponding R code to replicate the graphs
+\item
+  The work of \href{www.edwardtufte.com}{Edward Tufte} and his book \emph{The Visual Display of Quantitative Information} \citep{Tufte2022Visual} are classical readings.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth,height=\textheight]{fig/piebad.jpeg}
+\caption[\label{fig:piebad} Pie charts are problematic]{\label{fig:piebad} Pie charts are problematic\footnotemark{}}
+\end{figure}
+\footnotetext{Picture is taken from \url{https://en.wikipedia.org/wiki/Pie_chart}}
+
+When it comes to data visualization, there's no better resource than the book by \citet{Wickham2023R}. It introduces the ggplot function which is part of the ggplot2 package which, in turn, is part of the tidyverse package. Thus, if you've installed and loaded tidyverse, you automatically have access to ggplot. Creating beautiful and informative graphs is easy with ggplot. To proof that claim, study chapters 1 and 2 of \citet{Wickham2023R}. To reap the best benefits from studying, I recommend to copy all the code that is shown in the book into a R script and try to run it on your PC. That is the best way to learn, understand, and create your own notes that may guide you later on. Whenever you see interesting code somewhere, try to run it on your PC. Moreover, I recommend the exercises of the book, they are challenging sometimes but to really understand code you need to run code yourself.
+
 \hypertarget{manage-data}{%
 \chapter{Manage data}\label{manage-data}}
 
@@ -1063,7 +1106,7 @@ Below you find two more ways to calculate the a growth rate. Do you understand t
 \section{The tidyverse universe}\label{the-tidyverse-universe}}
 
 The R package \emph{tidyverse} is a collection of R packages. All packages share an underlying design philosophy, grammar, and data structures.
-The most popular packages are ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats. They provide functionality to model, transform, and visualize data. Tidyverse is extremely popular and many individual packages of tidyverse are regularly in the top 10 most downloaded R packages on CRAN\footnote{CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R, see: \url{https://cran.r-project.org}.}. How to do data science with tidyverse is the subject of multiple books and tutorials. The popular book \emph{R for Data Science} by \citet{Wickham2023R} is all about the tidyverse universe. Thus, I highly recommend reading sections 3 (\href{https://r4ds.hadley.nz/workflow-basics.html}{Workflow: basics}) and 4 (\href{https://r4ds.hadley.nz/data-transform.html}{Data transformation}) of \citet{Wickham2023R}. Addidionally, visit www.tidyverse.org and, if you still haven`t done so, do the tidyverse module of my swirl package, called \emph{swirl-it}, see section @swirl.
+The most popular packages are ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats. They provide functionality to model, transform, and visualize data. Tidyverse is extremely popular and many individual packages of tidyverse are regularly in the top 10 most downloaded R packages on CRAN\footnote{CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R, see: \url{https://cran.r-project.org}.}. How to do data science with tidyverse is the subject of multiple books and tutorials. The popular book \emph{R for Data Science} by \citet{Wickham2023R} is all about the tidyverse universe. Thus, I highly recommend reading sections 3 (\href{https://r4ds.hadley.nz/workflow-basics.html}{Workflow: basics}) and 4 (\href{https://r4ds.hadley.nz/data-transform.html}{Data transformation}) of \citet{Wickham2023R}. Addidionally, visit www.tidyverse.org and, if you still haven`t done so, do the tidyverse module of my swirl package, called \emph{swirl-it}, see section \ref{swirl}.
 
 To install and load tidyverse run the following lines of code:
 
@@ -1101,7 +1144,8 @@ As R is a functional language, code often contains a lot of parenthesis, ( and )
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.216407397 -1.024432890 -0.462035460 -0.004008021 -0.663588378 -1.951928221 -4.074541935 -0.187535124 -0.097612829
+## [1] -2.216407397 -1.024432890 -0.462035460 -0.004008021 -0.663588378 -1.951928221 -4.074541935 -0.187535124
+## [9] -0.097612829
 \end{verbatim}
 
 \begin{Shaded}
@@ -1170,7 +1214,7 @@ Read out loud the following code:
 \FunctionTok{library}\NormalTok{(}\StringTok{"datasets"}\NormalTok{)}
 \NormalTok{iris }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{subset}\NormalTok{(Sepal.Length }\SpecialCharTok{\textgreater{}} \DecValTok{5}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{aggregate}\NormalTok{(. }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Species , . , mean)}
+  \FunctionTok{aggregate}\NormalTok{( . }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Species , . , mean)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1183,16 +1227,199 @@ Read out loud the following code:
 
 A solution may be the following: ``you take the Iris data \emph{and then} you subset the data \emph{and then} you aggregate the data and show the mean''.
 
+\hypertarget{import-data}{%
+\section{Import data}\label{import-data}}
+
+\hypertarget{vectors-and-matrices}{%
+\subsection{Vectors and Matrices}\label{vectors-and-matrices}}
+
+We already got known to the c() function which allows to combine multiple values into a vector or list. Here are some examples how you can use this function to create vectors and matrices:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# defining multiple vectors}
+\NormalTok{v\_a }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{)}
+\NormalTok{v\_b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{10}\SpecialCharTok{:}\DecValTok{12}\NormalTok{)}
+  
+\CommentTok{\# creating matrix}
+\NormalTok{m\_ab }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(v\_a, v\_b), }\AttributeTok{ncol =} \DecValTok{2}\NormalTok{)}
+\NormalTok{m\_cbind }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(v\_a, v\_b)}
+\NormalTok{m\_rbind }\OtherTok{\textless{}{-}} \FunctionTok{rbind}\NormalTok{(v\_a, v\_b)}
+
+\CommentTok{\# print matrix}
+\FunctionTok{print}\NormalTok{(m\_ab)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2]
+## [1,]    1   10
+## [2,]    2   11
+## [3,]    3   12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(m\_cbind)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      v_a v_b
+## [1,]   1  10
+## [2,]   2  11
+## [3,]   3  12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(m\_rbind)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     [,1] [,2] [,3]
+## v_a    1    2    3
+## v_b   10   11   12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# defining row names and column names}
+\NormalTok{rown }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"row\_1"}\NormalTok{, }\StringTok{"row\_2"}\NormalTok{)}
+\NormalTok{coln }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"col\_1"}\NormalTok{, }\StringTok{"col\_2"}\NormalTok{, }\StringTok{"col\_3"}\NormalTok{)}
+
+\CommentTok{\# creating matrix}
+\NormalTok{m\_ab\_label }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(m\_ab, }\AttributeTok{ncol =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{, }
+            \AttributeTok{dimnames =} \FunctionTok{list}\NormalTok{(rown, coln))}
+  
+\CommentTok{\# print matrix}
+\FunctionTok{print}\NormalTok{(m\_ab\_label)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       col_1 col_2 col_3
+## row_1     1     2     3
+## row_2    10    11    12
+\end{verbatim}
+
+The two most common formats to store and work with data in R are dataframe and tibble. Both formats store table-like structures of data in rows and columns. We will learn more on that in section \ref{sec:tidy}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# convert the matrix into dataframe}
+\NormalTok{df\_ab}\OtherTok{=}\FunctionTok{as.data.frame}\NormalTok{(m\_ab\_label)}
+\NormalTok{tbl\_ab}\OtherTok{=}\FunctionTok{as.tibble}\NormalTok{(m\_ab\_label)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{rdata-files}{%
+\section{RData files}\label{rdata-files}}
+
+You can save some of your objects (\texttt{save()}) or all (\texttt{save.image()}) and load data stored in the \texttt{.RData} (\texttt{load()}) format easily. With \texttt{rm()} you remove objects from your workspace. and with \texttt{rm(list\ =\ ls())} you clear all objects from the workspace. When you delete an object in R, you cannot recover it by clicking some \emph{Undo button}.
+
+\hypertarget{import-other-file-formats}{%
+\section{Import other file formats}\label{import-other-file-formats}}
+
+RStudio provides convenient data import tools that can be accessed by clicking \emph{File \textgreater{} Import Dataset}. In addition, tidyverse offers packages for importing data in various formats. This \href{https://posit.co/wp-content/uploads/2022/10/data-import.pdf}{cheatsheet}, for example, is about the packages \texttt{readr}, \texttt{readxl} and \texttt{googlesheets4}. The first allows you to read data in various file formats, including fixed-width files like .csv and .tsv. The package \texttt{readxl} can read in Excel files, i.e., .xls and .xlsx file formats and \texttt{googlesheets4} allows to read and write data from Google Sheets directly from R.
+
+For more information, I recommend once again the second version book \emph{R for Data Science} by \href{https://r4ds.hadley.nz/}{\citet{Wickham2023R}}. In particular, check out the \href{https://r4ds.hadley.nz/data-tidy.html}{``Data tidying''} section for importing CSV and TSV files, the \href{https://r4ds.hadley.nz/spreadsheets.html}{``Spreadsheets''} section for Excel files, the \href{https://r4ds.hadley.nz/databases.html}{``Databases''} section for retrieving data with SQL, the \href{https://r4ds.hadley.nz/arrow.html}{``Arrow''} section for working with large datasets, and the \href{https://r4ds.hadley.nz/webscraping.html}{``Web scraping''} section for extracting data from web pages.
+
+\hypertarget{sec:tidy}{%
+\section{Dataframes and tidy data (tibbles)}\label{sec:tidy}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_ab}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       col_1 col_2 col_3
+## row_1     1     2     3
+## row_2    10    11    12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tbl\_ab}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   col_1 col_2 col_3
+##   <int> <int> <int>
+## 1     1     2     3
+## 2    10    11    12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_test }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{as.table}\NormalTok{(m\_ab\_label))}
+\NormalTok{tbl\_test}\OtherTok{=}\FunctionTok{as.tibble}\NormalTok{(df\_test)}
+
+\NormalTok{test }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{rownames\_to\_column}\NormalTok{( }\AttributeTok{var =} \StringTok{"car"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+    \FunctionTok{as.tibble}\NormalTok{() }
+\end{Highlighting}
+\end{Shaded}
+
+Both data frames and tibbles are two of the most commonly used data structures in R for handling tabular data. A tibble actually is a data frame and you can use all functions that work with a data frame also with a tibble. However, a tibble has some additional features. Data frames are provided by base R while tibbles are provided by the tidyverse package. This means that if you want to use tibbles you should load tidyverse.
+
+When printed to the console, both display the first 10 rows but only data frames display all columns. In contrast, a tibble displays only as many columns as fit within the console width. That makes it easier to view and work with large datasets.
+
+Most importantly, tibbles should follow three interrelated rules that make a dataset \emph{tidy}:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Each variable is a column; each column is a variable.
+\item
+  Each observation is a row; each row is an observation.
+\item
+  Each value is a cell; each cell is a single value.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,height=\textheight]{fig/tidy-1.png}
+\caption[\label{fig:tidy-1} Features of a tidy dataset: variables are columns, observations are rows, and values are cells]{\label{fig:tidy-1} Features of a tidy dataset: variables are columns, observations are rows, and values are cells\footnotemark{}}
+\end{figure}
+\footnotetext{The figure stems from \citet{Wickham2023R}}
+
+Figure \ref{fig:tidy-1} illustrates the characteristics of a tidy dataset, which, as described by \citet{Wickham2023R}, offers two key benefits:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A tidy dataset with a consistent data structure is easier to work with because the underlying uniformity facilitates learning and using data manipulation tools.
+\item
+  Representing variables in columns is advantageous because it enables R's vectorized operations to be applied, leveraging the fact that most R functions operate on vectors of values.
+\end{enumerate}
+
 \hypertarget{data-manipulation-with-dplyr}{%
 \section{Data manipulation with dplyr}\label{data-manipulation-with-dplyr}}
 
 The dplyr package, which is part of tidyverse, make data manipulation easy:
-- Pick observations by their values (\texttt{filter()}).
-- Reorder the rows (\texttt{arrange()}).
-- Pick variables by their names (\texttt{select()}).
-- Create new variables with functions of existing variables
-(\texttt{mutate()}).
-- Collapse many values down to a single summary (\texttt{summarise()}).
+
+\begin{itemize}
+\tightlist
+\item
+  Pick observations by their values (\texttt{filter()}).
+\item
+  Reorder the rows (\texttt{arrange()}).
+\item
+  Pick variables by their names (\texttt{select()}).
+\item
+  Create new variables with functions of existing variables
+  (\texttt{mutate()}).
+\item
+  Collapse many values down to a single summary (\texttt{summarise()}).
+\end{itemize}
 
 These functions can all be used in conjunction with \texttt{group\_by()} , which changes the scope of each function from operating on the entire dataset to operating on it group-by-group.
 
@@ -1246,52 +1473,6 @@ All functions work similarly:
 Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_subset.R}{here}.
 \end{exercise}
 
-Solutions
-
-\hypertarget{visualizing-data}{%
-\chapter{Visualizing data}\label{visualizing-data}}
-
-Data visualization is an art. The purposes of visualizing data are manifold. You can emphasize facts, get known to data, detect anomalies, and communicate a large amount of infirmation simply and intuitive. Whatever your goal is, thousand of appropiate ways exist to visualize data. Many decisions to take are simply a matter of taste. However, there are some conventions and guidelines that help you to make on average better decisions when designing a visualization:
-
-\begin{itemize}
-\tightlist
-\item
-  Good graphs are easy to understand and eye catching.
-\item
-  Graphs can be misleading and manipulative and that is opposing to the ideas of science. Thus, be responsible and honest.
-\item
-  Minimize colors and other attention-grabbing elements that are not directly related to the data of interest. Worldwide, there are approximately 300 million color blind people. In particular, red, green or blue light are problematic to color blind people. Thus, better rely on color schemes that are designed for colorblind people.
-\item
-  Don't truncate an axis or change the scaling within an axis just to make you your story more appealing. Show the full scale of the graph, then zoom to show the data of interest, if necessary.
-\item
-  Label and describe your chart sufficiently so that everybody can fully understand the content of the shown data set and statistics without having to study the notes of the graph for too long.
-\item
-  Don't do pie charts. They may look simple, but they're tricky to get right and there are usually better alternatives. Humans are not very good at comparing the size of angles and as there's no scale in pie plots, reading accurate values is difficult. Figure \ref{fig:piebad} may proof this.
-\item
-  For more tips, see:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \href{https://guides.library.duke.edu/datavis/topten}{Data Visualization: Chart Dos and Don'ts (by Duke University)}
-  \item
-    \href{https://www.kirchkamp.de/graph/}{Graphs and Visualising Data} by Oliver Kirchkamp. In particular, I highly recommend his \href{https://www.kirchkamp.de/oekonometrie/pdf/gra-p.pdf}{handout} \citep{Kirchkamp2018Using}. It discusses many pitfalls of visualizing data, instructs how to do good graphs, and he shows the corresponding R code of all graphs.\\
-  \item
-    The \href{https://www.r-graph-gallery.com}{R Graph Gallery} offers shows graphs and the corresponding R code to replicate the graphs
-  \item
-    The work of \href{www.edwardtufte.com}{Edward Tufte} and his book \emph{The Visual Display of Quantitative Information} \citep{Tufte2022Visual} are classical readings.
-  \end{itemize}
-\end{itemize}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.75\textwidth,height=\textheight]{fig/piebad.jpeg}
-\caption[\label{fig:piebad} Pie charts are problematic]{\label{fig:piebad} Pie charts are problematic\footnotemark{}}
-\end{figure}
-\footnotetext{Picture is taken from \url{https://en.wikipedia.org/wiki/Pie_chart}}
-
-When it comes to data visualization, there's no better resource than the book by \citet{Wickham2023R}. It introduces the ggplot function which is part of the ggplot2 package which, in turn, is part of the tidyverse package. Thus, if you've installed and loaded tidyverse, you automatically have access to ggplot. Creating beautiful and informative graphs is easy with ggplot. To proof that claim, study chapters 1 and 2 of \citet{Wickham2023R}. To reap the best benefits from studying, I recommend to copy all the code that is shown in the book into a R script and try to run it on your PC. That is the best way to learn, understand, and create your own notes that may guide you later on. Whenever you see interesting code somewhere, try to run it on your PC. Moreover, I recommend the exercises of the book, they are challenging sometimes but to really understand code you need to run code yourself.
-
 \hypertarget{write-with-r-markdown}{%
 \chapter{Write with R Markdown}\label{write-with-r-markdown}}
 
@@ -1324,7 +1505,11 @@ In contrast to Quarto (see: \url{https://quarto.org} and \url{https://quarto.org
   The book \emph{R Markdown Cookbook} by \citet{Xie2020R} offers an introduction. The \href{https://bookdown.org/yihui/rmarkdown-cookbook}{online version of the book} is regularly updated and free of costs.
 \end{itemize}
 
+\begin{figure}
+\centering
 \includegraphics[width=0.25\textwidth,height=\textheight]{fig/rmarkdownbook.png}
+\caption{\citet{Xie2020R}: R Markdown Cookbook}
+\end{figure}
 
 \begin{itemize}
 \tightlist
@@ -1332,20 +1517,24 @@ In contrast to Quarto (see: \url{https://quarto.org} and \url{https://quarto.org
   The book \emph{R Markdown: The Definitive Guide} by \citet{Xie2018R} offers a comprehensive introduction. \href{https://bookdown.org/yihui/rmarkdown}{The online version of the book} is regularly updated and free of costs.
 \end{itemize}
 
+\begin{figure}
+\centering
 \includegraphics[width=0.25\textwidth,height=\textheight]{fig/rmcb.png}
+\caption{\citet{Xie2018R}: R Markdown: The Definitive Guide}
+\end{figure}
 
 Please watch the video \href{https://vimeo.com/178485416}{What is R Markdown?} and then study the \href{https://rmarkdown.rstudio.com/lesson-1.html}{R Markdown tutorial from RStudio}.
 
 \begin{exercise}
 \protect\hypertarget{exr:rmdfirst}{}\label{exr:rmdfirst}
 
-Start Markdown and R markdown
+Start Markdown and R Markdown
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  You can learn Markdown in 10 minutes. Just go to \url{https://www.markdowntutorial.com} and work throught the interactive lessons.
+  You can learn Markdown (not R Markdown!) in 10 minutes. Just go to \url{https://www.markdowntutorial.com} and work throught the interactive lessons.
 \item
   Now create your first R Markdown file in 3 minutes by doing the following:
 \end{enumerate}
@@ -1484,6 +1673,13 @@ The function \texttt{list.files()} lists all the files in that directory:
 \FunctionTok{list.files}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{sec:rstudioprojects}{%
+\subsection{R Studio projects}\label{sec:rstudioprojects}}
+
+Setting the working directory repeatedly can be a cumbersome task. Fortunately, R Studio projects can automate this process for you. When you open an R Studio project, the working directory is automatically set to the project directory.
+
+Creating a new project in R Studio is simple. Just click on \emph{File \textgreater{} New Project\ldots{}}. This will create a directory on your computer with a \_*.Rproj\_ file that can be used to open the saved project at a later date. The newly created directory contains your R code, data files, and other project-related files. By working within projects, all of your files and data are organized in one place, making it easier to share your work with others, reproduce your analyses, and keep track of changes over time.
 
 \hypertarget{sec:winbackslash}{%
 \subsection{Why do the Windows paths use the back-slash?}\label{sec:winbackslash}}
