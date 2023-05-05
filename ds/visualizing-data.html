@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Visualizing data | How to Use R for Data Science</title>
   <meta name="description" content="4 Visualizing data | How to Use R for Data Science" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Visualizing data | How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -119,6 +119,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -171,13 +175,15 @@ div.csl-indent {
 <li class="chapter" data-level="1.7.1" data-path="getting-started.html"><a href="getting-started.html#package-installation"><i class="fa fa-check"></i><b>1.7.1</b> Package installation</a></li>
 <li class="chapter" data-level="1.7.2" data-path="getting-started.html"><a href="getting-started.html#package-loading"><i class="fa fa-check"></i><b>1.7.2</b> Package loading</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="getting-started.html"><a href="getting-started.html#key-guidelines-on-working-with-r"><i class="fa fa-check"></i><b>1.8</b> Key guidelines on working with R</a></li>
+<li class="chapter" data-level="1.8" data-path="getting-started.html"><a href="getting-started.html#what-is-a-function-in-r"><i class="fa fa-check"></i><b>1.8</b> What is a function in R?</a></li>
+<li class="chapter" data-level="1.9" data-path="getting-started.html"><a href="getting-started.html#sec:objects"><i class="fa fa-check"></i><b>1.9</b> What are objects in R?</a></li>
+<li class="chapter" data-level="1.10" data-path="getting-started.html"><a href="getting-started.html#are-there-some-guidelines-for-working-with-r"><i class="fa fa-check"></i><b>1.10</b> Are there some guidelines for working with R?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="swirl.html"><a href="swirl.html"><i class="fa fa-check"></i><b>2</b> Learn interactively with swirl</a></li>
 <li class="chapter" data-level="3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html"><i class="fa fa-check"></i><b>3</b> Work with R scripts</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#r-scripts-why-they-are-useful"><i class="fa fa-check"></i><b>3.1</b> R Scripts: Why they are useful</a></li>
-<li class="chapter" data-level="3.2" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write and run R scripts</a></li>
+<li class="chapter" data-level="3.2" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write, and run R scripts</a></li>
 <li class="chapter" data-level="3.3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:assignmentoper"><i class="fa fa-check"></i><b>3.3</b> The assignment operator: <code>&lt;-</code></a></li>
 <li class="chapter" data-level="3.4" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#doing-calculation-in-scripts"><i class="fa fa-check"></i><b>3.4</b> Doing calculation in scripts</a></li>
 <li class="chapter" data-level="3.5" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:generics"><i class="fa fa-check"></i><b>3.5</b> User-defined functions</a></li>
@@ -186,15 +192,17 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="manage-data.html"><a href="manage-data.html"><i class="fa fa-check"></i><b>5</b> Manage data</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="manage-data.html"><a href="manage-data.html#the-tidyverse-universe"><i class="fa fa-check"></i><b>5.1</b> The tidyverse universe</a></li>
-<li class="chapter" data-level="5.2" data-path="manage-data.html"><a href="manage-data.html#the-pipe-operator"><i class="fa fa-check"></i><b>5.2</b> The pipe operator</a></li>
+<li class="chapter" data-level="5.2" data-path="manage-data.html"><a href="manage-data.html#pipeoperator"><i class="fa fa-check"></i><b>5.2</b> The pipe operator</a></li>
 <li class="chapter" data-level="5.3" data-path="manage-data.html"><a href="manage-data.html#import-data"><i class="fa fa-check"></i><b>5.3</b> Import data</a>
 <ul>
 <li class="chapter" data-level="5.3.1" data-path="manage-data.html"><a href="manage-data.html#vectors-and-matrices"><i class="fa fa-check"></i><b>5.3.1</b> Vectors and Matrices</a></li>
+<li class="chapter" data-level="5.3.2" data-path="manage-data.html"><a href="manage-data.html#open-data-in-rdata-files"><i class="fa fa-check"></i><b>5.3.2</b> Open data in RData files</a></li>
+<li class="chapter" data-level="5.3.3" data-path="manage-data.html"><a href="manage-data.html#open-datasets-from-packages"><i class="fa fa-check"></i><b>5.3.3</b> Open datasets from packages</a></li>
+<li class="chapter" data-level="5.3.4" data-path="manage-data.html"><a href="manage-data.html#import-using-major-public-api"><i class="fa fa-check"></i><b>5.3.4</b> Import using major public API</a></li>
+<li class="chapter" data-level="5.3.5" data-path="manage-data.html"><a href="manage-data.html#import-other-file-formats"><i class="fa fa-check"></i><b>5.3.5</b> Import other file formats</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#rdata-files"><i class="fa fa-check"></i><b>5.4</b> RData files</a></li>
-<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#import-other-file-formats"><i class="fa fa-check"></i><b>5.5</b> Import other file formats</a></li>
-<li class="chapter" data-level="5.6" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.6</b> Dataframes and tidy data (tibbles)</a></li>
-<li class="chapter" data-level="5.7" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.7</b> Data manipulation with dplyr</a></li>
+<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.4</b> Dataframes and tidy data (tibbles)</a></li>
+<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.5</b> Data manipulation with dplyr</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>6</b> Write with R Markdown</a></li>
 <li class="chapter" data-level="7" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a>
@@ -208,6 +216,7 @@ div.csl-indent {
 <li class="chapter" data-level="7.1.5" data-path="appendix.html"><a href="appendix.html#sec:winbackslash"><i class="fa fa-check"></i><b>7.1.5</b> Why do the Windows paths use the back-slash?</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>8</b> Troubleshooting</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li>&copy; Prof. Dr. Stephan Huber.</li>
@@ -243,16 +252,16 @@ div.csl-indent {
 <ul>
 <li><a href="https://guides.library.duke.edu/datavis/topten">Data Visualization: Chart Dos and Don’ts (by Duke University)</a></li>
 </ul></li>
-<li><a href="https://www.kirchkamp.de/graph/">Graphs and Visualising Data</a> by Oliver Kirchkamp. In particular, I highly recommend his <a href="https://www.kirchkamp.de/oekonometrie/pdf/gra-p.pdf">handout</a> <span class="citation">(<a href="references.html#ref-Kirchkamp2018Using" role="doc-biblioref">Kirchkamp 2018</a>)</span>. It discusses many pitfalls of visualizing data, instructs how to do good graphs, and he shows the corresponding R code of all graphs.<br />
+<li><a href="https://www.kirchkamp.de/graph/">Graphs and Visualising Data</a> by Oliver Kirchkamp. In particular, I highly recommend his <a href="https://www.kirchkamp.de/oekonometrie/pdf/gra-p.pdf">handout</a> <span class="citation">(<a href="references.html#ref-Kirchkamp2018Using" role="doc-biblioref">Kirchkamp, 2018</a>)</span>. It discusses many pitfalls of visualizing data, instructs how to do good graphs, and he shows the corresponding R code of all graphs.<br />
 </li>
 <li>The <a href="https://www.r-graph-gallery.com">R Graph Gallery</a> offers shows graphs and the corresponding R code to replicate the graphs</li>
-<li>The work of <a href="www.edwardtufte.com">Edward Tufte</a> and his book <em>The Visual Display of Quantitative Information</em> <span class="citation">(<a href="references.html#ref-Tufte2022Visual" role="doc-biblioref">Tufte 2022</a>)</span> are classical readings.</li>
+<li>The work of <a href="www.edwardtufte.com">Edward Tufte</a> and his book <em>The Visual Display of Quantitative Information</em> <span class="citation">(<a href="references.html#ref-Tufte2022Visual" role="doc-biblioref">Tufte, 2022</a>)</span> are classical readings.</li>
 </ul>
 <div class="figure"><span style="display:block;" id="fig:piebad"></span>
-<img src="fig/piebad.jpeg" style="width:75.0%" alt="" />
+<img src="fig/piebad.jpeg" style="width:70.0%" alt="" />
 <p class="caption">Figure 4.1:  Pie charts are problematic<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 </div>
-<p>When it comes to data visualization, there’s no better resource than the book by <span class="citation">Wickham and Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. It introduces the ggplot function which is part of the ggplot2 package which, in turn, is part of the tidyverse package. Thus, if you’ve installed and loaded tidyverse, you automatically have access to ggplot. Creating beautiful and informative graphs is easy with ggplot. To proof that claim, study chapters 1 and 2 of <span class="citation">Wickham and Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. To reap the best benefits from studying, I recommend to copy all the code that is shown in the book into a R script and try to run it on your PC. That is the best way to learn, understand, and create your own notes that may guide you later on. Whenever you see interesting code somewhere, try to run it on your PC. Moreover, I recommend the exercises of the book, they are challenging sometimes but to really understand code you need to run code yourself.</p>
+<p>When it comes to data visualization, there’s no better resource than the book by <span class="citation">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. It introduces the ggplot function which is part of the ggplot2 package which, in turn, is part of the tidyverse package. Thus, if you’ve installed and loaded tidyverse, you automatically have access to ggplot. Creating beautiful and informative graphs is easy with ggplot. To proof that claim, study chapters 1 and 2 of <span class="citation">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. To reap the best benefits from studying, I recommend to copy all the code that is shown in the book into a R script and try to run it on your PC. That is the best way to learn, understand, and create your own notes that may guide you later on. Whenever you see interesting code somewhere, try to run it on your PC. Moreover, I recommend the exercises of the book, they are challenging sometimes but to really understand code you need to run code yourself.</p>
 
 </div>
 <div class="footnotes">

@@ -133,7 +133,7 @@
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
-\bibliographystyle{apacite}
+\bibliographystyle{plainnat}
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
@@ -156,7 +156,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 04 May, 2023}
+\date{Last compiled on 05 May, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -256,6 +256,12 @@ Before we can start exploring data in R, there are some key concepts to understa
   How to write and run code in R
 \item
   What are R packages?
+\item
+  What is a function in R?
+\item
+  What are objects in R?
+\item
+  Are there some guidelines for working with R?
 \end{enumerate}
 
 \hypertarget{sec:whyR}{%
@@ -441,34 +447,28 @@ You will first need to download and install both R and RStudio (Desktop version)
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{You must do this first:} Download and install R by going to \url{https://cloud.r-project.org/}. \index{R!installation}
+  \textbf{Do this firstly:} Download and install R by going to \url{https://cloud.r-project.org/}. \index{R!installation}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    If you are a Windows user: Click on ``Download R for Windows'', then click on ``base'', then click on the Download link.
+  \item
+    If you are macOS user: Click on ``Download R for (Mac) OS X'', then under ``Latest release:'' click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of November 25, 2019 was R-3.6.1.
+  \item
+    If you are a Linux user: Click on ``Download R for Linux'' and choose your distribution for more information on installing R for your setup.
+  \end{itemize}
+\item
+  \textbf{Do this secondly:} Download and install RStudio at \url{https://www.rstudio.com/products/rstudio/download/}.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Scroll down to ``Installers for Supported Platforms'' near the bottom of the page.
+  \item
+    Click on the download link corresponding to your computer's operating system.
+  \end{itemize}
 \end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  If you are a Windows user: Click on ``Download R for Windows'', then click on ``base'', then click on the Download link.
-\item
-  If you are macOS user: Click on ``Download R for (Mac) OS X'', then under ``Latest release:'' click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of November 25, 2019 was R-3.6.1.
-\item
-  If you are a Linux user: Click on ``Download R for Linux'' and choose your distribution for more information on installing R for your setup.
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \textbf{You must do this second:} Download and install RStudio at \url{https://www.rstudio.com/products/rstudio/download/}.
-\end{enumerate}
-
-\begin{itemize}
-\tightlist
-\item
-  Scroll down to ``Installers for Supported Platforms'' near the bottom of the page.
-\item
-  Click on the download link corresponding to your computer's operating system.
-  \index{RStudio!installation}
-\end{itemize}
 
 \hypertarget{packages}{%
 \section{What are R packages?}\label{packages}}
@@ -539,7 +539,9 @@ An alternative way to install a package is by typing
 
 in the console pane of RStudio and pressing Return/Enter on your keyboard. Note you must include the quotation marks around the name of the package.
 
-Much like an app on your phone, you only have to install a package once. However, if you want to update a previously installed package to a newer version, you need to reinstall it by repeating the earlier steps.
+Much like an app on your phone, you only have to install a package once. However, if you want to update a previously installed package to a newer version, you need to re-install it by repeating the earlier steps or you use \texttt{update.packages()}. To uninstall packages you can use \texttt{remove.packages()}.
+
+The installation of packages can take some time. However, if your CPU has many cores, you can speed up the process a lot using the argument \texttt{Ncpus} like this \texttt{update.packages(ask\ =\ F,\ Ncpus\ =\ 4L)}. This option allows you to adjust the number of parallel processes R can use on your PC. So, if you have a CPU with many cores you can increase that number.
 
 \hypertarget{package-loading}{%
 \subsection{Package loading}\label{package-loading}}
@@ -568,10 +570,38 @@ One very common mistake new R users make when wanting to use particular packages
 Error: could not find function
 \end{verbatim}
 
-This is a different error message than the one you just saw on a package not having been installed yet. R is telling you that you are trying to use a function in a package that has not yet been \emph{loaded}. R doesn't know where to find the function you are using. Almost all new users forget to do this when starting out, and it is a little annoying to get used to doing it. However, you'll remember with practice and after some time it will become second nature for you.
+R is informing you that you are attempting to use a function from a package that has not yet been loaded. Forgetting to load packages is a common mistake made by new users, and it can be a bit frustrating to get used to at first. However, with practice, it will become second nature for you.
+Unloading packages can be done with \texttt{detach(,\ unload=TRUE)}.
 
-\hypertarget{key-guidelines-on-working-with-r}{%
-\section{Key guidelines on working with R}\label{key-guidelines-on-working-with-r}}
+\hypertarget{what-is-a-function-in-r}{%
+\section{What is a function in R?}\label{what-is-a-function-in-r}}
+
+One of the keys to understand R is a \emph{functional programming language}. Or, to put in in the words of \citet[p.~4]{Chambers2017Extending}: ``Everything that happens is a function call.'' When you like to exit R, for example, you do it with the function \texttt{q()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textgreater{} q()}
+\NormalTok{Save workspace image? [y/n/c]: }
+\end{Highlighting}
+\end{Shaded}
+
+If you don't want to be asked what you want to do with your workspace (that is the place where you store all your objects, see section \ref{sec:objects}) you can do it with an argument that is part of the function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textgreater{} q(save = "no")}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sec:objects}{%
+\section{What are objects in R?}\label{sec:objects}}
+
+Everything you do is made with a function and ``everything that exists in R is an object'' \citep[p.~4]{Chambers2017Extending}. Objects are the fundamental units that are used to store information. Objects can be created using a variety of data types, including vectors, matrices, data frames, lists, functions. All objects are shown in the \emph{workspace} which is shown in the \emph{Environment} panel.
+
+In R, you can show the content of the workspace with \texttt{ls()}. The function \texttt{rm()} allows to remove objects and with \texttt{rm(list=ls())} you clear all objects from the workspace.
+
+\hypertarget{are-there-some-guidelines-for-working-with-r}{%
+\section{Are there some guidelines for working with R?}\label{are-there-some-guidelines-for-working-with-r}}
 
 To avoid running into issues with R, it's important to be aware of the some conventions, rules, and best practices that apply to the language. While it can be tedious to go through all of the do's and don'ts in detail, following them can make your life with R much easier. Trust me, the benefits of adhering to these guidelines will become clear over time. Here is a non-exhaustive list:
 
@@ -622,8 +652,6 @@ Open Rstudio and type in the console the following:
 \begin{Highlighting}[]
 \FunctionTok{install.packages}\NormalTok{(}\StringTok{"swirl"}\NormalTok{)}
 \FunctionTok{library}\NormalTok{(}\StringTok{"swirl"}\NormalTok{)}
-\FunctionTok{ls}\NormalTok{()}
-\FunctionTok{rm}\NormalTok{(}\AttributeTok{list=}\FunctionTok{ls}\NormalTok{())}
 \FunctionTok{install\_course\_github}\NormalTok{(}\StringTok{"hubchev"}\NormalTok{, }\StringTok{"swirl{-}it"}\NormalTok{)}
 \FunctionTok{swirl}\NormalTok{()}
 \end{Highlighting}
@@ -637,10 +665,6 @@ The above lines of code do the following:
   Install the \emph{swirl} package.
 \item
   Load the \emph{swirl} package.
-\item
-  List the content of the environment.
-\item
-  Remove everything from the environment.
 \item
   Install my \emph{swirl} course that is hosted on GitHub.
 \item
@@ -724,7 +748,7 @@ That's where having a transcript of all the code, which can be re-run and edited
 \end{itemize}
 
 \hypertarget{generate-write-and-run-r-scripts}{%
-\section{Generate, write and run R scripts}\label{generate-write-and-run-r-scripts}}
+\section{Generate, write, and run R scripts}\label{generate-write-and-run-r-scripts}}
 
 To \textbf{generate a script} you can
 
@@ -945,7 +969,9 @@ So the challenge is to divide the value of \texttt{revenue} with the value of th
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0
+##  [1]    0  700 1400  350  175   28   56    0    0    0    0    0
+## attr(,"tsp")
+## [1]  0 11  1
 \end{verbatim}
 
 \begin{Shaded}
@@ -955,10 +981,12 @@ So the challenge is to divide the value of \texttt{revenue} with the value of th
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
+##  [1] NaN   0   0   0   0   0   0 NaN NaN NaN NaN NaN
+## attr(,"tsp")
+## [1]  0 11  1
 \end{verbatim}
 
-Unfortunately, this does not work out. The \texttt{lag()} function does not work as we think it should. Well, the reason is simply that we are using the wrong function. The current \texttt{lag()} function is part of the stats package which is part of R base and is always loaded. The \texttt{lag()} function we aim to use stems from the dplyr package which we must install and load to be able to use it. So let's do it:
+Unfortunately, this does not work out. The \texttt{lag()} function does not work as we think it should. Well, the reason is simply that we are using the wrong function. The current \texttt{lag()} function is part of the stats package which is part of the package \texttt{stats} which is part of R base and is loaded automatically. The \texttt{lag()} function we aim to use stems from the dplyr package which we must install and load to be able to use it. So let's do it:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -968,7 +996,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/usr/local/lib/R/site-library/dplyr"
+## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.1/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -979,7 +1007,30 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Highlighting}
 \end{Shaded}
 
-Now, we was informed that among other functions the \texttt{lag()} function is \emph{masked}. That means that now the function of the newly loaded package is active. So, let's try again:
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:ggplot2':
+## 
+##     vars
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+This message informs us that among other functions the \texttt{lag()} function is \emph{masked}. That means that now the function of the newly loaded package is active. So, let's try again:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1025,15 +1076,14 @@ That looks good now. And here is a way to calculate growth rates with a self-wri
 ##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
 
-You know, all functions in R are user-written and sometimes it happens that two people had the idea to name functions identically. In such a case we have to deal with that conflict as we cannot use both functions at the same time. Also, it is a very realistic case that you find a solution somewhere that should work out your problem but you fail to make it run. In such a case it is often a forgotten package that needs to be loaded.
+In R, all functions are written by users, and it is not uncommon for two people to name their functions identically. In such cases, we must resolve the conflict by choosing which function to use. To use the lag function from the \texttt{stats} package, you can use the double colon operator \texttt{::} like this \texttt{stats::lag(arguments)}.
 
 \begin{exercise}
 \protect\hypertarget{exr:growthrate}{}\label{exr:growthrate}All roads lead to R(ome)
 
 If you ask ten programmers to solve a particular problem, you will probably receive ten different soltuions that are all valid. R is no exception here. This can be very confussing when just started to learn R.
 
-Below you find two more ways to calculate the a growth rate. Do you understand them?
-\end{exercise}
+Below you find more ways to calculate the a growth rate. Do you understand them?
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1054,6 +1104,9 @@ Below you find two more ways to calculate the a growth rate. Do you understand t
 \begin{verbatim}
 ##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
 \end{verbatim}
+
+An often-used method for approximating growth rates is to calculate the differences in the logarithm of values over time. Section \ref{pipeoperator} illustrates how to perform this calculation with R.
+\end{exercise}
 
 \hypertarget{visualizing-data}{%
 \chapter{Visualizing data}\label{visualizing-data}}
@@ -1092,7 +1145,7 @@ Data visualization is an art. The purposes of visualizing data are manifold. You
 
 \begin{figure}
 \centering
-\includegraphics[width=0.75\textwidth,height=\textheight]{fig/piebad.jpeg}
+\includegraphics[width=0.7\textwidth,height=\textheight]{fig/piebad.jpeg}
 \caption[\label{fig:piebad} Pie charts are problematic]{\label{fig:piebad} Pie charts are problematic\footnotemark{}}
 \end{figure}
 \footnotetext{Picture is taken from \url{https://en.wikipedia.org/wiki/Pie_chart}}
@@ -1106,7 +1159,7 @@ When it comes to data visualization, there's no better resource than the book by
 \section{The tidyverse universe}\label{the-tidyverse-universe}}
 
 The R package \emph{tidyverse} is a collection of R packages. All packages share an underlying design philosophy, grammar, and data structures.
-The most popular packages are ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats. They provide functionality to model, transform, and visualize data. Tidyverse is extremely popular and many individual packages of tidyverse are regularly in the top 10 most downloaded R packages on CRAN\footnote{CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R, see: \url{https://cran.r-project.org}.}. How to do data science with tidyverse is the subject of multiple books and tutorials. The popular book \emph{R for Data Science} by \citet{Wickham2023R} is all about the tidyverse universe. Thus, I highly recommend reading sections 3 (\href{https://r4ds.hadley.nz/workflow-basics.html}{Workflow: basics}) and 4 (\href{https://r4ds.hadley.nz/data-transform.html}{Data transformation}) of \citet{Wickham2023R}. Addidionally, visit www.tidyverse.org and, if you still haven`t done so, do the tidyverse module of my swirl package, called \emph{swirl-it}, see section \ref{swirl}.
+The most popular packages are ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats. They provide functionality to model, transform, and visualize data. Tidyverse is extremely popular and many individual packages of tidyverse are regularly in the top 10 most downloaded R packages on CRAN\footnote{CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R, see: \url{https://cran.r-project.org}.}. How to do data science with tidyverse is the subject of multiple books and tutorials. In particular, the popular book \emph{R for Data Science} by \citet{Wickham2023R} is all about the tidyverse universe. Thus, I highly recommend reading sections 3 (\href{https://r4ds.hadley.nz/workflow-basics.html}{Workflow: basics}) and 4 (\href{https://r4ds.hadley.nz/data-transform.html}{Data transformation}) of \citet{Wickham2023R}. Addidionally, visit www.tidyverse.org and, if you still haven`t done so, do the tidyverse module of my swirl package, called \emph{swirl-it}, see section \ref{swirl}.
 
 To install and load tidyverse run the following lines of code:
 
@@ -1117,76 +1170,54 @@ To install and load tidyverse run the following lines of code:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{the-pipe-operator}{%
-\section{The pipe operator}\label{the-pipe-operator}}
+\hypertarget{pipeoperator}{%
+\section{The pipe operator}\label{pipeoperator}}
 
 The pipe operator, \%\textgreater\%, comes from the magrittr package which is also a part of the tidyverse package. The \emph{base} pipe operator, \textbar\textgreater, is since R.4.1.0 part of base R. For most cases these two are identical. The pipe is to help you write code in a way that is easier to read and understand.
-As R is a functional language, code often contains a lot of parenthesis, ( and ). Nesting those parentheses together is complex and you easily get lost. This makes your R code hard to read and understand. Here's where \%\textgreater\% comes in to the rescue! Consider the following chunk of code to explain the usage of the pipe:
+As R is a functional language, code often contains a lot of parenthesis, ( and ). Nesting those parentheses together is complex and you easily get lost. This makes your R code hard to read and understand. Here's where \textbar\textgreater{} comes in to the rescue! Consider the following chunk of code to explain the usage of the pipe:
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# create some data \textasciigrave{}x\textasciigrave{}}
-\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.109}\NormalTok{, }\FloatTok{0.359}\NormalTok{, }\FloatTok{0.63}\NormalTok{, }\FloatTok{0.996}\NormalTok{, }\FloatTok{0.515}\NormalTok{, }\FloatTok{0.142}\NormalTok{, }\FloatTok{0.017}\NormalTok{, }\FloatTok{0.829}\NormalTok{, }\FloatTok{0.907}\NormalTok{)}
-\NormalTok{x}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] 0.109 0.359 0.630 0.996 0.515 0.142 0.017 0.829 0.907
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FloatTok{1.002}\NormalTok{, }\FloatTok{1.004}\NormalTok{, .}\DecValTok{99}\NormalTok{, .}\DecValTok{99}\NormalTok{)}
 \CommentTok{\# take the logarithm of \textasciigrave{}x\textasciigrave{}, }
-\NormalTok{x2 }\OtherTok{\textless{}{-}} \FunctionTok{log}\NormalTok{(x)}
-\NormalTok{x2}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] -2.216407397 -1.024432890 -0.462035460 -0.004008021 -0.663588378 -1.951928221 -4.074541935 -0.187535124
-## [9] -0.097612829
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
+\NormalTok{log\_x }\OtherTok{\textless{}{-}} \FunctionTok{log}\NormalTok{(x)}
 \CommentTok{\# compute the lagged and iterated differences (see \textasciigrave{}diff()\textasciigrave{})}
-\NormalTok{x3 }\OtherTok{\textless{}{-}} \FunctionTok{diff}\NormalTok{(x2)}
-\NormalTok{x3}
+\NormalTok{growth\_rate\_x }\OtherTok{\textless{}{-}} \FunctionTok{diff}\NormalTok{(log\_x)}
+\NormalTok{growth\_rate\_x}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  1.19197451  0.56239743  0.45802744 -0.65958036 -1.28833984 -2.12261371  3.88700681  0.08992229
+## [1]  0.001998003  0.001994019 -0.014042357  0.000000000
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\#  Make yourself familiar with the functions round() and round the result (1 digit)}
-\NormalTok{x4 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(x3, }\DecValTok{1}\NormalTok{)}
-\NormalTok{x4}
+\CommentTok{\# round the result (4 digit)}
+\NormalTok{growth\_rate\_x\_round }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(growth\_rate\_x, }\DecValTok{4}\NormalTok{)}
+\NormalTok{growth\_rate\_x\_round }
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  1.2  0.6  0.5 -0.7 -1.3 -2.1  3.9  0.1
+## [1]  0.002  0.002 -0.014  0.000
 \end{verbatim}
 
-That is rather long and we actually don't need objects x2, x3, and x4. Well, then let us write that in a nested function:
+That is rather long and we actually don't need objects log\_x, growth\_rate\_x, and growth\_rate\_x\_round.
+Well, then let us write that in a nested function:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{0.109}\NormalTok{, }\FloatTok{0.359}\NormalTok{, }\FloatTok{0.63}\NormalTok{, }\FloatTok{0.996}\NormalTok{, }\FloatTok{0.515}\NormalTok{, }\FloatTok{0.142}\NormalTok{, }\FloatTok{0.017}\NormalTok{, }\FloatTok{0.829}\NormalTok{, }\FloatTok{0.907}\NormalTok{)}
-
-\FunctionTok{round}\NormalTok{(}\FunctionTok{diff}\NormalTok{(}\FunctionTok{log}\NormalTok{(x)), }\DecValTok{1}\NormalTok{)}
+\FunctionTok{round}\NormalTok{(}\FunctionTok{diff}\NormalTok{(}\FunctionTok{log}\NormalTok{(x)), }\DecValTok{4}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  1.2  0.6  0.5 -0.7 -1.3 -2.1  3.9  0.1
+## [1]  0.002  0.002 -0.014  0.000
 \end{verbatim}
 
-This is short but you easily loose overview. The solution is the \emph{pipe}:
+This is short but hard to read and understand. The solution is the \emph{pipe}:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1194,20 +1225,19 @@ This is short but you easily loose overview. The solution is the \emph{pipe}:
 \FunctionTok{library}\NormalTok{(tidyverse)}
 
 \CommentTok{\# Perform the same computations on \textasciigrave{}x\textasciigrave{} as above}
-\NormalTok{x }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{log}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{diff}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%}
-    \FunctionTok{round}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+\NormalTok{x }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{log}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{diff}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{round}\NormalTok{(}\DecValTok{4}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  1.2  0.6  0.5 -0.7 -1.3 -2.1  3.9  0.1
+## [1]  0.002  0.002 -0.014  0.000
 \end{verbatim}
 
-You can read the \%\textgreater\% with ``and then'' because it takes the results of some function ``and then'' does something with that in the next.
-Another example can be found in this short clip: \href{https://youtu.be/PX5NuteZ3Vg}{Using the pipe operator in R}
-
-Read out loud the following code:
+You can read the \textbar\textgreater{} with ``and then'' because it takes the results of some function ``and then'' does something with that in the next.
+For example, reading out loud the following code would sound something like this: ``I take the Iris data \emph{and then} I subset the data \emph{and then} I aggregate the data and show the means for each species''.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1225,8 +1255,6 @@ Read out loud the following code:
 ## 3  virginica     6.622449    2.983673     5.573469   2.0326531
 \end{verbatim}
 
-A solution may be the following: ``you take the Iris data \emph{and then} you subset the data \emph{and then} you aggregate the data and show the mean''.
-
 \hypertarget{import-data}{%
 \section{Import data}\label{import-data}}
 
@@ -1237,10 +1265,29 @@ We already got known to the c() function which allows to combine multiple values
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# defining multiple vectors}
+\CommentTok{\# defining multiple vectors using the colon operator \textasciigrave{}:\textasciigrave{}}
 \NormalTok{v\_a }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{)}
+\NormalTok{v\_a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 2 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{v\_b }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{10}\SpecialCharTok{:}\DecValTok{12}\NormalTok{)}
-  
+\NormalTok{v\_b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10 11 12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{\# creating matrix}
 \NormalTok{m\_ab }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(v\_a, v\_b), }\AttributeTok{ncol =} \DecValTok{2}\NormalTok{)}
 \NormalTok{m\_cbind }\OtherTok{\textless{}{-}} \FunctionTok{cbind}\NormalTok{(v\_a, v\_b)}
@@ -1314,13 +1361,89 @@ The two most common formats to store and work with data in R are dataframe and t
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{rdata-files}{%
-\section{RData files}\label{rdata-files}}
+\hypertarget{open-data-in-rdata-files}{%
+\subsection{Open data in RData files}\label{open-data-in-rdata-files}}
 
-You can save some of your objects (\texttt{save()}) or all (\texttt{save.image()}) and load data stored in the \texttt{.RData} (\texttt{load()}) format easily. With \texttt{rm()} you remove objects from your workspace. and with \texttt{rm(list\ =\ ls())} you clear all objects from the workspace. When you delete an object in R, you cannot recover it by clicking some \emph{Undo button}.
+You can save some of your objects (\texttt{save()}) or all (\texttt{save.image()}) and load data stored in the \texttt{.RData} (\texttt{load()}) format. When you delete an object in R, you cannot recover it by clicking some \emph{Undo button}.
+With \texttt{rm()} you remove objects from your workspace and with \texttt{rm(list\ =\ ls())} you clear all objects from the workspace.
+
+\hypertarget{open-datasets-from-packages}{%
+\subsection{Open datasets from packages}\label{open-datasets-from-packages}}
+
+The package \texttt{datasets} contains many datasets that are often used in textbooks. For example, the \texttt{mtcars} dataset:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"datasets"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(mtcars, }\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+\end{verbatim}
+
+\hypertarget{import-using-major-public-api}{%
+\subsection{Import using major public API}\label{import-using-major-public-api}}
+
+An API (application programming interface) specifies how machines can exchange information. There are many R packages available that provide a convenient way to access data from various online sources directly within R using the API of webpages. In most cases, it's better to download and import data within R than to navigate through the website's interface. This ensures that changes can be made easily at any time and that the data is always up-to-date. For instance, \texttt{wbstats} provides access to World Bank data, \texttt{eurostat} allows users to access Eurostat databases, \texttt{fredr} makes it easy to obtain data from the Federal Reserve Economic Data (FRED) platform, which offers economic data for the United States, \texttt{ecb} provides an interface to the European Central Bank's Statistical Data Warehouse, and the \texttt{OECD} package facilitates the extraction of data from the Organization for Economic Cooperation and Development (OECD).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# install.packages("wbstats") }
+\FunctionTok{library}\NormalTok{(}\StringTok{"wbstats"}\NormalTok{)}
+\CommentTok{\# GDP at market prices (current US$) for all available countries and regions}
+\NormalTok{df\_gdp }\OtherTok{\textless{}{-}} \FunctionTok{wb}\NormalTok{(}\AttributeTok{indicator =} \StringTok{"NY.GDP.MKTP.CD"}\NormalTok{)}
+\FunctionTok{head}\NormalTok{(df\_gdp, }\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   iso3c date        value    indicatorID         indicator iso2c                     country
+## 1   AFE 2021 1.089454e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+## 2   AFE 2020 9.341791e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+## 3   AFE 2019 1.009052e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(df\_gdp)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 13,156
+## Columns: 7
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "A~
+## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005",~
+## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826771e+11, 9.720022e~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.M~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (cur~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eas~
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(df\_gdp)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     iso3c               date               value           indicatorID         indicator            iso2c             country         
+##  Length:13156       Length:13156       Min.   :8.824e+06   Length:13156       Length:13156       Length:13156       Length:13156      
+##  Class :character   Class :character   1st Qu.:2.442e+09   Class :character   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Median :1.784e+10   Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+##                                        Mean   :1.161e+12                                                                              
+##                                        3rd Qu.:2.147e+11                                                                              
+##                                        Max.   :9.653e+13
+\end{verbatim}
 
 \hypertarget{import-other-file-formats}{%
-\section{Import other file formats}\label{import-other-file-formats}}
+\subsection{Import other file formats}\label{import-other-file-formats}}
 
 RStudio provides convenient data import tools that can be accessed by clicking \emph{File \textgreater{} Import Dataset}. In addition, tidyverse offers packages for importing data in various formats. This \href{https://posit.co/wp-content/uploads/2022/10/data-import.pdf}{cheatsheet}, for example, is about the packages \texttt{readr}, \texttt{readxl} and \texttt{googlesheets4}. The first allows you to read data in various file formats, including fixed-width files like .csv and .tsv. The package \texttt{readxl} can read in Excel files, i.e., .xls and .xlsx file formats and \texttt{googlesheets4} allows to read and write data from Google Sheets directly from R.
 
@@ -1702,6 +1825,51 @@ R is displaying a Windows path using the wrong type of slash, the back-slash. Th
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{troubleshooting}{%
+\chapter{Troubleshooting}\label{troubleshooting}}
+
+Troubleshooting is perhaps the most important skill for a data scientist. To tackle problems effectively, you need to understand them, replicate them, and then work to solve them. To help you with this process, here are some guidelines:
+
+When seeking help, be sure to provide information about your machine, including the operating system, the version of R, and the packages you have loaded. You can use the sessionInfo() function to gather this information. Here's an example from my machine:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R version 4.1.2 (2021-11-01)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Debian GNU/Linux 11 (bullseye)
+## 
+## Matrix products: default
+## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
+## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.13.so
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8   
+##  [6] LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+##  [1] dplyr_1.1.2        SmartEDA_0.3.9     DataExplorer_0.8.2 skimr_2.1.5        wbstats_1.0.4      lubridate_1.9.2    forcats_1.0.0      stringr_1.5.0     
+##  [9] purrr_1.0.1        readr_2.1.4        tibble_3.2.1       ggplot2_3.4.2      tidyverse_2.0.0    scales_1.2.1      
+## 
+## loaded via a namespace (and not attached):
+##  [1] httr_1.4.5         sass_0.4.6         tidyr_1.3.0        jsonlite_1.8.4     here_1.0.1         bslib_0.4.2        highr_0.10         yaml_2.3.7        
+##  [9] pillar_1.9.0       glue_1.6.2         digest_0.6.31      RColorBrewer_1.1-3 colorspace_2.1-0   htmltools_0.5.5    plyr_1.8.8         lpSolve_5.6.18    
+## [17] pkgconfig_2.0.3    bookdown_0.33.3    sampling_2.9       tzdb_0.3.0         timechange_0.2.0   generics_0.1.3     farver_2.1.1       cachem_1.0.8      
+## [25] withr_2.5.0        repr_1.1.6         cli_3.6.1          magrittr_2.0.3     crayon_1.5.2       evaluate_0.20      GGally_2.1.2       fansi_1.0.4       
+## [33] MASS_7.3-60        tools_4.1.2        data.table_1.14.8  hms_1.1.3          lifecycle_1.0.3    munsell_0.5.0      networkD3_0.4      compiler_4.1.2    
+## [41] jquerylib_0.1.4    tinytex_0.45       rlang_1.1.1        grid_4.1.2         rstudioapi_0.14    htmlwidgets_1.6.2  ISLR_1.4           igraph_1.4.2      
+## [49] base64enc_0.1-3    labeling_0.4.2     rmarkdown_2.21     gtable_0.3.3       reshape_0.8.9      curl_5.0.0         R6_2.5.1           gridExtra_2.3     
+## [57] knitr_1.42         fastmap_1.1.1      utf8_1.2.3         rprojroot_2.0.3    stringi_1.7.12     parallel_4.1.2     Rcpp_1.0.10        vctrs_0.6.2       
+## [65] tidyselect_1.2.0   xfun_0.39
+\end{verbatim}
 
   \bibliography{book.bib}
 

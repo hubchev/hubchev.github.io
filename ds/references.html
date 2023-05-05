@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>References | How to Use R for Data Science</title>
   <meta name="description" content="References | How to Use R for Data Science" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="References | How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -29,7 +29,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="appendix.html"/>
+<link rel="prev" href="troubleshooting.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -119,6 +119,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -171,13 +175,15 @@ div.csl-indent {
 <li class="chapter" data-level="1.7.1" data-path="getting-started.html"><a href="getting-started.html#package-installation"><i class="fa fa-check"></i><b>1.7.1</b> Package installation</a></li>
 <li class="chapter" data-level="1.7.2" data-path="getting-started.html"><a href="getting-started.html#package-loading"><i class="fa fa-check"></i><b>1.7.2</b> Package loading</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="getting-started.html"><a href="getting-started.html#key-guidelines-on-working-with-r"><i class="fa fa-check"></i><b>1.8</b> Key guidelines on working with R</a></li>
+<li class="chapter" data-level="1.8" data-path="getting-started.html"><a href="getting-started.html#what-is-a-function-in-r"><i class="fa fa-check"></i><b>1.8</b> What is a function in R?</a></li>
+<li class="chapter" data-level="1.9" data-path="getting-started.html"><a href="getting-started.html#sec:objects"><i class="fa fa-check"></i><b>1.9</b> What are objects in R?</a></li>
+<li class="chapter" data-level="1.10" data-path="getting-started.html"><a href="getting-started.html#are-there-some-guidelines-for-working-with-r"><i class="fa fa-check"></i><b>1.10</b> Are there some guidelines for working with R?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="swirl.html"><a href="swirl.html"><i class="fa fa-check"></i><b>2</b> Learn interactively with swirl</a></li>
 <li class="chapter" data-level="3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html"><i class="fa fa-check"></i><b>3</b> Work with R scripts</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#r-scripts-why-they-are-useful"><i class="fa fa-check"></i><b>3.1</b> R Scripts: Why they are useful</a></li>
-<li class="chapter" data-level="3.2" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write and run R scripts</a></li>
+<li class="chapter" data-level="3.2" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write, and run R scripts</a></li>
 <li class="chapter" data-level="3.3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:assignmentoper"><i class="fa fa-check"></i><b>3.3</b> The assignment operator: <code>&lt;-</code></a></li>
 <li class="chapter" data-level="3.4" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#doing-calculation-in-scripts"><i class="fa fa-check"></i><b>3.4</b> Doing calculation in scripts</a></li>
 <li class="chapter" data-level="3.5" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:generics"><i class="fa fa-check"></i><b>3.5</b> User-defined functions</a></li>
@@ -186,15 +192,17 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="manage-data.html"><a href="manage-data.html"><i class="fa fa-check"></i><b>5</b> Manage data</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="manage-data.html"><a href="manage-data.html#the-tidyverse-universe"><i class="fa fa-check"></i><b>5.1</b> The tidyverse universe</a></li>
-<li class="chapter" data-level="5.2" data-path="manage-data.html"><a href="manage-data.html#the-pipe-operator"><i class="fa fa-check"></i><b>5.2</b> The pipe operator</a></li>
+<li class="chapter" data-level="5.2" data-path="manage-data.html"><a href="manage-data.html#pipeoperator"><i class="fa fa-check"></i><b>5.2</b> The pipe operator</a></li>
 <li class="chapter" data-level="5.3" data-path="manage-data.html"><a href="manage-data.html#import-data"><i class="fa fa-check"></i><b>5.3</b> Import data</a>
 <ul>
 <li class="chapter" data-level="5.3.1" data-path="manage-data.html"><a href="manage-data.html#vectors-and-matrices"><i class="fa fa-check"></i><b>5.3.1</b> Vectors and Matrices</a></li>
+<li class="chapter" data-level="5.3.2" data-path="manage-data.html"><a href="manage-data.html#open-data-in-rdata-files"><i class="fa fa-check"></i><b>5.3.2</b> Open data in RData files</a></li>
+<li class="chapter" data-level="5.3.3" data-path="manage-data.html"><a href="manage-data.html#open-datasets-from-packages"><i class="fa fa-check"></i><b>5.3.3</b> Open datasets from packages</a></li>
+<li class="chapter" data-level="5.3.4" data-path="manage-data.html"><a href="manage-data.html#import-using-major-public-api"><i class="fa fa-check"></i><b>5.3.4</b> Import using major public API</a></li>
+<li class="chapter" data-level="5.3.5" data-path="manage-data.html"><a href="manage-data.html#import-other-file-formats"><i class="fa fa-check"></i><b>5.3.5</b> Import other file formats</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#rdata-files"><i class="fa fa-check"></i><b>5.4</b> RData files</a></li>
-<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#import-other-file-formats"><i class="fa fa-check"></i><b>5.5</b> Import other file formats</a></li>
-<li class="chapter" data-level="5.6" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.6</b> Dataframes and tidy data (tibbles)</a></li>
-<li class="chapter" data-level="5.7" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.7</b> Data manipulation with dplyr</a></li>
+<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.4</b> Dataframes and tidy data (tibbles)</a></li>
+<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.5</b> Data manipulation with dplyr</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>6</b> Write with R Markdown</a></li>
 <li class="chapter" data-level="7" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a>
@@ -208,6 +216,7 @@ div.csl-indent {
 <li class="chapter" data-level="7.1.5" data-path="appendix.html"><a href="appendix.html#sec:winbackslash"><i class="fa fa-check"></i><b>7.1.5</b> Why do the Windows paths use the back-slash?</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>8</b> Troubleshooting</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li>&copy; Prof. Dr. Stephan Huber.</li>
@@ -232,42 +241,45 @@ div.csl-indent {
 <div id="references" class="section level1 unnumbered hasAnchor">
 <h1>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" line-spacing="2">
+<div id="ref-Chambers2017Extending" class="csl-entry">
+Chambers, J. M. (2017). <em>Extending <span>R</span></em>. CRC Press.
+</div>
 <div id="ref-Irizarry2022Introduction" class="csl-entry">
-Irizarry, Rafael A. 2022. <em>Introduction to Data Science: Data Analysis and Prediction Algorithms with <span>R</span></em>. Accessed January 30, 2023; CRC Press. <a href="https://rafalab.github.io/dsbook/">https://rafalab.github.io/dsbook/</a>.
+Irizarry, R. A. (2022). <em>Introduction to data science: Data analysis and prediction algorithms with <span>R</span></em>. Accessed January 30, 2023; CRC Press. Retrieved from <a href="https://rafalab.github.io/dsbook/">https://rafalab.github.io/dsbook/</a>
 </div>
 <div id="ref-Ismay2022Statistical" class="csl-entry">
-Ismay, Chester, and Albert Y. Kim. 2022. <em>Statistical Inference via Data Science: A ModernDive into <span>R</span> and the Tidyverse</em>. Accessed January 30, 2023; CRC Press. <a href="https://moderndive.com/">https://moderndive.com/</a>.
+Ismay, C., &amp; Kim, A. Y. (2022). <em>Statistical inference via data science: A ModernDive into <span>R</span> and the tidyverse</em>. Accessed January 30, 2023; CRC Press. Retrieved from <a href="https://moderndive.com/">https://moderndive.com/</a>
 </div>
 <div id="ref-Kirchkamp2018Using" class="csl-entry">
-Kirchkamp, Oliver. 2018. <span>“Using Graphs and Visualising Data.”</span>
+Kirchkamp, O. (2018). <em>Using graphs and visualising data</em>.
 </div>
 <div id="ref-Muschelli2022Introduction" class="csl-entry">
-Muschelli, John, and Andrew Jaffe. 2022. <span>“Introduction to r for Public Health Researchers.”</span> This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. GitHub.
+Muschelli, J., &amp; Jaffe, A. (2022). <em>Introduction to <span>R</span> for public health researchers</em>. GitHub.
 </div>
 <div id="ref-Navarro2020Learning" class="csl-entry">
-Navarro, Danielle. 2020. <em>Learning Statistics with r</em>. Version 0.6. Accessed January 30, 2023. <a href="https://learningstatisticswithr.com">https://learningstatisticswithr.com</a>.
+Navarro, D. (2020). <em>Learning statistics with r</em> (Version 0.6). Accessed January 30, 2023. Retrieved from <a href="https://learningstatisticswithr.com">https://learningstatisticswithr.com</a>
 </div>
 <div id="ref-Thulin2021Modern" class="csl-entry">
-Thulin, Måns. 2021. <em>Modern Statistics with r: From Wrangling and Exploring Data to Inference and Predictive Modelling</em>. Accessed February 30, 2023; Eos Chasma Press. <a href="https://www.modernstatisticswithr.com/">https://www.modernstatisticswithr.com/</a>.
+Thulin, M. (2021). <em>Modern statistics with r: From wrangling and exploring data to inference and predictive modelling</em>. Accessed February 30, 2023; Eos Chasma Press. Retrieved from <a href="https://www.modernstatisticswithr.com/">https://www.modernstatisticswithr.com/</a>
 </div>
 <div id="ref-Timbers2022Data" class="csl-entry">
-Timbers, Tiffany, Trevor Campbell, and Melissa Lee. 2022. <em>Data Science: A First Introduction</em>. Accessed January 30, 2023; CRC Press. <a href="https://datasciencebook.ca/">https://datasciencebook.ca/</a>.
+Timbers, T., Campbell, T., &amp; Lee, M. (2022). <em>Data science: A first introduction</em>. Accessed January 30, 2023; CRC Press. Retrieved from <a href="https://datasciencebook.ca/">https://datasciencebook.ca/</a>
 </div>
 <div id="ref-Tufte2022Visual" class="csl-entry">
-Tufte, Edward R. 2022. <em>The Visual Display of Quantitative Information</em>. 2nd ed. Cheshire, Connecticut: Graphics Press.
+Tufte, E. R. (2022). <em>The visual display of quantitative information</em> (2nd ed.). Cheshire, Connecticut: Graphics Press.
 </div>
 <div id="ref-Venables2022Introduction" class="csl-entry">
-Venables, William N, David M Smith, and R Core Team. 2022. <em>An Introduction to <span>R</span>: Notes on <span>R</span>: A Programming Environment for Data Analysis and Graphics</em>. This manual is for R, version 4.1.3 (2022-03-10).
+Venables, W. N., Smith, D. M., &amp; R Core Team. (2022). <em>An introduction to <span>R</span>: Notes on <span>R</span>: A programming environment for data analysis and graphics</em> (This manual is for R, version 4.1.3 (2022-03-10)).
 </div>
 <div id="ref-Wickham2023R" class="csl-entry">
-Wickham, Hadley, and Garrett Grolemund. 2023. <span>“R for Data Science (2e).”</span> Accessed January 30, 2023. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>.
+Wickham, H., &amp; Grolemund, G. (2023). <em>R for data science (2e)</em>. Accessed January 30, 2023. Retrieved from <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>
 </div>
 <div id="ref-Xie2018R" class="csl-entry">
-Xie, Yihui, Joseph J Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Definitive Guide</em>. Chapman; Hall/CRC.
+Xie, Y., Allaire, J. J., &amp; Grolemund, G. (2018). <em>R markdown: The definitive guide</em>. Chapman; Hall/CRC.
 </div>
 <div id="ref-Xie2020R" class="csl-entry">
-Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R Markdown Cookbook</em>. Chapman; Hall/CRC.
+Xie, Y., Dervieux, C., &amp; Riederer, E. (2020). <em>R markdown cookbook</em>. Chapman; Hall/CRC.
 </div>
 </div>
 </div>
@@ -285,7 +297,7 @@ Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R Markdown Cookbo
           </div>
         </div>
       </div>
-<a href="appendix.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="troubleshooting.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

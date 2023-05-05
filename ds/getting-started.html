@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>1 Getting Started with R | How to Use R for Data Science</title>
   <meta name="description" content="1 Getting Started with R | How to Use R for Data Science" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Getting Started with R | How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -119,6 +119,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -171,13 +175,15 @@ div.csl-indent {
 <li class="chapter" data-level="1.7.1" data-path="getting-started.html"><a href="getting-started.html#package-installation"><i class="fa fa-check"></i><b>1.7.1</b> Package installation</a></li>
 <li class="chapter" data-level="1.7.2" data-path="getting-started.html"><a href="getting-started.html#package-loading"><i class="fa fa-check"></i><b>1.7.2</b> Package loading</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="getting-started.html"><a href="getting-started.html#key-guidelines-on-working-with-r"><i class="fa fa-check"></i><b>1.8</b> Key guidelines on working with R</a></li>
+<li class="chapter" data-level="1.8" data-path="getting-started.html"><a href="getting-started.html#what-is-a-function-in-r"><i class="fa fa-check"></i><b>1.8</b> What is a function in R?</a></li>
+<li class="chapter" data-level="1.9" data-path="getting-started.html"><a href="getting-started.html#sec:objects"><i class="fa fa-check"></i><b>1.9</b> What are objects in R?</a></li>
+<li class="chapter" data-level="1.10" data-path="getting-started.html"><a href="getting-started.html#are-there-some-guidelines-for-working-with-r"><i class="fa fa-check"></i><b>1.10</b> Are there some guidelines for working with R?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="swirl.html"><a href="swirl.html"><i class="fa fa-check"></i><b>2</b> Learn interactively with swirl</a></li>
 <li class="chapter" data-level="3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html"><i class="fa fa-check"></i><b>3</b> Work with R scripts</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#r-scripts-why-they-are-useful"><i class="fa fa-check"></i><b>3.1</b> R Scripts: Why they are useful</a></li>
-<li class="chapter" data-level="3.2" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write and run R scripts</a></li>
+<li class="chapter" data-level="3.2" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write, and run R scripts</a></li>
 <li class="chapter" data-level="3.3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:assignmentoper"><i class="fa fa-check"></i><b>3.3</b> The assignment operator: <code>&lt;-</code></a></li>
 <li class="chapter" data-level="3.4" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#doing-calculation-in-scripts"><i class="fa fa-check"></i><b>3.4</b> Doing calculation in scripts</a></li>
 <li class="chapter" data-level="3.5" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:generics"><i class="fa fa-check"></i><b>3.5</b> User-defined functions</a></li>
@@ -186,15 +192,17 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="manage-data.html"><a href="manage-data.html"><i class="fa fa-check"></i><b>5</b> Manage data</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="manage-data.html"><a href="manage-data.html#the-tidyverse-universe"><i class="fa fa-check"></i><b>5.1</b> The tidyverse universe</a></li>
-<li class="chapter" data-level="5.2" data-path="manage-data.html"><a href="manage-data.html#the-pipe-operator"><i class="fa fa-check"></i><b>5.2</b> The pipe operator</a></li>
+<li class="chapter" data-level="5.2" data-path="manage-data.html"><a href="manage-data.html#pipeoperator"><i class="fa fa-check"></i><b>5.2</b> The pipe operator</a></li>
 <li class="chapter" data-level="5.3" data-path="manage-data.html"><a href="manage-data.html#import-data"><i class="fa fa-check"></i><b>5.3</b> Import data</a>
 <ul>
 <li class="chapter" data-level="5.3.1" data-path="manage-data.html"><a href="manage-data.html#vectors-and-matrices"><i class="fa fa-check"></i><b>5.3.1</b> Vectors and Matrices</a></li>
+<li class="chapter" data-level="5.3.2" data-path="manage-data.html"><a href="manage-data.html#open-data-in-rdata-files"><i class="fa fa-check"></i><b>5.3.2</b> Open data in RData files</a></li>
+<li class="chapter" data-level="5.3.3" data-path="manage-data.html"><a href="manage-data.html#open-datasets-from-packages"><i class="fa fa-check"></i><b>5.3.3</b> Open datasets from packages</a></li>
+<li class="chapter" data-level="5.3.4" data-path="manage-data.html"><a href="manage-data.html#import-using-major-public-api"><i class="fa fa-check"></i><b>5.3.4</b> Import using major public API</a></li>
+<li class="chapter" data-level="5.3.5" data-path="manage-data.html"><a href="manage-data.html#import-other-file-formats"><i class="fa fa-check"></i><b>5.3.5</b> Import other file formats</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#rdata-files"><i class="fa fa-check"></i><b>5.4</b> RData files</a></li>
-<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#import-other-file-formats"><i class="fa fa-check"></i><b>5.5</b> Import other file formats</a></li>
-<li class="chapter" data-level="5.6" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.6</b> Dataframes and tidy data (tibbles)</a></li>
-<li class="chapter" data-level="5.7" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.7</b> Data manipulation with dplyr</a></li>
+<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.4</b> Dataframes and tidy data (tibbles)</a></li>
+<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.5</b> Data manipulation with dplyr</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>6</b> Write with R Markdown</a></li>
 <li class="chapter" data-level="7" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a>
@@ -208,6 +216,7 @@ div.csl-indent {
 <li class="chapter" data-level="7.1.5" data-path="appendix.html"><a href="appendix.html#sec:winbackslash"><i class="fa fa-check"></i><b>7.1.5</b> Why do the Windows paths use the back-slash?</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>8</b> Troubleshooting</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li>&copy; Prof. Dr. Stephan Huber.</li>
@@ -240,6 +249,9 @@ div.csl-indent {
 <li>How to install R and RStudio</li>
 <li>How to write and run code in R</li>
 <li>What are R packages?</li>
+<li>What is a function in R?</li>
+<li>What are objects in R?</li>
+<li>Are there some guidelines for working with R?</li>
 </ol>
 <div id="sec:whyR" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Why R?<a href="getting-started.html#sec:whyR" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -288,10 +300,10 @@ and (<a href="https://support.rstudio.com/hc/en-us/articles/200552336-Getting-He
 <img src="fig/rfordatas.png" style="width:30.0%" alt="R for Data Science: Import, Tidy, Transform, Visualize, and Model Data" />
 <img src="fig/irizarrybook.png" style="width:30.0%" /></p>
 <ol style="list-style-type: decimal">
-<li><span class="citation">Timbers, Campbell, and Lee (<a href="references.html#ref-Timbers2022Data" role="doc-biblioref">2022</a>)</span>: <a href="https://datasciencebook.ca/"><strong>Data Science: A First Introduction</strong></a> is a free and up to date book that comes with exercises with worksheets that are available on <a href="https://github.com/UBC-DSCI/data-science-a-first-intro-worksheets">UBC-DSCI GitHub repository</a></li>
-<li><span class="citation">Wickham and Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>: <a href="https://r4ds.hadley.nz/"><strong>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</strong></a> is the most popular source to learn R. It focuses on introducing the tidyverse package and is freely available online.</li>
+<li><span class="citation">Timbers, Campbell, &amp; Lee (<a href="references.html#ref-Timbers2022Data" role="doc-biblioref">2022</a>)</span>: <a href="https://datasciencebook.ca/"><strong>Data Science: A First Introduction</strong></a> is a free and up to date book that comes with exercises with worksheets that are available on <a href="https://github.com/UBC-DSCI/data-science-a-first-intro-worksheets">UBC-DSCI GitHub repository</a></li>
+<li><span class="citation">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>: <a href="https://r4ds.hadley.nz/"><strong>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</strong></a> is the most popular source to learn R. It focuses on introducing the tidyverse package and is freely available online.</li>
 <li><span class="citation">Irizarry (<a href="references.html#ref-Irizarry2022Introduction" role="doc-biblioref">2022</a>)</span>: <a href="http://rafalab.dfci.harvard.edu/dsbook/"><strong>Introduction to Data Science: Data Analysis and Prediction Algorithms With R</strong></a> is a complete, up to date, and applied introduction.</li>
-<li><span class="citation">Venables, Smith, and R Core Team (<a href="references.html#ref-Venables2022Introduction" role="doc-biblioref">2022</a>)</span> <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf"><strong>An Introduction to R: Notes on R: A Programming Environment for Data Analysis and Graphics</strong></a> is a manual from the R Core Development Team that shows how to use R without having to install and load additional packages.</li>
+<li><span class="citation">Venables, Smith, &amp; R Core Team (<a href="references.html#ref-Venables2022Introduction" role="doc-biblioref">2022</a>)</span> <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf"><strong>An Introduction to R: Notes on R: A Programming Environment for Data Analysis and Graphics</strong></a> is a manual from the R Core Development Team that shows how to use R without having to install and load additional packages.</li>
 </ol>
 <p>Some other sources that are worth mentioning are these:</p>
 <ul>
@@ -369,21 +381,18 @@ Posit Cloud (formerly RStudio Cloud) is a cloud-based solution that allows anyon
 <h2><span class="header-section-number">1.6</span> Installing R and RStudio<a href="getting-started.html#installing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You will first need to download and install both R and RStudio (Desktop version) on your computer. It is important that you install R first and then install RStudio.</p>
 <ol style="list-style-type: decimal">
-<li><strong>You must do this first:</strong> Download and install R by going to <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a>. </li>
-</ol>
+<li><strong>Do this firstly:</strong> Download and install R by going to <a href="https://cloud.r-project.org/" class="uri">https://cloud.r-project.org/</a>.
 <ul>
 <li>If you are a Windows user: Click on “Download R for Windows”, then click on “base”, then click on the Download link.</li>
 <li>If you are macOS user: Click on “Download R for (Mac) OS X”, then under “Latest release:” click on R-X.X.X.pkg, where R-X.X.X is the version number. For example, the latest version of R as of November 25, 2019 was R-3.6.1.</li>
 <li>If you are a Linux user: Click on “Download R for Linux” and choose your distribution for more information on installing R for your setup.</li>
-</ul>
-<ol style="list-style-type: decimal">
-<li><strong>You must do this second:</strong> Download and install RStudio at <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a>.</li>
-</ol>
+</ul></li>
+<li><strong>Do this secondly:</strong> Download and install RStudio at <a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a>.
 <ul>
 <li>Scroll down to “Installers for Supported Platforms” near the bottom of the page.</li>
-<li>Click on the download link corresponding to your computer’s operating system.
-</li>
-</ul>
+<li>Click on the download link corresponding to your computer’s operating system.</li>
+</ul></li>
+</ol>
 </div>
 <div id="packages" class="section level2 hasAnchor" number="1.7">
 <h2><span class="header-section-number">1.7</span> What are R packages?<a href="getting-started.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -432,7 +441,8 @@ Figure 1.6: Installing packages in R the easy way.
 <p>An alternative way to install a package is by typing</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="getting-started.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
 <p>in the console pane of RStudio and pressing Return/Enter on your keyboard. Note you must include the quotation marks around the name of the package.</p>
-<p>Much like an app on your phone, you only have to install a package once. However, if you want to update a previously installed package to a newer version, you need to reinstall it by repeating the earlier steps.</p>
+<p>Much like an app on your phone, you only have to install a package once. However, if you want to update a previously installed package to a newer version, you need to re-install it by repeating the earlier steps or you use <code>update.packages()</code>. To uninstall packages you can use <code>remove.packages()</code>.</p>
+<p>The installation of packages can take some time. However, if your CPU has many cores, you can speed up the process a lot using the argument <code>Ncpus</code> like this <code>update.packages(ask = F, Ncpus = 4L)</code>. This option allows you to adjust the number of parallel processes R can use on your PC. So, if you have a CPU with many cores you can increase that number.</p>
 </div>
 <div id="package-loading" class="section level3 hasAnchor" number="1.7.2">
 <h3><span class="header-section-number">1.7.2</span> Package loading<a href="getting-started.html#package-loading" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -444,11 +454,25 @@ Figure 1.6: Installing packages in R the easy way.
 <p>It means that you didn’t successfully install it. If you get this error message, go back to section <a href="getting-started.html#package-installation">1.7.1</a> on R package installation and make sure to install the <code>ggplot2</code> package before proceeding.</p>
 <p>One very common mistake new R users make when wanting to use particular packages is they forget to <em>load</em> them first by using the <code>library()</code> command we just saw. Remember: <em>you have to load each package you want to use every time you start RStudio.</em> If you don’t first <em>load</em> a package, but attempt to use one of its features, you’ll see an error message similar to:</p>
 <pre><code>Error: could not find function</code></pre>
-<p>This is a different error message than the one you just saw on a package not having been installed yet. R is telling you that you are trying to use a function in a package that has not yet been <em>loaded</em>. R doesn’t know where to find the function you are using. Almost all new users forget to do this when starting out, and it is a little annoying to get used to doing it. However, you’ll remember with practice and after some time it will become second nature for you.</p>
+<p>R is informing you that you are attempting to use a function from a package that has not yet been loaded. Forgetting to load packages is a common mistake made by new users, and it can be a bit frustrating to get used to at first. However, with practice, it will become second nature for you.
+Unloading packages can be done with <code>detach(, unload=TRUE)</code>.</p>
 </div>
 </div>
-<div id="key-guidelines-on-working-with-r" class="section level2 hasAnchor" number="1.8">
-<h2><span class="header-section-number">1.8</span> Key guidelines on working with R<a href="getting-started.html#key-guidelines-on-working-with-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="what-is-a-function-in-r" class="section level2 hasAnchor" number="1.8">
+<h2><span class="header-section-number">1.8</span> What is a function in R?<a href="getting-started.html#what-is-a-function-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One of the keys to understand R is a <em>functional programming language</em>. Or, to put in in the words of <span class="citation">Chambers (<a href="references.html#ref-Chambers2017Extending" role="doc-biblioref">2017, p. 4</a>)</span>: “Everything that happens is a function call.” When you like to exit R, for example, you do it with the function <code>q()</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb6-1"><a href="getting-started.html#cb6-1" aria-hidden="true" tabindex="-1"></a>&gt; q()</span>
+<span id="cb6-2"><a href="getting-started.html#cb6-2" aria-hidden="true" tabindex="-1"></a>Save workspace image? [y/n/c]: </span></code></pre></div>
+<p>If you don’t want to be asked what you want to do with your workspace (that is the place where you store all your objects, see section <a href="getting-started.html#sec:objects">1.9</a>) you can do it with an argument that is part of the function:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb7-1"><a href="getting-started.html#cb7-1" aria-hidden="true" tabindex="-1"></a>&gt; q(save = &quot;no&quot;)</span></code></pre></div>
+</div>
+<div id="sec:objects" class="section level2 hasAnchor" number="1.9">
+<h2><span class="header-section-number">1.9</span> What are objects in R?<a href="getting-started.html#sec:objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Everything you do is made with a function and “everything that exists in R is an object” <span class="citation">(<a href="references.html#ref-Chambers2017Extending" role="doc-biblioref">Chambers, 2017, p. 4</a>)</span>. Objects are the fundamental units that are used to store information. Objects can be created using a variety of data types, including vectors, matrices, data frames, lists, functions. All objects are shown in the <em>workspace</em> which is shown in the <em>Environment</em> panel.</p>
+<p>In R, you can show the content of the workspace with <code>ls()</code>. The function <code>rm()</code> allows to remove objects and with <code>rm(list=ls())</code> you clear all objects from the workspace.</p>
+</div>
+<div id="are-there-some-guidelines-for-working-with-r" class="section level2 hasAnchor" number="1.10">
+<h2><span class="header-section-number">1.10</span> Are there some guidelines for working with R?<a href="getting-started.html#are-there-some-guidelines-for-working-with-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To avoid running into issues with R, it’s important to be aware of the some conventions, rules, and best practices that apply to the language. While it can be tedious to go through all of the do’s and don’ts in detail, following them can make your life with R much easier. Trust me, the benefits of adhering to these guidelines will become clear over time. Here is a non-exhaustive list:</p>
 <ol style="list-style-type: decimal">
 <li>Do remember that R programming language is case sensitive.</li>

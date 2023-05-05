@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Learn interactively with swirl | How to Use R for Data Science</title>
   <meta name="description" content="2 Learn interactively with swirl | How to Use R for Data Science" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Learn interactively with swirl | How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -119,6 +119,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
@@ -171,13 +175,15 @@ div.csl-indent {
 <li class="chapter" data-level="1.7.1" data-path="getting-started.html"><a href="getting-started.html#package-installation"><i class="fa fa-check"></i><b>1.7.1</b> Package installation</a></li>
 <li class="chapter" data-level="1.7.2" data-path="getting-started.html"><a href="getting-started.html#package-loading"><i class="fa fa-check"></i><b>1.7.2</b> Package loading</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="getting-started.html"><a href="getting-started.html#key-guidelines-on-working-with-r"><i class="fa fa-check"></i><b>1.8</b> Key guidelines on working with R</a></li>
+<li class="chapter" data-level="1.8" data-path="getting-started.html"><a href="getting-started.html#what-is-a-function-in-r"><i class="fa fa-check"></i><b>1.8</b> What is a function in R?</a></li>
+<li class="chapter" data-level="1.9" data-path="getting-started.html"><a href="getting-started.html#sec:objects"><i class="fa fa-check"></i><b>1.9</b> What are objects in R?</a></li>
+<li class="chapter" data-level="1.10" data-path="getting-started.html"><a href="getting-started.html#are-there-some-guidelines-for-working-with-r"><i class="fa fa-check"></i><b>1.10</b> Are there some guidelines for working with R?</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="swirl.html"><a href="swirl.html"><i class="fa fa-check"></i><b>2</b> Learn interactively with swirl</a></li>
 <li class="chapter" data-level="3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html"><i class="fa fa-check"></i><b>3</b> Work with R scripts</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#r-scripts-why-they-are-useful"><i class="fa fa-check"></i><b>3.1</b> R Scripts: Why they are useful</a></li>
-<li class="chapter" data-level="3.2" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write and run R scripts</a></li>
+<li class="chapter" data-level="3.2" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write, and run R scripts</a></li>
 <li class="chapter" data-level="3.3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:assignmentoper"><i class="fa fa-check"></i><b>3.3</b> The assignment operator: <code>&lt;-</code></a></li>
 <li class="chapter" data-level="3.4" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#doing-calculation-in-scripts"><i class="fa fa-check"></i><b>3.4</b> Doing calculation in scripts</a></li>
 <li class="chapter" data-level="3.5" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:generics"><i class="fa fa-check"></i><b>3.5</b> User-defined functions</a></li>
@@ -186,15 +192,17 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="manage-data.html"><a href="manage-data.html"><i class="fa fa-check"></i><b>5</b> Manage data</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="manage-data.html"><a href="manage-data.html#the-tidyverse-universe"><i class="fa fa-check"></i><b>5.1</b> The tidyverse universe</a></li>
-<li class="chapter" data-level="5.2" data-path="manage-data.html"><a href="manage-data.html#the-pipe-operator"><i class="fa fa-check"></i><b>5.2</b> The pipe operator</a></li>
+<li class="chapter" data-level="5.2" data-path="manage-data.html"><a href="manage-data.html#pipeoperator"><i class="fa fa-check"></i><b>5.2</b> The pipe operator</a></li>
 <li class="chapter" data-level="5.3" data-path="manage-data.html"><a href="manage-data.html#import-data"><i class="fa fa-check"></i><b>5.3</b> Import data</a>
 <ul>
 <li class="chapter" data-level="5.3.1" data-path="manage-data.html"><a href="manage-data.html#vectors-and-matrices"><i class="fa fa-check"></i><b>5.3.1</b> Vectors and Matrices</a></li>
+<li class="chapter" data-level="5.3.2" data-path="manage-data.html"><a href="manage-data.html#open-data-in-rdata-files"><i class="fa fa-check"></i><b>5.3.2</b> Open data in RData files</a></li>
+<li class="chapter" data-level="5.3.3" data-path="manage-data.html"><a href="manage-data.html#open-datasets-from-packages"><i class="fa fa-check"></i><b>5.3.3</b> Open datasets from packages</a></li>
+<li class="chapter" data-level="5.3.4" data-path="manage-data.html"><a href="manage-data.html#import-using-major-public-api"><i class="fa fa-check"></i><b>5.3.4</b> Import using major public API</a></li>
+<li class="chapter" data-level="5.3.5" data-path="manage-data.html"><a href="manage-data.html#import-other-file-formats"><i class="fa fa-check"></i><b>5.3.5</b> Import other file formats</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#rdata-files"><i class="fa fa-check"></i><b>5.4</b> RData files</a></li>
-<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#import-other-file-formats"><i class="fa fa-check"></i><b>5.5</b> Import other file formats</a></li>
-<li class="chapter" data-level="5.6" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.6</b> Dataframes and tidy data (tibbles)</a></li>
-<li class="chapter" data-level="5.7" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.7</b> Data manipulation with dplyr</a></li>
+<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.4</b> Dataframes and tidy data (tibbles)</a></li>
+<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.5</b> Data manipulation with dplyr</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>6</b> Write with R Markdown</a></li>
 <li class="chapter" data-level="7" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a>
@@ -208,6 +216,7 @@ div.csl-indent {
 <li class="chapter" data-level="7.1.5" data-path="appendix.html"><a href="appendix.html#sec:winbackslash"><i class="fa fa-check"></i><b>7.1.5</b> Why do the Windows paths use the back-slash?</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>8</b> Troubleshooting</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li>&copy; Prof. Dr. Stephan Huber.</li>
@@ -238,18 +247,14 @@ If you are new to R, have no fear. <em>swirl</em> will walk you through each of 
 required to employ Rstudio and R for your purpose.
 To start it, please follow my instructions precisely!</p>
 <p>Open Rstudio and type in the console the following:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="swirl.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;swirl&quot;</span>)</span>
-<span id="cb6-2"><a href="swirl.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;swirl&quot;</span>)</span>
-<span id="cb6-3"><a href="swirl.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span>
-<span id="cb6-4"><a href="swirl.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
-<span id="cb6-5"><a href="swirl.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">install_course_github</span>(<span class="st">&quot;hubchev&quot;</span>, <span class="st">&quot;swirl-it&quot;</span>)</span>
-<span id="cb6-6"><a href="swirl.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="swirl.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;swirl&quot;</span>)</span>
+<span id="cb8-2"><a href="swirl.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;swirl&quot;</span>)</span>
+<span id="cb8-3"><a href="swirl.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install_course_github</span>(<span class="st">&quot;hubchev&quot;</span>, <span class="st">&quot;swirl-it&quot;</span>)</span>
+<span id="cb8-4"><a href="swirl.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
 <p>The above lines of code do the following:</p>
 <ul>
 <li>Install the <em>swirl</em> package.</li>
 <li>Load the <em>swirl</em> package.</li>
-<li>List the content of the environment.</li>
-<li>Remove everything from the environment.</li>
 <li>Install my <em>swirl</em> course that is hosted on GitHub.</li>
 <li>With <em>swirl</em> you start <em>swirl</em> and your learning experience.</li>
 </ul>
@@ -269,9 +274,9 @@ You can exit <em>swirl</em> at any time by typing <code>bye()</code> or by click
 <h4>Other <em>swirl</em> modules<a href="swirl.html#other-swirl-modules" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>You can also install some other courses. You find a list of courses here <a href="http://swirlstats.com/scn/index.html" class="uri">http://swirlstats.com/scn/index.html</a> or here <a href="https://github.com/swirldev/swirl_courses" class="uri">https://github.com/swirldev/swirl_courses</a>.</p>
 <p>I recommend this one as it gives a general overview on very basic principles of R:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="swirl.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
-<span id="cb7-2"><a href="swirl.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_course_github</span>(<span class="st">&quot;swirldev&quot;</span>, <span class="st">&quot;R_Programming_E&quot;</span>)</span>
-<span id="cb7-3"><a href="swirl.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="swirl.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
+<span id="cb9-2"><a href="swirl.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_course_github</span>(<span class="st">&quot;swirldev&quot;</span>, <span class="st">&quot;R_Programming_E&quot;</span>)</span>
+<span id="cb9-3"><a href="swirl.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code></pre></div>
 
 </div>
 </div>
