@@ -206,8 +206,9 @@ div.csl-indent {
 <li class="chapter" data-level="5.4.1" data-path="manage-data.html"><a href="manage-data.html#data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.4.1</b> Data frames and tibbles</a></li>
 <li class="chapter" data-level="5.4.2" data-path="manage-data.html"><a href="manage-data.html#tidy-data"><i class="fa fa-check"></i><b>5.4.2</b> Tidy data</a></li>
 <li class="chapter" data-level="5.4.3" data-path="manage-data.html"><a href="manage-data.html#operators"><i class="fa fa-check"></i><b>5.4.3</b> Operators</a></li>
-<li class="chapter" data-level="5.4.4" data-path="manage-data.html"><a href="manage-data.html#values"><i class="fa fa-check"></i><b>5.4.4</b> Values</a></li>
-<li class="chapter" data-level="5.4.5" data-path="manage-data.html"><a href="manage-data.html#data-classes"><i class="fa fa-check"></i><b>5.4.5</b> Data classes</a></li>
+<li class="chapter" data-level="5.4.4" data-path="manage-data.html"><a href="manage-data.html#if-statements"><i class="fa fa-check"></i><b>5.4.4</b> If Statements</a></li>
+<li class="chapter" data-level="5.4.5" data-path="manage-data.html"><a href="manage-data.html#values"><i class="fa fa-check"></i><b>5.4.5</b> Values</a></li>
+<li class="chapter" data-level="5.4.6" data-path="manage-data.html"><a href="manage-data.html#data-classes"><i class="fa fa-check"></i><b>5.4.6</b> Data classes</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.5</b> Data manipulation with dplyr</a>
 <ul>
@@ -376,7 +377,7 @@ One such dataset that we will be using further is the mtcars dataset:</p>
 ## Mazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 ## Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
 ## Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="manage-data.html#cb73-1" aria-hidden="true" tabindex="-1"></a>?mtcars</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="manage-data.html#cb73-1" aria-hidden="true" tabindex="-1"></a>?mtcars  <span class="co"># data dictionary</span></span></code></pre></div>
 </div>
 <div id="import-using-major-public-apis" class="section level3 hasAnchor" number="5.3.4">
 <h3><span class="header-section-number">5.3.4</span> Import using major public APIs<a href="manage-data.html#import-using-major-public-apis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -393,13 +394,13 @@ One such dataset that we will be using further is the mtcars dataset:</p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="manage-data.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_gdp)</span></code></pre></div>
 <pre><code>## Rows: 13,156
 ## Columns: 7
-## $ iso3c       &lt;chr&gt; &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, …
-## $ date        &lt;chr&gt; &quot;2021&quot;, &quot;2020&quot;, &quot;2019&quot;, &quot;2018&quot;, &quot;2017&quot;, &quot;2016&quot;, &quot;2015&quot;, &quot;2014&quot;, &quot;2013&quot;, &quot;2012&quot;, &quot;2011&quot;, &quot;2010&quot;, &quot;2009&quot;, &quot;2008&quot;, &quot;2007&quot;, &quot;2006&quot;, &quot;2005&quot;, &quot;2004&quot;, &quot;2003&quot;, &quot;2002&quot;, &quot;2001&quot;, &quot;2000&quot;, &quot;1999&quot;, &quot;1998…
-## $ value       &lt;dbl&gt; 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826771e+11, 9.720022e+11, 9.642130e+11, 8.603612e+11, 7.190953e+11, 7.08119…
-## $ indicatorID &lt;chr&gt; &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.M…
-## $ indicator   &lt;chr&gt; &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, …
-## $ iso2c       &lt;chr&gt; &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH…
-## $ country     &lt;chr&gt; &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Af…</code></pre>
+## $ iso3c       &lt;chr&gt; &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;,…
+## $ date        &lt;chr&gt; &quot;2021&quot;, &quot;2020&quot;, &quot;2019&quot;, &quot;2018&quot;, &quot;2017&quot;, &quot;2016&quot;, &quot;2015&quot;, &quot;2014&quot;, &quot;2013&quot;, &quot;2012&quot;, &quot;2011&quot;, &quot;2010&quot;, &quot;2009&quot;, &quot;2008&quot;, &quot;2007&quot;, &quot;2006&quot;, &quot;2005&quot;, &quot;2004&quot;, &quot;2003&quot;, &quot;…
+## $ value       &lt;dbl&gt; 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826771e+11, 9.720022e+11, 9.642130e+11,…
+## $ indicatorID &lt;chr&gt; &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.M…
+## $ indicator   &lt;chr&gt; &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (…
+## $ iso2c       &lt;chr&gt; &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH…
+## $ country     &lt;chr&gt; &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;…</code></pre>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="manage-data.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df_gdp)</span></code></pre></div>
 <pre><code>##     iso3c               date               value           indicatorID         indicator            iso2c             country         
 ##  Length:13156       Length:13156       Min.   :8.824e+06   Length:13156       Length:13156       Length:13156       Length:13156      
@@ -451,10 +452,11 @@ One such dataset that we will be using further is the mtcars dataset:</p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="manage-data.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mtcars) <span class="co"># mtcars is a data frame</span></span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="manage-data.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mtcars) </span></code></pre></div>
-<pre><code>##  [1] &quot;Mazda RX4&quot;           &quot;Mazda RX4 Wag&quot;       &quot;Datsun 710&quot;          &quot;Hornet 4 Drive&quot;      &quot;Hornet Sportabout&quot;   &quot;Valiant&quot;             &quot;Duster 360&quot;          &quot;Merc 240D&quot;           &quot;Merc 230&quot;           
-## [10] &quot;Merc 280&quot;            &quot;Merc 280C&quot;           &quot;Merc 450SE&quot;          &quot;Merc 450SL&quot;          &quot;Merc 450SLC&quot;         &quot;Cadillac Fleetwood&quot;  &quot;Lincoln Continental&quot; &quot;Chrysler Imperial&quot;   &quot;Fiat 128&quot;           
-## [19] &quot;Honda Civic&quot;         &quot;Toyota Corolla&quot;      &quot;Toyota Corona&quot;       &quot;Dodge Challenger&quot;    &quot;AMC Javelin&quot;         &quot;Camaro Z28&quot;          &quot;Pontiac Firebird&quot;    &quot;Fiat X1-9&quot;           &quot;Porsche 914-2&quot;      
-## [28] &quot;Lotus Europa&quot;        &quot;Ford Pantera L&quot;      &quot;Ferrari Dino&quot;        &quot;Maserati Bora&quot;       &quot;Volvo 142E&quot;</code></pre>
+<pre><code>##  [1] &quot;Mazda RX4&quot;           &quot;Mazda RX4 Wag&quot;       &quot;Datsun 710&quot;          &quot;Hornet 4 Drive&quot;      &quot;Hornet Sportabout&quot;   &quot;Valiant&quot;             &quot;Duster 360&quot;         
+##  [8] &quot;Merc 240D&quot;           &quot;Merc 230&quot;            &quot;Merc 280&quot;            &quot;Merc 280C&quot;           &quot;Merc 450SE&quot;          &quot;Merc 450SL&quot;          &quot;Merc 450SLC&quot;        
+## [15] &quot;Cadillac Fleetwood&quot;  &quot;Lincoln Continental&quot; &quot;Chrysler Imperial&quot;   &quot;Fiat 128&quot;            &quot;Honda Civic&quot;         &quot;Toyota Corolla&quot;      &quot;Toyota Corona&quot;      
+## [22] &quot;Dodge Challenger&quot;    &quot;AMC Javelin&quot;         &quot;Camaro Z28&quot;          &quot;Pontiac Firebird&quot;    &quot;Fiat X1-9&quot;           &quot;Porsche 914-2&quot;       &quot;Lotus Europa&quot;       
+## [29] &quot;Ford Pantera L&quot;      &quot;Ferrari Dino&quot;        &quot;Maserati Bora&quot;       &quot;Volvo 142E&quot;</code></pre>
 <p>To store <code>mtcars</code> as a tibble, we can use the <code>as_tibble</code> function:</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="manage-data.html#cb84-1" aria-hidden="true" tabindex="-1"></a>tbl_mtcars <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(mtcars)</span>
 <span id="cb84-2"><a href="manage-data.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tbl_mtcars) <span class="co"># check if it is a tibble now</span></span></code></pre></div>
@@ -706,8 +708,52 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 ## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 </div>
 </div>
-<div id="values" class="section level3 hasAnchor" number="5.4.4">
-<h3><span class="header-section-number">5.4.4</span> Values<a href="manage-data.html#values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="if-statements" class="section level3 hasAnchor" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> If Statements<a href="manage-data.html#if-statements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In many cases, it’s necessary to execute certain code only when a particular condition is met. To achieve this, there are several conditional statements that can be used in code. These include:</p>
+<ul>
+<li>The <code>if</code> statement: This is used to execute a block of code if a specified condition is true.</li>
+<li>The <code>else</code> statement: This is used to execute a block of code if the same condition is false.</li>
+<li>The <code>else</code> if statement: This is used to specify a new condition to test if the first condition is false.</li>
+<li>The <code>ifelse()</code> function: This is used to check a condition for every element of a vector.</li>
+</ul>
+<p>The following examples should exemplify how these statements work:</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="manage-data.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of if statement</span></span>
+<span id="cb122-2"><a href="manage-data.html#cb122-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">mean</span>(mtcars<span class="sc">$</span>mpg) <span class="sc">&gt;</span> <span class="dv">20</span>) {</span>
+<span id="cb122-3"><a href="manage-data.html#cb122-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;The average miles per gallon is greater than 20.&quot;</span>)</span>
+<span id="cb122-4"><a href="manage-data.html#cb122-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;The average miles per gallon is greater than 20.&quot;</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="manage-data.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of if-else statement</span></span>
+<span id="cb124-2"><a href="manage-data.html#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">mean</span>(mtcars<span class="sc">$</span>mpg) <span class="sc">&gt;</span> <span class="dv">20</span>) {</span>
+<span id="cb124-3"><a href="manage-data.html#cb124-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;The average miles per gallon is greater than 20.&quot;</span>)</span>
+<span id="cb124-4"><a href="manage-data.html#cb124-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb124-5"><a href="manage-data.html#cb124-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;The average miles per gallon is less than or equal to 20.&quot;</span>)</span>
+<span id="cb124-6"><a href="manage-data.html#cb124-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;The average miles per gallon is greater than 20.&quot;</code></pre>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="manage-data.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of if-else if statement</span></span>
+<span id="cb126-2"><a href="manage-data.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">mean</span>(mtcars<span class="sc">$</span>mpg) <span class="sc">&gt;</span> <span class="dv">25</span>) {</span>
+<span id="cb126-3"><a href="manage-data.html#cb126-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;The average miles per gallon is greater than 25.&quot;</span>)</span>
+<span id="cb126-4"><a href="manage-data.html#cb126-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">mean</span>(mtcars<span class="sc">$</span>mpg) <span class="sc">&gt;</span> <span class="dv">20</span>) {</span>
+<span id="cb126-5"><a href="manage-data.html#cb126-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;The average miles per gallon is between 20 and 25.&quot;</span>)</span>
+<span id="cb126-6"><a href="manage-data.html#cb126-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb126-7"><a href="manage-data.html#cb126-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;The average miles per gallon is less than or equal to 20.&quot;</span>)</span>
+<span id="cb126-8"><a href="manage-data.html#cb126-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## [1] &quot;The average miles per gallon is between 20 and 25.&quot;</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="manage-data.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of if_else function</span></span>
+<span id="cb128-2"><a href="manage-data.html#cb128-2" aria-hidden="true" tabindex="-1"></a>mtcars_2 <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb128-3"><a href="manage-data.html#cb128-3" aria-hidden="true" tabindex="-1"></a>mtcars_2<span class="sc">$</span>mpg_category <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(mtcars_2<span class="sc">$</span>mpg <span class="sc">&gt;</span> <span class="dv">20</span>, <span class="st">&quot;High&quot;</span>, <span class="st">&quot;Low&quot;</span>)</span></code></pre></div>
+<p>When you have a fixed number of cases and don’t want to use a long chain of if-else statements, you can use <code>case_when()</code>;</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="manage-data.html#cb129-1" aria-hidden="true" tabindex="-1"></a>mtcars_cyl <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb129-2"><a href="manage-data.html#cb129-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cyl_category =</span> <span class="fu">case_when</span>(</span>
+<span id="cb129-3"><a href="manage-data.html#cb129-3" aria-hidden="true" tabindex="-1"></a>    cyl <span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">&quot;four&quot;</span>,</span>
+<span id="cb129-4"><a href="manage-data.html#cb129-4" aria-hidden="true" tabindex="-1"></a>    cyl <span class="sc">==</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">&quot;six&quot;</span>,</span>
+<span id="cb129-5"><a href="manage-data.html#cb129-5" aria-hidden="true" tabindex="-1"></a>    cyl <span class="sc">==</span> <span class="dv">8</span> <span class="sc">~</span> <span class="st">&quot;eight&quot;</span></span>
+<span id="cb129-6"><a href="manage-data.html#cb129-6" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div>
+<p>The <code>mutate()</code> function is used to add the new variable, and <code>case_when()</code> is used to assign the values “four”, “six”, or “eight” to the new variable based on the number of cylinders in each car.</p>
+<p>It evaluates one of several expressions based on the value of a given control expression. It takes two arguments: the control expression and a list of named expressions, each of which is evaluated if its name matches the value of the control expression. If no match is found, an optional default expression is evaluated. The switch() function is particularly useful</p>
+</div>
+<div id="values" class="section level3 hasAnchor" number="5.4.5">
+<h3><span class="header-section-number">5.4.5</span> Values<a href="manage-data.html#values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are some special data values used in R that needs further explanation:</p>
 <ul>
 <li><code>NA</code> stands for <em>not available</em> or <em>missing</em> and is used to represent missing or undefined values.</li>
@@ -717,8 +763,8 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 <li><code>NaN</code> stands for <em>not a number</em> and is used to represent an undefined or unrepresentable value, such as the result of taking the square root of a negative number. It can also occur as a result of certain arithmetic operations that are undefined. In contrast to <code>NA</code> it can only exist in numerical data.</li>
 </ul>
 </div>
-<div id="data-classes" class="section level3 hasAnchor" number="5.4.5">
-<h3><span class="header-section-number">5.4.5</span> Data classes<a href="manage-data.html#data-classes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="data-classes" class="section level3 hasAnchor" number="5.4.6">
+<h3><span class="header-section-number">5.4.6</span> Data classes<a href="manage-data.html#data-classes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In R, different data classes, or types of data exist:</p>
 <ul>
 <li><em>numeric</em>: can be any real number</li>
@@ -729,14 +775,14 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 <li><em>Date</em>: special format that describes time</li>
 </ul>
 <p>The following example should exemplify these types of data:</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="manage-data.html#cb122-1" aria-hidden="true" tabindex="-1"></a>integer_var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb122-2"><a href="manage-data.html#cb122-2" aria-hidden="true" tabindex="-1"></a>numeric_var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.1</span>, <span class="fl">2.2</span>, <span class="cn">NA</span>, <span class="fl">4.4</span>, <span class="fl">5.5</span>)</span>
-<span id="cb122-3"><a href="manage-data.html#cb122-3" aria-hidden="true" tabindex="-1"></a>character_var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;cherry&quot;</span>, <span class="st">&quot;grape&quot;</span>)</span>
-<span id="cb122-4"><a href="manage-data.html#cb122-4" aria-hidden="true" tabindex="-1"></a>factor_var <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>))</span>
-<span id="cb122-5"><a href="manage-data.html#cb122-5" aria-hidden="true" tabindex="-1"></a>logical_var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
-<span id="cb122-6"><a href="manage-data.html#cb122-6" aria-hidden="true" tabindex="-1"></a>date_var <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2022-01-01&quot;</span>, <span class="st">&quot;2022-02-01&quot;</span>, <span class="st">&quot;2022-03-01&quot;</span>, <span class="st">&quot;2022-04-01&quot;</span>, <span class="st">&quot;2022-05-01&quot;</span>))</span>
-<span id="cb122-7"><a href="manage-data.html#cb122-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-8"><a href="manage-data.html#cb122-8" aria-hidden="true" tabindex="-1"></a>date_var[<span class="dv">2</span>] <span class="sc">-</span> date_var[<span class="dv">5</span>] <span class="co"># number of days in between these two dates</span></span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="manage-data.html#cb130-1" aria-hidden="true" tabindex="-1"></a>integer_var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb130-2"><a href="manage-data.html#cb130-2" aria-hidden="true" tabindex="-1"></a>numeric_var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.1</span>, <span class="fl">2.2</span>, <span class="cn">NA</span>, <span class="fl">4.4</span>, <span class="fl">5.5</span>)</span>
+<span id="cb130-3"><a href="manage-data.html#cb130-3" aria-hidden="true" tabindex="-1"></a>character_var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;cherry&quot;</span>, <span class="st">&quot;grape&quot;</span>)</span>
+<span id="cb130-4"><a href="manage-data.html#cb130-4" aria-hidden="true" tabindex="-1"></a>factor_var <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>))</span>
+<span id="cb130-5"><a href="manage-data.html#cb130-5" aria-hidden="true" tabindex="-1"></a>logical_var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb130-6"><a href="manage-data.html#cb130-6" aria-hidden="true" tabindex="-1"></a>date_var <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2022-01-01&quot;</span>, <span class="st">&quot;2022-02-01&quot;</span>, <span class="st">&quot;2022-03-01&quot;</span>, <span class="st">&quot;2022-04-01&quot;</span>, <span class="st">&quot;2022-05-01&quot;</span>))</span>
+<span id="cb130-7"><a href="manage-data.html#cb130-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-8"><a href="manage-data.html#cb130-8" aria-hidden="true" tabindex="-1"></a>date_var[<span class="dv">2</span>] <span class="sc">-</span> date_var[<span class="dv">5</span>] <span class="co"># number of days in between these two dates</span></span></code></pre></div>
 <pre><code>## Time difference of -89 days</code></pre>
 </div>
 </div>
@@ -764,14 +810,14 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 <li>The result is a new data frame.</li>
 </ol>
 <p>Here are some examples that may help to understand these functions:</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="manage-data.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb124-2"><a href="manage-data.html#cb124-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-3"><a href="manage-data.html#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="co"># load mtcars dataset</span></span>
-<span id="cb124-4"><a href="manage-data.html#cb124-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
-<span id="cb124-5"><a href="manage-data.html#cb124-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-6"><a href="manage-data.html#cb124-6" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange rows by mpg in descending order</span></span>
-<span id="cb124-7"><a href="manage-data.html#cb124-7" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
-<span id="cb124-8"><a href="manage-data.html#cb124-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mpg))</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="manage-data.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb132-2"><a href="manage-data.html#cb132-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-3"><a href="manage-data.html#cb132-3" aria-hidden="true" tabindex="-1"></a><span class="co"># load mtcars dataset</span></span>
+<span id="cb132-4"><a href="manage-data.html#cb132-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb132-5"><a href="manage-data.html#cb132-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb132-6"><a href="manage-data.html#cb132-6" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange rows by mpg in descending order</span></span>
+<span id="cb132-7"><a href="manage-data.html#cb132-7" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb132-8"><a href="manage-data.html#cb132-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mpg))</span></code></pre></div>
 <pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
 ## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
 ## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
@@ -805,9 +851,9 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 ## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
 ## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
 ## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4</code></pre>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="manage-data.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter rows where cyl = 4</span></span>
-<span id="cb126-2"><a href="manage-data.html#cb126-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
-<span id="cb126-3"><a href="manage-data.html#cb126-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cyl <span class="sc">==</span> <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="manage-data.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter rows where cyl = 4</span></span>
+<span id="cb134-2"><a href="manage-data.html#cb134-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb134-3"><a href="manage-data.html#cb134-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cyl <span class="sc">==</span> <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
 ## Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
 ## Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
@@ -820,10 +866,10 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 ## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
 ## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
 ## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="manage-data.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns mpg, cyl, and hp</span></span>
-<span id="cb128-2"><a href="manage-data.html#cb128-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
-<span id="cb128-3"><a href="manage-data.html#cb128-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg, cyl, hp) <span class="sc">|&gt;</span> </span>
-<span id="cb128-4"><a href="manage-data.html#cb128-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="manage-data.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns mpg, cyl, and hp</span></span>
+<span id="cb136-2"><a href="manage-data.html#cb136-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb136-3"><a href="manage-data.html#cb136-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg, cyl, hp) <span class="sc">|&gt;</span> </span>
+<span id="cb136-4"><a href="manage-data.html#cb136-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##                    mpg cyl  hp
 ## Mazda RX4         21.0   6 110
 ## Mazda RX4 Wag     21.0   6 110
@@ -831,10 +877,10 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 ## Hornet 4 Drive    21.4   6 110
 ## Hornet Sportabout 18.7   8 175
 ## Valiant           18.1   6 105</code></pre>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="manage-data.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns all variables except wt and hp</span></span>
-<span id="cb130-2"><a href="manage-data.html#cb130-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
-<span id="cb130-3"><a href="manage-data.html#cb130-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>wt, <span class="sc">-</span>hp) <span class="sc">|&gt;</span> </span>
-<span id="cb130-4"><a href="manage-data.html#cb130-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="manage-data.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns all variables except wt and hp</span></span>
+<span id="cb138-2"><a href="manage-data.html#cb138-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb138-3"><a href="manage-data.html#cb138-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>wt, <span class="sc">-</span>hp) <span class="sc">|&gt;</span> </span>
+<span id="cb138-4"><a href="manage-data.html#cb138-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##                    mpg cyl disp drat  qsec vs am gear carb
 ## Mazda RX4         21.0   6  160 3.90 16.46  0  1    4    4
 ## Mazda RX4 Wag     21.0   6  160 3.90 17.02  0  1    4    4
@@ -842,9 +888,9 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 ## Hornet 4 Drive    21.4   6  258 3.08 19.44  1  0    3    1
 ## Hornet Sportabout 18.7   8  360 3.15 17.02  0  0    3    2
 ## Valiant           18.1   6  225 2.76 20.22  1  0    3    1</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="manage-data.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select only variables starting with `c`</span></span>
-<span id="cb132-2"><a href="manage-data.html#cb132-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
-<span id="cb132-3"><a href="manage-data.html#cb132-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;c&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="manage-data.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select only variables starting with `c`</span></span>
+<span id="cb140-2"><a href="manage-data.html#cb140-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb140-3"><a href="manage-data.html#cb140-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;c&quot;</span>))</span></code></pre></div>
 <pre><code>##                     cyl carb
 ## Mazda RX4             6    4
 ## Mazda RX4 Wag         6    4
@@ -878,21 +924,21 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 ## Ferrari Dino          6    6
 ## Maserati Bora         8    8
 ## Volvo 142E            4    2</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="manage-data.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summarize avg mpg by number of cylinders</span></span>
-<span id="cb134-2"><a href="manage-data.html#cb134-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
-<span id="cb134-3"><a href="manage-data.html#cb134-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">|&gt;</span> </span>
-<span id="cb134-4"><a href="manage-data.html#cb134-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_mpg =</span> <span class="fu">mean</span>(mpg))</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="manage-data.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summarize avg mpg by number of cylinders</span></span>
+<span id="cb142-2"><a href="manage-data.html#cb142-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb142-3"><a href="manage-data.html#cb142-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">|&gt;</span> </span>
+<span id="cb142-4"><a href="manage-data.html#cb142-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_mpg =</span> <span class="fu">mean</span>(mpg))</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 2
 ##     cyl avg_mpg
 ##   &lt;dbl&gt;   &lt;dbl&gt;
 ## 1     4    26.7
 ## 2     6    19.7
 ## 3     8    15.1</code></pre>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="manage-data.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new column wt_kg, which is wt in kg</span></span>
-<span id="cb136-2"><a href="manage-data.html#cb136-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
-<span id="cb136-3"><a href="manage-data.html#cb136-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(wt) <span class="sc">|&gt;</span> </span>
-<span id="cb136-4"><a href="manage-data.html#cb136-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wt_kg =</span> wt <span class="sc">/</span> <span class="fl">2.205</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb136-5"><a href="manage-data.html#cb136-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="manage-data.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new column wt_kg, which is wt in kg</span></span>
+<span id="cb144-2"><a href="manage-data.html#cb144-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb144-3"><a href="manage-data.html#cb144-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(wt) <span class="sc">|&gt;</span> </span>
+<span id="cb144-4"><a href="manage-data.html#cb144-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wt_kg =</span> wt <span class="sc">/</span> <span class="fl">2.205</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb144-5"><a href="manage-data.html#cb144-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>##                      wt    wt_kg
 ## Mazda RX4         2.620 1.188209
 ## Mazda RX4 Wag     2.875 1.303855
@@ -900,14 +946,14 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 ## Hornet 4 Drive    3.215 1.458050
 ## Hornet Sportabout 3.440 1.560091
 ## Valiant           3.460 1.569161</code></pre>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="manage-data.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new variable by calculating hp divided by wt</span></span>
-<span id="cb138-2"><a href="manage-data.html#cb138-2" aria-hidden="true" tabindex="-1"></a>mtcars_new <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span> </span>
-<span id="cb138-3"><a href="manage-data.html#cb138-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(wt, hp) <span class="sc">|&gt;</span> </span>
-<span id="cb138-4"><a href="manage-data.html#cb138-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hp_per_t =</span> hp<span class="sc">/</span>wt) <span class="sc">|&gt;</span> </span>
-<span id="cb138-5"><a href="manage-data.html#cb138-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
-<span id="cb138-6"><a href="manage-data.html#cb138-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb138-7"><a href="manage-data.html#cb138-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows of the updated dataset</span></span>
-<span id="cb138-8"><a href="manage-data.html#cb138-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars_new)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="manage-data.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new variable by calculating hp divided by wt</span></span>
+<span id="cb146-2"><a href="manage-data.html#cb146-2" aria-hidden="true" tabindex="-1"></a>mtcars_new <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb146-3"><a href="manage-data.html#cb146-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(wt, hp) <span class="sc">|&gt;</span> </span>
+<span id="cb146-4"><a href="manage-data.html#cb146-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hp_per_t =</span> hp<span class="sc">/</span>wt) <span class="sc">|&gt;</span> </span>
+<span id="cb146-5"><a href="manage-data.html#cb146-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb146-6"><a href="manage-data.html#cb146-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-7"><a href="manage-data.html#cb146-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows of the updated dataset</span></span>
+<span id="cb146-8"><a href="manage-data.html#cb146-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars_new)</span></code></pre></div>
 <pre><code>##                      wt  hp hp_per_t
 ## Mazda RX4         2.620 110 41.98473
 ## Mazda RX4 Wag     2.875 110 38.26087
@@ -915,32 +961,41 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 ## Hornet 4 Drive    3.215 110 34.21462
 ## Hornet Sportabout 3.440 175 50.87209
 ## Valiant           3.460 105 30.34682</code></pre>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="manage-data.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename hp to horsepower</span></span>
-<span id="cb140-2"><a href="manage-data.html#cb140-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
-<span id="cb140-3"><a href="manage-data.html#cb140-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">horsepower =</span> hp) <span class="sc">|&gt;</span> </span>
-<span id="cb140-4"><a href="manage-data.html#cb140-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="manage-data.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename hp to horsepower</span></span>
+<span id="cb148-2"><a href="manage-data.html#cb148-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb148-3"><a href="manage-data.html#cb148-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">horsepower =</span> hp) <span class="sc">|&gt;</span> </span>
+<span id="cb148-4"><a href="manage-data.html#cb148-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div>
 <pre><code>## Rows: 32
 ## Columns: 11
-## $ mpg        &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.3, 19.2, 27.3, 26.0, 30.4, 15.8, 19.7, 15.0, 21.4
+## $ mpg        &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.3, 19.2, 27.3…
 ## $ cyl        &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
-## $ disp       &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7, 75.7, 71.1, 120.1, 318.0, 304.0, 350.0, 400.0, 79.0, 120.3, 95.1,…
+## $ disp       &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7, 75.7, 71.1, 120.1, 318.0, 304…
 ## $ horsepower &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 150, 245, 175, 66, 91, 113, 264, 175, 335, 109
-## $ drat       &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.70, 2.76, 3.15, 3.73, 3.08, 4.08, 4.43, 3.77, 4.22, 3.62, 3.54, 4.11
-## $ wt         &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.200, 1.615, 1.835, 2.465, 3.520, 3.435, 3.840, 3.845, 1.935, 2.140, 1…
-## $ qsec       &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.47, 18.52, 19.90, 20.01, 16.87, 17.30, 15.41, 17.05, 18.90, 16.70, 1…
+## $ drat       &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.70, 2.76, 3.15, 3.73, 3.08, 4.08…
+## $ wt         &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.200, 1.615, 1.835, 2.465, 3.520, …
+## $ qsec       &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.47, 18.52, 19.90, 20.01, 16.87, …
 ## $ vs         &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
 ## $ am         &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
 ## $ gear       &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
 ## $ carb       &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6, 8, 2</code></pre>
+<div class="exercise">
+<p><span id="exr:genanddrop" class="exercise"><strong>Exercise 5.1  </strong></span>Generate and drop variables</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Create a new tibble called <code>mtcars_new</code> using the pipe operator |&gt;. Generate a new dummy variable called <code>d_cyl_6to8</code> that takes the value 1 if the number of cylinders (cyl) is greater than 6, and 0 otherwise. Do all of this in a single pipe.</p></li>
+<li><p>Generate a new dummy variable called <code>posercar</code> that takes a value of 1 if a car has more than 6 cylinders (cyl) and can drive less than 18 miles per gallon (mpg), and 0 otherwise. Add this variable to the tibble <code>mtcars_new</code>.</p></li>
+<li><p>Remove the variable <code>d_cyl_6to8</code> from the data frame.</p></li>
+</ol>
+<p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_genanddrop.R">here</a>.</p>
+</div>
 <div id="snapshot-of-the-data" class="section level3 hasAnchor" number="5.5.1">
 <h3><span class="header-section-number">5.5.1</span> Snapshot of the data<a href="manage-data.html#snapshot-of-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="manage-data.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating dataframe</span></span>
-<span id="cb142-2"><a href="manage-data.html#cb142-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb142-3"><a href="manage-data.html#cb142-3" aria-hidden="true" tabindex="-1"></a>  integer_var, numeric_var, character_var, factor_var, logical_var, date_var,</span>
-<span id="cb142-4"><a href="manage-data.html#cb142-4" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb142-5"><a href="manage-data.html#cb142-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-6"><a href="manage-data.html#cb142-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Overview of the data</span></span>
-<span id="cb142-7"><a href="manage-data.html#cb142-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="manage-data.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating dataframe</span></span>
+<span id="cb150-2"><a href="manage-data.html#cb150-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb150-3"><a href="manage-data.html#cb150-3" aria-hidden="true" tabindex="-1"></a>  integer_var, numeric_var, character_var, factor_var, logical_var, date_var,</span>
+<span id="cb150-4"><a href="manage-data.html#cb150-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb150-5"><a href="manage-data.html#cb150-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-6"><a href="manage-data.html#cb150-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Overview of the data</span></span>
+<span id="cb150-7"><a href="manage-data.html#cb150-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 6
 ##   integer_var numeric_var character_var factor_var logical_var date_var  
 ##         &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;         &lt;fct&gt;      &lt;lgl&gt;       &lt;date&gt;    
@@ -949,7 +1004,7 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 ## 3           3        NA   orange        red        TRUE        2022-03-01
 ## 4           4         4.4 cherry        blue       FALSE       2022-04-01
 ## 5           5         5.5 grape         green      TRUE        2022-05-01</code></pre>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="manage-data.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="manage-data.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code></pre></div>
 <pre><code>##   integer_var  numeric_var    character_var       factor_var logical_var        date_var         
 ##  Min.   :1    Min.   :1.100   Length:5           blue  :1    Mode :logical   Min.   :2022-01-01  
 ##  1st Qu.:2    1st Qu.:1.925   Class :character   green :1    FALSE:1         1st Qu.:2022-02-01  
@@ -958,7 +1013,7 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 ##  3rd Qu.:4    3rd Qu.:4.675                                                  3rd Qu.:2022-04-01  
 ##  Max.   :5    Max.   :5.500                                                  Max.   :2022-05-01  
 ##               NA&#39;s   :1</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="manage-data.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="manage-data.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df)</span></code></pre></div>
 <pre><code>## Rows: 5
 ## Columns: 6
 ## $ integer_var   &lt;dbl&gt; 1, 2, 3, 4, 5
@@ -967,22 +1022,22 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 ## $ factor_var    &lt;fct&gt; red, yellow, red, blue, green
 ## $ logical_var   &lt;lgl&gt; TRUE, TRUE, TRUE, FALSE, TRUE
 ## $ date_var      &lt;date&gt; 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-05-01</code></pre>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="manage-data.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look closer at variables</span></span>
-<span id="cb148-2"><a href="manage-data.html#cb148-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb148-3"><a href="manage-data.html#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="co"># unique values</span></span>
-<span id="cb148-4"><a href="manage-data.html#cb148-4" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>integer_var)</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="manage-data.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look closer at variables</span></span>
+<span id="cb156-2"><a href="manage-data.html#cb156-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb156-3"><a href="manage-data.html#cb156-3" aria-hidden="true" tabindex="-1"></a><span class="co"># unique values</span></span>
+<span id="cb156-4"><a href="manage-data.html#cb156-4" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>integer_var)</span></code></pre></div>
 <pre><code>## [1] 1 2 3 4 5</code></pre>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="manage-data.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>factor_var)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="manage-data.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>factor_var)</span></code></pre></div>
 <pre><code>## [1] red    yellow blue   green 
 ## Levels: blue green red yellow</code></pre>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="manage-data.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>factor_var)</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="manage-data.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>factor_var)</span></code></pre></div>
 <pre><code>## 
 ##   blue  green    red yellow 
 ##      1      1      2      1</code></pre>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="manage-data.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(df<span class="sc">$</span>factor_var))</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="manage-data.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(df<span class="sc">$</span>factor_var))</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="manage-data.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="co"># distributions</span></span>
-<span id="cb156-2"><a href="manage-data.html#cb156-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">count</span>(factor_var)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="manage-data.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># distributions</span></span>
+<span id="cb164-2"><a href="manage-data.html#cb164-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">count</span>(factor_var)</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 2
 ##   factor_var     n
 ##   &lt;fct&gt;      &lt;int&gt;
@@ -990,13 +1045,13 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 ## 2 green          1
 ## 3 red            2
 ## 4 yellow         1</code></pre>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="manage-data.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(df<span class="sc">$</span>factor_var))</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="manage-data.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(df<span class="sc">$</span>factor_var))</span></code></pre></div>
 <pre><code>## 
 ##   blue  green    red yellow 
 ##    0.2    0.2    0.4    0.2</code></pre>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="manage-data.html#cb160-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb160-2"><a href="manage-data.html#cb160-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(factor_var) <span class="sc">|&gt;</span> </span>
-<span id="cb160-3"><a href="manage-data.html#cb160-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="manage-data.html#cb168-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb168-2"><a href="manage-data.html#cb168-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(factor_var) <span class="sc">|&gt;</span> </span>
+<span id="cb168-3"><a href="manage-data.html#cb168-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 3
 ##   factor_var     n  prop
 ##   &lt;fct&gt;      &lt;int&gt; &lt;dbl&gt;
@@ -1004,41 +1059,41 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 ## 2 green          1   0.2
 ## 3 red            2   0.4
 ## 4 yellow         1   0.2</code></pre>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="manage-data.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(df<span class="sc">$</span>numeric_var, </span>
-<span id="cb162-2"><a href="manage-data.html#cb162-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="fu">list</span>(<span class="at">fruit =</span> df<span class="sc">$</span>factor_var), </span>
-<span id="cb162-3"><a href="manage-data.html#cb162-3" aria-hidden="true" tabindex="-1"></a>          mean)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="manage-data.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(df<span class="sc">$</span>numeric_var, </span>
+<span id="cb170-2"><a href="manage-data.html#cb170-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="fu">list</span>(<span class="at">fruit =</span> df<span class="sc">$</span>factor_var), </span>
+<span id="cb170-3"><a href="manage-data.html#cb170-3" aria-hidden="true" tabindex="-1"></a>          mean)</span></code></pre></div>
 <pre><code>##    fruit   x
 ## 1   blue 4.4
 ## 2  green 5.5
 ## 3    red  NA
 ## 4 yellow 2.2</code></pre>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="manage-data.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --&gt; the mean of red cannot be calculated as there is a NA in it</span></span>
-<span id="cb164-2"><a href="manage-data.html#cb164-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution: exclude NAs from calculation:</span></span>
-<span id="cb164-3"><a href="manage-data.html#cb164-3" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(df<span class="sc">$</span>numeric_var, </span>
-<span id="cb164-4"><a href="manage-data.html#cb164-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="fu">list</span>(<span class="at">fruit =</span> df<span class="sc">$</span>factor_var), </span>
-<span id="cb164-5"><a href="manage-data.html#cb164-5" aria-hidden="true" tabindex="-1"></a>          mean,</span>
-<span id="cb164-6"><a href="manage-data.html#cb164-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="manage-data.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --&gt; the mean of red cannot be calculated as there is a NA in it</span></span>
+<span id="cb172-2"><a href="manage-data.html#cb172-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution: exclude NAs from calculation:</span></span>
+<span id="cb172-3"><a href="manage-data.html#cb172-3" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(df<span class="sc">$</span>numeric_var, </span>
+<span id="cb172-4"><a href="manage-data.html#cb172-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="fu">list</span>(<span class="at">fruit =</span> df<span class="sc">$</span>factor_var), </span>
+<span id="cb172-5"><a href="manage-data.html#cb172-5" aria-hidden="true" tabindex="-1"></a>          mean,</span>
+<span id="cb172-6"><a href="manage-data.html#cb172-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>##    fruit   x
 ## 1   blue 4.4
 ## 2  green 5.5
 ## 3    red 1.1
 ## 4 yellow 2.2</code></pre>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="manage-data.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;janitor&quot;)</span></span>
-<span id="cb166-2"><a href="manage-data.html#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;janitor&quot;</span>)</span>
-<span id="cb166-3"><a href="manage-data.html#cb166-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
-<span id="cb166-4"><a href="manage-data.html#cb166-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(cyl) </span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="manage-data.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;janitor&quot;)</span></span>
+<span id="cb174-2"><a href="manage-data.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;janitor&quot;</span>)</span>
+<span id="cb174-3"><a href="manage-data.html#cb174-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb174-4"><a href="manage-data.html#cb174-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(cyl) </span></code></pre></div>
 <pre><code>##  cyl  n percent
 ##    4 11 0.34375
 ##    6  7 0.21875
 ##    8 14 0.43750</code></pre>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="manage-data.html#cb168-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
-<span id="cb168-2"><a href="manage-data.html#cb168-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(cyl, hp) </span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="manage-data.html#cb176-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb176-2"><a href="manage-data.html#cb176-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(cyl, hp) </span></code></pre></div>
 <pre><code>##  cyl 52 62 65 66 91 93 95 97 105 109 110 113 123 150 175 180 205 215 230 245 264 335
 ##    4  1  1  1  2  1  1  1  1   0   1   0   1   0   0   0   0   0   0   0   0   0   0
 ##    6  0  0  0  0  0  0  0  0   1   0   3   0   2   0   1   0   0   0   0   0   0   0
 ##    8  0  0  0  0  0  0  0  0   0   0   0   0   0   2   2   3   1   1   1   2   1   1</code></pre>
 <div class="exercise">
-<p><span id="exr:baseorpipe" class="exercise"><strong>Exercise 5.1  </strong></span>Base R or pipe</p>
+<p><span id="exr:baseorpipe" class="exercise"><strong>Exercise 5.2  </strong></span>Base R or pipe</p>
 <ol style="list-style-type: lower-alpha">
 <li>Using the mtcars dataset in R, write code to create a new dataframe that includes only the rows where the number of cylinders is either 4 or 6, and the weight (wt) is less than 3.5.</li>
 </ol>
@@ -1054,7 +1109,7 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 <p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_base_pipe.R">here</a>.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:subsetting" class="exercise"><strong>Exercise 5.2  </strong></span>Subsetting</p>
+<p><span id="exr:subsetting" class="exercise"><strong>Exercise 5.3  </strong></span>Subsetting</p>
 <ol style="list-style-type: decimal">
 <li>Check to see if you have the mtcars dataset by entering the command mtcars.</li>
 <li>Save the mtcars dataset in an object named cars.</li>
@@ -1077,12 +1132,12 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 <p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_subset.R">here</a>.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:exer4ds" class="exercise"><strong>Exercise 5.3  </strong></span>Data transformation</p>
+<p><span id="exr:exer4ds" class="exercise"><strong>Exercise 5.4  </strong></span>Data transformation</p>
 <p>Please download and open the following R-script and try to answer the questions therein:</p>
 <p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/data_transformation.R">here</a>.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:execonvergence" class="exercise"><strong>Exercise 5.4  </strong></span>Convergence</p>
+<p><span id="exr:execonvergence" class="exercise"><strong>Exercise 5.5  </strong></span>Convergence</p>
 <p>The dataset convergence.dta, see <a href="https://github.com/hubchev/courses/blob/main/dta/convergence.dta" class="uri">https://github.com/hubchev/courses/blob/main/dta/convergence.dta</a>, contains the per capita GDP of 1960 (gdppc60) and the average growth rate of GDP per capita between 1960 and 1995 (growth) for different countries (country), as well as 3 dummy variables indicating the belonging of a country to the region Asia (asia), Western Europe (weurope) or Africa (africa).</p>
 <ul>
 <li>Some countries are not assigned to a certain country group. Name the countries which are assign to be part of Western Europe, Africa or Asia. If you find countries that are members of the EU, assign them a ‘1’ in the variable weurope.</li>

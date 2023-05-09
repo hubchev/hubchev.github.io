@@ -1403,7 +1403,7 @@ One such dataset that we will be using further is the mtcars dataset:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{?mtcars}
+\NormalTok{?mtcars  }\CommentTok{\# data dictionary}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1438,13 +1438,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \begin{verbatim}
 ## Rows: 13,156
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", ~
-## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998~
-## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826771e+11, 9.720022e+11, 9.642130e+11, 8.603612e+11, 7.190953e+11, 7.08119~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.M~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", ~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Af~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE",~
+## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "~
+## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826771e+11, 9.720022e+11, 9.642130e+11,~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.M~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern"~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1540,10 +1540,11 @@ One difference between data frames and tibbles is that dataframes store the row 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"             "Duster 360"          "Merc 240D"           "Merc 230"           
-## [10] "Merc 280"            "Merc 280C"           "Merc 450SE"          "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood"  "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"           
-## [19] "Honda Civic"         "Toyota Corolla"      "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"          "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"      
-## [28] "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"        "Maserati Bora"       "Volvo 142E"
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"             "Duster 360"         
+##  [8] "Merc 240D"           "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"          "Merc 450SL"          "Merc 450SLC"        
+## [15] "Cadillac Fleetwood"  "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"      "Toyota Corona"      
+## [22] "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"          "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"       
+## [29] "Ford Pantera L"      "Ferrari Dino"        "Maserati Bora"       "Volvo 142E"
 \end{verbatim}
 
 To store \texttt{mtcars} as a tibble, we can use the \texttt{as\_tibble} function:
@@ -1928,6 +1929,95 @@ Select rows where either mpg is greater than 25 or carb is less than 2, and the 
 ## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
 \end{verbatim}
 
+\hypertarget{if-statements}{%
+\subsection{If Statements}\label{if-statements}}
+
+In many cases, it's necessary to execute certain code only when a particular condition is met. To achieve this, there are several conditional statements that can be used in code. These include:
+
+\begin{itemize}
+\tightlist
+\item
+  The \texttt{if} statement: This is used to execute a block of code if a specified condition is true.
+\item
+  The \texttt{else} statement: This is used to execute a block of code if the same condition is false.
+\item
+  The \texttt{else} if statement: This is used to specify a new condition to test if the first condition is false.
+\item
+  The \texttt{ifelse()} function: This is used to check a condition for every element of a vector.
+\end{itemize}
+
+The following examples should exemplify how these statements work:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Example of if statement}
+\ControlFlowTok{if}\NormalTok{ (}\FunctionTok{mean}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{mpg) }\SpecialCharTok{\textgreater{}} \DecValTok{20}\NormalTok{) \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"The average miles per gallon is greater than 20."}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The average miles per gallon is greater than 20."
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Example of if{-}else statement}
+\ControlFlowTok{if}\NormalTok{ (}\FunctionTok{mean}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{mpg) }\SpecialCharTok{\textgreater{}} \DecValTok{20}\NormalTok{) \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"The average miles per gallon is greater than 20."}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"The average miles per gallon is less than or equal to 20."}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The average miles per gallon is greater than 20."
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Example of if{-}else if statement}
+\ControlFlowTok{if}\NormalTok{ (}\FunctionTok{mean}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{mpg) }\SpecialCharTok{\textgreater{}} \DecValTok{25}\NormalTok{) \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"The average miles per gallon is greater than 25."}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (}\FunctionTok{mean}\NormalTok{(mtcars}\SpecialCharTok{$}\NormalTok{mpg) }\SpecialCharTok{\textgreater{}} \DecValTok{20}\NormalTok{) \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"The average miles per gallon is between 20 and 25."}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"The average miles per gallon is less than or equal to 20."}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The average miles per gallon is between 20 and 25."
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Example of if\_else function}
+\NormalTok{mtcars\_2 }\OtherTok{\textless{}{-}}\NormalTok{ mtcars}
+\NormalTok{mtcars\_2}\SpecialCharTok{$}\NormalTok{mpg\_category }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(mtcars\_2}\SpecialCharTok{$}\NormalTok{mpg }\SpecialCharTok{\textgreater{}} \DecValTok{20}\NormalTok{, }\StringTok{"High"}\NormalTok{, }\StringTok{"Low"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+When you have a fixed number of cases and don't want to use a long chain of if-else statements, you can use \texttt{case\_when()};
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars\_cyl }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{cyl\_category =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{    cyl }\SpecialCharTok{==} \DecValTok{4} \SpecialCharTok{\textasciitilde{}} \StringTok{"four"}\NormalTok{,}
+\NormalTok{    cyl }\SpecialCharTok{==} \DecValTok{6} \SpecialCharTok{\textasciitilde{}} \StringTok{"six"}\NormalTok{,}
+\NormalTok{    cyl }\SpecialCharTok{==} \DecValTok{8} \SpecialCharTok{\textasciitilde{}} \StringTok{"eight"}
+\NormalTok{  ))}
+\end{Highlighting}
+\end{Shaded}
+
+The \texttt{mutate()} function is used to add the new variable, and \texttt{case\_when()} is used to assign the values ``four'', ``six'', or ``eight'' to the new variable based on the number of cylinders in each car.
+
+It evaluates one of several expressions based on the value of a given control expression. It takes two arguments: the control expression and a list of named expressions, each of which is evaluated if its name matches the value of the control expression. If no match is found, an optional default expression is evaluated. The switch() function is particularly useful
+
 \hypertarget{values}{%
 \subsection{Values}\label{values}}
 
@@ -2257,18 +2347,34 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.3, 19.2, 27.3, 26.0, 30.4, 15.8, 19.7, 15.0, 21.4
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.3, 19.2, 27.3~
 ## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7, 75.7, 71.1, 120.1, 318.0, 304.0, 350.0, 400.0, 79.0, 120.3, 95.1,~
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7, 75.7, 71.1, 120.1, 318.0, 304~
 ## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 150, 245, 175, 66, 91, 113, 264, 175, 335, 109
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.70, 2.76, 3.15, 3.73, 3.08, 4.08, 4.43, 3.77, 4.22, 3.62, 3.54, 4.11
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.200, 1.615, 1.835, 2.465, 3.520, 3.435, 3.840, 3.845, 1.935, 2.140, 1~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.47, 18.52, 19.90, 20.01, 16.87, 17.30, 15.41, 17.05, 18.90, 16.70, 1~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.70, 2.76, 3.15, 3.73, 3.08, 4.08~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.200, 1.615, 1.835, 2.465, 3.520, ~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.47, 18.52, 19.90, 20.01, 16.87, ~
 ## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
 ## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
 ## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
 ## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6, 8, 2
 \end{verbatim}
+
+\begin{exercise}
+\protect\hypertarget{exr:genanddrop}{}\label{exr:genanddrop}Generate and drop variables
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  Create a new tibble called \texttt{mtcars\_new} using the pipe operator \textbar\textgreater. Generate a new dummy variable called \texttt{d\_cyl\_6to8} that takes the value 1 if the number of cylinders (cyl) is greater than 6, and 0 otherwise. Do all of this in a single pipe.
+\item
+  Generate a new dummy variable called \texttt{posercar} that takes a value of 1 if a car has more than 6 cylinders (cyl) and can drive less than 18 miles per gallon (mpg), and 0 otherwise. Add this variable to the tibble \texttt{mtcars\_new}.
+\item
+  Remove the variable \texttt{d\_cyl\_6to8} from the data frame.
+\end{enumerate}
+
+Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_genanddrop.R}{here}.
+\end{exercise}
 
 \hypertarget{snapshot-of-the-data}{%
 \subsection{Snapshot of the data}\label{snapshot-of-the-data}}
@@ -2869,21 +2975,22 @@ When seeking help, be sure to provide information about your machine, including 
 ## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.13.so
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8      
-##  [8] LC_NAME=C                  LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.2     janitor_2.2.0   cowplot_1.1.1   wbstats_1.0.4   lubridate_1.9.2 forcats_1.0.0   stringr_1.5.0   purrr_1.0.1     readr_2.1.4     tidyr_1.3.0     tibble_3.2.1    ggplot2_3.4.2  
-## [13] tidyverse_2.0.0 scales_1.2.1   
+##  [1] dplyr_1.1.2     janitor_2.2.0   cowplot_1.1.1   wbstats_1.0.4   lubridate_1.9.2 forcats_1.0.0   stringr_1.5.0   purrr_1.0.1     readr_2.1.4     tidyr_1.3.0    
+## [11] tibble_3.2.1    ggplot2_3.4.2   tidyverse_2.0.0 scales_1.2.1   
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tinytex_0.45     tidyselect_1.2.0 xfun_0.39        bslib_0.4.2      snakecase_0.11.0 colorspace_2.1-0 vctrs_0.6.2      generics_0.1.3   htmltools_0.5.5  yaml_2.3.7       utf8_1.2.3       rlang_1.1.1     
-## [13] jquerylib_0.1.4  pillar_1.9.0     glue_1.6.2       withr_2.5.0      lifecycle_1.0.3  munsell_0.5.0    gtable_0.3.3     evaluate_0.20    knitr_1.42       tzdb_0.3.0       fastmap_1.1.1    curl_5.0.0      
-## [25] fansi_1.0.4      highr_0.10       Rcpp_1.0.10      cachem_1.0.8     magick_2.7.4     jsonlite_1.8.4   hms_1.1.3        digest_0.6.31    stringi_1.7.12   bookdown_0.33.3  grid_4.1.2       cli_3.6.1       
-## [37] tools_4.1.2      magrittr_2.0.3   sass_0.4.6       crayon_1.5.2     pkgconfig_2.0.3  timechange_0.2.0 rmarkdown_2.21   httr_1.4.5       rstudioapi_0.14  R6_2.5.1         compiler_4.1.2
+##  [1] tinytex_0.45     tidyselect_1.2.0 xfun_0.39        bslib_0.4.2      snakecase_0.11.0 colorspace_2.1-0 vctrs_0.6.2      generics_0.1.3   htmltools_0.5.5  yaml_2.3.7      
+## [11] utf8_1.2.3       rlang_1.1.1      jquerylib_0.1.4  pillar_1.9.0     glue_1.6.2       withr_2.5.0      lifecycle_1.0.3  munsell_0.5.0    gtable_0.3.3     evaluate_0.20   
+## [21] knitr_1.42       tzdb_0.3.0       fastmap_1.1.1    curl_5.0.0       fansi_1.0.4      highr_0.10       Rcpp_1.0.10      cachem_1.0.8     magick_2.7.4     jsonlite_1.8.4  
+## [31] hms_1.1.3        digest_0.6.31    stringi_1.7.12   bookdown_0.33.3  grid_4.1.2       cli_3.6.1        tools_4.1.2      magrittr_2.0.3   sass_0.4.6       crayon_1.5.2    
+## [41] pkgconfig_2.0.3  timechange_0.2.0 rmarkdown_2.21   httr_1.4.5       rstudioapi_0.14  R6_2.5.1         compiler_4.1.2
 \end{verbatim}
 
   \bibliography{book.bib}
