@@ -198,11 +198,21 @@ div.csl-indent {
 <li class="chapter" data-level="5.3.1" data-path="manage-data.html"><a href="manage-data.html#vectors-and-matrices"><i class="fa fa-check"></i><b>5.3.1</b> Vectors and Matrices</a></li>
 <li class="chapter" data-level="5.3.2" data-path="manage-data.html"><a href="manage-data.html#open-data-in-rdata-files"><i class="fa fa-check"></i><b>5.3.2</b> Open data in RData files</a></li>
 <li class="chapter" data-level="5.3.3" data-path="manage-data.html"><a href="manage-data.html#open-datasets-from-packages"><i class="fa fa-check"></i><b>5.3.3</b> Open datasets from packages</a></li>
-<li class="chapter" data-level="5.3.4" data-path="manage-data.html"><a href="manage-data.html#import-using-major-public-api"><i class="fa fa-check"></i><b>5.3.4</b> Import using major public API</a></li>
+<li class="chapter" data-level="5.3.4" data-path="manage-data.html"><a href="manage-data.html#import-using-major-public-apis"><i class="fa fa-check"></i><b>5.3.4</b> Import using major public APIs</a></li>
 <li class="chapter" data-level="5.3.5" data-path="manage-data.html"><a href="manage-data.html#import-other-file-formats"><i class="fa fa-check"></i><b>5.3.5</b> Import other file formats</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.4</b> Dataframes and tidy data (tibbles)</a></li>
-<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.5</b> Data manipulation with dplyr</a></li>
+<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.4</b> Data frames</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="manage-data.html"><a href="manage-data.html#data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.4.1</b> Data frames and tibbles</a></li>
+<li class="chapter" data-level="5.4.2" data-path="manage-data.html"><a href="manage-data.html#tidy-data"><i class="fa fa-check"></i><b>5.4.2</b> Tidy data</a></li>
+<li class="chapter" data-level="5.4.3" data-path="manage-data.html"><a href="manage-data.html#operators"><i class="fa fa-check"></i><b>5.4.3</b> Operators</a></li>
+<li class="chapter" data-level="5.4.4" data-path="manage-data.html"><a href="manage-data.html#values"><i class="fa fa-check"></i><b>5.4.4</b> Values</a></li>
+<li class="chapter" data-level="5.4.5" data-path="manage-data.html"><a href="manage-data.html#data-classes"><i class="fa fa-check"></i><b>5.4.5</b> Data classes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.5</b> Data manipulation with dplyr</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="manage-data.html"><a href="manage-data.html#snapshot-of-the-data"><i class="fa fa-check"></i><b>5.5.1</b> Snapshot of the data</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>6</b> Write with R Markdown</a></li>
 <li class="chapter" data-level="7" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a>
@@ -215,8 +225,8 @@ div.csl-indent {
 <li class="chapter" data-level="7.1.4" data-path="appendix.html"><a href="appendix.html#sec:rstudioprojects"><i class="fa fa-check"></i><b>7.1.4</b> R Studio projects</a></li>
 <li class="chapter" data-level="7.1.5" data-path="appendix.html"><a href="appendix.html#sec:winbackslash"><i class="fa fa-check"></i><b>7.1.5</b> Why do the Windows paths use the back-slash?</a></li>
 </ul></li>
+<li class="chapter" data-level="7.2" data-path="appendix.html"><a href="appendix.html#troubleshooting"><i class="fa fa-check"></i><b>7.2</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>8</b> Troubleshooting</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li>&copy; Prof. Dr. Stephan Huber.</li>
@@ -418,9 +428,6 @@ Finally, you can return the value of the object from the function, meaning pass 
 <span id="cb31-3"><a href="work-with-r-scripts.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     vars</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
 ## 
 ##     filter, lag</code></pre>
@@ -428,25 +435,25 @@ Finally, you can return the value of the object from the function, meaning pass 
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
 <p>This message informs us that among other functions the <code>lag()</code> function is <em>masked</em>. That means that now the function of the newly loaded package is active. So, let’s try again:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="work-with-r-scripts.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(revenue)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="work-with-r-scripts.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(revenue)</span></code></pre></div>
 <pre><code>##  [1]   NA    0  700 1400  350  175   28   56    0    0    0    0</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="work-with-r-scripts.html#cb38-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">lag</span>(revenue)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="work-with-r-scripts.html#cb37-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">lag</span>(revenue)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span></code></pre></div>
 <pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
 <p>That looks good now. And here is a way to calculate growth rates with a self-written function:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="work-with-r-scripts.html#cb40-1" aria-hidden="true" tabindex="-1"></a>growth_rate <span class="ot">&lt;-</span> <span class="cf">function</span>(x)(x<span class="sc">/</span><span class="fu">lag</span>(x)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span>
-<span id="cb40-2"><a href="work-with-r-scripts.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">growth_rate</span>(revenue)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="work-with-r-scripts.html#cb39-1" aria-hidden="true" tabindex="-1"></a>growth_rate <span class="ot">&lt;-</span> <span class="cf">function</span>(x)(x<span class="sc">/</span><span class="fu">lag</span>(x)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span>
+<span id="cb39-2"><a href="work-with-r-scripts.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">growth_rate</span>(revenue)</span></code></pre></div>
 <pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="work-with-r-scripts.html#cb42-1" aria-hidden="true" tabindex="-1"></a>sales_gr_rate <span class="ot">&lt;-</span> <span class="fu">growth_rate</span>(revenue)</span>
-<span id="cb42-2"><a href="work-with-r-scripts.html#cb42-2" aria-hidden="true" tabindex="-1"></a>sales_gr_rate</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="work-with-r-scripts.html#cb41-1" aria-hidden="true" tabindex="-1"></a>sales_gr_rate <span class="ot">&lt;-</span> <span class="fu">growth_rate</span>(revenue)</span>
+<span id="cb41-2"><a href="work-with-r-scripts.html#cb41-2" aria-hidden="true" tabindex="-1"></a>sales_gr_rate</span></code></pre></div>
 <pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
 <p>In R, all functions are written by users, and it is not uncommon for two people to name their functions identically. In such cases, we must resolve the conflict by choosing which function to use. To use the lag function from the <code>stats</code> package, you can use the double colon operator <code>::</code> like this <code>stats::lag(arguments)</code>.</p>
 <div class="exercise">
 <p><span id="exr:growthrate" class="exercise"><strong>Exercise 3.1  </strong></span>All roads lead to R(ome)</p>
 <p>If you ask ten programmers to solve a particular problem, you will probably receive ten different soltuions that are all valid. R is no exception here. This can be very confussing when just started to learn R.</p>
 <p>Below you find more ways to calculate the a growth rate. Do you understand them?</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="work-with-r-scripts.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(revenue)<span class="sc">/</span><span class="fu">head</span>(revenue, <span class="sc">-</span><span class="dv">1</span>))<span class="sc">*</span><span class="dv">100</span>        </span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="work-with-r-scripts.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="cn">NA</span>, <span class="fu">diff</span>(revenue)<span class="sc">/</span><span class="fu">head</span>(revenue, <span class="sc">-</span><span class="dv">1</span>))<span class="sc">*</span><span class="dv">100</span>        </span></code></pre></div>
 <pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="work-with-r-scripts.html#cb46-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">c</span>(<span class="cn">NA</span>,revenue[<span class="sc">-</span><span class="fu">length</span>(revenue)])<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="work-with-r-scripts.html#cb45-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">c</span>(<span class="cn">NA</span>,revenue[<span class="sc">-</span><span class="fu">length</span>(revenue)])<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span></span></code></pre></div>
 <pre><code>##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
 <p>An often-used method for approximating growth rates is to calculate the differences in the logarithm of values over time. Section <a href="manage-data.html#pipeoperator">5.2</a> illustrates how to perform this calculation with R.</p>
 </div>

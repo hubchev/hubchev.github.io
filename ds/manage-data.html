@@ -198,11 +198,21 @@ div.csl-indent {
 <li class="chapter" data-level="5.3.1" data-path="manage-data.html"><a href="manage-data.html#vectors-and-matrices"><i class="fa fa-check"></i><b>5.3.1</b> Vectors and Matrices</a></li>
 <li class="chapter" data-level="5.3.2" data-path="manage-data.html"><a href="manage-data.html#open-data-in-rdata-files"><i class="fa fa-check"></i><b>5.3.2</b> Open data in RData files</a></li>
 <li class="chapter" data-level="5.3.3" data-path="manage-data.html"><a href="manage-data.html#open-datasets-from-packages"><i class="fa fa-check"></i><b>5.3.3</b> Open datasets from packages</a></li>
-<li class="chapter" data-level="5.3.4" data-path="manage-data.html"><a href="manage-data.html#import-using-major-public-api"><i class="fa fa-check"></i><b>5.3.4</b> Import using major public API</a></li>
+<li class="chapter" data-level="5.3.4" data-path="manage-data.html"><a href="manage-data.html#import-using-major-public-apis"><i class="fa fa-check"></i><b>5.3.4</b> Import using major public APIs</a></li>
 <li class="chapter" data-level="5.3.5" data-path="manage-data.html"><a href="manage-data.html#import-other-file-formats"><i class="fa fa-check"></i><b>5.3.5</b> Import other file formats</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.4</b> Dataframes and tidy data (tibbles)</a></li>
-<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.5</b> Data manipulation with dplyr</a></li>
+<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.4</b> Data frames</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="manage-data.html"><a href="manage-data.html#data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.4.1</b> Data frames and tibbles</a></li>
+<li class="chapter" data-level="5.4.2" data-path="manage-data.html"><a href="manage-data.html#tidy-data"><i class="fa fa-check"></i><b>5.4.2</b> Tidy data</a></li>
+<li class="chapter" data-level="5.4.3" data-path="manage-data.html"><a href="manage-data.html#operators"><i class="fa fa-check"></i><b>5.4.3</b> Operators</a></li>
+<li class="chapter" data-level="5.4.4" data-path="manage-data.html"><a href="manage-data.html#values"><i class="fa fa-check"></i><b>5.4.4</b> Values</a></li>
+<li class="chapter" data-level="5.4.5" data-path="manage-data.html"><a href="manage-data.html#data-classes"><i class="fa fa-check"></i><b>5.4.5</b> Data classes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.5</b> Data manipulation with dplyr</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="manage-data.html"><a href="manage-data.html#snapshot-of-the-data"><i class="fa fa-check"></i><b>5.5.1</b> Snapshot of the data</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>6</b> Write with R Markdown</a></li>
 <li class="chapter" data-level="7" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a>
@@ -215,8 +225,8 @@ div.csl-indent {
 <li class="chapter" data-level="7.1.4" data-path="appendix.html"><a href="appendix.html#sec:rstudioprojects"><i class="fa fa-check"></i><b>7.1.4</b> R Studio projects</a></li>
 <li class="chapter" data-level="7.1.5" data-path="appendix.html"><a href="appendix.html#sec:winbackslash"><i class="fa fa-check"></i><b>7.1.5</b> Why do the Windows paths use the back-slash?</a></li>
 </ul></li>
+<li class="chapter" data-level="7.2" data-path="appendix.html"><a href="appendix.html#troubleshooting"><i class="fa fa-check"></i><b>7.2</b> Troubleshooting</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="troubleshooting.html"><a href="troubleshooting.html"><i class="fa fa-check"></i><b>8</b> Troubleshooting</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li>&copy; Prof. Dr. Stephan Huber.</li>
@@ -242,121 +252,135 @@ div.csl-indent {
 <h1><span class="header-section-number">5</span> Manage data<a href="manage-data.html#manage-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="the-tidyverse-universe" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> The tidyverse universe<a href="manage-data.html#the-tidyverse-universe" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure"><span style="display:block;" id="fig:tidyverse-logo"></span>
+<img src="fig/tidyverse-logo.png" style="width:30.0%" alt="" />
+<p class="caption">Figure 5.1:  The tidyverse universe</p>
+</div>
 <p>The R package <em>tidyverse</em> is a collection of R packages. All packages share an underlying design philosophy, grammar, and data structures.
 The most popular packages are ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats. They provide functionality to model, transform, and visualize data. Tidyverse is extremely popular and many individual packages of tidyverse are regularly in the top 10 most downloaded R packages on CRAN<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>. How to do data science with tidyverse is the subject of multiple books and tutorials. In particular, the popular book <em>R for Data Science</em> by <span class="citation">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span> is all about the tidyverse universe. Thus, I highly recommend reading sections 3 (<a href="https://r4ds.hadley.nz/workflow-basics.html">Workflow: basics</a>) and 4 (<a href="https://r4ds.hadley.nz/data-transform.html">Data transformation</a>) of <span class="citation">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. Addidionally, visit www.tidyverse.org and, if you still haven`t done so, do the tidyverse module of my swirl package, called <em>swirl-it</em>, see section <a href="swirl.html#swirl">2</a>.</p>
 <p>To install and load tidyverse run the following lines of code:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="manage-data.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
-<span id="cb48-2"><a href="manage-data.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="manage-data.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
+<span id="cb47-2"><a href="manage-data.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span></code></pre></div>
 </div>
 <div id="pipeoperator" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> The pipe operator<a href="manage-data.html#pipeoperator" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The pipe operator, %&gt;%, comes from the magrittr package which is also a part of the tidyverse package. The <em>base</em> pipe operator, |&gt;, is since R.4.1.0 part of base R. For most cases these two are identical. The pipe is to help you write code in a way that is easier to read and understand.
-As R is a functional language, code often contains a lot of parenthesis, ( and ). Nesting those parentheses together is complex and you easily get lost. This makes your R code hard to read and understand. Here’s where |&gt; comes in to the rescue! Consider the following chunk of code to explain the usage of the pipe:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="manage-data.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create some data `x`</span></span>
-<span id="cb49-2"><a href="manage-data.html#cb49-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">1.002</span>, <span class="fl">1.004</span>, .<span class="dv">99</span>, .<span class="dv">99</span>)</span>
-<span id="cb49-3"><a href="manage-data.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="co"># take the logarithm of `x`, </span></span>
-<span id="cb49-4"><a href="manage-data.html#cb49-4" aria-hidden="true" tabindex="-1"></a>log_x <span class="ot">&lt;-</span> <span class="fu">log</span>(x)</span>
-<span id="cb49-5"><a href="manage-data.html#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the lagged and iterated differences (see `diff()`)</span></span>
-<span id="cb49-6"><a href="manage-data.html#cb49-6" aria-hidden="true" tabindex="-1"></a>growth_rate_x <span class="ot">&lt;-</span> <span class="fu">diff</span>(log_x)</span>
-<span id="cb49-7"><a href="manage-data.html#cb49-7" aria-hidden="true" tabindex="-1"></a>growth_rate_x</span></code></pre></div>
+<p>The pipe operator, %&gt;%, comes from the magrittr package, which is also part of the tidyverse package. The base pipe operator, |&gt;, has been part of base R since version 4.1.0. For most cases, these two operators are identical. The pipe operator is designed to help you write code in a way that is easier to read and understand. As R is a functional language, code often contains a lot of parentheses, ( and ). Nesting these parentheses together can be complex and make your R code hard to read and understand, which is where |&gt; comes to the rescue! It allows you to use the output of a function as the input of the next function. Consider the following example of code to explain the usage of the pipe operator:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="manage-data.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create some data `x`</span></span>
+<span id="cb48-2"><a href="manage-data.html#cb48-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">1.002</span>, <span class="fl">1.004</span>, .<span class="dv">99</span>, .<span class="dv">99</span>)</span>
+<span id="cb48-3"><a href="manage-data.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co"># take the logarithm of `x`, </span></span>
+<span id="cb48-4"><a href="manage-data.html#cb48-4" aria-hidden="true" tabindex="-1"></a>log_x <span class="ot">&lt;-</span> <span class="fu">log</span>(x)</span>
+<span id="cb48-5"><a href="manage-data.html#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the lagged and iterated differences (see `diff()`)</span></span>
+<span id="cb48-6"><a href="manage-data.html#cb48-6" aria-hidden="true" tabindex="-1"></a>growth_rate_x <span class="ot">&lt;-</span> <span class="fu">diff</span>(log_x)</span>
+<span id="cb48-7"><a href="manage-data.html#cb48-7" aria-hidden="true" tabindex="-1"></a>growth_rate_x</span></code></pre></div>
 <pre><code>## [1]  0.001998003  0.001994019 -0.014042357  0.000000000</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="manage-data.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># round the result (4 digit)</span></span>
-<span id="cb51-2"><a href="manage-data.html#cb51-2" aria-hidden="true" tabindex="-1"></a>growth_rate_x_round <span class="ot">&lt;-</span> <span class="fu">round</span>(growth_rate_x, <span class="dv">4</span>)</span>
-<span id="cb51-3"><a href="manage-data.html#cb51-3" aria-hidden="true" tabindex="-1"></a>growth_rate_x_round </span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="manage-data.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># round the result (4 digit)</span></span>
+<span id="cb50-2"><a href="manage-data.html#cb50-2" aria-hidden="true" tabindex="-1"></a>growth_rate_x_round <span class="ot">&lt;-</span> <span class="fu">round</span>(growth_rate_x, <span class="dv">4</span>)</span>
+<span id="cb50-3"><a href="manage-data.html#cb50-3" aria-hidden="true" tabindex="-1"></a>growth_rate_x_round </span></code></pre></div>
 <pre><code>## [1]  0.002  0.002 -0.014  0.000</code></pre>
 <p>That is rather long and we actually don’t need objects log_x, growth_rate_x, and growth_rate_x_round.
 Well, then let us write that in a nested function:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="manage-data.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">diff</span>(<span class="fu">log</span>(x)), <span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="manage-data.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">diff</span>(<span class="fu">log</span>(x)), <span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1]  0.002  0.002 -0.014  0.000</code></pre>
 <p>This is short but hard to read and understand. The solution is the <em>pipe</em>:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="manage-data.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load one of these packages: `magrittr` or `tidyverse`</span></span>
-<span id="cb55-2"><a href="manage-data.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb55-3"><a href="manage-data.html#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-4"><a href="manage-data.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform the same computations on `x` as above</span></span>
-<span id="cb55-5"><a href="manage-data.html#cb55-5" aria-hidden="true" tabindex="-1"></a>x <span class="sc">|&gt;</span> </span>
-<span id="cb55-6"><a href="manage-data.html#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">log</span>() <span class="sc">|&gt;</span></span>
-<span id="cb55-7"><a href="manage-data.html#cb55-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diff</span>() <span class="sc">|&gt;</span></span>
-<span id="cb55-8"><a href="manage-data.html#cb55-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="manage-data.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load one of these packages: `magrittr` or `tidyverse`</span></span>
+<span id="cb54-2"><a href="manage-data.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb54-3"><a href="manage-data.html#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-4"><a href="manage-data.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform the same computations on `x` as above</span></span>
+<span id="cb54-5"><a href="manage-data.html#cb54-5" aria-hidden="true" tabindex="-1"></a>x <span class="sc">|&gt;</span> </span>
+<span id="cb54-6"><a href="manage-data.html#cb54-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">log</span>() <span class="sc">|&gt;</span></span>
+<span id="cb54-7"><a href="manage-data.html#cb54-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diff</span>() <span class="sc">|&gt;</span></span>
+<span id="cb54-8"><a href="manage-data.html#cb54-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">4</span>)</span></code></pre></div>
 <pre><code>## [1]  0.002  0.002 -0.014  0.000</code></pre>
-<p>You can read the |&gt; with “and then” because it takes the results of some function “and then” does something with that in the next.
-For example, reading out loud the following code would sound something like this: “I take the Iris data <em>and then</em> I subset the data <em>and then</em> I aggregate the data and show the means for each species”.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="manage-data.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;datasets&quot;</span>)</span>
-<span id="cb57-2"><a href="manage-data.html#cb57-2" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
-<span id="cb57-3"><a href="manage-data.html#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subset</span>(Sepal.Length <span class="sc">&gt;</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb57-4"><a href="manage-data.html#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aggregate</span>( . <span class="sc">~</span> Species , . , mean)</span></code></pre></div>
-<pre><code>##      Species Sepal.Length Sepal.Width Petal.Length Petal.Width
-## 1     setosa     5.313636    3.713636     1.509091   0.2772727
-## 2 versicolor     5.997872    2.804255     4.317021   1.3468085
-## 3  virginica     6.622449    2.983673     5.573469   2.0326531</code></pre>
+<p>You can read the |&gt; with <em>“and then”</em> because it takes the results of some function <em>“and then”</em> does something with that in the next.
+For example, reading out loud the following code would sound something like this:</p>
+<ul>
+<li>I take the mtcars data, <em>and then</em></li>
+<li>I consider only cars with more than 4 cylinders, <em>and then</em></li>
+<li>I group the cars by the number of cylinders the cars have, <em>and then</em></li>
+<li>I summarize the data and show the means of miles per gallon (mpg) and horse powers (hp) by groups of cars that distinguish by their number of cylinders.</li>
+</ul>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="manage-data.html#cb56-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb56-2"><a href="manage-data.html#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cyl<span class="sc">&gt;</span><span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb56-3"><a href="manage-data.html#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">|&gt;</span> </span>
+<span id="cb56-4"><a href="manage-data.html#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="fu">c</span>(<span class="st">&quot;mpg&quot;</span>, <span class="st">&quot;hp&quot;</span>), mean)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##     cyl   mpg    hp
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     6  19.7  122.
+## 2     8  15.1  209.</code></pre>
 </div>
 <div id="import-data" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Import data<a href="manage-data.html#import-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="vectors-and-matrices" class="section level3 hasAnchor" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> Vectors and Matrices<a href="manage-data.html#vectors-and-matrices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We already got known to the c() function which allows to combine multiple values into a vector or list. Here are some examples how you can use this function to create vectors and matrices:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="manage-data.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># defining multiple vectors using the colon operator `:`</span></span>
-<span id="cb59-2"><a href="manage-data.html#cb59-2" aria-hidden="true" tabindex="-1"></a>v_a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
-<span id="cb59-3"><a href="manage-data.html#cb59-3" aria-hidden="true" tabindex="-1"></a>v_a</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="manage-data.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># defining multiple vectors using the colon operator `:`</span></span>
+<span id="cb58-2"><a href="manage-data.html#cb58-2" aria-hidden="true" tabindex="-1"></a>v_a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb58-3"><a href="manage-data.html#cb58-3" aria-hidden="true" tabindex="-1"></a>v_a</span></code></pre></div>
 <pre><code>## [1] 1 2 3</code></pre>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="manage-data.html#cb61-1" aria-hidden="true" tabindex="-1"></a>v_b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
-<span id="cb61-2"><a href="manage-data.html#cb61-2" aria-hidden="true" tabindex="-1"></a>v_b</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="manage-data.html#cb60-1" aria-hidden="true" tabindex="-1"></a>v_b <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb60-2"><a href="manage-data.html#cb60-2" aria-hidden="true" tabindex="-1"></a>v_b</span></code></pre></div>
 <pre><code>## [1] 10 11 12</code></pre>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="manage-data.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating matrix</span></span>
-<span id="cb63-2"><a href="manage-data.html#cb63-2" aria-hidden="true" tabindex="-1"></a>m_ab <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(v_a, v_b), <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb63-3"><a href="manage-data.html#cb63-3" aria-hidden="true" tabindex="-1"></a>m_cbind <span class="ot">&lt;-</span> <span class="fu">cbind</span>(v_a, v_b)</span>
-<span id="cb63-4"><a href="manage-data.html#cb63-4" aria-hidden="true" tabindex="-1"></a>m_rbind <span class="ot">&lt;-</span> <span class="fu">rbind</span>(v_a, v_b)</span>
-<span id="cb63-5"><a href="manage-data.html#cb63-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-6"><a href="manage-data.html#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print matrix</span></span>
-<span id="cb63-7"><a href="manage-data.html#cb63-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m_ab)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="manage-data.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating matrix</span></span>
+<span id="cb62-2"><a href="manage-data.html#cb62-2" aria-hidden="true" tabindex="-1"></a>m_ab <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(v_a, v_b), <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb62-3"><a href="manage-data.html#cb62-3" aria-hidden="true" tabindex="-1"></a>m_cbind <span class="ot">&lt;-</span> <span class="fu">cbind</span>(v_a, v_b)</span>
+<span id="cb62-4"><a href="manage-data.html#cb62-4" aria-hidden="true" tabindex="-1"></a>m_rbind <span class="ot">&lt;-</span> <span class="fu">rbind</span>(v_a, v_b)</span>
+<span id="cb62-5"><a href="manage-data.html#cb62-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-6"><a href="manage-data.html#cb62-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print matrix</span></span>
+<span id="cb62-7"><a href="manage-data.html#cb62-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m_ab)</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    1   10
 ## [2,]    2   11
 ## [3,]    3   12</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="manage-data.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m_cbind)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="manage-data.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m_cbind)</span></code></pre></div>
 <pre><code>##      v_a v_b
 ## [1,]   1  10
 ## [2,]   2  11
 ## [3,]   3  12</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="manage-data.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m_rbind)</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="manage-data.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m_rbind)</span></code></pre></div>
 <pre><code>##     [,1] [,2] [,3]
 ## v_a    1    2    3
 ## v_b   10   11   12</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="manage-data.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># defining row names and column names</span></span>
-<span id="cb69-2"><a href="manage-data.html#cb69-2" aria-hidden="true" tabindex="-1"></a>rown <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;row_1&quot;</span>, <span class="st">&quot;row_2&quot;</span>)</span>
-<span id="cb69-3"><a href="manage-data.html#cb69-3" aria-hidden="true" tabindex="-1"></a>coln <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;col_1&quot;</span>, <span class="st">&quot;col_2&quot;</span>, <span class="st">&quot;col_3&quot;</span>)</span>
-<span id="cb69-4"><a href="manage-data.html#cb69-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-5"><a href="manage-data.html#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="co"># creating matrix</span></span>
-<span id="cb69-6"><a href="manage-data.html#cb69-6" aria-hidden="true" tabindex="-1"></a>m_ab_label <span class="ot">&lt;-</span> <span class="fu">matrix</span>(m_ab, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb69-7"><a href="manage-data.html#cb69-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">dimnames =</span> <span class="fu">list</span>(rown, coln))</span>
-<span id="cb69-8"><a href="manage-data.html#cb69-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb69-9"><a href="manage-data.html#cb69-9" aria-hidden="true" tabindex="-1"></a><span class="co"># print matrix</span></span>
-<span id="cb69-10"><a href="manage-data.html#cb69-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m_ab_label)</span></code></pre></div>
-<pre><code>##       col_1 col_2 col_3
-## row_1     1     2     3
-## row_2    10    11    12</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="manage-data.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># defining row names and column names</span></span>
+<span id="cb68-2"><a href="manage-data.html#cb68-2" aria-hidden="true" tabindex="-1"></a>rown <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;row_1&quot;</span>, <span class="st">&quot;row_2&quot;</span>, <span class="st">&quot;row_3&quot;</span>)</span>
+<span id="cb68-3"><a href="manage-data.html#cb68-3" aria-hidden="true" tabindex="-1"></a>coln <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;col_1&quot;</span>, <span class="st">&quot;col_2&quot;</span>)</span>
+<span id="cb68-4"><a href="manage-data.html#cb68-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-5"><a href="manage-data.html#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co"># creating matrix</span></span>
+<span id="cb68-6"><a href="manage-data.html#cb68-6" aria-hidden="true" tabindex="-1"></a>m_ab_label <span class="ot">&lt;-</span> <span class="fu">matrix</span>(m_ab, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb68-7"><a href="manage-data.html#cb68-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">dimnames =</span> <span class="fu">list</span>(rown, coln))</span>
+<span id="cb68-8"><a href="manage-data.html#cb68-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb68-9"><a href="manage-data.html#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="co"># print matrix</span></span>
+<span id="cb68-10"><a href="manage-data.html#cb68-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m_ab_label)</span></code></pre></div>
+<pre><code>##       col_1 col_2
+## row_1     1    10
+## row_2     2    11
+## row_3     3    12</code></pre>
 <p>The two most common formats to store and work with data in R are dataframe and tibble. Both formats store table-like structures of data in rows and columns. We will learn more on that in section <a href="manage-data.html#sec:tidy">5.4</a></p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="manage-data.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert the matrix into dataframe</span></span>
-<span id="cb71-2"><a href="manage-data.html#cb71-2" aria-hidden="true" tabindex="-1"></a>df_ab<span class="ot">=</span><span class="fu">as.data.frame</span>(m_ab_label)</span>
-<span id="cb71-3"><a href="manage-data.html#cb71-3" aria-hidden="true" tabindex="-1"></a>tbl_ab<span class="ot">=</span><span class="fu">as.tibble</span>(m_ab_label)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="manage-data.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert the matrix into dataframe</span></span>
+<span id="cb70-2"><a href="manage-data.html#cb70-2" aria-hidden="true" tabindex="-1"></a>df_ab<span class="ot">=</span><span class="fu">as.data.frame</span>(m_ab_label)</span>
+<span id="cb70-3"><a href="manage-data.html#cb70-3" aria-hidden="true" tabindex="-1"></a>tbl_ab<span class="ot">=</span><span class="fu">as_tibble</span>(m_ab_label)</span></code></pre></div>
 </div>
 <div id="open-data-in-rdata-files" class="section level3 hasAnchor" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> Open data in RData files<a href="manage-data.html#open-data-in-rdata-files" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You can save some of your objects (<code>save()</code>) or all (<code>save.image()</code>) and load data stored in the <code>.RData</code> (<code>load()</code>) format. When you delete an object in R, you cannot recover it by clicking some <em>Undo button</em>.
+<p>You can save some of your objects with <code>save()</code> or all with <code>save.image()</code>. Load data that are stored in the <code>.RData</code> format can be loaded with <code>load()</code>. Please note, when you delete an object in R, you cannot recover it by clicking some <em>Undo button</em>.
 With <code>rm()</code> you remove objects from your workspace and with <code>rm(list = ls())</code> you clear all objects from the workspace.</p>
 </div>
 <div id="open-datasets-from-packages" class="section level3 hasAnchor" number="5.3.3">
 <h3><span class="header-section-number">5.3.3</span> Open datasets from packages<a href="manage-data.html#open-datasets-from-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The package <code>datasets</code> contains many datasets that are often used in textbooks. For example, the <code>mtcars</code> dataset:</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="manage-data.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;datasets&quot;</span>)</span>
-<span id="cb72-2"><a href="manage-data.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars, <span class="dv">3</span>)</span></code></pre></div>
+<p>The datasets package contains numerous datasets that are commonly used in textbooks.
+To get an overview of all the datasets provided by the package, you can use the command help(package = datasets).
+One such dataset that we will be using further is the mtcars dataset:</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="manage-data.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;datasets&quot;</span>)</span>
+<span id="cb71-2"><a href="manage-data.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars, <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>##                mpg cyl disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 ## Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
 ## Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="manage-data.html#cb73-1" aria-hidden="true" tabindex="-1"></a>?mtcars</span></code></pre></div>
 </div>
-<div id="import-using-major-public-api" class="section level3 hasAnchor" number="5.3.4">
-<h3><span class="header-section-number">5.3.4</span> Import using major public API<a href="manage-data.html#import-using-major-public-api" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>An API (application programming interface) specifies how machines can exchange information. There are many R packages available that provide a convenient way to access data from various online sources directly within R using the API of webpages. In most cases, it’s better to download and import data within R than to navigate through the website’s interface. This ensures that changes can be made easily at any time and that the data is always up-to-date. For instance, <code>wbstats</code> provides access to World Bank data, <code>eurostat</code> allows users to access Eurostat databases, <code>fredr</code> makes it easy to obtain data from the Federal Reserve Economic Data (FRED) platform, which offers economic data for the United States, <code>ecb</code> provides an interface to the European Central Bank’s Statistical Data Warehouse, and the <code>OECD</code> package facilitates the extraction of data from the Organization for Economic Cooperation and Development (OECD).</p>
+<div id="import-using-major-public-apis" class="section level3 hasAnchor" number="5.3.4">
+<h3><span class="header-section-number">5.3.4</span> Import using major public APIs<a href="manage-data.html#import-using-major-public-apis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An API which stands for <em>application programming interface</em> specifies how computers can exchange information. There are many R packages available that provide a convenient way to access data from various online sources directly within R using the API of webpages. In most cases, it’s better to download and import data within R using these tools than to navigate through the website’s interface. This ensures that changes can be made easily at any time and that the data is always up-to-date. For instance, <code>wbstats</code> provides access to World Bank data, <code>eurostat</code> allows users to access Eurostat databases, <code>fredr</code> makes it easy to obtain data from the Federal Reserve Economic Data (FRED) platform, which offers economic data for the United States, <code>ecb</code> provides an interface to the European Central Bank’s Statistical Data Warehouse, and the <code>OECD</code> package facilitates the extraction of data from the Organization for Economic Cooperation and Development (OECD). Here is an example using the <code>wbstats</code> package:</p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="manage-data.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;wbstats&quot;) </span></span>
 <span id="cb74-2"><a href="manage-data.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;wbstats&quot;</span>)</span>
 <span id="cb74-3"><a href="manage-data.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="co"># GDP at market prices (current US$) for all available countries and regions</span></span>
@@ -369,13 +393,13 @@ With <code>rm()</code> you remove objects from your workspace and with <code>rm(
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="manage-data.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_gdp)</span></code></pre></div>
 <pre><code>## Rows: 13,156
 ## Columns: 7
-## $ iso3c       &lt;chr&gt; &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;A…
-## $ date        &lt;chr&gt; &quot;2021&quot;, &quot;2020&quot;, &quot;2019&quot;, &quot;2018&quot;, &quot;2017&quot;, &quot;2016&quot;, &quot;2015&quot;, &quot;2014&quot;, &quot;2013&quot;, &quot;2012&quot;, &quot;2011&quot;, &quot;2010&quot;, &quot;2009&quot;, &quot;2008&quot;, &quot;2007&quot;, &quot;2006&quot;, &quot;2005&quot;,…
-## $ value       &lt;dbl&gt; 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826771e+11, 9.720022e…
-## $ indicatorID &lt;chr&gt; &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.M…
-## $ indicator   &lt;chr&gt; &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (cur…
-## $ iso2c       &lt;chr&gt; &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH…
-## $ country     &lt;chr&gt; &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eas…</code></pre>
+## $ iso3c       &lt;chr&gt; &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, …
+## $ date        &lt;chr&gt; &quot;2021&quot;, &quot;2020&quot;, &quot;2019&quot;, &quot;2018&quot;, &quot;2017&quot;, &quot;2016&quot;, &quot;2015&quot;, &quot;2014&quot;, &quot;2013&quot;, &quot;2012&quot;, &quot;2011&quot;, &quot;2010&quot;, &quot;2009&quot;, &quot;2008&quot;, &quot;2007&quot;, &quot;2006&quot;, &quot;2005&quot;, &quot;2004&quot;, &quot;2003&quot;, &quot;2002&quot;, &quot;2001&quot;, &quot;2000&quot;, &quot;1999&quot;, &quot;1998…
+## $ value       &lt;dbl&gt; 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826771e+11, 9.720022e+11, 9.642130e+11, 8.603612e+11, 7.190953e+11, 7.08119…
+## $ indicatorID &lt;chr&gt; &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.M…
+## $ indicator   &lt;chr&gt; &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, …
+## $ iso2c       &lt;chr&gt; &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH…
+## $ country     &lt;chr&gt; &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Af…</code></pre>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="manage-data.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df_gdp)</span></code></pre></div>
 <pre><code>##     iso3c               date               value           indicatorID         indicator            iso2c             country         
 ##  Length:13156       Length:13156       Min.   :8.824e+06   Length:13156       Length:13156       Length:13156       Length:13156      
@@ -387,64 +411,650 @@ With <code>rm()</code> you remove objects from your workspace and with <code>rm(
 </div>
 <div id="import-other-file-formats" class="section level3 hasAnchor" number="5.3.5">
 <h3><span class="header-section-number">5.3.5</span> Import other file formats<a href="manage-data.html#import-other-file-formats" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure"><span style="display:block;" id="fig:import-logo"></span>
+<embed src="fig/import-logo.pdf" style="width:50.0%" />
+<p class="caption">Figure 5.2:  The logo of the packages readr, haven, and readxl</p>
+</div>
 <p>RStudio provides convenient data import tools that can be accessed by clicking <em>File &gt; Import Dataset</em>. In addition, tidyverse offers packages for importing data in various formats. This <a href="https://posit.co/wp-content/uploads/2022/10/data-import.pdf">cheatsheet</a>, for example, is about the packages <code>readr</code>, <code>readxl</code> and <code>googlesheets4</code>. The first allows you to read data in various file formats, including fixed-width files like .csv and .tsv. The package <code>readxl</code> can read in Excel files, i.e., .xls and .xlsx file formats and <code>googlesheets4</code> allows to read and write data from Google Sheets directly from R.</p>
 <p>For more information, I recommend once again the second version book <em>R for Data Science</em> by <a href="https://r4ds.hadley.nz/"><span class="citation">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span></a>. In particular, check out the <a href="https://r4ds.hadley.nz/data-tidy.html">“Data tidying”</a> section for importing CSV and TSV files, the <a href="https://r4ds.hadley.nz/spreadsheets.html">“Spreadsheets”</a> section for Excel files, the <a href="https://r4ds.hadley.nz/databases.html">“Databases”</a> section for retrieving data with SQL, the <a href="https://r4ds.hadley.nz/arrow.html">“Arrow”</a> section for working with large datasets, and the <a href="https://r4ds.hadley.nz/webscraping.html">“Web scraping”</a> section for extracting data from web pages.</p>
+<p>For an overview on the packages that are provided by the tidyverse universe, see <a href="https://www.tidyverse.org/packages/#import"></a>.</p>
 </div>
 </div>
 <div id="sec:tidy" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Dataframes and tidy data (tibbles)<a href="manage-data.html#sec:tidy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="manage-data.html#cb80-1" aria-hidden="true" tabindex="-1"></a>df_ab</span></code></pre></div>
-<pre><code>##       col_1 col_2 col_3
-## row_1     1     2     3
-## row_2    10    11    12</code></pre>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="manage-data.html#cb82-1" aria-hidden="true" tabindex="-1"></a>tbl_ab</span></code></pre></div>
-<pre><code>## # A tibble: 2 × 3
-##   col_1 col_2 col_3
-##   &lt;int&gt; &lt;int&gt; &lt;int&gt;
-## 1     1     2     3
-## 2    10    11    12</code></pre>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="manage-data.html#cb84-1" aria-hidden="true" tabindex="-1"></a>df_test <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">as.table</span>(m_ab_label))</span>
-<span id="cb84-2"><a href="manage-data.html#cb84-2" aria-hidden="true" tabindex="-1"></a>tbl_test<span class="ot">=</span><span class="fu">as.tibble</span>(df_test)</span>
-<span id="cb84-3"><a href="manage-data.html#cb84-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-4"><a href="manage-data.html#cb84-4" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span></span>
-<span id="cb84-5"><a href="manage-data.html#cb84-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rownames_to_column</span>( <span class="at">var =</span> <span class="st">&quot;car&quot;</span>) <span class="sc">|&gt;</span></span>
-<span id="cb84-6"><a href="manage-data.html#cb84-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.tibble</span>() </span></code></pre></div>
-<p>Both data frames and tibbles are two of the most commonly used data structures in R for handling tabular data. A tibble actually is a data frame and you can use all functions that work with a data frame also with a tibble. However, a tibble has some additional features. Data frames are provided by base R while tibbles are provided by the tidyverse package. This means that if you want to use tibbles you should load tidyverse.</p>
-<p>When printed to the console, both display the first 10 rows but only data frames display all columns. In contrast, a tibble displays only as many columns as fit within the console width. That makes it easier to view and work with large datasets.</p>
-<p>Most importantly, tibbles should follow three interrelated rules that make a dataset <em>tidy</em>:</p>
+<h2><span class="header-section-number">5.4</span> Data frames<a href="manage-data.html#sec:tidy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="data-frames-and-tibbles" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Data frames and tibbles<a href="manage-data.html#data-frames-and-tibbles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure"><span style="display:block;" id="fig:tidyr-tibble-logo"></span>
+<img src="fig/tidyr-tibble-logo.png" style="width:30.0%" alt="" />
+<p class="caption">Figure 5.3:  The logos of the tidyr and tibble packages</p>
+</div>
+<p>Both <em>data frames</em> and <em>tibbles</em> are two of the most commonly used data structures in R for handling tabular data. A tibble actually is a data frame and you can use all functions that work with a data frame also with a tibble. However, a tibble has some additional features in printing and subsetting. Please note, data frames are provided by base R while tibbles are provided by the <code>tidyverse</code> package. This means that if you want to use tibbles you must load <code>tidyverse</code>. It turned out that it is helpful that a tibble has the folllowing features to simplify working with data:
+- Each vector is labeled by the variable name.
+- Variable names don’t have spaces and are not put in quotes.
+- All variables have the same length.
+- Each variable is of a single type (numeric, character, logical, or a categorical).</p>
+</div>
+<div id="tidy-data" class="section level3 hasAnchor" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Tidy data<a href="manage-data.html#tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A popular quote from Hadley Wickham is that <em>“tidy datasets are all alike, but every messy dataset is messy in its own way”</em> <span class="citation">(<a href="references.html#ref-Hadley2014Tidy" role="doc-biblioref">Hadley, 2014, p. 2</a>)</span>. It paraphrases the fact that it is a good idea to set rules how a dataset should structure its information to make it easier to work with the data. The tidyverse requires the data to be structured like is illustrated in Figure <a href="manage-data.html#fig:tidy-1">5.4</a>. The rules are:</p>
 <ol style="list-style-type: decimal">
-<li>Each variable is a column; each column is a variable.</li>
-<li>Each observation is a row; each row is an observation.</li>
-<li>Each value is a cell; each cell is a single value.</li>
+<li>Each variable is a column and vice versa.</li>
+<li>Each observation is a row and vice verse.</li>
+<li>Each value is a cell.</li>
 </ol>
 <div class="figure"><span style="display:block;" id="fig:tidy-1"></span>
 <img src="fig/tidy-1.png" style="width:100.0%" alt="" />
-<p class="caption">Figure 5.1:  Features of a tidy dataset: variables are columns, observations are rows, and values are cells<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<p class="caption">Figure 5.4:  Features of a tidy dataset: variables are columns, observations are rows, and values are cells<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
 </div>
-<p>Figure <a href="manage-data.html#fig:tidy-1">5.1</a> illustrates the characteristics of a tidy dataset, which, as described by <span class="citation">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>, offers two key benefits:</p>
-<ol style="list-style-type: decimal">
-<li>A tidy dataset with a consistent data structure is easier to work with because the underlying uniformity facilitates learning and using data manipulation tools.</li>
-<li>Representing variables in columns is advantageous because it enables R’s vectorized operations to be applied, leveraging the fact that most R functions operate on vectors of values.</li>
-</ol>
+<p>Whenever data follow that consistent structure, we speak of <em>tidy data</em>. The underlying uniformity of tidy data facilitates learning and using data manipulation tools.</p>
+<p>One difference between data frames and tibbles is that dataframes store the row names. For example, take the <code>mtcars</code> dataset which consists of 32 different cars and the names of the cars are not stored as rownames:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="manage-data.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(mtcars) <span class="co"># mtcars is a data frame</span></span></code></pre></div>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="manage-data.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(mtcars) </span></code></pre></div>
+<pre><code>##  [1] &quot;Mazda RX4&quot;           &quot;Mazda RX4 Wag&quot;       &quot;Datsun 710&quot;          &quot;Hornet 4 Drive&quot;      &quot;Hornet Sportabout&quot;   &quot;Valiant&quot;             &quot;Duster 360&quot;          &quot;Merc 240D&quot;           &quot;Merc 230&quot;           
+## [10] &quot;Merc 280&quot;            &quot;Merc 280C&quot;           &quot;Merc 450SE&quot;          &quot;Merc 450SL&quot;          &quot;Merc 450SLC&quot;         &quot;Cadillac Fleetwood&quot;  &quot;Lincoln Continental&quot; &quot;Chrysler Imperial&quot;   &quot;Fiat 128&quot;           
+## [19] &quot;Honda Civic&quot;         &quot;Toyota Corolla&quot;      &quot;Toyota Corona&quot;       &quot;Dodge Challenger&quot;    &quot;AMC Javelin&quot;         &quot;Camaro Z28&quot;          &quot;Pontiac Firebird&quot;    &quot;Fiat X1-9&quot;           &quot;Porsche 914-2&quot;      
+## [28] &quot;Lotus Europa&quot;        &quot;Ford Pantera L&quot;      &quot;Ferrari Dino&quot;        &quot;Maserati Bora&quot;       &quot;Volvo 142E&quot;</code></pre>
+<p>To store <code>mtcars</code> as a tibble, we can use the <code>as_tibble</code> function:</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="manage-data.html#cb84-1" aria-hidden="true" tabindex="-1"></a>tbl_mtcars <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(mtcars)</span>
+<span id="cb84-2"><a href="manage-data.html#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tbl_mtcars) <span class="co"># check if it is a tibble now</span></span></code></pre></div>
+<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="manage-data.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is_tibble</span>(tbl_mtcars) <span class="co"># alternative check</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="manage-data.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tbl_mtcars, <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 11
+##     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4
+## 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4
+## 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</code></pre>
+<p>When we look at the data, we’ve lost the names of the cars. To store the these, you need to first add a column to the dataframe containing the rownames and then you can generate the tibble:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="manage-data.html#cb90-1" aria-hidden="true" tabindex="-1"></a>tbl_mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb90-2"><a href="manage-data.html#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">&quot;car&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb90-3"><a href="manage-data.html#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() </span>
+<span id="cb90-4"><a href="manage-data.html#cb90-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(tbl_mtcars)</span></code></pre></div>
+<pre><code>## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="manage-data.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(tbl_mtcars, <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 12
+##   car             mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##   &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 Mazda RX4      21       6   160   110  3.9   2.62  16.5     0     1     4     4
+## 2 Mazda RX4 Wag  21       6   160   110  3.9   2.88  17.0     0     1     4     4
+## 3 Datsun 710     22.8     4   108    93  3.85  2.32  18.6     1     1     4     1</code></pre>
+</div>
+<div id="operators" class="section level3 hasAnchor" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> Operators<a href="manage-data.html#operators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="the-in-operator" class="section level4 hasAnchor" number="5.4.3.1">
+<h4><span class="header-section-number">5.4.3.1</span> The <code>%in%</code> operator<a href="manage-data.html#the-in-operator" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><code>%in%</code> is used to subset a vector by comparison. Here’s an example:</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="manage-data.html#cb94-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb94-2"><a href="manage-data.html#cb94-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
+<span id="cb94-3"><a href="manage-data.html#cb94-3" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb94-4"><a href="manage-data.html#cb94-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-5"><a href="manage-data.html#cb94-5" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%in%</span> y  </span></code></pre></div>
+<pre><code>## [1] FALSE FALSE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="manage-data.html#cb96-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%in%</span> z  </span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE FALSE FALSE</code></pre>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="manage-data.html#cb98-1" aria-hidden="true" tabindex="-1"></a>z <span class="sc">%in%</span> x</span></code></pre></div>
+<pre><code>## [1]  TRUE FALSE  TRUE</code></pre>
+<p>The %in% operator can be used in combination with other functions like <code>subset()</code> and <code>filter()</code>.</p>
+</div>
+<div id="extract-operators" class="section level4 hasAnchor" number="5.4.3.2">
+<h4><span class="header-section-number">5.4.3.2</span> Extract operators<a href="manage-data.html#extract-operators" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <em>extract operators</em> are used to retrieve data from objects in R. The operator may take four forms, including <code>[]</code>, <code>[[]]</code>, and <code>$</code>.</p>
+<p><code>[]</code> allows to extract content from vector, lists, or data frames. For example,</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="manage-data.html#cb100-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> mtcars[<span class="dv">3</span>, ]</span>
+<span id="cb100-2"><a href="manage-data.html#cb100-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> mtcars[<span class="st">&quot;Datsun 710&quot;</span>, ]</span>
+<span id="cb100-3"><a href="manage-data.html#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(a, b)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="manage-data.html#cb102-1" aria-hidden="true" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>##             mpg cyl disp hp drat   wt  qsec vs am gear carb
+## Datsun 710 22.8   4  108 93 3.85 2.32 18.61  1  1    4    1</code></pre>
+<p>extracts the third observation of the mtcars dataset, and</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="manage-data.html#cb104-1" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> mtcars[,<span class="st">&quot;cyl&quot;</span>]</span>
+<span id="cb104-2"><a href="manage-data.html#cb104-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> mtcars[, <span class="dv">2</span>]</span>
+<span id="cb104-3"><a href="manage-data.html#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(x, y)</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="manage-data.html#cb106-1" aria-hidden="true" tabindex="-1"></a>c</span></code></pre></div>
+<pre><code>##  [1] 6 6 4 6 8 6 8 4 4 6 6 8 8 8 8 8 8 4 4 4 4 8 8 8 8 4 4 4 8 6 8 4</code></pre>
+<p>extracts the variable/vector <code>cyl</code>.</p>
+<p>The operators, <code>[[]]</code> and <code>$</code> extract a single item from an object. It is used to refer to an element in a list or a column in a data frame. For example,</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="manage-data.html#cb108-1" aria-hidden="true" tabindex="-1"></a>e <span class="ot">&lt;-</span> mtcars<span class="sc">$</span>cyl</span>
+<span id="cb108-2"><a href="manage-data.html#cb108-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> mtcars[[<span class="st">&quot;cyl&quot;</span>]]</span>
+<span id="cb108-3"><a href="manage-data.html#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(e, f)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="manage-data.html#cb110-1" aria-hidden="true" tabindex="-1"></a>e</span></code></pre></div>
+<pre><code>##  [1] 6 6 4 6 8 6 8 4 4 6 6 8 8 8 8 8 8 4 4 4 4 8 8 8 8 4 4 4 8 6 8 4</code></pre>
+<p>will return the values of the variable <code>cyl</code> from the data frame <code>mtcars</code>.
+Thus, x$y is actually just a short form for x[[“y”]].</p>
+</div>
+<div id="logical-operators" class="section level4 hasAnchor" number="5.4.3.3">
+<h4><span class="header-section-number">5.4.3.3</span> Logical operators<a href="manage-data.html#logical-operators" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The extract operators can be combined with the <em>logical operators</em> (more precisely, I should call these <em>binary relational operators</em>) that are shown in the table below.</p>
+<table>
+<caption>Logical operators</caption>
+<colgroup>
+<col width="35%" />
+<col width="14%" />
+<col width="35%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>operation</th>
+<th>operator</th>
+<th>example input</th>
+<th>answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>less than</td>
+<td><code>&lt;</code></td>
+<td><code>2 &lt; 3</code></td>
+<td><code>TRUE</code></td>
+</tr>
+<tr class="even">
+<td>less than or equal to</td>
+<td><code>&lt;=</code></td>
+<td><code>2 &lt;= 2</code></td>
+<td><code>TRUE</code></td>
+</tr>
+<tr class="odd">
+<td>greater than</td>
+<td><code>&gt;</code></td>
+<td><code>2 &gt; 3</code></td>
+<td><code>FALSE</code></td>
+</tr>
+<tr class="even">
+<td>greater than or equal to</td>
+<td><code>&gt;=</code></td>
+<td><code>2 &gt;= 2</code></td>
+<td><code>TRUE</code></td>
+</tr>
+<tr class="odd">
+<td>equal to</td>
+<td><code>==</code></td>
+<td><code>2 == 3</code></td>
+<td><code>FALSE</code></td>
+</tr>
+<tr class="even">
+<td>not equal to</td>
+<td><code>!=</code></td>
+<td><code>2 != 3</code></td>
+<td><code>TRUE</code></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>not</td>
+<td><code>!</code></td>
+<td><code>!(1==1)</code></td>
+<td><code>FALSE</code></td>
+</tr>
+<tr class="odd">
+<td>or</td>
+<td><span class="math inline">\(\vert\)</span></td>
+<td><code>(1==1)</code> <span class="math inline">\(\vert\)</span> <code>(2==3)</code></td>
+<td><code>TRUE</code></td>
+</tr>
+<tr class="even">
+<td>and</td>
+<td><code>&amp;</code></td>
+<td><code>(1==1) &amp; (2==3)</code></td>
+<td><code>FALSE</code></td>
+</tr>
+</tbody>
+</table>
+<p>Here are some examples:
+Select rows where the number of cylinders is greater than or equal to 6:</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="manage-data.html#cb112-1" aria-hidden="true" tabindex="-1"></a>mtcars[mtcars<span class="sc">$</span>cyl <span class="sc">&gt;=</span> <span class="dv">6</span>, ]</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8</code></pre>
+<p>Select rows where the number of cylinders is either 4 or 6:</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="manage-data.html#cb114-1" aria-hidden="true" tabindex="-1"></a>mtcars[mtcars<span class="sc">$</span>cyl <span class="sc">==</span> <span class="dv">4</span> <span class="sc">|</span> mtcars<span class="sc">$</span>cyl <span class="sc">==</span> <span class="dv">6</span> , ]</span></code></pre></div>
+<pre><code>##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4      21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Valiant        18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280       19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C      17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ferrari Dino   19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<p>Select rows where the number of cylinders is 4 and the mpg is greater than 22:</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="manage-data.html#cb116-1" aria-hidden="true" tabindex="-1"></a>mtcars[mtcars<span class="sc">$</span>cyl <span class="sc">==</span> <span class="dv">4</span> <span class="sc">&amp;</span> mtcars<span class="sc">$</span>mpg <span class="sc">&gt;</span> <span class="dv">22</span>, ]</span></code></pre></div>
+<pre><code>##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
+<p>Select rows where the weight is less than 3.5 or the number of gears is greater than 4:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="manage-data.html#cb118-1" aria-hidden="true" tabindex="-1"></a>mtcars[mtcars<span class="sc">$</span>wt <span class="sc">&lt;</span> <span class="fl">3.5</span> <span class="sc">|</span> mtcars<span class="sc">$</span>gear <span class="sc">&gt;</span> <span class="dv">4</span>, ]</span></code></pre></div>
+<pre><code>##                    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Merc 240D         24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230          22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280          19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C         17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Fiat 128          32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic       30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla    33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona     21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## AMC Javelin       15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Fiat X1-9         27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2     26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa      30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L    15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino      19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora     15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E        21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<p>Select rows where either mpg is greater than 25 or carb is less than 2, and the number of cylinders is either 4 or 8.</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="manage-data.html#cb120-1" aria-hidden="true" tabindex="-1"></a>mtcars[(mtcars<span class="sc">$</span>mpg <span class="sc">&gt;</span> <span class="dv">25</span> <span class="sc">|</span> mtcars<span class="sc">$</span>carb <span class="sc">&lt;</span> <span class="dv">2</span>) <span class="sc">&amp;</span> mtcars<span class="sc">$</span>cyl <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">8</span>), ]</span></code></pre></div>
+<pre><code>##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
+</div>
+</div>
+<div id="values" class="section level3 hasAnchor" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> Values<a href="manage-data.html#values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are some special data values used in R that needs further explanation:</p>
+<ul>
+<li><code>NA</code> stands for <em>not available</em> or <em>missing</em> and is used to represent missing or undefined values.</li>
+<li><code>Inf</code> stands for <em>infinity</em> and is used to represent mathematical infinity, such as the result of dividing a non-zero number by zero. Can be positive or negative.<br />
+</li>
+<li><code>NULL</code> represents an empty or non-existent object. It is often used as a placeholder when a value or object is not yet available or when an object is intentionally removed.</li>
+<li><code>NaN</code> stands for <em>not a number</em> and is used to represent an undefined or unrepresentable value, such as the result of taking the square root of a negative number. It can also occur as a result of certain arithmetic operations that are undefined. In contrast to <code>NA</code> it can only exist in numerical data.</li>
+</ul>
+</div>
+<div id="data-classes" class="section level3 hasAnchor" number="5.4.5">
+<h3><span class="header-section-number">5.4.5</span> Data classes<a href="manage-data.html#data-classes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In R, different data classes, or types of data exist:</p>
+<ul>
+<li><em>numeric</em>: can be any real number</li>
+<li><em>charackter</em>: strings and characters</li>
+<li><em>integer</em>: any whole numbers</li>
+<li><em>factor</em>: any categorial or qualitative variable with finite number of distinct outcomes</li>
+<li><em>logical</em>: contain either <code>TRUE</code> or <code>FALSE</code></li>
+<li><em>Date</em>: special format that describes time</li>
+</ul>
+<p>The following example should exemplify these types of data:</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="manage-data.html#cb122-1" aria-hidden="true" tabindex="-1"></a>integer_var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb122-2"><a href="manage-data.html#cb122-2" aria-hidden="true" tabindex="-1"></a>numeric_var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.1</span>, <span class="fl">2.2</span>, <span class="cn">NA</span>, <span class="fl">4.4</span>, <span class="fl">5.5</span>)</span>
+<span id="cb122-3"><a href="manage-data.html#cb122-3" aria-hidden="true" tabindex="-1"></a>character_var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;apple&quot;</span>, <span class="st">&quot;banana&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;cherry&quot;</span>, <span class="st">&quot;grape&quot;</span>)</span>
+<span id="cb122-4"><a href="manage-data.html#cb122-4" aria-hidden="true" tabindex="-1"></a>factor_var <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>))</span>
+<span id="cb122-5"><a href="manage-data.html#cb122-5" aria-hidden="true" tabindex="-1"></a>logical_var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span>
+<span id="cb122-6"><a href="manage-data.html#cb122-6" aria-hidden="true" tabindex="-1"></a>date_var <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">&quot;2022-01-01&quot;</span>, <span class="st">&quot;2022-02-01&quot;</span>, <span class="st">&quot;2022-03-01&quot;</span>, <span class="st">&quot;2022-04-01&quot;</span>, <span class="st">&quot;2022-05-01&quot;</span>))</span>
+<span id="cb122-7"><a href="manage-data.html#cb122-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-8"><a href="manage-data.html#cb122-8" aria-hidden="true" tabindex="-1"></a>date_var[<span class="dv">2</span>] <span class="sc">-</span> date_var[<span class="dv">5</span>] <span class="co"># number of days in between these two dates</span></span></code></pre></div>
+<pre><code>## Time difference of -89 days</code></pre>
+</div>
 </div>
 <div id="data-manipulation-with-dplyr" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> Data manipulation with dplyr<a href="manage-data.html#data-manipulation-with-dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The dplyr package, which is part of tidyverse, make data manipulation easy:</p>
+<div class="figure"><span style="display:block;" id="fig:dplyr-logo"></span>
+<img src="fig/dplyr-logo.png" style="width:20.0%" alt="" />
+<p class="caption">Figure 5.5:  The logo of the dplyr package</p>
+</div>
+<p>The dplyr package is part of tidyverse and makes data manipulation easy:</p>
 <ul>
-<li>Pick observations by their values (<code>filter()</code>).</li>
 <li>Reorder the rows (<code>arrange()</code>).</li>
+<li>Pick observations by their values (<code>filter()</code>).</li>
 <li>Pick variables by their names (<code>select()</code>).</li>
 <li>Create new variables with functions of existing variables
 (<code>mutate()</code>).</li>
 <li>Collapse many values down to a single summary (<code>summarise()</code>).</li>
+<li>Rename variables (<code>rename()</code>).</li>
 </ul>
 <p>These functions can all be used in conjunction with <code>group_by()</code> , which changes the scope of each function from operating on the entire dataset to operating on it group-by-group.</p>
-<p>All functions work similarly:
-1. The first argument is a data frame.
-2. The subsequent arguments describe what to do with the data frame.
-3. The result is a new data frame.</p>
+<p>All functions work similarly:</p>
+<ol style="list-style-type: decimal">
+<li>The first argument is a data frame.</li>
+<li>The subsequent arguments describe what to do with the data frame.</li>
+<li>The result is a new data frame.</li>
+</ol>
+<p>Here are some examples that may help to understand these functions:</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="manage-data.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb124-2"><a href="manage-data.html#cb124-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-3"><a href="manage-data.html#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="co"># load mtcars dataset</span></span>
+<span id="cb124-4"><a href="manage-data.html#cb124-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb124-5"><a href="manage-data.html#cb124-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb124-6"><a href="manage-data.html#cb124-6" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange rows by mpg in descending order</span></span>
+<span id="cb124-7"><a href="manage-data.html#cb124-7" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb124-8"><a href="manage-data.html#cb124-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mpg))</span></code></pre></div>
+<pre><code>##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4</code></pre>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="manage-data.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter rows where cyl = 4</span></span>
+<span id="cb126-2"><a href="manage-data.html#cb126-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb126-3"><a href="manage-data.html#cb126-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cyl <span class="sc">==</span> <span class="dv">4</span>)</span></code></pre></div>
+<pre><code>##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="manage-data.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns mpg, cyl, and hp</span></span>
+<span id="cb128-2"><a href="manage-data.html#cb128-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb128-3"><a href="manage-data.html#cb128-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg, cyl, hp) <span class="sc">|&gt;</span> </span>
+<span id="cb128-4"><a href="manage-data.html#cb128-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>##                    mpg cyl  hp
+## Mazda RX4         21.0   6 110
+## Mazda RX4 Wag     21.0   6 110
+## Datsun 710        22.8   4  93
+## Hornet 4 Drive    21.4   6 110
+## Hornet Sportabout 18.7   8 175
+## Valiant           18.1   6 105</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="manage-data.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns all variables except wt and hp</span></span>
+<span id="cb130-2"><a href="manage-data.html#cb130-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb130-3"><a href="manage-data.html#cb130-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>wt, <span class="sc">-</span>hp) <span class="sc">|&gt;</span> </span>
+<span id="cb130-4"><a href="manage-data.html#cb130-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>##                    mpg cyl disp drat  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 3.90 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 3.90 17.02  0  1    4    4
+## Datsun 710        22.8   4  108 3.85 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 3.08 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 3.15 17.02  0  0    3    2
+## Valiant           18.1   6  225 2.76 20.22  1  0    3    1</code></pre>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="manage-data.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select only variables starting with `c`</span></span>
+<span id="cb132-2"><a href="manage-data.html#cb132-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb132-3"><a href="manage-data.html#cb132-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;c&quot;</span>))</span></code></pre></div>
+<pre><code>##                     cyl carb
+## Mazda RX4             6    4
+## Mazda RX4 Wag         6    4
+## Datsun 710            4    1
+## Hornet 4 Drive        6    1
+## Hornet Sportabout     8    2
+## Valiant               6    1
+## Duster 360            8    4
+## Merc 240D             4    2
+## Merc 230              4    2
+## Merc 280              6    4
+## Merc 280C             6    4
+## Merc 450SE            8    3
+## Merc 450SL            8    3
+## Merc 450SLC           8    3
+## Cadillac Fleetwood    8    4
+## Lincoln Continental   8    4
+## Chrysler Imperial     8    4
+## Fiat 128              4    1
+## Honda Civic           4    2
+## Toyota Corolla        4    1
+## Toyota Corona         4    1
+## Dodge Challenger      8    2
+## AMC Javelin           8    2
+## Camaro Z28            8    4
+## Pontiac Firebird      8    2
+## Fiat X1-9             4    1
+## Porsche 914-2         4    2
+## Lotus Europa          4    2
+## Ford Pantera L        8    4
+## Ferrari Dino          6    6
+## Maserati Bora         8    8
+## Volvo 142E            4    2</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="manage-data.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summarize avg mpg by number of cylinders</span></span>
+<span id="cb134-2"><a href="manage-data.html#cb134-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb134-3"><a href="manage-data.html#cb134-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">|&gt;</span> </span>
+<span id="cb134-4"><a href="manage-data.html#cb134-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_mpg =</span> <span class="fu">mean</span>(mpg))</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##     cyl avg_mpg
+##   &lt;dbl&gt;   &lt;dbl&gt;
+## 1     4    26.7
+## 2     6    19.7
+## 3     8    15.1</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="manage-data.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new column wt_kg, which is wt in kg</span></span>
+<span id="cb136-2"><a href="manage-data.html#cb136-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb136-3"><a href="manage-data.html#cb136-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(wt) <span class="sc">|&gt;</span> </span>
+<span id="cb136-4"><a href="manage-data.html#cb136-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wt_kg =</span> wt <span class="sc">/</span> <span class="fl">2.205</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb136-5"><a href="manage-data.html#cb136-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>##                      wt    wt_kg
+## Mazda RX4         2.620 1.188209
+## Mazda RX4 Wag     2.875 1.303855
+## Datsun 710        2.320 1.052154
+## Hornet 4 Drive    3.215 1.458050
+## Hornet Sportabout 3.440 1.560091
+## Valiant           3.460 1.569161</code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="manage-data.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new variable by calculating hp divided by wt</span></span>
+<span id="cb138-2"><a href="manage-data.html#cb138-2" aria-hidden="true" tabindex="-1"></a>mtcars_new <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb138-3"><a href="manage-data.html#cb138-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(wt, hp) <span class="sc">|&gt;</span> </span>
+<span id="cb138-4"><a href="manage-data.html#cb138-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hp_per_t =</span> hp<span class="sc">/</span>wt) <span class="sc">|&gt;</span> </span>
+<span id="cb138-5"><a href="manage-data.html#cb138-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span>
+<span id="cb138-6"><a href="manage-data.html#cb138-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-7"><a href="manage-data.html#cb138-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the first few rows of the updated dataset</span></span>
+<span id="cb138-8"><a href="manage-data.html#cb138-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars_new)</span></code></pre></div>
+<pre><code>##                      wt  hp hp_per_t
+## Mazda RX4         2.620 110 41.98473
+## Mazda RX4 Wag     2.875 110 38.26087
+## Datsun 710        2.320  93 40.08621
+## Hornet 4 Drive    3.215 110 34.21462
+## Hornet Sportabout 3.440 175 50.87209
+## Valiant           3.460 105 30.34682</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="manage-data.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rename hp to horsepower</span></span>
+<span id="cb140-2"><a href="manage-data.html#cb140-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb140-3"><a href="manage-data.html#cb140-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">horsepower =</span> hp) <span class="sc">|&gt;</span> </span>
+<span id="cb140-4"><a href="manage-data.html#cb140-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div>
+<pre><code>## Rows: 32
+## Columns: 11
+## $ mpg        &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.3, 19.2, 27.3, 26.0, 30.4, 15.8, 19.7, 15.0, 21.4
+## $ cyl        &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
+## $ disp       &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7, 75.7, 71.1, 120.1, 318.0, 304.0, 350.0, 400.0, 79.0, 120.3, 95.1,…
+## $ horsepower &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 150, 245, 175, 66, 91, 113, 264, 175, 335, 109
+## $ drat       &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.70, 2.76, 3.15, 3.73, 3.08, 4.08, 4.43, 3.77, 4.22, 3.62, 3.54, 4.11
+## $ wt         &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.200, 1.615, 1.835, 2.465, 3.520, 3.435, 3.840, 3.845, 1.935, 2.140, 1…
+## $ qsec       &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.47, 18.52, 19.90, 20.01, 16.87, 17.30, 15.41, 17.05, 18.90, 16.70, 1…
+## $ vs         &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
+## $ am         &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
+## $ gear       &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
+## $ carb       &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6, 8, 2</code></pre>
+<div id="snapshot-of-the-data" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Snapshot of the data<a href="manage-data.html#snapshot-of-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="manage-data.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating dataframe</span></span>
+<span id="cb142-2"><a href="manage-data.html#cb142-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb142-3"><a href="manage-data.html#cb142-3" aria-hidden="true" tabindex="-1"></a>  integer_var, numeric_var, character_var, factor_var, logical_var, date_var,</span>
+<span id="cb142-4"><a href="manage-data.html#cb142-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb142-5"><a href="manage-data.html#cb142-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-6"><a href="manage-data.html#cb142-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Overview of the data</span></span>
+<span id="cb142-7"><a href="manage-data.html#cb142-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 6
+##   integer_var numeric_var character_var factor_var logical_var date_var  
+##         &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;         &lt;fct&gt;      &lt;lgl&gt;       &lt;date&gt;    
+## 1           1         1.1 apple         red        TRUE        2022-01-01
+## 2           2         2.2 banana        yellow     TRUE        2022-02-01
+## 3           3        NA   orange        red        TRUE        2022-03-01
+## 4           4         4.4 cherry        blue       FALSE       2022-04-01
+## 5           5         5.5 grape         green      TRUE        2022-05-01</code></pre>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="manage-data.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code></pre></div>
+<pre><code>##   integer_var  numeric_var    character_var       factor_var logical_var        date_var         
+##  Min.   :1    Min.   :1.100   Length:5           blue  :1    Mode :logical   Min.   :2022-01-01  
+##  1st Qu.:2    1st Qu.:1.925   Class :character   green :1    FALSE:1         1st Qu.:2022-02-01  
+##  Median :3    Median :3.300   Mode  :character   red   :2    TRUE :4         Median :2022-03-01  
+##  Mean   :3    Mean   :3.300                      yellow:1                    Mean   :2022-03-02  
+##  3rd Qu.:4    3rd Qu.:4.675                                                  3rd Qu.:2022-04-01  
+##  Max.   :5    Max.   :5.500                                                  Max.   :2022-05-01  
+##               NA&#39;s   :1</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="manage-data.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df)</span></code></pre></div>
+<pre><code>## Rows: 5
+## Columns: 6
+## $ integer_var   &lt;dbl&gt; 1, 2, 3, 4, 5
+## $ numeric_var   &lt;dbl&gt; 1.1, 2.2, NA, 4.4, 5.5
+## $ character_var &lt;chr&gt; &quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;, &quot;cherry&quot;, &quot;grape&quot;
+## $ factor_var    &lt;fct&gt; red, yellow, red, blue, green
+## $ logical_var   &lt;lgl&gt; TRUE, TRUE, TRUE, FALSE, TRUE
+## $ date_var      &lt;date&gt; 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-05-01</code></pre>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="manage-data.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look closer at variables</span></span>
+<span id="cb148-2"><a href="manage-data.html#cb148-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-3"><a href="manage-data.html#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="co"># unique values</span></span>
+<span id="cb148-4"><a href="manage-data.html#cb148-4" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>integer_var)</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="manage-data.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(df<span class="sc">$</span>factor_var)</span></code></pre></div>
+<pre><code>## [1] red    yellow blue   green 
+## Levels: blue green red yellow</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="manage-data.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>factor_var)</span></code></pre></div>
+<pre><code>## 
+##   blue  green    red yellow 
+##      1      1      2      1</code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="manage-data.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(df<span class="sc">$</span>factor_var))</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="manage-data.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="co"># distributions</span></span>
+<span id="cb156-2"><a href="manage-data.html#cb156-2" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> <span class="fu">count</span>(factor_var)</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 2
+##   factor_var     n
+##   &lt;fct&gt;      &lt;int&gt;
+## 1 blue           1
+## 2 green          1
+## 3 red            2
+## 4 yellow         1</code></pre>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="manage-data.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(df<span class="sc">$</span>factor_var))</span></code></pre></div>
+<pre><code>## 
+##   blue  green    red yellow 
+##    0.2    0.2    0.4    0.2</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="manage-data.html#cb160-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb160-2"><a href="manage-data.html#cb160-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(factor_var) <span class="sc">|&gt;</span> </span>
+<span id="cb160-3"><a href="manage-data.html#cb160-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 3
+##   factor_var     n  prop
+##   &lt;fct&gt;      &lt;int&gt; &lt;dbl&gt;
+## 1 blue           1   0.2
+## 2 green          1   0.2
+## 3 red            2   0.4
+## 4 yellow         1   0.2</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="manage-data.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(df<span class="sc">$</span>numeric_var, </span>
+<span id="cb162-2"><a href="manage-data.html#cb162-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="fu">list</span>(<span class="at">fruit =</span> df<span class="sc">$</span>factor_var), </span>
+<span id="cb162-3"><a href="manage-data.html#cb162-3" aria-hidden="true" tabindex="-1"></a>          mean)</span></code></pre></div>
+<pre><code>##    fruit   x
+## 1   blue 4.4
+## 2  green 5.5
+## 3    red  NA
+## 4 yellow 2.2</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="manage-data.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --&gt; the mean of red cannot be calculated as there is a NA in it</span></span>
+<span id="cb164-2"><a href="manage-data.html#cb164-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution: exclude NAs from calculation:</span></span>
+<span id="cb164-3"><a href="manage-data.html#cb164-3" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(df<span class="sc">$</span>numeric_var, </span>
+<span id="cb164-4"><a href="manage-data.html#cb164-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">by =</span> <span class="fu">list</span>(<span class="at">fruit =</span> df<span class="sc">$</span>factor_var), </span>
+<span id="cb164-5"><a href="manage-data.html#cb164-5" aria-hidden="true" tabindex="-1"></a>          mean,</span>
+<span id="cb164-6"><a href="manage-data.html#cb164-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##    fruit   x
+## 1   blue 4.4
+## 2  green 5.5
+## 3    red 1.1
+## 4 yellow 2.2</code></pre>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="manage-data.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;janitor&quot;)</span></span>
+<span id="cb166-2"><a href="manage-data.html#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">&quot;janitor&quot;</span>)</span>
+<span id="cb166-3"><a href="manage-data.html#cb166-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb166-4"><a href="manage-data.html#cb166-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(cyl) </span></code></pre></div>
+<pre><code>##  cyl  n percent
+##    4 11 0.34375
+##    6  7 0.21875
+##    8 14 0.43750</code></pre>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="manage-data.html#cb168-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
+<span id="cb168-2"><a href="manage-data.html#cb168-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(cyl, hp) </span></code></pre></div>
+<pre><code>##  cyl 52 62 65 66 91 93 95 97 105 109 110 113 123 150 175 180 205 215 230 245 264 335
+##    4  1  1  1  2  1  1  1  1   0   1   0   1   0   0   0   0   0   0   0   0   0   0
+##    6  0  0  0  0  0  0  0  0   1   0   3   0   2   0   1   0   0   0   0   0   0   0
+##    8  0  0  0  0  0  0  0  0   0   0   0   0   0   2   2   3   1   1   1   2   1   1</code></pre>
 <div class="exercise">
-<p><span id="exr:subsetting" class="exercise"><strong>Exercise 5.1  </strong></span>Subsetting</p>
+<p><span id="exr:baseorpipe" class="exercise"><strong>Exercise 5.1  </strong></span>Base R or pipe</p>
+<ol style="list-style-type: lower-alpha">
+<li>Using the mtcars dataset in R, write code to create a new dataframe that includes only the rows where the number of cylinders is either 4 or 6, and the weight (wt) is less than 3.5.</li>
+</ol>
+<p>Do this in two different ways using:</p>
+<ol style="list-style-type: decimal">
+<li>The <code>%in%</code> operator and the pipe |&gt; .</li>
+<li>Base R without the pipe |&gt;.</li>
+</ol>
+<p>Compare the resulting dataframes using the identical() function.</p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Generate a logical variable that indicates with <code>TRUE</code> all cars with either 4 or 6 cylinders that wt is less than 3.5 and add this variable to the mtcars dataset.</li>
+</ol>
+<p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_base_pipe.R">here</a>.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:subsetting" class="exercise"><strong>Exercise 5.2  </strong></span>Subsetting</p>
 <ol style="list-style-type: decimal">
 <li>Check to see if you have the mtcars dataset by entering the command mtcars.</li>
 <li>Save the mtcars dataset in an object named cars.</li>
@@ -466,7 +1076,28 @@ With <code>rm()</code> you remove objects from your workspace and with <code>rm(
 </ol>
 <p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_subset.R">here</a>.</p>
 </div>
+<div class="exercise">
+<p><span id="exr:exer4ds" class="exercise"><strong>Exercise 5.3  </strong></span>Data transformation</p>
+<p>Please download and open the following R-script and try to answer the questions therein:</p>
+<p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/data_transformation.R">here</a>.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:execonvergence" class="exercise"><strong>Exercise 5.4  </strong></span>Convergence</p>
+<p>The dataset convergence.dta, see <a href="https://github.com/hubchev/courses/blob/main/dta/convergence.dta" class="uri">https://github.com/hubchev/courses/blob/main/dta/convergence.dta</a>, contains the per capita GDP of 1960 (gdppc60) and the average growth rate of GDP per capita between 1960 and 1995 (growth) for different countries (country), as well as 3 dummy variables indicating the belonging of a country to the region Asia (asia), Western Europe (weurope) or Africa (africa).</p>
+<ul>
+<li>Some countries are not assigned to a certain country group. Name the countries which are assign to be part of Western Europe, Africa or Asia. If you find countries that are members of the EU, assign them a ‘1’ in the variable weurope.</li>
+<li>Create a table that shows the average GDP per capita for all available points in time. Group by Western European, Asian, African, and the remaining countries.</li>
+<li>Create the growth rate of GDP per capita from 1960 to 1995 and call it gdpgrowth. (Note: The log value X minus the log value X of the previous period is approximately equal to the growth rate).</li>
+<li>Calculate the unconditional convergence of all countries by constructing a graph in which a scatterplot shows the GDP per capita growth rate between 1960 and 1995 (gdpgrowth) on the y-axis and the 1960 GDP per capita (gdppc60) on the x-axis. Add to the same graph the estimated linear relationship. You do not need to label the graph further, just two things: title the graph <code>world</code> and label the individual observations with the country names.</li>
+<li>Create three graphs describing the same relationship for the sample of Western European, African and Asian countries. Title the graph accordingly with <code>weurope</code>, <code>africa</code> and <code>asia</code>.</li>
+<li>Combine the four graphs into one image. Discuss how an upward or downward sloping regression line can be interpreted.</li>
+<li>Estimate the relationships illustrated in the 4 graphs using the least squares method. Present the 4 estimation results in a table, indicating the significance level with stars. In addition, the Akaike information criterion, and the number of observations should be displayed in the table. Interpret the four estimation results regarding their significance.</li>
+<li>Put the data set into the so-called long format and calculate the GDP per capita growth rates for the available time points in the countries.</li>
+</ul>
+<p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R">here</a>.</p>
+</div>
 
+</div>
 </div>
 </div>
 <div class="footnotes">

@@ -156,7 +156,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 05 May, 2023}
+\date{Last compiled on 09 May, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -1013,12 +1013,6 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{verbatim}
 
 \begin{verbatim}
-## The following object is masked from 'package:ggplot2':
-## 
-##     vars
-\end{verbatim}
-
-\begin{verbatim}
 ## The following objects are masked from 'package:stats':
 ## 
 ##     filter, lag
@@ -1150,13 +1144,19 @@ Data visualization is an art. The purposes of visualizing data are manifold. You
 \end{figure}
 \footnotetext{Picture is taken from \url{https://en.wikipedia.org/wiki/Pie_chart}}
 
-When it comes to data visualization, there's no better resource than the book by \citet{Wickham2023R}. It introduces the ggplot function which is part of the ggplot2 package which, in turn, is part of the tidyverse package. Thus, if you've installed and loaded tidyverse, you automatically have access to ggplot. Creating beautiful and informative graphs is easy with ggplot. To proof that claim, study chapters 1 and 2 of \citet{Wickham2023R}. To reap the best benefits from studying, I recommend to copy all the code that is shown in the book into a R script and try to run it on your PC. That is the best way to learn, understand, and create your own notes that may guide you later on. Whenever you see interesting code somewhere, try to run it on your PC. Moreover, I recommend the exercises of the book, they are challenging sometimes but to really understand code you need to run code yourself.
+When it comes to data visualization, there's no better resource than the book by \citet{Wickham2023R}. It introduces the ggplot function which is part of the ggplot2 package which, in turn, is part of the tidyverse package. Thus, if you've installed and loaded tidyverse, you automatically have access to ggplot. Creating beautiful and informative graphs is easy with ggplot. To proof that claim, study section 2 (\href{https://r4ds.hadley.nz/data-visualize.html}{Data visualization}) of \citet{Wickham2023R}. To reap the best benefits from studying, I recommend to copy all the code that is shown in the book into a R script and try to run it on your PC. That is the best way to learn, understand, and create your own notes that may guide you later on. Whenever you see interesting code somewhere, try to run it on your PC. Moreover, I recommend the exercises of the book, they are challenging sometimes but to really understand code you need to run code yourself.
 
 \hypertarget{manage-data}{%
 \chapter{Manage data}\label{manage-data}}
 
 \hypertarget{the-tidyverse-universe}{%
 \section{The tidyverse universe}\label{the-tidyverse-universe}}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.3\textwidth,height=\textheight]{fig/tidyverse-logo.png}
+\caption{\label{fig:tidyverse-logo} The tidyverse universe}
+\end{figure}
 
 The R package \emph{tidyverse} is a collection of R packages. All packages share an underlying design philosophy, grammar, and data structures.
 The most popular packages are ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats. They provide functionality to model, transform, and visualize data. Tidyverse is extremely popular and many individual packages of tidyverse are regularly in the top 10 most downloaded R packages on CRAN\footnote{CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R, see: \url{https://cran.r-project.org}.}. How to do data science with tidyverse is the subject of multiple books and tutorials. In particular, the popular book \emph{R for Data Science} by \citet{Wickham2023R} is all about the tidyverse universe. Thus, I highly recommend reading sections 3 (\href{https://r4ds.hadley.nz/workflow-basics.html}{Workflow: basics}) and 4 (\href{https://r4ds.hadley.nz/data-transform.html}{Data transformation}) of \citet{Wickham2023R}. Addidionally, visit www.tidyverse.org and, if you still haven`t done so, do the tidyverse module of my swirl package, called \emph{swirl-it}, see section \ref{swirl}.
@@ -1173,8 +1173,7 @@ To install and load tidyverse run the following lines of code:
 \hypertarget{pipeoperator}{%
 \section{The pipe operator}\label{pipeoperator}}
 
-The pipe operator, \%\textgreater\%, comes from the magrittr package which is also a part of the tidyverse package. The \emph{base} pipe operator, \textbar\textgreater, is since R.4.1.0 part of base R. For most cases these two are identical. The pipe is to help you write code in a way that is easier to read and understand.
-As R is a functional language, code often contains a lot of parenthesis, ( and ). Nesting those parentheses together is complex and you easily get lost. This makes your R code hard to read and understand. Here's where \textbar\textgreater{} comes in to the rescue! Consider the following chunk of code to explain the usage of the pipe:
+The pipe operator, \%\textgreater\%, comes from the magrittr package, which is also part of the tidyverse package. The base pipe operator, \textbar\textgreater, has been part of base R since version 4.1.0. For most cases, these two operators are identical. The pipe operator is designed to help you write code in a way that is easier to read and understand. As R is a functional language, code often contains a lot of parentheses, ( and ). Nesting these parentheses together can be complex and make your R code hard to read and understand, which is where \textbar\textgreater{} comes to the rescue! It allows you to use the output of a function as the input of the next function. Consider the following example of code to explain the usage of the pipe operator:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1236,23 +1235,36 @@ This is short but hard to read and understand. The solution is the \emph{pipe}:
 ## [1]  0.002  0.002 -0.014  0.000
 \end{verbatim}
 
-You can read the \textbar\textgreater{} with ``and then'' because it takes the results of some function ``and then'' does something with that in the next.
-For example, reading out loud the following code would sound something like this: ``I take the Iris data \emph{and then} I subset the data \emph{and then} I aggregate the data and show the means for each species''.
+You can read the \textbar\textgreater{} with \emph{``and then''} because it takes the results of some function \emph{``and then''} does something with that in the next.
+For example, reading out loud the following code would sound something like this:
+
+\begin{itemize}
+\tightlist
+\item
+  I take the mtcars data, \emph{and then}
+\item
+  I consider only cars with more than 4 cylinders, \emph{and then}
+\item
+  I group the cars by the number of cylinders the cars have, \emph{and then}
+\item
+  I summarize the data and show the means of miles per gallon (mpg) and horse powers (hp) by groups of cars that distinguish by their number of cylinders.
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(}\StringTok{"datasets"}\NormalTok{)}
-\NormalTok{iris }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{subset}\NormalTok{(Sepal.Length }\SpecialCharTok{\textgreater{}} \DecValTok{5}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{aggregate}\NormalTok{( . }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Species , . , mean)}
+\NormalTok{mtcars }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{filter}\NormalTok{(cyl}\SpecialCharTok{\textgreater{}}\DecValTok{4}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{group\_by}\NormalTok{(cyl) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{summarise\_at}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"mpg"}\NormalTok{, }\StringTok{"hp"}\NormalTok{), mean)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##      Species Sepal.Length Sepal.Width Petal.Length Petal.Width
-## 1     setosa     5.313636    3.713636     1.509091   0.2772727
-## 2 versicolor     5.997872    2.804255     4.317021   1.3468085
-## 3  virginica     6.622449    2.983673     5.573469   2.0326531
+## # A tibble: 2 x 3
+##     cyl   mpg    hp
+##   <dbl> <dbl> <dbl>
+## 1     6  19.7  122.
+## 2     8  15.1  209.
 \end{verbatim}
 
 \hypertarget{import-data}{%
@@ -1333,11 +1345,11 @@ We already got known to the c() function which allows to combine multiple values
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# defining row names and column names}
-\NormalTok{rown }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"row\_1"}\NormalTok{, }\StringTok{"row\_2"}\NormalTok{)}
-\NormalTok{coln }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"col\_1"}\NormalTok{, }\StringTok{"col\_2"}\NormalTok{, }\StringTok{"col\_3"}\NormalTok{)}
+\NormalTok{rown }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"row\_1"}\NormalTok{, }\StringTok{"row\_2"}\NormalTok{, }\StringTok{"row\_3"}\NormalTok{)}
+\NormalTok{coln }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"col\_1"}\NormalTok{, }\StringTok{"col\_2"}\NormalTok{)}
 
 \CommentTok{\# creating matrix}
-\NormalTok{m\_ab\_label }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(m\_ab, }\AttributeTok{ncol =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{, }
+\NormalTok{m\_ab\_label }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(m\_ab, }\AttributeTok{ncol =} \DecValTok{2}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{FALSE}\NormalTok{, }
             \AttributeTok{dimnames =} \FunctionTok{list}\NormalTok{(rown, coln))}
   
 \CommentTok{\# print matrix}
@@ -1346,9 +1358,10 @@ We already got known to the c() function which allows to combine multiple values
 \end{Shaded}
 
 \begin{verbatim}
-##       col_1 col_2 col_3
-## row_1     1     2     3
-## row_2    10    11    12
+##       col_1 col_2
+## row_1     1    10
+## row_2     2    11
+## row_3     3    12
 \end{verbatim}
 
 The two most common formats to store and work with data in R are dataframe and tibble. Both formats store table-like structures of data in rows and columns. We will learn more on that in section \ref{sec:tidy}
@@ -1357,20 +1370,22 @@ The two most common formats to store and work with data in R are dataframe and t
 \begin{Highlighting}[]
 \CommentTok{\# convert the matrix into dataframe}
 \NormalTok{df\_ab}\OtherTok{=}\FunctionTok{as.data.frame}\NormalTok{(m\_ab\_label)}
-\NormalTok{tbl\_ab}\OtherTok{=}\FunctionTok{as.tibble}\NormalTok{(m\_ab\_label)}
+\NormalTok{tbl\_ab}\OtherTok{=}\FunctionTok{as\_tibble}\NormalTok{(m\_ab\_label)}
 \end{Highlighting}
 \end{Shaded}
 
 \hypertarget{open-data-in-rdata-files}{%
 \subsection{Open data in RData files}\label{open-data-in-rdata-files}}
 
-You can save some of your objects (\texttt{save()}) or all (\texttt{save.image()}) and load data stored in the \texttt{.RData} (\texttt{load()}) format. When you delete an object in R, you cannot recover it by clicking some \emph{Undo button}.
+You can save some of your objects with \texttt{save()} or all with \texttt{save.image()}. Load data that are stored in the \texttt{.RData} format can be loaded with \texttt{load()}. Please note, when you delete an object in R, you cannot recover it by clicking some \emph{Undo button}.
 With \texttt{rm()} you remove objects from your workspace and with \texttt{rm(list\ =\ ls())} you clear all objects from the workspace.
 
 \hypertarget{open-datasets-from-packages}{%
 \subsection{Open datasets from packages}\label{open-datasets-from-packages}}
 
-The package \texttt{datasets} contains many datasets that are often used in textbooks. For example, the \texttt{mtcars} dataset:
+The datasets package contains numerous datasets that are commonly used in textbooks.
+To get an overview of all the datasets provided by the package, you can use the command help(package = datasets).
+One such dataset that we will be using further is the mtcars dataset:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1386,10 +1401,16 @@ The package \texttt{datasets} contains many datasets that are often used in text
 ## Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
 \end{verbatim}
 
-\hypertarget{import-using-major-public-api}{%
-\subsection{Import using major public API}\label{import-using-major-public-api}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{?mtcars}
+\end{Highlighting}
+\end{Shaded}
 
-An API (application programming interface) specifies how machines can exchange information. There are many R packages available that provide a convenient way to access data from various online sources directly within R using the API of webpages. In most cases, it's better to download and import data within R than to navigate through the website's interface. This ensures that changes can be made easily at any time and that the data is always up-to-date. For instance, \texttt{wbstats} provides access to World Bank data, \texttt{eurostat} allows users to access Eurostat databases, \texttt{fredr} makes it easy to obtain data from the Federal Reserve Economic Data (FRED) platform, which offers economic data for the United States, \texttt{ecb} provides an interface to the European Central Bank's Statistical Data Warehouse, and the \texttt{OECD} package facilitates the extraction of data from the Organization for Economic Cooperation and Development (OECD).
+\hypertarget{import-using-major-public-apis}{%
+\subsection{Import using major public APIs}\label{import-using-major-public-apis}}
+
+An API which stands for \emph{application programming interface} specifies how computers can exchange information. There are many R packages available that provide a convenient way to access data from various online sources directly within R using the API of webpages. In most cases, it's better to download and import data within R using these tools than to navigate through the website's interface. This ensures that changes can be made easily at any time and that the data is always up-to-date. For instance, \texttt{wbstats} provides access to World Bank data, \texttt{eurostat} allows users to access Eurostat databases, \texttt{fredr} makes it easy to obtain data from the Federal Reserve Economic Data (FRED) platform, which offers economic data for the United States, \texttt{ecb} provides an interface to the European Central Bank's Statistical Data Warehouse, and the \texttt{OECD} package facilitates the extraction of data from the Organization for Economic Cooperation and Development (OECD). Here is an example using the \texttt{wbstats} package:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1417,13 +1438,13 @@ An API (application programming interface) specifies how machines can exchange i
 \begin{verbatim}
 ## Rows: 13,156
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "A~
-## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005",~
-## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826771e+11, 9.720022e~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.M~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (cur~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eas~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", ~
+## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998~
+## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826771e+11, 9.720022e+11, 9.642130e+11, 8.603612e+11, 7.190953e+11, 7.08119~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.M~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", ~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Af~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1445,65 +1466,50 @@ An API (application programming interface) specifies how machines can exchange i
 \hypertarget{import-other-file-formats}{%
 \subsection{Import other file formats}\label{import-other-file-formats}}
 
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{fig/import-logo.pdf}
+\caption{\label{fig:import-logo} The logo of the packages readr, haven, and readxl}
+\end{figure}
+
 RStudio provides convenient data import tools that can be accessed by clicking \emph{File \textgreater{} Import Dataset}. In addition, tidyverse offers packages for importing data in various formats. This \href{https://posit.co/wp-content/uploads/2022/10/data-import.pdf}{cheatsheet}, for example, is about the packages \texttt{readr}, \texttt{readxl} and \texttt{googlesheets4}. The first allows you to read data in various file formats, including fixed-width files like .csv and .tsv. The package \texttt{readxl} can read in Excel files, i.e., .xls and .xlsx file formats and \texttt{googlesheets4} allows to read and write data from Google Sheets directly from R.
 
 For more information, I recommend once again the second version book \emph{R for Data Science} by \href{https://r4ds.hadley.nz/}{\citet{Wickham2023R}}. In particular, check out the \href{https://r4ds.hadley.nz/data-tidy.html}{``Data tidying''} section for importing CSV and TSV files, the \href{https://r4ds.hadley.nz/spreadsheets.html}{``Spreadsheets''} section for Excel files, the \href{https://r4ds.hadley.nz/databases.html}{``Databases''} section for retrieving data with SQL, the \href{https://r4ds.hadley.nz/arrow.html}{``Arrow''} section for working with large datasets, and the \href{https://r4ds.hadley.nz/webscraping.html}{``Web scraping''} section for extracting data from web pages.
 
+For an overview on the packages that are provided by the tidyverse universe, see \href{https://www.tidyverse.org/packages/\#import}{}.
+
 \hypertarget{sec:tidy}{%
-\section{Dataframes and tidy data (tibbles)}\label{sec:tidy}}
+\section{Data frames}\label{sec:tidy}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df\_ab}
-\end{Highlighting}
-\end{Shaded}
+\hypertarget{data-frames-and-tibbles}{%
+\subsection{Data frames and tibbles}\label{data-frames-and-tibbles}}
 
-\begin{verbatim}
-##       col_1 col_2 col_3
-## row_1     1     2     3
-## row_2    10    11    12
-\end{verbatim}
+\begin{figure}
+\centering
+\includegraphics[width=0.3\textwidth,height=\textheight]{fig/tidyr-tibble-logo.png}
+\caption{\label{fig:tidyr-tibble-logo} The logos of the tidyr and tibble packages}
+\end{figure}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{tbl\_ab}
-\end{Highlighting}
-\end{Shaded}
+Both \emph{data frames} and \emph{tibbles} are two of the most commonly used data structures in R for handling tabular data. A tibble actually is a data frame and you can use all functions that work with a data frame also with a tibble. However, a tibble has some additional features in printing and subsetting. Please note, data frames are provided by base R while tibbles are provided by the \texttt{tidyverse} package. This means that if you want to use tibbles you must load \texttt{tidyverse}. It turned out that it is helpful that a tibble has the folllowing features to simplify working with data:
+- Each vector is labeled by the variable name.
+- Variable names don't have spaces and are not put in quotes.
+- All variables have the same length.
+- Each variable is of a single type (numeric, character, logical, or a categorical).
 
-\begin{verbatim}
-## # A tibble: 2 x 3
-##   col_1 col_2 col_3
-##   <int> <int> <int>
-## 1     1     2     3
-## 2    10    11    12
-\end{verbatim}
+\hypertarget{tidy-data}{%
+\subsection{Tidy data}\label{tidy-data}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{df\_test }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{as.table}\NormalTok{(m\_ab\_label))}
-\NormalTok{tbl\_test}\OtherTok{=}\FunctionTok{as.tibble}\NormalTok{(df\_test)}
-
-\NormalTok{test }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{|\textgreater{}}
-    \FunctionTok{rownames\_to\_column}\NormalTok{( }\AttributeTok{var =} \StringTok{"car"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
-    \FunctionTok{as.tibble}\NormalTok{() }
-\end{Highlighting}
-\end{Shaded}
-
-Both data frames and tibbles are two of the most commonly used data structures in R for handling tabular data. A tibble actually is a data frame and you can use all functions that work with a data frame also with a tibble. However, a tibble has some additional features. Data frames are provided by base R while tibbles are provided by the tidyverse package. This means that if you want to use tibbles you should load tidyverse.
-
-When printed to the console, both display the first 10 rows but only data frames display all columns. In contrast, a tibble displays only as many columns as fit within the console width. That makes it easier to view and work with large datasets.
-
-Most importantly, tibbles should follow three interrelated rules that make a dataset \emph{tidy}:
+A popular quote from Hadley Wickham is that \emph{``tidy datasets are all alike, but every messy dataset is messy in its own way''} \citep[p.~2]{Hadley2014Tidy}. It paraphrases the fact that it is a good idea to set rules how a dataset should structure its information to make it easier to work with the data. The tidyverse requires the data to be structured like is illustrated in Figure \ref{fig:tidy-1}. The rules are:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Each variable is a column; each column is a variable.
+  Each variable is a column and vice versa.
 \item
-  Each observation is a row; each row is an observation.
+  Each observation is a row and vice verse.
 \item
-  Each value is a cell; each cell is a single value.
+  Each value is a cell.
 \end{enumerate}
 
 \begin{figure}
@@ -1513,28 +1519,489 @@ Most importantly, tibbles should follow three interrelated rules that make a dat
 \end{figure}
 \footnotetext{The figure stems from \citet{Wickham2023R}}
 
-Figure \ref{fig:tidy-1} illustrates the characteristics of a tidy dataset, which, as described by \citet{Wickham2023R}, offers two key benefits:
+Whenever data follow that consistent structure, we speak of \emph{tidy data}. The underlying uniformity of tidy data facilitates learning and using data manipulation tools.
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  A tidy dataset with a consistent data structure is easier to work with because the underlying uniformity facilitates learning and using data manipulation tools.
-\item
-  Representing variables in columns is advantageous because it enables R's vectorized operations to be applied, leveraging the fact that most R functions operate on vectors of values.
-\end{enumerate}
+One difference between data frames and tibbles is that dataframes store the row names. For example, take the \texttt{mtcars} dataset which consists of 32 different cars and the names of the cars are not stored as rownames:
 
-\hypertarget{data-manipulation-with-dplyr}{%
-\section{Data manipulation with dplyr}\label{data-manipulation-with-dplyr}}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{class}\NormalTok{(mtcars) }\CommentTok{\# mtcars is a data frame}
+\end{Highlighting}
+\end{Shaded}
 
-The dplyr package, which is part of tidyverse, make data manipulation easy:
+\begin{verbatim}
+## [1] "data.frame"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rownames}\NormalTok{(mtcars) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"             "Duster 360"          "Merc 240D"           "Merc 230"           
+## [10] "Merc 280"            "Merc 280C"           "Merc 450SE"          "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood"  "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"           
+## [19] "Honda Civic"         "Toyota Corolla"      "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"          "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"      
+## [28] "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"        "Maserati Bora"       "Volvo 142E"
+\end{verbatim}
+
+To store \texttt{mtcars} as a tibble, we can use the \texttt{as\_tibble} function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tbl\_mtcars }\OtherTok{\textless{}{-}} \FunctionTok{as\_tibble}\NormalTok{(mtcars)}
+\FunctionTok{class}\NormalTok{(tbl\_mtcars) }\CommentTok{\# check if it is a tibble now}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "tbl_df"     "tbl"        "data.frame"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{is\_tibble}\NormalTok{(tbl\_mtcars) }\CommentTok{\# alternative check}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(tbl\_mtcars, }\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 11
+##     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##   <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+## 1  21       6   160   110  3.9   2.62  16.5     0     1     4     4
+## 2  21       6   160   110  3.9   2.88  17.0     0     1     4     4
+## 3  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1
+\end{verbatim}
+
+When we look at the data, we've lost the names of the cars. To store the these, you need to first add a column to the dataframe containing the rownames and then you can generate the tibble:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tbl\_mtcars }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{rownames\_to\_column}\NormalTok{(}\AttributeTok{var =} \StringTok{"car"}\NormalTok{) }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{as\_tibble}\NormalTok{() }
+\FunctionTok{class}\NormalTok{(tbl\_mtcars)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "tbl_df"     "tbl"        "data.frame"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(tbl\_mtcars, }\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 12
+##   car             mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##   <chr>         <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+## 1 Mazda RX4      21       6   160   110  3.9   2.62  16.5     0     1     4     4
+## 2 Mazda RX4 Wag  21       6   160   110  3.9   2.88  17.0     0     1     4     4
+## 3 Datsun 710     22.8     4   108    93  3.85  2.32  18.6     1     1     4     1
+\end{verbatim}
+
+\hypertarget{operators}{%
+\subsection{Operators}\label{operators}}
+
+\hypertarget{the-in-operator}{%
+\subsubsection{\texorpdfstring{The \texttt{\%in\%} operator}{The \%in\% operator}}\label{the-in-operator}}
+
+\texttt{\%in\%} is used to subset a vector by comparison. Here's an example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{)}
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{8}\NormalTok{)}
+\NormalTok{z }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{)}
+
+\NormalTok{x }\SpecialCharTok{\%in\%}\NormalTok{ y  }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE FALSE FALSE FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\SpecialCharTok{\%in\%}\NormalTok{ z  }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  TRUE  TRUE FALSE FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{z }\SpecialCharTok{\%in\%}\NormalTok{ x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  TRUE FALSE  TRUE
+\end{verbatim}
+
+The \%in\% operator can be used in combination with other functions like \texttt{subset()} and \texttt{filter()}.
+
+\hypertarget{extract-operators}{%
+\subsubsection{Extract operators}\label{extract-operators}}
+
+The \emph{extract operators} are used to retrieve data from objects in R. The operator may take four forms, including \texttt{{[}{]}}, \texttt{{[}{[}{]}{]}}, and \texttt{\$}.
+
+\texttt{{[}{]}} allows to extract content from vector, lists, or data frames. For example,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a }\OtherTok{\textless{}{-}}\NormalTok{ mtcars[}\DecValTok{3}\NormalTok{, ]}
+\NormalTok{b }\OtherTok{\textless{}{-}}\NormalTok{ mtcars[}\StringTok{"Datsun 710"}\NormalTok{, ]}
+\FunctionTok{identical}\NormalTok{(a, b)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             mpg cyl disp hp drat   wt  qsec vs am gear carb
+## Datsun 710 22.8   4  108 93 3.85 2.32 18.61  1  1    4    1
+\end{verbatim}
+
+extracts the third observation of the mtcars dataset, and
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{c }\OtherTok{\textless{}{-}}\NormalTok{ mtcars[,}\StringTok{"cyl"}\NormalTok{]}
+\NormalTok{d }\OtherTok{\textless{}{-}}\NormalTok{ mtcars[, }\DecValTok{2}\NormalTok{]}
+\FunctionTok{identical}\NormalTok{(x, y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] FALSE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{c}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 6 6 4 6 8 6 8 4 4 6 6 8 8 8 8 8 8 4 4 4 4 8 8 8 8 4 4 4 8 6 8 4
+\end{verbatim}
+
+extracts the variable/vector \texttt{cyl}.
+
+The operators, \texttt{{[}{[}{]}{]}} and \texttt{\$} extract a single item from an object. It is used to refer to an element in a list or a column in a data frame. For example,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{e }\OtherTok{\textless{}{-}}\NormalTok{ mtcars}\SpecialCharTok{$}\NormalTok{cyl}
+\NormalTok{f }\OtherTok{\textless{}{-}}\NormalTok{ mtcars[[}\StringTok{"cyl"}\NormalTok{]]}
+\FunctionTok{identical}\NormalTok{(e, f)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{e}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 6 6 4 6 8 6 8 4 4 6 6 8 8 8 8 8 8 4 4 4 4 8 8 8 8 4 4 4 8 6 8 4
+\end{verbatim}
+
+will return the values of the variable \texttt{cyl} from the data frame \texttt{mtcars}.
+Thus, x\$y is actually just a short form for x{[}{[}``y''{]}{]}.
+
+\hypertarget{logical-operators}{%
+\subsubsection{Logical operators}\label{logical-operators}}
+
+The extract operators can be combined with the \emph{logical operators} (more precisely, I should call these \emph{binary relational operators}) that are shown in the table below.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3553}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1447}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3553}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1447}}@{}}
+\caption{Logical operators}\tabularnewline
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+operation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+operator
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+example input
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+answer
+\end{minipage} \\
+\midrule()
+\endfirsthead
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+operation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+operator
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+example input
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+answer
+\end{minipage} \\
+\midrule()
+\endhead
+less than & \texttt{\textless{}} & \texttt{2\ \textless{}\ 3} & \texttt{TRUE} \\
+less than or equal to & \texttt{\textless{}=} & \texttt{2\ \textless{}=\ 2} & \texttt{TRUE} \\
+greater than & \texttt{\textgreater{}} & \texttt{2\ \textgreater{}\ 3} & \texttt{FALSE} \\
+greater than or equal to & \texttt{\textgreater{}=} & \texttt{2\ \textgreater{}=\ 2} & \texttt{TRUE} \\
+equal to & \texttt{==} & \texttt{2\ ==\ 3} & \texttt{FALSE} \\
+not equal to & \texttt{!=} & \texttt{2\ !=\ 3} & \texttt{TRUE} \\
+& & & \\
+not & \texttt{!} & \texttt{!(1==1)} & \texttt{FALSE} \\
+or & \(\vert\) & \texttt{(1==1)} \(\vert\) \texttt{(2==3)} & \texttt{TRUE} \\
+and & \texttt{\&} & \texttt{(1==1)\ \&\ (2==3)} & \texttt{FALSE} \\
+\bottomrule()
+\end{longtable}
+
+Here are some examples:
+Select rows where the number of cylinders is greater than or equal to 6:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars[mtcars}\SpecialCharTok{$}\NormalTok{cyl }\SpecialCharTok{\textgreater{}=} \DecValTok{6}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+\end{verbatim}
+
+Select rows where the number of cylinders is either 4 or 6:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars[mtcars}\SpecialCharTok{$}\NormalTok{cyl }\SpecialCharTok{==} \DecValTok{4} \SpecialCharTok{|}\NormalTok{ mtcars}\SpecialCharTok{$}\NormalTok{cyl }\SpecialCharTok{==} \DecValTok{6}\NormalTok{ , ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4      21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Valiant        18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280       19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C      17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ferrari Dino   19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+\end{verbatim}
+
+Select rows where the number of cylinders is 4 and the mpg is greater than 22:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars[mtcars}\SpecialCharTok{$}\NormalTok{cyl }\SpecialCharTok{==} \DecValTok{4} \SpecialCharTok{\&}\NormalTok{ mtcars}\SpecialCharTok{$}\NormalTok{mpg }\SpecialCharTok{\textgreater{}} \DecValTok{22}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+\end{verbatim}
+
+Select rows where the weight is less than 3.5 or the number of gears is greater than 4:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars[mtcars}\SpecialCharTok{$}\NormalTok{wt }\SpecialCharTok{\textless{}} \FloatTok{3.5} \SpecialCharTok{|}\NormalTok{ mtcars}\SpecialCharTok{$}\NormalTok{gear }\SpecialCharTok{\textgreater{}} \DecValTok{4}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Merc 240D         24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230          22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280          19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C         17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Fiat 128          32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic       30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla    33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona     21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## AMC Javelin       15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Fiat X1-9         27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2     26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa      30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L    15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino      19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora     15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E        21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+\end{verbatim}
+
+Select rows where either mpg is greater than 25 or carb is less than 2, and the number of cylinders is either 4 or 8.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars[(mtcars}\SpecialCharTok{$}\NormalTok{mpg }\SpecialCharTok{\textgreater{}} \DecValTok{25} \SpecialCharTok{|}\NormalTok{ mtcars}\SpecialCharTok{$}\NormalTok{carb }\SpecialCharTok{\textless{}} \DecValTok{2}\NormalTok{) }\SpecialCharTok{\&}\NormalTok{ mtcars}\SpecialCharTok{$}\NormalTok{cyl }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{8}\NormalTok{), ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+\end{verbatim}
+
+\hypertarget{values}{%
+\subsection{Values}\label{values}}
+
+There are some special data values used in R that needs further explanation:
 
 \begin{itemize}
 \tightlist
 \item
-  Pick observations by their values (\texttt{filter()}).
+  \texttt{NA} stands for \emph{not available} or \emph{missing} and is used to represent missing or undefined values.
+\item
+  \texttt{Inf} stands for \emph{infinity} and is used to represent mathematical infinity, such as the result of dividing a non-zero number by zero. Can be positive or negative.\\
+\item
+  \texttt{NULL} represents an empty or non-existent object. It is often used as a placeholder when a value or object is not yet available or when an object is intentionally removed.
+\item
+  \texttt{NaN} stands for \emph{not a number} and is used to represent an undefined or unrepresentable value, such as the result of taking the square root of a negative number. It can also occur as a result of certain arithmetic operations that are undefined. In contrast to \texttt{NA} it can only exist in numerical data.
+\end{itemize}
+
+\hypertarget{data-classes}{%
+\subsection{Data classes}\label{data-classes}}
+
+In R, different data classes, or types of data exist:
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{numeric}: can be any real number
+\item
+  \emph{charackter}: strings and characters
+\item
+  \emph{integer}: any whole numbers
+\item
+  \emph{factor}: any categorial or qualitative variable with finite number of distinct outcomes
+\item
+  \emph{logical}: contain either \texttt{TRUE} or \texttt{FALSE}
+\item
+  \emph{Date}: special format that describes time
+\end{itemize}
+
+The following example should exemplify these types of data:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{integer\_var }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\NormalTok{numeric\_var }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{1.1}\NormalTok{, }\FloatTok{2.2}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\FloatTok{4.4}\NormalTok{, }\FloatTok{5.5}\NormalTok{)}
+\NormalTok{character\_var }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{, }\StringTok{"banana"}\NormalTok{, }\StringTok{"orange"}\NormalTok{, }\StringTok{"cherry"}\NormalTok{, }\StringTok{"grape"}\NormalTok{)}
+\NormalTok{factor\_var }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"yellow"}\NormalTok{, }\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{, }\StringTok{"green"}\NormalTok{))}
+\NormalTok{logical\_var }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{FALSE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{date\_var }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"2022{-}01{-}01"}\NormalTok{, }\StringTok{"2022{-}02{-}01"}\NormalTok{, }\StringTok{"2022{-}03{-}01"}\NormalTok{, }\StringTok{"2022{-}04{-}01"}\NormalTok{, }\StringTok{"2022{-}05{-}01"}\NormalTok{))}
+
+\NormalTok{date\_var[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{{-}}\NormalTok{ date\_var[}\DecValTok{5}\NormalTok{] }\CommentTok{\# number of days in between these two dates}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time difference of -89 days
+\end{verbatim}
+
+\hypertarget{data-manipulation-with-dplyr}{%
+\section{Data manipulation with dplyr}\label{data-manipulation-with-dplyr}}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.2\textwidth,height=\textheight]{fig/dplyr-logo.png}
+\caption{\label{fig:dplyr-logo} The logo of the dplyr package}
+\end{figure}
+
+The dplyr package is part of tidyverse and makes data manipulation easy:
+
+\begin{itemize}
+\tightlist
 \item
   Reorder the rows (\texttt{arrange()}).
+\item
+  Pick observations by their values (\texttt{filter()}).
 \item
   Pick variables by their names (\texttt{select()}).
 \item
@@ -1542,14 +2009,518 @@ The dplyr package, which is part of tidyverse, make data manipulation easy:
   (\texttt{mutate()}).
 \item
   Collapse many values down to a single summary (\texttt{summarise()}).
+\item
+  Rename variables (\texttt{rename()}).
 \end{itemize}
 
 These functions can all be used in conjunction with \texttt{group\_by()} , which changes the scope of each function from operating on the entire dataset to operating on it group-by-group.
 
 All functions work similarly:
-1. The first argument is a data frame.
-2. The subsequent arguments describe what to do with the data frame.
-3. The result is a new data frame.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The first argument is a data frame.
+\item
+  The subsequent arguments describe what to do with the data frame.
+\item
+  The result is a new data frame.
+\end{enumerate}
+
+Here are some examples that may help to understand these functions:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+
+\CommentTok{\# load mtcars dataset}
+\FunctionTok{data}\NormalTok{(mtcars)}
+
+\CommentTok{\# arrange rows by mpg in descending order}
+\NormalTok{mtcars }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(mpg))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# filter rows where cyl = 4}
+\NormalTok{mtcars }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{filter}\NormalTok{(cyl }\SpecialCharTok{==} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                 mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# select columns mpg, cyl, and hp}
+\NormalTok{mtcars }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(mpg, cyl, hp) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{head}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                    mpg cyl  hp
+## Mazda RX4         21.0   6 110
+## Mazda RX4 Wag     21.0   6 110
+## Datsun 710        22.8   4  93
+## Hornet 4 Drive    21.4   6 110
+## Hornet Sportabout 18.7   8 175
+## Valiant           18.1   6 105
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# select columns all variables except wt and hp}
+\NormalTok{mtcars }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{wt, }\SpecialCharTok{{-}}\NormalTok{hp) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{head}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                    mpg cyl disp drat  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 3.90 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 3.90 17.02  0  1    4    4
+## Datsun 710        22.8   4  108 3.85 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 3.08 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 3.15 17.02  0  0    3    2
+## Valiant           18.1   6  225 2.76 20.22  1  0    3    1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# select only variables starting with \textasciigrave{}c\textasciigrave{}}
+\NormalTok{mtcars }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(}\FunctionTok{starts\_with}\NormalTok{(}\StringTok{"c"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                     cyl carb
+## Mazda RX4             6    4
+## Mazda RX4 Wag         6    4
+## Datsun 710            4    1
+## Hornet 4 Drive        6    1
+## Hornet Sportabout     8    2
+## Valiant               6    1
+## Duster 360            8    4
+## Merc 240D             4    2
+## Merc 230              4    2
+## Merc 280              6    4
+## Merc 280C             6    4
+## Merc 450SE            8    3
+## Merc 450SL            8    3
+## Merc 450SLC           8    3
+## Cadillac Fleetwood    8    4
+## Lincoln Continental   8    4
+## Chrysler Imperial     8    4
+## Fiat 128              4    1
+## Honda Civic           4    2
+## Toyota Corolla        4    1
+## Toyota Corona         4    1
+## Dodge Challenger      8    2
+## AMC Javelin           8    2
+## Camaro Z28            8    4
+## Pontiac Firebird      8    2
+## Fiat X1-9             4    1
+## Porsche 914-2         4    2
+## Lotus Europa          4    2
+## Ford Pantera L        8    4
+## Ferrari Dino          6    6
+## Maserati Bora         8    8
+## Volvo 142E            4    2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# summarize avg mpg by number of cylinders}
+\NormalTok{mtcars }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{group\_by}\NormalTok{(cyl) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{avg\_mpg =} \FunctionTok{mean}\NormalTok{(mpg))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 3 x 2
+##     cyl avg_mpg
+##   <dbl>   <dbl>
+## 1     4    26.7
+## 2     6    19.7
+## 3     8    15.1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create new column wt\_kg, which is wt in kg}
+\NormalTok{mtcars }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(wt) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{wt\_kg =}\NormalTok{ wt }\SpecialCharTok{/} \FloatTok{2.205}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{head}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                      wt    wt_kg
+## Mazda RX4         2.620 1.188209
+## Mazda RX4 Wag     2.875 1.303855
+## Datsun 710        2.320 1.052154
+## Hornet 4 Drive    3.215 1.458050
+## Hornet Sportabout 3.440 1.560091
+## Valiant           3.460 1.569161
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Create a new variable by calculating hp divided by wt}
+\NormalTok{mtcars\_new }\OtherTok{\textless{}{-}}\NormalTok{ mtcars }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(wt, hp) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{hp\_per\_t =}\NormalTok{ hp}\SpecialCharTok{/}\NormalTok{wt) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{head}\NormalTok{()}
+
+\CommentTok{\# Print the first few rows of the updated dataset}
+\FunctionTok{head}\NormalTok{(mtcars\_new)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                      wt  hp hp_per_t
+## Mazda RX4         2.620 110 41.98473
+## Mazda RX4 Wag     2.875 110 38.26087
+## Datsun 710        2.320  93 40.08621
+## Hornet 4 Drive    3.215 110 34.21462
+## Hornet Sportabout 3.440 175 50.87209
+## Valiant           3.460 105 30.34682
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Rename hp to horsepower}
+\NormalTok{mtcars }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{rename}\NormalTok{(}\AttributeTok{horsepower =}\NormalTok{ hp) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{glimpse}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 32
+## Columns: 11
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.3, 19.2, 27.3, 26.0, 30.4, 15.8, 19.7, 15.0, 21.4
+## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7, 75.7, 71.1, 120.1, 318.0, 304.0, 350.0, 400.0, 79.0, 120.3, 95.1,~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 150, 245, 175, 66, 91, 113, 264, 175, 335, 109
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.70, 2.76, 3.15, 3.73, 3.08, 4.08, 4.43, 3.77, 4.22, 3.62, 3.54, 4.11
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.200, 1.615, 1.835, 2.465, 3.520, 3.435, 3.840, 3.845, 1.935, 2.140, 1~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.47, 18.52, 19.90, 20.01, 16.87, 17.30, 15.41, 17.05, 18.90, 16.70, 1~
+## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
+## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
+## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
+## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6, 8, 2
+\end{verbatim}
+
+\hypertarget{snapshot-of-the-data}{%
+\subsection{Snapshot of the data}\label{snapshot-of-the-data}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Creating dataframe}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{tibble}\NormalTok{(}
+\NormalTok{  integer\_var, numeric\_var, character\_var, factor\_var, logical\_var, date\_var,}
+\NormalTok{  )}
+
+\CommentTok{\# Overview of the data}
+\FunctionTok{head}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 5 x 6
+##   integer_var numeric_var character_var factor_var logical_var date_var  
+##         <dbl>       <dbl> <chr>         <fct>      <lgl>       <date>    
+## 1           1         1.1 apple         red        TRUE        2022-01-01
+## 2           2         2.2 banana        yellow     TRUE        2022-02-01
+## 3           3        NA   orange        red        TRUE        2022-03-01
+## 4           4         4.4 cherry        blue       FALSE       2022-04-01
+## 5           5         5.5 grape         green      TRUE        2022-05-01
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   integer_var  numeric_var    character_var       factor_var logical_var        date_var         
+##  Min.   :1    Min.   :1.100   Length:5           blue  :1    Mode :logical   Min.   :2022-01-01  
+##  1st Qu.:2    1st Qu.:1.925   Class :character   green :1    FALSE:1         1st Qu.:2022-02-01  
+##  Median :3    Median :3.300   Mode  :character   red   :2    TRUE :4         Median :2022-03-01  
+##  Mean   :3    Mean   :3.300                      yellow:1                    Mean   :2022-03-02  
+##  3rd Qu.:4    3rd Qu.:4.675                                                  3rd Qu.:2022-04-01  
+##  Max.   :5    Max.   :5.500                                                  Max.   :2022-05-01  
+##               NA's   :1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(df)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 5
+## Columns: 6
+## $ integer_var   <dbl> 1, 2, 3, 4, 5
+## $ numeric_var   <dbl> 1.1, 2.2, NA, 4.4, 5.5
+## $ character_var <chr> "apple", "banana", "orange", "cherry", "grape"
+## $ factor_var    <fct> red, yellow, red, blue, green
+## $ logical_var   <lgl> TRUE, TRUE, TRUE, FALSE, TRUE
+## $ date_var      <date> 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-05-01
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# look closer at variables}
+
+\CommentTok{\# unique values}
+\FunctionTok{unique}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{integer\_var)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 2 3 4 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{unique}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{factor\_var)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] red    yellow blue   green 
+## Levels: blue green red yellow
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{factor\_var)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##   blue  green    red yellow 
+##      1      1      2      1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{factor\_var))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# distributions}
+\NormalTok{df }\SpecialCharTok{|\textgreater{}} \FunctionTok{count}\NormalTok{(factor\_var)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 2
+##   factor_var     n
+##   <fct>      <int>
+## 1 blue           1
+## 2 green          1
+## 3 red            2
+## 4 yellow         1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{prop.table}\NormalTok{(}\FunctionTok{table}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{factor\_var))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##   blue  green    red yellow 
+##    0.2    0.2    0.4    0.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{count}\NormalTok{(factor\_var) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{prop =}\NormalTok{ n }\SpecialCharTok{/} \FunctionTok{sum}\NormalTok{(n))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 3
+##   factor_var     n  prop
+##   <fct>      <int> <dbl>
+## 1 blue           1   0.2
+## 2 green          1   0.2
+## 3 red            2   0.4
+## 4 yellow         1   0.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{aggregate}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{numeric\_var, }
+          \AttributeTok{by =} \FunctionTok{list}\NormalTok{(}\AttributeTok{fruit =}\NormalTok{ df}\SpecialCharTok{$}\NormalTok{factor\_var), }
+\NormalTok{          mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    fruit   x
+## 1   blue 4.4
+## 2  green 5.5
+## 3    red  NA
+## 4 yellow 2.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# {-}{-}\textgreater{} the mean of red cannot be calculated as there is a NA in it}
+\CommentTok{\# Solution: exclude NAs from calculation:}
+\FunctionTok{aggregate}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{numeric\_var, }
+          \AttributeTok{by =} \FunctionTok{list}\NormalTok{(}\AttributeTok{fruit =}\NormalTok{ df}\SpecialCharTok{$}\NormalTok{factor\_var), }
+\NormalTok{          mean,}
+          \AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    fruit   x
+## 1   blue 4.4
+## 2  green 5.5
+## 3    red 1.1
+## 4 yellow 2.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#install.packages("janitor")}
+\FunctionTok{require}\NormalTok{(}\StringTok{"janitor"}\NormalTok{)}
+\NormalTok{mtcars }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{tabyl}\NormalTok{(cyl) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  cyl  n percent
+##    4 11 0.34375
+##    6  7 0.21875
+##    8 14 0.43750
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{tabyl}\NormalTok{(cyl, hp) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  cyl 52 62 65 66 91 93 95 97 105 109 110 113 123 150 175 180 205 215 230 245 264 335
+##    4  1  1  1  2  1  1  1  1   0   1   0   1   0   0   0   0   0   0   0   0   0   0
+##    6  0  0  0  0  0  0  0  0   1   0   3   0   2   0   1   0   0   0   0   0   0   0
+##    8  0  0  0  0  0  0  0  0   0   0   0   0   0   2   2   3   1   1   1   2   1   1
+\end{verbatim}
+
+\begin{exercise}
+\protect\hypertarget{exr:baseorpipe}{}\label{exr:baseorpipe}Base R or pipe
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Using the mtcars dataset in R, write code to create a new dataframe that includes only the rows where the number of cylinders is either 4 or 6, and the weight (wt) is less than 3.5.
+\end{enumerate}
+
+Do this in two different ways using:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The \texttt{\%in\%} operator and the pipe \textbar\textgreater{} .
+\item
+  Base R without the pipe \textbar\textgreater.
+\end{enumerate}
+
+Compare the resulting dataframes using the identical() function.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Generate a logical variable that indicates with \texttt{TRUE} all cars with either 4 or 6 cylinders that wt is less than 3.5 and add this variable to the mtcars dataset.
+\end{enumerate}
+
+Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_base_pipe.R}{here}.
+\end{exercise}
 
 \begin{exercise}
 \protect\hypertarget{exr:subsetting}{}\label{exr:subsetting}Subsetting
@@ -1594,6 +2565,42 @@ All functions work similarly:
 \end{enumerate}
 
 Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_subset.R}{here}.
+\end{exercise}
+
+\begin{exercise}
+\protect\hypertarget{exr:exer4ds}{}\label{exr:exer4ds}Data transformation
+
+Please download and open the following R-script and try to answer the questions therein:
+
+Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/data_transformation.R}{here}.
+\end{exercise}
+
+\begin{exercise}
+\protect\hypertarget{exr:execonvergence}{}\label{exr:execonvergence}Convergence
+
+The dataset convergence.dta, see \url{https://github.com/hubchev/courses/blob/main/dta/convergence.dta}, contains the per capita GDP of 1960 (gdppc60) and the average growth rate of GDP per capita between 1960 and 1995 (growth) for different countries (country), as well as 3 dummy variables indicating the belonging of a country to the region Asia (asia), Western Europe (weurope) or Africa (africa).
+
+\begin{itemize}
+\tightlist
+\item
+  Some countries are not assigned to a certain country group. Name the countries which are assign to be part of Western Europe, Africa or Asia. If you find countries that are members of the EU, assign them a `1' in the variable weurope.
+\item
+  Create a table that shows the average GDP per capita for all available points in time. Group by Western European, Asian, African, and the remaining countries.
+\item
+  Create the growth rate of GDP per capita from 1960 to 1995 and call it gdpgrowth. (Note: The log value X minus the log value X of the previous period is approximately equal to the growth rate).
+\item
+  Calculate the unconditional convergence of all countries by constructing a graph in which a scatterplot shows the GDP per capita growth rate between 1960 and 1995 (gdpgrowth) on the y-axis and the 1960 GDP per capita (gdppc60) on the x-axis. Add to the same graph the estimated linear relationship. You do not need to label the graph further, just two things: title the graph \texttt{world} and label the individual observations with the country names.
+\item
+  Create three graphs describing the same relationship for the sample of Western European, African and Asian countries. Title the graph accordingly with \texttt{weurope}, \texttt{africa} and \texttt{asia}.
+\item
+  Combine the four graphs into one image. Discuss how an upward or downward sloping regression line can be interpreted.
+\item
+  Estimate the relationships illustrated in the 4 graphs using the least squares method. Present the 4 estimation results in a table, indicating the significance level with stars. In addition, the Akaike information criterion, and the number of observations should be displayed in the table. Interpret the four estimation results regarding their significance.
+\item
+  Put the data set into the so-called long format and calculate the GDP per capita growth rates for the available time points in the countries.
+\end{itemize}
+
+Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R}{here}.
 \end{exercise}
 
 \hypertarget{write-with-r-markdown}{%
@@ -1687,11 +2694,25 @@ Start Markdown and R Markdown
 \end{exercise}
 
 \begin{exercise}
-\protect\hypertarget{exr:rmdsecond}{}\label{exr:rmdsecond}Please download and open the file ``23-04\_ds-project-desc.Rmd'' from my GitHub account here. Save the file in your working directory and try to run it using the knit function. It may not work properly at first, so you may need to troubleshoot some issues. However, do not worry, as it are usually simply problems that occur and often the error message provided can guide you.
+\protect\hypertarget{exr:rmdsecond}{}\label{exr:rmdsecond}
 
-For instance, I use BibTeX to cite literature. It is an excellent method to make the computer perform tedious tasks for you, such as citing papers and generating reference lists based on citation styles. This can save you a significant amount of time and reduce the likelihood of errors while citing literature. The literature I cite is in a separate file, which you can find on one of my GitHub repositories.
+R Markdown template
 
-Moreover, the YAML header is quite sensitive to spacing and will break you code.
+Please follow the instructions below to access the file ``23-04\_ds-project-desc.Rmd'' from my GitHub account:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Download the file from my GitHub account by clicking on the link provided here.
+\item
+  Save the file in your working directory.
+\item
+  Use the knit function to run the file, but be aware that it may not work properly at first. If you encounter any issues, troubleshooting may be required. Don`t worry, error messages will usually provide guidance to help you resolve the issue. Please note that the YAML header is sensitive to spacing, so be careful when setting it up to avoid breaking the code.
+\item
+  In the project template, I have used BibTeX to cite literature. This method is excellent for automating tedious tasks such as citing papers and generating reference lists based on citation styles, saving time and reducing the likelihood of citation errors. The literature cited is in a separate file, which can be found on one of my GitHub repositories.
+\end{enumerate}
+
 \end{exercise}
 
 \hypertarget{appendix}{%
@@ -1826,7 +2847,7 @@ R is displaying a Windows path using the wrong type of slash, the back-slash. Th
 \end{Shaded}
 
 \hypertarget{troubleshooting}{%
-\chapter{Troubleshooting}\label{troubleshooting}}
+\section{Troubleshooting}\label{troubleshooting}}
 
 Troubleshooting is perhaps the most important skill for a data scientist. To tackle problems effectively, you need to understand them, replicate them, and then work to solve them. To help you with this process, here are some guidelines:
 
@@ -1848,27 +2869,21 @@ When seeking help, be sure to provide information about your machine, including 
 ## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.13.so
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8   
-##  [6] LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8      
+##  [8] LC_NAME=C                  LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.2        SmartEDA_0.3.9     DataExplorer_0.8.2 skimr_2.1.5        wbstats_1.0.4      lubridate_1.9.2    forcats_1.0.0      stringr_1.5.0     
-##  [9] purrr_1.0.1        readr_2.1.4        tibble_3.2.1       ggplot2_3.4.2      tidyverse_2.0.0    scales_1.2.1      
+##  [1] dplyr_1.1.2     janitor_2.2.0   cowplot_1.1.1   wbstats_1.0.4   lubridate_1.9.2 forcats_1.0.0   stringr_1.5.0   purrr_1.0.1     readr_2.1.4     tidyr_1.3.0     tibble_3.2.1    ggplot2_3.4.2  
+## [13] tidyverse_2.0.0 scales_1.2.1   
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] httr_1.4.5         sass_0.4.6         tidyr_1.3.0        jsonlite_1.8.4     here_1.0.1         bslib_0.4.2        highr_0.10         yaml_2.3.7        
-##  [9] pillar_1.9.0       glue_1.6.2         digest_0.6.31      RColorBrewer_1.1-3 colorspace_2.1-0   htmltools_0.5.5    plyr_1.8.8         lpSolve_5.6.18    
-## [17] pkgconfig_2.0.3    bookdown_0.33.3    sampling_2.9       tzdb_0.3.0         timechange_0.2.0   generics_0.1.3     farver_2.1.1       cachem_1.0.8      
-## [25] withr_2.5.0        repr_1.1.6         cli_3.6.1          magrittr_2.0.3     crayon_1.5.2       evaluate_0.20      GGally_2.1.2       fansi_1.0.4       
-## [33] MASS_7.3-60        tools_4.1.2        data.table_1.14.8  hms_1.1.3          lifecycle_1.0.3    munsell_0.5.0      networkD3_0.4      compiler_4.1.2    
-## [41] jquerylib_0.1.4    tinytex_0.45       rlang_1.1.1        grid_4.1.2         rstudioapi_0.14    htmlwidgets_1.6.2  ISLR_1.4           igraph_1.4.2      
-## [49] base64enc_0.1-3    labeling_0.4.2     rmarkdown_2.21     gtable_0.3.3       reshape_0.8.9      curl_5.0.0         R6_2.5.1           gridExtra_2.3     
-## [57] knitr_1.42         fastmap_1.1.1      utf8_1.2.3         rprojroot_2.0.3    stringi_1.7.12     parallel_4.1.2     Rcpp_1.0.10        vctrs_0.6.2       
-## [65] tidyselect_1.2.0   xfun_0.39
+##  [1] tinytex_0.45     tidyselect_1.2.0 xfun_0.39        bslib_0.4.2      snakecase_0.11.0 colorspace_2.1-0 vctrs_0.6.2      generics_0.1.3   htmltools_0.5.5  yaml_2.3.7       utf8_1.2.3       rlang_1.1.1     
+## [13] jquerylib_0.1.4  pillar_1.9.0     glue_1.6.2       withr_2.5.0      lifecycle_1.0.3  munsell_0.5.0    gtable_0.3.3     evaluate_0.20    knitr_1.42       tzdb_0.3.0       fastmap_1.1.1    curl_5.0.0      
+## [25] fansi_1.0.4      highr_0.10       Rcpp_1.0.10      cachem_1.0.8     magick_2.7.4     jsonlite_1.8.4   hms_1.1.3        digest_0.6.31    stringi_1.7.12   bookdown_0.33.3  grid_4.1.2       cli_3.6.1       
+## [37] tools_4.1.2      magrittr_2.0.3   sass_0.4.6       crayon_1.5.2     pkgconfig_2.0.3  timechange_0.2.0 rmarkdown_2.21   httr_1.4.5       rstudioapi_0.14  R6_2.5.1         compiler_4.1.2
 \end{verbatim}
 
   \bibliography{book.bib}
