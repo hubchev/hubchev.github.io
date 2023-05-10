@@ -1438,13 +1438,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \begin{verbatim}
 ## Rows: 13,156
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE"~
-## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009",~
-## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)"~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Ea~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE"~
+## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007~
+## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.M~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (curren~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Sout~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1454,20 +1454,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##     iso3c               date               value           indicatorID         indicator            iso2c          
-##  Length:13156       Length:13156       Min.   :8.824e+06   Length:13156       Length:13156       Length:13156      
-##  Class :character   Class :character   1st Qu.:2.442e+09   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Median :1.784e+10   Mode  :character   Mode  :character   Mode  :character  
-##                                        Mean   :1.161e+12                                                           
-##                                        3rd Qu.:2.156e+11                                                           
-##                                        Max.   :9.653e+13                                                           
-##    country         
-##  Length:13156      
-##  Class :character  
-##  Mode  :character  
-##                    
-##                    
-## 
+##     iso3c               date               value           indicatorID         indicator            iso2c             country         
+##  Length:13156       Length:13156       Min.   :8.824e+06   Length:13156       Length:13156       Length:13156       Length:13156      
+##  Class :character   Class :character   1st Qu.:2.442e+09   Class :character   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Median :1.784e+10   Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+##                                        Mean   :1.161e+12                                                                              
+##                                        3rd Qu.:2.156e+11                                                                              
+##                                        Max.   :9.653e+13
 \end{verbatim}
 
 \hypertarget{import-various-file-formats}{%
@@ -1547,12 +1540,11 @@ One difference between data frames and tibbles is that dataframes store the row 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"  
-##  [6] "Valiant"             "Duster 360"          "Merc 240D"           "Merc 230"            "Merc 280"           
-## [11] "Merc 280C"           "Merc 450SE"          "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood" 
-## [16] "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"     
-## [21] "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"          "Pontiac Firebird"   
-## [26] "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"            
+##  [7] "Duster 360"          "Merc 240D"           "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"         
+## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood"  "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"           
+## [19] "Honda Civic"         "Toyota Corolla"      "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
+## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
 ## [31] "Maserati Bora"       "Volvo 142E"
 \end{verbatim}
 
@@ -2353,13 +2345,13 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32~
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9~
 ## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0,~
-## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 1~
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250,~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98,~
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0,~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 150, 245, 175, ~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345,~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42,~
 ## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
 ## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
 ## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
@@ -2607,7 +2599,7 @@ Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/ma
 \def\labelenumi{\alph{enumi})}
 \tightlist
 \item
-  Using the mtcars dataset in R, write code to create a new dataframe that includes only the rows where the number of cylinders is either 4 or 6, and the weight (wt) is less than 3.5.
+  Using the mtcars dataset, write code to create a new dataframe that includes only the rows where the number of cylinders is either 4 or 6, and the weight (wt) is less than 3.5.
 \end{enumerate}
 
 Do this in two different ways using:
@@ -2628,7 +2620,7 @@ Compare the resulting dataframes using the identical() function.
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Generate a logical variable that indicates with \texttt{TRUE} all cars with either 4 or 6 cylinders that wt is less than 3.5 and add this variable to the mtcars dataset.
+  Using the mtcars dataset, generate a logical variable that indicates with \texttt{TRUE} all cars with either 4 or 6 cylinders that wt is less than 3.5 and add this variable to a new dataset.
 \end{enumerate}
 
 Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_base_pipe.R}{here}.
@@ -2981,9 +2973,9 @@ When seeking help, be sure to provide information about your machine, including 
 ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8   
+##  [6] LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## time zone: Europe/Berlin
 ## tzcode source: system (glibc)
@@ -2992,18 +2984,17 @@ When seeking help, be sure to provide information about your machine, including 
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.0     magick_2.7.4    janitor_2.2.0   cowplot_1.1.1   wbstats_1.0.4   lubridate_1.9.2 forcats_1.0.0  
-##  [8] stringr_1.5.0   purrr_1.0.1     readr_2.1.4     tidyr_1.3.0     tibble_3.1.8    ggplot2_3.4.2   tidyverse_2.0.0
-## [15] scales_1.2.1   
+##  [1] dplyr_1.1.0     janitor_2.2.0   magick_2.7.4    cowplot_1.1.1   wbstats_1.0.4   lubridate_1.9.2 forcats_1.0.0   stringr_1.5.0  
+##  [9] purrr_1.0.1     readr_2.1.4     tidyr_1.3.0     tibble_3.1.8    ggplot2_3.4.2   tidyverse_2.0.0 scales_1.2.1   
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] sass_0.4.5       utf8_1.2.3       generics_0.1.3   stringi_1.7.12   hms_1.1.2        digest_0.6.31    magrittr_2.0.3  
-##  [8] evaluate_0.20    grid_4.3.0       timechange_0.2.0 bookdown_0.33    fastmap_1.1.0    jsonlite_1.8.4   tinytex_0.44    
-## [15] httr_1.4.5       fansi_1.0.4      jquerylib_0.1.4  cli_3.6.0        crayon_1.5.2     rlang_1.1.0      ellipsis_0.3.2  
-## [22] munsell_0.5.0    withr_2.5.0      cachem_1.0.6     yaml_2.3.7       tools_4.3.0      tzdb_0.3.0       colorspace_2.1-0
-## [29] curl_5.0.0       vctrs_0.5.2      R6_2.5.1         lifecycle_1.0.3  snakecase_0.11.0 pkgconfig_2.0.3  pillar_1.8.1    
-## [36] bslib_0.4.2      gtable_0.3.1     Rcpp_1.0.10      glue_1.6.2       xfun_0.37        tidyselect_1.2.0 highr_0.10      
-## [43] rstudioapi_0.14  knitr_1.42       htmltools_0.5.4  rmarkdown_2.20   compiler_4.3.0
+##  [8] evaluate_0.20    grid_4.3.0       timechange_0.2.0 bookdown_0.33    fastmap_1.1.0    jsonlite_1.8.4   httr_1.4.5      
+## [15] fansi_1.0.4      jquerylib_0.1.4  cli_3.6.0        crayon_1.5.2     rlang_1.1.0      ellipsis_0.3.2   munsell_0.5.0   
+## [22] withr_2.5.0      cachem_1.0.6     yaml_2.3.7       tools_4.3.0      tzdb_0.3.0       colorspace_2.1-0 curl_5.0.0      
+## [29] vctrs_0.5.2      R6_2.5.1         lifecycle_1.0.3  snakecase_0.11.0 pkgconfig_2.0.3  pillar_1.8.1     bslib_0.4.2     
+## [36] gtable_0.3.1     Rcpp_1.0.10      glue_1.6.2       xfun_0.39        tidyselect_1.2.0 highr_0.10       rstudioapi_0.14 
+## [43] knitr_1.42       htmltools_0.5.4  rmarkdown_2.20   compiler_4.3.0
 \end{verbatim}
 
   \bibliography{book.bib}
