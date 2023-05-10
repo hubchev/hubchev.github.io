@@ -156,7 +156,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 09 May, 2023}
+\date{Last compiled on 10 May, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -996,7 +996,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.1/dplyr"
+## [1] "/usr/local/lib/R/site-library/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1271,7 +1271,7 @@ For example, reading out loud the following code would sound something like this
 \section{Import data}\label{import-data}}
 
 \hypertarget{vectors-and-matrices}{%
-\subsection{Vectors and Matrices}\label{vectors-and-matrices}}
+\subsection{Vectors and matrices}\label{vectors-and-matrices}}
 
 We already got known to the c() function which allows to combine multiple values into a vector or list. Here are some examples how you can use this function to create vectors and matrices:
 
@@ -1374,18 +1374,18 @@ The two most common formats to store and work with data in R are dataframe and t
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{open-data-in-rdata-files}{%
-\subsection{Open data in RData files}\label{open-data-in-rdata-files}}
+\hypertarget{open-rdata-files}{%
+\subsection{Open RData files}\label{open-rdata-files}}
 
 You can save some of your objects with \texttt{save()} or all with \texttt{save.image()}. Load data that are stored in the \texttt{.RData} format can be loaded with \texttt{load()}. Please note, when you delete an object in R, you cannot recover it by clicking some \emph{Undo button}.
 With \texttt{rm()} you remove objects from your workspace and with \texttt{rm(list\ =\ ls())} you clear all objects from the workspace.
 
-\hypertarget{open-datasets-from-packages}{%
-\subsection{Open datasets from packages}\label{open-datasets-from-packages}}
+\hypertarget{open-datasets-of-packages}{%
+\subsection{Open datasets of packages}\label{open-datasets-of-packages}}
 
 The datasets package contains numerous datasets that are commonly used in textbooks.
 To get an overview of all the datasets provided by the package, you can use the command help(package = datasets).
-One such dataset that we will be using further is the mtcars dataset:
+One such dataset that we will be using further is the \texttt{mtcars} dataset:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1407,8 +1407,8 @@ One such dataset that we will be using further is the mtcars dataset:
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{import-using-major-public-apis}{%
-\subsection{Import using major public APIs}\label{import-using-major-public-apis}}
+\hypertarget{import-data-using-public-apis}{%
+\subsection{Import data using public APIs}\label{import-data-using-public-apis}}
 
 An API which stands for \emph{application programming interface} specifies how computers can exchange information. There are many R packages available that provide a convenient way to access data from various online sources directly within R using the API of webpages. In most cases, it's better to download and import data within R using these tools than to navigate through the website's interface. This ensures that changes can be made easily at any time and that the data is always up-to-date. For instance, \texttt{wbstats} provides access to World Bank data, \texttt{eurostat} allows users to access Eurostat databases, \texttt{fredr} makes it easy to obtain data from the Federal Reserve Economic Data (FRED) platform, which offers economic data for the United States, \texttt{ecb} provides an interface to the European Central Bank's Statistical Data Warehouse, and the \texttt{OECD} package facilitates the extraction of data from the Organization for Economic Cooperation and Development (OECD). Here is an example using the \texttt{wbstats} package:
 
@@ -1438,13 +1438,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \begin{verbatim}
 ## Rows: 13,156
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE",~
-## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "~
-## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826771e+11, 9.720022e+11, 9.642130e+11,~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.M~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern"~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE"~
+## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009",~
+## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)"~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Ea~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1454,21 +1454,28 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##     iso3c               date               value           indicatorID         indicator            iso2c             country         
-##  Length:13156       Length:13156       Min.   :8.824e+06   Length:13156       Length:13156       Length:13156       Length:13156      
-##  Class :character   Class :character   1st Qu.:2.442e+09   Class :character   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Median :1.784e+10   Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-##                                        Mean   :1.161e+12                                                                              
-##                                        3rd Qu.:2.156e+11                                                                              
-##                                        Max.   :9.653e+13
+##     iso3c               date               value           indicatorID         indicator            iso2c          
+##  Length:13156       Length:13156       Min.   :8.824e+06   Length:13156       Length:13156       Length:13156      
+##  Class :character   Class :character   1st Qu.:2.442e+09   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Median :1.784e+10   Mode  :character   Mode  :character   Mode  :character  
+##                                        Mean   :1.161e+12                                                           
+##                                        3rd Qu.:2.156e+11                                                           
+##                                        Max.   :9.653e+13                                                           
+##    country         
+##  Length:13156      
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+## 
 \end{verbatim}
 
-\hypertarget{import-other-file-formats}{%
-\subsection{Import other file formats}\label{import-other-file-formats}}
+\hypertarget{import-various-file-formats}{%
+\subsection{Import various file formats}\label{import-various-file-formats}}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth,height=\textheight]{fig/import-logo.pdf}
+\includegraphics[width=0.5\textwidth,height=\textheight]{fig/import-logo.png}
 \caption{\label{fig:import-logo} The logo of the packages readr, haven, and readxl}
 \end{figure}
 
@@ -1479,7 +1486,7 @@ For more information, I recommend once again the second version book \emph{R for
 For an overview on the packages that are provided by the tidyverse universe, see \href{https://www.tidyverse.org/packages/\#import}{}.
 
 \hypertarget{sec:tidy}{%
-\section{Data frames}\label{sec:tidy}}
+\section{Data}\label{sec:tidy}}
 
 \hypertarget{data-frames-and-tibbles}{%
 \subsection{Data frames and tibbles}\label{data-frames-and-tibbles}}
@@ -1540,11 +1547,13 @@ One difference between data frames and tibbles is that dataframes store the row 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"             "Duster 360"         
-##  [8] "Merc 240D"           "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"          "Merc 450SL"          "Merc 450SLC"        
-## [15] "Cadillac Fleetwood"  "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"      "Toyota Corona"      
-## [22] "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"          "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"       
-## [29] "Ford Pantera L"      "Ferrari Dino"        "Maserati Bora"       "Volvo 142E"
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"  
+##  [6] "Valiant"             "Duster 360"          "Merc 240D"           "Merc 230"            "Merc 280"           
+## [11] "Merc 280C"           "Merc 450SE"          "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood" 
+## [16] "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"     
+## [21] "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"          "Pontiac Firebird"   
+## [26] "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
+## [31] "Maserati Bora"       "Volvo 142E"
 \end{verbatim}
 
 To store \texttt{mtcars} as a tibble, we can use the \texttt{as\_tibble} function:
@@ -1615,11 +1624,65 @@ When we look at the data, we've lost the names of the cars. To store the these, 
 ## 3 Datsun 710     22.8     4   108    93  3.85  2.32  18.6     1     1     4     1
 \end{verbatim}
 
-\hypertarget{operators}{%
-\subsection{Operators}\label{operators}}
+\hypertarget{data-types}{%
+\subsection{Data types}\label{data-types}}
+
+In R, different data classes, or types of data exist:
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{numeric}: can be any real number
+\item
+  \emph{charackter}: strings and characters
+\item
+  \emph{integer}: any whole numbers
+\item
+  \emph{factor}: any categorial or qualitative variable with finite number of distinct outcomes
+\item
+  \emph{logical}: contain either \texttt{TRUE} or \texttt{FALSE}
+\item
+  \emph{Date}: special format that describes time
+\end{itemize}
+
+The following example should exemplify these types of data:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{integer\_var }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\NormalTok{numeric\_var }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{1.1}\NormalTok{, }\FloatTok{2.2}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\FloatTok{4.4}\NormalTok{, }\FloatTok{5.5}\NormalTok{)}
+\NormalTok{character\_var }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{, }\StringTok{"banana"}\NormalTok{, }\StringTok{"orange"}\NormalTok{, }\StringTok{"cherry"}\NormalTok{, }\StringTok{"grape"}\NormalTok{)}
+\NormalTok{factor\_var }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"yellow"}\NormalTok{, }\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{, }\StringTok{"green"}\NormalTok{))}
+\NormalTok{logical\_var }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{FALSE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{date\_var }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"2022{-}01{-}01"}\NormalTok{, }\StringTok{"2022{-}02{-}01"}\NormalTok{, }\StringTok{"2022{-}03{-}01"}\NormalTok{, }\StringTok{"2022{-}04{-}01"}\NormalTok{, }\StringTok{"2022{-}05{-}01"}\NormalTok{))}
+
+\NormalTok{date\_var[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{{-}}\NormalTok{ date\_var[}\DecValTok{5}\NormalTok{] }\CommentTok{\# number of days in between these two dates}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time difference of -89 days
+\end{verbatim}
+
+There are some special data values used in R that needs further explanation:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{NA} stands for \emph{not available} or \emph{missing} and is used to represent missing or undefined values.
+\item
+  \texttt{Inf} stands for \emph{infinity} and is used to represent mathematical infinity, such as the result of dividing a non-zero number by zero. Can be positive or negative.\\
+\item
+  \texttt{NULL} represents an empty or non-existent object. It is often used as a placeholder when a value or object is not yet available or when an object is intentionally removed.
+\item
+  \texttt{NaN} stands for \emph{not a number} and is used to represent an undefined or unrepresentable value, such as the result of taking the square root of a negative number. It can also occur as a result of certain arithmetic operations that are undefined. In contrast to \texttt{NA} it can only exist in numerical data.
+\end{itemize}
+
+\hypertarget{tools-to-manipulate-data}{%
+\section{Tools to manipulate data}\label{tools-to-manipulate-data}}
 
 \hypertarget{the-in-operator}{%
-\subsubsection{\texorpdfstring{The \texttt{\%in\%} operator}{The \%in\% operator}}\label{the-in-operator}}
+\subsection{\texorpdfstring{The \texttt{\%in\%} operator}{The \%in\% operator}}\label{the-in-operator}}
 
 \texttt{\%in\%} is used to subset a vector by comparison. Here's an example:
 
@@ -1660,7 +1723,7 @@ When we look at the data, we've lost the names of the cars. To store the these, 
 The \%in\% operator can be used in combination with other functions like \texttt{subset()} and \texttt{filter()}.
 
 \hypertarget{extract-operators}{%
-\subsubsection{Extract operators}\label{extract-operators}}
+\subsection{Extract operators}\label{extract-operators}}
 
 The \emph{extract operators} are used to retrieve data from objects in R. The operator may take four forms, including \texttt{{[}{]}}, \texttt{{[}{[}{]}{]}}, and \texttt{\$}.
 
@@ -1743,7 +1806,7 @@ will return the values of the variable \texttt{cyl} from the data frame \texttt{
 Thus, x\$y is actually just a short form for x{[}{[}``y''{]}{]}.
 
 \hypertarget{logical-operators}{%
-\subsubsection{Logical operators}\label{logical-operators}}
+\subsection{Logical operators}\label{logical-operators}}
 
 The extract operators can be combined with the \emph{logical operators} (more precisely, I should call these \emph{binary relational operators}) that are shown in the table below.
 
@@ -1930,7 +1993,7 @@ Select rows where either mpg is greater than 25 or carb is less than 2, and the 
 \end{verbatim}
 
 \hypertarget{if-statements}{%
-\subsection{If Statements}\label{if-statements}}
+\subsection{If statements}\label{if-statements}}
 
 In many cases, it's necessary to execute certain code only when a particular condition is met. To achieve this, there are several conditional statements that can be used in code. These include:
 
@@ -2017,63 +2080,6 @@ When you have a fixed number of cases and don't want to use a long chain of if-e
 The \texttt{mutate()} function is used to add the new variable, and \texttt{case\_when()} is used to assign the values ``four'', ``six'', or ``eight'' to the new variable based on the number of cylinders in each car.
 
 It evaluates one of several expressions based on the value of a given control expression. It takes two arguments: the control expression and a list of named expressions, each of which is evaluated if its name matches the value of the control expression. If no match is found, an optional default expression is evaluated. The switch() function is particularly useful
-
-\hypertarget{values}{%
-\subsection{Values}\label{values}}
-
-There are some special data values used in R that needs further explanation:
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{NA} stands for \emph{not available} or \emph{missing} and is used to represent missing or undefined values.
-\item
-  \texttt{Inf} stands for \emph{infinity} and is used to represent mathematical infinity, such as the result of dividing a non-zero number by zero. Can be positive or negative.\\
-\item
-  \texttt{NULL} represents an empty or non-existent object. It is often used as a placeholder when a value or object is not yet available or when an object is intentionally removed.
-\item
-  \texttt{NaN} stands for \emph{not a number} and is used to represent an undefined or unrepresentable value, such as the result of taking the square root of a negative number. It can also occur as a result of certain arithmetic operations that are undefined. In contrast to \texttt{NA} it can only exist in numerical data.
-\end{itemize}
-
-\hypertarget{data-classes}{%
-\subsection{Data classes}\label{data-classes}}
-
-In R, different data classes, or types of data exist:
-
-\begin{itemize}
-\tightlist
-\item
-  \emph{numeric}: can be any real number
-\item
-  \emph{charackter}: strings and characters
-\item
-  \emph{integer}: any whole numbers
-\item
-  \emph{factor}: any categorial or qualitative variable with finite number of distinct outcomes
-\item
-  \emph{logical}: contain either \texttt{TRUE} or \texttt{FALSE}
-\item
-  \emph{Date}: special format that describes time
-\end{itemize}
-
-The following example should exemplify these types of data:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{integer\_var }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{)}
-\NormalTok{numeric\_var }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\FloatTok{1.1}\NormalTok{, }\FloatTok{2.2}\NormalTok{, }\ConstantTok{NA}\NormalTok{, }\FloatTok{4.4}\NormalTok{, }\FloatTok{5.5}\NormalTok{)}
-\NormalTok{character\_var }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"apple"}\NormalTok{, }\StringTok{"banana"}\NormalTok{, }\StringTok{"orange"}\NormalTok{, }\StringTok{"cherry"}\NormalTok{, }\StringTok{"grape"}\NormalTok{)}
-\NormalTok{factor\_var }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"yellow"}\NormalTok{, }\StringTok{"red"}\NormalTok{, }\StringTok{"blue"}\NormalTok{, }\StringTok{"green"}\NormalTok{))}
-\NormalTok{logical\_var }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{, }\ConstantTok{FALSE}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{)}
-\NormalTok{date\_var }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"2022{-}01{-}01"}\NormalTok{, }\StringTok{"2022{-}02{-}01"}\NormalTok{, }\StringTok{"2022{-}03{-}01"}\NormalTok{, }\StringTok{"2022{-}04{-}01"}\NormalTok{, }\StringTok{"2022{-}05{-}01"}\NormalTok{))}
-
-\NormalTok{date\_var[}\DecValTok{2}\NormalTok{] }\SpecialCharTok{{-}}\NormalTok{ date\_var[}\DecValTok{5}\NormalTok{] }\CommentTok{\# number of days in between these two dates}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Time difference of -89 days
-\end{verbatim}
 
 \hypertarget{data-manipulation-with-dplyr}{%
 \section{Data manipulation with dplyr}\label{data-manipulation-with-dplyr}}
@@ -2347,13 +2353,13 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.3, 19.2, 27.3~
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32~
 ## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7, 75.7, 71.1, 120.1, 318.0, 304~
-## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 150, 245, 175, 66, 91, 113, 264, 175, 335, 109
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.70, 2.76, 3.15, 3.73, 3.08, 4.08~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.200, 1.615, 1.835, 2.465, 3.520, ~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.47, 18.52, 19.90, 20.01, 16.87, ~
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0,~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 1~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250,~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98,~
 ## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
 ## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
 ## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
@@ -2966,31 +2972,37 @@ When seeking help, be sure to provide information about your machine, including 
 \end{Shaded}
 
 \begin{verbatim}
-## R version 4.1.2 (2021-11-01)
+## R version 4.3.0 (2023-04-21)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 11 (bullseye)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
-## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.13.so
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## time zone: Europe/Berlin
+## tzcode source: system (glibc)
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.2     janitor_2.2.0   cowplot_1.1.1   wbstats_1.0.4   lubridate_1.9.2 forcats_1.0.0   stringr_1.5.0   purrr_1.0.1     readr_2.1.4     tidyr_1.3.0    
-## [11] tibble_3.2.1    ggplot2_3.4.2   tidyverse_2.0.0 scales_1.2.1   
+##  [1] dplyr_1.1.0     janitor_2.2.0   cowplot_1.1.1   wbstats_1.0.4   lubridate_1.9.2 forcats_1.0.0   stringr_1.5.0  
+##  [8] purrr_1.0.1     readr_2.1.4     tidyr_1.3.0     tibble_3.1.8    ggplot2_3.4.2   tidyverse_2.0.0 scales_1.2.1   
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tinytex_0.45     tidyselect_1.2.0 xfun_0.39        bslib_0.4.2      snakecase_0.11.0 colorspace_2.1-0 vctrs_0.6.2      generics_0.1.3   htmltools_0.5.5  yaml_2.3.7      
-## [11] utf8_1.2.3       rlang_1.1.1      jquerylib_0.1.4  pillar_1.9.0     glue_1.6.2       withr_2.5.0      lifecycle_1.0.3  munsell_0.5.0    gtable_0.3.3     evaluate_0.20   
-## [21] knitr_1.42       tzdb_0.3.0       fastmap_1.1.1    curl_5.0.0       fansi_1.0.4      highr_0.10       Rcpp_1.0.10      cachem_1.0.8     magick_2.7.4     jsonlite_1.8.4  
-## [31] hms_1.1.3        digest_0.6.31    stringi_1.7.12   bookdown_0.33.3  grid_4.1.2       cli_3.6.1        tools_4.1.2      magrittr_2.0.3   sass_0.4.6       crayon_1.5.2    
-## [41] pkgconfig_2.0.3  timechange_0.2.0 rmarkdown_2.21   httr_1.4.5       rstudioapi_0.14  R6_2.5.1         compiler_4.1.2
+##  [1] sass_0.4.5       utf8_1.2.3       generics_0.1.3   stringi_1.7.12   hms_1.1.2        digest_0.6.31    magrittr_2.0.3  
+##  [8] evaluate_0.20    grid_4.3.0       timechange_0.2.0 bookdown_0.33    fastmap_1.1.0    jsonlite_1.8.4   httr_1.4.5      
+## [15] fansi_1.0.4      jquerylib_0.1.4  cli_3.6.0        crayon_1.5.2     rlang_1.1.0      ellipsis_0.3.2   munsell_0.5.0   
+## [22] withr_2.5.0      cachem_1.0.6     yaml_2.3.7       tools_4.3.0      tzdb_0.3.0       colorspace_2.1-0 curl_5.0.0      
+## [29] vctrs_0.5.2      R6_2.5.1         lifecycle_1.0.3  snakecase_0.11.0 pkgconfig_2.0.3  pillar_1.8.1     bslib_0.4.2     
+## [36] gtable_0.3.1     glue_1.6.2       xfun_0.37        tidyselect_1.2.0 highr_0.10       rstudioapi_0.14  knitr_1.42      
+## [43] htmltools_0.5.4  rmarkdown_2.20   compiler_4.3.0
 \end{verbatim}
 
   \bibliography{book.bib}
