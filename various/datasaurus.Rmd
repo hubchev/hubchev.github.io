@@ -1,0 +1,131 @@
+---
+title: "Datasaurus"
+author: "Stephan Huber"
+date: "2023-05-16"
+output:
+  unilur::tutorial_html_solution:
+    collapse: TRUE
+    solution_suffix: _exercise
+  unilur::tutorial_html: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+options(knitr.table.format = "html")
+```
+
+
+a) Load the packages `datasauRus` and `tidyverse`. If necessary, install these packages.
+
+```{r solution=FALSE}
+#install.packages("datasauRus")
+library(datasauRus)
+```
+
+b) The package`datasauRus` comes with a dataset in two different formats: `datasaurus_dozen` and `datasaurus_dozen_wide`. Store them as `ds` and `ds_wide`.  
+
+```{r, solution = FALSE}
+ds <- datasaurus_dozen
+ds_wide <- datasaurus_dozen_wide
+```
+
+c) Open and read the R vignette of the `datasauRus` package. Also open the R documentation of the dataset `datasaurus_dozen`.
+
+```{r, solution = FALSE}
+??datasaurus
+```
+
+d) Explore the dataset: What are the dimensions of this dataset? Look at the descriptive statistics.
+
+```{r, solution = FALSE}
+ds
+dim(ds)
+head(ds)
+glimpse(ds)
+view(ds)
+summary(ds)
+```
+
+e) How many unique values does the variable `dataset` of the tibble `ds` have? Hint: The function unique() return the unique values of a variable and the function length() returns the length of a vector, such as the unique elements.
+
+```{r, solution = TRUE}
+unique(ds$dataset)  
+unique(ds$dataset) |> 
+  length()
+```
+
+f) Compute the mean values of the `x` and `y` variables for each entry in `dataset`. Hint: Use the group_by() function to group the data by the appropriate column and then the summarise() function to calculate the mean.
+
+
+```{r, solution = TRUE}
+ds |> 
+  group_by(dataset) |> 
+  summarise(mean_x = mean(x),
+            mean_y = mean(y))
+```
+
+g) Compute the standard deviation, the correlation, and the median in the same way. Round the numbers.
+
+
+```{r, solution = TRUE}
+ds |> 
+  group_by(dataset) |> 
+  summarise(mean_x = round(mean(x),2),
+            mean_y = round(mean(y),2),
+            sd_x = round(sd(x),2),
+            sd_y = round(sd(y),2),
+            med_x = round(median(x),2),
+            med_y = round(median(y),2),
+            cor = round(cor(x,y),4))
+```
+
+h) What can you conclude?
+
+```{asis,  solution = TRUE}
+The standard deviation, the mean, and the correlation are basically the same for all datasets. The median is different.
+```
+
+i) Plot all datasets of `ds`. Hide the legend. Hint: Use the `facet_wrap()` and the `theme()` function.
+
+```{r, fig.height = 8, fig.asp = 1, solution = TRUE}
+ggplot(ds, aes(x = x, y = y)) +
+  geom_point() +
+  facet_wrap(~ dataset, ncol = 3) +
+  theme(legend.position = "none") 
+```
+
+
+j) Create a loop that generates separate scatter plots for each unique datatset of the tibble `ds`. Export each graph as a png file.
+
+```{r eval=F, echo=T,  solution=TRUE}
+# Get unique values
+uni_ds <- unique(ds$dataset)    
+
+# Scatter plot for each dataset
+for (uni_v in uni_ds) {
+# Select data for the current value
+  subset_ds <- ds |> 
+    filter(dataset == uni_v) %>%
+    select(x, y)
+  
+  # Make plot
+  graph <- ggplot(subset_ds, aes(x = x, y = y)) +
+    geom_point() +
+    labs(title = paste("Dataset:", uni_v),
+         x = "X",
+         y = "Y") +
+    theme_bw()
+  
+  # Save the plot as a PNG file
+  filename <- paste0("../pic/", "plot_ds_", uni_v, ".png")
+  ggsave(filename, plot = graph)
+}
+
+
+
+
+
+
