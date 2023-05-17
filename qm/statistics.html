@@ -845,11 +845,9 @@ R^2 &amp; = \frac{ESS}{TSS}.
 Since <span class="math inline">\(TSS = ESS + SSR\)</span> we can also write
 <span class="math display">\[R^2 = 1- \frac{\textcolor{blue}{SSR}}{\textcolor{red}{TSS}}\]</span>
 with <span class="math inline">\(SSR= \sum_{i = 1}^n \epsilon^2\)</span>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fitR"></span>
-<img src="fig/fitR.png" alt="Total sum of squares and sum of squared residuals" width="960" />
-<p class="caption">
-Figure 3.7: Total sum of squares and sum of squared residuals
-</p>
+<div class="figure"><span style="display:block;" id="fig:fitR"></span>
+<img src="fig/fitR.png" style="width:75.0%" alt="" />
+<p class="caption">Figure 3.7:  Total sum of squares and sum of squared residuals</p>
 </div>
 <p><span class="math inline">\(R^2\)</span> lies between 0 and 1. It is easy to see that a perfect fit, i.e., no errors made when fitting the regression line, implies <span class="math inline">\(R2=1\)</span> since then we have <span class="math inline">\(SSR=0\)</span>. On the contrary, if our estimated regression line does not explain any variation in the <span class="math inline">\(Y_i\)</span>, we have <span class="math inline">\(ESS=0\)</span> and consequently <span class="math inline">\(R^2=0\)</span>. Figure <a href="statistics.html#fig:fitR">3.7</a> show the relationship of TTS and SSR.</p>
 </div>
@@ -862,17 +860,13 @@ Figure 3.7: Total sum of squares and sum of squared residuals
 <p>Secondly, Simpson’s paradox is not an isolated phenomenon of interest solely to statisticians. It belongs to a larger class of association paradoxes, indicating that similar situations can arise in various contexts.</p>
 <p>Lastly, Simpson’s paradox serves as a reminder to researchers about the potential pitfalls of making causal inferences, especially in nonexperimental studies. Uncontrolled or unobserved variables may exist that can eliminate or reverse the observed association between two variables.</p>
 <p>Thus, it is important to consider confounding variables to ensure valid and reliable causal interpretations in research, particularly in nonexperimental settings.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:foo-1"></span>
-<img src="fig/foo-13.png" alt="Simpsons paradox and the power of controlling variables" width="350" />
-<p class="caption">
-Figure 3.8: Simpsons paradox and the power of controlling variables
-</p>
+<div class="figure"><span style="display:block;" id="fig:foo13"></span>
+<img src="fig/foo-13.png" style="width:75.0%" alt="" />
+<p class="caption">Figure 3.8:  Simpsons paradox and the power of controlling variables (1)</p>
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:foo-2"></span>
-<img src="fig/foo-32.png" alt="Simpsons paradox and the power of controlling variables" width="350" />
-<p class="caption">
-Figure 3.9: Simpsons paradox and the power of controlling variables
-</p>
+<div class="figure"><span style="display:block;" id="fig:foo32"></span>
+<img src="fig/foo-32.png" style="width:75.0%" alt="" />
+<p class="caption">Figure 3.9:  Simpsons paradox and the power of controlling variables (1)</p>
 </div>
 <p>The multiple regression model can be expressed as
 <span class="math display">\[
@@ -921,12 +915,9 @@ However, OLS estimates can suffer from omitted variable bias when any regressor,
 <p>For example, consider a regression analysis that examines the relationship between income (dependent variable) and education level (independent variable) while controlling for age, gender, and work experience. By stating <em>ceteris paribus</em>, we are assuming that age, gender, and work experience remain constant, and we are solely interested in understanding the impact of education level on income.</p>
 <div class="exercise">
 <p><span id="exr:lookatoutput" class="exercise"><strong>Exercise 3.7  </strong></span>Look at the Output</p>
-</div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:regstata2"></span>
-<img src="fig/reg_stata2.png" alt="Regression output" width="484" />
-<p class="caption">
-Figure 3.10: Regression output
-</p>
+<div class="figure"><span style="display:block;" id="fig:regstata2"></span>
+<img src="fig/reg_stata2.png" style="width:85.0%" alt="" />
+<p class="caption">Figure 3.10:  Regression output</p>
 </div>
 <p>Above you see an excerpt of a regression output taken from a statistical program. Some t-values and p-values are missing.</p>
 <ol style="list-style-type: lower-alpha">
@@ -934,9 +925,9 @@ Figure 3.10: Regression output
 </li>
 <li>Is the coefficient foreign at a level of <span class="math inline">\(\alpha=0.05\)</span> statistically significant?<br />
 </li>
-<li>Is the constant at a level of <span class="math inline">\(\alpha=0.05\)</span> statistically significant?
-```</li>
+<li>Is the constant at a level of <span class="math inline">\(\alpha=0.05\)</span> statistically significant?</li>
 </ol>
+</div>
 <div class="exercise">
 <p><span id="exr:exrstataoutput" class="exercise"><strong>Exercise 3.8  </strong></span>Look at Stata Output</p>
 <p>Below you find two regression outputs from Stata. Try to interpret the p-values and the confidence intervals. How are the t-values calculated. Can you use the <em>magic number</em> 1.96 to say if a corresponding estimated coefficient is statistically significant, or not? Which estimated model is <em>better</em>?</p>
@@ -951,8 +942,8 @@ Figure 3.10: Regression output
 </div>
 <div class="exercise">
 <p><span id="exr:explainweight" class="exercise"><strong>Exercise 3.9  </strong></span>Explain the weight</p>
-<p>In this pdf</p>
-<p>Download the R script <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R">here</a>. In this script, I try to explain the weight of students. Try to execute the script with R.</p>
+<p>Download the file <a href="https://github.com/hubchev/courses/blob/main/pdfs/exe_calories.pdf">exe_calories.pdf</a> from GitHub and answer the questions therein.</p>
+<p>Solutions are provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R">here</a>.</p>
 </div>
 </div>
 </div>
