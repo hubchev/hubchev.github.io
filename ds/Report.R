@@ -179,37 +179,6 @@ mtcars |>
   group_by(cyl) |> 
   summarise_at(c("mpg", "hp"), mean)
 
-## install.packages("tidyverse")
-## library("tidyverse")
-
-# create some data `x`
-x <- c(1, 1.002, 1.004, .99, .99)
-# take the logarithm of `x`, 
-log_x <- log(x)
-# compute the lagged and iterated differences (see `diff()`)
-growth_rate_x <- diff(log_x)
-growth_rate_x
-# round the result (4 digit)
-growth_rate_x_round <- round(growth_rate_x, 4)
-growth_rate_x_round 
-
-round(diff(log(x)), 4)
-
-# load one of these packages: `magrittr` or `tidyverse`
-library(tidyverse)
-
-# Perform the same computations on `x` as above
-x |> 
-  log() |>
-  diff() |>
-  round(4)
-
-
-mtcars |> 
-  filter(cyl>4) |> 
-  group_by(cyl) |> 
-  summarise_at(c("mpg", "hp"), mean)
-
 # defining multiple vectors using the colon operator `:`
 v_a <- c(1:3)
 v_a
@@ -595,20 +564,16 @@ mtcars |>
 ## Please find solutions [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R).
 
 
-## 
-
 ## Explain the weight
 
 ## 
 
-## Download the file [exe_calories.pdf](https://github.com/hubchev/courses/blob/main/pdfs/exe_calories.pdf) from GitHub and answer the questions therein.
+## In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with corelations and a regression analysis the association. Load the data as follows:
 
 ## 
 
-## Solutions are provided [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R).
-
-## 
-
+library("haven")
+classdata <- read.csv("https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv")
 
 ## 
 

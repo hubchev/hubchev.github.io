@@ -992,7 +992,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.1/dplyr"
+## [1] "/usr/local/lib/R/site-library/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1147,127 +1147,6 @@ When it comes to data visualization, there's no better resource than the book by
 
 \hypertarget{the-tidyverse-universe}{%
 \section{The tidyverse universe}\label{the-tidyverse-universe}}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.3\textwidth,height=\textheight]{fig/tidyverse-logo.png}
-\caption{\label{fig:tidyverse-logo} The tidyverse universe}
-\end{figure}
-
-The R package \emph{tidyverse} is a collection of R packages. All packages share an underlying design philosophy, grammar, and data structures.
-The most popular packages are ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats. They provide functionality to model, transform, and visualize data. Tidyverse is extremely popular and many individual packages of tidyverse are regularly in the top 10 most downloaded R packages on CRAN\footnote{CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R, see: \url{https://cran.r-project.org}.}. How to do data science with tidyverse is the subject of multiple books and tutorials. In particular, the popular book \emph{R for Data Science} by \citet{Wickham2023R} is all about the tidyverse universe. Thus, I highly recommend reading sections 3 (\href{https://r4ds.hadley.nz/workflow-basics.html}{Workflow: basics}) and 4 (\href{https://r4ds.hadley.nz/data-transform.html}{Data transformation}) of \citet{Wickham2023R}. Addidionally, visit www.tidyverse.org and, if you still haven`t done so, do the tidyverse module of my swirl package, called \emph{swirl-it}, see section \ref{swirl}.
-
-To install and load tidyverse run the following lines of code:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
-\FunctionTok{library}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{pipeoperator}{%
-\section{The pipe operator}\label{pipeoperator}}
-
-The pipe operator, \%\textgreater\%, comes from the magrittr package, which is also part of the tidyverse package. The base pipe operator, \textbar\textgreater, has been part of base R since version 4.1.0. For most cases, these two operators are identical. The pipe operator is designed to help you write code in a way that is easier to read and understand. As R is a functional language, code often contains a lot of parentheses, ( and ). Nesting these parentheses together can be complex and make your R code hard to read and understand, which is where \textbar\textgreater{} comes to the rescue! It allows you to use the output of a function as the input of the next function. Consider the following example of code to explain the usage of the pipe operator:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# create some data \textasciigrave{}x\textasciigrave{}}
-\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FloatTok{1.002}\NormalTok{, }\FloatTok{1.004}\NormalTok{, .}\DecValTok{99}\NormalTok{, .}\DecValTok{99}\NormalTok{)}
-\CommentTok{\# take the logarithm of \textasciigrave{}x\textasciigrave{}, }
-\NormalTok{log\_x }\OtherTok{\textless{}{-}} \FunctionTok{log}\NormalTok{(x)}
-\CommentTok{\# compute the lagged and iterated differences (see \textasciigrave{}diff()\textasciigrave{})}
-\NormalTok{growth\_rate\_x }\OtherTok{\textless{}{-}} \FunctionTok{diff}\NormalTok{(log\_x)}
-\NormalTok{growth\_rate\_x}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  0.001998003  0.001994019 -0.014042357  0.000000000
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# round the result (4 digit)}
-\NormalTok{growth\_rate\_x\_round }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(growth\_rate\_x, }\DecValTok{4}\NormalTok{)}
-\NormalTok{growth\_rate\_x\_round }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  0.002  0.002 -0.014  0.000
-\end{verbatim}
-
-That is rather long and we actually don't need objects log\_x, growth\_rate\_x, and growth\_rate\_x\_round.
-Well, then let us write that in a nested function:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{round}\NormalTok{(}\FunctionTok{diff}\NormalTok{(}\FunctionTok{log}\NormalTok{(x)), }\DecValTok{4}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  0.002  0.002 -0.014  0.000
-\end{verbatim}
-
-This is short but hard to read and understand. The solution is the \emph{pipe}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# load one of these packages: \textasciigrave{}magrittr\textasciigrave{} or \textasciigrave{}tidyverse\textasciigrave{}}
-\FunctionTok{library}\NormalTok{(tidyverse)}
-
-\CommentTok{\# Perform the same computations on \textasciigrave{}x\textasciigrave{} as above}
-\NormalTok{x }\SpecialCharTok{|\textgreater{}} 
-  \FunctionTok{log}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
-  \FunctionTok{diff}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
-  \FunctionTok{round}\NormalTok{(}\DecValTok{4}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1]  0.002  0.002 -0.014  0.000
-\end{verbatim}
-
-You can read the \textbar\textgreater{} with \emph{``and then''} because it takes the results of some function \emph{``and then''} does something with that in the next.
-For example, reading out loud the following code would sound something like this:
-
-\begin{itemize}
-\tightlist
-\item
-  I take the mtcars data, \emph{and then}
-\item
-  I consider only cars with more than 4 cylinders, \emph{and then}
-\item
-  I group the cars by the number of cylinders the cars have, \emph{and then}
-\item
-  I summarize the data and show the means of miles per gallon (mpg) and horse powers (hp) by groups of cars that distinguish by their number of cylinders.
-\end{itemize}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{mtcars }\SpecialCharTok{|\textgreater{}} 
-  \FunctionTok{filter}\NormalTok{(cyl}\SpecialCharTok{\textgreater{}}\DecValTok{4}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
-  \FunctionTok{group\_by}\NormalTok{(cyl) }\SpecialCharTok{|\textgreater{}} 
-  \FunctionTok{summarise\_at}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"mpg"}\NormalTok{, }\StringTok{"hp"}\NormalTok{), mean)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## # A tibble: 2 x 3
-##     cyl   mpg    hp
-##   <dbl> <dbl> <dbl>
-## 1     6  19.7  122.
-## 2     8  15.1  209.
-\end{verbatim}
-
-\hypertarget{manage-data-1}{%
-\chapter{Manage data}\label{manage-data-1}}
-
-\hypertarget{the-tidyverse-universe-1}{%
-\section{The tidyverse universe}\label{the-tidyverse-universe-1}}
 
 \begin{figure}
 \centering
@@ -2855,51 +2734,59 @@ Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/ma
 \begin{exercise}
 \protect\hypertarget{exr:explainweight}{}\label{exr:explainweight}Explain the weight
 
-Download the file \href{https://github.com/hubchev/courses/blob/main/pdfs/exe_calories.pdf}{exe\_calories.pdf} from GitHub and answer the questions therein.
-
-Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R}{here}.
+In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with corelations and a regression analysis the association. Load the data as follows:
 \end{exercise}
 
-\begin{exercise}
-\protect\hypertarget{exr:unemgerfra}{}\label{exr:unemgerfra}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"haven"}\NormalTok{)}
+\NormalTok{classdata }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+A sketch of a solutions is provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R}{here}.
+
+\begin{verbatim}
+
+
+::: {.exercise #unemgerfra}
 
 Unemployment and GDP in Germany and France
 
 The following exercise was a former exam.
 
-Please answer all (!) questions in an R script. Normal text should be written as comments, using the `\#' to comment out text. Make sure the script runs without errors before submitting it. Each task (starting with 1) is worth five points. You have a total of 120 minutes of editing time. Please do not forget to number your answers.
-
+Please answer all (!) questions in an R script. Normal text should be written as comments, using the '#' to comment out text. Make sure the script runs without errors before submitting it. Each task (starting with 1) is worth five points. You have a total of 120 minutes of editing time. Please do not forget to number your answers.
+ 
 When you are done with your work, save the R script, export the script to pdf format and upload the pdf file.
 
-Suppose you aim to empirically examine unemployment and GDP for Germany and France. The data set that we use in the following is `forest.Rdata'.
+Suppose you aim to empirically examine unemployment and GDP for Germany and France. The data set that we use in the following is 'forest.Rdata'.
 
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\setcounter{enumi}{-1}
-\item
-  Write down your name, matriculation number, and date.
-\item
-  Set your working directory.
-\end{enumerate}
+(0)    
+ Write down your name, matriculation number, and date.
 
-\end{exercise}
+(1)    
+ Set your working directory. 
 
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\setcounter{enumi}{1}
-\item
-  Clear your global environment.
-\item
-  Install and load the following packages: `tidyverse', `sjPlot', and `ggpubr'
-\item
-  Download and load the data, respectively, with the following code:
-\end{enumerate}
+:::
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{load}\NormalTok{(}\FunctionTok{url}\NormalTok{(}\StringTok{"https://github.com/hubchev/courses/raw/main/dta/forest.Rdata"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
+
+(2)    
+Clear your global environment.
+ 
+
+
+(3)    
+Install and load the following packages: 'tidyverse', 'sjPlot', and 'ggpubr'
+ 
+
+
+(4)    
+Download and load the data, respectively, with the following code: 
+ 
+
+```r
+load(url("https://github.com/hubchev/courses/raw/main/dta/forest.Rdata"))
+\end{verbatim}
 
 If that is not working, you can also download the data from ILIAS, save it in
 your working directory and load it from there with:
@@ -3055,7 +2942,7 @@ your working directory and load it from there with:
   (Hint: Below you can see one of many possible examples of what your result may look like).
 \end{enumerate}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-79-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-75-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -3066,7 +2953,7 @@ your working directory and load it from there with:
   The following chart shows the simultaneous development of the unemployment rate and GDP per capita over time for \textbf{France}.
 \end{enumerate}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-80-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-76-1.pdf}
 
 Suppose you want to visualize the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany as well.\\
 Suppose further that you have found the following lines of code that create the kind of chart you are looking for.
@@ -3083,12 +2970,12 @@ Suppose further that you have found the following lines of code that create the 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-81-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-77-1.pdf}
 
 Use these lines of code and customize them to create the co-movement visualization for \textbf{Germany} using the available `df' data.
 The result should look something like this:
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-82-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-78-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -3411,13 +3298,13 @@ When seeking help, be sure to provide information about your machine, including 
 \end{Shaded}
 
 \begin{verbatim}
-## R version 4.1.2 (2021-11-01)
+## R version 4.3.0 (2023-04-21)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 11 (bullseye)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
-## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.13.so
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
 ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -3427,36 +3314,40 @@ When seeking help, be sure to provide information about your machine, including 
 ##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
 ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
+## time zone: Europe/Berlin
+## tzcode source: system (glibc)
+## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.2     scales_1.2.1    sjPlot_2.8.14   ggpubr_0.6.0   
-##  [5] janitor_2.2.0   wbstats_1.0.4   lubridate_1.9.2 forcats_1.0.0  
-##  [9] stringr_1.5.0   purrr_1.0.1     readr_2.1.4     tidyr_1.3.0    
-## [13] tibble_3.2.1    ggplot2_3.4.2   tidyverse_2.0.0 captioner_2.2.3
+##  [1] dplyr_1.1.2          sjPlot_2.8.14        ggpubr_0.6.0        
+##  [4] haven_2.5.2          janitor_2.2.0        wbstats_1.0.4       
+##  [7] lubridate_1.9.2      forcats_1.0.0        stringr_1.5.0       
+## [10] purrr_1.0.1          readr_2.1.4          tidyr_1.3.0         
+## [13] tibble_3.2.1         ggplot2_3.4.2        tidyverse_2.0.0     
+## [16] scales_1.2.1         captioner_2.2.3.9000
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] httr_1.4.5         sass_0.4.6         splines_4.1.2      jsonlite_1.8.4    
-##  [5] carData_3.0-5      modelr_0.1.11      bslib_0.4.2        highr_0.10        
-##  [9] yaml_2.3.7         bayestestR_0.13.1  pillar_1.9.0       backports_1.4.1   
-## [13] lattice_0.21-8     glue_1.6.2         digest_0.6.31      ggsignif_0.6.4    
-## [17] minqa_1.2.5        snakecase_0.11.0   colorspace_2.1-0   Matrix_1.5-4      
-## [21] htmltools_0.5.5    pkgconfig_2.0.3    broom_1.0.4        bookdown_0.33.3   
-## [25] xtable_1.8-4       mvtnorm_1.1-3      lme4_1.1-33        tzdb_0.3.0        
-## [29] timechange_0.2.0   emmeans_1.8.5      farver_2.1.1       generics_0.1.3    
-## [33] car_3.1-2          sjlabelled_1.2.0   cachem_1.0.8       withr_2.5.0       
-## [37] cli_3.6.1          magrittr_2.0.3     crayon_1.5.2       estimability_1.4.1
-## [41] evaluate_0.21      fansi_1.0.4        nlme_3.1-162       MASS_7.3-60       
-## [45] rstatix_0.7.2      tools_4.1.2        hms_1.1.3          lifecycle_1.0.3   
-## [49] munsell_0.5.0      ggeffects_1.2.2    compiler_4.1.2     jquerylib_0.1.4   
-## [53] tinytex_0.45       rlang_1.1.1        nloptr_2.0.3       grid_4.1.2        
-## [57] rstudioapi_0.14    labeling_0.4.2     rmarkdown_2.21     boot_1.3-28.1     
-## [61] gtable_0.3.3       abind_1.4-5        sjstats_0.18.2     curl_5.0.0        
-## [65] sjmisc_2.8.9       R6_2.5.1           knitr_1.42         performance_0.10.3
-## [69] fastmap_1.1.1      utf8_1.2.3         insight_0.19.1     stringi_1.7.12    
-## [73] Rcpp_1.0.10        vctrs_0.6.2        tidyselect_1.2.0   xfun_0.39         
-## [77] coda_0.19-4
+##  [1] tidyselect_1.2.0   sjlabelled_1.2.0   farver_2.1.1       fastmap_1.1.1     
+##  [5] bayestestR_0.13.1  sjstats_0.18.2     digest_0.6.31      timechange_0.2.0  
+##  [9] estimability_1.4.1 lifecycle_1.0.3    magrittr_2.0.3     compiler_4.3.0    
+## [13] rlang_1.1.1        sass_0.4.6         tools_4.3.0        utf8_1.2.3        
+## [17] yaml_2.3.7         knitr_1.42         ggsignif_0.6.4     labeling_0.4.2    
+## [21] curl_5.0.0         abind_1.4-5        withr_2.5.0        grid_4.3.0        
+## [25] fansi_1.0.4        xtable_1.8-4       colorspace_2.1-0   emmeans_1.8.6     
+## [29] MASS_7.3-60        insight_0.19.1     cli_3.6.1          mvtnorm_1.1-3     
+## [33] rmarkdown_2.21     crayon_1.5.2       generics_0.1.3     rstudioapi_0.14   
+## [37] performance_0.10.3 httr_1.4.6         modelr_0.1.11      tzdb_0.4.0        
+## [41] minqa_1.2.5        cachem_1.0.8       splines_4.3.0      vctrs_0.6.2       
+## [45] boot_1.3-28.1      Matrix_1.5-4       jsonlite_1.8.4     carData_3.0-5     
+## [49] bookdown_0.34      car_3.1-2          hms_1.1.3          rstatix_0.7.2     
+## [53] jquerylib_0.1.4    glue_1.6.2         nloptr_2.0.3       stringi_1.7.12    
+## [57] gtable_0.3.3       ggeffects_1.2.2    lme4_1.1-33        munsell_0.5.0     
+## [61] pillar_1.9.0       htmltools_0.5.5    R6_2.5.1           evaluate_0.21     
+## [65] lattice_0.21-8     highr_0.10         backports_1.4.1    broom_1.0.4       
+## [69] snakecase_0.11.0   bslib_0.4.2        Rcpp_1.0.10        coda_0.19-4       
+## [73] nlme_3.1-162       xfun_0.39          sjmisc_2.8.9       pkgconfig_2.0.3
 \end{verbatim}
 
   \bibliography{book.bib}
