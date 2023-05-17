@@ -129,6 +129,7 @@
 
 
 \usepackage{tikz}
+\usepackage{menukeys}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -156,7 +157,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 10 May, 2023}
+\date{Last compiled on 17 May, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -187,21 +188,16 @@
 \chapter*{Preface}\label{preface}}
 \addcontentsline{toc}{chapter}{Preface}
 
-\hypertarget{about-the-notes}{%
-\section*{About the notes}\label{about-the-notes}}
-
 \begin{itemize}
 \tightlist
 \item
-  This script aims to support my lecture at the HS Fresenius. It is incomplete and no substitute for taking actively part in class.
+  These notes aims to support my lecture at the HS Fresenius but are incomplete and no substitute for taking actively part in class. - A pdf version of these notes is available \href{https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/ds/_main.pdf}{here}
 \item
-  The old version of the notes can be found here PDF.
+  I host the notes in a \href{https://github.com/hubchev/hubchev.github.io/tree/main/ds}{GitHub repo}.
 \item
   I appreciate you reading it, and I appreciate any comments.
 \item
   This is work in progress so please check for updates regularly.
-\item
-  The lecture notes are available online or you can download it as a \href{https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/ds/_main.pdf}{pdf file here}
 \item
   These notes are published under a Creative Commons BY-SA license (CC BY-SA) version 4.0. This means it can be reused, remixed, retained, revised and redistributed as long as appropriate credit is given to the authors. If you remix, or modify the original version of this open textbook, you must redistribute all versions of this open textbook under the same license---CC BY-SA. This script is build on the work of \citet{Navarro2020Learning}, \citet{Muschelli2022Introduction}, \citet{Thulin2021Modern}, and \citet{Ismay2022Statistical} which is also published under CC BY-SA.
 \end{itemize}
@@ -216,9 +212,9 @@
 \end{figure}
 \footnotetext{Picture is taken from \url{https://sites.google.com/view/stephanhuber}}
 
-Prof.~Dr.~Stephan Huber is Professor of International Economics and Data Science at \emph{HS Fresenius} and holds a Diploma in Economics from the \emph{University of Regensburg} and a Doctoral Degree (summa cum laude) from the University of Trier. He completed postgraduate studies at the \emph{Interdisciplinary Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU)} in Trier. He was a research assistant to Prof.~Dr.~Dr.~h.c. Joachim Möller at the \emph{University of Regensburg}, post-doc at the \emph{Leibniz Institute for East and Southeast European Studies (IOS)} in Regensburg and freelancer at \emph{Charles University} in Prague.
+I am a Professor of International Economics and Data Science at HS Fresenius, holding a Diploma in Economics from the University of Regensburg and a Doctoral Degree (summa cum laude) from the University of Trier. I completed postgraduate studies at the Interdisciplinary Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU) in Trier. Prior to my current position, I worked as a research assistant to Prof.~Dr.~Dr.~h.c. Joachim Möller at the University of Regensburg, a post-doc at the Leibniz Institute for East and Southeast European Studies (IOS) in Regensburg, and a freelancer at Charles University in Prague.
 
-He has worked as a lecturer at various institutions including the \emph{TU Munich}, the \emph{University of Regensburg}, \emph{Saarland University}, and the \emph{Universities of Applied Sciences in Frankfurt and Augsburg}. He has also taught abroad for the \emph{University of Cordoba} in Spain and the \emph{University of Perugia}. Professor Huber has published his work in international journals such as the \emph{Canadian Journal of Economics} and the \emph{Stata Journal}. More on his work can be found on his private homepage \href{https://www.t1p.de/stephanhuber}{www.t1p.de/stephanhuber}.
+Throughout my career, I have also worked as a lecturer at various institutions, including the TU Munich, the University of Regensburg, Saarland University, and the Universities of Applied Sciences in Frankfurt and Augsburg. Additionally, I have had the opportunity to teach abroad for the University of Cordoba in Spain and the University of Perugia. My published work can be found in international journals such as the Canadian Journal of Economics and the Stata Journal. For more information on my work, please visit my private homepage at www.t1p.de/stephanhuber.
 
 \textbf{Contact}
 
@@ -330,12 +326,12 @@ Here are a few useful tips to keep in mind as you learn to program:
 
 \includegraphics[width=0.4\textwidth,height=\textheight]{fig/aweres.png}
 
-Thousand of freely available books and resources exist. On (\url{https://bookdown.org/}) and in the \href{www.bigbookofr.com}{Big Book of R} is a big collection of links to R books that verifies my claim. Another nice collection of learning ressources can be found here:
+Thousand of freely available books and resources exist. On \href{https://bookdown.org}{bookdown.org} and in the \href{www.bigbookofr.com}{Big Book of R} is a big collection of links to R books that verifies my claim. Another nice collection of learning ressources can be found here:
 \href{https://github.com/iamericfletcher/awesome-r-learning-resources}{AWESOME R Learning-Resources}
 
 In Rstudio you find in the left panel at the bottom a panel that is called \emph{Help}. There you find a lot of links, manuals, and references that offer you tons of resources to learn R for free including:
-(\url{https://education.rstudio.com/})
-and (\url{https://support.rstudio.com/hc/en-us/articles/200552336-Getting-Help-with-R})
+\href{https://education.rstudio.com/}{education.rstudio.com}
+and \href{https://support.rstudio.com/hc/en-us/articles/200552336-Getting-Help-with-R}{Links for Getting Help with R}
 
 Since you may feel overwhelmed by the number of resources, I would like to highlight four books:
 
@@ -363,9 +359,9 @@ Some other sources that are worth mentioning are these:
 \item
   The search engine \href{http://www.rseek.org}{www.rseek.org} is R specific and often better than \href{http://www.google.com}{www.google.com} as it only searches for content that has to do with the programming language R.
 \item
-  On \href{http://www.rdocumentation.org}{www.rdocumentation.org} you can find the complete documentation of all R packages.
+  On \href{http://www.rdocumentation.org}{rdocumentation.org} you can find the complete documentation of all R packages.
 \item
-  Many find these \href{https://rstudio.com/resources/cheatsheets/}{cheatsheets} helpful.
+  Many find these \href{https://posit.co/resources/cheatsheets/}{cheatsheets} helpful.
 \end{itemize}
 
 \hypertarget{r-rstudio}{%
@@ -996,7 +992,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/usr/local/lib/R/site-library/dplyr"
+## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.1/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1151,6 +1147,127 @@ When it comes to data visualization, there's no better resource than the book by
 
 \hypertarget{the-tidyverse-universe}{%
 \section{The tidyverse universe}\label{the-tidyverse-universe}}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.3\textwidth,height=\textheight]{fig/tidyverse-logo.png}
+\caption{\label{fig:tidyverse-logo} The tidyverse universe}
+\end{figure}
+
+The R package \emph{tidyverse} is a collection of R packages. All packages share an underlying design philosophy, grammar, and data structures.
+The most popular packages are ggplot2, dplyr, tidyr, readr, purrr, tibble, stringr, and forcats. They provide functionality to model, transform, and visualize data. Tidyverse is extremely popular and many individual packages of tidyverse are regularly in the top 10 most downloaded R packages on CRAN\footnote{CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R, see: \url{https://cran.r-project.org}.}. How to do data science with tidyverse is the subject of multiple books and tutorials. In particular, the popular book \emph{R for Data Science} by \citet{Wickham2023R} is all about the tidyverse universe. Thus, I highly recommend reading sections 3 (\href{https://r4ds.hadley.nz/workflow-basics.html}{Workflow: basics}) and 4 (\href{https://r4ds.hadley.nz/data-transform.html}{Data transformation}) of \citet{Wickham2023R}. Addidionally, visit www.tidyverse.org and, if you still haven`t done so, do the tidyverse module of my swirl package, called \emph{swirl-it}, see section \ref{swirl}.
+
+To install and load tidyverse run the following lines of code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{pipeoperator}{%
+\section{The pipe operator}\label{pipeoperator}}
+
+The pipe operator, \%\textgreater\%, comes from the magrittr package, which is also part of the tidyverse package. The base pipe operator, \textbar\textgreater, has been part of base R since version 4.1.0. For most cases, these two operators are identical. The pipe operator is designed to help you write code in a way that is easier to read and understand. As R is a functional language, code often contains a lot of parentheses, ( and ). Nesting these parentheses together can be complex and make your R code hard to read and understand, which is where \textbar\textgreater{} comes to the rescue! It allows you to use the output of a function as the input of the next function. Consider the following example of code to explain the usage of the pipe operator:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# create some data \textasciigrave{}x\textasciigrave{}}
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FloatTok{1.002}\NormalTok{, }\FloatTok{1.004}\NormalTok{, .}\DecValTok{99}\NormalTok{, .}\DecValTok{99}\NormalTok{)}
+\CommentTok{\# take the logarithm of \textasciigrave{}x\textasciigrave{}, }
+\NormalTok{log\_x }\OtherTok{\textless{}{-}} \FunctionTok{log}\NormalTok{(x)}
+\CommentTok{\# compute the lagged and iterated differences (see \textasciigrave{}diff()\textasciigrave{})}
+\NormalTok{growth\_rate\_x }\OtherTok{\textless{}{-}} \FunctionTok{diff}\NormalTok{(log\_x)}
+\NormalTok{growth\_rate\_x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  0.001998003  0.001994019 -0.014042357  0.000000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# round the result (4 digit)}
+\NormalTok{growth\_rate\_x\_round }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(growth\_rate\_x, }\DecValTok{4}\NormalTok{)}
+\NormalTok{growth\_rate\_x\_round }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  0.002  0.002 -0.014  0.000
+\end{verbatim}
+
+That is rather long and we actually don't need objects log\_x, growth\_rate\_x, and growth\_rate\_x\_round.
+Well, then let us write that in a nested function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{round}\NormalTok{(}\FunctionTok{diff}\NormalTok{(}\FunctionTok{log}\NormalTok{(x)), }\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  0.002  0.002 -0.014  0.000
+\end{verbatim}
+
+This is short but hard to read and understand. The solution is the \emph{pipe}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# load one of these packages: \textasciigrave{}magrittr\textasciigrave{} or \textasciigrave{}tidyverse\textasciigrave{}}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+
+\CommentTok{\# Perform the same computations on \textasciigrave{}x\textasciigrave{} as above}
+\NormalTok{x }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{log}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{diff}\NormalTok{() }\SpecialCharTok{|\textgreater{}}
+  \FunctionTok{round}\NormalTok{(}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  0.002  0.002 -0.014  0.000
+\end{verbatim}
+
+You can read the \textbar\textgreater{} with \emph{``and then''} because it takes the results of some function \emph{``and then''} does something with that in the next.
+For example, reading out loud the following code would sound something like this:
+
+\begin{itemize}
+\tightlist
+\item
+  I take the mtcars data, \emph{and then}
+\item
+  I consider only cars with more than 4 cylinders, \emph{and then}
+\item
+  I group the cars by the number of cylinders the cars have, \emph{and then}
+\item
+  I summarize the data and show the means of miles per gallon (mpg) and horse powers (hp) by groups of cars that distinguish by their number of cylinders.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{filter}\NormalTok{(cyl}\SpecialCharTok{\textgreater{}}\DecValTok{4}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{group\_by}\NormalTok{(cyl) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{summarise\_at}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"mpg"}\NormalTok{, }\StringTok{"hp"}\NormalTok{), mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##     cyl   mpg    hp
+##   <dbl> <dbl> <dbl>
+## 1     6  19.7  122.
+## 2     8  15.1  209.
+\end{verbatim}
+
+\hypertarget{manage-data-1}{%
+\chapter{Manage data}\label{manage-data-1}}
+
+\hypertarget{the-tidyverse-universe-1}{%
+\section{The tidyverse universe}\label{the-tidyverse-universe-1}}
 
 \begin{figure}
 \centering
@@ -1423,10 +1540,14 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##   iso3c date        value    indicatorID         indicator iso2c                     country
-## 2   AFE 2021 1.089454e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
-## 3   AFE 2020 9.341791e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
-## 4   AFE 2019 1.009052e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+##   iso3c date        value    indicatorID         indicator iso2c
+## 2   AFE 2021 1.089454e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH
+## 3   AFE 2020 9.341791e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH
+## 4   AFE 2019 1.009052e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH
+##                       country
+## 2 Africa Eastern and Southern
+## 3 Africa Eastern and Southern
+## 4 Africa Eastern and Southern
 \end{verbatim}
 
 \begin{Shaded}
@@ -1438,13 +1559,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \begin{verbatim}
 ## Rows: 13,156
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE"~
-## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007~
-## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.M~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (curren~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Sout~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "A~
+## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2~
+## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH"~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Souther~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1454,13 +1575,20 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##     iso3c               date               value           indicatorID         indicator            iso2c             country         
-##  Length:13156       Length:13156       Min.   :8.824e+06   Length:13156       Length:13156       Length:13156       Length:13156      
-##  Class :character   Class :character   1st Qu.:2.442e+09   Class :character   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Median :1.784e+10   Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-##                                        Mean   :1.161e+12                                                                              
-##                                        3rd Qu.:2.156e+11                                                                              
-##                                        Max.   :9.653e+13
+##     iso3c               date               value           indicatorID       
+##  Length:13156       Length:13156       Min.   :8.824e+06   Length:13156      
+##  Class :character   Class :character   1st Qu.:2.442e+09   Class :character  
+##  Mode  :character   Mode  :character   Median :1.784e+10   Mode  :character  
+##                                        Mean   :1.161e+12                     
+##                                        3rd Qu.:2.156e+11                     
+##                                        Max.   :9.653e+13                     
+##   indicator            iso2c             country         
+##  Length:13156       Length:13156       Length:13156      
+##  Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character  
+##                                                          
+##                                                          
+## 
 \end{verbatim}
 
 \hypertarget{import-various-file-formats}{%
@@ -1540,11 +1668,16 @@ One difference between data frames and tibbles is that dataframes store the row 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"            
-##  [7] "Duster 360"          "Merc 240D"           "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"         
-## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood"  "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"           
-## [19] "Honda Civic"         "Toyota Corolla"      "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
-## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"         
+##  [4] "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"            
+##  [7] "Duster 360"          "Merc 240D"           "Merc 230"           
+## [10] "Merc 280"            "Merc 280C"           "Merc 450SE"         
+## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood" 
+## [16] "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"           
+## [19] "Honda Civic"         "Toyota Corolla"      "Toyota Corona"      
+## [22] "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
+## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"      
+## [28] "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
 ## [31] "Maserati Bora"       "Volvo 142E"
 \end{verbatim}
 
@@ -1609,11 +1742,11 @@ When we look at the data, we've lost the names of the cars. To store the these, 
 
 \begin{verbatim}
 ## # A tibble: 3 x 12
-##   car             mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##   <chr>         <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
-## 1 Mazda RX4      21       6   160   110  3.9   2.62  16.5     0     1     4     4
-## 2 Mazda RX4 Wag  21       6   160   110  3.9   2.88  17.0     0     1     4     4
-## 3 Datsun 710     22.8     4   108    93  3.85  2.32  18.6     1     1     4     1
+##   car            mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##   <chr>        <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+## 1 Mazda RX4     21       6   160   110  3.9   2.62  16.5     0     1     4     4
+## 2 Mazda RX4 W~  21       6   160   110  3.9   2.88  17.0     0     1     4     4
+## 3 Datsun 710    22.8     4   108    93  3.85  2.32  18.6     1     1     4     1
 \end{verbatim}
 
 \hypertarget{data-types}{%
@@ -1626,11 +1759,11 @@ In R, different data classes, or types of data exist:
 \item
   \emph{numeric}: can be any real number
 \item
-  \emph{charackter}: strings and characters
+  \emph{character}: strings and characters
 \item
   \emph{integer}: any whole numbers
 \item
-  \emph{factor}: any categorial or qualitative variable with finite number of distinct outcomes
+  \emph{factor}: any categorical or qualitative variable with finite number of distinct outcomes
 \item
   \emph{logical}: contain either \texttt{TRUE} or \texttt{FALSE}
 \item
@@ -2345,17 +2478,17 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9~
-## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0,~
-## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 150, 245, 175, ~
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345,~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42,~
-## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
-## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
-## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
-## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6, 8, 2
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2,~
+## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4,~
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 18~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92,~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.1~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.~
+## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1,~
+## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1,~
+## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4,~
+## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1,~
 \end{verbatim}
 
 \begin{exercise}
@@ -2374,8 +2507,8 @@ Here are some examples that may help to understand these functions:
 Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_genanddrop.R}{here}.
 \end{exercise}
 
-\hypertarget{snapshot-of-the-data}{%
-\subsection{Snapshot of the data}\label{snapshot-of-the-data}}
+\hypertarget{how-to-explore-a-dataset}{%
+\section{How to explore a dataset}\label{how-to-explore-a-dataset}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2407,14 +2540,22 @@ Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/ma
 \end{Shaded}
 
 \begin{verbatim}
-##   integer_var  numeric_var    character_var       factor_var logical_var        date_var         
-##  Min.   :1    Min.   :1.100   Length:5           blue  :1    Mode :logical   Min.   :2022-01-01  
-##  1st Qu.:2    1st Qu.:1.925   Class :character   green :1    FALSE:1         1st Qu.:2022-02-01  
-##  Median :3    Median :3.300   Mode  :character   red   :2    TRUE :4         Median :2022-03-01  
-##  Mean   :3    Mean   :3.300                      yellow:1                    Mean   :2022-03-02  
-##  3rd Qu.:4    3rd Qu.:4.675                                                  3rd Qu.:2022-04-01  
-##  Max.   :5    Max.   :5.500                                                  Max.   :2022-05-01  
-##               NA's   :1
+##   integer_var  numeric_var    character_var       factor_var logical_var    
+##  Min.   :1    Min.   :1.100   Length:5           blue  :1    Mode :logical  
+##  1st Qu.:2    1st Qu.:1.925   Class :character   green :1    FALSE:1        
+##  Median :3    Median :3.300   Mode  :character   red   :2    TRUE :4        
+##  Mean   :3    Mean   :3.300                      yellow:1                   
+##  3rd Qu.:4    3rd Qu.:4.675                                                 
+##  Max.   :5    Max.   :5.500                                                 
+##               NA's   :1                                                     
+##     date_var         
+##  Min.   :2022-01-01  
+##  1st Qu.:2022-02-01  
+##  Median :2022-03-01  
+##  Mean   :2022-03-02  
+##  3rd Qu.:2022-04-01  
+##  Max.   :2022-05-01  
+## 
 \end{verbatim}
 
 \begin{Shaded}
@@ -2431,7 +2572,7 @@ Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/ma
 ## $ character_var <chr> "apple", "banana", "orange", "cherry", "grape"
 ## $ factor_var    <fct> red, yellow, red, blue, green
 ## $ logical_var   <lgl> TRUE, TRUE, TRUE, FALSE, TRUE
-## $ date_var      <date> 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-05-01
+## $ date_var      <date> 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-05-~
 \end{verbatim}
 
 \begin{Shaded}
@@ -2586,10 +2727,14 @@ Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/ma
 \end{Shaded}
 
 \begin{verbatim}
-##  cyl 52 62 65 66 91 93 95 97 105 109 110 113 123 150 175 180 205 215 230 245 264 335
-##    4  1  1  1  2  1  1  1  1   0   1   0   1   0   0   0   0   0   0   0   0   0   0
-##    6  0  0  0  0  0  0  0  0   1   0   3   0   2   0   1   0   0   0   0   0   0   0
-##    8  0  0  0  0  0  0  0  0   0   0   0   0   0   2   2   3   1   1   1   2   1   1
+##  cyl 52 62 65 66 91 93 95 97 105 109 110 113 123 150 175 180 205 215 230 245
+##    4  1  1  1  2  1  1  1  1   0   1   0   1   0   0   0   0   0   0   0   0
+##    6  0  0  0  0  0  0  0  0   1   0   3   0   2   0   1   0   0   0   0   0
+##    8  0  0  0  0  0  0  0  0   0   0   0   0   0   2   2   3   1   1   1   2
+##  264 335
+##    0   0
+##    0   0
+##    1   1
 \end{verbatim}
 
 \begin{exercise}
@@ -2665,7 +2810,7 @@ Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/ma
 \item
   Re-order the rows of carsSub by weight (wt) in increasing order. (Use arrange().)
 \item
-  Create a new variable in carsSub called wt2, which is equal to wt\^{}2, using mutate() and piping \%\textgreater\%.
+  Create a new variable in carsSub called wt2, which is equal to wt\^{}2, using mutate() and piping \texttt{\%\textgreater{}\%}.
 \end{enumerate}
 
 Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_subset.R}{here}.
@@ -2674,9 +2819,9 @@ Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/ma
 \begin{exercise}
 \protect\hypertarget{exr:exer4ds}{}\label{exr:exer4ds}Data transformation
 
-Please download and open the following R-script and try to answer the questions therein:
+Please download and open the R-script you fin \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/data_transformation.R}{here} and try to answer the questions therein.
 
-Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/data_transformation.R}{here}.
+Solutions to the questions are linked in the script.
 \end{exercise}
 
 \begin{exercise}
@@ -2706,6 +2851,254 @@ The dataset convergence.dta, see \url{https://github.com/hubchev/courses/blob/ma
 
 Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R}{here}.
 \end{exercise}
+
+\begin{exercise}
+\protect\hypertarget{exr:explainweight}{}\label{exr:explainweight}Explain the weight
+
+Download the file \href{https://github.com/hubchev/courses/blob/main/pdfs/exe_calories.pdf}{exe\_calories.pdf} from GitHub and answer the questions therein.
+
+Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R}{here}.
+\end{exercise}
+
+\begin{exercise}
+\protect\hypertarget{exr:unemgerfra}{}\label{exr:unemgerfra}
+
+Unemployment and GDP in Germany and France
+
+The following exercise was a former exam.
+
+Please answer all (!) questions in an R script. Normal text should be written as comments, using the `\#' to comment out text. Make sure the script runs without errors before submitting it. Each task (starting with 1) is worth five points. You have a total of 120 minutes of editing time. Please do not forget to number your answers.
+
+When you are done with your work, save the R script, export the script to pdf format and upload the pdf file.
+
+Suppose you aim to empirically examine unemployment and GDP for Germany and France. The data set that we use in the following is `forest.Rdata'.
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{-1}
+\item
+  Write down your name, matriculation number, and date.
+\item
+  Set your working directory.
+\end{enumerate}
+
+\end{exercise}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{1}
+\item
+  Clear your global environment.
+\item
+  Install and load the following packages: `tidyverse', `sjPlot', and `ggpubr'
+\item
+  Download and load the data, respectively, with the following code:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{load}\NormalTok{(}\FunctionTok{url}\NormalTok{(}\StringTok{"https://github.com/hubchev/courses/raw/main/dta/forest.Rdata"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+If that is not working, you can also download the data from ILIAS, save it in
+your working directory and load it from there with:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# load("forest.Rdata")}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{4}
+\item
+  Show the \textbf{first eight} observations of the dataset `df'.
+\item
+  Show the \textbf{last observation} of the dataset `df'.
+\item
+  Which type of data do we have here (Panel, cross-section,time series, \ldots)?
+  Name the variable(s) that are necessary to identify the observations in the dataset.
+\item
+  Explain what the \textbf{assignment operator} in R is and what it is good for.
+\item
+  Write down the R code to store the number of observations and the number of variables
+  that are in the dataset `df'. Name the object in which you store these numbers `observations\_df'.
+\item
+  In the dataset `df', rename the variable `country.x' to `nation' and the variable `date' to `year'.
+\item
+  Explain what the \textbf{pipe operator} in R is and what it is good for.
+\item
+  For the upcoming analysis you are only interested the following \textbf{variables} that are part of the dataframe `df': nation, year, gdp, pop, gdppc, and unemployment. Drop all other variables from the dataframe `df'.
+\item
+  Create a variable that indicates the GDP per capita (`gdp' divided by `pop').
+  Name the variable `gdp\_pc'. (Hint: If you fail here, use the variable `gdppc' which is
+  already in the dataset as a replacement for `gdp\_pc' in the following tasks.)
+\item
+  For the upcoming analysis you are only interested the following \textbf{countries}
+  that are part of the dataframe `df': Germany and France. Drop all other
+  countries from the dataframe `df'.
+\item
+  Create a table showing the \textbf{average} unemployment rate and GDP per capita for Germany
+  and France in the given years. Use the pipe operator. (Hint: See below for how your results should
+  look like.)
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   nation  `mean(unemployment)` `mean(gdppc)`
+##   <chr>                  <dbl>         <dbl>
+## 1 France                  9.75        34356.
+## 2 Germany                 7.22        36739.
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{15}
+\tightlist
+\item
+  Create a table showing the unemployment rate and GDP per capita for Germany
+  and France in the \textbf{year 2020}. Use the pipe operator. (Hint: See below for how your results should
+  look like.)
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   nation  `mean(unemployment)` `mean(gdppc)`
+##   <chr>                  <dbl>         <dbl>
+## 1 France                  8.01        35786.
+## 2 Germany                 3.81        41315.
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{16}
+\tightlist
+\item
+  Create a table showing the \textbf{highest} unemployment rate and the \textbf{highest}
+  GDP per capita for Germany and France during the given period.
+  Use the pipe operator. (Hint: See below for how your results should look like.)
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   nation  `max(unemployment)` `max(gdppc)`
+##   <chr>                 <dbl>        <dbl>
+## 1 France                 12.6       38912.
+## 2 Germany                11.2       43329.
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{17}
+\tightlist
+\item
+  Calculate the standard deviation of the unemployment rate and GDP per capita for Germany
+  and France in the given years. (Hint: See below for how your result should
+  look like.)
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   nation  `sd(gdppc)` `sd(unemployment)`
+##   <chr>         <dbl>              <dbl>
+## 1 France        2940.               1.58
+## 2 Germany       4015.               2.37
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{18}
+\tightlist
+\item
+  In statistics, the coefficient of variation (COV) is a standardized measure of
+  dispersion. It is defined as the ratio of the standard deviation (\(\sigma\)) to the mean (\(\mu\)):
+  \(COV={\frac {\sigma }{\mu }}\).
+  Write down the R code to calculate the coefficient of variation (COV) for the
+  \textbf{unemployment rate} in Germany and France. (Hint: See below for what your result should should look like.)
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   nation  `sd(unemployment)` `mean(unemployment)`   cov
+##   <chr>                <dbl>                <dbl> <dbl>
+## 1 France                1.58                 9.75 0.162
+## 2 Germany               2.37                 7.22 0.328
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{19}
+\tightlist
+\item
+  Write down the R code to calculate the coefficient of variation (COV) for the \textbf{GDP per capita}
+  in Germany and France. (Hint: See below for what your result should look like.)
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   nation  `sd(gdppc)` `mean(gdppc)`    cov
+##   <chr>         <dbl>         <dbl>  <dbl>
+## 1 France        2940.        34356. 0.0856
+## 2 Germany       4015.        36739. 0.109
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{20}
+\tightlist
+\item
+  Create a chart (bar chart, line chart, or scatter plot) that shows the
+  unemployment rate of \textbf{Germany} over the available years. Label the chart
+  `Germany' with `ggtitle(``Germany'')'. Please note that you may choose any type of graphical representation.
+  (Hint: Below you can see one of many possible examples of what your result may look like).
+\end{enumerate}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-79-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{21}
+\tightlist
+\item
+  and 23. \emph{(This task is worth 10 points)}
+  The following chart shows the simultaneous development of the unemployment rate and GDP per capita over time for \textbf{France}.
+\end{enumerate}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-80-1.pdf}
+
+Suppose you want to visualize the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany as well.\\
+Suppose further that you have found the following lines of code that create the kind of chart you are looking for.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Data}
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{9}\NormalTok{)}
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{12}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{22}\NormalTok{)}
+\NormalTok{labels }\OtherTok{\textless{}{-}} \DecValTok{1970}\SpecialCharTok{:}\DecValTok{1978}
+
+\CommentTok{\# Connected scatter plot with text}
+\FunctionTok{plot}\NormalTok{(x, y, }\AttributeTok{type =} \StringTok{"b"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Var 1"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Var 2"}\NormalTok{); }\FunctionTok{text}\NormalTok{(x }\SpecialCharTok{+} \FloatTok{0.4}\NormalTok{, y }\SpecialCharTok{+} \FloatTok{0.1}\NormalTok{, labels) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-81-1.pdf}
+
+Use these lines of code and customize them to create the co-movement visualization for \textbf{Germany} using the available `df' data.
+The result should look something like this:
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-82-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{23}
+\tightlist
+\item
+  Interpret the two graphs above, which show the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany and France. What are your expectations regarding the correlation between the unemployment rate and GDP per capita variables? Can you see this expectation in the figures? Discuss.
+\end{enumerate}
+
+Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/un_gdp_ger_fra.R}{here}.
 
 \hypertarget{write-with-r-markdown}{%
 \chapter{Write with R Markdown}\label{write-with-r-markdown}}
@@ -2822,6 +3215,64 @@ Please follow the instructions below to access the file ``23-04\_ds-project-desc
 \hypertarget{appendix}{%
 \chapter{Appendix}\label{appendix}}
 
+\hypertarget{helpful-shortcuts}{%
+\section{Helpful shortcuts}\label{helpful-shortcuts}}
+
+\begin{longtable}[]{@{}ll@{}}
+\caption{Table 1: Different OS, different keys}\tabularnewline
+\toprule()
+Key in Windows/Linux & Key in Mac \\
+\midrule()
+\endfirsthead
+\toprule()
+Key in Windows/Linux & Key in Mac \\
+\midrule()
+\endhead
+CTRL & Command Key \\
+Alt & Option Key \\
+\bottomrule()
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1562}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2062}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6375}}@{}}
+\caption{Table 2: Helpful shortcuts}\tabularnewline
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+Action
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Shortcut Keys
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule()
+\endfirsthead
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+Action
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Shortcut Keys
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Description
+\end{minipage} \\
+\midrule()
+\endhead
+Run code & Ctrl + Enter & Runs the current line and jumps to the next one, or runs the selected part without jumping further. \\
+& Alt + Enter & Allows running code without moving the cursor to the next line if you want to run one line of code multiple times without selecting it. \\
+& Ctrl + Alt + R & Runs the entire script. \\
+& Ctrl + Alt + B/E & Run the script from the Beginning to the current line and from the current line to the End. \\
+Write code & Alt + (-) & Inserts the assignment operator (\textless-) with spaces surrounding it. \\
+& Ctrl + Shift + M & Inserts the magrittr/pipe operator (\%\textgreater\%) with spaces surrounding it. \\
+& Ctrl + Shift + R & Creates a foldable comment section in your code. \\
+Navigating in RStudio & Ctrl + 1 & Move focus to editor. \\
+& Ctrl + 2 & Move focus to console. \\
+& Ctrl+Tab and Ctrl+Shift+Tab & to switch between tabs. \\
+& Ctrl + Shift + N & Open a new R script. \\
+& Ctrl + w & Close a tab. \\
+\bottomrule()
+\end{longtable}
+
 \hypertarget{sec:navigation}{%
 \section{Navigating the file system}\label{sec:navigation}}
 
@@ -2839,11 +3290,7 @@ C:\Users\huber\Rbook\rcourse-book.pdf
 \end{verbatim}
 
 On Linux, Unix, and macOS systems, the addresses look a little different, but they are more or less identical in spirit. Instead of using the backslash, folders are separated using a forward slash, and unlike Windows, they do not treat the storage device as being the root of the file system. So, the path on a Mac might be something like this:
-
-\begin{verbatim}
 /Users/huber/Rbook/rcourse-book.pdf
-\end{verbatim}
-
 That is what we mean by the \emph{path} to a file. The next concept to grasp is the idea of a working directory and how to change it. For those of you who have used command-line interfaces previously, this should be obvious already. But if not, here is what I mean. The working directory is just whatever folder I am currently looking at. Suppose that I am currently looking for files in Explorer (if you are using Windows) or using Finder (on a Mac). The folder I currently have open is my user directory (i.e., \texttt{C:\textbackslash{}Users\textbackslash{}huber} or \texttt{/Users/huber}). That is my current working directory.
 
 \hypertarget{working-directory}{%
@@ -2964,37 +3411,52 @@ When seeking help, be sure to provide information about your machine, including 
 \end{Shaded}
 
 \begin{verbatim}
-## R version 4.3.0 (2023-04-21)
+## R version 4.1.2 (2021-11-01)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 11 (bullseye)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
-## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
+## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.13.so
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8   
-##  [6] LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C               LC_TELEPHONE=C            
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
 ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-## 
-## time zone: Europe/Berlin
-## tzcode source: system (glibc)
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.0     janitor_2.2.0   magick_2.7.4    cowplot_1.1.1   wbstats_1.0.4   lubridate_1.9.2 forcats_1.0.0   stringr_1.5.0  
-##  [9] purrr_1.0.1     readr_2.1.4     tidyr_1.3.0     tibble_3.1.8    ggplot2_3.4.2   tidyverse_2.0.0 scales_1.2.1   
+##  [1] dplyr_1.1.2     scales_1.2.1    sjPlot_2.8.14   ggpubr_0.6.0   
+##  [5] janitor_2.2.0   wbstats_1.0.4   lubridate_1.9.2 forcats_1.0.0  
+##  [9] stringr_1.5.0   purrr_1.0.1     readr_2.1.4     tidyr_1.3.0    
+## [13] tibble_3.2.1    ggplot2_3.4.2   tidyverse_2.0.0 captioner_2.2.3
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] sass_0.4.5       utf8_1.2.3       generics_0.1.3   stringi_1.7.12   hms_1.1.2        digest_0.6.31    magrittr_2.0.3  
-##  [8] evaluate_0.20    grid_4.3.0       timechange_0.2.0 bookdown_0.33    fastmap_1.1.0    jsonlite_1.8.4   httr_1.4.5      
-## [15] fansi_1.0.4      jquerylib_0.1.4  cli_3.6.0        crayon_1.5.2     rlang_1.1.0      ellipsis_0.3.2   munsell_0.5.0   
-## [22] withr_2.5.0      cachem_1.0.6     yaml_2.3.7       tools_4.3.0      tzdb_0.3.0       colorspace_2.1-0 curl_5.0.0      
-## [29] vctrs_0.5.2      R6_2.5.1         lifecycle_1.0.3  snakecase_0.11.0 pkgconfig_2.0.3  pillar_1.8.1     bslib_0.4.2     
-## [36] gtable_0.3.1     Rcpp_1.0.10      glue_1.6.2       xfun_0.39        tidyselect_1.2.0 highr_0.10       rstudioapi_0.14 
-## [43] knitr_1.42       htmltools_0.5.4  rmarkdown_2.20   compiler_4.3.0
+##  [1] httr_1.4.5         sass_0.4.6         splines_4.1.2      jsonlite_1.8.4    
+##  [5] carData_3.0-5      modelr_0.1.11      bslib_0.4.2        highr_0.10        
+##  [9] yaml_2.3.7         bayestestR_0.13.1  pillar_1.9.0       backports_1.4.1   
+## [13] lattice_0.21-8     glue_1.6.2         digest_0.6.31      ggsignif_0.6.4    
+## [17] minqa_1.2.5        snakecase_0.11.0   colorspace_2.1-0   Matrix_1.5-4      
+## [21] htmltools_0.5.5    pkgconfig_2.0.3    broom_1.0.4        bookdown_0.33.3   
+## [25] xtable_1.8-4       mvtnorm_1.1-3      lme4_1.1-33        tzdb_0.3.0        
+## [29] timechange_0.2.0   emmeans_1.8.5      farver_2.1.1       generics_0.1.3    
+## [33] car_3.1-2          sjlabelled_1.2.0   cachem_1.0.8       withr_2.5.0       
+## [37] cli_3.6.1          magrittr_2.0.3     crayon_1.5.2       estimability_1.4.1
+## [41] evaluate_0.21      fansi_1.0.4        nlme_3.1-162       MASS_7.3-60       
+## [45] rstatix_0.7.2      tools_4.1.2        hms_1.1.3          lifecycle_1.0.3   
+## [49] munsell_0.5.0      ggeffects_1.2.2    compiler_4.1.2     jquerylib_0.1.4   
+## [53] tinytex_0.45       rlang_1.1.1        nloptr_2.0.3       grid_4.1.2        
+## [57] rstudioapi_0.14    labeling_0.4.2     rmarkdown_2.21     boot_1.3-28.1     
+## [61] gtable_0.3.3       abind_1.4-5        sjstats_0.18.2     curl_5.0.0        
+## [65] sjmisc_2.8.9       R6_2.5.1           knitr_1.42         performance_0.10.3
+## [69] fastmap_1.1.1      utf8_1.2.3         insight_0.19.1     stringi_1.7.12    
+## [73] Rcpp_1.0.10        vctrs_0.6.2        tidyselect_1.2.0   xfun_0.39         
+## [77] coda_0.19-4
 \end{verbatim}
 
   \bibliography{book.bib}

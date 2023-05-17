@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 ```{exercise, summarystatistics, echo=TRUE} | Quantitative Methods</title>
+  <meta name="description" content="4 ```{exercise, summarystatistics, echo=TRUE} | Quantitative Methods" />
+  <meta name="generator" content="bookdown 0.33.3 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 ```{exercise, summarystatistics, echo=TRUE} | Quantitative Methods" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 ```{exercise, summarystatistics, echo=TRUE} | Quantitative Methods" />
+  
+  
+  
+
+<meta name="author" content="© Prof. Dr. Stephan Huber (Stephan.Huber@hs-fresenius.de)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="statistics.html"/>
+<link rel="next" href="hands-on-experiments.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="preamble.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Quantitative Methods</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="doing-research.html"><a href="doing-research.html"><i class="fa fa-check"></i><b>1</b> Doing research</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="doing-research.html"><a href="doing-research.html#everybody-can-do-research"><i class="fa fa-check"></i><b>1.1</b> Everybody can do research</a></li>
+<li class="chapter" data-level="1.2" data-path="doing-research.html"><a href="doing-research.html#its-difficult-to-do-good-research"><i class="fa fa-check"></i><b>1.2</b> It’s difficult to do good research</a></li>
+<li class="chapter" data-level="1.3" data-path="doing-research.html"><a href="doing-research.html#asking-questions-lika-a-good-researcher"><i class="fa fa-check"></i><b>1.3</b> Asking questions lika a good researcher</a></li>
+<li class="chapter" data-level="1.4" data-path="doing-research.html"><a href="doing-research.html#features-of-good-research"><i class="fa fa-check"></i><b>1.4</b> Features of good research</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="doing-research.html"><a href="doing-research.html#reliability-and-validity"><i class="fa fa-check"></i><b>1.4.1</b> Reliability and validity</a></li>
+<li class="chapter" data-level="1.4.2" data-path="doing-research.html"><a href="doing-research.html#generalizability"><i class="fa fa-check"></i><b>1.4.2</b> Generalizability</a></li>
+<li class="chapter" data-level="1.4.3" data-path="doing-research.html"><a href="doing-research.html#replicability-reproducibility-transparency-and-other-criteria"><i class="fa fa-check"></i><b>1.4.3</b> Replicability, reproducibility, transparency, and other criteria</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="doing-research.html"><a href="doing-research.html#the-role-of-resources-data-and-ethics"><i class="fa fa-check"></i><b>1.5</b> The role of resources, data and ethics</a></li>
+<li class="chapter" data-level="" data-path="doing-research.html"><a href="doing-research.html#glossary"><i class="fa fa-check"></i>Glossary</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="identification.html"><a href="identification.html"><i class="fa fa-check"></i><b>2</b> Identification</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="identification.html"><a href="identification.html#how-to-get-data"><i class="fa fa-check"></i><b>2.1</b> How to get data</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="identification.html"><a href="identification.html#interviews"><i class="fa fa-check"></i><b>2.1.1</b> Interviews</a></li>
+<li class="chapter" data-level="2.1.2" data-path="identification.html"><a href="identification.html#surveys"><i class="fa fa-check"></i><b>2.1.2</b> Surveys</a></li>
+<li class="chapter" data-level="2.1.3" data-path="identification.html"><a href="identification.html#case-studies"><i class="fa fa-check"></i><b>2.1.3</b> Case studies</a></li>
+<li class="chapter" data-level="2.1.4" data-path="identification.html"><a href="identification.html#experiments"><i class="fa fa-check"></i><b>2.1.4</b> Experiments</a></li>
+<li class="chapter" data-level="2.1.5" data-path="identification.html"><a href="identification.html#observational-data"><i class="fa fa-check"></i><b>2.1.5</b> Observational data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="identification.html"><a href="identification.html#cornotcaus"><i class="fa fa-check"></i><b>2.2</b> Correlation does not imply causation</a></li>
+<li class="chapter" data-level="2.3" data-path="identification.html"><a href="identification.html#the-fundamental-problem-of-causal-inference"><i class="fa fa-check"></i><b>2.3</b> The fundamental problem of causal inference</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="identification.html"><a href="identification.html#simpsons-paradox"><i class="fa fa-check"></i><b>2.3.1</b> Simpsons Paradox</a></li>
+<li class="chapter" data-level="2.3.2" data-path="identification.html"><a href="identification.html#rubin-causal-model"><i class="fa fa-check"></i><b>2.3.2</b> Rubin causal model</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="identification.html"><a href="identification.html#its-difficult-to-overcome-the-fundamental-problem"><i class="fa fa-check"></i><b>2.4</b> Its difficult to overcome the fundamental problem</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="identification.html"><a href="identification.html#ignorability"><i class="fa fa-check"></i><b>2.4.1</b> Ignorability</a></li>
+<li class="chapter" data-level="2.4.2" data-path="identification.html"><a href="identification.html#unconfoundedness"><i class="fa fa-check"></i><b>2.4.2</b> Unconfoundedness</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>3</b> Statistics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="statistics.html"><a href="statistics.html#sampling"><i class="fa fa-check"></i><b>3.1</b> Sampling</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="statistics.html"><a href="statistics.html#the-hite-report"><i class="fa fa-check"></i><b>3.1.1</b> The Hite Report</a></li>
+<li class="chapter" data-level="3.1.2" data-path="statistics.html"><a href="statistics.html#sample-design"><i class="fa fa-check"></i><b>3.1.2</b> Sample design</a></li>
+<li class="chapter" data-level="3.1.3" data-path="statistics.html"><a href="statistics.html#sample-size-matters"><i class="fa fa-check"></i><b>3.1.3</b> Sample size matters</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="statistics.html"><a href="statistics.html#descriptive-statistics"><i class="fa fa-check"></i><b>3.2</b> Descriptive statistics</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="statistics.html"><a href="statistics.html#univariate-data"><i class="fa fa-check"></i><b>3.2.1</b> Univariate data</a></li>
+<li class="chapter" data-level="3.2.2" data-path="statistics.html"><a href="statistics.html#bivariate-data"><i class="fa fa-check"></i><b>3.2.2</b> Bivariate data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="exercise-summarystatistics-echotrue.html"><a href="exercise-summarystatistics-echotrue.html"><i class="fa fa-check"></i><b>4</b> ```{exercise, summarystatistics, echo=TRUE}</a>
+<ul>
+<li class="chapter" data-level="4.0.1" data-path="exercise-summarystatistics-echotrue.html"><a href="exercise-summarystatistics-echotrue.html#multivariate-data"><i class="fa fa-check"></i><b>4.0.1</b> Multivariate data</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="hands-on-experiments.html"><a href="hands-on-experiments.html"><i class="fa fa-check"></i><b>5</b> Hands on experiments</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="hands-on-experiments.html"><a href="hands-on-experiments.html#natural-experiments"><i class="fa fa-check"></i><b>5.1</b> Natural experiments</a></li>
+<li class="chapter" data-level="5.2" data-path="hands-on-experiments.html"><a href="hands-on-experiments.html#empirical-evidence-bombing"><i class="fa fa-check"></i><b>5.2</b> Empirical evidence: Bombing</a></li>
+<li class="chapter" data-level="5.3" data-path="hands-on-experiments.html"><a href="hands-on-experiments.html#field-experiments-would-you-work-more-if-wages-are-high"><i class="fa fa-check"></i><b>5.3</b> Field experiments: Would you work more if wages are high?</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="hands-on-observational-data.html"><a href="hands-on-observational-data.html"><i class="fa fa-check"></i><b>6</b> Hands on observational data</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="hands-on-observational-data.html"><a href="hands-on-observational-data.html#difference-in-difference"><i class="fa fa-check"></i><b>6.1</b> Difference in difference</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li>&copy; Prof. Dr. Stephan Huber.</li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Quantitative Methods</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exercise-summarystatistics-echotrue" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> ```{exercise, summarystatistics, echo=TRUE}<a href="exercise-summarystatistics-echotrue.html#exercise-summarystatistics-echotrue" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Datasaurus</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Load the packages <code>datasauRus</code>, <code>tidyverse</code>. If necessary, install these packages.</p></li>
+<li><p>The package<code>datasauRus</code> comes with a dataset in two different formats: <code>datasaurus_dozen</code> and <code>datasaurus_dozen_wide</code>. Store them as <code>ds</code> and <code>ds_wide</code>.</p></li>
+<li><p>Open and read the R vignette of the <code>datasauRus</code> package. Also open the R documentation of the dataset <code>datasaurus_dozen</code>.</p></li>
+<li><p>Explore the dataset: What are the dimensions of this dataset? Look at the descriptive statistics.</p></li>
+<li><p>How many unique values does the variable <code>dataset</code> of the tibble <code>ds</code> have? Hint: The function unique() return the unique values of a variable and the function length() returns the length of a vector, such as the unique elements.</p></li>
+<li><p>Compute the mean values of the <code>x</code> and <code>y</code> variables for each entry in <code>dataset</code>. Hint: Use the group_by() function to group the data by the appropriate column and then the summarise() function to calculate the mean.</p></li>
+<li><p>Compute the standard deviation, the correlation, and the median in the same way. Round the numbers.</p></li>
+<li><p>What can you conclude?</p></li>
+<li><p>Plot all datasets of <code>ds</code>. Hide the legend. Hint: Use the <code>facet_wrap()</code> and the <code>theme()</code> function.</p></li>
+<li><p>Create a loop that generates separate scatter plots for each unique datatset of the tibble <code>ds</code>. Export each graph as a png file.</p></li>
+</ol>
+<div class="exercise">
+<p><span id="exr:summarystatistics" class="exercise"><strong>Exercise 4.1  </strong></span>Summary statistics</p>
+<p>Calculate for the following datasets: the mode, the median, the 20% quantile, the range, the interquartile range, the variance, the arithmetic mean, the sample standard deviation, the coefficient of variation.</p>
+<ol style="list-style-type: lower-alpha">
+<li>For ten participants in a scientific conference the age
+has been noted: <span class="math display">\[25, 21, 18, 37, 56, 89, 46, 23, 21, 34.\]</span></li>
+<li>A random sample of 128 visitors of the Cupcake festival yielded the following frequencies regarding the cupcake consumption during their visit:</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th>Cupcages consumed</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+<th align="right">5</th>
+<th align="right">6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Abs. freq.</td>
+<td align="right">2</td>
+<td align="right">30</td>
+<td align="right">37</td>
+<td align="right">28</td>
+<td align="right">23</td>
+<td align="right">8</td>
+</tr>
+</tbody>
+</table>
+<p>Please find solution to the exercise <a href="appendix.html#sol:summarystatistics">here.</a></p>
+</div>
+<div class="exercise">
+<p><span id="exr:destatexcel" class="exercise"><strong>Exercise 4.2  </strong></span>Summary statistics in spreadsheet software</p>
+<p>Given is the following datset: <span class="math display">\[0, 0, 40, 50, 50, 60, 70, 90, 100, 100.\]</span>
+Compute the following summary statistics of the data set using a spreadsheet software like or :
+mean, median, mode, quartiles (Q1, Q2, Q3), range, interquartile range, variance, standard deviation, mean absolute deviation, coefficient of variation and skewness.</p>
+<p>Please find solution to the exercise <a href="appendix.html#sol:destatexcel">here.</a></p>
+</div>
+<div class="exercise">
+<p><span id="exr:guessstat" class="exercise"><strong>Exercise 4.3  </strong></span>Guess the summary statistics</p>
+<p>Given are the following variables:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">a</th>
+<th align="right">b</th>
+<th align="right">c</th>
+<th align="right">d</th>
+<th align="right">e</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">97</td>
+<td align="right">70</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">970</td>
+</tr>
+<tr class="even">
+<td align="right">98</td>
+<td align="right">80</td>
+<td align="right">50</td>
+<td align="right">2</td>
+<td align="right">980</td>
+</tr>
+<tr class="odd">
+<td align="right">99</td>
+<td align="right">90</td>
+<td align="right">50</td>
+<td align="right">3</td>
+<td align="right">990</td>
+</tr>
+<tr class="even">
+<td align="right">100</td>
+<td align="right">100</td>
+<td align="right">50</td>
+<td align="right">4</td>
+<td align="right">1000</td>
+</tr>
+<tr class="odd">
+<td align="right">101</td>
+<td align="right">110</td>
+<td align="right">50</td>
+<td align="right">5</td>
+<td align="right">1010</td>
+</tr>
+<tr class="even">
+<td align="right">102</td>
+<td align="right">120</td>
+<td align="right">50</td>
+<td align="right">6</td>
+<td align="right">1020</td>
+</tr>
+<tr class="odd">
+<td align="right">103</td>
+<td align="right">130</td>
+<td align="right">99</td>
+<td align="right">7</td>
+<td align="right">1030</td>
+</tr>
+</tbody>
+</table>
+<p>Rank the variables without calculating concrete numbers accordingly to the values of the following descriptive statistics: mode, median, mean, range, variance, standard deviation, coefficient of variation.</p>
+<p>Please find solution to the exercise <a href="appendix.html#sol:guessstat">here.</a></p>
+</div>
+<div id="multivariate-data" class="section level3 hasAnchor" number="4.0.1">
+<h3><span class="header-section-number">4.0.1</span> Multivariate data<a href="exercise-summarystatistics-echotrue.html#multivariate-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="section" class="section level4" number="4.0.1.1">
+<h4><span class="header-section-number">4.0.1.1</span> </h4>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hands-on-experiments.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

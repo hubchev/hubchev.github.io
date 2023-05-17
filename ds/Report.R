@@ -1,3 +1,18 @@
+library("captioner")
+table_nums <- captioner(prefix = "Table")
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## install.packages("ggplot2")
 
 ## library("ggplot2")
@@ -164,6 +179,37 @@ mtcars |>
   group_by(cyl) |> 
   summarise_at(c("mpg", "hp"), mean)
 
+## install.packages("tidyverse")
+## library("tidyverse")
+
+# create some data `x`
+x <- c(1, 1.002, 1.004, .99, .99)
+# take the logarithm of `x`, 
+log_x <- log(x)
+# compute the lagged and iterated differences (see `diff()`)
+growth_rate_x <- diff(log_x)
+growth_rate_x
+# round the result (4 digit)
+growth_rate_x_round <- round(growth_rate_x, 4)
+growth_rate_x_round 
+
+round(diff(log(x)), 4)
+
+# load one of these packages: `magrittr` or `tidyverse`
+library(tidyverse)
+
+# Perform the same computations on `x` as above
+x |> 
+  log() |>
+  diff() |>
+  round(4)
+
+
+mtcars |> 
+  filter(cyl>4) |> 
+  group_by(cyl) |> 
+  summarise_at(c("mpg", "hp"), mean)
+
 # defining multiple vectors using the colon operator `:`
 v_a <- c(1:3)
 v_a
@@ -206,28 +252,6 @@ df_gdp <- wb(indicator = "NY.GDP.MKTP.CD")
 head(df_gdp, 3)
 glimpse(df_gdp)
 summary(df_gdp)
-
-library("cowplot")
-library("ggplot2")
-# install.packages("magick")
-library("magick")
-
-p1 <- ggdraw() + draw_image("fig/tidyr-logo.png", scale = 1)
-p2 <- ggdraw() + draw_image("fig/tibble-logo.svg", scale = 1)
-
-png("fig/tidyr-tibble-logo.png")
-plot_grid(p1, p2)
-dev.off()
-
-p1 <- ggdraw() + draw_image("fig/readr-logo.png", scale = 1)
-p2 <- ggdraw() + draw_image("fig/haven-logo.png", scale = 1)
-p3 <- ggdraw() + draw_image("fig/readxl-logo.png", scale = 1)
-
-pdf("fig/import-logo.png")
-plot_grid(p1, p2, p3, ncol = 3)
-dev.off()
-
-
 
 class(mtcars) # mtcars is a data frame
 rownames(mtcars) 
@@ -512,7 +536,7 @@ mtcars |>
 
 ## 1. Re-order the rows of carsSub by weight (wt) in increasing order. (Use arrange().)
 
-## 1. Create a new variable in carsSub called wt2, which is equal to wt^2, using mutate() and piping %>%.
+## 1. Create a new variable in carsSub called wt2, which is equal to wt^2, using mutate() and piping `%>%`.
 
 ## 
 
@@ -527,11 +551,11 @@ mtcars |>
 
 ## 
 
-## Please download and open the following R-script and try to answer the questions therein:
+## Please download and open the R-script you fin [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/data_transformation.R) and try to answer the questions therein.
 
 ## 
 
-## Please find solutions [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/data_transformation.R).
+## Solutions to the questions are linked in the script.
 
 ## 
 
@@ -570,6 +594,139 @@ mtcars |>
 
 ## Please find solutions [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R).
 
+
+## 
+
+## Explain the weight
+
+## 
+
+## Download the file [exe_calories.pdf](https://github.com/hubchev/courses/blob/main/pdfs/exe_calories.pdf) from GitHub and answer the questions therein.
+
+## 
+
+## Solutions are provided [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R).
+
+## 
+
+
+## 
+
+## Unemployment and GDP in Germany and France
+
+## 
+
+## The following exercise was a former exam.
+
+## 
+
+## Please answer all (!) questions in an R script. Normal text should be written as comments, using the '#' to comment out text. Make sure the script runs without errors before submitting it. Each task (starting with 1) is worth five points. You have a total of 120 minutes of editing time. Please do not forget to number your answers.
+
+## 
+
+## When you are done with your work, save the R script, export the script to pdf format and upload the pdf file.
+
+## 
+
+## Suppose you aim to empirically examine unemployment and GDP for Germany and France. The data set that we use in the following is 'forest.Rdata'.
+
+## 
+
+## (0)
+
+##  Write down your name, matriculation number, and date.
+
+## 
+
+## (1)
+
+##  Set your working directory.
+
+## 
+
+## setwd("/home/sthu/Dropbox/hsf/exams/22-11/scr/")
+
+## rm(list=ls())
+
+# install.packages("tidyverse")
+# install.packages("ggpubr")
+# install.packages("sjPlot")
+library("tidyverse")
+library("ggpubr")
+library("sjPlot")
+
+load(url("https://github.com/hubchev/courses/raw/main/dta/forest.Rdata"))
+
+# load("forest.Rdata")
+
+head(df,8)
+
+tail(df,1)
+
+ # panel data set
+ # date and country.x
+
+observations_df <- dim(df)
+
+df <- rename(df, nation=country.x)
+df <- rename(df, year=date)
+
+df <- df %>% 
+  select(nation, year, gdp, pop, gdppc, unemployment)
+
+df <- df %>% 
+  mutate(gdp_pc = gdp/pop)
+
+df <- df %>% filter(nation=="Germany" | nation=="France")
+
+df  %>%
+  group_by(nation) %>%
+  summarise(mean(unemployment), mean(gdppc))
+
+df  %>%
+  filter(year==2020) %>% 
+  group_by(nation) %>%
+  summarise(mean(unemployment), mean(gdppc))
+
+df  %>%
+  group_by(nation) %>%
+  summarise(max(unemployment), max(gdppc))
+
+df %>% 
+  group_by(nation) %>%
+  summarise(sd(gdppc), sd(unemployment))
+
+df %>% 
+  group_by(nation) %>% 
+  summarise(sd(unemployment), mean(unemployment), cov = sd(unemployment)/mean(unemployment))
+
+df %>% 
+  group_by(nation) %>% 
+  summarise(sd(gdppc),mean(gdppc), cov = sd(gdppc)/mean(gdppc))
+
+pger <- df %>% 
+  filter(nation=="Germany") %>% 
+  ggplot(.,aes(x=year, y=unemployment)) +
+  geom_line() +
+  ggtitle("Germany")
+plot(pger)
+
+labels <- 1992:2020
+dfra <- df %>% filter(nation == "France")
+plot(dfra$gdppc, dfra$unemployment, type = "b", xlab = "GDP per capita", ylab = "Unemployment rate"); text(dfra$gdppc + 0.1, dfra$unemployment + 0.1, labels); title("France")
+
+# Data
+x <- c(1, 2, 3, 4, 5, 4, 7, 8, 9)
+y <- c(12, 16, 14, 18, 16, 13, 15, 20, 22)
+labels <- 1970:1978
+
+# Connected scatter plot with text
+plot(x, y, type = "b", xlab = "Var 1", ylab = "Var 2"); text(x + 0.4, y + 0.1, labels) 
+
+dfger <- df %>% filter(nation == "Germany")
+labels <- 1992:2020
+plot(dfger$gdppc, dfger$unemployment, type = "b", 
+     xlab = "Var 1", ylab = "Var 2"); text(dfger$gdppc + 0.7, dfger$unemployment + 0.4, labels); title("Germany")
 
 ## 
 
@@ -617,6 +774,12 @@ mtcars |>
 ## 
 
 ## 
+
+
+library("captioner")
+table_nums <- captioner(prefix = "Table")
+
+## /Users/huber/Rbook/rcourse-book.pdf
 
 
 path.expand("~")

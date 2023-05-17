@@ -35,6 +35,46 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -89,11 +129,12 @@
 
 
 \usepackage{tikz}
+\usepackage{menukeys}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
-\bibliographystyle{apacite}
+\bibliographystyle{plainnat}
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
@@ -116,7 +157,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 10 May, 2023}
+\date{Last compiled on 17 May, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -143,6 +184,13 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"captioner"}\NormalTok{)}
+\NormalTok{table\_nums }\OtherTok{\textless{}{-}} \FunctionTok{captioner}\NormalTok{(}\AttributeTok{prefix =} \StringTok{"Table"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \hypertarget{preface}{%
 \chapter*{Preface}\label{preface}}
 \addcontentsline{toc}{chapter}{Preface}
@@ -153,15 +201,13 @@
 \begin{itemize}
 \tightlist
 \item
-  This script aims to support my lecture at the HS Fresenius. It is incomplete and no substitute for taking actively part in class.
-\item
-  The old version of the notes can be found here PDF.
+  These notes aims to support my lecture at the HS Fresenius but are incomplete and no substitute for taking actively part in class. - A pdf version of these notes is available \href{https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/qm/_main.pdf}{here}
 \item
   I appreciate you reading it, and I appreciate any comments.
 \item
   This is work in progress so please check for updates regularly.
 \item
-  The lecture notes are available online or you can download it as a \href{https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/qm/_main.pdf}{pdf file here}
+  Do not distribute without permission.
 \end{itemize}
 
 \hypertarget{about-the-author}{%
@@ -174,11 +220,12 @@
 \end{figure}
 \footnotetext{Picture is taken from \url{https://sites.google.com/view/stephanhuber}}
 
-Prof.~Dr.~Stephan Huber is Professor of International Economics and Data Science at \emph{HS Fresenius} and holds a Diploma in Economics from the \emph{University of Regensburg} and a Doctoral Degree (summa cum laude) from the University of Trier. He completed postgraduate studies at the Interdisciplinary \emph{Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU)} in Trier. He was a research assistant to Prof.~Dr.~Dr.~h.c. Joachim Möller at the \emph{University of Regensburg}, post-doc at the \emph{Leibniz Institute for East and Southeast European Studies (IOS)} in Regensburg and freelancer at \emph{Charles University} in Prague.
+I am a Professor of International Economics and Data Science at HS Fresenius, holding a Diploma in Economics from the University of Regensburg and a Doctoral Degree (summa cum laude) from the University of Trier. I completed postgraduate studies at the Interdisciplinary Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU) in Trier. Prior to my current position, I worked as a research assistant to Prof.~Dr.~Dr.~h.c. Joachim Möller at the University of Regensburg, a post-doc at the Leibniz Institute for East and Southeast European Studies (IOS) in Regensburg, and a freelancer at Charles University in Prague.
 
-He has worked as a lecturer at various institutions including the \emph{TU Munich}, the \emph{University of Regensburg}, \emph{Saarland University}, and the \emph{Universities of Applied Sciences in Frankfurt and Augsburg}. He has also taught abroad for the \emph{University of Cordoba} in Spain and the \emph{University of Perugia}. Professor Huber has published his work in international journals such as the \emph{Canadian Journal of Economics} and the \emph{Stata Journal}. More on his work can be found on his private homepage \href{https://www.t1p.de/stephanhuber}{www.t1p.de/stephanhuber}.
+Throughout my career, I have also worked as a lecturer at various institutions, including the TU Munich, the University of Regensburg, Saarland University, and the Universities of Applied Sciences in Frankfurt and Augsburg. Additionally, I have had the opportunity to teach abroad for the University of Cordoba in Spain and the University of Perugia. My published work can be found in international journals such as the Canadian Journal of Economics and the Stata Journal. For more information on my work, please visit my private homepage at www.t1p.de/stephanhuber.
 
-\textbf{Contact}
+\hypertarget{contact}{%
+\section*{Contact}\label{contact}}
 
 \begin{verbatim}
    Hochschule Fresenius für Wirtschaft & Medien GmbH
@@ -188,22 +235,31 @@ He has worked as a lecturer at various institutions including the \emph{TU Munic
    Office: 4b OG-1 Bü01 (Office hour: Thursday 1-2 p.m.)
    Telefon: +49 221 973199-523
    Mail: stephan.huber@hs-fresenius.de
-   Private homepage: www.t1p.de/stephanhuber
+   Private homepage: [www.t1p.de/stephanhuber](www.t1p.de/stephanhuber)
+   Github: [https://hubchev.github.io](https://hubchev.github.io)
 \end{verbatim}
 
 \hypertarget{about-this-course}{%
 \section*{About this course}\label{about-this-course}}
 
-\textbf{Workload of M-IBS 8 Quantitative \& Qualitative Methods for Business}
+\hypertarget{workload-of-m-ibs-8-quantitative-qualitative-methods-for-business}{%
+\subsubsection*{Workload of M-IBS 8 Quantitative \& Qualitative Methods for Business}\label{workload-of-m-ibs-8-quantitative-qualitative-methods-for-business}}
+
 125 h = 56 h (in-class) + 21 h (guided private study hours) - 48 h (private self-study).
 
-\textbf{Workload of M-IBS 8.1 Quantitative Methods}
+\hypertarget{workload-of-m-ibs-8.1-quantitative-methods}{%
+\subsubsection*{Workload of M-IBS 8.1 Quantitative Methods}\label{workload-of-m-ibs-8.1-quantitative-methods}}
+
 62.5 h = 28 h (in-class) + 10.5 h (guided private study hours) - 24 h (private self-study).
 
-\textbf{Assessment}
+\hypertarget{assessment}{%
+\subsubsection*{Assessment}\label{assessment}}
+
 Students complete this module with a written exam of 120 minutes where 50\% of the points stem from \emph{M-IBS 8.1 Quantitative Methods} and 50\% from \emph{M-IBS 8.2 Qualitative Methods}. A passing grade in this module is achieved when the overall grade is greater than or equal to 4.0.
 
-\textbf{Learning outcomes:}
+\hypertarget{learning-outcomes}{%
+\subsubsection*{Learning outcomes:}\label{learning-outcomes}}
+
 After successful completion of the module, students are able to:
 
 \begin{itemize}
@@ -216,7 +272,9 @@ After successful completion of the module, students are able to:
   distinguish and discuss empirical strategies to identify causal mechanisms, causes, and effects.
 \end{itemize}
 
-\textbf{How to prepare for the exam:}
+\hypertarget{how-to-prepare-for-the-exam}{%
+\subsubsection*{How to prepare for the exam:}\label{how-to-prepare-for-the-exam}}
+
 I am convinced that reading the lecture notes, preparing for class, taking actively part in class, and trying to solve the exercises without going straight to the solutions is the best method for students to
 
 \begin{itemize}
@@ -231,57 +289,63 @@ I am convinced that reading the lecture notes, preparing for class, taking activ
   have more fun during lecture hours.
 \end{itemize}
 
-\textbf{Literature:}
+\hypertarget{literature}{%
+\subsubsection*{Literature:}\label{literature}}
+
 \citet{Cunningham2021Causal}, \citet{Huntington-Klein2022Effect}. \citet{Illowsky2018Introductory}. \citet{Bekes2021Data}
 
-\textbf{Content:}
-
-\textbf{Research Design}
-
-\begin{itemize}
-\tightlist
-\item
-  How to Measure Socio-Economical Reality
-\item
-  How to Identify Causes of Effects
-\item
-  How to Identify Effects of Causes
-\item
-  The Selection Problem and Ways to Solve It (Matching, Natural Experiments, Laboratory Experiments)
-\end{itemize}
-
-\textbf{Statistical Toolbox}
+\hypertarget{content}{%
+\subsubsection*{Content:}\label{content}}
 
 \begin{itemize}
-\tightlist
 \item
-  Types of Data (Cross-section, Panel, Time-series, Georeferenced),
-\item
-  Types of Variables (Continuous, Count, Ordinal, Categorial, Qualitative)
-\item
-  Data Sampling Methods
-\item
-  Descriptive Methods (Data Visualization, Statistical Moments, Correlation)
-\item
-  Methods of Statistical Inference (Distribution, Statistical Tests)
-\item
-  Mathematical and Statistical Software Packages (R, SPSS, Excel, WolframAlpha, etc.)
-\end{itemize}
+  Research Design
 
-\textbf{Methods}
+  \begin{itemize}
+  \tightlist
+  \item
+    How to Measure Socio-Economical Reality
+  \item
+    How to Identify Causes of Effects
+  \item
+    How to Identify Effects of Causes
+  \item
+    The Selection Problem and Ways to Solve It (Matching, Natural Experiments, Laboratory Experiments)
+  \end{itemize}
+\item
+  Statistical Toolbox
 
-\begin{itemize}
-\tightlist
+  \begin{itemize}
+  \tightlist
+  \item
+    Types of Data (Cross-section, Panel, Time-series, Georeferenced),
+  \item
+    Types of Variables (Continuous, Count, Ordinal, Categorial, Qualitative)
+  \item
+    Data Sampling Methods
+  \item
+    Descriptive Methods (Data Visualization, Statistical Moments, Correlation)
+  \item
+    Methods of Statistical Inference (Distribution, Statistical Tests)
+  \item
+    Mathematical and Statistical Software Packages (R, SPSS, Excel, WolframAlpha, etc.)
+  \end{itemize}
 \item
-  Data Mining (Graphical Visualizations, Cluster Analysis, Factor Analysis)
-\item
-  Regression Analysis (Matching, Instrument Variables, Difference in Difference, Fixed Effects, Regression Discontinuity)
-\item
-  Other Methods (Time Series Analysis, Spatial Analysis, Simulations, Qualitative Comparative Analysis, etc.)
+  Methods
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Data Mining (Graphical Visualizations, Cluster Analysis, Factor Analysis)
+  \item
+    Regression Analysis (Matching, Instrument Variables, Difference in Difference, Fixed Effects, Regression Discontinuity)
+  \item
+    Other Methods (Time Series Analysis, Spatial Analysis, Simulations, Qualitative Comparative Analysis, etc.)
+  \end{itemize}
 \end{itemize}
 
 \hypertarget{about-how-to-learn-and-prepare-for-the-exam}{%
-\subsection*{About how to learn (and prepare for the exam)}\label{about-how-to-learn-and-prepare-for-the-exam}}
+\subsubsection*{About how to learn (and prepare for the exam)}\label{about-how-to-learn-and-prepare-for-the-exam}}
 
 \begin{figure}
 \centering
@@ -1103,7 +1167,7 @@ Therefore, it is important to carefully consider all possible explanations (conf
 \end{figure}
 \footnotetext{Picture is taken from \url{https://youtu.be/DFPm_a-_uJM}}
 
-Watch Brady Neal's lecture on \emph{Correlation Does Not Imply Causation and Why} which can be found here: \url{https://youtu.be/DFPm_a-_uJM}. Alternatively, you can read chapter 1.3 of his lecture notes \citep{Neal2020Introduction} which you find here: \url{https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf}.
+Watch the video of Brady Neal's lecture \href{https://youtu.be/DFPm_a-_uJM}{\emph{Correlation Does Not Imply Causation and Why}}. Alternatively, you can read chapter 1.3 of his lecture notes \citep{Neal2020Introduction} which you find \href{https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf}{here}.
 
 \hypertarget{the-fundamental-problem-of-causal-inference}{%
 \section{The fundamental problem of causal inference}\label{the-fundamental-problem-of-causal-inference}}
@@ -1163,7 +1227,7 @@ Here you can read the summary of their infamous study:
 \begin{exercise}
 \protect\hypertarget{exr:graduateadmission}{}\label{exr:graduateadmission}Graduate admissions
 
-Read the first three pages of \citet{Bickel1975Sex}, i.e., pages 398-400, and answer the following questions. The article can be found here: \url{https://www.science.org/doi/pdf/10.1126/science.187.4175.398}.
+Read the first three pages of \citet{Bickel1975Sex}, i.e., pages 398-400, and answer the following questions. The article can be found \href{https://www.science.org/doi/pdf/10.1126/science.187.4175.398}{here}.
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -1263,7 +1327,7 @@ i & T & Y & Y(1) & Y(0) & Y(1)-Y(0) \\
 \end{figure}
 \footnotetext{Picture is taken from \url{https://youtu.be/gGaWU8XEoGk}}
 
-Watch Brady Neal's lecture on \emph{What Does Imply Causation? Randomized Control Trials} which can be found here: \url{https://youtu.be/gGaWU8XEoGk}. Alternatively, you can read chapter 2 of his lecture notes \citep{Neal2020Introduction} which you find \url{https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf}.
+Watch the video of Brady Neal's lecture \href{https://youtu.be/gGaWU8XEoGk}{\emph{What Does Imply Causation? Randomized Control Trials}}. Alternatively, you can read \href{https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf}{chapter 2} of his lecture notes \citep{Neal2020Introduction}.
 
 Under certain assumptions, the Rubin Causal Model allows for the estimation of the Average Treatment Effect (ATE), which is the difference in the expected outcomes between the treatment and control groups, given by the formula:
 \[
@@ -1608,6 +1672,291 @@ A helpful slogan to keep in mind while scrutinizing statistical results is ``gar
 \hypertarget{descriptive-statistics}{%
 \section{Descriptive statistics}\label{descriptive-statistics}}
 
+\hypertarget{univariate-data}{%
+\subsection{Univariate data}\label{univariate-data}}
+
+\hypertarget{arithmetic-mean}{%
+\subsubsection{Arithmetic mean}\label{arithmetic-mean}}
+
+The arithmetic mean (\(\bar{x}\)) is calculated as the sum of all the values in a dataset divided by the total number of values:
+
+\[
+\bar{x} = \frac{{\sum_{i=1}^{n} x_i}}{n}
+\]
+
+where \(\bar{x}\) represents the arithmetic mean, \(x_i\) represents each individual value in the dataset, and \(n\) represents the total number of values in the dataset.
+
+\hypertarget{median}{%
+\subsubsection{Median}\label{median}}
+
+The median is the middle value of a dataset when it is sorted in ascending or descending order. If the dataset has an odd number of values, the median is the middle value. If the dataset has an even number of values, the median is the average of the two middle values.
+
+\hypertarget{mode}{%
+\subsubsection{Mode}\label{mode}}
+
+The mode is the value or values that appear most frequently in a dataset.
+
+\hypertarget{range}{%
+\subsubsection{Range}\label{range}}
+
+The range is the difference between the maximum and minimum values in a dataset.
+
+\[
+\text{{Range}} = \max(x_i) - \min(x_i)
+\]
+
+where \(\text{{Range}}\) represents the range value, and \(x_i\) represents each individual value in the dataset.
+
+\hypertarget{variance}{%
+\subsubsection{Variance}\label{variance}}
+
+The variance represents the average of the squared deviations of a random variable from its mean. It quantifies the extent to which a set of numbers deviates from their average value. Variance is commonly denoted as \(Var(X)\), \(\sigma^2\), or \(s^2\). The calculation of variance is as follows:
+\[
+\sigma^2={\frac{1}{n}}\sum _{i=1}^{n}(x_{i}-\mu )^{2}
+\]
+However, it is better to use
+\[
+\sigma^2={\frac{1}{n-1}}\sum _{i=1}^{n}(x_{i}-\mu )^{2}.
+\]
+
+The use of \(n - 1\) instead of \(n\) in the formula for the sample variance is known as \emph{Bessel's correction}, which corrects the bias in the estimation of the population variance, and some, but not all of the bias in the estimation of the population standard deviation.
+Consequently this way to calculate the variance and hence the standard deviation is called the \emph{sample standard deviation} or the \emph{unbiased estimation of standard deviation}.
+In other words, when working with a sample instead of the full population the limited number of observations tend to be closer to the \emph{sample mean} than to the \emph{population mean}, see figure \ref{fig:bessel}. Bessels Correction takes that into account.
+
+For a detailed explanation, you can watch the video by \href{https://youtu.be/sHRBg6BhKjI}{StatQuest with Josh Starmer: Why Dividing By N Underestimates the Variance}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth,height=\textheight]{fig/bessel.png}
+\caption[\label{fig:bessel} Bias when using the sample mean]{\label{fig:bessel} Bias when using the sample mean\footnotemark{}}
+\end{figure}
+\footnotetext{Picture is taken from the video \url{https://youtu.be/sHRBg6BhKjI}}
+
+\hypertarget{standard-deviation}{%
+\subsubsection{Standard deviation}\label{standard-deviation}}
+
+As the variance is hard to interpret, the standard deviation is a more often used measure of dispersion.
+A low standard deviation indicates that the values tend to be close to the mean.
+It is often abbreviated with \(sd\), \(SD\), or most often with the Greek letter sigma, \(\sigma\).
+The underlying idea is to measure the average deviation from the mean.
+It is calculated as follows:
+\[
+sd(x)=\sqrt{\sigma^2}={\sqrt {{\frac {1}{n-1}}\sum _{i=1}^{n}\left(x_{i}-{\mu}\right)^{2}}}=\sigma
+\]
+
+\hypertarget{standard-error}{%
+\subsubsection{Standard error}\label{standard-error}}
+
+The standard deviation (SD) measures the amount of variability, or dispersion, for a subject set of data from the mean, while the standard error of the mean (SEM) measures how far the sample mean of the data is likely to be from the true population mean. The SEM is always smaller than the SD. It matters because it helps you estimate how well your sample data represents the whole population.
+
+The standard error of the mean (SEM) can be expressed as:
+\[
+sd(\bar{x})=\sigma_{\bar {x}}\ = s = {\frac {\sigma }{\sqrt {n}}}
+\]
+where \(\sigma\) is the standard deviation of the population and \(n\) is the size (number of observations) of the sample.
+
+Also see the video by \href{https://youtu.be/A82brFpdr9g}{StatQuest with Josh Starmer: Standard Deviation vs Standard Error, Clearly Explained!!!}
+
+\hypertarget{why-divide-by-the-square-root-of-n}{%
+\subparagraph*{\texorpdfstring{Why divide by the square root of \(n\)?}{Why divide by the square root of n?}}\label{why-divide-by-the-square-root-of-n}}
+
+Let \(X_{i}\) be an independent draw from a distribution with mean \(\bar{x}\) and variance \(\sigma^{2}\).
+What is the variance of \(\bar{x}\)?
+
+By definition:
+\[
+\operatorname{Var}(x)=E\left[\left(x_{i}-E\left[x_{i}\right]\right)^{2}\right]=\sigma^{2}
+\]
+so
+\begin{align*}
+\operatorname{Var}(\bar{x})&=E\left[\left(\frac{\sum x_{i}}{n}-E \left[\frac{\sum x_{i}}{n}\right]\right)^{2}\right]\\
+&=E\left[\left(\frac{\sum x_{i}}{n}-\frac{1}{n} E\left[ \sum x_{i}\right]\right)^{2}\right]\\
+&=\frac{1}{n^{2}} E\left[\left(\sum x_{i}-E\left[\sum x_{i}\right]\right)^{2}\right]\\
+&=\frac{1}{n^{2}} E\left[\left(\sum x_{i}- \sum \bar{x}\right)^{2}\right]\\
+&=\frac{1}{n^{2}} E\left[(x_{1}+x_{2}+\cdots+x_{n}-\underbrace{\bar{x}-\bar{x}-\cdots -\bar{x}}_{n \text{ terms }})^{2}\right]\\
+&=\frac{1}{n^{2}} E\left[\sum\left(x_{i}-\bar{x}\right)^{2}\right]\\
+&=\frac{1}{n^{2}} \sum E\left(x_{i}-\bar{x}\right)^{2}\\
+&=\frac{1}{n^{2}} \underbrace{\sum \sigma^{2}}_{n\cdot \sigma^{2}}\\
+&=\frac{1}{n} \sigma^{2}
+\end{align*}
+and hence
+\[
+sd(\bar x)=\sqrt{\operatorname{Var}(\bar{x})}=s={\frac {\sigma }{\sqrt {n}}}
+\]
+
+\hypertarget{coefficient-of-variation}{%
+\subsubsection{Coefficient of variation}\label{coefficient-of-variation}}
+
+The coefficient of variation (\(CoV\)) is a relative measure of variability and is calculated as the ratio of the standard deviation to the mean, expressed as a percentage:
+
+\[
+CoV =  \frac{\sigma}{\bar{x}}
+\]
+
+where \(CoV\) represents the coefficient of variation, \(\sigma\) represents the standard deviation, and \(\bar{x}\) represents the arithmetic mean.
+
+\hypertarget{skewness}{%
+\subsubsection{Skewness}\label{skewness}}
+
+Skewness is a measure of the asymmetry of a distribution. There are different formulas to calculate skewness, but one common method is using the third standardized moment (\(\gamma_1\)):
+
+\[
+\gamma_1 = \frac{{\sum_{i=1}^{n} \left(\frac{x_i - \bar{x}}{\sigma}\right)^3}}{n}
+\]
+
+where \(\gamma_1\) represents the skewness, \(x_i\) represents each individual value in the dataset, \(\bar{x}\) represents the arithmetic mean, \(\sigma\) represents the standard deviation, and \(n\) represents the total number of values in the dataset.
+
+\hypertarget{kurtosis}{%
+\subsubsection{Kurtosis}\label{kurtosis}}
+
+Kurtosis measures the peakedness or flatness of a probability distribution. There are different formulations for kurtosis, and one of the common ones is the fourth standardized moment. The formula for kurtosis is given by:
+
+\[
+\text{{Kurtosis}} = \frac{{\frac{1}{n} \sum_{i=1}^{n}(x_i - \bar{x})^4}}{{\left(\frac{1}{n} \sum_{i=1}^{n}(x_i - \bar{x})^2\right)^2}}
+\]
+
+where \(\text{Kurtosis}\) represents the kurtosis value, \(x_i\) represents each individual value in the dataset, \(\bar{x}\) represents the mean of the dataset, and \(n\) represents the total number of values in the dataset.
+
+\hypertarget{bivariate-data}{%
+\subsection{Bivariate data}\label{bivariate-data}}
+
+\hypertarget{covariance}{%
+\subsubsection{Covariance}\label{covariance}}
+
+Covariance \(Cov(X,Y)\) (or \(\sigma_{XY}\)) is a measure of the joint variability of two variables (\(x\) and \(y\)) and their observations \(i\), respectively.
+The covariance is positive when larger values of one variable tend to correspond with larger values of the other variable, or when smaller values of one variable tend to correspond with smaller values of the other variable. On the other hand, a negative covariance suggests an inverse relationship, where larger values of one variable tend to correspond with smaller values of the other variable.
+
+It's important to note that the magnitude of the covariance is influenced by the units of measurement, making it challenging to interpret directly. Additionally, the spread of the variables also affects the covariance.
+The formula for calculating covariance is as follows:
+\[
+\operatorname{Cov}(X,Y)=\sigma_{XY}={\frac {1}{n-1}}\sum _{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})
+\]
+where \(cov(X,Y)\) represents the covariance, \(\sigma_{XY}\) is an alternative notation, \(x_i\) and \(y_i\) are the individual observations of variables \(X\) and \(Y\), \(\bar{x}\) and \(\bar{y}\) are the means of variables \(X\) and \(Y\), and \(n\) is the total number of observations.
+
+To gain a better understanding of the concept and calculation of covariance, I highly recommend watching Josh Starmer's informative and visually engaging video titled \href{https://youtu.be/qtaqvPAeEJY}{Covariance and Correlation Part 1: Covariance}.
+
+\hypertarget{the-correlation-coefficient-bravais-pearson}{%
+\subsubsection{The correlation coefficient (Bravais-Pearson)}\label{the-correlation-coefficient-bravais-pearson}}
+
+The Pearson correlation coefficient measures the linear relationship between two variables. It is calculated as the covariance of the variables divided by the product of their standard deviations.
+\[
+\rho_{X,Y} = \frac{{\text{Cov}(X, Y)}}{{\sigma_X \sigma_Y}}
+\]
+
+where \(\rho\) represents the Pearson correlation coefficient, \(\text{Cov}(X, Y)\) denotes the covariance between variables \(X\) and \(Y\), \(\sigma_X\) denotes the standard deviation of variable \(X\), and \(\sigma_Y\) denotes the standard deviation of variable \(Y\). It has a value between +1 and -1.
+
+By dividing the covariance of \(X\) and \(Y\) by the multiplication of the standard deviations of \(X\) and \(Y\), the correlation coefficient is normalized by having a minimum of -1 and a maximum of 1. Thus, it can fix the problem of the variance that the scale (unit of measurement) determines the size of the variance.
+
+I highly recommend watching the video \href{https://youtu.be/xZ_z8KWkhXE}{Pearson's Correlation, Clearly Explained!!!}
+StatQuest with Josh Starmer. It provides a clear and engaging explanation of the meaning of correlation. The video features informative animations that help visualize the concept.
+
+In interpreting correlations, it is important to remember that they\ldots{}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \ldots{} only reflect the strength and direction of linear relationships,
+\item
+  \ldots{} do not provide information about the slope of the relationship, and
+\item
+  \ldots{} fail to explain important aspects of nonlinear relationships.
+\end{enumerate}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{fig/corelate_overview} 
+
+}
+
+\caption{Correlations are blind on some eye}\label{fig:corelateoverview}
+\end{figure}
+
+Figure \ref{fig:corelateoverview} shows that correlation coefficients are limited in to explaining the relationship of two variables.
+For example, when the slope of a relationship is zero, the correlation coefficient becomes undefined due to the variance of \(Y\) being zero.
+Furthermore, Pearson's correlation coefficient is sensitive to outliers, and all correlation coefficients are prone to sample selection biases. It is crucial to be careful when attempting to correlate two variables, particularly when one represents a part and the other represents the total.
+It is also worth noting that small correlation values do not necessarily indicate a lack of association between variables. For example, Pearson's correlation coefficient can underestimates the association between variables exhibiting a quadratic relationship. Therefore, it is always advisable to examine scatterplots in conjunction with correlation analysis.
+
+In figure \ref{fig:allcorsame} you see various graphs that all have the same correlation coefficient and share other statistical properties like is investigated in exercise \ref{exr:Datasaurus}.
+
+\begin{figure}
+
+{\centering \includegraphics{fig/allcorsame} 
+
+}
+
+\caption{These diagrams all have the same statistical properties\protect\footnotemark}\label{fig:allcorsame}
+\end{figure}
+\footnotetext{This graph was produced employing the `datasauRus` R package.}
+
+\hypertarget{rank-correlation-coefficient-spearman}{%
+\subsubsection{Rank correlation coefficient (Spearman)}\label{rank-correlation-coefficient-spearman}}
+
+Spearman's rank correlation coefficient is a measure of the strength and direction of the monotonic relationship between two variables.
+It can be calculated for a sample of size \(n\) by converting the \(n\) raw scores \(X_i, Y_i\) to ranks \(\text{R}(X_i), \text{R}(Y_i)\), then using the following formula:
+
+\[
+r_s = \rho_{\operatorname{R}(X),\operatorname{R}(Y)} = \frac{\text{cov}(\operatorname{R}(X), \operatorname{R}(Y))}{\sigma_{\operatorname{R}(X)} \sigma_{\operatorname{R}(Y)}},
+\]
+
+where
+\(\rho\) denotes the usual Pearson correlation coefficient, but applied to the rank variables,
+\(\operatorname{cov}(\operatorname{R}(X), \operatorname{R}(Y))\) is the covariance of the rank variables,
+\(\sigma_{\operatorname{R}(X)}\) and \(\sigma_{\operatorname{R}(Y)}\) are the standard deviations of the rank variables.
+
+If all \(n\) ranks are distinct integers, you can use the handy formula:
+
+\[
+\rho = 1 - \frac{6\sum d_i^2}{n(n^2 - 1)}
+\]
+
+where \(\rho\) denotes the correlation coefficient, \(\sum d_i^2\) is the sum of squared differences between the ranks of corresponding pairs of variables, and \(n\) represents the number of pairs of observations.
+
+The coefficient ranges from -1 to 1. A value of 1 indicates a perfect increasing monotonic relationship, while a value of -1 indicates a perfect decreasing monotonic relationship. A value of 0 suggests no monotonic relationship between the variables.
+
+Spearman's rank correlation coefficient is a non-parametric measure and is often used when the relationship between variables is not linear or when the data is in the form of ranks or ordinal categories.
+
+\begin{exercise}
+\protect\hypertarget{exr:Datasaurus}{}\label{exr:Datasaurus}
+
+Datasaurus
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Load the packages \texttt{datasauRus} and \texttt{tidyverse}. If necessary, install these packages.
+\end{enumerate}
+
+\end{exercise}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\item
+  The package\texttt{datasauRus} comes with a dataset in two different formats: \texttt{datasaurus\_dozen} and \texttt{datasaurus\_dozen\_wide}. Store them as \texttt{ds} and \texttt{ds\_wide}.
+\item
+  Open and read the R vignette of the \texttt{datasauRus} package. Also open the R documentation of the dataset \texttt{datasaurus\_dozen}.
+\item
+  Explore the dataset: What are the dimensions of this dataset? Look at the descriptive statistics.
+\item
+  How many unique values does the variable \texttt{dataset} of the tibble \texttt{ds} have? Hint: The function unique() return the unique values of a variable and the function length() returns the length of a vector, such as the unique elements.
+\item
+  Compute the mean values of the \texttt{x} and \texttt{y} variables for each entry in \texttt{dataset}. Hint: Use the group\_by() function to group the data by the appropriate column and then the summarise() function to calculate the mean.
+\item
+  Compute the standard deviation, the correlation, and the median in the same way. Round the numbers.
+\item
+  What can you conclude?
+\item
+  Plot all datasets of \texttt{ds}. Hide the legend. Hint: Use the \texttt{facet\_wrap()} and the \texttt{theme()} function.
+\item
+  Create a loop that generates separate scatter plots for each unique datatset of the tibble \texttt{ds}. Export each graph as a png file.
+\item
+  Watch the video \href{https://youtu.be/T-kxUB29t0o}{Animating the Datasaurus Dozen Dataset in R} from The Data Digest on YouTube.
+\end{enumerate}
+
+Please find the solutions \href{https://htmlpreview.github.io/?https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/datasaurus_solution.html}{here}.
+
 \begin{exercise}
 \protect\hypertarget{exr:summarystatistics}{}\label{exr:summarystatistics}Summary statistics
 
@@ -1623,9 +1972,9 @@ Calculate for the following datasets: the mode, the median, the 20\% quantile, t
   A random sample of 128 visitors of the Cupcake festival yielded the following frequencies regarding the cupcake consumption during their visit:
 \end{enumerate}
 
-\begin{longtable}[]{@{}lllllll@{}}
+\begin{longtable}[]{@{}lrrrrrr@{}}
 \toprule()
-Consumed litres & 1 & 2 & 3 & 4 & 5 & 6 \\
+Cupcages consumed & 1 & 2 & 3 & 4 & 5 & 6 \\
 \midrule()
 \endhead
 Abs. freq. & 2 & 30 & 37 & 28 & 23 & 8 \\
@@ -1668,6 +2017,269 @@ a & b & c & d & e \\
 Rank the variables without calculating concrete numbers accordingly to the values of the following descriptive statistics: mode, median, mean, range, variance, standard deviation, coefficient of variation.
 
 Please find solution to the exercise \protect\hyperlink{sol:guessstat}{here.}
+\end{exercise}
+
+\hypertarget{simple-linear-regression}{%
+\subsection{Simple linear regression}\label{simple-linear-regression}}
+
+The linear regression analysis is a widely used technique for predictive modeling. Its purpose is to establish a mathematical equation that relates a continuous response variable, denoted as \(y\), to one or more independent variables, represented by \(x\). The objective is to create a regression model that enables the prediction of the value of \(y\) based on known values of \(x\).
+
+To ensure meaningful predictions, it is important to have an adequate number of observations, denoted as \(i\), available for the variables of interest.
+
+The linear regression model can be expressed as:
+\[
+y_i = \beta_{0} + \beta_{1} x_i + \epsilon_i,
+\]
+where the index \(i\) denotes the individual observations, ranging from \(i = 1\) to \(n\). The variable \(y_i\) represents the dependent variable, also known as the regressand. The variable \(x_i\) represents the independent variable, also referred to as the regressor. \(\beta_0\) denotes the intercept of the population regression line, a.k.a. the constant. \(\beta_1\) denotes the slope of the population regression line. Lastly, \(\epsilon_i\) refers to the error term or the residual, which accounts for the deviation between the predicted and observed values of \(y_i\).
+
+By fitting a linear regression model, one aims to estimate the values of \(\beta_0\) and \(\beta_1\) in order to obtain an equation that best captures the relationship between \(y\) and \(x\).
+
+While the correlation coefficient and the slope in simple linear regression are similar in many ways, it's important to note that they are not identical. The correlation coefficient measures the strength and direction of the linear relationship between variables in a broader sense, while the slope in simple linear regression specifically quantifies the change in the dependent variable associated with a unit change in the independent variable.
+
+\hypertarget{estimating-the-coefficients-of-the-linear-regression-model}{%
+\subsubsection{Estimating the coefficients of the linear regression model}\label{estimating-the-coefficients-of-the-linear-regression-model}}
+
+In practice, the intercept and slope of the regression are unknown. Therefore, we must employ data to estimate the unknown parameters, \(\beta_0\) and \(\beta_1\).
+The method we use is called the ordinary least squared (OLS) method. The idea is to minimize the sum of the squared differences of all \(y_i\) and \(y_i^*\) as sketched in figure \ref{fig:regressionols}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=18.85in]{fig/regression_ols} 
+
+}
+
+\caption{The fitted line and the residuals}\label{fig:regressionols}
+\end{figure}
+
+Thus, we minimize the squared residuals by choosing the estimated coefficients \(\hat{\beta_{0}}\) and \(\hat{\beta_{1}}\)
+\begin{align*}
+\min_{\hat{\beta_{0}}, \hat{\beta_{1}}}\sum_{i=1} \epsilon_i^2 &= \sum_{i=1}    \left[y_i - \underbrace{(\hat{\beta_{0}} + \hat{\beta_{1}} x_i)}_{\textnormal{predicted values}\equiv y_i^*}\right]^2\\
+\Leftrightarrow  &=  \sum_{i=1} (y_i - \hat{\beta_{0}} - \hat{\beta_{1}} x_i)^2
+\end{align*}
+Minimizing the function requires to calculate the first order conditions with respect to alpha and beta and set them zero:
+\begin{align*}
+\frac{\partial \sum_{i=1} \epsilon_i^2}{\partial \beta_{0}}=2 \sum_{i=1}    (y_i - \hat{\beta_{0}} - \hat{\beta_{1}} x_i)=0\\
+\frac{\partial \sum_{i=1} \epsilon_i^2}{\partial \beta_{1}}=2 \sum_{i=1}    (y_i - \hat{\beta_{0}} - \hat{\beta_{1}} x_i)x_i=0
+\end{align*}
+This is just a linear system of two equations with two unknowns \(\beta_{0}\) and \(\beta_{1}\), which we can mathematically solve for \(\beta_0\):
+\begin{align*}
+    &\sum_{i=1} (y_i - \hat{\beta_{0}} - \hat{\beta_{1}} x_i)=0\\
+    \Leftrightarrow \hat{\beta_{0}}&=\frac{1}{n}\sum_{i=1}  (y_i  - \hat{\beta_{1}} x_i)\\
+    \Leftrightarrow \hat{\beta_{0}}&=\bar{y}-\hat{\beta_{1}}\bar{x}
+\end{align*}
+and for \(\beta_{1}\):
+\begin{align*}
+    &\sum_{i=1} (y_i - \hat{\beta_{0}} - \hat{\beta_{1}} x_i)x_i=0\\
+    \Leftrightarrow & \sum_{i=1}    y_i x_i- \underbrace{\hat{\beta_{0}}}_{\bar{y}-\hat{\beta_{1}}\bar{x}}x_i - \hat{\beta_{1}} x_i^2=0\\
+    \Leftrightarrow & \sum_{i=1}    y_i x_i- (\bar{y}-\hat{\beta_{1}}\bar{x})x_i - \hat{\beta_{1}} x_i^2=0\\    
+    \Leftrightarrow & \sum_{i=1}    y_i x_i- \bar{y}x_i-\hat{\beta_{1}}\bar{x}x_i - \hat{\beta_{1}} x_i^2=0\\   
+    \Leftrightarrow & \sum_{i=1}    (y_i - \bar{y}-\hat{\beta_{1}}\bar{x} - \hat{\beta_{1}} x_i)x_i=0\\ 
+%   \Leftrightarrow & \sum_{i=1}    (y_i - \bar{y})-\beta_{1}\bar{x} - \hat{\beta_{1}} x_i=0\\
+    \Leftrightarrow & \sum_{i=1} (y_i - \bar{y}) x_i -\hat{\beta_{1}}(\bar{x} -  x_i)x_i =0\\
+    \Leftrightarrow & \sum_{i=1}    (y_i - \bar{y}) x_i  =  \hat{\beta_{1}} \sum_{i=1} (\bar{x} -  x_i) x_i \\
+%   \Leftrightarrow & \beta_{1} =\frac{\sum_{i=1}(y_i - \bar{y})x_i }{ \sum_{i=1} (\bar{x} -  x_i)x_i }\\
+    \Leftrightarrow & \hat{\beta_{1}} =\frac{\sum_{i=1}(y_i - \bar{y})x_i }{ \sum_{i=1} (\bar{x} -  x_i)x_i }\\
+        \Leftrightarrow & \hat{\beta_{1}} =\frac{\sum_{i=1}(y_i -\bar{y})(x_i-\bar{x})}{\sum_{i=1} (\bar{x} -  x_i)^2 }\\
+    \Leftrightarrow & \hat{\beta_{1}} ={\frac {\sigma_{x,y}}{\sigma^2_{x}}}
+\end{align*}
+The estimated regression coefficient \(\hat{\beta_{1}}\) equals the covariance between \(y\) and \(x\) divided by the variance of \(x\).
+
+The formulas presented above may not be very intuitive at first glance. The online version of the book \citet{Hanck2020Introduction} offers a nice interactive application in the box \href{https://www.econometrics-with-r.org/4-2-estimating-the-coefficients-of-the-linear-regression-model.html}{The OLS Estimator, Predicted Values, and Residuals} that helps to understand the mechanics of OLS. You can add observations by clicking into the coordinate system where the data are represented by points. Once two or more observations are available, the application computes a regression line using OLS and some statistics which are displayed in the right panel. The results are updated as you add further observations to the left panel. A double-click resets the application, i.e., all data are removed.
+
+\hypertarget{the-least-squares-assumptions}{%
+\subsubsection{The least squares assumptions}\label{the-least-squares-assumptions}}
+
+OLS performs well under a quite broad variety of different circumstances. However, there are some assumptions which need to be satisfied in order to ensure that the estimates are normally distributed in large samples.
+
+The Least Squares Assumptions should fulfill the following assumptions:
+\[Y_i = \beta_0 + \beta_1 X_i + \epsilon_i \text{, } i = 1,\dots,n\]
+- The error term \(\epsilon_i\) has conditional mean zero given \(X_i: E(u_i|X_i)=0\).
+- \((X_i,Y_i), i=1,\dots,n\) are independent and identically distributed (i.i.d.) draws from their joint distribution.
+- Large outliers are unlikely: \(X_i\) and \(Y_i\) have nonzero finite fourth moments. That means, assumption 3 requires that \(X\) and \(Y\) have a finite kurtosis.
+
+\hypertarget{measures-of-fit}{%
+\subsubsection{Measures of fit}\label{measures-of-fit}}
+
+After fitting a linear regression model, a natural question is how well the model describes the data. Visually, this amounts to assessing whether the observations are tightly clustered around the regression line. Both the coefficient of determination and the standard error of the regression measure how well the OLS Regression line fits the data.
+
+\(R^2\) is the fraction of the sample variance of \(Y_i\) that is explained by \(X_i\). Mathematically, the \(R^2\) can be written as the ratio of the explained sum of squares to the total sum of squares. The explained sum of squares (ESS) is the sum of squared deviations of the predicted values \(\hat{Y_i}\), from the average of the \(Y_i\). The total sum of squares (TSS) is the sum of squared deviations of the \(Y_i\) from their average. Thus we have
+\begin{align}
+ESS & =  \sum_{i = 1}^n \left( \hat{Y_i} - \overline{Y} \right)^2,   \\
+TSS & =  \sum_{i = 1}^n \left( Y_i - \overline{Y} \right)^2,   \\
+R^2 & = \frac{ESS}{TSS}.
+\end{align}
+Since \(TSS = ESS + SSR\) we can also write
+\[R^2 = 1- \frac{\textcolor{blue}{SSR}}{\textcolor{red}{TSS}}\]
+with \(SSR= \sum_{i = 1}^n \epsilon^2\).
+
+\begin{figure}
+
+{\centering \includegraphics[width=26.67in]{fig/fitR} 
+
+}
+
+\caption{Total sum of squares and sum of squared residuals}\label{fig:fitR}
+\end{figure}
+
+\(R^2\) lies between 0 and 1. It is easy to see that a perfect fit, i.e., no errors made when fitting the regression line, implies \(R2=1\) since then we have \(SSR=0\). On the contrary, if our estimated regression line does not explain any variation in the \(Y_i\), we have \(ESS=0\) and consequently \(R^2=0\). Figure \ref{fig:fitR} show the relationship of TTS and SSR.
+
+\hypertarget{multiple-linear-regression}{%
+\subsection{Multiple linear regression}\label{multiple-linear-regression}}
+
+Having understood the simple linear regression model, it is important to broaden our scope beyond the relationship between just two variables: the dependent variable and a single regressor. Our goal is to causally interpret the measured association of two variables, which requires certain conditions as explained in section \ref{identification}.
+
+To illustrate this concept, let's revisit the phenomenon known as Simpson's paradox. Simpson's paradox occurs when the overall association between two categorical variables differs from the association observed when we consider the influence of one or more other variables, known as controlling variables. This paradox holds three key reasons for its significance.
+
+Firstly, it challenges the assumption that statistical relationships are fixed and unchanging. In reality, the relationship between two variables can vary, either increasing, decreasing, or even changing direction depending on the set of variables being controlled.
+
+Secondly, Simpson's paradox is not an isolated phenomenon of interest solely to statisticians. It belongs to a larger class of association paradoxes, indicating that similar situations can arise in various contexts.
+
+Lastly, Simpson's paradox serves as a reminder to researchers about the potential pitfalls of making causal inferences, especially in nonexperimental studies. Uncontrolled or unobserved variables may exist that can eliminate or reverse the observed association between two variables.
+
+Thus, it is important to consider confounding variables to ensure valid and reliable causal interpretations in research, particularly in nonexperimental settings.
+
+\begin{figure}
+
+{\centering \includegraphics[width=9.72in]{fig/foo-13} 
+
+}
+
+\caption{Simpsons paradox and the power of controlling variables}\label{fig:foo-1}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=9.72in]{fig/foo-32} 
+
+}
+
+\caption{Simpsons paradox and the power of controlling variables}\label{fig:foo-2}
+\end{figure}
+
+The multiple regression model can be expressed as
+\[
+Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \dots + \beta_k X_{ki} + u_i, \ i=1,\dots,n.
+\]
+
+How can we estimate the coefficients of the multiple regression model? As in the simple model, we seek to minimize the sum of squared mistakes by choosing estimated
+coefficients \(\beta_0,\beta_1,\dots,\beta_k\) such that
+\[\sum_{i=1}^n (Y_i - b_0 - b_1 X_{1i} - b_2 X_{2i} - \dots -  b_k X_{ki})^2 \]
+
+This demands matrix notation. This goes beyond the scope of this introduction.
+
+\hypertarget{gauss-markov-and-the-best-linear-unbiased-estimator}{%
+\subsubsection{Gauss-Markov and the best linear unbiased estimator}\label{gauss-markov-and-the-best-linear-unbiased-estimator}}
+
+The Gauss-Markov assumptions, also known as the classical linear regression assumptions, are a set of assumptions that underlie the ordinary least squares (OLS) method for estimating the parameters in a linear regression model. These assumptions ensure that the OLS estimators are unbiased, efficient, and have desirable statistical properties.
+
+The Gauss-Markov assumptions are as follows:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Linearity: The relationship between the dependent variable and the independent variables is linear in the population model. This means that the true relationship between the variables can be represented by a linear equation.
+\item
+  Independence: The errors (residuals) in the regression model are independent of each other. This assumption ensures that the errors for one observation do not depend on or influence the errors for other observations.
+\item
+  Strict exogeneity: The errors have a mean of zero conditional on all the independent variables. In other words, the expected value of the errors is not systematically related to any of the independent variables.
+\item
+  No perfect multicollinearity: The independent variables are not perfectly correlated with each other. Perfect multicollinearity occurs when one independent variable is a perfect linear combination of other independent variables, leading to problems in estimating the regression coefficients.
+\item
+  Homoscedasticity: The errors have constant variance (homoscedasticity) across all levels of the independent variables. This assumption implies that the spread or dispersion of the errors is the same for all values of the independent variables.
+\item
+  No endogeneity: The errors are not correlated with any of the independent variables. Endogeneity occurs when there is a correlation between the errors and one or more of the independent variables, leading to biased and inefficient estimators.
+\item
+  No autocorrelation: The errors are not correlated with each other, meaning that there is no systematic pattern or relationship between the errors for different observations.
+\end{enumerate}
+
+These assumptions collectively ensure that the OLS estimators are unbiased, efficient, and have minimum variance among all linear unbiased estimators. Violations of these assumptions can lead to biased and inefficient estimators, invalid hypothesis tests, and unreliable predictions. Therefore, it is important to check these assumptions when using the OLS method and consider alternative estimation techniques if the assumptions are violated.
+
+\hypertarget{confounding-and-control-variables}{%
+\subsubsection{Confounding and control variables}\label{confounding-and-control-variables}}
+
+A confounding variable is a factor that was not accounted for or controlled in a study but has the potential to influence the results. In other words, the true effects of the treatment or intervention can be obscured or muddled by the presence of this variable.
+
+For instance, let's consider a scenario where two groups of individuals are observed: one group took vitamin C daily, while the other group did not. Over the course of a year, the number of colds experienced by each group is recorded. It might be observed that the group taking vitamin C had fewer colds compared to the group that did not. However, it would be incorrect to conclude that vitamin C directly reduces the occurrence of colds. Since this study is observational and not a true experiment, numerous confounding variables are at play. One potential confounding variable could be the individuals' level of health consciousness. Those who take vitamins regularly might also engage in other health-conscious behaviors, such as frequent handwashing, which could independently contribute to a lower risk of catching colds.
+
+To address confounding variables, researchers employ control measures. The idea is to create conditions where confounding variables are minimized or eliminated. In the aforementioned example, researchers could pair individuals who have similar levels of health consciousness and randomly assign one person from each pair to take vitamin C daily (while the other person receives a placebo). Any differences observed in the number of colds between the groups would be more likely attributable to the vitamin C, compared to the original observational study. Well-designed experiments are crucial as they actively control for potential confounding variables.
+
+Consider another scenario where a researcher claims that eating seaweed prolongs life. However, upon reading interviews with the study subjects, it becomes apparent that they were all over 100 years old, followed a very healthy diet, slept an average of 8 hours per day, drank ample water, and engaged in regular exercise. In this case, it is not possible to determine whether longevity was specifically caused by seaweed consumption due to the presence of numerous confounding variables. The healthy diet, sufficient sleep, hydration, and exercise could all independently contribute to longer life. These variables act as confounding factors.
+
+A common error in research studies is to fail to control for confounding variables, leaving the results open to scrutiny. The best way to head off confounding variables is to do a well-designed experiment in a controlled setting. Observational studies are great for surveys and polls, but not for showing cause-and-effect relationships, because they don't control for confounding variables.
+
+\textbf{Control variables} are usually variables that you are not particularly interested in, but that are related to the dependent variable. You want to remove their effects from the equation. A control variable enters a regression in the same way as an independent variable -- the method is the same.
+
+Nick Huntington-Klein offers \href{https://www.nickchk.com/causalgraphs.html}{Causal Inference Animated Plots} on his homepage. Read this page and consider the animated graphs.
+
+\hypertarget{omitted-variable-bias-and-ceteris-paribus}{%
+\subsubsection{Omitted variable bias and ceteris paribus}\label{omitted-variable-bias-and-ceteris-paribus}}
+
+From the Gauss-Markov theorem we know that if the OLS assumptions are fullfiled, the OLS estimator is (in the sense of smallest variance) the best linear conditionally unbiased estimator (BLUE).
+However, OLS estimates can suffer from omitted variable bias when any regressor, X, is correlated with any omitted variable that matters for variable Y.
+
+For omitted variable bias to occur, two conditions must be fulfilled:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  X is correlated with the omitted variable.
+\item
+  The omitted variable is a determinant of the dependent variable Y.
+\end{enumerate}
+
+In regression analysis, ``ceteris paribus'' is a Latin phrase that translates to ``all other things being equal'' or ``holding everything else constant.'' It is a concept used to examine the relationship between two variables while assuming that all other factors or variables remain unchanged.
+
+When we say \emph{ceteris paribus} in the context of regression analysis, we are isolating the effect of a specific independent variable on the dependent variable while assuming that the values of the other independent variables remain constant. By holding other variables constant, we can focus on understanding the direct relationship between the variables of interest.
+
+For example, consider a regression analysis that examines the relationship between income (dependent variable) and education level (independent variable) while controlling for age, gender, and work experience. By stating \emph{ceteris paribus}, we are assuming that age, gender, and work experience remain constant, and we are solely interested in understanding the impact of education level on income.
+
+\begin{exercise}
+\protect\hypertarget{exr:lookatoutput}{}\label{exr:lookatoutput}Look at the Output
+\end{exercise}
+
+\begin{figure}
+
+{\centering \includegraphics[width=13.43in]{fig/reg_stata2} 
+
+}
+
+\caption{Regression output}\label{fig:regstata2}
+\end{figure}
+
+Above you see an excerpt of a regression output taken from a statistical program. Some t-values and p-values are missing.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Calculate the t-value of the coefficient \texttt{mpg}. Is the coefficient at a level of \(\alpha=0.05\) statistically significant?\\
+\item
+  Is the coefficient foreign at a level of \(\alpha=0.05\) statistically significant?\\
+\item
+  Is the constant at a level of \(\alpha=0.05\) statistically significant?
+  ```
+\end{enumerate}
+
+\begin{exercise}
+\protect\hypertarget{exr:exrstataoutput}{}\label{exr:exrstataoutput}Look at Stata Output
+
+Below you find two regression outputs from Stata. Try to interpret the p-values and the confidence intervals. How are the t-values calculated. Can you use the \emph{magic number} 1.96 to say if a corresponding estimated coefficient is statistically significant, or not? Which estimated model is \emph{better}?
+
+\begin{figure}
+\centering
+\includegraphics[width=0.85\textwidth,height=\textheight]{fig/reg_stata_class2.png}
+\caption{\label{fig:regstata3} Stata regression output (1)}
+\end{figure}
+
+\includegraphics[width=0.85\textwidth,height=\textheight]{fig/reg_stata_class.png}
+\end{exercise}
+
+\begin{exercise}
+\protect\hypertarget{exr:explainweight}{}\label{exr:explainweight}Explain the weight
+
+In this pdf
+
+Download the R script \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R}{here}. In this script, I try to explain the weight of students. Try to execute the script with R.
 \end{exercise}
 
 \hypertarget{hands-on-experiments}{%
@@ -1768,7 +2380,7 @@ Although bombing causes casualties and destroys housing and social structures, l
 \setcounter{enumi}{1}
 \tightlist
 \item
-  Read \citet{Bleakley2012Portage} and discuss how this is confronting the insights from \citet{Davis2002Bones}. It is freely available here: \url{https://personal.lse.ac.uk/sturmd/brixen/pdf/Bleakley-Lin-QJE-2012.pdf}
+  Read \citet{Bleakley2012Portage} and discuss how this is confronting the insights from \citet{Davis2002Bones}. It is freely available \href{https://personal.lse.ac.uk/sturmd/brixen/pdf/Bleakley-Lin-QJE-2012.pdf}{here}
 \end{enumerate}
 
 \end{exercise}
@@ -1864,7 +2476,7 @@ DiD is useful when we only have observational data and in situations where it is
 \caption{\label{fig:neal9b} Tolerate time-invariant unobserved confounding}
 \end{figure}
 
-The figures above stem from Brady Neal's lecture on \emph{Difference-in-Differences} which can be found here: \url{https://youtu.be/2nDgrNP7XSE}. Please watch this video.
+The figures above stem from a video of Brady Neal's lecture on \href{https://youtu.be/2nDgrNP7XSE}{\emph{Difference-in-Differences}}. Please watch this video.
 
 \begin{exercise}
 \protect\hypertarget{exr:DiD}{}\label{exr:DiD}Differences-in-Differences
@@ -1876,7 +2488,7 @@ The figures above stem from Brady Neal's lecture on \emph{Difference-in-Differen
 \end{figure}
 \footnotetext{The picture stems from the video \url{https://youtu.be/eiffOVbYvNc}}
 
-Watch the video \emph{Introduction to Differences-in-Differences} found here: \url{https://youtu.be/eiffOVbYvNc} and answer the following questions. The video is part of a course called \emph{Mastering Econometrics with Joshua Angrist (MIT)} produced by Marginal Revolution University. In it, Josh Angrist introduces differences within differences using one of the worst economic events in history: the Great Depression.
+Watch the video \href{https://youtu.be/eiffOVbYvNc}{\emph{Introduction to Differences-in-Differences}} and answer the following questions. The video is part of a course called \emph{Mastering Econometrics with Joshua Angrist (MIT)} produced by Marginal Revolution University. In it, Josh Angrist introduces differences within differences using one of the worst economic events in history: the Great Depression.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}

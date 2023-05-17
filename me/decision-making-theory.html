@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Decision making theory | Managerial Economics</title>
   <meta name="description" content="3 Decision making theory | Managerial Economics" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Decision making theory | Managerial Economics" />
   <meta property="og:type" content="book" />
@@ -54,6 +54,10 @@
 
 
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -124,7 +128,10 @@ div.csl-indent {
 <li class="chapter" data-level="3.1.3" data-path="decision-making-theory.html"><a href="decision-making-theory.html#lagrange-multiplier-method"><i class="fa fa-check"></i><b>3.1.3</b> Lagrange multiplier method</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="decision-making-theory.html"><a href="decision-making-theory.html#decision-making-under-uncertainty"><i class="fa fa-check"></i><b>3.2</b> Decision making under uncertainty</a></li>
-<li class="chapter" data-level="3.3" data-path="decision-making-theory.html"><a href="decision-making-theory.html#decision-making-under-risk"><i class="fa fa-check"></i><b>3.3</b> Decision making under risk</a></li>
+<li class="chapter" data-level="3.3" data-path="decision-making-theory.html"><a href="decision-making-theory.html#decision-making-under-risk"><i class="fa fa-check"></i><b>3.3</b> Decision making under risk</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="decision-making-theory.html"><a href="decision-making-theory.html#st.-petersburg-paradox"><i class="fa fa-check"></i><b>3.3.1</b> St. Petersburg Paradox</a></li>
+</ul></li>
 <li class="chapter" data-level="3.4" data-path="decision-making-theory.html"><a href="decision-making-theory.html#decision-making-with-conditional-probabilities-bayes-theorem"><i class="fa fa-check"></i><b>3.4</b> Decision making with conditional probabilities (Bayes’ theorem)</a>
 <ul>
 <li class="chapter" data-level="3.4.1" data-path="decision-making-theory.html"><a href="decision-making-theory.html#terminology-pa-pab-omega-cap-neg"><i class="fa fa-check"></i><b>3.4.1</b> Terminology: <span class="math inline">\(P(A)\)</span>, <span class="math inline">\(P(A|B)\)</span>, <span class="math inline">\(\Omega\)</span>, <span class="math inline">\(\cap\)</span>, <span class="math inline">\(\neg\)</span>, …</a></li>
@@ -627,43 +634,58 @@ The example that is shown in Figure 7 of <span class="citation">Finne (<a href="
 <h2><span class="header-section-number">3.3</span> Decision making under risk<a href="decision-making-theory.html#decision-making-under-risk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When some information is given about the probability of occurrence of states of nature, we speak of <em>decision-making under risk</em>. The most straight forward technique to make a decision here is to maximize the expected outcome for each alternative given the probability of occurrence, <span class="math inline">\(p_j\)</span>.</p>
 <p>However, the expected utility hypothesis states that the subjective value associated with an individual’s gamble is the statistical expectation of that individual’s valuations of the outcomes of that gamble, where these valuations may differ from the Euro value of those outcomes. Thus, you should better look on the utility of a respective outcome rather than on the outcome itself because the utility and outcome do not have to be linked in a linear way. The St. Petersburg Paradox by Daniel Bernoulli in 1738 is considered the beginnings of the hypothesis.</p>
-</div>
-<div id="st.-petersburg-paradox" class="section level2 unlisted unnumbered hasAnchor">
-<h2>St. Petersburg Paradox<a href="decision-making-theory.html#st.-petersburg-paradox" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Suppose a casino offers a game of chance for a single player in which a fair coin is tossed at each stage. The initial stake begins at 1 Euro and is doubled every time heads appears. The first time tails appears, the game ends and the player wins whatever is in the pot. Thus, the player wins 2 Euros if tails appears on the first toss, 4 Euro if heads appears on the first toss and tails on the second, 8 Euro if heads appears on the first two tosses and tails on the third, and so on.</p>
-<p>Mathematically, the player wins <span class="math inline">\(2k\)</span> Euros, where <span class="math inline">\(k\)</span> equals number of tosses. What would be a fair price to pay the casino for entering the game?</p>
-<p>To answer this, one needs to consider what would be the average payout: with probability 1/2, the player wins 2 Euro; with probability 1/4 the player wins 4 Euro; with probability 1/8 the player wins 8 Euro, and so on. Thus, the expected value is <span class="math display">\[E = 1/2 \cdot 2 + 1/4 \cdot 4 + 1/8 \cdot 8+ 1/16 \cdot 16 + \dots = 1 + 1 + 1 + 1 + \dots = + \infty \]</span></p>
-<p>Assuming the game can continue as long as the coin toss results in heads and in particular that the casino has unlimited resources, this sum grows without bound and so the expected win for repeated play is an infinite amount of money. Considering nothing but the expected value of the net change in one’s monetary wealth, one should therefore play the game at any price if offered the opportunity. Yet, in published descriptions of the game, many people expressed disbelief in the result. The paradox is the discrepancy between what people actually seem willing to pay to enter the game and the infinite expected value.</p>
-<p>Rationality of actors against the background of well-specified preferences is a central assumption in all areas of economics. In the St.-Petersburg-Paradox it becomes clear that the orientation towards expected values is not adequate for games and for guiding decision making well. However, expected utility must be the relevant concept if one wants to reconcile actual behavior with the concept of rationality.</p>
-<p>In the following, we will write down the St. Peterburg game explained on page in the <em>extensive-form</em>.
-Moreover, we will state the payoff function of the St. Petersburg game and also state the expected payoff if the game is played I-times.
-From experiments we know that the willingness to pay for participating does not increase with the number of rounds the game is played. How could we fix this paradox?</p>
-<p><strong>St. Petersburg game in extensive form:</strong></p>
+<div id="st.-petersburg-paradox" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> St. Petersburg Paradox<a href="decision-making-theory.html#st.-petersburg-paradox" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="ininite-st.-petersburg-lotteries" class="section level4 hasAnchor" number="3.3.1.1">
+<h4><span class="header-section-number">3.3.1.1</span> Ininite St. Petersburg lotteries<a href="decision-making-theory.html#ininite-st.-petersburg-lotteries" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Suppose a casino offers a game of chance for a single player, where a fair coin is tossed at each stage. At the beginning, the player stakes $1. Every time a head appears, the stake is doubled. The game continues until the first tails appears, at which point the player receives <span class="math inline">\(\$ 2^{k-1}\)</span>, where k is the number of tosses (number of heads) plus one (for the final tails).
+For instance, if tails appears on the first toss, the player wins $0. If tails appears on the second toss, the player wins $2. If tails appears on the third toss, the player wins $4, and so on. The extensive form is given in figure <a href="decision-making-theory.html#fig:spextensiveform">3.5</a>.</p>
 <div class="figure"><span style="display:block;" id="fig:spextensiveform"></span>
 <img src="fig/spextensiveform.png" style="width:80.0%" alt="" />
 <p class="caption">Figure 3.5:  Extensive form of the St. Petersburg paradox</p>
 </div>
-<p>The extensive form is given in figure <a href="decision-making-theory.html#fig:spextensiveform">3.5</a>.
-First, the expected value of the game must now be calculated. For this the probability <span class="math inline">\(p(i)\)</span> of throwing any number <span class="math inline">\(i\)</span> of consecutive heads is crucial. This probability is given by
+<p>Given the rules of the game, what would be a fair price for the player to pay the casino in order to enter the game?</p>
+<p>To answer this question, one needs to consider the expected payout: The player has a 1/2 probability of winning $1, a 1/4 probability of winning $2, a 1/8 probability of winning $4, and so on. Thus, the overall expected value can be calculated as follows:
+<span class="math display">\[
+E = \frac{1}{2} \cdot 1 + \frac{1}{4} \cdot 2 + \frac{1}{8} \cdot 4+ \frac{1}{16} \cdot 8 + \dots
+\]</span>
+This can be simplified as:
+<span class="math display">\[
+E = \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \dots = + \infty.
+\]</span>
+That means the expected win for playing this game is an infinite amount of money. Based on the expected value, a risk-neutral individual should be willing to play the game at any price if given the opportunity.
+The willingness to pay of most people who have given the opportunity to play the game deviates dramatically from the objectively calculable expected payout of the lottery. This describes the apparent paradox.</p>
+<p>In the context of the St. Petersburg Paradox, it becomes evident that relying solely on expected values is inadequate for certain games and for making well-informed decisions. Expected utility, on the other hand, has been the prevailing concept used to reconcile actual behavior with the notion of rationality thus far.</p>
+</div>
+<div id="finite-st.-petersburg-lotteries" class="section level4 hasAnchor" number="3.3.1.2">
+<h4><span class="header-section-number">3.3.1.2</span> Finite St. Petersburg lotteries<a href="decision-making-theory.html#finite-st.-petersburg-lotteries" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Let us assume that at the beginning, the casino and the player agrees upon how many times the coin will be tossed. So we have a finite number I of lotteries with <span class="math inline">\(1 \leq I \leq \infty\)</span>.</p>
+<p>To calculate the expected value of the game, the probability <span class="math inline">\(p(i)\)</span> of throwing any number <span class="math inline">\(i\)</span> of consecutive head is crucial. This probability is given by
 <span class="math display">\[
 p(i)=\underbrace{\frac{1}{2} \cdot \frac{1}{2} \cdot \cdots \frac{1}{2}}_{i \text { Faktoren }}=\frac{1}{2^{i}}
 \]</span>
-The payoff <span class="math inline">\(W(i)\)</span> is, if head appears <span class="math inline">\(i\)</span>-times in a row by
+The payoff <span class="math inline">\(W(I)\)</span> is, if head appears <span class="math inline">\(I\)</span>-times in a row by
 <span class="math display">\[
-W(i)=2^{i-1}
+W(I)=2^{I-1}
 \]</span>
 The expected payoff <span class="math inline">\(E(W(I))\)</span> if the coin is flipped <span class="math inline">\(I\)</span> times is then given by
 <span class="math display">\[
 E(W(I))=\sum_{i=1}^{I} p(i) \cdot W(i)=\sum_{i=1}^{I} \frac{1}{2^{i}} \cdot 2^{i-1}=\sum_{i=1}^{I} \frac{1}{2}=\frac{I}{2}
 \]</span></p>
 <p>Thus, the expected payoff grows proportionally with the maximum number of rolls. This is because at any point in the game, the option to keep playing has a positive value no matter how many times head has appeared before.
-Thus, the expected value of the game is infinitely high for an unlimited number of rolls. Even with a very limited maximum number of rolls of, for example, <span class="math inline">\(I = 100\)</span>, only a few players would be willing to pay
-50 Euro for participation. The relatively high probability to leave the game with no or very low winnings leads in general to a subjective rather low evaluation that is below the expected value.</p>
-<p>The basic idea of <em>Daniel Bernoulli</em>, which enables a solution of this paradox lies in the conceptual separation of the expected payoff and its utility. He describes the basis of the paradox as follows:</p>
+Thus, the expected value of the game is infinitely high for an unlimited number of tosses but not so for a limited number of tosses. Even with a very limited maximum number of tosses of, for example, <span class="math inline">\(I = 100\)</span>, only a few players would be willing to pay
+$50 for participation. The relatively high probability to leave the game with no or very low winnings leads in general to a subjective rather low evaluation that is below the expected value.</p>
+<p>In the real world, we understand that money is limited and the casino offering this game also operates within a limited budget.
+Let’s assume, for example, that the casino’s maximum budget is $20,000,000. As a result, the game must conclude after 25 coin tosses because <span class="math inline">\(2^{25} = 33,554,432\)</span> would exceed the casino’s financial capacity. Consequently, the expected value of the game in this scenario would be significantly reduced to just $12.50.
+Interestingly, if you were to ask people, most would still be willing to pay less than $12.50 to participate. How can we explain this? Well, it is not the expected outcome that matters but the utility that stems from the outcome.</p>
+</div>
+<div id="the-impact-of-output-on-utility-matters" class="section level4 hasAnchor" number="3.3.1.3">
+<h4><span class="header-section-number">3.3.1.3</span> The impact of output on utility matters<a href="decision-making-theory.html#the-impact-of-output-on-utility-matters" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><em>Daniel Bernoulli</em> (1700 - 1782) worked on the paradox while being a professor in St. Petersburg. His solution builds on the conceptual separation of the expected payoff and its utility. He describes the basis of the paradox as follows:</p>
 <blockquote>
 <p>``Until now scientists have usually rested their hypothesis on the assumption that all gains must be evaluated exclusively in terms of themselves, i.e., on the basis of their intrinsic qualities, and that these gains will always produce a utility directly proportionate to the gain.’’ <span class="citation">(<a href="references.html#ref-Bernoulli1954Exposition" role="doc-biblioref">Bernoulli 1954, 27</a>)</span></p>
 </blockquote>
-<p>Thus, we should evaluate the game in categories of expected utility:
+<p>The relationship between gain and utility, however, is not simply directly proportional but rather more complex. Therefore, it is important to evaluate the game based on expected utility rather than just the expected payoff.
 <span class="math display">\[
 E(u(W(I)))=\sum_{i=1}^{I} p(i) \cdot u(W(i))=\sum_{i=1}^{I} \frac{1}{2^{i}} \cdot u\left(2^{i-1}\right)
 \]</span>
@@ -742,6 +764,8 @@ The main reason is mathematically that the increasing expected payoff has decrea
 <li>Which of the lotteries does the individual choose on the basis of expected utility if the utility of a payoff of <span class="math inline">\(x\)</span> is given by <span class="math inline">\(u(x) = x^2\)</span>?</li>
 <li>Empirical studies, e.g. , show, however, that most individuals will usually choose lotteries 1 and 4. will. Discuss: Is this consistent with rational behavior?</li>
 </ol>
+</div>
+</div>
 </div>
 </div>
 <div id="decision-making-with-conditional-probabilities-bayes-theorem" class="section level2 hasAnchor" number="3.4">
@@ -1182,6 +1206,11 @@ The following list list shows according to <span class="citation">Stammers (<a h
 </div>
 <div id="simple-financial-mathematics" class="section level3 hasAnchor" number="3.6.3">
 <h3><span class="header-section-number">3.6.3</span> Simple financial mathematics<a href="decision-making-theory.html#simple-financial-mathematics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>ADD CLA NOTES ABOUT EULER NUMBER</li>
+<li>LINK THE VIDEO</li>
+<li>LINK OPENSTAX BOOK</li>
+</ul>
 <div id="simple-interest" class="section level4 hasAnchor" number="3.6.3.1">
 <h4><span class="header-section-number">3.6.3.1</span> Simple Interest<a href="decision-making-theory.html#simple-interest" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Suppose <span class="math inline">\(r\)</span> denotes annual interest rates, <span class="math inline">\(P\)</span> denotes the initial deposit which earns the interest, <span class="math inline">\(A\)</span> denotes the capital or the amount due which is th compound amount. Thus, the relationship of these for a single year is</p>
