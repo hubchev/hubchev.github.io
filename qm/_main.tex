@@ -130,6 +130,7 @@
 
 \usepackage{tikz}
 \usepackage{menukeys}
+\usepackage{color}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -2043,17 +2044,14 @@ In practice, the intercept and slope of the regression are unknown. Therefore, w
 The method we use is called the ordinary least squared (OLS) method. The idea is to minimize the sum of the squared differences of all \(y_i\) and \(y_i^*\) as sketched in figure \ref{fig:regressionols}.
 
 \begin{figure}
-
-{\centering \includegraphics[width=18.85in]{fig/regression_ols} 
-
-}
-
-\caption{The fitted line and the residuals}\label{fig:regressionols}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{fig/regression_ols.png}
+\caption{\label{fig:regressionols} The fitted line and the residuals}
 \end{figure}
 
 Thus, we minimize the squared residuals by choosing the estimated coefficients \(\hat{\beta_{0}}\) and \(\hat{\beta_{1}}\)
 \begin{align*}
-\min_{\hat{\beta_{0}}, \hat{\beta_{1}}}\sum_{i=1} \epsilon_i^2 &= \sum_{i=1}    \left[y_i - \underbrace{(\hat{\beta_{0}} + \hat{\beta_{1}} x_i)}_{\textnormal{predicted values}\equiv y_i^*}\right]^2\\
+\min_{\hat{\beta_{0}}, \hat{\beta_{1}}}\sum_{i=1} \epsilon_i^2 &= \sum_{i=1}    \left[y_i - \underbrace{(\hat{\beta_{0}} + \hat{\beta_{1}} x_i)}_{\text{predicted values}\equiv y_i^*}\right]^2\\
 \Leftrightarrow  &=  \sum_{i=1} (y_i - \hat{\beta_{0}} - \hat{\beta_{1}} x_i)^2
 \end{align*}
 Minimizing the function requires to calculate the first order conditions with respect to alpha and beta and set them zero:

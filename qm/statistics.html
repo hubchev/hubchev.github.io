@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Statistics | Quantitative Methods</title>
   <meta name="description" content="3 Statistics | Quantitative Methods" />
-  <meta name="generator" content="bookdown 0.33.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Statistics | Quantitative Methods" />
   <meta property="og:type" content="book" />
@@ -784,15 +784,13 @@ where the index <span class="math inline">\(i\)</span> denotes the individual ob
 <h4><span class="header-section-number">3.2.3.1</span> Estimating the coefficients of the linear regression model<a href="statistics.html#estimating-the-coefficients-of-the-linear-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In practice, the intercept and slope of the regression are unknown. Therefore, we must employ data to estimate the unknown parameters, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>.
 The method we use is called the ordinary least squared (OLS) method. The idea is to minimize the sum of the squared differences of all <span class="math inline">\(y_i\)</span> and <span class="math inline">\(y_i^*\)</span> as sketched in figure <a href="statistics.html#fig:regressionols">3.6</a>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:regressionols"></span>
-<img src="fig/regression_ols.png" alt="The fitted line and the residuals" width="678" />
-<p class="caption">
-Figure 3.6: The fitted line and the residuals
-</p>
+<div class="figure"><span style="display:block;" id="fig:regressionols"></span>
+<img src="fig/regression_ols.png" style="width:50.0%" alt="" />
+<p class="caption">Figure 3.6:  The fitted line and the residuals</p>
 </div>
 <p>Thus, we minimize the squared residuals by choosing the estimated coefficients <span class="math inline">\(\hat{\beta_{0}}\)</span> and <span class="math inline">\(\hat{\beta_{1}}\)</span>
 <span class="math display">\[\begin{align*}
-\min_{\hat{\beta_{0}}, \hat{\beta_{1}}}\sum_{i=1} \epsilon_i^2 &amp;= \sum_{i=1}    \left[y_i - \underbrace{(\hat{\beta_{0}} + \hat{\beta_{1}} x_i)}_{\textnormal{predicted values}\equiv y_i^*}\right]^2\\
+\min_{\hat{\beta_{0}}, \hat{\beta_{1}}}\sum_{i=1} \epsilon_i^2 &amp;= \sum_{i=1}    \left[y_i - \underbrace{(\hat{\beta_{0}} + \hat{\beta_{1}} x_i)}_{\text{predicted values}\equiv y_i^*}\right]^2\\
 \Leftrightarrow  &amp;=  \sum_{i=1} (y_i - \hat{\beta_{0}} - \hat{\beta_{1}} x_i)^2
 \end{align*}\]</span>
 Minimizing the function requires to calculate the first order conditions with respect to alpha and beta and set them zero:
