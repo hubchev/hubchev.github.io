@@ -24,7 +24,7 @@ I would appreciate if you would let me know if something doesn't work or is fals
 
 # Stuff
 
-- __Past exams__ are available [here.](https://github.com/hubchev/courses/tree/main/exams) Just download the compressed file 'past_exams.zip' and decompress it with the password 'happy_exam'.
+- __Past exams__ are available [here.](https://github.com/hubchev/courses/tree/main/exams) Just download the compressed file 'past_exams.zip' and decompress it.
 - Do not publish or cite predatory journals. More information predatory journals in scientific publishing is found [here](https://predatoryreports.org/home) and here is [Beall's List of Potential Predatory Journals and Publishers](https://beallslist.net/)
 - [Writing Tips for Ph. D. Students (John H. Cochrane)](https://static1.squarespace.com/static/5e6033a4ea02d801f37e15bb/t/5eda74919c44fa5f87452697/1591374993570/phd_paper_writing.pdf)
 - LaTeX template for writing a thesis at the HS Fresenius: [Overleaf](https://www.overleaf.com/latex/templates/thesis-hsf/kmzcxdmcqgsq) [GitHub](https://github.com/hubchev/courses/tree/main/tex/thesis_hsf)
