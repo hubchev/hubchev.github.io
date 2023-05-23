@@ -535,7 +535,7 @@ mtcars |>
 
 ## 
 
-## ![(\#fig:label) DatasauRus^[Figure is taken from https://github.com/jumpingrivers/datasauRus]](fig/datasaurus.png){ width=25% }
+## ![(\#fig:label) The logo of the DatasauRus package^[Figure is taken from https://github.com/jumpingrivers/datasauRus]](fig/datasaurus.png){ width=25% }
 
 ## 
 
