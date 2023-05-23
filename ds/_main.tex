@@ -129,7 +129,6 @@
 
 
 \usepackage{tikz}
-\usepackage{menukeys}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -139,7 +138,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={How to Use R for Data Science},
+  pdftitle={ How to Use R for Data Science},
   pdfauthor={© Prof.~Dr.~Stephan Huber (Stephan.Huber@hs-fresenius.de)},
   colorlinks=true,
   linkcolor={red},
@@ -148,7 +147,8 @@
   urlcolor={blue},
   pdfcreator={LaTeX via pandoc}}
 
-\title{How to Use R for Data Science}
+\title{\includegraphics[width=8cm,height=\textheight]{fig/cover.png}\\
+How to Use R for Data Science}
 \usepackage{etoolbox}
 \makeatletter
 \providecommand{\subtitle}[1]{% add subtitle to \maketitle
@@ -157,7 +157,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 17 May, 2023}
+\date{Last compiled on 23 May, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -207,10 +207,10 @@
 
 \begin{figure}
 \centering
-\includegraphics[width=0.25\textwidth,height=\textheight]{fig/huber2.jpeg}
-\caption[\label{fig:itsme} Prof.~Dr.~Stephan Huber]{\label{fig:itsme} Prof.~Dr.~Stephan Huber\footnotemark{}}
+\includegraphics[width=0.25\textwidth,height=\textheight]{fig/datasaurus.png}
+\caption[\label{fig:datasaurus} datasauRus]{\label{fig:datasaurus} datasauRus\footnotemark{}}
 \end{figure}
-\footnotetext{Picture is taken from \url{https://sites.google.com/view/stephanhuber}}
+\footnotetext{Figure is taken from \url{https://github.com/jumpingrivers/datasauRus}}
 
 I am a Professor of International Economics and Data Science at HS Fresenius, holding a Diploma in Economics from the University of Regensburg and a Doctoral Degree (summa cum laude) from the University of Trier. I completed postgraduate studies at the Interdisciplinary Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU) in Trier. Prior to my current position, I worked as a research assistant to Prof.~Dr.~Dr.~h.c. Joachim Möller at the University of Regensburg, a post-doc at the Leibniz Institute for East and Southeast European Studies (IOS) in Regensburg, and a freelancer at Charles University in Prague.
 
@@ -992,7 +992,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/usr/local/lib/R/site-library/dplyr"
+## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.1/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1419,14 +1419,10 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##   iso3c date        value    indicatorID         indicator iso2c
-## 2   AFE 2021 1.089454e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH
-## 3   AFE 2020 9.341791e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH
-## 4   AFE 2019 1.009052e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH
-##                       country
-## 2 Africa Eastern and Southern
-## 3 Africa Eastern and Southern
-## 4 Africa Eastern and Southern
+##   iso3c date        value    indicatorID         indicator iso2c                     country
+## 2   AFE 2021 1.089454e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+## 3   AFE 2020 9.341791e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+## 4   AFE 2019 1.009052e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
 \end{verbatim}
 
 \begin{Shaded}
@@ -1438,13 +1434,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \begin{verbatim}
 ## Rows: 13,156
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "A~
-## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2~
-## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH"~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Souther~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AF~
+## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003"~
+## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826771e+11, 9.720022e+11, 9.642130e+~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GD~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GD~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", ~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southe~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1454,20 +1450,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##     iso3c               date               value           indicatorID       
-##  Length:13156       Length:13156       Min.   :8.824e+06   Length:13156      
-##  Class :character   Class :character   1st Qu.:2.442e+09   Class :character  
-##  Mode  :character   Mode  :character   Median :1.784e+10   Mode  :character  
-##                                        Mean   :1.161e+12                     
-##                                        3rd Qu.:2.156e+11                     
-##                                        Max.   :9.653e+13                     
-##   indicator            iso2c             country         
-##  Length:13156       Length:13156       Length:13156      
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-## 
+##     iso3c               date               value           indicatorID         indicator            iso2c             country         
+##  Length:13156       Length:13156       Min.   :8.824e+06   Length:13156       Length:13156       Length:13156       Length:13156      
+##  Class :character   Class :character   1st Qu.:2.442e+09   Class :character   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Median :1.784e+10   Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+##                                        Mean   :1.161e+12                                                                              
+##                                        3rd Qu.:2.156e+11                                                                              
+##                                        Max.   :9.653e+13
 \end{verbatim}
 
 \hypertarget{import-various-file-formats}{%
@@ -1547,17 +1536,11 @@ One difference between data frames and tibbles is that dataframes store the row 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"         
-##  [4] "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"            
-##  [7] "Duster 360"          "Merc 240D"           "Merc 230"           
-## [10] "Merc 280"            "Merc 280C"           "Merc 450SE"         
-## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood" 
-## [16] "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"           
-## [19] "Honda Civic"         "Toyota Corolla"      "Toyota Corona"      
-## [22] "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
-## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"      
-## [28] "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
-## [31] "Maserati Bora"       "Volvo 142E"
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"             "Duster 360"         
+##  [8] "Merc 240D"           "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"          "Merc 450SL"          "Merc 450SLC"        
+## [15] "Cadillac Fleetwood"  "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"      "Toyota Corona"      
+## [22] "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"          "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"       
+## [29] "Ford Pantera L"      "Ferrari Dino"        "Maserati Bora"       "Volvo 142E"
 \end{verbatim}
 
 To store \texttt{mtcars} as a tibble, we can use the \texttt{as\_tibble} function:
@@ -1621,11 +1604,11 @@ When we look at the data, we've lost the names of the cars. To store the these, 
 
 \begin{verbatim}
 ## # A tibble: 3 x 12
-##   car            mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##   <chr>        <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
-## 1 Mazda RX4     21       6   160   110  3.9   2.62  16.5     0     1     4     4
-## 2 Mazda RX4 W~  21       6   160   110  3.9   2.88  17.0     0     1     4     4
-## 3 Datsun 710    22.8     4   108    93  3.85  2.32  18.6     1     1     4     1
+##   car             mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##   <chr>         <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+## 1 Mazda RX4      21       6   160   110  3.9   2.62  16.5     0     1     4     4
+## 2 Mazda RX4 Wag  21       6   160   110  3.9   2.88  17.0     0     1     4     4
+## 3 Datsun 710     22.8     4   108    93  3.85  2.32  18.6     1     1     4     1
 \end{verbatim}
 
 \hypertarget{data-types}{%
@@ -2357,17 +2340,17 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2,~
-## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4,~
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140~
-## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 18~
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92,~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.1~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.~
-## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1,~
-## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1,~
-## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4,~
-## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1,~
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.3, 19.2, 2~
+## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7, 75.7, 71.1, 120.1, 318.0, ~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 150, 245, 175, 66, 91, 113, 264, 175, 335, 109
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.70, 2.76, 3.15, 3.73, 3.08, 4~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.200, 1.615, 1.835, 2.465, 3.52~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.47, 18.52, 19.90, 20.01, 16.8~
+## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
+## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
+## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
+## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6, 8, 2
 \end{verbatim}
 
 \begin{exercise}
@@ -2419,22 +2402,14 @@ Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/ma
 \end{Shaded}
 
 \begin{verbatim}
-##   integer_var  numeric_var    character_var       factor_var logical_var    
-##  Min.   :1    Min.   :1.100   Length:5           blue  :1    Mode :logical  
-##  1st Qu.:2    1st Qu.:1.925   Class :character   green :1    FALSE:1        
-##  Median :3    Median :3.300   Mode  :character   red   :2    TRUE :4        
-##  Mean   :3    Mean   :3.300                      yellow:1                   
-##  3rd Qu.:4    3rd Qu.:4.675                                                 
-##  Max.   :5    Max.   :5.500                                                 
-##               NA's   :1                                                     
-##     date_var         
-##  Min.   :2022-01-01  
-##  1st Qu.:2022-02-01  
-##  Median :2022-03-01  
-##  Mean   :2022-03-02  
-##  3rd Qu.:2022-04-01  
-##  Max.   :2022-05-01  
-## 
+##   integer_var  numeric_var    character_var       factor_var logical_var        date_var         
+##  Min.   :1    Min.   :1.100   Length:5           blue  :1    Mode :logical   Min.   :2022-01-01  
+##  1st Qu.:2    1st Qu.:1.925   Class :character   green :1    FALSE:1         1st Qu.:2022-02-01  
+##  Median :3    Median :3.300   Mode  :character   red   :2    TRUE :4         Median :2022-03-01  
+##  Mean   :3    Mean   :3.300                      yellow:1                    Mean   :2022-03-02  
+##  3rd Qu.:4    3rd Qu.:4.675                                                  3rd Qu.:2022-04-01  
+##  Max.   :5    Max.   :5.500                                                  Max.   :2022-05-01  
+##               NA's   :1
 \end{verbatim}
 
 \begin{Shaded}
@@ -2451,7 +2426,7 @@ Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/ma
 ## $ character_var <chr> "apple", "banana", "orange", "cherry", "grape"
 ## $ factor_var    <fct> red, yellow, red, blue, green
 ## $ logical_var   <lgl> TRUE, TRUE, TRUE, FALSE, TRUE
-## $ date_var      <date> 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-05-~
+## $ date_var      <date> 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-05-01
 \end{verbatim}
 
 \begin{Shaded}
@@ -2606,14 +2581,10 @@ Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/ma
 \end{Shaded}
 
 \begin{verbatim}
-##  cyl 52 62 65 66 91 93 95 97 105 109 110 113 123 150 175 180 205 215 230 245
-##    4  1  1  1  2  1  1  1  1   0   1   0   1   0   0   0   0   0   0   0   0
-##    6  0  0  0  0  0  0  0  0   1   0   3   0   2   0   1   0   0   0   0   0
-##    8  0  0  0  0  0  0  0  0   0   0   0   0   0   2   2   3   1   1   1   2
-##  264 335
-##    0   0
-##    0   0
-##    1   1
+##  cyl 52 62 65 66 91 93 95 97 105 109 110 113 123 150 175 180 205 215 230 245 264 335
+##    4  1  1  1  2  1  1  1  1   0   1   0   1   0   0   0   0   0   0   0   0   0   0
+##    6  0  0  0  0  0  0  0  0   1   0   3   0   2   0   1   0   0   0   0   0   0   0
+##    8  0  0  0  0  0  0  0  0   0   0   0   0   0   2   2   3   1   1   1   2   1   1
 \end{verbatim}
 
 \begin{exercise}
@@ -2698,10 +2669,58 @@ Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/ma
 \begin{exercise}
 \protect\hypertarget{exr:exer4ds}{}\label{exr:exer4ds}Data transformation
 
-Please download and open the R-script you fin \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/data_transformation.R}{here} and try to answer the questions therein.
+Please download and open the R-script you find \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/data_transformation.R}{here} and try to answer the questions therein.
 
 Solutions to the questions are linked in the script.
 \end{exercise}
+
+\begin{exercise}
+\protect\hypertarget{exr:DatasauRus}{}\label{exr:DatasauRus}
+
+DatasauRus
+
+\begin{figure}
+\centering
+\includegraphics[width=0.25\textwidth,height=\textheight]{fig/datasaurus.png}
+\caption[\label{fig:label} DatasauRus]{\label{fig:label} DatasauRus\footnotemark{}}
+\end{figure}
+\footnotetext{Figure is taken from \url{https://github.com/jumpingrivers/datasauRus}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Load the packages \texttt{datasauRus} and \texttt{tidyverse}. If necessary, install these packages.
+\end{enumerate}
+
+\end{exercise}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\item
+  The package\texttt{datasauRus} comes with a dataset in two different formats: \texttt{datasaurus\_dozen} and \texttt{datasaurus\_dozen\_wide}. Store them as \texttt{ds} and \texttt{ds\_wide}.
+\item
+  Open and read the R vignette of the \texttt{datasauRus} package. Also open the R documentation of the dataset \texttt{datasaurus\_dozen}.
+\item
+  Explore the dataset: What are the dimensions of this dataset? Look at the descriptive statistics.
+\item
+  How many unique values does the variable \texttt{dataset} of the tibble \texttt{ds} have? Hint: The function unique() return the unique values of a variable and the function length() returns the length of a vector, such as the unique elements.
+\item
+  Compute the mean values of the \texttt{x} and \texttt{y} variables for each entry in \texttt{dataset}. Hint: Use the group\_by() function to group the data by the appropriate column and then the summarise() function to calculate the mean.
+\item
+  Compute the standard deviation, the correlation, and the median in the same way. Round the numbers.
+\item
+  What can you conclude?
+\item
+  Plot all datasets of \texttt{ds}. Hide the legend. Hint: Use the \texttt{facet\_wrap()} and the \texttt{theme()} function.
+\item
+  Create a loop that generates separate scatter plots for each unique datatset of the tibble \texttt{ds}. Export each graph as a png file.
+\item
+  Watch the video \href{https://youtu.be/T-kxUB29t0o}{Animating the Datasaurus Dozen Dataset in R} from The Data Digest on YouTube.
+\end{enumerate}
+
+Please find the solutions \href{https://htmlpreview.github.io/?https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/datasaurus_solution.html}{here}.
 
 \begin{exercise}
 \protect\hypertarget{exr:execonvergence}{}\label{exr:execonvergence}Convergence
@@ -2746,47 +2765,46 @@ In the statistic course of WS 2020, I asked 23 students about their weight, heig
 
 A sketch of a solutions is provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R}{here}.
 
-\begin{verbatim}
-
-
-::: {.exercise #unemgerfra}
+\begin{exercise}
+\protect\hypertarget{exr:unemgerfra}{}\label{exr:unemgerfra}
 
 Unemployment and GDP in Germany and France
 
 The following exercise was a former exam.
 
-Please answer all (!) questions in an R script. Normal text should be written as comments, using the '#' to comment out text. Make sure the script runs without errors before submitting it. Each task (starting with 1) is worth five points. You have a total of 120 minutes of editing time. Please do not forget to number your answers.
- 
+Please answer all (!) questions in an R script. Normal text should be written as comments, using the `\#' to comment out text. Make sure the script runs without errors before submitting it. Each task (starting with 1) is worth five points. You have a total of 120 minutes of editing time. Please do not forget to number your answers.
+
 When you are done with your work, save the R script, export the script to pdf format and upload the pdf file.
 
-Suppose you aim to empirically examine unemployment and GDP for Germany and France. The data set that we use in the following is 'forest.Rdata'.
+Suppose you aim to empirically examine unemployment and GDP for Germany and France. The data set that we use in the following is `forest.Rdata'.
 
-(0)    
- Write down your name, matriculation number, and date.
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{-1}
+\item
+  Write down your name, matriculation number, and date.
+\item
+  Set your working directory.
+\end{enumerate}
 
-(1)    
- Set your working directory. 
+\end{exercise}
 
-:::
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{1}
+\item
+  Clear your global environment.
+\item
+  Install and load the following packages: `tidyverse', `sjPlot', and `ggpubr'
+\item
+  Download and load the data, respectively, with the following code:
+\end{enumerate}
 
-
-(2)    
-Clear your global environment.
- 
-
-
-(3)    
-Install and load the following packages: 'tidyverse', 'sjPlot', and 'ggpubr'
- 
-
-
-(4)    
-Download and load the data, respectively, with the following code: 
- 
-
-```r
-load(url("https://github.com/hubchev/courses/raw/main/dta/forest.Rdata"))
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{load}\NormalTok{(}\FunctionTok{url}\NormalTok{(}\StringTok{"https://github.com/hubchev/courses/raw/main/dta/forest.Rdata"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
 If that is not working, you can also download the data from ILIAS, save it in
 your working directory and load it from there with:
@@ -2942,7 +2960,7 @@ your working directory and load it from there with:
   (Hint: Below you can see one of many possible examples of what your result may look like).
 \end{enumerate}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-75-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-85-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -2953,7 +2971,7 @@ your working directory and load it from there with:
   The following chart shows the simultaneous development of the unemployment rate and GDP per capita over time for \textbf{France}.
 \end{enumerate}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-76-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-86-1.pdf}
 
 Suppose you want to visualize the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany as well.\\
 Suppose further that you have found the following lines of code that create the kind of chart you are looking for.
@@ -2970,12 +2988,12 @@ Suppose further that you have found the following lines of code that create the 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-77-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-87-1.pdf}
 
 Use these lines of code and customize them to create the co-movement visualization for \textbf{Germany} using the available `df' data.
 The result should look something like this:
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-78-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-88-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -3105,7 +3123,7 @@ Please follow the instructions below to access the file ``23-04\_ds-project-desc
 \hypertarget{helpful-shortcuts}{%
 \section{Helpful shortcuts}\label{helpful-shortcuts}}
 
-\begin{longtable}[]{@{}ll@{}}
+\begin{longtable}[]{@{}rl@{}}
 \caption{Table 1: Different OS, different keys}\tabularnewline
 \toprule()
 Key in Windows/Linux & Key in Mac \\
@@ -3298,56 +3316,36 @@ When seeking help, be sure to provide information about your machine, including 
 \end{Shaded}
 
 \begin{verbatim}
-## R version 4.3.0 (2023-04-21)
+## R version 4.1.2 (2021-11-01)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 11 (bullseye)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
-## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
+## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.13.so
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-## 
-## time zone: Europe/Berlin
-## tzcode source: system (glibc)
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.2          sjPlot_2.8.14        ggpubr_0.6.0        
-##  [4] haven_2.5.2          janitor_2.2.0        wbstats_1.0.4       
-##  [7] lubridate_1.9.2      forcats_1.0.0        stringr_1.5.0       
-## [10] purrr_1.0.1          readr_2.1.4          tidyr_1.3.0         
-## [13] tibble_3.2.1         ggplot2_3.4.2        tidyverse_2.0.0     
-## [16] scales_1.2.1         captioner_2.2.3.9000
+##  [1] dplyr_1.1.2      datasauRus_0.1.6 sjPlot_2.8.14    ggpubr_0.6.0     haven_2.5.2      janitor_2.2.0    wbstats_1.0.4    lubridate_1.9.2  forcats_1.0.0   
+## [10] stringr_1.5.0    purrr_1.0.1      readr_2.1.4      tidyr_1.3.0      tibble_3.2.1     ggplot2_3.4.2    tidyverse_2.0.0  scales_1.2.1     captioner_2.2.3 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_1.2.0   sjlabelled_1.2.0   farver_2.1.1       fastmap_1.1.1     
-##  [5] bayestestR_0.13.1  sjstats_0.18.2     digest_0.6.31      timechange_0.2.0  
-##  [9] estimability_1.4.1 lifecycle_1.0.3    magrittr_2.0.3     compiler_4.3.0    
-## [13] rlang_1.1.1        sass_0.4.6         tools_4.3.0        utf8_1.2.3        
-## [17] yaml_2.3.7         knitr_1.42         ggsignif_0.6.4     labeling_0.4.2    
-## [21] curl_5.0.0         abind_1.4-5        withr_2.5.0        grid_4.3.0        
-## [25] fansi_1.0.4        xtable_1.8-4       colorspace_2.1-0   emmeans_1.8.6     
-## [29] MASS_7.3-60        insight_0.19.1     cli_3.6.1          mvtnorm_1.1-3     
-## [33] rmarkdown_2.21     crayon_1.5.2       generics_0.1.3     rstudioapi_0.14   
-## [37] performance_0.10.3 httr_1.4.6         modelr_0.1.11      tzdb_0.4.0        
-## [41] minqa_1.2.5        cachem_1.0.8       splines_4.3.0      vctrs_0.6.2       
-## [45] boot_1.3-28.1      Matrix_1.5-4       jsonlite_1.8.4     carData_3.0-5     
-## [49] bookdown_0.34      car_3.1-2          hms_1.1.3          rstatix_0.7.2     
-## [53] jquerylib_0.1.4    glue_1.6.2         nloptr_2.0.3       stringi_1.7.12    
-## [57] gtable_0.3.3       ggeffects_1.2.2    lme4_1.1-33        munsell_0.5.0     
-## [61] pillar_1.9.0       htmltools_0.5.5    R6_2.5.1           evaluate_0.21     
-## [65] lattice_0.21-8     highr_0.10         backports_1.4.1    broom_1.0.4       
-## [69] snakecase_0.11.0   bslib_0.4.2        Rcpp_1.0.10        coda_0.19-4       
-## [73] nlme_3.1-162       xfun_0.39          sjmisc_2.8.9       pkgconfig_2.0.3
+##  [1] nlme_3.1-162       insight_0.19.1     httr_1.4.5         tools_4.1.2        backports_1.4.1    bslib_0.4.2        utf8_1.2.3         R6_2.5.1          
+##  [9] sjlabelled_1.2.0   colorspace_2.1-0   withr_2.5.0        tidyselect_1.2.0   emmeans_1.8.5      curl_5.0.0         compiler_4.1.2     textshaping_0.3.6 
+## [17] performance_0.10.3 cli_3.6.1          labeling_0.4.2     bookdown_0.33.3    bayestestR_0.13.1  sass_0.4.6         mvtnorm_1.1-3      systemfonts_1.0.4 
+## [25] digest_0.6.31      minqa_1.2.5        rmarkdown_2.21     pkgconfig_2.0.3    htmltools_0.5.5    lme4_1.1-33        fastmap_1.1.1      highr_0.10        
+## [33] rlang_1.1.1        rstudioapi_0.14    farver_2.1.1       jquerylib_0.1.4    generics_0.1.3     jsonlite_1.8.4     car_3.1-2          magrittr_2.0.3    
+## [41] Matrix_1.5-4       Rcpp_1.0.10        munsell_0.5.0      fansi_1.0.4        abind_1.4-5        lifecycle_1.0.3    stringi_1.7.12     yaml_2.3.7        
+## [49] snakecase_0.11.0   carData_3.0-5      MASS_7.3-60        grid_4.1.2         sjmisc_2.8.9       crayon_1.5.2       lattice_0.21-8     ggeffects_1.2.2   
+## [57] splines_4.1.2      sjstats_0.18.2     hms_1.1.3          knitr_1.42         pillar_1.9.0       boot_1.3-28.1      estimability_1.4.1 ggsignif_0.6.4    
+## [65] glue_1.6.2         evaluate_0.21      modelr_0.1.11      vctrs_0.6.2        nloptr_2.0.3       tzdb_0.3.0         gtable_0.3.3       cachem_1.0.8      
+## [73] xfun_0.39          xtable_1.8-4       broom_1.0.4        coda_0.19-4        rstatix_0.7.2      ragg_1.2.5         tinytex_0.45       timechange_0.2.0
 \end{verbatim}
 
   \bibliography{book.bib}

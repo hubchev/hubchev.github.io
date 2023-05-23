@@ -4,21 +4,22 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Work with R scripts | How to Use R for Data Science</title>
-  <meta name="description" content="3 Work with R scripts | How to Use R for Data Science" />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <title>3 Work with R scripts |  How to Use R for Data Science</title>
+  <meta name="description" content="<br />
+How to Use R for Data Science</p>" />
+  <meta name="generator" content="bookdown 0.33.3 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Work with R scripts | How to Use R for Data Science" />
+  <meta property="og:title" content="3 Work with R scripts |  How to Use R for Data Science" />
   <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://hubchev.github.io/ds/fig/cover.png" />
   
-  
-  
+  <meta name="github-repo" content="hubchev/hubchev.github.io" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Work with R scripts | How to Use R for Data Science" />
+  <meta name="twitter:title" content="3 Work with R scripts |  How to Use R for Data Science" />
   
   
-  
+  <meta name="twitter:image" content="https://hubchev.github.io/ds/fig/cover.png" />
 
 <meta name="author" content="© Prof. Dr. Stephan Huber (Stephan.Huber@hs-fresenius.de)" />
 
@@ -158,7 +159,8 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">How to Use R for Data Science</a></li>
+<li class="toc-logo"><a href="./"><img src="fig/cover.png"></a></li>
+ <li><a href="./">How to Use R for Data Science (HURDS)</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
@@ -244,7 +246,8 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">How to Use R for Data Science</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><img src="fig/cover.png" style="width:8cm" /><br />
+How to Use R for Data Science</p></a>
           </h1>
         </div>
 
@@ -426,7 +429,7 @@ Finally, you can return the value of the object from the function, meaning pass 
 <p>Unfortunately, this does not work out. The <code>lag()</code> function does not work as we think it should. Well, the reason is simply that we are using the wrong function. The current <code>lag()</code> function is part of the stats package which is part of the package <code>stats</code> which is part of R base and is loaded automatically. The <code>lag()</code> function we aim to use stems from the dplyr package which we must install and load to be able to use it. So let’s do it:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="work-with-r-scripts.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if the package is installed</span></span>
 <span id="cb29-2"><a href="work-with-r-scripts.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">find.package</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;/usr/local/lib/R/site-library/dplyr&quot;</code></pre>
+<pre><code>## [1] &quot;/home/sthu/R/x86_64-pc-linux-gnu-library/4.1/dplyr&quot;</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="work-with-r-scripts.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I already installed the package so I can just load it</span></span>
 <span id="cb31-2"><a href="work-with-r-scripts.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
 <span id="cb31-3"><a href="work-with-r-scripts.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>

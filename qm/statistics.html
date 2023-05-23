@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Statistics | Quantitative Methods</title>
   <meta name="description" content="3 Statistics | Quantitative Methods" />
-  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33.3 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Statistics | Quantitative Methods" />
   <meta property="og:type" content="book" />
@@ -613,7 +613,7 @@ Figure 3.4: Correlations are blind on some eye
 For example, when the slope of a relationship is zero, the correlation coefficient becomes undefined due to the variance of <span class="math inline">\(Y\)</span> being zero.
 Furthermore, Pearson’s correlation coefficient is sensitive to outliers, and all correlation coefficients are prone to sample selection biases. It is crucial to be careful when attempting to correlate two variables, particularly when one represents a part and the other represents the total.
 It is also worth noting that small correlation values do not necessarily indicate a lack of association between variables. For example, Pearson’s correlation coefficient can underestimates the association between variables exhibiting a quadratic relationship. Therefore, it is always advisable to examine scatterplots in conjunction with correlation analysis.</p>
-<p>In figure <a href="statistics.html#fig:allcorsame">3.5</a> you see various graphs that all have the same correlation coefficient and share other statistical properties like is investigated in exercise <a href="statistics.html#exr:Datasaurus">3.3</a>.</p>
+<p>In figure <a href="statistics.html#fig:allcorsame">3.5</a> you see various graphs that all have the same correlation coefficient and share other statistical properties like is investigated in exercise <a href="#exr:Datasaurus"><strong>??</strong></a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:allcorsame"></span>
 <img src="fig/allcorsame.svg" alt="These diagrams all have the same statistical properties\protect\footnotemark"  />
 <p class="caption">
@@ -640,7 +640,11 @@ r_s = \rho_{\operatorname{R}(X),\operatorname{R}(Y)} = \frac{\text{cov}(\operato
 <p>The coefficient ranges from -1 to 1. A value of 1 indicates a perfect increasing monotonic relationship, while a value of -1 indicates a perfect decreasing monotonic relationship. A value of 0 suggests no monotonic relationship between the variables.</p>
 <p>Spearman’s rank correlation coefficient is a non-parametric measure and is often used when the relationship between variables is not linear or when the data is in the form of ranks or ordinal categories.</p>
 <div class="exercise">
-<p><span id="exr:Datasaurus" class="exercise"><strong>Exercise 3.3  </strong></span>Datasaurus</p>
+<p><span id="exr:DatasauRus" class="exercise"><strong>Exercise 3.3  </strong></span>DatasauRus</p>
+<div class="figure"><span style="display:block;" id="fig:datasaurus"></span>
+<img src="fig/datasaurus.png" style="width:25.0%" alt="" />
+<p class="caption">Figure 3.6:  The logo of the DatasauRus package<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a></p>
+</div>
 <ol style="list-style-type: lower-alpha">
 <li>Load the packages <code>datasauRus</code> and <code>tidyverse</code>. If necessary, install these packages.</li>
 </ol>
@@ -657,7 +661,8 @@ r_s = \rho_{\operatorname{R}(X),\operatorname{R}(Y)} = \frac{\text{cov}(\operato
 <li><p>Create a loop that generates separate scatter plots for each unique datatset of the tibble <code>ds</code>. Export each graph as a png file.</p></li>
 <li><p>Watch the video <a href="https://youtu.be/T-kxUB29t0o">Animating the Datasaurus Dozen Dataset in R</a> from The Data Digest on YouTube.</p></li>
 </ol>
-<p>Please find the solutions <a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/datasaurus_solution.html">here</a>.</p>
+<p>Please find the solutions <a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/datasaurus_solution.html">here</a>.
+```</p>
 <div class="exercise">
 <p><span id="exr:summarystatistics" class="exercise"><strong>Exercise 3.4  </strong></span>Summary statistics</p>
 <p>Calculate for the following datasets: the mode, the median, the 20% quantile, the range, the interquartile range, the variance, the arithmetic mean, the sample standard deviation, the coefficient of variation.</p>
@@ -783,10 +788,10 @@ where the index <span class="math inline">\(i\)</span> denotes the individual ob
 <div id="estimating-the-coefficients-of-the-linear-regression-model" class="section level4 hasAnchor" number="3.2.3.1">
 <h4><span class="header-section-number">3.2.3.1</span> Estimating the coefficients of the linear regression model<a href="statistics.html#estimating-the-coefficients-of-the-linear-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In practice, the intercept and slope of the regression are unknown. Therefore, we must employ data to estimate the unknown parameters, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>.
-The method we use is called the ordinary least squared (OLS) method. The idea is to minimize the sum of the squared differences of all <span class="math inline">\(y_i\)</span> and <span class="math inline">\(y_i^*\)</span> as sketched in figure <a href="statistics.html#fig:regressionols">3.6</a>.</p>
+The method we use is called the ordinary least squared (OLS) method. The idea is to minimize the sum of the squared differences of all <span class="math inline">\(y_i\)</span> and <span class="math inline">\(y_i^*\)</span> as sketched in figure <a href="statistics.html#fig:regressionols">3.7</a>.</p>
 <div class="figure"><span style="display:block;" id="fig:regressionols"></span>
 <img src="fig/regression_ols.png" style="width:50.0%" alt="" />
-<p class="caption">Figure 3.6:  The fitted line and the residuals</p>
+<p class="caption">Figure 3.7:  The fitted line and the residuals</p>
 </div>
 <p>Thus, we minimize the squared residuals by choosing the estimated coefficients <span class="math inline">\(\hat{\beta_{0}}\)</span> and <span class="math inline">\(\hat{\beta_{1}}\)</span>
 <span class="math display">\[\begin{align*}
@@ -845,9 +850,9 @@ Since <span class="math inline">\(TSS = ESS + SSR\)</span> we can also write
 with <span class="math inline">\(SSR= \sum_{i = 1}^n \epsilon^2\)</span>.</p>
 <div class="figure"><span style="display:block;" id="fig:fitR"></span>
 <img src="fig/fitR.png" style="width:75.0%" alt="" />
-<p class="caption">Figure 3.7:  Total sum of squares and sum of squared residuals</p>
+<p class="caption">Figure 3.8:  Total sum of squares and sum of squared residuals</p>
 </div>
-<p><span class="math inline">\(R^2\)</span> lies between 0 and 1. It is easy to see that a perfect fit, i.e., no errors made when fitting the regression line, implies <span class="math inline">\(R2=1\)</span> since then we have <span class="math inline">\(SSR=0\)</span>. On the contrary, if our estimated regression line does not explain any variation in the <span class="math inline">\(Y_i\)</span>, we have <span class="math inline">\(ESS=0\)</span> and consequently <span class="math inline">\(R^2=0\)</span>. Figure <a href="statistics.html#fig:fitR">3.7</a> show the relationship of TTS and SSR.</p>
+<p><span class="math inline">\(R^2\)</span> lies between 0 and 1. It is easy to see that a perfect fit, i.e., no errors made when fitting the regression line, implies <span class="math inline">\(R2=1\)</span> since then we have <span class="math inline">\(SSR=0\)</span>. On the contrary, if our estimated regression line does not explain any variation in the <span class="math inline">\(Y_i\)</span>, we have <span class="math inline">\(ESS=0\)</span> and consequently <span class="math inline">\(R^2=0\)</span>. Figure <a href="statistics.html#fig:fitR">3.8</a> show the relationship of TTS and SSR.</p>
 </div>
 </div>
 <div id="multiple-linear-regression" class="section level3 hasAnchor" number="3.2.4">
@@ -860,11 +865,11 @@ with <span class="math inline">\(SSR= \sum_{i = 1}^n \epsilon^2\)</span>.</p>
 <p>Thus, it is important to consider confounding variables to ensure valid and reliable causal interpretations in research, particularly in nonexperimental settings.</p>
 <div class="figure"><span style="display:block;" id="fig:foo13"></span>
 <img src="fig/foo-13.png" style="width:75.0%" alt="" />
-<p class="caption">Figure 3.8:  Simpsons paradox and the power of controlling variables (1)</p>
+<p class="caption">Figure 3.9:  Simpsons paradox and the power of controlling variables (1)</p>
 </div>
 <div class="figure"><span style="display:block;" id="fig:foo32"></span>
 <img src="fig/foo-32.png" style="width:75.0%" alt="" />
-<p class="caption">Figure 3.9:  Simpsons paradox and the power of controlling variables (1)</p>
+<p class="caption">Figure 3.10:  Simpsons paradox and the power of controlling variables (1)</p>
 </div>
 <p>The multiple regression model can be expressed as
 <span class="math display">\[
@@ -915,7 +920,7 @@ However, OLS estimates can suffer from omitted variable bias when any regressor,
 <p><span id="exr:lookatoutput" class="exercise"><strong>Exercise 3.7  </strong></span>Look at the Output</p>
 <div class="figure"><span style="display:block;" id="fig:regstata2"></span>
 <img src="fig/reg_stata2.png" style="width:85.0%" alt="" />
-<p class="caption">Figure 3.10:  Regression output</p>
+<p class="caption">Figure 3.11:  Regression output</p>
 </div>
 <p>Above you see an excerpt of a regression output taken from a statistical program. Some t-values and p-values are missing.</p>
 <ol style="list-style-type: lower-alpha">
@@ -931,11 +936,11 @@ However, OLS estimates can suffer from omitted variable bias when any regressor,
 <p>Below you find two regression outputs from Stata. Try to interpret the p-values and the confidence intervals. How are the t-values calculated. Can you use the <em>magic number</em> 1.96 to say if a corresponding estimated coefficient is statistically significant, or not? Which estimated model is <em>better</em>?</p>
 <div class="figure"><span style="display:block;" id="fig:regstata3"></span>
 <img src="fig/reg_stata_class2.png" style="width:85.0%" alt="" />
-<p class="caption">Figure 3.11:  Stata regression output (1)</p>
+<p class="caption">Figure 3.12:  Stata regression output (1)</p>
 </div>
 <div class="figure"><span style="display:block;" id="fig:regstata3b"></span>
 <img src="fig/reg_stata_class.png" style="width:85.0%" alt="" />
-<p class="caption">Figure 3.12:  Stata regression output (1)</p>
+<p class="caption">Figure 3.13:  Stata regression output (1)</p>
 </div>
 </div>
 <div class="exercise">
@@ -952,6 +957,7 @@ However, OLS estimates can suffer from omitted variable bias when any regressor,
 <ol start="19">
 <li id="fn19"><p>Picture is taken from www.theparisreview.org/blog/2017/07/21/great-moments-literacy-hite-report<a href="statistics.html#fnref19" class="footnote-back">↩︎</a></p></li>
 <li id="fn20"><p>Picture is taken from the video <a href="https://youtu.be/sHRBg6BhKjI" class="uri">https://youtu.be/sHRBg6BhKjI</a><a href="statistics.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p>Figure is taken from <a href="https://github.com/jumpingrivers/datasauRus" class="uri">https://github.com/jumpingrivers/datasauRus</a><a href="statistics.html#fnref21" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

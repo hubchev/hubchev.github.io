@@ -520,7 +520,7 @@ mtcars |>
 
 ## 
 
-## Please download and open the R-script you fin [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/data_transformation.R) and try to answer the questions therein.
+## Please download and open the R-script you find [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/data_transformation.R) and try to answer the questions therein.
 
 ## 
 
@@ -528,6 +528,86 @@ mtcars |>
 
 ## 
 
+
+## 
+
+## DatasauRus
+
+## 
+
+## ![(\#fig:label) DatasauRus^[Figure is taken from https://github.com/jumpingrivers/datasauRus]](fig/datasaurus.png){ width=25% }
+
+## 
+
+## a) Load the packages `datasauRus` and `tidyverse`. If necessary, install these packages.
+
+## 
+
+#install.packages("datasauRus")
+library("datasauRus")
+library("tidyverse")
+
+ds <- datasaurus_dozen
+ds_wide <- datasaurus_dozen_wide
+
+??datasaurus
+
+## ds
+## dim(ds)
+## head(ds)
+## glimpse(ds)
+## view(ds)
+## summary(ds)
+
+unique(ds$dataset)  
+unique(ds$dataset) |> 
+  length()
+
+ds |> 
+  group_by(dataset) |> 
+  summarise(mean_x = mean(x),
+            mean_y = mean(y))
+
+ds |> 
+  group_by(dataset) |> 
+  summarise(mean_x = round(mean(x),2),
+            mean_y = round(mean(y),2),
+            sd_x = round(sd(x),2),
+            sd_y = round(sd(y),2),
+            med_x = round(median(x),2),
+            med_y = round(median(y),2),
+            cor = round(cor(x,y),4))
+
+## The standard deviation, the mean, and the correlation are basically the same for all datasets. The median is different.
+
+
+ggplot(ds, aes(x = x, y = y)) +
+  geom_point() +
+  facet_wrap(~ dataset, ncol = 3) +
+  theme(legend.position = "none") 
+
+# Get unique values
+uni_ds <- unique(ds$dataset)    
+
+# Scatter plot for each dataset
+for (uni_v in uni_ds) {
+# Select data for the current value
+  subset_ds <- ds |> 
+    filter(dataset == uni_v) %>%
+    select(x, y)
+  
+  # Make plot
+  graph <- ggplot(subset_ds, aes(x = x, y = y)) +
+    geom_point() +
+    labs(title = paste("Dataset:", uni_v),
+         x = "X",
+         y = "Y") +
+    theme_bw()
+  
+  # Save the plot as a PNG file
+  filename <- paste0("fig/", "plot_ds_", uni_v, ".png")
+  ggsave(filename, plot = graph)
+}
 
 ## 
 
