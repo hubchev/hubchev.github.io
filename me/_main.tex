@@ -3052,6 +3052,112 @@ A company sold a quantity of 750 goods (\(Q_{t=1}=750\)) in January (\(t=1\)), a
 Please find solution to the exercise \protect\hyperlink{sol:howtomaxprofit}{in the appendix.}
 \end{exercise}
 
+\hypertarget{von-thuxfcnen-model-of-land-use}{%
+\section{Von Thünen model of land use}\label{von-thuxfcnen-model-of-land-use}}
+
+The classical model of spatial organization of the economy stems Heinrich von Thünen (1783-1850). The model focuses on agriculture as this was the dominant use of land at the time. However, the fundamental ideas of the model can be applied to various industries.
+The model can be described as follows: Assume a focal point of demand for agricultural goods (e.g., the marketplace of a large city). Differences in soil quality in the agricultural periphery of the considered city are neglected. The demand is differentiated. That means, various goods such as grains, dairy products, meat, timber, vegetables are required to satisfy the needs of the people. The goods differ in terms of
+
+\begin{itemize}
+\tightlist
+\item
+  the market price they can achieve,
+\item
+  the assumed constant marginal production costs \((c_i)\),
+\item
+  the revenue per unit of land, and
+\item
+  in terms of their transportability, that is, each good has different specific transport costs \((\theta_i)\).
+\end{itemize}
+
+All mentioned variables are exogenously given. In particular, the model is based on the following assumptions:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Point-centered demand for all goods \(i\).
+\item
+  Different production methods possible, each with constant (marginal) production costs \(c_i\).
+\item
+  Homogeneous Space: The agricultural land surrounding the central marketplace is assumed to be uniform and homogeneous in terms of soil fertility, climate, and other relevant factors.
+\item
+  Given market prices for the individual products \(p_i\)
+\item
+  Producers supply the market and have linear product-specific transportation costs \((\theta_i)\).
+\item
+  Perfect competition: The model assumes perfect competition among farmers for the available land (free market access). That implies that they have full knowledge of market conditions and make rational decisions.
+\end{enumerate}
+
+To analyze the model, let us start by considering the restriction to a single land use. The key idea is that the rent price for a unit of land arises from the net yield that this unit of land enables under that particular land use. However, since both production costs and distance-dependent transport costs need to be subtracted from the gross yield to determine the net yield, it follows that land rent is determined by the distance from the center. Under a given land use, the value of an agricultural area is significantly influenced by its distance from the marketplace.
+
+Formally, the land rent for land use for production of good \(i\), depending on the distance \(x\) from the marketplace, is given by:
+
+\[
+r_i(x) = q_i(p_i - c_i - \theta_i \cdot x)
+\]
+
+The land rent increases with the quantity demanded \((q)\) and the price of the good, and it decreases with the marginal production costs \((c)\), the specific transportation costs \((\theta)\), and the distance \((x)\) from the marketplace. The typical shape of a rent curve, with \(r\) on the y-axis and \(x\) on the x-axis, is a linearly decreasing curve. Its slope is determined by the expression \(-q_i \theta_i\). Therefore, the steeper the specific transportation costs, the steeper the curve.
+
+Suppose, different land uses are allowed. By varying the price, revenue, and cost parameters in the equation above, different rent curves with varying locations and slopes emerge for different land uses. The interesting question now is: \emph{How high will the market rent be?}
+
+Thünen provides a clear answer to this question: Competition among land tenants will ensure that in a specific distance zone around the center, the production method with the highest net yield in that zone will prevail. In other words, the market rent curve is the upper envelope of all rent curves for specific production methods. The situation is illustrated in figure \ref{fig:thuenen} for three different production methods. The intersections of the market rent curves determine the shifts in production zones.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth,height=\textheight]{fig/thuenen.png}
+\caption{\label{fig:thuenen} Thünen's rings of land use}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{exercise}
+\protect\hypertarget{exr:thuenen1}{}\label{exr:thuenen1}
+
+Agricultural land use
+
+In the vicinity of an agglomeration center, four different agricultural land use forms are possible. We have information about the specific yield per unit of land \(q_i\), the (constant) marginal costs \(c_i\), the specific transportation costs \(\theta_i\), and the price \(p_i\) that can be achieved for a unit of the respective product in the center.
+
+Where do we see which land use form?
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.0588}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2353}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2353}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2353}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2353}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Production Form
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Production Form
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Production Form
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Production Form
+\end{minipage} \\
+\midrule()
+\endhead
+\(i\) & 1 & 2 & 3 & 4 \\
+\(q_i\) & 10 & 5 & 30 & 20 \\
+\(p_i\) & 5 & 5 & 2 & 6 \\
+\(c_i\) & 1 & 2 & 1 & 5 \\
+\(\theta_i\) & 0.4 & 0.1 & 0.15 & 0.05 \\
+\bottomrule()
+\end{longtable}
+
+\end{exercise}
+
+\begin{exercise}
+\protect\hypertarget{exr:thuenen2}{}\label{exr:thuenen2}Business location model
+
+The Thünenian approach is intended to be applied to a business location model. The customer frequency, depending on the distance x from the center, can be approximated by the following function:
+
+\[ f(x) = A_0 e^{-ax} \]
+
+The probability of sale per square meter for business type \(i\) is denoted by \(\lambda_i\). The business types also differ in terms of profit margin and fixed costs. Describe the market rent curve and show which business type will dominate in each location. What effects does an increase in the parameter \(a\) have? What about an increase in \(A_0\)? Interpret the changes in parameters and the results from an economic perspective.
+
 \hypertarget{appendix}{%
 \chapter{Appendix}\label{appendix}}
 
@@ -3091,6 +3197,7 @@ The PPF is an invaluable tool for illustrating the implications of scarcity, as 
 \emph{Economic growth} refers to the sustained expansion of production possibilities. An economy experiences growth through advancements in technology, enhancements in labor quality, or increases in capital quantity. As an economy's resources increase, its production possibilities expand, causing the PPF to shift outward. It is worth noting that you can use the PPF to explain production in an ``economy'' or in a ``firm'', respectively.
 
 \emph{Production efficiency} arises when it is impossible to produce more of one good or service without producing less of another. When production occurs directly on the PPF, it signifies efficiency. On the other hand, if production takes place inside the PPF, there is potential to produce more goods without sacrificing any existing ones, indicating inefficiency. When production lies on the PPF, a tradeoff emerges because obtaining more of one good necessitates giving up some quantity of another. This tradeoff incurs a cost, known as an \emph{opportunity cost}.
+\end{exercise}
 
 \begin{exercise}
 \protect\hypertarget{exr:Uproduction}{}\label{exr:Uproduction}Understanding production
