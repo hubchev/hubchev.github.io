@@ -113,7 +113,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 02 June, 2023}
+\date{Last compiled on 05 June, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -1201,24 +1201,16 @@ Please find solution to the exercise \protect\hyperlink{sol:koerth-example}{in t
 \end{figure}
 \footnotetext{Picture is taken from \url{http://www-history.mcs.st-and.ac.uk/history/PictDisplay/Lagrange.html}}
 
-\begin{exercise}
-\protect\hypertarget{exr:burgerutility1}{}\label{exr:burgerutility1}Burgers and drinks
+The decision-making process of consumers and producers lies at the core of microeconomic research and is of significant importance for managers. I will not go into detail here, but I will show some examples of how to come to a decision when certain information is given.
 
-Suppose you are in a fast food restaurant and you want to buy burgers and some drinks. You have €12 to spend, a burger costs €3 and a drink costs €2.
+Before we come to the Lagrangian multplier method, let me define what (micro)economist mean when they speak of firms and consumers.
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi})}
-\tightlist
-\item
-  Assume that you want to spend all your money and that you can only buy complete units of each products. What are the possible choices of consumption?
-\item
-  Given your utility function \(U(x,y)=B^{0.6}D^{0.4}\) calculate for each possible consumption point your overall utility. How will you decide?
-\item
-  Assume that you want to spend all your money and that both products can be bought on a metric scale where one burger weights 200 grams and a drink is 200 ml. How much of both goods would you consume now? Hint: Use the Lagrangian multiplier method.\footnote{Also see: \url{http://www.sfu.ca/~wainwrig/5701/notes-lagrange.pdf}}
-\end{enumerate}
+A \emph{firm} is a productive unit. In particular, it is an organization that produces goods and services, called the \emph{output}. To do so, it uses inputs called \emph{factors of production}: labor, capital, land, skills, etc. The relationship between the inputs and the output is the production function. The goal of the firm is to achieve whatever goal its owner(s) decide to achieve. Usually, it is (and in Germany, for example, it has to be the case by law) to generate profits, i.e., total revenue minus total cost for the level of production.
+Determining the optimal level of production for a firm is a multifaceted decision that encompasses various strategic aspects and is heavily influenced by the market situation of firms. This includes factors such as market power, demand function, production function, cost function, and revenue function.
 
-Please find solution to the exercise \protect\hyperlink{sol:burgerutility1}{in the appendix.}
-\end{exercise}
+A consumer is an individual that purchases goods or services to satisfy their needs. They make decisions regarding what to buy, how much to buy in order to maximize their utility. Microeconomists study consumer behavior and factors that influence it, such as prices, income, preferences, and market conditions, to understand the choices consumers make and their impact on markets and the overall economy.
+
+For a deeper understanding of the microeconomic preliminaries related to this topic, please read section \ref{micro-pre} of the appendix.
 
 \begin{figure}
 \centering
@@ -1294,6 +1286,59 @@ Differentiate \(\mathcal{L}\) w.r.t. \(x, y,\) and \(\lambda\) and equate the pa
 Solve the system of equations obtained from the first-order conditions to find the values of the variables and Lagrange multipliers that satisfy the optimality conditions. The solutions represent the optimal quantities that maximize or minimize the objective function subject to the given constraints.
 
 By following these four steps, you can effectively apply the Lagrange multiplier method to various optimization problems with constraints. It provides a systematic approach to finding the optimal solutions while incorporating the necessary trade-offs imposed by the constraints.
+
+\begin{exercise}
+\protect\hypertarget{exr:burgerutility1}{}\label{exr:burgerutility1}Burgers and drinks
+
+Suppose you are in a fast food restaurant and you want to buy burgers and some drinks. You have €12 to spend, a burger costs €3 and a drink costs €2.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Assume that you want to spend all your money and that you can only buy complete units of each products. What are the possible choices of consumption?
+\item
+  Given your utility function \(U(x,y)=B^{0.6}D^{0.4}\) calculate for each possible consumption point your overall utility. How will you decide?
+\item
+  Assume that you want to spend all your money and that both products can be bought on a metric scale where one burger weights 200 grams and a drink is 200 ml. How much of both goods would you consume now? Hint: Use the Lagrangian multiplier method.\footnote{Also see: \url{http://www.sfu.ca/~wainwrig/5701/notes-lagrange.pdf}}
+\end{enumerate}
+
+Please find solution to the exercise \protect\hyperlink{sol:burgerutility1}{in the appendix.}
+\end{exercise}
+
+\begin{exercise}
+\protect\hypertarget{exr:lama}{}\label{exr:lama}Labor and machines
+
+Suppose you rent a factory for a month to produce as many masks as possible. After you have paid the rent, you need to decide how many machines to buy and how many workers to hire for the given month.
+
+What is the optimal amount of workers and machines to employ for the given month, if you assume the following:
+
+\begin{itemize}
+\tightlist
+\item
+  \(L\) denotes the number of workers
+\item
+  \(K\) denotes the number of machines
+\item
+  \(Q\) denotes the number of masks produced
+\item
+  \(p_L\) denotes the price of a worker for a month
+\item
+  \(p_K\) denotes the price of a machine for a month
+\item
+  \(B\) denotes the money you can invest in the production of masks for the next month
+\item
+  \(B = 216\)
+\item
+  The production of masks can be explained by the following Cobb-Douglas production function: \(Q = K^{0.4}L^{0.6}\)
+\item
+  \(p_L = 2\)
+\item
+  \(p_K = 8\)
+\end{itemize}
+
+Please find solution to the exercise \protect\hyperlink{sol:lama}{in the appendix.}
+\end{exercise}
 
 \begin{exercise}
 \protect\hypertarget{exr:cchoice}{}\label{exr:cchoice}Consumption choice
@@ -2407,8 +2452,196 @@ Please find solution to the exercise \protect\hyperlink{sol:irr}{in the appendix
 
 \end{exercise}
 
+\begin{exercise}
+\protect\hypertarget{exr:rule70}{}\label{exr:rule70}
+
+Rule of 70
+
+The \emph{Rule of 70} is often used to approximate the time required for a growing series to double. To understand this rule calculate how many periods it takes to double your money when it growth at a constant rate of 1\% each period.
+
+Please find solution to the exercise \protect\hyperlink{sol:rule70}{in the appendix.}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{exercise}
+
+\hypertarget{a-note-on-growth-rates-and-the-logarithm}{%
+\subsection{A note on growth rates and the logarithm}\label{a-note-on-growth-rates-and-the-logarithm}}
+
+Most data are recorded for discrete periods of time (e.g., quarters, years). Consequently, it is often useful to model economic dynamics in discrete periods of time. A good linear approximation to a growth rate from time \(t=0\) to \(t=1\) in \(x\) is \(\ln x_0 - \ln x_1\):
+
+\[
+\frac{x_1 - x_0}{x_0} \approx \ln x_1 - \ln x_0
+\]
+
+Let us prove that with some numbers of per capita real GDP for the US and Japan in 1950 and 1989:
+
+\begin{center}
+    \begin{tabular}{ccc}\toprule
+        1950 & 1950 & 1989 \\ \midrule
+        US & 8611 & 18317 \\ 
+        Japan & 1563 & 15101 \\ \bottomrule
+    \end{tabular} 
+\end{center}
+
+What are the annual average growth rates over this period for the US and Japan? Here is one way to answer this question:
+
+\[
+Y_{1989} = (1 + g)^{39} \cdot Y_{1950}
+\]
+
+Consequently, \(g\) can be calculated as:
+
+\[
+(1 + g) = \left(\frac{Y_{1989}}{Y_{1950}}\right)^{\frac{1}{39}}
+\]
+
+Yielding \(g = 0.0195\) for the US and \(g = 0.0597\) for Japan. The US grew at an average growth rate of about 2\% annually over the period, while Japan grew at about 6\% annually.
+
+The following method gives a close approximation to the answer above and will be useful in other contexts. A useful approximation is that for any small number \(x\): \(\ln (1 + x) \approx x\)
+
+Now, we can take the natural log of both sides of:
+
+\[
+\frac{Y_{1989}}{Y_{1950}} = (1 + g)^{39}
+\]
+
+to get:
+
+\[
+\ln (Y_{1989}) - \ln (Y_{1950}) = 39 \cdot \ln (1 + g)
+\]
+
+which rearranges to:
+
+\[
+\ln (1 + g) = \frac{\ln (Y_{1989}) - \ln (Y_{1950})}{39}
+\]
+
+and using our approximation:
+
+\[
+g \approx \frac{\ln (Y_{1989}) - \ln (Y_{1950})}{39}
+\]
+
+In other words, log growth rates are good approximations for percentage growth rates. Calculating log growth rates for the data above, we get \(g \approx 0.0194\) for the US and \(g \approx 0.0582\) for Japan. The approximation is close for both.
+
+\hypertarget{plotting-growth-using-the-logarithm}{%
+\subsubsection*{Plotting growth using the logarithm}\label{plotting-growth-using-the-logarithm}}
+\addcontentsline{toc}{subsubsection}{Plotting growth using the logarithm}
+
+Recall that, with a constant growth rate \(g\) and starting from time 0, output in time \(t\) is:
+
+\[Y_t = (1 + g)^t \cdot Y_0\]
+
+Taking natural logs of both sides, we have:
+
+\[\ln Y_t = \ln Y_0 + t \cdot \ln (1 + g)\]
+
+We see that log output is linear in time. Thus, if the growth rate is constant, a plot of log output against time will yield a straight line. Consequently, plotting log output against time is a quick way to \textbf{eyeball} whether growth rates have changed over time.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{fig/logplot.png}
+\caption{\label{fig:logplot} Log Plot}
+\end{figure}
+
+In figure \ref{fig:logplot} and \ref{fig:loginscale} you see a semi-logarithmic plot that has one axis on a logarithmic scale and the other on a linear scale. It is useful for data with exponential relationships, where one variable covers a large range of values, or to zoom in and visualize that what seems to be a straight line in the beginning is, in fact, the slow start of a logarithmic curve that is about to spike, and changes are much bigger than thought initially.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{fig/LogLinScale.png}
+\caption{\label{fig:loginscale} Log-Lin Scale}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{exercise}
+\protect\hypertarget{exr:invovertime}{}\label{exr:invovertime}
+
+Investments over time
+Describe the formulas to describe the growth process of an investment over time when time is discrete and when time is continuous.
+
+Please find solution to the exercise \protect\hyperlink{sol:invovertime}{in the appendix.}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{exercise}
+
+\begin{exercise}
+\protect\hypertarget{exr:expovertime}{}\label{exr:expovertime}
+
+Exponential growth
+
+Sketch a timeline for each of the following series:
+
+\begin{itemize}
+\tightlist
+\item
+  \(a_t=a_{t-1}+g\)
+\item
+  \(\ln(a_t)\)
+\item
+  \(b_t=b_{t-1}\cdot (1+g)\)
+\item
+  \(\ln b_t\)
+\end{itemize}
+
+Please find solution to the exercise \protect\hyperlink{sol:expovertime}{in the appendix.}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{exercise}
+
+\begin{exercise}
+\protect\hypertarget{exr:Covidcases}{}\label{exr:Covidcases}
+
+COVID and how to plot it
+
+I downloaded the complete \textbf{Our World in Data COVID-19} dataset from \href{https://ourworldindata.org/coronavirus/country/germany}{ourworldindata.org}. I created some graphs which I will show you below. Can you discuss the scaling and how to interpret them? What is your opinion on these graphs? Are some of them a bit misleading (at least if you don't look twice)?
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{fig/total.png}
+\caption{Total Cases}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{fig/total2.png}
+\caption{Total Cases 2}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{fig/total3.png}
+\caption{Total Cases 3}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{fig/new.png}
+\caption{New Cases}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{fig/new2.png}
+\caption{New Cases 2}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth,height=\textheight]{fig/new3.png}
+\caption{New Cases 3}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{exercise}
+
 \hypertarget{managerial-microeconomics}{%
-\chapter{Managerial Microeconomics}\label{managerial-microeconomics}}
+\chapter{Managerial microeconomics}\label{managerial-microeconomics}}
 
 \hypertarget{consumption-and-production-choices}{%
 \section{Consumption and production choices}\label{consumption-and-production-choices}}
@@ -2436,8 +2669,8 @@ By analyzing production possibilities and individual preferences, economists gai
 
 If you are not familiar with the basic principles of the production possibility frontier curve, indifference curves, and budget constraints, I recommend referring to section \ref{micro-pre} of the appendix for a comprehensive overview. This section provides a detailed explanation and exploration of these concepts.
 
-\hypertarget{change-in-income}{%
-\subsection{Change in income}\label{change-in-income}}
+\hypertarget{the-role-of-income-and-budget}{%
+\subsection{The role of income and budget}\label{the-role-of-income-and-budget}}
 
 If income increases the budget constraint curve shifts outwards (to the right) as shown in figure \ref{fig:incomechange}.
 
@@ -2449,8 +2682,8 @@ If income increases the budget constraint curve shifts outwards (to the right) a
 
 The utility-maximizing choice on the original budget constraint is M. The dashed horizontal and vertical lines extending through point M allow you to see at a glance whether the quantity consumed of goods on the new budget constraint is higher or lower than on the original budget constraint. On the new budget constraint, a choice like N will be made if both goods are \emph{normal goods}. If good \(x\) is an \emph{inferior good}, a choice like P will be made. If good \(y\) is an \emph{inferior good}, a choice like Q will be made.
 
-\hypertarget{change-in-price}{%
-\subsection{Change in price}\label{change-in-price}}
+\hypertarget{the-role-of-prices}{%
+\subsection{The role of prices}\label{the-role-of-prices}}
 
 If price of one good increases then the budget constraint curve. When the price rises, the budget constraint shifts in to the left for that good.
 
@@ -2521,14 +2754,14 @@ Solve the problem:
 
 Please find solution to the exercise \protect\hyperlink{sol:cdanddemand}{in the appendix.}
 
-\hypertarget{competitive-market-prices}{%
-\subsection{Competitive market prices}\label{competitive-market-prices}}
+\hypertarget{consumption-production-and-terms-of-trade}{%
+\subsection{Consumption, production, and terms of trade}\label{consumption-production-and-terms-of-trade}}
 
 Market prices in a closed economy:
 The price relation of two goods, the so-called terms of trade, is determined by the slope of the Production Possibility Frontier (PPF) at the point where it is tangent to the indifference curve. This relationship highlights the trade-off between the two goods and their relative scarcity within a closed economy.
 
 Utility maximizing production:
-The production point that maximizes utility is where the PPF is tangent to the price relation. This principle applies not only in a closed economy but also under free trade. It implies that producers should allocate resources in a way that balances the trade-off between producing more of one good at the expense of another, while considering consumer preferences.
+The production point that maximizes utility is where the PPF is tangent to the price relation, i.e.~the \emph{terms of trade}. This principle applies not only in a closed economy (autarky) but also under free trade (open economy). It implies that producers should allocate resources in a way that balances the trade-off between producing more of one good at the expense of another, while considering consumer preferences. Figure \ref{fig:optimalconsumption} depicts this.
 \end{exercise}
 
 \begin{exercise}
@@ -2561,10 +2794,18 @@ Please find solution to the exercise \protect\hyperlink{sol:Uic}{in the appendix
 \footnotetext{This graph is taken from \citet[ch.~4]{Emerson2020Intermediate}}
 
 Figure \ref{fig:utilmax} stems from \citet[ch.~4]{Emerson2020Intermediate}. Use the following sentences to describe the respective points in the figure.
-- Optimal bundle.
-- Can do better by trading some B for some A.
-- Can do better by trading some B for some A.
-- Unaffordable.
+
+\begin{itemize}
+\tightlist
+\item
+  Optimal bundle.
+\item
+  Can do better by trading some B for some A.
+\item
+  Can do better by trading some B for some A.
+\item
+  Unaffordable.
+\end{itemize}
 
 Please find solutions to the exercise in \citet[ch.~4]{Emerson2020Intermediate}.
 \end{exercise}
@@ -2661,8 +2902,8 @@ The PPF is an invaluable tool for illustrating the implications of scarcity, as 
 Please find solution to the exercise \protect\hyperlink{sol:Uproduction}{in the appendix.}
 \end{exercise}
 
-\hypertarget{indifference-curves}{%
-\subsection{Indifference curves}\label{indifference-curves}}
+\hypertarget{indifference-curves-and-isoquants}{%
+\subsection{Indifference curves and Isoquants}\label{indifference-curves-and-isoquants}}
 
 \begin{figure}
 \centering
@@ -2682,6 +2923,34 @@ It is assumed that consumers aim to attain the highest possible indifference cur
 \caption{\label{fig:ic2} Indifference curve}
 \end{figure}
 
+Similar to the concept of indifference curves, an \textbf{isoquant} shows the combinations of factors of production that result in the same quantity of output.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.3\textwidth,height=\textheight]{fig/isocom.png}
+\caption{\label{fig:isocom} Perfect complements or substitutes (1)}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.3\textwidth,height=\textheight]{fig/isosub.png}
+\caption{\label{fig:isosub} Perfect complements or substitutes (2)}
+\end{figure}
+
+\begin{exercise}
+\protect\hypertarget{exr:isoquants}{}\label{exr:isoquants}Isoquants
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\item
+  Which of the two plots (figures \ref{fig:isocom} and \ref{fig:isosub}) show isoquants when factors of production are \textbf{perfect complements} and \textbf{perfect substitutes}, respectively?
+\item
+  Discuss the features of a Cobb-Douglas PF with respect to returns to scale and marginal product of production for both inputs. Sketch the total output curve in an output-\(K\) and an output-\(L\) quadrant. Sketch the isoquants for different levels of production.
+\end{enumerate}
+
+Please find solution to the exercise \protect\hyperlink{sol:isoquants}{in the appendix.}
+\end{exercise}
+
 \hypertarget{budget-constraint}{%
 \subsection{Budget constraint}\label{budget-constraint}}
 
@@ -2698,22 +2967,12 @@ By studying the budget constraint, economists can gain insights into consumer be
 
 \begin{figure}
 \centering
-\includegraphics[width=1\textwidth,height=\textheight]{fig/pointofconsumption.png}
+\includegraphics[width=0.4\textwidth,height=\textheight]{fig/pointofconsumption.png}
 \caption{\label{fig:pointofconsumption} Indifference curve}
 \end{figure}
 
 \hypertarget{logarithmic-and-exponential-function}{%
-\chapter{Logarithmic and exponential function}\label{logarithmic-and-exponential-function}}
-
-\begin{itemize}
-\tightlist
-\item
-  What is a logarithmic function?
-\item
-  What is an exponential function?
-\item
-  What are they used for?
-\end{itemize}
+\section{Logarithmic and exponential function}\label{logarithmic-and-exponential-function}}
 
 \begin{figure}
 \centering
@@ -2728,7 +2987,7 @@ By studying the budget constraint, economists can gain insights into consumer be
 \end{figure}
 
 \hypertarget{logarithmic-function}{%
-\section{Logarithmic function}\label{logarithmic-function}}
+\subsection{Logarithmic function}\label{logarithmic-function}}
 
 Maybe you have heard about the logarithm, and I'm quite sure you know the `log' button on your calculator. If you wonder what it actually is and why it is so important for calculating with growth rates, this section is for you.
 
@@ -2789,12 +3048,12 @@ Please find solution to the exercise \protect\hyperlink{sol:calcwlog}{in the app
 \end{exercise}
 
 \hypertarget{exponential-function}{%
-\section{Exponential function}\label{exponential-function}}
+\subsection{Exponential function}\label{exponential-function}}
 
 \hypertarget{definition}{%
-\subsection{Definition}\label{definition}}
+\subsubsection{Definition}\label{definition}}
 
-Let us consider the function \(f(x) = 2^{x}\) in table Table 1 and figure \ref{fig:logexp2}.
+Let us consider the function \(f(x) = 2^{x}\) in table Table 1 and figure \ref{fig:IntroExpLogs-1}.
 
 \begin{longtable}[]{@{}lll@{}}
 \caption{Table 1: The exponential function \(2^{x}\) in a table}\tabularnewline
@@ -2819,7 +3078,7 @@ Let us consider the function \(f(x) = 2^{x}\) in table Table 1 and figure \ref{f
 \begin{figure}
 \centering
 \includegraphics[width=0.75\textwidth,height=\textheight]{fig/IntroExpLogs-1.png}
-\caption{\label{fig:logexp2} The exponential function \(2^{x}\) visualized}
+\caption{\label{fig:IntroExpLogs-1} The exponential function \(2^{x}\) visualized}
 \end{figure}
 
 A function of the form \(f(x) = b^{x}\) where \(b\) is a fixed real number, \(b > 0\), \(b \neq 1\) is called a \textbf{base \(b\) exponential function}.
@@ -2835,7 +3094,7 @@ A function of the form \(f(x) = b^{x}\) where \(b\) is a fixed real number, \(b 
 \end{itemize}
 
 \hypertarget{the-number-e}{%
-\subsection{\texorpdfstring{The number \(e\)}{The number e}}\label{the-number-e}}
+\subsubsection{\texorpdfstring{The number \(e\)}{The number e}}\label{the-number-e}}
 
 The most important base for exponential functions is the irrational number
 
@@ -2868,7 +3127,7 @@ Watch the YouTube clips \href{https://youtu.be/_-x90wGBD8U}{Logarithms - What is
 \end{figure}
 
 \hypertarget{solutions-to-exercises}{%
-\section{Solutions to exercises}\label{solutions-to-exercises}}
+\chapter{Solutions to exercises}\label{solutions-to-exercises}}
 
 \hypertarget{sol:santa}{%
 \subsection*{Solution to exercise \ref{exr:santa}: What is the house of Santa Claus?}\label{sol:santa}}
@@ -3565,6 +3824,130 @@ Solving for \(IRR\) is not that easy. Using a spreadsheet program, we get \(IRR_
 \) and \(IRR_B\approx 14.87%
 \). Thus, project A seems to be better.
 
+\hypertarget{sol:rule70}{%
+\subsection*{Solution to exercise \ref{exr:rule70}: Rule of 70}\label{sol:rule70}}
+
+What is the time required for a growing variable to double?
+
+Let \(X\) be the initial value of a growing variable, and \(Y\) denote the terminal value at time \(t + n\). The relationship between the two is given by
+
+\[Y = X(1+g)^n\]
+
+where \(g\) is the annual growth rate. As we are interested in the time span required for \(X\) to double, \(Y = 2\), and
+
+\[2 = (1+g)^n\]
+
+Taking natural logarithms (logarithm to the base of \(e\)), we get
+
+\[\ln 2 = n \ln (1+g)\]
+
+and hence
+
+\[n = \frac{\ln 2}{\ln (1+g)} \quad (*).\]
+
+This is the exact number of time periods required for a growing variable to double its size.
+
+One can approximate \(n\) using the definition of \(e^x\):
+
+\[e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \ldots + \frac{x^n}{n!} + R_n\]
+
+where the remainder term \(R_n \rightarrow 0\) as \(n \rightarrow \infty\). Ignoring high-order terms, for small \(x\), it may be approximated by
+
+\[e^x \approx 1 + x\]
+
+Taking logarithms of both sides, we get
+
+\[x \approx \ln (1 + x) \quad (**).\]
+
+Using (**), equation (*) may be approximated as
+
+\[n \approx \frac{\ln 2}{g} = \frac{0.693147}{g} \approx \frac{70}{g\%}\]
+
+This is the origin of the Rule of 70.
+
+Using the number \(e\) right away is simpler:
+
+\begin{align*}
+(e^r)^t &= 2 \\
+\ln e^{rt} &= \ln 2 \\
+rt &= \ln 2 \\
+t &= \frac{\ln 2}{r} \\
+t &\approx \frac{0.693147}{r}
+\end{align*}
+
+\hypertarget{sol:invovertime}{%
+\subsection*{Solution to exercise \ref{exr:invovertime}: Investments over time}\label{sol:invovertime}}
+
+The formula under discrete time is:
+\[
+Y_t=Y_0\cdot (1+g)^t
+\]
+The formula under continuous time is:
+\[
+Y_t=Y_0\cdot e^{gt}
+\]
+
+\hypertarget{sol:expovertime}{%
+\subsection*{Solution to exercise \ref{exr:expovertime}: Exponential growth}\label{sol:expovertime}}
+
+Figure @ref(fig:expgrowth\_graphs) provides the solution.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth,height=\textheight]{fig/expgrowth_graphs.png}
+\caption{(\#fig:expgrowth\_graphs) Various growth functions}
+\end{figure}
+
+\hypertarget{sol:Uic}{%
+\subsection*{Solution to exercise \ref{exr:Uic}: Understanding indifference curves and budget constraints}\label{sol:Uic}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  \(IC_3\) represents the highest level of utility. \(IC_1\) represents the lowest level of utility.\\
+\item
+  Task solved in class.
+\item
+  Task solved in class.
+\item
+  The budget line can be sketched into a y-x plot by solving \(p_xx+p_yy=I\) for y: \[y=\frac{I}{p_y}-\frac{p_x}{p_y}x\]
+\end{enumerate}
+
+\hypertarget{sol:isoquants}{%
+\subsection*{Solution to exercise \ref{exr:isoquants}: Isoquants}\label{sol:isoquants}}
+
+Graph (1) shows perfect complements and graph (2) perfect substitutes. The isoquants for Cobb-Douglas production functions is convex and in between the two extremes and it shifts outward with more production.
+
+\hypertarget{sol:lama}{%
+\subsection*{Solution to exercise \ref{exr:lama}: Labor and machines}\label{sol:lama}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Set up Lagrangian:
+  \[\mathcal{L} = K^{0.4}L^{0.6} - 216\lambda + 2\lambda L + 8\lambda K\]\\
+\item
+  FOC:
+  \begin{align*}
+     0 &= 0.4K^{-0.6}L^{0.4} - 8\lambda \quad (*) \\
+     0 &= 0.6K^{0.4}L^{-0.4} - 2\lambda \quad (**) \\
+     0 &= 216 - 2L - 8K \quad (***) \\
+  \end{align*}
+\item
+  Solving (*) and (**) for \(\lambda\) and substituting \(\lambda\) gives us:
+  \[\frac{1}{6}L = K \quad (****)\]
+\item
+  Plugging (****) into (***) yields:
+  \[0 = 216 - 2L - 8\cdot\left(\frac{1}{6}L\right) \Rightarrow L = 64\frac{4}{5}\]
+\item
+  Using that result in (***) again, we get:
+  \[216 - 2\cdot 64\frac{4}{5} + 8K \Rightarrow K = 10\frac{4}{5}\]
+\end{enumerate}
+
+Thus, the optimal combination of inputs is \(L = 64\frac{4}{5}\) and \(K = 10\frac{4}{5}\).
+
 \hypertarget{sol:Uproduction}{%
 \subsection*{Solution to exercise \ref{exr:Uproduction}: Understanding production}\label{sol:Uproduction}}
 
@@ -3600,22 +3983,6 @@ Solving for \(IRR\) is not that easy. Using a spreadsheet program, we get \(IRR_
 \includegraphics[width=0.3\textwidth,height=\textheight]{fig/ppf4.png}
 \caption{\label{fig:ppf4} Shrinking production possibilities in good A}
 \end{figure}
-
-\hypertarget{sol:Uic}{%
-\subsection*{Solution to exercise \ref{exr:Uic}: Understanding indifference curves and budget constraints}\label{sol:Uic}}
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi})}
-\tightlist
-\item
-  \(IC_3\) represents the highest level of utility. \(IC_1\) represents the lowest level of utility.\\
-\item
-  Task solved in class.
-\item
-  Task solved in class.
-\item
-  The budget line can be sketched into a y-x plot by solving \(p_xx+p_yy=I\) for y: \[y=\frac{I}{p_y}-\frac{p_x}{p_y}x\]
-\end{enumerate}
 
 \hypertarget{sol:calcwlog}{%
 \subsection*{Solution to exercise \ref{exr:calcwlog}: Calculate with log}\label{sol:calcwlog}}
