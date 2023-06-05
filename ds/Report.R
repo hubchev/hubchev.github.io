@@ -1,5 +1,6 @@
 library("captioner")
 table_nums <- captioner(prefix = "Table")
+fig_nums <- captioner()
 
 
 
