@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Quantitative Methods</title>
   <meta name="description" content="Quantitative Methods" />
-  <meta name="generator" content="bookdown 0.33.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Quantitative Methods" />
   <meta property="og:type" content="book" />
@@ -197,6 +197,7 @@ div.csl-indent {
 <li class="chapter" data-level="2.4.1" data-path="identification.html"><a href="identification.html#ignorability"><i class="fa fa-check"></i><b>2.4.1</b> Ignorability</a></li>
 <li class="chapter" data-level="2.4.2" data-path="identification.html"><a href="identification.html#unconfoundedness"><i class="fa fa-check"></i><b>2.4.2</b> Unconfoundedness</a></li>
 </ul></li>
+<li class="chapter" data-level="2.5" data-path="identification.html"><a href="identification.html#statistical-control-requires-causal-justification"><i class="fa fa-check"></i><b>2.5</b> Statistical control requires causal justification</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>3</b> Statistics</a>
 <ul>
@@ -210,9 +211,9 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="statistics.html"><a href="statistics.html#univariate-data"><i class="fa fa-check"></i><b>3.2.1</b> Univariate data</a></li>
 <li class="chapter" data-level="3.2.2" data-path="statistics.html"><a href="statistics.html#bivariate-data"><i class="fa fa-check"></i><b>3.2.2</b> Bivariate data</a></li>
-<li class="chapter" data-level="3.2.3" data-path="statistics.html"><a href="statistics.html#simple-linear-regression"><i class="fa fa-check"></i><b>3.2.3</b> Simple linear regression</a></li>
-<li class="chapter" data-level="3.2.4" data-path="statistics.html"><a href="statistics.html#multiple-linear-regression"><i class="fa fa-check"></i><b>3.2.4</b> Multiple linear regression</a></li>
 </ul></li>
+<li class="chapter" data-level="3.3" data-path="statistics.html"><a href="statistics.html#simple-linear-regression"><i class="fa fa-check"></i><b>3.3</b> Simple linear regression</a></li>
+<li class="chapter" data-level="3.4" data-path="statistics.html"><a href="statistics.html#multiple-linear-regression"><i class="fa fa-check"></i><b>3.4</b> Multiple linear regression</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="hands-on-experiments.html"><a href="hands-on-experiments.html"><i class="fa fa-check"></i><b>4</b> Hands on experiments</a>
 <ul>
@@ -250,7 +251,7 @@ div.csl-indent {
 <h1 class="title">Quantitative Methods</h1>
 <h2 class="subtitle"><em>Lecture Notes</em></h2>
 <p class="author"><em>© Prof. Dr. Stephan Huber (<a href="mailto:Stephan.Huber@hs-fresenius.de" class="email">Stephan.Huber@hs-fresenius.de</a>)</em></p>
-<p class="date"><em>Last compiled on 23 May, 2023</em></p>
+<p class="date"><em>Last compiled on 14 June, 2023</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered hasAnchor">
 <h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -265,9 +266,9 @@ div.csl-indent {
 </div>
 <div id="about-the-author" class="section level2 unlisted unnumbered hasAnchor">
 <h2>About the author<a href="index.html#about-the-author" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="figure"><span style="display:block;" id="fig:itsme"></span>
-<img src="fig/huber2.jpeg" style="width:25.0%" alt="" />
-<p class="caption">Figure 0.1:  Prof. Dr. Stephan Huber<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<div class="float">
+<img src="fig/huber2.jpeg" style="width:25.0%" alt=" Prof. Dr. Stephan Huber" />
+<div class="figcaption"> Prof. Dr. Stephan Huber<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></div>
 </div>
 <p>I am a Professor of International Economics and Data Science at HS Fresenius, holding a Diploma in Economics from the University of Regensburg and a Doctoral Degree (summa cum laude) from the University of Trier. I completed postgraduate studies at the Interdisciplinary Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU) in Trier. Prior to my current position, I worked as a research assistant to Prof. Dr. Dr. h.c. Joachim Möller at the University of Regensburg, a post-doc at the Leibniz Institute for East and Southeast European Studies (IOS) in Regensburg, and a freelancer at Charles University in Prague.</p>
 <p>Throughout my career, I have also worked as a lecturer at various institutions, including the TU Munich, the University of Regensburg, Saarland University, and the Universities of Applied Sciences in Frankfurt and Augsburg. Additionally, I have had the opportunity to teach abroad for the University of Cordoba in Spain and the University of Perugia. My published work can be found in international journals such as the Canadian Journal of Economics and the Stata Journal. For more information on my work, please visit my private homepage at www.t1p.de/stephanhuber.</p>
@@ -319,7 +320,7 @@ div.csl-indent {
 </div>
 <div id="literature" class="section level4 unlisted unnumbered hasAnchor">
 <h4>Literature:<a href="index.html#literature" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p><span class="citation">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span>, <span class="citation">Huntington-Klein (<a href="references.html#ref-Huntington-Klein2022Effect" role="doc-biblioref">2022</a>)</span>. <span class="citation">Illowsky &amp; Dean (<a href="references.html#ref-Illowsky2018Introductory" role="doc-biblioref">2018</a>)</span>. <span class="citation">Békés &amp; Kézdi (<a href="references.html#ref-Bekes2021Data" role="doc-biblioref">2021</a>)</span></p>
+<p><span class="citation">Cunningham (<a href="references.html#ref-Cunningham2021Causal">2021</a>)</span>, <span class="citation">Huntington-Klein (<a href="references.html#ref-Huntington-Klein2022Effect">2022</a>)</span>. <span class="citation">Illowsky &amp; Dean (<a href="references.html#ref-Illowsky2018Introductory">2018</a>)</span>. <span class="citation">Békés &amp; Kézdi (<a href="references.html#ref-Bekes2021Data">2021</a>)</span></p>
 </div>
 <div id="content" class="section level4 unlisted unnumbered hasAnchor">
 <h4>Content:<a href="index.html#content" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -350,9 +351,9 @@ div.csl-indent {
 </div>
 <div id="about-how-to-learn-and-prepare-for-the-exam" class="section level4 unlisted unnumbered hasAnchor">
 <h4>About how to learn (and prepare for the exam)<a href="index.html#about-how-to-learn-and-prepare-for-the-exam" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="figure"><span style="display:block;" id="fig:feynman"></span>
-<img src="fig/Richard-Feynman.jpg" style="width:25.0%" alt="" />
-<p class="caption">Figure 0.2:  Richard P. Feynman’s badge photo from Los Alamos National Laboratory<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<div class="float">
+<img src="fig/Richard-Feynman.jpg" style="width:25.0%" alt=" Richard P. Feynman’s badge photo from Los Alamos National Laboratory" />
+<div class="figcaption"> Richard P. Feynman’s badge photo from Los Alamos National Laboratory<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></div>
 </div>
 <p>Richard P. Feynman:</p>
 <blockquote>

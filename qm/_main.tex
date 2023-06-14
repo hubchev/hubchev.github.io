@@ -7,16 +7,19 @@
   12pt,
   oneside]{book}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -46,13 +49,13 @@
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
 \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
 \newcommand{\BuiltInTok}[1]{#1}
 \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
@@ -60,7 +63,7 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
 \newcommand{\ExtensionTok}[1]{#1}
 \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\ImportTok}[1]{#1}
 \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
@@ -69,7 +72,7 @@
 \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
 \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
@@ -138,7 +141,7 @@
 \bibliographystyle{plainnat}
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdftitle={Quantitative Methods},
   pdfauthor={© Prof.~Dr.~Stephan Huber (Stephan.Huber@hs-fresenius.de)},
@@ -158,7 +161,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 23 May, 2023}
+\date{Last compiled on 14 June, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -1304,21 +1307,22 @@ The Model goes back to Donald B. Rubin (*1943) a statistician and is now a widel
 
 \begin{longtable}[]{@{}cccccc@{}}
 \caption{\label{tab:tab21} Example data to illustrate that the fundamental problem of causal inference}\tabularnewline
-\toprule()
+\toprule\noalign{}
 i & T & Y & Y(1) & Y(0) & Y(1)-Y(0) \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 i & T & Y & Y(1) & Y(0) & Y(1)-Y(0) \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 1 & 0 & 0 & ? & 0 & ? \\
 2 & 1 & 1 & 1 & ? & ? \\
 3 & 1 & 0 & 0 & ? & ? \\
 4 & 0 & 0 & ? & 0 & ? \\
 5 & 0 & 1 & ? & 1 & ? \\
 6 & 1 & 1 & 1 & ? & ? \\
-\bottomrule()
 \end{longtable}
 
 \begin{figure}
@@ -1396,6 +1400,13 @@ Read sections 2.1 and 2.3 of \citet{Neal2020Introduction}.
 
 Please find solution to the exercise \protect\hyperlink{sol:treatmenteffects}{in the appendix.}
 \end{exercise}
+
+\hypertarget{statistical-control-requires-causal-justification}{%
+\section{Statistical control requires causal justification}\label{statistical-control-requires-causal-justification}}
+
+Read \citet{Wysocki2022Statistical} which is freely available \href{https://doi.org/10.1177/25152459221095823}{here}.
+
+Scientific research revolves around challenging our own views and findings. A good researcher does not merely present their results; instead, they engage in discussions about potential limitations and pitfalls to draw valid conclusions. Engaging in polemics goes against the essence of good research. We should not conceal potential weaknesses in our scientific strategy or empirical approach; rather, we should emphasize their existence. Even if this disappoints individuals seeking easy answers, it is crucial to acknowledge these limitations. The \href{https://catalogofbias.org/biases/}{Catalogue of Bias} is an excellent resource that provides insight into various potential pitfalls and challenges encountered during research, which may sometimes be difficult to completely rule out.
 
 \hypertarget{statistics}{%
 \chapter{Statistics}\label{statistics}}
@@ -1878,7 +1889,7 @@ For example, when the slope of a relationship is zero, the correlation coefficie
 Furthermore, Pearson's correlation coefficient is sensitive to outliers, and all correlation coefficients are prone to sample selection biases. It is crucial to be careful when attempting to correlate two variables, particularly when one represents a part and the other represents the total.
 It is also worth noting that small correlation values do not necessarily indicate a lack of association between variables. For example, Pearson's correlation coefficient can underestimates the association between variables exhibiting a quadratic relationship. Therefore, it is always advisable to examine scatterplots in conjunction with correlation analysis.
 
-In figure \ref{fig:allcorsame} you see various graphs that all have the same correlation coefficient and share other statistical properties like is investigated in exercise \ref{exr:Datasaurus}.
+In figure \ref{fig:allcorsame} you see various graphs that all have the same correlation coefficient and share other statistical properties like is investigated in exercise \ref{exr:DatasauRus}.
 
 \begin{figure}
 
@@ -1964,7 +1975,6 @@ DatasauRus
 \end{enumerate}
 
 Please find the solutions \href{https://htmlpreview.github.io/?https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/datasaurus_solution.html}{here}.
-```
 
 \begin{exercise}
 \protect\hypertarget{exr:summarystatistics}{}\label{exr:summarystatistics}Summary statistics
@@ -1982,12 +1992,13 @@ Calculate for the following datasets: the mode, the median, the 20\% quantile, t
 \end{enumerate}
 
 \begin{longtable}[]{@{}lrrrrrr@{}}
-\toprule()
+\toprule\noalign{}
 Cupcages consumed & 1 & 2 & 3 & 4 & 5 & 6 \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Abs. freq. & 2 & 30 & 37 & 28 & 23 & 8 \\
-\bottomrule()
 \end{longtable}
 
 Please find solution to the exercise \protect\hyperlink{sol:summarystatistics}{here.}
@@ -2009,10 +2020,12 @@ Please find solution to the exercise \protect\hyperlink{sol:destatexcel}{here.}
 Given are the following variables:
 
 \begin{longtable}[]{@{}rrrrr@{}}
-\toprule()
+\toprule\noalign{}
 a & b & c & d & e \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 97 & 70 & 1 & 1 & 970 \\
 98 & 80 & 50 & 2 & 980 \\
 99 & 90 & 50 & 3 & 990 \\
@@ -2020,7 +2033,6 @@ a & b & c & d & e \\
 101 & 110 & 50 & 5 & 1010 \\
 102 & 120 & 50 & 6 & 1020 \\
 103 & 130 & 99 & 7 & 1030 \\
-\bottomrule()
 \end{longtable}
 
 Rank the variables without calculating concrete numbers accordingly to the values of the following descriptive statistics: mode, median, mean, range, variance, standard deviation, coefficient of variation.
@@ -2029,7 +2041,7 @@ Please find solution to the exercise \protect\hyperlink{sol:guessstat}{here.}
 \end{exercise}
 
 \hypertarget{simple-linear-regression}{%
-\subsection{Simple linear regression}\label{simple-linear-regression}}
+\section{Simple linear regression}\label{simple-linear-regression}}
 
 The linear regression analysis is a widely used technique for predictive modeling. Its purpose is to establish a mathematical equation that relates a continuous response variable, denoted as \(y\), to one or more independent variables, represented by \(x\). The objective is to create a regression model that enables the prediction of the value of \(y\) based on known values of \(x\).
 
@@ -2127,7 +2139,7 @@ with \(SSR= \sum_{i = 1}^n \epsilon^2\).
 \(R^2\) lies between 0 and 1. It is easy to see that a perfect fit, i.e., no errors made when fitting the regression line, implies \(R2=1\) since then we have \(SSR=0\). On the contrary, if our estimated regression line does not explain any variation in the \(Y_i\), we have \(ESS=0\) and consequently \(R^2=0\). Figure \ref{fig:fitR} show the relationship of TTS and SSR.
 
 \hypertarget{multiple-linear-regression}{%
-\subsection{Multiple linear regression}\label{multiple-linear-regression}}
+\section{Multiple linear regression}\label{multiple-linear-regression}}
 
 Having understood the simple linear regression model, it is important to broaden our scope beyond the relationship between just two variables: the dependent variable and a single regressor. Our goal is to causally interpret the measured association of two variables, which requires certain conditions as explained in section \ref{identification}.
 
@@ -2258,7 +2270,9 @@ Above you see an excerpt of a regression output taken from a statistical program
 \end{exercise}
 
 \begin{exercise}
-\protect\hypertarget{exr:exrstataoutput}{}\label{exr:exrstataoutput}Look at Stata Output
+\protect\hypertarget{exr:exrstataoutput}{}\label{exr:exrstataoutput}
+
+Look at Stata Output
 
 Below you find two regression outputs from Stata. Try to interpret the p-values and the confidence intervals. How are the t-values calculated. Can you use the \emph{magic number} 1.96 to say if a corresponding estimated coefficient is statistically significant, or not? Which estimated model is \emph{better}?
 
@@ -2268,7 +2282,12 @@ Below you find two regression outputs from Stata. Try to interpret the p-values 
 \caption{\label{fig:regstata3} Stata regression output (1)}
 \end{figure}
 
+\begin{figure}
+\centering
 \includegraphics[width=0.85\textwidth,height=\textheight]{fig/reg_stata_class.png}
+\caption{\label{fig:regstata3b} Stata regression output (1)}
+\end{figure}
+
 \end{exercise}
 
 \begin{exercise}
@@ -2667,10 +2686,12 @@ having a non-randomly selected sample.
 \subsection*{Solution to exercise \ref{exr:summarystatistics}: Summary statistics}\label{sol:summarystatistics}}
 
 \begin{longtable}[]{@{}lcc@{}}
-\toprule()
+\toprule\noalign{}
 Metric & 1 & 2 \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Mode & 21 & 3 \\
 Median & 29.5 & 3 \\
 P20 & 21 & 2 \\
@@ -2680,7 +2701,6 @@ Arithmetic mean & 37 & 3.5 \\
 \(\sigma^2\) & 485.33 & 1.5591 \\
 \(\sigma\) & 22.030 & 1.248621 \\
 COV & 0.5954 & 2.4027 \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{sol:guessstat}{%
@@ -2693,7 +2713,7 @@ COV & 0.5954 & 2.4027 \\
   >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1644}}
   >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1644}}
   >{\centering\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1781}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 varlabel
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
@@ -2707,25 +2727,28 @@ d
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 e
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Variance & 2 (4.6666) & 4 (466.66) & 5 (800.33) & 1 (4.6666) & 3 (466.66) \\
 COV & 1 (.02160) & 3 (.21602) & 5 (.56580) & 4 (.54006) & 2 (.02160) \\
 Mean & 3 (100) & 4 (100) & 2 (50) & 1 (4) & 5 (1000) \\
 Median & 3 (100) & 4 (100) & 2 (50) & 1 (4) & 5 (1000) \\
 Range & 1 (6) & 4 (60) & 5 (98) & 2 (6) & 3 (60) \\
 SD & 1 (2.1602) & 4 (21.602) & 5 (28.290) & 2 (2.1602) & 3 (21.602) \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{sol:destatexcel}{%
 \subsection*{Solution to exercise \ref{exr:destatexcel}: Summary statistics in spreadsheet software}\label{sol:destatexcel}}
 
 \begin{longtable}[]{@{}lc@{}}
-\toprule()
+\toprule\noalign{}
 Mittelwert & 56 \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Standardfehler & 11,4697670227235 \\
 Modus & 0 \\
 Median & 55 \\
@@ -2740,7 +2763,6 @@ Minimum & 0 \\
 Maximum & 100 \\
 Summe & 560 \\
 Anzahl & 10 \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{sol:DiD}{%
