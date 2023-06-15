@@ -7,7 +7,7 @@
   <title>1 Getting Started with R |  How to Use R for Data Science</title>
   <meta name="description" content="<br />
 How to Use R for Data Science</p>" />
-  <meta name="generator" content="bookdown 0.33.3 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="1 Getting Started with R |  How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -317,10 +317,10 @@ and <a href="https://support.rstudio.com/hc/en-us/articles/200552336-Getting-Hel
 <img src="fig/rfordatas.png" style="width:30.0%" alt="R for Data Science: Import, Tidy, Transform, Visualize, and Model Data" />
 <img src="fig/irizarrybook.png" style="width:30.0%" /></p>
 <ol style="list-style-type: decimal">
-<li><span class="citation">Timbers, Campbell, &amp; Lee (<a href="references.html#ref-Timbers2022Data" role="doc-biblioref">2022</a>)</span>: <a href="https://datasciencebook.ca/"><strong>Data Science: A First Introduction</strong></a> is a free and up to date book that comes with exercises with worksheets that are available on <a href="https://github.com/UBC-DSCI/data-science-a-first-intro-worksheets">UBC-DSCI GitHub repository</a></li>
-<li><span class="citation">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>: <a href="https://r4ds.hadley.nz/"><strong>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</strong></a> is the most popular source to learn R. It focuses on introducing the tidyverse package and is freely available online.</li>
-<li><span class="citation">Irizarry (<a href="references.html#ref-Irizarry2022Introduction" role="doc-biblioref">2022</a>)</span>: <a href="http://rafalab.dfci.harvard.edu/dsbook/"><strong>Introduction to Data Science: Data Analysis and Prediction Algorithms With R</strong></a> is a complete, up to date, and applied introduction.</li>
-<li><span class="citation">Venables, Smith, &amp; R Core Team (<a href="references.html#ref-Venables2022Introduction" role="doc-biblioref">2022</a>)</span> <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf"><strong>An Introduction to R: Notes on R: A Programming Environment for Data Analysis and Graphics</strong></a> is a manual from the R Core Development Team that shows how to use R without having to install and load additional packages.</li>
+<li><span class="citation">Timbers, Campbell, &amp; Lee (<a href="references.html#ref-Timbers2022Data">2022</a>)</span>: <a href="https://datasciencebook.ca/"><strong>Data Science: A First Introduction</strong></a> is a free and up to date book that comes with exercises with worksheets that are available on <a href="https://github.com/UBC-DSCI/data-science-a-first-intro-worksheets">UBC-DSCI GitHub repository</a></li>
+<li><span class="citation">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R">2023</a>)</span>: <a href="https://r4ds.hadley.nz/"><strong>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</strong></a> is the most popular source to learn R. It focuses on introducing the tidyverse package and is freely available online.</li>
+<li><span class="citation">Irizarry (<a href="references.html#ref-Irizarry2022Introduction">2022</a>)</span>: <a href="http://rafalab.dfci.harvard.edu/dsbook/"><strong>Introduction to Data Science: Data Analysis and Prediction Algorithms With R</strong></a> is a complete, up to date, and applied introduction.</li>
+<li><span class="citation">Venables, Smith, &amp; R Core Team (<a href="references.html#ref-Venables2022Introduction">2022</a>)</span> <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf"><strong>An Introduction to R: Notes on R: A Programming Environment for Data Analysis and Graphics</strong></a> is a manual from the R Core Development Team that shows how to use R without having to install and load additional packages.</li>
 </ol>
 <p>Some other sources that are worth mentioning are these:</p>
 <ul>
@@ -422,9 +422,9 @@ R packages are collections of functions and data sets developed by the community
 <li>A package must be loaded before it can be used.</li>
 </ol>
 <p>We only need to install a package once on our computer. However, to use the package, we need to load the library every time we start a new R environment. You can think of this as installing a bulb versus turning on the light.</p>
-<div class="figure"><span style="display:block;" id="fig:lightpackage"></span>
-<img src="fig/lightpackage.jpeg" style="width:50.0%" alt="" />
-<p class="caption">Figure 1.4:  Installing packages</p>
+<div class="float">
+<img src="fig/lightpackage.jpeg" style="width:50.0%" alt=" Installing packages" />
+<div class="figcaption"> Installing packages</div>
 </div>
 <p>The two step process might seem a little odd at first, but the designers of R had very good reasons to do it this way. That is, there are more than 10.000 packages, and probably about 8000 authors of packages, and no-one really knows what all of them do. Keeping the installation separate from the loading minimizes the chances that two packages will interact with each other in a nasty way. Moreover having installed all available packages would probably blow your hard disk.</p>
 <p>Another good analogy for R packages is they are like apps you can download onto a mobile phone:</p>
@@ -456,7 +456,7 @@ Figure 1.6: Installing packages in R the easy way.
 </p>
 </div>
 <p>An alternative way to install a package is by typing</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="getting-started.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="getting-started.html#cb2-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
 <p>in the console pane of RStudio and pressing Return/Enter on your keyboard. Note you must include the quotation marks around the name of the package.</p>
 <p>Much like an app on your phone, you only have to install a package once. However, if you want to update a previously installed package to a newer version, you need to re-install it by repeating the earlier steps or you use <code>update.packages()</code>. To uninstall packages you can use <code>remove.packages()</code>.</p>
 <p>The installation of packages can take some time. However, if your CPU has many cores, you can speed up the process a lot using the argument <code>Ncpus</code> like this <code>update.packages(ask = F, Ncpus = 4L)</code>. This option allows you to adjust the number of parallel processes R can use on your PC. So, if you have a CPU with many cores you can increase that number.</p>
@@ -465,7 +465,7 @@ Figure 1.6: Installing packages in R the easy way.
 <h3><span class="header-section-number">1.7.2</span> Package loading<a href="getting-started.html#package-loading" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Recall that after you’ve installed a package, you need to <em>load it</em>. In other words, you need to <em>open it</em>. We do this by using the <code>library()</code> command. </p>
 <p>For example, to load the <code>ggplot2</code> package, run the following code in the console pane. What do we mean by “run the following code”? Either type or copy-and-paste the following code into the console pane and then hit the Enter key.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="getting-started.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="getting-started.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</span></code></pre></div>
 <p>If after running the earlier code, a blinking cursor returns next to the <code>&gt;</code> “prompt” sign, it means you were successful and the <code>ggplot2</code> package is now loaded and ready to use. If, however, you get a red “error message” that reads</p>
 <pre><code>Error in library(ggplot2) : there is no package called ‘ggplot2’</code></pre>
 <p>It means that you didn’t successfully install it. If you get this error message, go back to section <a href="getting-started.html#package-installation">1.7.1</a> on R package installation and make sure to install the <code>ggplot2</code> package before proceeding.</p>
@@ -477,15 +477,15 @@ Unloading packages can be done with <code>detach(, unload=TRUE)</code>.</p>
 </div>
 <div id="what-is-a-function-in-r" class="section level2 hasAnchor" number="1.8">
 <h2><span class="header-section-number">1.8</span> What is a function in R?<a href="getting-started.html#what-is-a-function-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>One of the keys to understand R is a <em>functional programming language</em>. Or, to put in in the words of <span class="citation">Chambers (<a href="references.html#ref-Chambers2017Extending" role="doc-biblioref">2017, p. 4</a>)</span>: “Everything that happens is a function call.” When you like to exit R, for example, you do it with the function <code>q()</code>:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb6-1"><a href="getting-started.html#cb6-1" aria-hidden="true" tabindex="-1"></a>&gt; q()</span>
-<span id="cb6-2"><a href="getting-started.html#cb6-2" aria-hidden="true" tabindex="-1"></a>Save workspace image? [y/n/c]: </span></code></pre></div>
+<p>One of the keys to understand R is a <em>functional programming language</em>. Or, to put in in the words of <span class="citation">Chambers (<a href="references.html#ref-Chambers2017Extending">2017, p. 4</a>)</span>: “Everything that happens is a function call.” When you like to exit R, for example, you do it with the function <code>q()</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb6-1"><a href="getting-started.html#cb6-1" tabindex="-1"></a>&gt; q()</span>
+<span id="cb6-2"><a href="getting-started.html#cb6-2" tabindex="-1"></a>Save workspace image? [y/n/c]: </span></code></pre></div>
 <p>If you don’t want to be asked what you want to do with your workspace (that is the place where you store all your objects, see section <a href="getting-started.html#sec:objects">1.9</a>) you can do it with an argument that is part of the function:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb7-1"><a href="getting-started.html#cb7-1" aria-hidden="true" tabindex="-1"></a>&gt; q(save = &quot;no&quot;)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb7-1"><a href="getting-started.html#cb7-1" tabindex="-1"></a>&gt; q(save = &quot;no&quot;)</span></code></pre></div>
 </div>
 <div id="sec:objects" class="section level2 hasAnchor" number="1.9">
 <h2><span class="header-section-number">1.9</span> What are objects in R?<a href="getting-started.html#sec:objects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Everything you do is made with a function and “everything that exists in R is an object” <span class="citation">(<a href="references.html#ref-Chambers2017Extending" role="doc-biblioref">Chambers, 2017, p. 4</a>)</span>. Objects are the fundamental units that are used to store information. Objects can be created using a variety of data types, including vectors, matrices, data frames, lists, functions. All objects are shown in the <em>workspace</em> which is shown in the <em>Environment</em> panel.</p>
+<p>Everything you do is made with a function and “everything that exists in R is an object” <span class="citation">(<a href="references.html#ref-Chambers2017Extending">Chambers, 2017, p. 4</a>)</span>. Objects are the fundamental units that are used to store information. Objects can be created using a variety of data types, including vectors, matrices, data frames, lists, functions. All objects are shown in the <em>workspace</em> which is shown in the <em>Environment</em> panel.</p>
 <p>In R, you can show the content of the workspace with <code>ls()</code>. The function <code>rm()</code> allows to remove objects and with <code>rm(list=ls())</code> you clear all objects from the workspace.</p>
 </div>
 <div id="are-there-some-guidelines-for-working-with-r" class="section level2 hasAnchor" number="1.10">

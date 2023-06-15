@@ -7,16 +7,19 @@
   12pt,
   oneside]{book}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -46,13 +49,13 @@
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
 \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
 \newcommand{\BuiltInTok}[1]{#1}
 \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
@@ -60,7 +63,7 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
 \newcommand{\ExtensionTok}[1]{#1}
 \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\ImportTok}[1]{#1}
 \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
@@ -69,7 +72,7 @@
 \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
 \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
@@ -137,7 +140,7 @@
 \bibliographystyle{plainnat}
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdftitle={ How to Use R for Data Science},
   pdfauthor={© Prof.~Dr.~Stephan Huber (Stephan.Huber@hs-fresenius.de)},
@@ -158,7 +161,7 @@ How to Use R for Data Science}
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 05 June, 2023}
+\date{Last compiled on 15 June, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -857,16 +860,17 @@ However, it is common practice to use \texttt{\textless{}-} and I recommend only
 R can do any kind of arithmetic calculation with the arithmetic operators given in the table below. Using the assignment operator, R functions, and the features of a R script is easy and gives an idea how R works and how you should embrace the power of the programming language.
 
 \begin{longtable}[]{@{}lccc@{}}
-\toprule()
+\toprule\noalign{}
 operation & operator & example input & example output \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 addition & + & 10+2 & 12 \\
 subtraction & - & 9-3 & 6 \\
 multiplication & * & 5*5 & 25 \\
 division & / & 10/3 & 3 \\
 power & \texttt{\^{}} & 5\^{}2 & 25 \\
-\bottomrule()
 \end{longtable}
 
 So please copy and past the following lines of code into a R script of yours, try to run it on your PC, and try to understand it. Of course, you have to tweak the script a bit to make it run on your PC. For example, I doubt you have the same working directory that I decided to use.
@@ -992,7 +996,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.1/dplyr"
+## [1] "/usr/local/lib/R/site-library/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1370,6 +1374,62 @@ The two most common formats to store and work with data in R are dataframe and t
 \end{Highlighting}
 \end{Shaded}
 
+\begin{exercise}
+\protect\hypertarget{exr:importcovid}{}\label{exr:importcovid}Import data
+
+Table \texttt{r\ table\_nums("tab:covid",\ display\ =\ "cite")} shows COVID for three states in Germany:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2464}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1304}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3478}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2754}}@{}}
+\caption{\texttt{r\ table\_nums(name\ =\ "tab:covid",\ caption\ =\ "Covid\ cases\ and\ deaths\ till\ August\ 2022")}}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+state
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Bavaria
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+North Rhine-Westphalia
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Baden-Württemberg
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+state
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Bavaria
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+North Rhine-Westphalia
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Baden-Württemberg
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+deaths (in mio) & 4,92M & 5,32M & 3,69M \\
+cases & 24.111 & 25.466 & 16.145 \\
+\end{longtable}
+
+Write down the code you would need to put into the R-console\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  \ldots to store each of variables \emph{state} and \emph{deaths} in a vector.
+\item
+  \ldots to store both vectors in a data frame with the name \texttt{df\textbackslash{}\_covid}.
+\item
+  \ldots to store both vectors in a tibble with the name \texttt{df\_covid}.
+\end{itemize}
+
+Please find solution to the exercise \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/import_covid_data.R}{here}
+\end{exercise}
+
 \hypertarget{open-rdata-files}{%
 \subsection{Open RData files}\label{open-rdata-files}}
 
@@ -1434,13 +1494,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \begin{verbatim}
 ## Rows: 13,156
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "A~
-## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "200~
-## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826771e+11, 9.720022e+11, 9.642130e+11, 8.~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (cur~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", ~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AF~
+## $ date        <chr> "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "2005", "2004", "2003", "2002~
+## $ value       <dbl> 1.089454e+12, 9.341791e+11, 1.009052e+12, 1.016697e+12, 1.030482e+12, 8.898593e+11, 9.231439e+11, 1.003403e+12, 9.826771e+11, 9.720022e+11, 9.642130e+11, 8.6~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (curr~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "A~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1803,7 +1863,7 @@ The extract operators can be combined with the \emph{logical operators} (more pr
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3553}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1447}}@{}}
 \caption{Table 1: Logical operators}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 operation
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1813,9 +1873,9 @@ example input
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 answer
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 operation
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -1825,8 +1885,10 @@ example input
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 answer
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 less than & \texttt{\textless{}} & \texttt{2\ \textless{}\ 3} & \texttt{TRUE} \\
 less than or equal to & \texttt{\textless{}=} & \texttt{2\ \textless{}=\ 2} & \texttt{TRUE} \\
 greater than & \texttt{\textgreater{}} & \texttt{2\ \textgreater{}\ 3} & \texttt{FALSE} \\
@@ -1837,7 +1899,6 @@ not equal to & \texttt{!=} & \texttt{2\ !=\ 3} & \texttt{TRUE} \\
 not & \texttt{!} & \texttt{!(1==1)} & \texttt{FALSE} \\
 or & \(\vert\) & \texttt{(1==1)} \(\vert\) \texttt{(2==3)} & \texttt{TRUE} \\
 and & \texttt{\&} & \texttt{(1==1)\ \&\ (2==3)} & \texttt{FALSE} \\
-\bottomrule()
 \end{longtable}
 
 Here are some examples:
@@ -2340,13 +2401,13 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.3, 19.2, 27.3, 2~
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.3, 19.2, 27.3, 26~
 ## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7, 75.7, 71.1, 120.1, 318.0, 304.0,~
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7, 75.7, 71.1, 120.1, 318.0, 304.0, ~
 ## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 150, 245, 175, 66, 91, 113, 264, 175, 335, 109
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.70, 2.76, 3.15, 3.73, 3.08, 4.08, 4~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.200, 1.615, 1.835, 2.465, 3.520, 3.4~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.47, 18.52, 19.90, 20.01, 16.87, 17.~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.70, 2.76, 3.15, 3.73, 3.08, 4.08, 4.~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.200, 1.615, 1.835, 2.465, 3.520, 3.43~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.47, 18.52, 19.90, 20.01, 16.87, 17.3~
 ## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
 ## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
 ## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
@@ -3125,17 +3186,18 @@ Please follow the instructions below to access the file ``23-04\_ds-project-desc
 
 \begin{longtable}[]{@{}rl@{}}
 \caption{Table 1: Different OS, different keys}\tabularnewline
-\toprule()
+\toprule\noalign{}
 Key in Windows/Linux & Key in Mac \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 Key in Windows/Linux & Key in Mac \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 CTRL & Command Key \\
 Alt & Option Key \\
-\bottomrule()
 \end{longtable}
 
 \begin{longtable}[]{@{}
@@ -3143,7 +3205,7 @@ Alt & Option Key \\
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2062}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.6375}}@{}}
 \caption{Table 2: Helpful shortcuts}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Action
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -3151,9 +3213,9 @@ Shortcut Keys
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Description
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Action
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
@@ -3161,21 +3223,23 @@ Shortcut Keys
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Description
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Run code & Ctrl + Enter & Runs the current line and jumps to the next one, or runs the selected part without jumping further. \\
 & Alt + Enter & Allows running code without moving the cursor to the next line if you want to run one line of code multiple times without selecting it. \\
 & Ctrl + Alt + R & Runs the entire script. \\
 & Ctrl + Alt + B/E & Run the script from the Beginning to the current line and from the current line to the End. \\
 Write code & Alt + (-) & Inserts the assignment operator (\textless-) with spaces surrounding it. \\
 & Ctrl + Shift + M & Inserts the magrittr/pipe operator (\%\textgreater\%) with spaces surrounding it. \\
+& Ctrl + Shift + C & Comments out code by putting a \texttt{\#} in front of each line of marked code of a script. \\
 & Ctrl + Shift + R & Creates a foldable comment section in your code. \\
 Navigating in RStudio & Ctrl + 1 & Move focus to editor. \\
 & Ctrl + 2 & Move focus to console. \\
 & Ctrl+Tab and Ctrl+Shift+Tab & to switch between tabs. \\
 & Ctrl + Shift + N & Open a new R script. \\
 & Ctrl + w & Close a tab. \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{sec:navigation}{%
@@ -3206,15 +3270,16 @@ The next concept to grasp is the idea of a \emph{working directory} and how to c
 The fact that we can imagine that the program is ``in'' a particular directory means that we can talk about moving \emph{from} our current location \emph{to} a new one. What that means is that we might want to specify a new location in relation to our current location. To do so, we need to introduce two new conventions. Regardless of what operating system you're using, we use \texttt{.} to refer to the current working directory, and \texttt{..} to refer to the directory above it. This allows us to specify a path to a new location in relation to our current location, as the following examples illustrate. Let's assume that I'm using my Windows computer, and my working directory is \texttt{C:\textbackslash{}Users\textbackslash{}huber\textbackslash{}Rbook}. The table below shows several addresses in relation to my current one:
 
 \begin{longtable}[]{@{}ll@{}}
-\toprule()
+\toprule\noalign{}
 Absolute path & Relative path \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \texttt{C:\textbackslash{}Users\textbackslash{}huber} & \texttt{..} \\
 \texttt{C:\textbackslash{}Users} & \texttt{..\textbackslash{}..} \\
 \texttt{C:\textbackslash{}Users\textbackslash{}huber\textbackslash{}Rbook\textbackslash{}source} & \texttt{.\textbackslash{}source} \\
 \texttt{C:\textbackslash{}Users\textbackslash{}huber\textbackslash{}nerdstuff} & \texttt{..\textbackslash{}nerdstuff} \\
-\bottomrule()
 \end{longtable}
 
 It is quite common on computers that have multiple users to define \texttt{\textasciitilde{}} to be the user's \emph{home directory}. The home directory on a Mac for the `\texttt{huber\textquotesingle{}\textquotesingle{}\ user\ is}/Users/huber/\texttt{.\ And\ so,\ not\ surprisingly,\ it\ is\ possible\ to\ define\ other\ directories\ in\ terms\ of\ their\ relationship\ to\ the\ home\ directory.\ For\ example,\ an\ alternative\ way\ to\ describe\ the\ location\ of\ the}rcourse-book.pdf\texttt{file\ on\ a\ Mac\ would\ be\ \ \textasciigrave{}\textasciigrave{}\textasciigrave{}\ \textasciitilde{}\textbackslash{}Rbook\textbackslash{}rcourse-book.pdf\ \textasciigrave{}\textasciigrave{}\textasciigrave{}\ You\ can\ find\ out\ your\ home\ directory\ with\ the}path.expand()` function:
@@ -3316,35 +3381,39 @@ When seeking help, be sure to provide information about your machine, including 
 \end{Shaded}
 
 \begin{verbatim}
-## R version 4.1.2 (2021-11-01)
+## R version 4.3.0 (2023-04-21)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 11 (bullseye)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
-## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.13.so
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
 ## 
 ## locale:
 ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
 ##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
+## time zone: Europe/Berlin
+## tzcode source: system (glibc)
+## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.2      magick_2.7.4     cowplot_1.1.1    sjPlot_2.8.14    ggpubr_0.6.0     haven_2.5.2      datasauRus_0.1.6 janitor_2.2.0    wbstats_1.0.4    lubridate_1.9.2 
-## [11] forcats_1.0.0    stringr_1.5.0    purrr_1.0.1      readr_2.1.4      tidyr_1.3.0      tibble_3.2.1     ggplot2_3.4.2    tidyverse_2.0.0  scales_1.2.1     captioner_2.2.3 
+##  [1] dplyr_1.1.2          sjPlot_2.8.14        ggpubr_0.6.0         haven_2.5.2          datasauRus_0.1.6     janitor_2.2.0        wbstats_1.0.4        lubridate_1.9.2     
+##  [9] forcats_1.0.0        stringr_1.5.0        purrr_1.0.1          readr_2.1.4          tidyr_1.3.0          tibble_3.2.1         ggplot2_3.4.2        tidyverse_2.0.0     
+## [17] scales_1.2.1         captioner_2.2.3.9000
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] nlme_3.1-162       insight_0.19.1     httr_1.4.5         tools_4.1.2        backports_1.4.1    bslib_0.4.2        utf8_1.2.3         R6_2.5.1           sjlabelled_1.2.0  
-## [10] colorspace_2.1-0   withr_2.5.0        tidyselect_1.2.0   emmeans_1.8.5      curl_5.0.0         compiler_4.1.2     performance_0.10.3 textshaping_0.3.6  cli_3.6.1         
-## [19] labeling_0.4.2     bookdown_0.33.3    bayestestR_0.13.1  sass_0.4.6         mvtnorm_1.1-3      systemfonts_1.0.4  digest_0.6.31      minqa_1.2.5        rmarkdown_2.21    
-## [28] pkgconfig_2.0.3    htmltools_0.5.5    lme4_1.1-33        fastmap_1.1.1      highr_0.10         rlang_1.1.1        rstudioapi_0.14    jquerylib_0.1.4    farver_2.1.1      
-## [37] generics_0.1.3     jsonlite_1.8.4     car_3.1-2          magrittr_2.0.3     Matrix_1.5-4       Rcpp_1.0.10        munsell_0.5.0      fansi_1.0.4        abind_1.4-5       
-## [46] lifecycle_1.0.3    stringi_1.7.12     yaml_2.3.7         snakecase_0.11.0   carData_3.0-5      MASS_7.3-60        grid_4.1.2         sjmisc_2.8.9       crayon_1.5.2      
-## [55] lattice_0.21-8     ggeffects_1.2.2    splines_4.1.2      sjstats_0.18.2     hms_1.1.3          knitr_1.42         pillar_1.9.0       boot_1.3-28.1      estimability_1.4.1
-## [64] ggsignif_0.6.4     glue_1.6.2         evaluate_0.21      modelr_0.1.11      nloptr_2.0.3       vctrs_0.6.2        tzdb_0.3.0         gtable_0.3.3       cachem_1.0.8      
-## [73] xfun_0.39          xtable_1.8-4       broom_1.0.4        coda_0.19-4        rstatix_0.7.2      ragg_1.2.5         tinytex_0.45       timechange_0.2.0
+##  [1] tidyselect_1.2.0   sjlabelled_1.2.0   farver_2.1.1       fastmap_1.1.1      bayestestR_0.13.1  sjstats_0.18.2     digest_0.6.31      timechange_0.2.0   estimability_1.4.1
+## [10] lifecycle_1.0.3    magrittr_2.0.3     compiler_4.3.0     rlang_1.1.1        sass_0.4.6         tools_4.3.0        utf8_1.2.3         yaml_2.3.7         knitr_1.42        
+## [19] ggsignif_0.6.4     labeling_0.4.2     curl_5.0.0         abind_1.4-5        withr_2.5.0        grid_4.3.0         fansi_1.0.4        xtable_1.8-4       colorspace_2.1-0  
+## [28] emmeans_1.8.6      MASS_7.3-60        insight_0.19.1     cli_3.6.1          mvtnorm_1.1-3      rmarkdown_2.21     crayon_1.5.2       ragg_1.2.5         generics_0.1.3    
+## [37] rstudioapi_0.14    performance_0.10.3 modelr_0.1.11      httr_1.4.6         tzdb_0.4.0         minqa_1.2.5        cachem_1.0.8       splines_4.3.0      vctrs_0.6.2       
+## [46] Matrix_1.5-4       boot_1.3-28.1      jsonlite_1.8.4     carData_3.0-5      bookdown_0.34      car_3.1-2          hms_1.1.3          rstatix_0.7.2      systemfonts_1.0.4 
+## [55] jquerylib_0.1.4    glue_1.6.2         nloptr_2.0.3       cowplot_1.1.1      stringi_1.7.12     gtable_0.3.3       ggeffects_1.2.2    lme4_1.1-33        munsell_0.5.0     
+## [64] pillar_1.9.0       htmltools_0.5.5    R6_2.5.1           textshaping_0.3.6  evaluate_0.21      lattice_0.21-8     highr_0.10         backports_1.4.1    broom_1.0.4       
+## [73] snakecase_0.11.0   bslib_0.4.2        Rcpp_1.0.10        nlme_3.1-162       coda_0.19-4        xfun_0.39          sjmisc_2.8.9       pkgconfig_2.0.3
 \end{verbatim}
 
   \bibliography{book.bib}

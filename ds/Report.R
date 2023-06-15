@@ -211,6 +211,45 @@ print(m_ab_label)
 df_ab=as.data.frame(m_ab_label)
 tbl_ab=as_tibble(m_ab_label)
 
+## 
+
+## Import data
+
+## 
+
+## Table `r table_nums("tab:covid", display = "cite")` shows COVID for three states in Germany:
+
+## 	
+
+## | state           | Bavaria | North Rhine-Westphalia | Baden-Württemberg |
+
+## |-----------------|---------|------------------------|-------------------|
+
+## | deaths (in mio) | 4,92M   | 5,32M                  | 3,69M             |
+
+## | cases           | 24.111  | 25.466                 | 16.145            |
+
+## Table: `r table_nums(name = "tab:covid", caption = "Covid cases and deaths till August 2022")`
+
+## 	
+
+## Write down the code you would need to put into the R-console...
+
+## 
+
+## - ...to store each of variables _state_ and _deaths_ in a vector.
+
+## - ...to store both vectors in a data frame with the name `df\_covid`.
+
+## - ...to store both vectors in a tibble with the name `df_covid`.
+
+## 
+
+## Please find solution to the exercise [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/import_covid_data.R)
+
+## 
+
+
 library("datasets")
 head(mtcars, 3)
 ?mtcars  # data dictionary
