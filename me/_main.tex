@@ -7,16 +7,19 @@
   12pt,
   oneside]{book}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -58,7 +61,7 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-\usepackage[normalem]{ulem}
+\usepackage{soul}
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -93,7 +96,7 @@
 \bibliographystyle{plainnat}
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
   pdftitle={Managerial Economics},
   pdfauthor={© Prof.~Dr.~Stephan Huber (Stephan.Huber@hs-fresenius.de)},
@@ -113,7 +116,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 12 June, 2023}
+\date{Last compiled on 21 June, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -870,8 +873,11 @@ The payoff or outcome depends on both the chosen alternative and the future stat
   >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1143}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.0857}}@{}}
 \caption{Payoff matrix}\tabularnewline
-\toprule()
+\toprule\noalign{}
+\endfirsthead
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 State of nature (N) & \(N_1\) & \(N_2\) & \(\cdots\) & \(N_j\) & \(\cdots\) & \(N_n\) \\
 Probability (p) & \(p_1\) & \(p_2\) & \(\cdots\) & \(p_j\) & \(\cdots\) & \(p_n\) \\
 Alternative (A) & & & & & & \\
@@ -881,7 +887,6 @@ Alternative (A) & & & & & & \\
 \(A_i\) & \(O_{i1}\) & \(O_{i2}\) & \(\cdots\) & \(O_{ij}\) & \(\cdots\) & \(O_{in}\) \\
 \(\cdots\) & \(\cdots\) & \(\cdots\) & \(\cdots\) & \(\cdots\) & \(\cdots\) & \(\cdots\) \\
 \(A_m\) & \(O_{m1}\) & \(O_{m2}\) & \(\cdots\) & \(O_{mj}\) & \(\cdots\) & \(O_{mn}\) \\
-\bottomrule()
 \end{longtable}
 
 If we assume that all objectives are independent from each other and that we are certain about the state of nature, the decision is rather trivial: just go for the alternative with the best outcome for each state of nature. However, most real-world scenarios are not that simple because most states of nature are more complex and needs further to be considered.
@@ -978,19 +983,20 @@ Suppose you have to decide between four different restaurants where you want to 
 
 \begin{longtable}[]{@{}cccccc@{}}
 \caption{Weighting scheme}\tabularnewline
-\toprule()
+\toprule\noalign{}
 & \(k_1\) & \(k_2\) & \(k_3\) & \(k_4\) & \(k_5\) \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 & \(k_1\) & \(k_2\) & \(k_3\) & \(k_4\) & \(k_5\) \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \(a_1\) & 3 & 0 & 7 & 1 & 4 \\
 \(a_2\) & 4 & 1 & 4 & 2 & 1 \\
 \(a_3\) & 4 & 0 & 3 & 2 & 1 \\
 \(a_4\) & 5 & 1 & 2 & 3 & 1 \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{domination}{%
@@ -1000,19 +1006,20 @@ Some alternative can be excluded because they are \textbf{dominated} by other al
 
 \begin{longtable}[]{@{}cccccc@{}}
 \caption{Alternative 3 is dominated by alternative 2}\tabularnewline
-\toprule()
+\toprule\noalign{}
 & \(k_1\) & \(k_2\) & \(k_3\) & \(k_4\) & \(k_5\) \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 & \(k_1\) & \(k_2\) & \(k_3\) & \(k_4\) & \(k_5\) \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \(a_1\) & 3 & 0 & 7 & 1 & 4 \\
 \(a_2\) & 4 & 1 & 4 & 2 & 1 \\
-\(a_3\) & \sout{4} & \sout{0} & \sout{3} & \sout{2} & \sout{1} \\
+\(a_3\) & \st{4} & \st{0} & \st{3} & \st{2} & \st{1} \\
 \(a_4\) & 5 & 1 & 2 & 3 & 1 \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{weighting}{%
@@ -1041,15 +1048,16 @@ In order to find a decision criteria you can calculate the aggregated expected u
 The results are as follows:
 
 \begin{longtable}[]{@{}ccccccc@{}}
-\toprule()
+\toprule\noalign{}
 & \(k_1\) & \(k_2\) & \(k_3\) & \(k_4\) & \(k_5\) & \(\Phi(a_i)\) \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \(a_1\) & 3 & 0 & 7 & 1 & 4 & 35//12 \\
 \(a_2\) & 4 & 1 & 4 & 2 & 1 & 31//12 \\
 \(a_3\) & 4 & 0 & 3 & 2 & 1 & 24//12 \\
 \(a_4\) & 5 & 1 & 2 & 3 & 1 & 29//12 \\
-\bottomrule()
 \end{longtable}
 
 Thus, \(a_1\succ a_2 \succ a_4 \succ a_3\), i.e., you prefer alternative \(a_1\).
@@ -1174,15 +1182,16 @@ Körth: example
 For the following payoff-matrix, calculate the order of preferences based on the Körth-rule.
 
 \begin{longtable}[]{@{}llllll@{}}
-\toprule()
+\toprule\noalign{}
 \(O_{ij}\) & \(k_1\) & \(k_2\) & \(k_3\) & \(k_4\) & \(k_5\) \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \(a_1\) & 3 & 0 & 7 & 1 & 4 \\
 \(a_2\) & 4 & 0 & 4 & 2 & 1 \\
 \(a_3\) & 4 & -1 & 3 & 2 & 1 \\
 \(a_4\) & 5 & 1 & 3 & 3 & 1 \\
-\bottomrule()
 \end{longtable}
 
 Please find solution to the exercise \protect\hyperlink{sol:koerth-example}{in the appendix.}
@@ -1404,15 +1413,16 @@ where \(\overline{O}_i=\max_{j=1,\dots,p}{O_{ij}}\qquad \forall i\) and \(\under
 The example that is shown in Figure 7 of \citet[p.401]{Finne1998three} contains some errors. Here is the \emph{correct table} including the Hurwicz-values (we assume a \(\alpha=.5\)):
 
 \begin{longtable}[]{@{}lccc@{}}
-\toprule()
+\toprule\noalign{}
 \(O_{ij}\) & \(min(\theta_1)\) & \(max(\theta_2)\) & \(H_i\) \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \(a_1\) & 36 & 110 & 73 \\
 \(a_2\) & 40 & 100 & 70 \\
 \(a_3\) & 58 & 74 & 66 \\
 \(a_4\) & 61 & 66 & 63.5 \\
-\bottomrule()
 \end{longtable}
 
 Thus, the order of preference is \(a_4\succ a_3 \succ a_1 \succ a_2\).
@@ -1540,18 +1550,19 @@ There are 90 balls in an box. It is known that 30 of them are red, the remaining
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\centering
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 Payoff
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 probability
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Lottery 1 & 100 Euro if a red ball is drawn 0 Euro else & \(p=\frac{1}{3}\) \\
 Lottery 2 & 100 Euro if a blue ball is drawn 0 Euro else & \(0 \leq p \leq \frac{2}{3}\) \\
-\bottomrule()
 \end{longtable}
 
 In a second variant it has the choice between the following lotteries:
@@ -1560,18 +1571,19 @@ In a second variant it has the choice between the following lotteries:
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Payoff
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 probability
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Lottery 3 & 100 Euro if a red or green ball is drawn or 0 Euro else & \(\frac{1}{3} \leq p \leq 1\) \\
 Lottery 4 & 100 Euro if a blue or green ball is drawn or 0 Euro else & \(p=\frac{2}{3}\) \\
-\bottomrule()
 \end{longtable}
 
 \begin{enumerate}
@@ -2170,14 +2182,16 @@ These three questions are designed to measure
 
 \begin{longtable}[]{@{}lcc@{}}
 \caption{Financial literacy around the World}\tabularnewline
-\toprule()
+\toprule\noalign{}
 & \% all correct & \% none correct \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 & \% all correct & \% none correct \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Germany & 57 & 10 \\
 Netherlands & 46 & 11 \\
 United States & 35 & 10 \\
@@ -2186,7 +2200,6 @@ Sweden & 27 & 11 \\
 Japan & 27 & 17 \\
 New Zealand & 27 & 4 \\
 Russia & 3 & 28 \\
-\bottomrule()
 \end{longtable}
 
 Please find solution to the exercise \protect\hyperlink{sol:bigthreeiq}{in the appendix.}
@@ -2953,7 +2966,7 @@ Overall, the price-setting behavior of a monopolist is not good for overall welf
 
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth,height=\textheight]{fig//mono2}
+\includegraphics[width=0.75\textwidth,height=\textheight]{fig//mono2}
 \caption[\label{fig:mono2} Price setting of a monopolist]{\label{fig:mono2} Price setting of a monopolist\footnotemark{}}
 \end{figure}
 \footnotetext{Graph stems from \citet{Krugman2009Microeconomics}.}
@@ -3044,6 +3057,19 @@ A company sold a quantity of 750 goods (\(Q_{t=1}=750\)) in January (\(t=1\)), a
 Please find solution to the exercise \protect\hyperlink{sol:howtomaxprofit}{in the appendix.}
 \end{exercise}
 
+\hypertarget{monopoly-and-price-discrimination}{%
+\subsection{Monopoly and price discrimination}\label{monopoly-and-price-discrimination}}
+
+Discrimination is the practice of treating people differently based on some (irrelevant) characteristic, such as race or gender. It is important to actively fight discrimination whenever it is observed. However, the concept of discrimination takes a different form when it comes to \emph{price discrimination}, which is a business practice involving the sale of the same goods at different prices to different buyers. This practice can be commonly seen in special offers tailored for students or retired individuals.
+
+One of the key factors utilized in price discrimination is the willingness to pay (WTP) of individuals. By charging a higher price to buyers with a higher WTP, a firm can maximize its profit. Moreover, and that is kind of surprising, it also comes with a increase in social welfare as is shown in figure \ref{fig:monowpd} and figure \ref{fig:monowpd}. In \ref{fig:monowpd}, the monopolist charges the same price (PM) to all buyers. A deadweight loss results. In \ref{fig:monowpd}, however, the monopolist produces the competitive quantity but charges each buyer his or her WTP. This is called perfect price discrimination. The monopolist captures all consumer surplus as profit. But there is no deadweight loss.
+
+!{[}\label{fig:monowoutpd} Monopoly without price discrimination and welfare(fig/discrimination.png)\{ width=25\% \}
+
+!{[}\label{fig:monowpd} Monopoly with price discrimination and welfare(fig/discrimination2.png)\{ width=25\% \}
+
+In the real world, price discrimination is a common phenomenon, but achieving perfect price discrimination is highly challenging. This is primarily because no firm possesses complete knowledge of every buyer's willingness to pay (WTP), and buyers typically do not disclose this information to sellers. Consequently, firms often divide customers into groups based on observables that are likely correlated with their WTP.
+
 \hypertarget{von-thuxfcnen-model-of-land-use}{%
 \section{Von Thünen model of land use}\label{von-thuxfcnen-model-of-land-use}}
 
@@ -3118,7 +3144,7 @@ Where do we see which land use form?
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2353}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2353}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2353}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Production Form
@@ -3129,14 +3155,15 @@ Production Form
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Production Form
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \(i\) & 1 & 2 & 3 & 4 \\
 \(q_i\) & 10 & 5 & 30 & 20 \\
 \(p_i\) & 5 & 5 & 2 & 6 \\
 \(c_i\) & 1 & 2 & 1 & 5 \\
 \(\theta_i\) & 0.4 & 0.1 & 0.15 & 0.05 \\
-\bottomrule()
 \end{longtable}
 
 \end{exercise}
@@ -3144,12 +3171,58 @@ Production Form
 \begin{exercise}
 \protect\hypertarget{exr:thuenen2}{}\label{exr:thuenen2}Business location model
 
-The Thünenian approach is intended to be applied to a business location model. The customer frequency, depending on the distance x from the center, can be approximated by the following function:
+The Thünenian approach is intended to be applied to a business location model. The customer frequency, depending on the distance \(x\) from the center, can be approximated by the following function:
 
-\[ f(x) = A_0 e^{-ax} \]
+\[ f(x)_i = A_{0} e^{-a x} \]
 
 The probability of sale per square meter for business type \(i\) is denoted by \(\lambda_i\). The business types also differ in terms of profit margin and fixed costs. Describe the market rent curve and show which business type will dominate in each location. What effects does an increase in the parameter \(a\) have? What about an increase in \(A_0\)? Interpret the changes in parameters and the results from an economic perspective.
 \end{exercise}
+
+\hypertarget{launhardthotelling-location-model}{%
+\subsection{Launhardt/Hotelling location model}\label{launhardthotelling-location-model}}
+
+Consider a scenario where two firms, i.e., \(i={F1;F2}\), have the option to establish their locations along a linear market, such as a street or a beach. These firms can relocate without incurring any costs and sell an identical product at the same price. Consequently, the only means of competition available to them is by strategically selecting their respective locations.
+Moreover, assume that customers are uniformly distributed throughout the market, and each customer is willing to purchase one unit of the product up to a certain price, denoted as \(\bar{p}\). The cost of transportation is the same for both firms and is proportional to the distance between the firm and the customer.
+
+If we assume that the transportation costs are equal for both firms and that the market has a finite size, the firms will eventually position themselves at the center of the market with no empty space between them. The rationale and dynamics behind this behavior are clearly explained in the YouTube clip of TED-Ed \href{https://youtu.be/jILgxeNBK_8}{\emph{Why do competitors open their stores next to one another? - Jac de Haan}}, see figure \ref{fig:hotelling}. I highly recommend watching the clip.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.25\textwidth,height=\textheight]{fig/hotelling.png}
+\caption[\label{fig:hotelling} YouTube clip of TED-Ed and Jac de Haan]{\label{fig:hotelling} YouTube clip of TED-Ed and Jac de Haan\footnotemark{}}
+\end{figure}
+\footnotetext{Taken from \url{https://youtu.be/jILgxeNBK_8}}
+
+If we assume that the transportation costs can vary between the two firms, things became a bit more complicated. Let us define transportation costs for a firm as \(\theta_i=a_i d(x)\), where \(d(x)\) represents the distance between the company and the respective costumer and \(a_i\) is firm-specific costs of transportation. Let us further assume competition and loosen the assumption of fixed prices: Firms can set prices but they need to charge the price of the good, \(p\), plus their costs of transporting the good to the costumer. Thus, the price of a good a firm needs to charge in order not to make deficits is
+\[
+p^{min}(x)=c+\theta_i=c+a_i d(x)
+\]
+
+If we assume that the transport costs are the same for both firms and that the market is limited in size, the firms will end up at the center of the market with no space inbetween them. However, there is always an incentive to deviate from that minimum of spatial differentiation. However, the dynamic is kind of strange as we can show in the following four figures.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth,height=\textheight]{fig/lau1.png}
+\caption{\label{fig:lau1} Scenario 1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth,height=\textheight]{fig/lau2.png}
+\caption{\label{fig:lau2} Scenario 2}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth,height=\textheight]{fig/lau3.png}
+\caption{\label{fig:lau3} Scenario 3}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth,height=\textheight]{fig/lau4.png}
+\caption{\label{fig:lau4} Scenario 4}
+\end{figure}
 
 \hypertarget{appendix}{%
 \chapter{Appendix}\label{appendix}}
@@ -3395,14 +3468,16 @@ Let us consider the function \(f(x) = 2^{x}\) in table Table 1 and figure \ref{f
 
 \begin{longtable}[]{@{}lll@{}}
 \caption{Table 1: The exponential function \(2^{x}\) in a table}\tabularnewline
-\toprule()
+\toprule\noalign{}
 \(x\) & \(f(x)\) & \((x,f(x))\) \\
-\midrule()
+\midrule\noalign{}
 \endfirsthead
-\toprule()
+\toprule\noalign{}
 \(x\) & \(f(x)\) & \((x,f(x))\) \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \(-3\) & \(2^{-3} = \frac{1}{8}\) & \((-3, \frac{1}{8})\) \\
 \(-2\) & \(2^{-2} = \frac{1}{4}\) & \((-2, \frac{1}{4})\) \\
 \(-1\) & \(2^{-1} = \frac{1}{2}\) & \((-1, \frac{1}{2})\) \\
@@ -3410,7 +3485,6 @@ Let us consider the function \(f(x) = 2^{x}\) in table Table 1 and figure \ref{f
 \(1\) & \(2^{1} = 2\) & \((1, 2)\) \\
 \(2\) & \(2^{2} = 4\) & \((2,4)\) \\
 \(3\) & \(2^{3} = 8\) & \((3, 8)\) \\
-\bottomrule()
 \end{longtable}
 
 \begin{figure}
@@ -3516,16 +3590,17 @@ Nobody came close to the correct probability.
 At the beginning of the \emph{Inferential Statistics} course at summer 2020, I also asked student this question. Here are the results of the 16 students who participated:
 
 \begin{longtable}[]{@{}lll@{}}
-\toprule()
+\toprule\noalign{}
 Option & Frequency of answers & Percentage \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 a) & 3 & 19\% \\
 b) & 2 & 13\% \\
 c) & 2 & 13\% \\
 d) & 3 & 19\% \\
 e) & 6 & 38\% \\
-\bottomrule()
 \end{longtable}
 
 How did they reach their answers? Like most people, they decided that Lisa has a substantial chance of having a baby with Down syndrome. The test gets it right 86 percent of the time, right? That sounds rather reliable, doesn't it? Well it does, but we should not rely on our feelings here and better do the math because the correct result would be that there is \textbf{just a 1.7 percent chance of the baby having a Down syndrome}.
@@ -3549,15 +3624,16 @@ Let \(A\) be the event of the Baby has a Down syndrom and \(B\) the test is posi
 \(\overline{O}_1=5; \overline{O}_2=1; \overline{O}_3=7; \overline{O}_4=3; \overline{O}_5=4\)
 
 \begin{longtable}[]{@{}lllllll@{}}
-\toprule()
+\toprule\noalign{}
 \(O_{ij}\) & \(k_1\) & \(k_2\) & \(k_3\) & \(k_4\) & \(k_5\) & \(\Phi(a_i)\) \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \(a_1\) & 3/5 & 0 & 1 & 1/3 & 1 & 0 \\
 \(a_2\) & 4/5 & 0 & 4/7 & 2/3 & 1/4 & 0 \\
 \(a_3\) & 4/5 & -1 & 3/7 & 2/3 & 1/4 & -1 \\
 \(a_4\) & 1 & 1 & 3/7 & 1 & 1/4 & 1/4 \\
-\bottomrule()
 \end{longtable}
 
 \(a_4\succ a_1 \sim a_2 \succ a_3\)
@@ -3568,15 +3644,16 @@ Let \(A\) be the event of the Baby has a Down syndrom and \(B\) the test is posi
 The example that is shown in Figure 7 of \citet[p.~401]{Finne1998three} contains some errors. Here is the \emph{correct table} including the Hurwicz-values (we assume \(\alpha=.5\)):
 
 \begin{longtable}[]{@{}lccc@{}}
-\toprule()
+\toprule\noalign{}
 \(O_{ij}\) & \(min(\theta_1)\) & \(max(\theta_2)\) & \(H_i\) \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \(a_1\) & 36 & 110 & 73 \\
 \(a_2\) & 40 & 100 & 70 \\
 \(a_3\) & 58 & 74 & 66 \\
 \(a_4\) & 61 & 66 & 63.5 \\
-\bottomrule()
 \end{longtable}
 
 Thus, the order of preference is \(a_4\succ a_3 \succ a_1 \succ a_2\).
@@ -3802,7 +3879,7 @@ In order to come to an answer, lets draw a table of the probabilities that may b
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2632}}
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2632}}
   >{\centering\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2632}}@{}}
-\toprule()
+\toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 A
@@ -3811,13 +3888,14 @@ A
 \end{minipage} & \begin{minipage}[b]{\linewidth}\centering
 \(\sum\)
 \end{minipage} \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 B & \(P(A\cap B)\) & \(P(\neg A \cap B)\) & \(P(B)\) \\
 \(\neg B\) & \(P(A \cap \neg B)\) & \(P(\neg A \cap \neg B)\) & \(P(\neg B)\) \\
 :--- & :---: & :---: & :---: \\
 & \(P(A)\) & \(P(\neg A)\) & 1 \\
-\bottomrule()
 \end{longtable}
 
 Please note, the symbol \texttt{\$\textbackslash{}neg\$\textquotesingle{}\textquotesingle{}\ simply\ abbreviates}\textit{NOT}'\,' and the symbol \texttt{\$\textbackslash{}cap\$\textquotesingle{}\textquotesingle{}\ stands\ for}\textit{AND}'\,'.
@@ -3844,27 +3922,29 @@ Given the accuracy of the test, this number appears to be rather high to many pe
 To summarize, we know
 
 \begin{longtable}[]{@{}lccc@{}}
-\toprule()
+\toprule\noalign{}
 & A & ¬A & \(\sum\) \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 B & .00099 & .01998 & .02097 \\
 ¬B & P(A ¬B) & P(¬A ¬B) & P(¬B) \\
 --- & .001 & P(¬A) & 1 \\
-\bottomrule()
 \end{longtable}
 
 The four remaining unknowns can be calculated by subtracting in the columns and adding across the crows, so that the final table is:
 
 \begin{longtable}[]{@{}lccc@{}}
-\toprule()
+\toprule\noalign{}
 & A & ¬A & \(\sum\) \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 B & .00099 & .01998 & .02097 \\
 ¬B & .00001 & .97902 & .97903 \\
 --- & .001 & .999 & 1 \\
-\bottomrule()
 \end{longtable}
 
 \hypertarget{sol:bazermanbias}{%

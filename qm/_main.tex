@@ -161,7 +161,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 14 June, 2023}
+\date{Last compiled on 21 June, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -2177,7 +2177,7 @@ coefficients \(\beta_0,\beta_1,\dots,\beta_k\) such that
 This demands matrix notation. This goes beyond the scope of this introduction.
 
 \hypertarget{gauss-markov-and-the-best-linear-unbiased-estimator}{%
-\subsubsection{Gauss-Markov and the best linear unbiased estimator}\label{gauss-markov-and-the-best-linear-unbiased-estimator}}
+\subsection{Gauss-Markov and the best linear unbiased estimator}\label{gauss-markov-and-the-best-linear-unbiased-estimator}}
 
 The Gauss-Markov assumptions, also known as the classical linear regression assumptions, are a set of assumptions that underlie the ordinary least squares (OLS) method for estimating the parameters in a linear regression model. These assumptions ensure that the OLS estimators are unbiased, efficient, and have desirable statistical properties.
 
@@ -2204,7 +2204,7 @@ The Gauss-Markov assumptions are as follows:
 These assumptions collectively ensure that the OLS estimators are unbiased, efficient, and have minimum variance among all linear unbiased estimators. Violations of these assumptions can lead to biased and inefficient estimators, invalid hypothesis tests, and unreliable predictions. Therefore, it is important to check these assumptions when using the OLS method and consider alternative estimation techniques if the assumptions are violated.
 
 \hypertarget{confounding-and-control-variables}{%
-\subsubsection{Confounding and control variables}\label{confounding-and-control-variables}}
+\subsection{Confounding and control variables}\label{confounding-and-control-variables}}
 
 A confounding variable is a factor that was not accounted for or controlled in a study but has the potential to influence the results. In other words, the true effects of the treatment or intervention can be obscured or muddled by the presence of this variable.
 
@@ -2221,7 +2221,7 @@ A common error in research studies is to fail to control for confounding variabl
 Nick Huntington-Klein offers \href{https://www.nickchk.com/causalgraphs.html}{Causal Inference Animated Plots} on his homepage. Read this page and consider the animated graphs.
 
 \hypertarget{omitted-variable-bias-and-ceteris-paribus}{%
-\subsubsection{Omitted variable bias and ceteris paribus}\label{omitted-variable-bias-and-ceteris-paribus}}
+\subsection{Omitted variable bias and ceteris paribus}\label{omitted-variable-bias-and-ceteris-paribus}}
 
 From the Gauss-Markov theorem we know that if the OLS assumptions are fullfiled, the OLS estimator is (in the sense of smallest variance) the best linear conditionally unbiased estimator (BLUE).
 However, OLS estimates can suffer from omitted variable bias when any regressor, X, is correlated with any omitted variable that matters for variable Y.
@@ -2296,6 +2296,26 @@ Below you find two regression outputs from Stata. Try to interpret the p-values 
 Download the file \href{https://github.com/hubchev/courses/blob/main/pdfs/exe_calories.pdf}{exe\_calories.pdf} from GitHub and answer the questions therein.
 
 Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R}{here}.
+\end{exercise}
+
+\begin{exercise}
+\protect\hypertarget{exr:causalgraphnhk}{}\label{exr:causalgraphnhk}
+
+Causal inference and animated plots
+
+Nick \citet{Huntington-Klein2022Effect} has created wonderfull animated graphs that give great and quick insights into how causal inference works. Please read his online chapter on \href{https://www.nickchk.com/causalgraphs.html}{\emph{Causal Inference Animated Plots}} and discuss
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  what he means when he speaks of \emph{closing the back-door path} and \emph{controlling for},
+\item
+  what methods exist to \emph{close the back-door path}, and
+\item
+  why it is sometimes necessary to omit variables from an estimated regression model.
+\end{enumerate}
+
 \end{exercise}
 
 \hypertarget{hands-on-experiments}{%

@@ -213,7 +213,12 @@ div.csl-indent {
 <li class="chapter" data-level="3.2.2" data-path="statistics.html"><a href="statistics.html#bivariate-data"><i class="fa fa-check"></i><b>3.2.2</b> Bivariate data</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="statistics.html"><a href="statistics.html#simple-linear-regression"><i class="fa fa-check"></i><b>3.3</b> Simple linear regression</a></li>
-<li class="chapter" data-level="3.4" data-path="statistics.html"><a href="statistics.html#multiple-linear-regression"><i class="fa fa-check"></i><b>3.4</b> Multiple linear regression</a></li>
+<li class="chapter" data-level="3.4" data-path="statistics.html"><a href="statistics.html#multiple-linear-regression"><i class="fa fa-check"></i><b>3.4</b> Multiple linear regression</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="statistics.html"><a href="statistics.html#gauss-markov-and-the-best-linear-unbiased-estimator"><i class="fa fa-check"></i><b>3.4.1</b> Gauss-Markov and the best linear unbiased estimator</a></li>
+<li class="chapter" data-level="3.4.2" data-path="statistics.html"><a href="statistics.html#confounding-and-control-variables"><i class="fa fa-check"></i><b>3.4.2</b> Confounding and control variables</a></li>
+<li class="chapter" data-level="3.4.3" data-path="statistics.html"><a href="statistics.html#omitted-variable-bias-and-ceteris-paribus"><i class="fa fa-check"></i><b>3.4.3</b> Omitted variable bias and ceteris paribus</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="hands-on-experiments.html"><a href="hands-on-experiments.html"><i class="fa fa-check"></i><b>4</b> Hands on experiments</a>
 <ul>
@@ -880,8 +885,8 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \dots + \beta
 coefficients <span class="math inline">\(\beta_0,\beta_1,\dots,\beta_k\)</span> such that
 <span class="math display">\[\sum_{i=1}^n (Y_i - b_0 - b_1 X_{1i} - b_2 X_{2i} - \dots -  b_k X_{ki})^2 \]</span></p>
 <p>This demands matrix notation. This goes beyond the scope of this introduction.</p>
-<div id="gauss-markov-and-the-best-linear-unbiased-estimator" class="section level4 hasAnchor" number="3.4.0.1">
-<h4><span class="header-section-number">3.4.0.1</span> Gauss-Markov and the best linear unbiased estimator<a href="statistics.html#gauss-markov-and-the-best-linear-unbiased-estimator" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="gauss-markov-and-the-best-linear-unbiased-estimator" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Gauss-Markov and the best linear unbiased estimator<a href="statistics.html#gauss-markov-and-the-best-linear-unbiased-estimator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Gauss-Markov assumptions, also known as the classical linear regression assumptions, are a set of assumptions that underlie the ordinary least squares (OLS) method for estimating the parameters in a linear regression model. These assumptions ensure that the OLS estimators are unbiased, efficient, and have desirable statistical properties.</p>
 <p>The Gauss-Markov assumptions are as follows:</p>
 <ol style="list-style-type: decimal">
@@ -895,8 +900,8 @@ coefficients <span class="math inline">\(\beta_0,\beta_1,\dots,\beta_k\)</span> 
 </ol>
 <p>These assumptions collectively ensure that the OLS estimators are unbiased, efficient, and have minimum variance among all linear unbiased estimators. Violations of these assumptions can lead to biased and inefficient estimators, invalid hypothesis tests, and unreliable predictions. Therefore, it is important to check these assumptions when using the OLS method and consider alternative estimation techniques if the assumptions are violated.</p>
 </div>
-<div id="confounding-and-control-variables" class="section level4 hasAnchor" number="3.4.0.2">
-<h4><span class="header-section-number">3.4.0.2</span> Confounding and control variables<a href="statistics.html#confounding-and-control-variables" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="confounding-and-control-variables" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Confounding and control variables<a href="statistics.html#confounding-and-control-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A confounding variable is a factor that was not accounted for or controlled in a study but has the potential to influence the results. In other words, the true effects of the treatment or intervention can be obscured or muddled by the presence of this variable.</p>
 <p>For instance, let’s consider a scenario where two groups of individuals are observed: one group took vitamin C daily, while the other group did not. Over the course of a year, the number of colds experienced by each group is recorded. It might be observed that the group taking vitamin C had fewer colds compared to the group that did not. However, it would be incorrect to conclude that vitamin C directly reduces the occurrence of colds. Since this study is observational and not a true experiment, numerous confounding variables are at play. One potential confounding variable could be the individuals’ level of health consciousness. Those who take vitamins regularly might also engage in other health-conscious behaviors, such as frequent handwashing, which could independently contribute to a lower risk of catching colds.</p>
 <p>To address confounding variables, researchers employ control measures. The idea is to create conditions where confounding variables are minimized or eliminated. In the aforementioned example, researchers could pair individuals who have similar levels of health consciousness and randomly assign one person from each pair to take vitamin C daily (while the other person receives a placebo). Any differences observed in the number of colds between the groups would be more likely attributable to the vitamin C, compared to the original observational study. Well-designed experiments are crucial as they actively control for potential confounding variables.</p>
@@ -905,8 +910,8 @@ coefficients <span class="math inline">\(\beta_0,\beta_1,\dots,\beta_k\)</span> 
 <p><strong>Control variables</strong> are usually variables that you are not particularly interested in, but that are related to the dependent variable. You want to remove their effects from the equation. A control variable enters a regression in the same way as an independent variable – the method is the same.</p>
 <p>Nick Huntington-Klein offers <a href="https://www.nickchk.com/causalgraphs.html">Causal Inference Animated Plots</a> on his homepage. Read this page and consider the animated graphs.</p>
 </div>
-<div id="omitted-variable-bias-and-ceteris-paribus" class="section level4 hasAnchor" number="3.4.0.3">
-<h4><span class="header-section-number">3.4.0.3</span> Omitted variable bias and ceteris paribus<a href="statistics.html#omitted-variable-bias-and-ceteris-paribus" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="omitted-variable-bias-and-ceteris-paribus" class="section level3 hasAnchor" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> Omitted variable bias and ceteris paribus<a href="statistics.html#omitted-variable-bias-and-ceteris-paribus" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>From the Gauss-Markov theorem we know that if the OLS assumptions are fullfiled, the OLS estimator is (in the sense of smallest variance) the best linear conditionally unbiased estimator (BLUE).
 However, OLS estimates can suffer from omitted variable bias when any regressor, X, is correlated with any omitted variable that matters for variable Y.</p>
 <p>For omitted variable bias to occur, two conditions must be fulfilled:</p>
@@ -948,6 +953,15 @@ However, OLS estimates can suffer from omitted variable bias when any regressor,
 <p><span id="exr:explainweight" class="exercise"><strong>Exercise 3.9  </strong></span>Explain the weight</p>
 <p>Download the file <a href="https://github.com/hubchev/courses/blob/main/pdfs/exe_calories.pdf">exe_calories.pdf</a> from GitHub and answer the questions therein.</p>
 <p>Solutions are provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R">here</a>.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:causalgraphnhk" class="exercise"><strong>Exercise 3.10  </strong></span>Causal inference and animated plots</p>
+<p>Nick <span class="citation">Huntington-Klein (<a href="references.html#ref-Huntington-Klein2022Effect">2022</a>)</span> has created wonderfull animated graphs that give great and quick insights into how causal inference works. Please read his online chapter on <a href="https://www.nickchk.com/causalgraphs.html"><em>Causal Inference Animated Plots</em></a> and discuss</p>
+<ol style="list-style-type: lower-alpha">
+<li>what he means when he speaks of <em>closing the back-door path</em> and <em>controlling for</em>,</li>
+<li>what methods exist to <em>close the back-door path</em>, and</li>
+<li>why it is sometimes necessary to omit variables from an estimated regression model.</li>
+</ol>
 </div>
 </div>
 </div>
