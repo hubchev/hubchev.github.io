@@ -796,8 +796,8 @@ df |>
 #   geom_line() +
 #   ggtitle("Germany")
 # plot(pger)
-df %>%
-  filter(nation == "Germany") %>%
+df |> 
+  filter(nation == "Germany") |> 
   ggplot(aes(x = year, y = unemployment)) +
   geom_line() +
   ggtitle("Germany")

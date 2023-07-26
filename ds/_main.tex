@@ -161,7 +161,7 @@ How to Use R for Data Science}
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 19 July, 2023}
+\date{Last compiled on 26 July, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -192,10 +192,25 @@ How to Use R for Data Science}
 \chapter*{Preface}\label{preface}}
 \addcontentsline{toc}{chapter}{Preface}
 
+\hypertarget{what-is-data-science}{%
+\section{What is data science}\label{what-is-data-science}}
+
+I began my journey into data science in 2003 with the introductory course Statistics by \href{https://scholar.google.com/citations?user=geLs3JUAAAAJ\&hl=en}{Daniel Rösch}. I learned a lot. In particular, that probabilities often play a role when analyzing data. After that, I joined \href{https://scholar.google.ca/citations?user=tHNB7wIAAAAJ\&hl=en}{Harry Haupt's} \emph{Introductory Econometrics} course, where I studied the infamous Jeffrey M. \citet{Wooldridge2002Introductory} textbook. It got me hooked and I took all the courses \href{https://www.uni-regensburg.de/business-economics-and-management-information-systems/economics-tschernig/team/rolf-tschernig/index.html}{Rolf Tschernig} offered at his chair of Econometrics, where I became a tutor. Despite everything we did at the chair had to do with data and with how to make sense out of data, we never actually used the term \emph{data science} which is also absent in the more 850 pages long textbook by \citet{Wooldridge2002Introductory}. The book also remains silent about \emph{machine learning} or \emph{artificial intelligence}.
+
+This makes me wonder if I can call myself a data scientist and why so many of my former colleagues, comolitons, and students call themselves data scientists even though the term played no role in our education. One explanation is that the term \emph{data science} became popular only after I graduated. Another reason may be the \emph{Harvard Business Review} article by \citet{Davenport2012Data} who claimed that data scientist is ``The Sexiest Job of the 21st Century''.
+
+There is no universal definition of data science and I don't think it is overly important to define it precisely. \citet[p.~97]{Kelleher2018Data} wrote
+``Data science is best understood as a partnership between a data scientist and a computer.'' So data science is about using computers for scientific purposes. Of course, empirical models and statistics play a role in gaining meaningful insights. The graphic on the cover page may illustrate this. Furthermore, the graphic is meant to illustrate that R (or any other software) combines the four terms (data, science, computer, statistics).
+
+\hypertarget{about-the-lecture-notes}{%
+\section{About the lecture notes}\label{about-the-lecture-notes}}
+
 \begin{itemize}
 \tightlist
 \item
-  These notes aims to support my lecture at the HS Fresenius but are incomplete and no substitute for taking actively part in class. - A pdf version of these notes is available \href{https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/ds/_main.pdf}{here}
+  These notes aims to support my lecture at the HS Fresenius but are incomplete and no substitute for taking actively part in class.
+\item
+  A pdf version of these notes is available \href{https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/ds/_main.pdf}{here}
 \item
   I host the notes in a \href{https://github.com/hubchev/hubchev.github.io/tree/main/ds}{GitHub repo}.
 \item
@@ -217,7 +232,7 @@ How to Use R for Data Science}
 
 I am a Professor of International Economics and Data Science at HS Fresenius, holding a Diploma in Economics from the University of Regensburg and a Doctoral Degree (summa cum laude) from the University of Trier. I completed postgraduate studies at the Interdisciplinary Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU) in Trier. Prior to my current position, I worked as a research assistant to Prof.~Dr.~Dr.~h.c. Joachim Möller at the University of Regensburg, a post-doc at the Leibniz Institute for East and Southeast European Studies (IOS) in Regensburg, and a freelancer at Charles University in Prague.
 
-Throughout my career, I have also worked as a lecturer at various institutions, including the TU Munich, the University of Regensburg, Saarland University, and the Universities of Applied Sciences in Frankfurt and Augsburg. Additionally, I have had the opportunity to teach abroad for the University of Cordoba in Spain and the University of Perugia. My published work can be found in international journals such as the Canadian Journal of Economics and the Stata Journal. For more information on my work, please visit my private homepage at www.t1p.de/stephanhuber.
+Throughout my career, I have also worked as a lecturer at various institutions, including the TU Munich, the University of Regensburg, Saarland University, and the Universities of Applied Sciences in Frankfurt and Augsburg. Additionally, I have had the opportunity to teach abroad for the University of Cordoba in Spain and the University of Perugia. My published work can be found in international journals such as the Canadian Journal of Economics and the Stata Journal. For more information on my work, please visit my private homepage at \href{www.hubchev.github.io}{hubchev.github.io}.
 
 \textbf{Contact}
 
@@ -296,32 +311,32 @@ R is a free and open-source programming language that provides a wide range of a
   \textbf{R is the future!} Programming is a core skill in research, economics, and business. R is one of the most widely used programming languages in the world today. It is used in almost every industry such as finance, banking, medicine or manufacturing. R is used for portfolio management, risk analytics in finance and banking industries.
 \end{itemize}
 
+However, R has weaknesses: It's not easy to learn for people without programming experience. It has some annoying quirks that we all have to deal with, it's slower than other object oriented languages (Phyton, MATLAB, C/C++, Java), and R's algorithms and sources are spread across many packages (since there's no big company behind it that wants you to buy it). While the lack of centralized support for R comes with a supportive online community and many package developers who provide their code generously, it sometimes makes it very difficult for beginners to find what they are looking for.
+
 \hypertarget{howtolearnr}{%
 \section{How to learn R}\label{howtolearnr}}
 
-There are many different approaches to learning R. It pretty much depends on your preferences, needs, goals, prerequisites and limitations. It is up to you to search and find a suitable way to achieve the learning goals. However, I offer these notes and if you are in one of my classes, you can ask at any time for help.
+There are many different approaches to learning R. It pretty much depends on your preferences, needs, goals, prerequisites and limitations. It is up to you to search and find a suitable way to achieve your learning goals. While I hope you find my notes helpful, I additionally provide in section \ref{Rlearninglit} a list of other resources that are worth considering.
 
-The notes should walk you through many of the things that are important when working in R, and it should help you dig deeper and learn more if you want to. For beginners, I recommend starting with my swirl courses, see section \ref{swirl}. However, there are thousands of other resources for learning R: textbooks, online courses, videos, guided tutorials, etc.. I give some recommendations about learning resources in section \ref{Rlearninglit}.
-
-Below, I'll give you a list of resources that are worth a look. You might find what you're looking for there. If not, just keep reading this book. Above all, those who have personally taken one of my courses are welcome to contact me if they think I can help them.
-
-\textbf{Warning:} R is not without its weaknesses: It's not easy to learn, it has some very annoying quirks that we all have to deal with, it's slower than other languages (Phyton, MATLAB), and R's algorithms and sources are spread across many packages (since there's no big company behind it that wants you to buy it). This sometimes makes it very difficult for beginners to find what they are looking for. In simple words: you can get lost!
+My notes walk you through the most important things when working with R and RStudio by introducing some building blocks of the programming language and offering some exercises with solutions. If you want to dig deeper you should come back to the sources mentioned in section \ref{Rlearninglit}. To start with, I recommend my swirl courses, see section \ref{swirl}. They provide an interactive learning environment.
 
 \textbf{Tips on learning to code:}
-Learning to code/program is quite similar to learning a foreign language. It can be daunting and frustrating at first. Such frustrations are common and it is normal to feel discouraged as you learn. However, just as with learning a foreign language, if you put in the effort and are not afraid to make mistakes, anybody can learn and improve.
 
-Here are a few useful tips to keep in mind as you learn to program:
+Learning a programming language can, like learning a foreign language, be daunting and frustrating. However, if you put in the effort and are not afraid to make mistakes, anybody can learn it. You don't have to be a nerd. The key is taking action and getting involved. I mean, do write code. Try to copy the code that you read here and see how it works on your machine. Make your hands dirty! Don't be afraid to make errors. Your PC will not explode.
+In this paper, most of the code is written in a manner that allows you to effortlessly copy and reproduce the output on your PC. Take advantage of this opportunity and go for it! Hands-on practice is far more enjoyable than merely reading through the material.
+
+Here I summarize some useful tips:
 
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Remember that computers are not actually that smart}: You may think your computer or smartphone is ``smart,'' but really people spent a lot of time and energy designing them to appear ``smart.'' In reality, you have to tell a computer everything it needs to do. Furthermore, the instructions you give your computer can't have any mistakes in them, nor can they be ambiguous in any way.
+  \textbf{Remember that computers are not actually that smart}: You may think your computer or smartphone is ``smart,'' but it is not. In reality, you have to tell a computer everything it needs to do. The instructions you give your computer can't have any mistakes in them, nor can they be ambiguous in any way. The computer simply will not understand. For example, if you forget a comma or closing a bracket, the code will break.
 \item
-  \textbf{Take the ``copy, paste, and tweak'' approach}: While learning code from scratch is sometimes essential, I prefer to take existing code that I know works and modify it to suit my ends. I call this the \emph{``copy, paste, and tweak''} approach. It is a good way to learn code and get a job done quick. After you start feeling more confident, you can slowly move away from this approach and write code from scratch.
+  \textbf{Take the ``copy, paste, and tweak'' approach}: While learning code from scratch is sometimes essential, you can speed up your work by modifying code that already exists. I call this the \emph{``copy, paste, and tweak''} approach. It is a good way to learn code and get a job done quick.\\
 \item
-  \textbf{Have a purpose when coding}: Rather than learning to code for its own sake, it goes much smoother when you have a goal in mind or when you are working on a particular project, like analyzing data that you are interested in, replicating a paper to understand it, or do something with R that is important to you.
+  \textbf{Have a purpose when coding}: Rather than learning to code for its own sake, it is more fun and you'll probably learn faster when you have a goal in mind. Try to analyze data that you are interested in. Another good exercise is replicating a research paper.
 \item
-  \textbf{Practice is key}: Just as the only method to improve your foreign language skills is through lots of practice and speaking, the only method to improving your coding skills is through lots of practice. Don't worry, however, I'll give you plenty of opportunities to do so!
+  \textbf{Practice is key}: The best method to improving your coding skills is through lots of practice. Consequently, these notes give you plenty of exercises.
 \end{itemize}
 
 \hypertarget{Rlearninglit}{%
@@ -996,7 +1011,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr"
+## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.1/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1474,15 +1489,26 @@ An API which stands for \emph{application programming interface} specifies how c
 \FunctionTok{library}\NormalTok{(}\StringTok{"wbstats"}\NormalTok{)}
 \CommentTok{\# GDP at market prices (current US$) for all available countries and regions}
 \NormalTok{df\_gdp }\OtherTok{\textless{}{-}} \FunctionTok{wb}\NormalTok{(}\AttributeTok{indicator =} \StringTok{"NY.GDP.MKTP.CD"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error : API call executed successfully, but did not return expected json format
+\end{verbatim}
+
+\begin{verbatim}
+## Warning in wb(indicator = "NY.GDP.MKTP.CD"): No data was returned for any requested country and indicator. Returning empty data frame
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \FunctionTok{head}\NormalTok{(df\_gdp, }\DecValTok{3}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##   iso3c date        value    indicatorID         indicator iso2c                     country
-## 1   AFE 2022 1.169484e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
-## 2   AFE 2021 1.081998e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
-## 3   AFE 2020 9.275933e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+## [1] value       date        indicatorID indicator   iso2c       country     iso3c      
+## <0 rows> (or 0-length row.names)
 \end{verbatim}
 
 \begin{Shaded}
@@ -1492,15 +1518,15 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-## Rows: 13,366
+## Rows: 0
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "~
-## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "20~
-## $ value       <dbl> 1.169484e+12, 1.081998e+12, 9.275933e+11, 1.000834e+12, 1.007196e+12, 1.021043e+12, 8.851764e+11, 9~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.M~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current U~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Afric~
+## $ value       <dbl> 
+## $ date        <lgl> 
+## $ indicatorID <lgl> 
+## $ indicator   <lgl> 
+## $ iso2c       <lgl> 
+## $ country     <lgl> 
+## $ iso3c       <lgl>
 \end{verbatim}
 
 \begin{Shaded}
@@ -1510,20 +1536,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##     iso3c               date               value           indicatorID         indicator            iso2c          
-##  Length:13366       Length:13366       Min.   :8.825e+06   Length:13366       Length:13366       Length:13366      
-##  Class :character   Class :character   1st Qu.:2.525e+09   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Median :1.843e+10   Mode  :character   Mode  :character   Mode  :character  
-##                                        Mean   :1.207e+12                                                           
-##                                        3rd Qu.:2.245e+11                                                           
-##                                        Max.   :1.010e+14                                                           
-##    country         
-##  Length:13366      
-##  Class :character  
-##  Mode  :character  
-##                    
-##                    
-## 
+##      value       date         indicatorID    indicator       iso2c         country         iso3c        
+##  Min.   : NA   Mode:logical   Mode:logical   Mode:logical   Mode:logical   Mode:logical   Mode:logical  
+##  1st Qu.: NA                                                                                            
+##  Median : NA                                                                                            
+##  Mean   :NaN                                                                                            
+##  3rd Qu.: NA                                                                                            
+##  Max.   : NA
 \end{verbatim}
 
 \hypertarget{import-various-file-formats}{%
@@ -1603,12 +1622,11 @@ One difference between data frames and tibbles is that dataframes store the row 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"  
-##  [6] "Valiant"             "Duster 360"          "Merc 240D"           "Merc 230"            "Merc 280"           
-## [11] "Merc 280C"           "Merc 450SE"          "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood" 
-## [16] "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"     
-## [21] "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"          "Pontiac Firebird"   
-## [26] "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"            
+##  [7] "Duster 360"          "Merc 240D"           "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"         
+## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood"  "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"           
+## [19] "Honda Civic"         "Toyota Corolla"      "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
+## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
 ## [31] "Maserati Bora"       "Volvo 142E"
 \end{verbatim}
 
@@ -2410,13 +2428,13 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7~
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5~
 ## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 47~
-## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 15~
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17~
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7,~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 150, 245, 175, 66, 91~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.70~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.200~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.47~
 ## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
 ## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
 ## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
@@ -3390,42 +3408,40 @@ When seeking help, be sure to provide information about your machine, including 
 \end{Shaded}
 
 \begin{verbatim}
-## R version 4.2.2 Patched (2022-11-10 r83330)
+## R version 4.1.2 (2021-11-01)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Debian GNU/Linux 12 (bookworm)
+## Running under: Debian GNU/Linux 11 (bullseye)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.11.0
-## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.11.0
+## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
+## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.13.so
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8   
+##  [6] LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.2      sjPlot_2.8.14    ggpubr_0.6.0     haven_2.5.3      datasauRus_0.1.6 janitor_2.2.0   
-##  [7] wbstats_1.0.4    scales_1.2.1     lubridate_1.9.2  forcats_1.0.0    stringr_1.5.0    purrr_1.0.1     
-## [13] readr_2.1.4      tidyr_1.3.0      tibble_3.2.1     ggplot2_3.4.2    tidyverse_2.0.0  captioner_2.2.3 
+##  [1] dplyr_1.1.2      sjPlot_2.8.14    ggpubr_0.6.0     haven_2.5.2      datasauRus_0.1.6 janitor_2.2.0    wbstats_1.0.4    scales_1.2.1    
+##  [9] lubridate_1.9.2  forcats_1.0.0    stringr_1.5.0    purrr_1.0.1      readr_2.1.4      tidyr_1.3.0      tibble_3.2.1     ggplot2_3.4.2   
+## [17] tidyverse_2.0.0  captioner_2.2.3 
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] nlme_3.1-162       insight_0.19.3     httr_1.4.6         tools_4.2.2        backports_1.4.1    bslib_0.5.0       
-##  [7] utf8_1.2.3         R6_2.5.1           sjlabelled_1.2.0   colorspace_2.1-0   withr_2.5.0        tidyselect_1.2.0  
-## [13] emmeans_1.8.7      curl_5.0.1         compiler_4.2.2     performance_0.10.4 textshaping_0.3.6  cli_3.6.1         
-## [19] labeling_0.4.2     bookdown_0.34      bayestestR_0.13.1  sass_0.4.6         mvtnorm_1.2-2      systemfonts_1.0.4 
-## [25] digest_0.6.33      minqa_1.2.5        rmarkdown_2.23     pkgconfig_2.0.3    htmltools_0.5.5    lme4_1.1-34       
-## [31] fastmap_1.1.1      highr_0.10         rlang_1.1.1        rstudioapi_0.15.0  jquerylib_0.1.4    farver_2.1.1      
-## [37] generics_0.1.3     jsonlite_1.8.7     car_3.1-2          magrittr_2.0.3     Matrix_1.6-0       Rcpp_1.0.11       
-## [43] munsell_0.5.0      fansi_1.0.4        abind_1.4-5        lifecycle_1.0.3    stringi_1.7.12     yaml_2.3.7        
-## [49] snakecase_0.11.0   carData_3.0-5      MASS_7.3-60        grid_4.2.2         sjmisc_2.8.9       crayon_1.5.2      
-## [55] lattice_0.21-8     ggeffects_1.2.3    cowplot_1.1.1      splines_4.2.2      sjstats_0.18.2     hms_1.1.3         
-## [61] knitr_1.43         pillar_1.9.0       boot_1.3-28.1      estimability_1.4.1 ggsignif_0.6.4     glue_1.6.2        
-## [67] evaluate_0.21      modelr_0.1.11      nloptr_2.0.3       vctrs_0.6.3        tzdb_0.4.0         gtable_0.3.3      
-## [73] cachem_1.0.8       xfun_0.39          broom_1.0.5        rstatix_0.7.2      ragg_1.2.5         tinytex_0.45      
-## [79] timechange_0.2.0
+##  [1] nlme_3.1-162       insight_0.19.1     httr_1.4.5         tools_4.1.2        backports_1.4.1    bslib_0.4.2        utf8_1.2.3        
+##  [8] R6_2.5.1           sjlabelled_1.2.0   colorspace_2.1-0   withr_2.5.0        tidyselect_1.2.0   emmeans_1.8.5      curl_5.0.0        
+## [15] compiler_4.1.2     performance_0.10.3 textshaping_0.3.6  cli_3.6.1          labeling_0.4.2     bookdown_0.33.3    bayestestR_0.13.1 
+## [22] sass_0.4.6         mvtnorm_1.2-2      systemfonts_1.0.4  digest_0.6.31      minqa_1.2.5        rmarkdown_2.21     pkgconfig_2.0.3   
+## [29] htmltools_0.5.5    lme4_1.1-33        fastmap_1.1.1      highr_0.10         rlang_1.1.1        rstudioapi_0.14    jquerylib_0.1.4   
+## [36] farver_2.1.1       generics_0.1.3     jsonlite_1.8.5     car_3.1-2          magrittr_2.0.3     Matrix_1.5-4       Rcpp_1.0.10       
+## [43] munsell_0.5.0      fansi_1.0.4        abind_1.4-5        lifecycle_1.0.3    stringi_1.7.12     yaml_2.3.7         snakecase_0.11.0  
+## [50] carData_3.0-5      MASS_7.3-60        grid_4.1.2         sjmisc_2.8.9       crayon_1.5.2       lattice_0.21-8     ggeffects_1.2.2   
+## [57] cowplot_1.1.1      splines_4.1.2      sjstats_0.18.2     hms_1.1.3          knitr_1.42         pillar_1.9.0       boot_1.3-28.1     
+## [64] estimability_1.4.1 ggsignif_0.6.4     glue_1.6.2         evaluate_0.21      modelr_0.1.11      nloptr_2.0.3       vctrs_0.6.2       
+## [71] tzdb_0.3.0         gtable_0.3.3       cachem_1.0.8       xfun_0.39          mime_0.12          xtable_1.8-4       broom_1.0.4       
+## [78] coda_0.19-4        rstatix_0.7.2      ragg_1.2.5         tinytex_0.45       timechange_0.2.0
 \end{verbatim}
 
   \bibliography{book.bib}
