@@ -193,7 +193,7 @@ How to Use R for Data Science}
 \addcontentsline{toc}{chapter}{Preface}
 
 \hypertarget{what-is-data-science}{%
-\section{What is data science}\label{what-is-data-science}}
+\section*{What is data science}\label{what-is-data-science}}
 
 I began my journey into data science in 2003 with the introductory course Statistics by \href{https://scholar.google.com/citations?user=geLs3JUAAAAJ\&hl=en}{Daniel Rösch}. I learned a lot. In particular, that probabilities often play a role when analyzing data. After that, I joined \href{https://scholar.google.ca/citations?user=tHNB7wIAAAAJ\&hl=en}{Harry Haupt's} \emph{Introductory Econometrics} course, where I studied the infamous Jeffrey M. \citet{Wooldridge2002Introductory} textbook. It got me hooked and I took all the courses \href{https://www.uni-regensburg.de/business-economics-and-management-information-systems/economics-tschernig/team/rolf-tschernig/index.html}{Rolf Tschernig} offered at his chair of Econometrics, where I became a tutor. Despite everything we did at the chair had to do with data and with how to make sense out of data, we never actually used the term \emph{data science} which is also absent in the more 850 pages long textbook by \citet{Wooldridge2002Introductory}. The book also remains silent about \emph{machine learning} or \emph{artificial intelligence}.
 
@@ -203,7 +203,7 @@ There is no universal definition of data science and I don't think it is overly 
 ``Data science is best understood as a partnership between a data scientist and a computer.'' So data science is about using computers for scientific purposes. Of course, empirical models and statistics play a role in gaining meaningful insights. The graphic on the cover page may illustrate this. Furthermore, the graphic is meant to illustrate that R (or any other software) combines the four terms (data, science, computer, statistics).
 
 \hypertarget{about-the-lecture-notes}{%
-\section{About the lecture notes}\label{about-the-lecture-notes}}
+\section*{About the lecture notes}\label{about-the-lecture-notes}}
 
 \begin{itemize}
 \tightlist
@@ -241,10 +241,10 @@ Throughout my career, I have also worked as a lecturer at various institutions, 
    Im MediaPark 4c
    50670 Cologne
    
-   Office: 4b OG-1 Bü01 (Office hour: Thursday 1-2 p.m.)
+   Office: 4b OG-1 Bü01 
    Telefon: +49 221 973199-523
    Mail: stephan.huber@hs-fresenius.de
-   Private homepage: www.t1p.de/stephanhuber
+   Private homepage: www.hubchev.github.io
    Github: https://github.com/hubchev
 \end{verbatim}
 
@@ -1489,26 +1489,15 @@ An API which stands for \emph{application programming interface} specifies how c
 \FunctionTok{library}\NormalTok{(}\StringTok{"wbstats"}\NormalTok{)}
 \CommentTok{\# GDP at market prices (current US$) for all available countries and regions}
 \NormalTok{df\_gdp }\OtherTok{\textless{}{-}} \FunctionTok{wb}\NormalTok{(}\AttributeTok{indicator =} \StringTok{"NY.GDP.MKTP.CD"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Error : API call executed successfully, but did not return expected json format
-\end{verbatim}
-
-\begin{verbatim}
-## Warning in wb(indicator = "NY.GDP.MKTP.CD"): No data was returned for any requested country and indicator. Returning empty data frame
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{head}\NormalTok{(df\_gdp, }\DecValTok{3}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] value       date        indicatorID indicator   iso2c       country     iso3c      
-## <0 rows> (or 0-length row.names)
+##   iso3c date        value    indicatorID         indicator iso2c                     country
+## 1   AFE 2022 1.169484e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+## 2   AFE 2021 1.081998e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+## 3   AFE 2020 9.275933e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
 \end{verbatim}
 
 \begin{Shaded}
@@ -1518,15 +1507,15 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-## Rows: 0
+## Rows: 13,365
 ## Columns: 7
-## $ value       <dbl> 
-## $ date        <lgl> 
-## $ indicatorID <lgl> 
-## $ indicator   <lgl> 
-## $ iso2c       <lgl> 
-## $ country     <lgl> 
-## $ iso3c       <lgl>
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE~
+## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "20~
+## $ value       <dbl> 1.169484e+12, 1.081998e+12, 9.275933e+11, 1.000834e+12, 1.007196e+12, 1.021043e+12, 8.851764e+11, 9.273485e+11, 1.006526e+1~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern",~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1536,13 +1525,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##      value       date         indicatorID    indicator       iso2c         country         iso3c        
-##  Min.   : NA   Mode:logical   Mode:logical   Mode:logical   Mode:logical   Mode:logical   Mode:logical  
-##  1st Qu.: NA                                                                                            
-##  Median : NA                                                                                            
-##  Mean   :NaN                                                                                            
-##  3rd Qu.: NA                                                                                            
-##  Max.   : NA
+##     iso3c               date               value           indicatorID         indicator            iso2c             country         
+##  Length:13365       Length:13365       Min.   :8.825e+06   Length:13365       Length:13365       Length:13365       Length:13365      
+##  Class :character   Class :character   1st Qu.:2.523e+09   Class :character   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Median :1.843e+10   Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+##                                        Mean   :1.207e+12                                                                              
+##                                        3rd Qu.:2.244e+11                                                                              
+##                                        Max.   :1.006e+14
 \end{verbatim}
 
 \hypertarget{import-various-file-formats}{%
@@ -3440,8 +3429,8 @@ When seeking help, be sure to provide information about your machine, including 
 ## [50] carData_3.0-5      MASS_7.3-60        grid_4.1.2         sjmisc_2.8.9       crayon_1.5.2       lattice_0.21-8     ggeffects_1.2.2   
 ## [57] cowplot_1.1.1      splines_4.1.2      sjstats_0.18.2     hms_1.1.3          knitr_1.42         pillar_1.9.0       boot_1.3-28.1     
 ## [64] estimability_1.4.1 ggsignif_0.6.4     glue_1.6.2         evaluate_0.21      modelr_0.1.11      nloptr_2.0.3       vctrs_0.6.2       
-## [71] tzdb_0.3.0         gtable_0.3.3       cachem_1.0.8       xfun_0.39          mime_0.12          xtable_1.8-4       broom_1.0.4       
-## [78] coda_0.19-4        rstatix_0.7.2      ragg_1.2.5         tinytex_0.45       timechange_0.2.0
+## [71] tzdb_0.3.0         gtable_0.3.3       cachem_1.0.8       xfun_0.39          xtable_1.8-4       broom_1.0.4        coda_0.19-4       
+## [78] rstatix_0.7.2      ragg_1.2.5         timechange_0.2.0
 \end{verbatim}
 
   \bibliography{book.bib}
