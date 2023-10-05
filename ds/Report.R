@@ -407,35 +407,10 @@ mtcars |>
   glimpse()
 
 
-## 
-
-## Generate and drop variables
-
-## 
-
-## a) Create a new tibble called `mtcars_new` using the pipe operator |>. Generate a new dummy variable called `d_cyl_6to8` that takes the value 1 if the number of cylinders (cyl) is greater than 6, and 0 otherwise. Do all of this in a single pipe.
-
-## 
-
-## b) Generate a new dummy variable called `posercar` that takes a value of 1 if a car has more than 6 cylinders (cyl) and can drive less than 18 miles per gallon (mpg), and 0 otherwise. Add this variable to the tibble `mtcars_new`.
-
-## 
-
-## c) Remove the variable `d_cyl_6to8` from the data frame.
-
-## 
-
-## 
-
-## Please find solutions [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_genanddrop.R).
-
-## 
-
-
 # Creating dataframe
 df <- tibble(
   integer_var, numeric_var, character_var, factor_var, logical_var, date_var,
-  )
+)
 
 # Overview of the data
 head(df)
@@ -477,6 +452,31 @@ mtcars |>
 
 ## 
 
+## Generate and drop variables
+
+## 
+
+## a) Create a new tibble called `mtcars_new` using the pipe operator |>. Generate a new dummy variable called `d_cyl_6to8` that takes the value 1 if the number of cylinders (cyl) is greater than 6, and 0 otherwise. Do all of this in a single pipe.
+
+## 
+
+## b) Generate a new dummy variable called `posercar` that takes a value of 1 if a car has more than 6 cylinders (cyl) and can drive less than 18 miles per gallon (mpg), and 0 otherwise. Add this variable to the tibble `mtcars_new`.
+
+## 
+
+## c) Remove the variable `d_cyl_6to8` from the data frame.
+
+## 
+
+## 
+
+## Please find solutions [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_genanddrop.R).
+
+## 
+
+
+## 
+
 ## Base R or pipe
 
 ## 
@@ -489,7 +489,7 @@ mtcars |>
 
 ## 
 
-## 1. The `%in%` operator and the pipe |> .
+##   1. The `%in%` operator and the pipe |> .
 
 ## 2. Base R without the pipe |>.
 
@@ -520,9 +520,9 @@ mtcars |>
 
 ## 1. What class is cars?
 
-## 1. How many observations (rows) and variables (columns) are in the mtcars dataset?
+##   1. How many observations (rows) and variables (columns) are in the mtcars dataset?
 
-## 1. Rename mpg in cars to MPG. Use rename().
+##   1. Rename mpg in cars to MPG. Use rename().
 
 ## 1. Convert the column names of cars to all upper case. Use rename_all, and the toupper command.
 
@@ -570,6 +570,14 @@ mtcars |>
 ## 
 
 
+## Load the Stata dataset "auto" with
+
+## 
+
+library("tidyverse")
+library("haven")
+auto <- read_dta("http://www.stata-press.com/data/r8/auto.dta")
+
 ## 
 
 ## DatasauRus
@@ -580,13 +588,13 @@ mtcars |>
 
 ## 
 
-## a) Load the packages `datasauRus` and `tidyverse`. If necessary, install these packages.
+##    a) Load the packages `datasauRus` and `tidyverse`. If necessary, install these packages.
 
 ## 
 
-#install.packages("datasauRus")
-library("datasauRus")
-library("tidyverse")
+  #install.packages("datasauRus")
+  library("datasauRus")
+  library("tidyverse")
 
 ds <- datasaurus_dozen
 ds_wide <- datasaurus_dozen_wide
@@ -632,7 +640,7 @@ uni_ds <- unique(ds$dataset)
 
 # Scatter plot for each dataset
 for (uni_v in uni_ds) {
-# Select data for the current value
+  # Select data for the current value
   subset_ds <- ds |> 
     filter(dataset == uni_v) %>%
     select(x, y)
@@ -693,8 +701,12 @@ for (uni_v in uni_ds) {
 
 ## 
 
-library("haven")
-classdata <- read.csv("https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv")
+##   ```{r}
+
+## library("haven")
+
+## classdata <- read.csv("https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv")
+
 
 ## 
 
@@ -720,13 +732,13 @@ classdata <- read.csv("https://raw.githubusercontent.com/hubchev/courses/main/dt
 
 ## (0)
 
-##  Write down your name, matriculation number, and date.
+## Write down your name, matriculation number, and date.
 
 ## 
 
 ## (1)
 
-##  Set your working directory.
+## Set your working directory.
 
 ## 
 
@@ -749,8 +761,8 @@ head(df,8)
 
 tail(df,1)
 
- # panel data set
- # date and country.x
+# panel data set
+# date and country.x
 
 observations_df <- dim(df)
 
@@ -817,7 +829,7 @@ plot(x, y, type = "b", xlab = "Var 1", ylab = "Var 2"); text(x + 0.4, y + 0.1, l
 dfger <- df |>  filter(nation == "Germany")
 labels <- 1992:2020
 plot(dfger$gdppc, dfger$unemployment, type = "b", 
-     xlab = "Var 1", ylab = "Var 2"); text(dfger$gdppc + 0.7, dfger$unemployment + 0.4, labels); title("Germany")
+   xlab = "Var 1", ylab = "Var 2"); text(dfger$gdppc + 0.7, dfger$unemployment + 0.4, labels); title("Germany")
 
 ## 
 
