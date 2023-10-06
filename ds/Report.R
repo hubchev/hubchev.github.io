@@ -578,8 +578,6 @@ library("tidyverse")
 library("haven")
 auto <- read_dta("http://www.stata-press.com/data/r8/auto.dta")
 
-## 
-
 ## DatasauRus
 
 ## 
@@ -588,7 +586,7 @@ auto <- read_dta("http://www.stata-press.com/data/r8/auto.dta")
 
 ## 
 
-##    a) Load the packages `datasauRus` and `tidyverse`. If necessary, install these packages.
+## a) Load the packages `datasauRus` and `tidyverse`. If necessary, install these packages.
 
 ## 
 
@@ -829,7 +827,7 @@ plot(x, y, type = "b", xlab = "Var 1", ylab = "Var 2"); text(x + 0.4, y + 0.1, l
 dfger <- df |>  filter(nation == "Germany")
 labels <- 1992:2020
 plot(dfger$gdppc, dfger$unemployment, type = "b", 
-   xlab = "Var 1", ylab = "Var 2"); text(dfger$gdppc + 0.7, dfger$unemployment + 0.4, labels); title("Germany")
+     xlab = "Var 1", ylab = "Var 2"); text(dfger$gdppc + 0.7, dfger$unemployment + 0.4, labels); title("Germany")
 
 ## 
 

@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Collection of Exercises |  How to Use R for Data Science</title>
+  <title>6 Collection of exercises |  How to Use R for Data Science</title>
   <meta name="description" content="<br />
 How to Use R for Data Science</p>" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Collection of Exercises |  How to Use R for Data Science" />
+  <meta property="og:title" content="6 Collection of exercises |  How to Use R for Data Science" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://hubchev.github.io/ds/fig/cover.png" />
   
   <meta name="github-repo" content="hubchev/hubchev.github.io" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Collection of Exercises |  How to Use R for Data Science" />
+  <meta name="twitter:title" content="6 Collection of exercises |  How to Use R for Data Science" />
   
   
   <meta name="twitter:image" content="https://hubchev.github.io/ds/fig/cover.png" />
@@ -160,7 +160,7 @@ div.csl-indent {
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting Started with R</a>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting started with R</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#sec:whyR"><i class="fa fa-check"></i><b>1.1</b> Why R?</a></li>
 <li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#howtolearnr"><i class="fa fa-check"></i><b>1.2</b> How to learn R</a></li>
@@ -215,7 +215,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.6" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.6</b> Data manipulation with dplyr</a></li>
 <li class="chapter" data-level="5.7" data-path="manage-data.html"><a href="manage-data.html#how-to-explore-a-dataset"><i class="fa fa-check"></i><b>5.7</b> How to explore a dataset</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html"><i class="fa fa-check"></i><b>6</b> Collection of Exercises</a></li>
+<li class="chapter" data-level="6" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html"><i class="fa fa-check"></i><b>6</b> Collection of exercises</a></li>
 <li class="chapter" data-level="7" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Write with R Markdown</a></li>
 <li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a>
 <ul>
@@ -253,7 +253,7 @@ How to Use R for Data Science</p></a>
 
             <section class="normal" id="section-">
 <div id="collection-of-exercises" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">6</span> Collection of Exercises<a href="collection-of-exercises.html#collection-of-exercises" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">6</span> Collection of exercises<a href="collection-of-exercises.html#collection-of-exercises" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div class="exercise">
 <p><span id="exr:genanddrop" class="exercise"><strong>Exercise 6.1  </strong></span>Generate and drop variables</p>
 <ol style="list-style-type: lower-alpha">
@@ -310,151 +310,78 @@ How to Use R for Data Science</p></a>
 <div class="exercise">
 <p><span id="exr:exeposer" class="exercise"><strong>Exercise 6.5  </strong></span>Load the Stata dataset “auto” with</p>
 </div>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="collection-of-exercises.html#cb178-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;tidyverse&quot;</span>)</span>
-<span id="cb178-2"><a href="collection-of-exercises.html#cb178-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;haven&quot;</span>)</span>
-<span id="cb178-3"><a href="collection-of-exercises.html#cb178-3" tabindex="-1"></a>auto <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;http://www.stata-press.com/data/r8/auto.dta&quot;</span>)</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li><p>Create a scatter plot illustrating the relationship between the price and weight of a car. Provide a meaningful title for the graph and try to make it clear which car each observation corresponds to.</p></li>
-<li><p>Save this graph in Stata format (.gph), as well as in the formats of .png and .pdf.</p></li>
+<li><p>Save this graph in the formats of .png and .pdf.</p></li>
 <li><p>Create a variable “`lp100km’” that indicates the fuel consumption of an average car in liters per 100 kilometers. (Note: One gallon is approximately equal to 3.8 liters, and one mile is about 1.6 kilometers.)</p></li>
 <li><p>Create a dummy variable “`larger6000’” that is equal to 1 if the price of a car is above $6000.</p></li>
 <li><p>Now, search for the “most unreasonable poser car” that costs no more than $6000. A “poser” car is defined as one that is expensive, has a large turning radius, consumes a lot of fuel, and is often defective (rep78 is low). For this purpose, create a metric indicator for each corresponding variable that indicates a value of 1 for the car that is the most unreasonable in that variable and 0 for the most reasonable car. All other cars should fall between 0 and 1.</p></li>
 </ol>
 <p>Please find the solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_poser.R">here</a>.</p>
-<pre><code>
-
-
-::: {.exercise #DatasauRus}
-
-DatasauRus
-
-![(\#fig:label) The logo of the DatasauRus package^[Figure is taken from https://github.com/jumpingrivers/datasauRus]](fig/datasaurus.png){ width=25% }  
-   
-   a) Load the packages `datasauRus` and `tidyverse`. If necessary, install these packages.
-  
-:::
-
-  
-  b) The package`datasauRus` comes with a dataset in two different formats: `datasaurus_dozen` and `datasaurus_dozen_wide`. Store them as `ds` and `ds_wide`.  
-
-
-
-c) Open and read the R vignette of the `datasauRus` package. Also open the R documentation of the dataset `datasaurus_dozen`.
-
-
-
-d) Explore the dataset: What are the dimensions of this dataset? Look at the descriptive statistics.
-
-
-
-e) How many unique values does the variable `dataset` of the tibble `ds` have? Hint: The function unique() return the unique values of a variable and the function length() returns the length of a vector, such as the unique elements.
-
-
-
-f) Compute the mean values of the `x` and `y` variables for each entry in `dataset`. Hint: Use the group_by() function to group the data by the appropriate column and then the summarise() function to calculate the mean.
-
-
-
-
-g) Compute the standard deviation, the correlation, and the median in the same way. Round the numbers.
-
-
-
-
-h) What can you conclude?
-  
-
-
-i) Plot all datasets of `ds`. Hide the legend. Hint: Use the `facet_wrap()` and the `theme()` function.
-
-
-
-
-j) Create a loop that generates separate scatter plots for each unique datatset of the tibble `ds`. Export each graph as a png file.
-
-
-
-k) Watch the video [Animating the Datasaurus Dozen Dataset in R](https://youtu.be/T-kxUB29t0o) from The Data Digest on YouTube.
-
-
-
-Please find the solutions [here](https://htmlpreview.github.io/?https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/datasaurus_solution.html).
-
-
-
-::: {.exercise #execonvergence}
-
-Convergence
-
-The dataset convergence.dta, see  https://github.com/hubchev/courses/blob/main/dta/convergence.dta, contains the per capita GDP of 1960 (gdppc60) and the average growth rate of GDP per capita between 1960 and 1995 (growth) for different countries (country), as well as 3 dummy variables indicating the belonging of a country to the region Asia (asia), Western Europe (weurope) or Africa (africa). 
-
-
--  Some countries are not assigned to a certain country group. Name the countries which are assign to be part of Western Europe, Africa or Asia. If you find countries that are members of the EU, assign them a &#39;1&#39; in the variable weurope.
--  Create a table that shows the average GDP per capita for all available points in time. Group by Western European, Asian, African, and the remaining countries.
--  Create the growth rate of GDP per capita from 1960 to 1995 and call it gdpgrowth. (Note: The log value X minus the log value X of the previous period is approximately equal to the growth rate).
--  Calculate the unconditional convergence of all countries by constructing a graph in which a scatterplot shows the GDP per capita growth rate between 1960 and 1995 (gdpgrowth) on the y-axis and the 1960 GDP per capita (gdppc60) on the x-axis. Add to the same graph the estimated linear relationship. You do not need to label the graph further, just two things: title the graph `world` and label the individual observations with the country names.
--  Create three graphs describing the same relationship for the sample of Western European, African and Asian countries. Title the graph accordingly with `weurope`, `africa` and `asia`. 
--  Combine the four graphs into one image. Discuss how an upward or downward sloping regression line can be interpreted.
--  Estimate the relationships illustrated in the 4 graphs using the least squares method. Present the 4 estimation results in a table, indicating the significance level with stars. In addition, the Akaike information criterion, and the number of observations should be displayed in the table. Interpret the four estimation results regarding their significance. 
--  Put the data set into the so-called long format and calculate the GDP per capita growth rates for the available time points in the countries.
-
-
-Please find solutions [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R).
-:::
-
-
-::: {.exercise #explainweight}
-Explain the weight
-
-In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with corelations and a regression analysis the association. Load the data as follows:
-  
-  ```{r}
-library(&quot;haven&quot;)
-classdata &lt;- read.csv(&quot;https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv&quot;)
-:::
-
-A sketch of a solutions is provided [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R). 
-
-
-
-
-::: {.exercise #unemgerfra}
-
-Unemployment and GDP in Germany and France
-
-The following exercise was a former exam.
-
-Please answer all (!) questions in an R script. Normal text should be written as comments, using the &#39;#&#39; to comment out text. Make sure the script runs without errors before submitting it. Each task (starting with 1) is worth five points. You have a total of 120 minutes of editing time. Please do not forget to number your answers.
-
-When you are done with your work, save the R script, export the script to pdf format and upload the pdf file.
-
-Suppose you aim to empirically examine unemployment and GDP for Germany and France. The data set that we use in the following is &#39;forest.Rdata&#39;.
-
-(0)    
-Write down your name, matriculation number, and date.
-
-(1)    
-Set your working directory. 
-
-:::
-
-
-(2)    
-Clear your global environment.
-
-
-
-(3)    
-Install and load the following packages: &#39;tidyverse&#39;, &#39;sjPlot&#39;, and &#39;ggpubr&#39;
-
-
-
-(4)    
-Download and load the data, respectively, with the following code: 
-  
-  
-  ```r
-  load(url(&quot;https://github.com/hubchev/courses/raw/main/dta/forest.Rdata&quot;))</code></pre>
+<pre><code></code></pre>
+<div class="exercise">
+<p><span id="exr:DatasauRus" class="exercise"><strong>Exercise 6.6  </strong></span>DatasauRus</p>
+<div class="float">
+<img src="fig/datasaurus.png" style="width:25.0%" alt=" The logo of the DatasauRus package" />
+<div class="figcaption"> The logo of the DatasauRus package<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></div>
+</div>
+<ol style="list-style-type: lower-alpha">
+<li>Load the packages <code>datasauRus</code> and <code>tidyverse</code>. If necessary, install these packages.</li>
+</ol>
+</div>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><p>The package<code>datasauRus</code> comes with a dataset in two different formats: <code>datasaurus_dozen</code> and <code>datasaurus_dozen_wide</code>. Store them as <code>ds</code> and <code>ds_wide</code>.</p></li>
+<li><p>Open and read the R vignette of the <code>datasauRus</code> package. Also open the R documentation of the dataset <code>datasaurus_dozen</code>.</p></li>
+<li><p>Explore the dataset: What are the dimensions of this dataset? Look at the descriptive statistics.</p></li>
+<li><p>How many unique values does the variable <code>dataset</code> of the tibble <code>ds</code> have? Hint: The function unique() return the unique values of a variable and the function length() returns the length of a vector, such as the unique elements.</p></li>
+<li><p>Compute the mean values of the <code>x</code> and <code>y</code> variables for each entry in <code>dataset</code>. Hint: Use the group_by() function to group the data by the appropriate column and then the summarise() function to calculate the mean.</p></li>
+<li><p>Compute the standard deviation, the correlation, and the median in the same way. Round the numbers.</p></li>
+<li><p>What can you conclude?</p></li>
+<li><p>Plot all datasets of <code>ds</code>. Hide the legend. Hint: Use the <code>facet_wrap()</code> and the <code>theme()</code> function.</p></li>
+<li><p>Create a loop that generates separate scatter plots for each unique datatset of the tibble <code>ds</code>. Export each graph as a png file.</p></li>
+<li><p>Watch the video <a href="https://youtu.be/T-kxUB29t0o">Animating the Datasaurus Dozen Dataset in R</a> from The Data Digest on YouTube.</p></li>
+</ol>
+<p>Please find the solutions <a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/datasaurus_solution.html">here</a>.</p>
+<div class="exercise">
+<p><span id="exr:execonvergence" class="exercise"><strong>Exercise 6.7  </strong></span>Convergence</p>
+<p>The dataset convergence.dta, see <a href="https://github.com/hubchev/courses/blob/main/dta/convergence.dta" class="uri">https://github.com/hubchev/courses/blob/main/dta/convergence.dta</a>, contains the per capita GDP of 1960 (gdppc60) and the average growth rate of GDP per capita between 1960 and 1995 (growth) for different countries (country), as well as 3 dummy variables indicating the belonging of a country to the region Asia (asia), Western Europe (weurope) or Africa (africa).</p>
+<ul>
+<li>Some countries are not assigned to a certain country group. Name the countries which are assign to be part of Western Europe, Africa or Asia. If you find countries that are members of the EU, assign them a ‘1’ in the variable weurope.</li>
+<li>Create a table that shows the average GDP per capita for all available points in time. Group by Western European, Asian, African, and the remaining countries.</li>
+<li>Create the growth rate of GDP per capita from 1960 to 1995 and call it gdpgrowth. (Note: The log value X minus the log value X of the previous period is approximately equal to the growth rate).</li>
+<li>Calculate the unconditional convergence of all countries by constructing a graph in which a scatterplot shows the GDP per capita growth rate between 1960 and 1995 (gdpgrowth) on the y-axis and the 1960 GDP per capita (gdppc60) on the x-axis. Add to the same graph the estimated linear relationship. You do not need to label the graph further, just two things: title the graph <code>world</code> and label the individual observations with the country names.</li>
+<li>Create three graphs describing the same relationship for the sample of Western European, African and Asian countries. Title the graph accordingly with <code>weurope</code>, <code>africa</code> and <code>asia</code>.</li>
+<li>Combine the four graphs into one image. Discuss how an upward or downward sloping regression line can be interpreted.</li>
+<li>Estimate the relationships illustrated in the 4 graphs using the least squares method. Present the 4 estimation results in a table, indicating the significance level with stars. In addition, the Akaike information criterion, and the number of observations should be displayed in the table. Interpret the four estimation results regarding their significance.</li>
+<li>Put the data set into the so-called long format and calculate the GDP per capita growth rates for the available time points in the countries.</li>
+</ul>
+<p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R">here</a>.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:explainweight" class="exercise"><strong>Exercise 6.8  </strong></span>Explain the weight</p>
+<p>In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with corelations and a regression analysis the association. Load the data as follows:</p>
+<p>```{r}
+library(“haven”)
+classdata &lt;- read.csv(“<a href="https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv" class="uri">https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv</a>”)</p>
+</div>
+<p>A sketch of a solutions is provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R">here</a>.</p>
+<div class="exercise">
+<p><span id="exr:unemgerfra" class="exercise"><strong>Exercise 6.9  </strong></span>Unemployment and GDP in Germany and France</p>
+<p>The following exercise was a former exam.</p>
+<p>Please answer all (!) questions in an R script. Normal text should be written as comments, using the ‘#’ to comment out text. Make sure the script runs without errors before submitting it. Each task (starting with 1) is worth five points. You have a total of 120 minutes of editing time. Please do not forget to number your answers.</p>
+<p>When you are done with your work, save the R script, export the script to pdf format and upload the pdf file.</p>
+<p>Suppose you aim to empirically examine unemployment and GDP for Germany and France. The data set that we use in the following is ‘forest.Rdata’.</p>
+<ol start="0" style="list-style-type: decimal">
+<li><p>Write down your name, matriculation number, and date.</p></li>
+<li><p>Set your working directory.</p></li>
+</ol>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Clear your global environment.</p></li>
+<li><p>Install and load the following packages: ‘tidyverse’, ‘sjPlot’, and ‘ggpubr’</p></li>
+<li><p>Download and load the data, respectively, with the following code:</p></li>
+</ol>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="collection-of-exercises.html#cb179-1" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/hubchev/courses/raw/main/dta/forest.Rdata&quot;</span>))</span></code></pre></div>
 <p>If that is not working, you can also download the data from ILIAS, save it in
 your working directory and load it from there with:</p>
 <div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="collection-of-exercises.html#cb180-1" tabindex="-1"></a><span class="co"># load(&quot;forest.Rdata&quot;)</span></span></code></pre></div>
@@ -565,6 +492,12 @@ The result should look something like this:</p>
 </ol>
 <p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/un_gdp_ger_fra.R">here</a>.</p>
 
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>Figure is taken from <a href="https://github.com/jumpingrivers/datasauRus" class="uri">https://github.com/jumpingrivers/datasauRus</a><a href="collection-of-exercises.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
