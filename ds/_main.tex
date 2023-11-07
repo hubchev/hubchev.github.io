@@ -110,8 +110,11 @@
 \usepackage{multicol}
 \usepackage{geometry}
 \usepackage[natbibapa]{apacite}
-\usepackage{txfonts} %txfonts iwona lmodern
+% \usepackage{txfonts} %txfonts iwona lmodern
 \usepackage{hyperref}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
 
 \renewcommand{\texteuro}{\text{\euro}} 
 %\hypersetup{colorlinks=false, pdfborderstyle={/S/U/W 1} }
@@ -161,7 +164,7 @@ How to Use R for Data Science}
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 06 October, 2023}
+\date{Last compiled on 07 November, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -192,15 +195,15 @@ How to Use R for Data Science}
 \chapter*{Preface}\label{preface}}
 \addcontentsline{toc}{chapter}{Preface}
 
-\hypertarget{what-is-data-science}{%
-\section*{What is data science}\label{what-is-data-science}}
+While data science is an appealing buzzword that combines different fields of knowledge such as computer science, software engineering, informatics, database management, statistics, econometrics, business intelligence, and mathematics, there is no universally accepted definition of it and I think it is not important to define it precisely. \citet[p.~97]{Kelleher2018Data} wrote ``Data science is best understood as a partnership between a data scientist and a computer.'' So data science is about embracing the power of computers for scientific, commercial or social purposes. Of course, empirical models and statistics play a role in gaining meaningful insights. The graphic on the cover page may illustrate that R combines four important fields, that are, data, science, computer, and statistics.
 
-I began my journey into data science in 2003 with the introductory course Statistics by \href{https://scholar.google.com/citations?user=geLs3JUAAAAJ\&hl=en}{Daniel Rösch}. I learned a lot. In particular, that probabilities often play a role when analyzing data. After that, I joined \href{https://scholar.google.ca/citations?user=tHNB7wIAAAAJ\&hl=en}{Harry Haupt's} \emph{Introductory Econometrics} course, where I studied the infamous Jeffrey M. \citet{Wooldridge2002Introductory} textbook. It got me hooked and I took all the courses \href{https://www.uni-regensburg.de/business-economics-and-management-information-systems/economics-tschernig/team/rolf-tschernig/index.html}{Rolf Tschernig} offered at his chair of Econometrics, where I became a tutor. Despite everything we did at the chair had to do with data and with how to make sense out of data, we never actually used the term \emph{data science} which is also absent in the more 850 pages long textbook by \citet{Wooldridge2002Introductory}. The book also remains silent about \emph{machine learning} or \emph{artificial intelligence}.
+The programming language R allows you to manipulate, visualize, and analyze data. It works on different operating systems (Windows, Mac, Linux) and can do a lot of things better than other programs (Python, Stata, Eviews, SPSS, SAS, Excel, etc.). R is open source and widely used. This facilitates the
+entry enormously. Nevertheless, learning the command syntax is essential for advanced data analysis.
+data analysis.
 
-This makes me wonder if I can call myself a data scientist and why so many of my former colleagues, comolitons, and students call themselves data scientists even though the term played no role in our education. One explanation is that the term \emph{data science} became popular only after I graduated. The \emph{Harvard Business Review} article by \citet{Davenport2012Data} who claimed that data scientist is ``The Sexiest Job of the 21st Century'' may have boosted the popularity.
+I began my journey into data science in 2003 with the introductory course Statistics by \href{https://scholar.google.com/citations?user=geLs3JUAAAAJ\&hl=en}{Daniel Rösch}. I learned a lot. In particular, that probabilities often play a role when analyzing data. After that, I joined \href{https://scholar.google.ca/citations?user=tHNB7wIAAAAJ\&hl=en}{Harry Haupt's} \emph{Introductory Econometrics} course, where I studied the infamous Jeffrey M. \citet{Wooldridge2002Introductory} textbook. It got me hooked and I took all the courses \href{https://www.uni-regensburg.de/business-economics-and-management-information-systems/economics-tschernig/team/rolf-tschernig/index.html}{Rolf Tschernig} offered at his chair of Econometrics, where I became a tutor at the University of Regensburg and a research assistant of \href{https://iab.de/en/employee/m\%C3\%B6ller-joachim/}{Joachim Möller}. Despite everything we did had to do with how to make sense out of data, we never actually used the term \emph{data science} which is also absent in the more 850 pages long textbook by \citet{Wooldridge2002Introductory}. The book also remains silent about \emph{machine learning} or \emph{artificial intelligence}. These terms became popular only after I graduated. The \emph{Harvard Business Review} article by \citet{Davenport2012Data} who claimed that data scientist is ``The Sexiest Job of the 21st Century'' may have boosted the popularity.
 
-There is no universal definition of data science and I don't think it is overly important to define it precisely. \citet[p.~97]{Kelleher2018Data} wrote
-``Data science is best understood as a partnership between a data scientist and a computer.'' So data science is about using computers for scientific purposes. Of course, empirical models and statistics play a role in gaining meaningful insights. The graphic on the cover page may illustrate this. Furthermore, the graphic is meant to illustrate that R (or any other software) combines the four terms (data, science, computer, statistics).
+This makes me wonder if I can call myself a data scientist and why so many of my former comolitons, colleagues, and students call themselves now data scientists even though the term basically played no role in our education.
 
 \hypertarget{about-the-lecture-notes}{%
 \section*{About the lecture notes}\label{about-the-lecture-notes}}
@@ -1439,9 +1442,9 @@ Write down the code you would need to put into the R-console\ldots{}
 \item
   \ldots to store each of variables \emph{state} and \emph{deaths} in a vector.
 \item
-  \ldots to store both vectors in a data frame with the name \texttt{df\textbackslash{}\_covid}.
+  \ldots to store both vectors in a data frame with the name \texttt{df\_covid}.
 \item
-  \ldots to store both vectors in a tibble with the name \texttt{df\_covid}.
+  \ldots to store both vectors in a tibble with the name \texttt{tbl\_covid}.
 \end{itemize}
 
 Please find solution to the exercise \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/import_covid_data.R}{here}
@@ -1511,13 +1514,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \begin{verbatim}
 ## Rows: 13,365
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AF~
-## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011"~
-## $ value       <dbl> 1.169484e+12, 1.081998e+12, 9.275933e+11, 1.000834e+12, 1.007196e+12, 1.021043e+12, 8.851764e+~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (curr~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH"~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AF~
+## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", ~
+## $ value       <dbl> 1.169484e+12, 1.081998e+12, 9.275933e+11, 1.000834e+12, 1.007196e+12, 1.021043e+~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "Z~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern an~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1527,19 +1530,19 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##     iso3c               date               value           indicatorID         indicator            iso2c          
-##  Length:13365       Length:13365       Min.   :8.825e+06   Length:13365       Length:13365       Length:13365      
-##  Class :character   Class :character   1st Qu.:2.523e+09   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Median :1.843e+10   Mode  :character   Mode  :character   Mode  :character  
-##                                        Mean   :1.207e+12                                                           
-##                                        3rd Qu.:2.244e+11                                                           
-##                                        Max.   :1.006e+14                                                           
-##    country         
-##  Length:13365      
-##  Class :character  
-##  Mode  :character  
-##                    
-##                    
+##     iso3c               date               value           indicatorID         indicator        
+##  Length:13365       Length:13365       Min.   :8.825e+06   Length:13365       Length:13365      
+##  Class :character   Class :character   1st Qu.:2.523e+09   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Median :1.843e+10   Mode  :character   Mode  :character  
+##                                        Mean   :1.207e+12                                        
+##                                        3rd Qu.:2.244e+11                                        
+##                                        Max.   :1.006e+14                                        
+##     iso2c             country         
+##  Length:13365       Length:13365      
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
 ## 
 \end{verbatim}
 
@@ -1556,7 +1559,7 @@ RStudio provides convenient data import tools that can be accessed by clicking \
 
 For more information, I recommend once again the second version book \emph{R for Data Science} by \href{https://r4ds.hadley.nz/}{\citet{Wickham2023R}}. In particular, check out the \href{https://r4ds.hadley.nz/data-tidy.html}{``Data tidying''} section for importing CSV and TSV files, the \href{https://r4ds.hadley.nz/spreadsheets.html}{``Spreadsheets''} section for Excel files, the \href{https://r4ds.hadley.nz/databases.html}{``Databases''} section for retrieving data with SQL, the \href{https://r4ds.hadley.nz/arrow.html}{``Arrow''} section for working with large datasets, and the \href{https://r4ds.hadley.nz/webscraping.html}{``Web scraping''} section for extracting data from web pages.
 
-For an overview on the packages that are provided by the tidyverse universe, see \href{https://www.tidyverse.org/packages/\#import}{}.
+For an overview on packages for reading data that are provided by the tidyverse universe, see \href{https://www.tidyverse.org/packages/\#import}{here}.
 
 \hypertarget{sec:tidy}{%
 \section{Data}\label{sec:tidy}}
@@ -1620,13 +1623,14 @@ One difference between data frames and tibbles is that dataframes store the row 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"  
-##  [6] "Valiant"             "Duster 360"          "Merc 240D"           "Merc 230"            "Merc 280"           
-## [11] "Merc 280C"           "Merc 450SE"          "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood" 
-## [16] "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"     
-## [21] "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"          "Pontiac Firebird"   
-## [26] "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
-## [31] "Maserati Bora"       "Volvo 142E"
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"     
+##  [5] "Hornet Sportabout"   "Valiant"             "Duster 360"          "Merc 240D"          
+##  [9] "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"         
+## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood"  "Lincoln Continental"
+## [17] "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"     
+## [21] "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
+## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"       
+## [29] "Ford Pantera L"      "Ferrari Dino"        "Maserati Bora"       "Volvo 142E"
 \end{verbatim}
 
 To store \texttt{mtcars} as a tibble, we can use the \texttt{as\_tibble} function:
@@ -2427,17 +2431,17 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4,~
-## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.~
-## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 9~
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00,~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.78~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.0~
-## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
-## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
-## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
-## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6, 8, 2
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.~
+## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, ~
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230,~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.0~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.07~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.4~
+## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, ~
+## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, ~
+## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, ~
+## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, ~
 \end{verbatim}
 
 \hypertarget{how-to-explore-a-dataset}{%
@@ -2785,93 +2789,98 @@ Solutions to the questions are linked in the script.
 Please find the solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_poser.R}{here}.
 
 \begin{verbatim}
-\end{verbatim}
 
-\begin{exercise}
-\protect\hypertarget{exr:DatasauRus}{}\label{exr:DatasauRus}
 
+::: {.exercise #DatasauRus}
 DatasauRus
 
-\begin{figure}
-\centering
-\includegraphics[width=0.25\textwidth,height=\textheight]{fig/datasaurus.png}
-\caption[\label{fig:label} The logo of the DatasauRus package]{\label{fig:label} The logo of the DatasauRus package\footnotemark{}}
-\end{figure}
-\footnotetext{Figure is taken from \url{https://github.com/jumpingrivers/datasauRus}}
+![\label{fig:label} The logo of the DatasauRus package^[Figure is taken from https://github.com/jumpingrivers/datasauRus]](fig/datasaurus.png){ width=25% }  
+   
+a) Load the packages `datasauRus` and `tidyverse`. If necessary, install these packages.
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi})}
-\tightlist
-\item
-  Load the packages \texttt{datasauRus} and \texttt{tidyverse}. If necessary, install these packages.
-\end{enumerate}
+:::
 
-\end{exercise}
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi})}
-\setcounter{enumi}{1}
-\item
-  The package\texttt{datasauRus} comes with a dataset in two different formats: \texttt{datasaurus\_dozen} and \texttt{datasaurus\_dozen\_wide}. Store them as \texttt{ds} and \texttt{ds\_wide}.
-\item
-  Open and read the R vignette of the \texttt{datasauRus} package. Also open the R documentation of the dataset \texttt{datasaurus\_dozen}.
-\item
-  Explore the dataset: What are the dimensions of this dataset? Look at the descriptive statistics.
-\item
-  How many unique values does the variable \texttt{dataset} of the tibble \texttt{ds} have? Hint: The function unique() return the unique values of a variable and the function length() returns the length of a vector, such as the unique elements.
-\item
-  Compute the mean values of the \texttt{x} and \texttt{y} variables for each entry in \texttt{dataset}. Hint: Use the group\_by() function to group the data by the appropriate column and then the summarise() function to calculate the mean.
-\item
-  Compute the standard deviation, the correlation, and the median in the same way. Round the numbers.
-\item
-  What can you conclude?
-\item
-  Plot all datasets of \texttt{ds}. Hide the legend. Hint: Use the \texttt{facet\_wrap()} and the \texttt{theme()} function.
-\item
-  Create a loop that generates separate scatter plots for each unique datatset of the tibble \texttt{ds}. Export each graph as a png file.
-\item
-  Watch the video \href{https://youtu.be/T-kxUB29t0o}{Animating the Datasaurus Dozen Dataset in R} from The Data Digest on YouTube.
-\end{enumerate}
+  
+b) The package`datasauRus` comes with a dataset in two different formats: `datasaurus_dozen` and `datasaurus_dozen_wide`. Store them as `ds` and `ds_wide`.  
 
-Please find the solutions \href{https://htmlpreview.github.io/?https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/datasaurus_solution.html}{here}.
 
-\begin{exercise}
-\protect\hypertarget{exr:execonvergence}{}\label{exr:execonvergence}Convergence
 
-The dataset convergence.dta, see \url{https://github.com/hubchev/courses/blob/main/dta/convergence.dta}, contains the per capita GDP of 1960 (gdppc60) and the average growth rate of GDP per capita between 1960 and 1995 (growth) for different countries (country), as well as 3 dummy variables indicating the belonging of a country to the region Asia (asia), Western Europe (weurope) or Africa (africa).
+c) Open and read the R vignette of the `datasauRus` package. Also open the R documentation of the dataset `datasaurus_dozen`.
 
-\begin{itemize}
-\tightlist
-\item
-  Some countries are not assigned to a certain country group. Name the countries which are assign to be part of Western Europe, Africa or Asia. If you find countries that are members of the EU, assign them a `1' in the variable weurope.
-\item
-  Create a table that shows the average GDP per capita for all available points in time. Group by Western European, Asian, African, and the remaining countries.
-\item
-  Create the growth rate of GDP per capita from 1960 to 1995 and call it gdpgrowth. (Note: The log value X minus the log value X of the previous period is approximately equal to the growth rate).
-\item
-  Calculate the unconditional convergence of all countries by constructing a graph in which a scatterplot shows the GDP per capita growth rate between 1960 and 1995 (gdpgrowth) on the y-axis and the 1960 GDP per capita (gdppc60) on the x-axis. Add to the same graph the estimated linear relationship. You do not need to label the graph further, just two things: title the graph \texttt{world} and label the individual observations with the country names.
-\item
-  Create three graphs describing the same relationship for the sample of Western European, African and Asian countries. Title the graph accordingly with \texttt{weurope}, \texttt{africa} and \texttt{asia}.
-\item
-  Combine the four graphs into one image. Discuss how an upward or downward sloping regression line can be interpreted.
-\item
-  Estimate the relationships illustrated in the 4 graphs using the least squares method. Present the 4 estimation results in a table, indicating the significance level with stars. In addition, the Akaike information criterion, and the number of observations should be displayed in the table. Interpret the four estimation results regarding their significance.
-\item
-  Put the data set into the so-called long format and calculate the GDP per capita growth rates for the available time points in the countries.
-\end{itemize}
 
-Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R}{here}.
-\end{exercise}
 
-\begin{exercise}
-\protect\hypertarget{exr:explainweight}{}\label{exr:explainweight}Explain the weight
+d) Explore the dataset: What are the dimensions of this dataset? Look at the descriptive statistics.
+
+
+
+e) How many unique values does the variable `dataset` of the tibble `ds` have? Hint: The function unique() return the unique values of a variable and the function length() returns the length of a vector, such as the unique elements.
+
+
+
+f) Compute the mean values of the `x` and `y` variables for each entry in `dataset`. Hint: Use the group_by() function to group the data by the appropriate column and then the summarise() function to calculate the mean.
+
+
+
+
+g) Compute the standard deviation, the correlation, and the median in the same way. Round the numbers.
+
+
+
+
+h) What can you conclude?
+  
+
+
+i) Plot all datasets of `ds`. Hide the legend. Hint: Use the `facet_wrap()` and the `theme()` function.
+
+
+
+
+j) Create a loop that generates separate scatter plots for each unique datatset of the tibble `ds`. Export each graph as a png file.
+
+
+
+k) Watch the video [Animating the Datasaurus Dozen Dataset in R](https://youtu.be/T-kxUB29t0o) from The Data Digest on YouTube.
+
+
+
+Please find the solutions [here](https://htmlpreview.github.io/?https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/datasaurus_solution.html).
+
+
+
+::: {.exercise #execonvergence}
+
+Convergence
+
+The dataset convergence.dta, see  https://github.com/hubchev/courses/blob/main/dta/convergence.dta, contains the per capita GDP of 1960 (gdppc60) and the average growth rate of GDP per capita between 1960 and 1995 (growth) for different countries (country), as well as 3 dummy variables indicating the belonging of a country to the region Asia (asia), Western Europe (weurope) or Africa (africa). 
+
+
+-  Some countries are not assigned to a certain country group. Name the countries which are assign to be part of Western Europe, Africa or Asia. If you find countries that are members of the EU, assign them a '1' in the variable weurope.
+-  Create a table that shows the average GDP per capita for all available points in time. Group by Western European, Asian, African, and the remaining countries.
+-  Create the growth rate of GDP per capita from 1960 to 1995 and call it gdpgrowth. (Note: The log value X minus the log value X of the previous period is approximately equal to the growth rate).
+-  Calculate the unconditional convergence of all countries by constructing a graph in which a scatterplot shows the GDP per capita growth rate between 1960 and 1995 (gdpgrowth) on the y-axis and the 1960 GDP per capita (gdppc60) on the x-axis. Add to the same graph the estimated linear relationship. You do not need to label the graph further, just two things: title the graph `world` and label the individual observations with the country names.
+-  Create three graphs describing the same relationship for the sample of Western European, African and Asian countries. Title the graph accordingly with `weurope`, `africa` and `asia`. 
+-  Combine the four graphs into one image. Discuss how an upward or downward sloping regression line can be interpreted.
+-  Estimate the relationships illustrated in the 4 graphs using the least squares method. Present the 4 estimation results in a table, indicating the significance level with stars. In addition, the Akaike information criterion, and the number of observations should be displayed in the table. Interpret the four estimation results regarding their significance. 
+-  Put the data set into the so-called long format and calculate the GDP per capita growth rates for the available time points in the countries.
+
+
+Please find solutions [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R).
+:::
+
+
+::: {.exercise #explainweight}
+Explain the weight
 
 In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with corelations and a regression analysis the association. Load the data as follows:
+  
+:::
 
-```\{r\}
-library(``haven'')
-classdata \textless- read.csv(``\url{https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv}'')
-\end{exercise}
+```r
+library("haven")
+classdata <- read.csv("https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv")
+\end{verbatim}
 
 A sketch of a solutions is provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R}{here}.
 
@@ -3070,7 +3079,7 @@ your working directory and load it from there with:
   (Hint: Below you can see one of many \textbar\textgreater{} of what your result may look like).
 \end{enumerate}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-85-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-86-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -3081,7 +3090,7 @@ your working directory and load it from there with:
   The following chart shows the simultaneous development of the unemployment rate and GDP per capita over time for \textbf{France}.
 \end{enumerate}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-86-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-87-1.pdf}
 
 Suppose you want to visualize the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany as well.\\
 Suppose further that you have found the following lines of code that create the kind of chart you are looking for.
@@ -3098,12 +3107,12 @@ Suppose further that you have found the following lines of code that create the 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-87-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-88-1.pdf}
 
 Use these lines of code and customize them to create the co-movement visualization for \textbf{Germany} using the available `df' data.
 The result should look something like this:
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-88-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-89-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -3114,6 +3123,29 @@ The result should look something like this:
 \end{enumerate}
 
 Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/un_gdp_ger_fra.R}{here}.
+
+\begin{exercise}
+\protect\hypertarget{exr:hortacsu}{}\label{exr:hortacsu}Import data and write a report
+
+Reproduce Figure 3 of \citet[p.~99]{Hortacsu2015Ongoing} using R. Write a clear report about your work, i.e., document everything with a R script or a R Markdown file.
+
+Here are the required steps:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Go to \url{https://www.aeaweb.org/articles?id=10.1257/jep.29.4.89} and download the \emph{replication package} from the \emph{OPENICPSR} page. Please note, that you can download the replication package after you have registered for the platform.
+\item
+  Unzip the replication package.
+\item
+  In the file \emph{diffusion\_curves\_figure.xlsx} you find the required data. Import them to R.
+\item
+  Reproduce the plot using ggplot().
+\end{enumerate}
+
+Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/hortacsu_figure_3.R}{here}.
+\end{exercise}
 
 \hypertarget{write-with-r-markdown}{%
 \chapter{Write with R Markdown}\label{write-with-r-markdown}}
@@ -3308,7 +3340,9 @@ C:\Users\huber\Rbook\rcourse-book.pdf
 \end{verbatim}
 
 On Linux, Unix, and macOS systems, the addresses look a little different, but they are more or less identical in spirit. Instead of using the backslash, folders are separated using a forward slash, and unlike Windows, they do not treat the storage device as being the root of the file system. So, the path on a Mac might be something like this:
+
 /Users/huber/Rbook/rcourse-book.pdf
+
 That is what we mean by the \emph{path} to a file. The next concept to grasp is the idea of a working directory and how to change it. For those of you who have used command-line interfaces previously, this should be obvious already. But if not, here is what I mean. The working directory is just whatever folder I am currently looking at. Suppose that I am currently looking for files in Explorer (if you are using Windows) or using Finder (on a Mac). The folder I currently have open is my user directory (i.e., \texttt{C:\textbackslash{}Users\textbackslash{}huber} or \texttt{/Users/huber}). That is my current working directory.
 
 \hypertarget{working-directory}{%
@@ -3331,7 +3365,13 @@ Absolute path & Relative path \\
 \texttt{C:\textbackslash{}Users\textbackslash{}huber\textbackslash{}nerdstuff} & \texttt{..\textbackslash{}nerdstuff} \\
 \end{longtable}
 
-It is quite common on computers that have multiple users to define \texttt{\textasciitilde{}} to be the user's \emph{home directory}. The home directory on a Mac for the `\texttt{huber\textquotesingle{}\textquotesingle{}\ user\ is}/Users/huber/\texttt{.\ And\ so,\ not\ surprisingly,\ it\ is\ possible\ to\ define\ other\ directories\ in\ terms\ of\ their\ relationship\ to\ the\ home\ directory.\ For\ example,\ an\ alternative\ way\ to\ describe\ the\ location\ of\ the}rcourse-book.pdf\texttt{file\ on\ a\ Mac\ would\ be\ \ \textasciigrave{}\textasciigrave{}\textasciigrave{}\ \textasciitilde{}\textbackslash{}Rbook\textbackslash{}rcourse-book.pdf\ \textasciigrave{}\textasciigrave{}\textasciigrave{}\ You\ can\ find\ out\ your\ home\ directory\ with\ the}path.expand()` function:
+It is quite common on computers that have multiple users to define \texttt{\textasciitilde{}} to be the user's \emph{home directory}. The home directory on a Mac for the `\texttt{huber\textquotesingle{}\textquotesingle{}\ user\ is}/Users/huber/\texttt{.\ And\ so,\ not\ surprisingly,\ it\ is\ possible\ to\ define\ other\ directories\ in\ terms\ of\ their\ relationship\ to\ the\ home\ directory.\ For\ example,\ an\ alternative\ way\ to\ describe\ the\ location\ of\ the}rcourse-book.pdf` file on a Mac would be
+
+\begin{verbatim}
+~\Rbook\rcourse-book.pdf
+\end{verbatim}
+
+You can find out your home directory with the \texttt{path.expand()} function:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3439,18 +3479,21 @@ When seeking help, be sure to provide information about your machine, including 
 ## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
+##  [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
+## [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.3          sjPlot_2.8.15        ggpubr_0.6.0         datasauRus_0.1.6     janitor_2.2.0       
-##  [6] wbstats_1.0.4        scales_1.2.1         lubridate_1.9.2      forcats_1.0.0        stringr_1.5.0       
-## [11] purrr_1.0.1          readr_2.1.4          tidyr_1.3.0          tibble_3.2.1         ggplot2_3.4.3       
-## [16] tidyverse_2.0.0      captioner_2.2.3.9000 haven_2.5.1         
+##  [1] dplyr_1.1.3          sjPlot_2.8.15        ggpubr_0.6.0         datasauRus_0.1.6    
+##  [5] haven_2.5.1          janitor_2.2.0        wbstats_1.0.4        scales_1.2.1        
+##  [9] lubridate_1.9.2      forcats_1.0.0        purrr_1.0.1          readr_2.1.4         
+## [13] tidyr_1.3.0          tibble_3.2.1         ggplot2_3.4.3        tidyverse_2.0.0     
+## [17] stringr_1.5.0        bundesligR_0.1.0     knitr_1.42           pacman_0.5.1        
+## [21] captioner_2.2.3.9000
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] nlme_3.1-162       insight_0.19.4     httr_1.4.5         tools_4.2.2        backports_1.4.1   
@@ -3464,13 +3507,13 @@ When seeking help, be sure to provide information about your machine, including 
 ## [41] car_3.1-1          magrittr_2.0.3     Matrix_1.5-4       Rcpp_1.0.10        munsell_0.5.0     
 ## [46] fansi_1.0.4        abind_1.4-5        lifecycle_1.0.3    stringi_1.7.12     multcomp_1.4-22   
 ## [51] yaml_2.3.7         snakecase_0.11.1   carData_3.0-5      MASS_7.3-58.2      grid_4.2.2        
-## [56] sjmisc_2.8.9       crayon_1.5.2       lattice_0.20-45    splines_4.2.2      ggeffects_1.3.1   
-## [61] cowplot_1.1.1      sjstats_0.18.2     hms_1.1.3          knitr_1.42         pillar_1.9.0      
-## [66] boot_1.3-28.1      estimability_1.4.1 ggsignif_0.6.4     codetools_0.2-19   glue_1.6.2        
-## [71] evaluate_0.20      modelr_0.1.11      nloptr_2.0.3       vctrs_0.6.3        tzdb_0.3.0        
-## [76] gtable_0.3.4       cachem_1.0.8       xfun_0.39          xtable_1.8-4       broom_1.0.3       
-## [81] coda_0.19-4        rstatix_0.7.2      ragg_1.2.5         rsconnect_0.8.29   survival_3.5-3    
-## [86] tinytex_0.45       timechange_0.2.0   TH.data_1.1-1
+## [56] sjmisc_2.8.9       crayon_1.5.2       lattice_0.20-45    ggeffects_1.3.1    splines_4.2.2     
+## [61] sjstats_0.18.2     hms_1.1.3          pillar_1.9.0       boot_1.3-28.1      estimability_1.4.1
+## [66] ggsignif_0.6.4     codetools_0.2-19   glue_1.6.2         evaluate_0.20      modelr_0.1.11     
+## [71] nloptr_2.0.3       vctrs_0.6.3        tzdb_0.3.0         gtable_0.3.4       cachem_1.0.8      
+## [76] xfun_0.39          xtable_1.8-4       broom_1.0.3        coda_0.19-4        rstatix_0.7.2     
+## [81] ragg_1.2.5         rsconnect_0.8.29   survival_3.5-3     tinytex_0.45       timechange_0.2.0  
+## [86] TH.data_1.1-1
 \end{verbatim}
 
   \bibliography{book.bib}

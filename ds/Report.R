@@ -1,6 +1,8 @@
 library("captioner")
-table_nums <- captioner(prefix = "Table")
+table_nums <- captioner::captioner(prefix = "Table")
 fig_nums <- captioner()
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(knitr, captioner, bundesligR, stringr)
 library("tidyverse")
 
 
@@ -230,6 +232,8 @@ tbl_ab=as_tibble(m_ab_label)
 
 ## | cases           | 24.111  | 25.466                 | 16.145            |
 
+## 
+
 ## Table: `r table_nums(name = "tab:covid", caption = "Covid cases and deaths till August 2022")`
 
 ## 	
@@ -240,9 +244,9 @@ tbl_ab=as_tibble(m_ab_label)
 
 ## - ...to store each of variables _state_ and _deaths_ in a vector.
 
-## - ...to store both vectors in a data frame with the name `df\_covid`.
+## - ...to store both vectors in a data frame with the name `df_covid`.
 
-## - ...to store both vectors in a tibble with the name `df_covid`.
+## - ...to store both vectors in a tibble with the name `tbl_covid`.
 
 ## 
 
@@ -699,12 +703,8 @@ for (uni_v in uni_ds) {
 
 ## 
 
-##   ```{r}
-
-## library("haven")
-
-## classdata <- read.csv("https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv")
-
+library("haven")
+classdata <- read.csv("https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv")
 
 ## 
 
@@ -828,6 +828,37 @@ dfger <- df |>  filter(nation == "Germany")
 labels <- 1992:2020
 plot(dfger$gdppc, dfger$unemployment, type = "b", 
      xlab = "Var 1", ylab = "Var 2"); text(dfger$gdppc + 0.7, dfger$unemployment + 0.4, labels); title("Germany")
+
+## 
+
+## Import data and write a report
+
+## 
+
+## Reproduce Figure 3 of @Hortacsu2015Ongoing[p. 99] using R. Write a clear report about your work, i.e., document everything with a R script or a R Markdown file.
+
+## 
+
+## Here are the required steps:
+
+## 
+
+##   1. Go to [https://www.aeaweb.org/articles?id=10.1257/jep.29.4.89](https://www.aeaweb.org/articles?id=10.1257/jep.29.4.89) and download the _replication package_ from the _OPENICPSR_ page. Please note, that you can download the replication package after you have registered for the platform.
+
+##   2. Unzip the replication package.
+
+##   3. In the file _diffusion_curves_figure.xlsx_ you find the required data. Import them to R.
+
+##   4. Reproduce the plot using ggplot().
+
+## 
+
+## 
+
+## Please find solutions [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/hortacsu_figure_3.R).
+
+## 
+
 
 ## 
 

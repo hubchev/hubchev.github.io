@@ -366,9 +366,9 @@ How to Use R for Data Science</p></a>
 <p>In this section, I describe the basic idea behind file locations and file paths. Regardless of whether you are using Windows, macOS, or Linux, every file on the computer is assigned a human-readable address, and every address has the same basic structure: it describes a path that starts from a root location, through a series of folders (or directories), and finally ends up at the file.</p>
 <p>On a Windows computer, the root is the storage device on which the file is stored, and for many home computers, the name of the storage device that stores all your files is <code>C:</code>. After that comes the folders, and on Windows, the folder names are separated by a backslash symbol <code>\</code>. So, the complete path to this book on my Windows computer might be something like this:</p>
 <pre><code>C:\Users\huber\Rbook\rcourse-book.pdf</code></pre>
-<p>On Linux, Unix, and macOS systems, the addresses look a little different, but they are more or less identical in spirit. Instead of using the backslash, folders are separated using a forward slash, and unlike Windows, they do not treat the storage device as being the root of the file system. So, the path on a Mac might be something like this:
-/Users/huber/Rbook/rcourse-book.pdf
-That is what we mean by the <em>path</em> to a file. The next concept to grasp is the idea of a working directory and how to change it. For those of you who have used command-line interfaces previously, this should be obvious already. But if not, here is what I mean. The working directory is just whatever folder I am currently looking at. Suppose that I am currently looking for files in Explorer (if you are using Windows) or using Finder (on a Mac). The folder I currently have open is my user directory (i.e., <code>C:\Users\huber</code> or <code>/Users/huber</code>). That is my current working directory.</p>
+<p>On Linux, Unix, and macOS systems, the addresses look a little different, but they are more or less identical in spirit. Instead of using the backslash, folders are separated using a forward slash, and unlike Windows, they do not treat the storage device as being the root of the file system. So, the path on a Mac might be something like this:</p>
+<p>/Users/huber/Rbook/rcourse-book.pdf</p>
+<p>That is what we mean by the <em>path</em> to a file. The next concept to grasp is the idea of a working directory and how to change it. For those of you who have used command-line interfaces previously, this should be obvious already. But if not, here is what I mean. The working directory is just whatever folder I am currently looking at. Suppose that I am currently looking for files in Explorer (if you are using Windows) or using Finder (on a Mac). The folder I currently have open is my user directory (i.e., <code>C:\Users\huber</code> or <code>/Users/huber</code>). That is my current working directory.</p>
 </div>
 <div id="working-directory" class="section level3 hasAnchor" number="8.2.2">
 <h3><span class="header-section-number">8.2.2</span> Working directory<a href="appendix.html#working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -400,24 +400,26 @@ That is what we mean by the <em>path</em> to a file. The next concept to grasp i
 </tr>
 </tbody>
 </table>
-<p>It is quite common on computers that have multiple users to define <code>~</code> to be the user’s <em>home directory</em>. The home directory on a Mac for the `<code>huber'' user is</code>/Users/huber/<code>. And so, not surprisingly, it is possible to define other directories in terms of their relationship to the home directory. For example, an alternative way to describe the location of the</code>rcourse-book.pdf<code>file on a Mac would be  ``` ~\Rbook\rcourse-book.pdf ``` You can find out your home directory with the</code>path.expand()` function:</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="appendix.html#cb189-1" tabindex="-1"></a><span class="fu">path.expand</span>(<span class="st">&quot;~&quot;</span>)</span></code></pre></div>
+<p>It is quite common on computers that have multiple users to define <code>~</code> to be the user’s <em>home directory</em>. The home directory on a Mac for the `<code>huber'' user is</code>/Users/huber/<code>. And so, not surprisingly, it is possible to define other directories in terms of their relationship to the home directory. For example, an alternative way to describe the location of the</code>rcourse-book.pdf` file on a Mac would be</p>
+<pre><code>~\Rbook\rcourse-book.pdf</code></pre>
+<p>You can find out your home directory with the <code>path.expand()</code> function:</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="appendix.html#cb190-1" tabindex="-1"></a><span class="fu">path.expand</span>(<span class="st">&quot;~&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;/home/sthu&quot;</code></pre>
 <p>Thus, on my machine ~ is an abbreviation for the path /home/sthu.</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="appendix.html#cb191-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="appendix.html#cb192-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;/home/sthu/Dropbox/hsf/courses/ds&quot;</code></pre>
 </div>
 <div id="sec:navigationR" class="section level3 hasAnchor" number="8.2.3">
 <h3><span class="header-section-number">8.2.3</span> Navigating the file system using the R console<a href="appendix.html#sec:navigationR" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When you want to load or save a file in R it’s important to know what the working directory is. You can find out by using the <code>getwd()</code> command. For the moment, let’s assume that I’m using Mac OS or Linux, since things are different on Windows, see section <a href="appendix.html#sec:winbackslash">8.2.5</a>.
 Let’s check the current active working directory:</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="appendix.html#cb193-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="appendix.html#cb194-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;/home/sthu/Dropbox/hsf/courses/ds&quot;</code></pre>
 <p>The function <code>setwd()</code> allows to change the working directory:</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="appendix.html#cb195-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/Users/huber/Rbook/data&quot;</span>)</span>
-<span id="cb195-2"><a href="appendix.html#cb195-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./Rbook/data&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="appendix.html#cb196-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/Users/huber/Rbook/data&quot;</span>)</span>
+<span id="cb196-2"><a href="appendix.html#cb196-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./Rbook/data&quot;</span>)</span></code></pre></div>
 <p>The function <code>list.files()</code> lists all the files in that directory:</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="appendix.html#cb196-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="appendix.html#cb197-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
 </div>
 <div id="sec:rstudioprojects" class="section level3 hasAnchor" number="8.2.4">
 <h3><span class="header-section-number">8.2.4</span> R Studio projects<a href="appendix.html#sec:rstudioprojects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -427,18 +429,18 @@ Let’s check the current active working directory:</p>
 <div id="sec:winbackslash" class="section level3 hasAnchor" number="8.2.5">
 <h3><span class="header-section-number">8.2.5</span> Why do the Windows paths use the back-slash?<a href="appendix.html#sec:winbackslash" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s suppose I’m using a computer with Windows. As before, I can find out what my current working directory is like this:</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="appendix.html#cb197-1" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb197-2"><a href="appendix.html#cb197-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;C:/Users/huber/</span></span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="appendix.html#cb198-1" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb198-2"><a href="appendix.html#cb198-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;C:/Users/huber/</span></span></code></pre></div>
 <p>R is displaying a Windows path using the wrong type of slash, the back-slash. The answer has to do with the fact that R treats the <code>\</code> character as <em>special</em>. If you’re deeply wedded to the idea of specifying a path using the Windows style slashes, then what you need to use two back-slashes <code>\\</code> whenever you mean <code>\</code>. In other words, if you want to specify the working directory on a Windows computer, you need to use one of the following commands:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="appendix.html#cb198-1" tabindex="-1"></a><span class="fu">setwd</span>( <span class="st">&quot;C:/Users/huber&quot;</span> )</span>
-<span id="cb198-2"><a href="appendix.html#cb198-2" tabindex="-1"></a><span class="fu">setwd</span>( <span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">huber&quot;</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="appendix.html#cb199-1" tabindex="-1"></a><span class="fu">setwd</span>( <span class="st">&quot;C:/Users/huber&quot;</span> )</span>
+<span id="cb199-2"><a href="appendix.html#cb199-2" tabindex="-1"></a><span class="fu">setwd</span>( <span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">huber&quot;</span> )</span></code></pre></div>
 </div>
 </div>
 <div id="troubleshooting" class="section level2 hasAnchor" number="8.3">
 <h2><span class="header-section-number">8.3</span> Troubleshooting<a href="appendix.html#troubleshooting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Troubleshooting is perhaps the most important skill for a data scientist. To tackle problems effectively, you need to understand them, replicate them, and then work to solve them. To help you with this process, here are some guidelines:</p>
 <p>When seeking help, be sure to provide information about your machine, including the operating system, the version of R, and the packages you have loaded. You can use the sessionInfo() function to gather this information. Here’s an example from my machine:</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="appendix.html#cb199-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="appendix.html#cb200-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
 <pre><code>## R version 4.2.2 Patched (2022-11-10 r83330)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 12 (bookworm)
@@ -448,18 +450,21 @@ Let’s check the current active working directory:</p>
 ## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
+##  [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
+## [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.3          sjPlot_2.8.15        ggpubr_0.6.0         datasauRus_0.1.6     janitor_2.2.0       
-##  [6] wbstats_1.0.4        scales_1.2.1         lubridate_1.9.2      forcats_1.0.0        stringr_1.5.0       
-## [11] purrr_1.0.1          readr_2.1.4          tidyr_1.3.0          tibble_3.2.1         ggplot2_3.4.3       
-## [16] tidyverse_2.0.0      captioner_2.2.3.9000 haven_2.5.1         
+##  [1] dplyr_1.1.3          sjPlot_2.8.15        ggpubr_0.6.0         datasauRus_0.1.6    
+##  [5] haven_2.5.1          janitor_2.2.0        wbstats_1.0.4        scales_1.2.1        
+##  [9] lubridate_1.9.2      forcats_1.0.0        purrr_1.0.1          readr_2.1.4         
+## [13] tidyr_1.3.0          tibble_3.2.1         ggplot2_3.4.3        tidyverse_2.0.0     
+## [17] stringr_1.5.0        bundesligR_0.1.0     knitr_1.42           pacman_0.5.1        
+## [21] captioner_2.2.3.9000
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] nlme_3.1-162       insight_0.19.4     httr_1.4.5         tools_4.2.2        backports_1.4.1   
@@ -473,13 +478,13 @@ Let’s check the current active working directory:</p>
 ## [41] car_3.1-1          magrittr_2.0.3     Matrix_1.5-4       Rcpp_1.0.10        munsell_0.5.0     
 ## [46] fansi_1.0.4        abind_1.4-5        lifecycle_1.0.3    stringi_1.7.12     multcomp_1.4-22   
 ## [51] yaml_2.3.7         snakecase_0.11.1   carData_3.0-5      MASS_7.3-58.2      grid_4.2.2        
-## [56] sjmisc_2.8.9       crayon_1.5.2       lattice_0.20-45    splines_4.2.2      ggeffects_1.3.1   
-## [61] cowplot_1.1.1      sjstats_0.18.2     hms_1.1.3          knitr_1.42         pillar_1.9.0      
-## [66] boot_1.3-28.1      estimability_1.4.1 ggsignif_0.6.4     codetools_0.2-19   glue_1.6.2        
-## [71] evaluate_0.20      modelr_0.1.11      nloptr_2.0.3       vctrs_0.6.3        tzdb_0.3.0        
-## [76] gtable_0.3.4       cachem_1.0.8       xfun_0.39          xtable_1.8-4       broom_1.0.3       
-## [81] coda_0.19-4        rstatix_0.7.2      ragg_1.2.5         rsconnect_0.8.29   survival_3.5-3    
-## [86] tinytex_0.45       timechange_0.2.0   TH.data_1.1-1</code></pre>
+## [56] sjmisc_2.8.9       crayon_1.5.2       lattice_0.20-45    ggeffects_1.3.1    splines_4.2.2     
+## [61] sjstats_0.18.2     hms_1.1.3          pillar_1.9.0       boot_1.3-28.1      estimability_1.4.1
+## [66] ggsignif_0.6.4     codetools_0.2-19   glue_1.6.2         evaluate_0.20      modelr_0.1.11     
+## [71] nloptr_2.0.3       vctrs_0.6.3        tzdb_0.3.0         gtable_0.3.4       cachem_1.0.8      
+## [76] xfun_0.39          xtable_1.8-4       broom_1.0.3        coda_0.19-4        rstatix_0.7.2     
+## [81] ragg_1.2.5         rsconnect_0.8.29   survival_3.5-3     tinytex_0.45       timechange_0.2.0  
+## [86] TH.data_1.1-1</code></pre>
 
 </div>
 </div>
