@@ -7,7 +7,7 @@
   <title>3 Work with R scripts |  How to Use R for Data Science</title>
   <meta name="description" content="<br />
 How to Use R for Data Science</p>" />
-  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Work with R scripts |  How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
@@ -426,7 +430,7 @@ Finally, you can return the value of the object from the function, meaning pass 
 <p>Unfortunately, this does not work out. The <code>lag()</code> function does not work as we think it should. Well, the reason is simply that we are using the wrong function. The current <code>lag()</code> function is part of the stats package which is part of the package <code>stats</code> which is part of R base and is loaded automatically. The <code>lag()</code> function we aim to use stems from the dplyr package which we must install and load to be able to use it. So let’s do it:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="work-with-r-scripts.html#cb29-1" tabindex="-1"></a><span class="co"># check if the package is installed</span></span>
 <span id="cb29-2"><a href="work-with-r-scripts.html#cb29-2" tabindex="-1"></a><span class="fu">find.package</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr&quot;</code></pre>
+<pre><code>## [1] &quot;/usr/local/lib/R/site-library/dplyr&quot;</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="work-with-r-scripts.html#cb31-1" tabindex="-1"></a><span class="co"># I already installed the package so I can just load it</span></span>
 <span id="cb31-2"><a href="work-with-r-scripts.html#cb31-2" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
 <span id="cb31-3"><a href="work-with-r-scripts.html#cb31-3" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>

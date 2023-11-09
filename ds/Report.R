@@ -460,24 +460,11 @@ mtcars |>
 
 ## 
 
-## a) Create a new tibble called `mtcars_new` using the pipe operator |>. Generate a new dummy variable called `d_cyl_6to8` that takes the value 1 if the number of cylinders (cyl) is greater than 6, and 0 otherwise. Do all of this in a single pipe.
+## Use the _mtcars_ dataset. It is part of the package _datasets_ and can be called with
 
 ## 
 
-## b) Generate a new dummy variable called `posercar` that takes a value of 1 if a car has more than 6 cylinders (cyl) and can drive less than 18 miles per gallon (mpg), and 0 otherwise. Add this variable to the tibble `mtcars_new`.
-
-## 
-
-## c) Remove the variable `d_cyl_6to8` from the data frame.
-
-## 
-
-## 
-
-## Please find solutions [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_genanddrop.R).
-
-## 
-
+## mtcars
 
 ## 
 
@@ -493,7 +480,7 @@ mtcars |>
 
 ## 
 
-##   1. The `%in%` operator and the pipe |> .
+## 1. The `%in%` operator and the pipe |> .
 
 ## 2. Base R without the pipe |>.
 
@@ -574,7 +561,7 @@ mtcars |>
 ## 
 
 
-## Load the Stata dataset "auto" with
+## Load the Stata dataset "auto" using R
 
 ## 
 
@@ -693,6 +680,8 @@ for (uni_v in uni_ds) {
 ## 
 
 ## Please find solutions [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R).
+
+## 
 
 
 ## Explain the weight
