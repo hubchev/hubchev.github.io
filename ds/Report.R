@@ -876,11 +876,48 @@ plot(dfger$gdppc, dfger$unemployment, type = "b",
 
 ## 
 
+## R Markdown APA template
+
+## 
+
+## a) Create a new R Markdown file (_File > New File > R Markdown_), save the file in an empty folder, and knit it.
+
+## b)
+
+## 
+
+## - Make a new script with _File > New File > R Script_.
+
+## - Go to [https://scholar.google.de/](https://scholar.google.de/) and search for _osrmtime_.
+
+## - Click on _"cite"_ and _"BibTeX"_. Copy and paste everything that you see into your script and save the script as _lit.bib_. R Studio will ask you if you confirm the file type change. Click yes.
+
+## - Add the text _"bibliography: references.bib"_ to your YAML header of your R Markdown file so that it looks somehow like that:
+
+## 
+
+
+## title: "Untitled"
+
+## author: "Stephan Huber"
+
+## date: "`r Sys.Date()`"
+
+## output: html_document
+
+## bibliography: lit.bib
+
+
+## csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl"
+
+
+## 
+
 ## R Markdown template
 
 ## 
 
-## Please follow the instructions below to access the file "23-04_ds-project-desc.Rmd" from my GitHub account:
+## Please follow the instructions below to access the file "23-09_ds-project-desc.Rmd" from my GitHub account:
 
 ## 
 
