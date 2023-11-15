@@ -363,14 +363,7 @@ How to Use R for Data Science</p></a>
 <p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R">here</a>.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:explainweight" class="exercise"><strong>Exercise 6.8  </strong></span>Explain the weight</p>
-<p>In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with corelations and a regression analysis the association. Load the data as follows:</p>
-</div>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="collection-of-exercises.html#cb179-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;haven&quot;</span>)</span>
-<span id="cb179-2"><a href="collection-of-exercises.html#cb179-2" tabindex="-1"></a>classdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv&quot;</span>)</span></code></pre></div>
-<p>A sketch of a solution is provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R">here</a>.</p>
-<div class="exercise">
-<p><span id="exr:unemgerfra" class="exercise"><strong>Exercise 6.9  </strong></span>Unemployment and GDP in Germany and France</p>
+<p><span id="exr:unemgerfra" class="exercise"><strong>Exercise 6.8  </strong></span>Unemployment and GDP in Germany and France</p>
 <p>The following exercise was a former exam.</p>
 <p>Please answer all (!) questions in an R script. Normal text should be written as comments, using the ‘#’ to comment out text. Make sure the script runs without errors before submitting it. Each task (starting with 1) is worth five points. You have a total of 120 minutes of editing time. Please do not forget to number your answers.</p>
 <p>When you are done with your work, save the R script, export the script to pdf format and upload the pdf file.</p>
@@ -385,10 +378,10 @@ How to Use R for Data Science</p></a>
 <li><p>Install and load the following packages: ‘tidyverse’, ‘sjPlot’, and ‘ggpubr’</p></li>
 <li><p>Download and load the data, respectively, with the following code:</p></li>
 </ol>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="collection-of-exercises.html#cb180-1" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/hubchev/courses/raw/main/dta/forest.Rdata&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="collection-of-exercises.html#cb179-1" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/hubchev/courses/raw/main/dta/forest.Rdata&quot;</span>))</span></code></pre></div>
 <p>If that is not working, you can also download the data from ILIAS, save it in
 your working directory and load it from there with:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="collection-of-exercises.html#cb181-1" tabindex="-1"></a><span class="co"># load(&quot;forest.Rdata&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="collection-of-exercises.html#cb180-1" tabindex="-1"></a><span class="co"># load(&quot;forest.Rdata&quot;)</span></span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li><p>Show the <strong>first eight</strong> observations of the dataset ‘df’.</p></li>
 <li><p>Show the <strong>last observation</strong> of the dataset ‘df’.</p></li>
@@ -472,31 +465,31 @@ unemployment rate of <strong>Germany</strong> over the available years. Label th
 ‘Germany’ with ‘ggtitle(“Germany”)’. Please note that you may choose any type of graphical representation.
 (Hint: Below you can see one of many |&gt; of what your result may look like).</li>
 </ol>
-<p><img src="_main_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
 <ol start="22" style="list-style-type: decimal">
 <li>and 23. <em>(This task is worth 10 points)</em>
 The following chart shows the simultaneous development of the unemployment rate and GDP per capita over time for <strong>France</strong>.</li>
 </ol>
-<p><img src="_main_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
 <p>Suppose you want to visualize the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany as well.<br />
 Suppose further that you have found the following lines of code that create the kind of chart you are looking for.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="collection-of-exercises.html#cb188-1" tabindex="-1"></a><span class="co"># Data</span></span>
-<span id="cb188-2"><a href="collection-of-exercises.html#cb188-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
-<span id="cb188-3"><a href="collection-of-exercises.html#cb188-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">13</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">22</span>)</span>
-<span id="cb188-4"><a href="collection-of-exercises.html#cb188-4" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="dv">1970</span><span class="sc">:</span><span class="dv">1978</span></span>
-<span id="cb188-5"><a href="collection-of-exercises.html#cb188-5" tabindex="-1"></a></span>
-<span id="cb188-6"><a href="collection-of-exercises.html#cb188-6" tabindex="-1"></a><span class="co"># Connected scatter plot with text</span></span>
-<span id="cb188-7"><a href="collection-of-exercises.html#cb188-7" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Var 1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Var 2&quot;</span>); <span class="fu">text</span>(x <span class="sc">+</span> <span class="fl">0.4</span>, y <span class="sc">+</span> <span class="fl">0.1</span>, labels) </span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="collection-of-exercises.html#cb187-1" tabindex="-1"></a><span class="co"># Data</span></span>
+<span id="cb187-2"><a href="collection-of-exercises.html#cb187-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
+<span id="cb187-3"><a href="collection-of-exercises.html#cb187-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">13</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">22</span>)</span>
+<span id="cb187-4"><a href="collection-of-exercises.html#cb187-4" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="dv">1970</span><span class="sc">:</span><span class="dv">1978</span></span>
+<span id="cb187-5"><a href="collection-of-exercises.html#cb187-5" tabindex="-1"></a></span>
+<span id="cb187-6"><a href="collection-of-exercises.html#cb187-6" tabindex="-1"></a><span class="co"># Connected scatter plot with text</span></span>
+<span id="cb187-7"><a href="collection-of-exercises.html#cb187-7" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Var 1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Var 2&quot;</span>); <span class="fu">text</span>(x <span class="sc">+</span> <span class="fl">0.4</span>, y <span class="sc">+</span> <span class="fl">0.1</span>, labels) </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
 <p>Use these lines of code and customize them to create the co-movement visualization for <strong>Germany</strong> using the available ‘df’ data.
 The result should look something like this:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
 <ol start="24" style="list-style-type: decimal">
 <li>Interpret the two graphs above, which show the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany and France. What are your expectations regarding the correlation between the unemployment rate and GDP per capita variables? Can you see this expectation in the figures? Discuss.</li>
 </ol>
 <p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/un_gdp_ger_fra.R">here</a>.</p>
 <div class="exercise">
-<p><span id="exr:hortacsu" class="exercise"><strong>Exercise 6.10  </strong></span>Import data and write a report</p>
+<p><span id="exr:hortacsu" class="exercise"><strong>Exercise 6.9  </strong></span>Import data and write a report</p>
 <p>Reproduce Figure 3 of <span class="citation">Hortaçsu &amp; Syverson (<a href="references.html#ref-Hortacsu2015Ongoing">2015, p. 99</a>)</span> using R. Write a clear report about your work, i.e., document everything with a R script or a R Markdown file.</p>
 <p>Here are the required steps:</p>
 <ol style="list-style-type: decimal">
@@ -506,6 +499,18 @@ The result should look something like this:</p>
 <li>Reproduce the plot using ggplot().</li>
 </ol>
 <p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/hortacsu_figure_3.R">here</a>.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:explainweight" class="exercise"><strong>Exercise 6.10  </strong></span>Explain the weight</p>
+<p>In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with corelations and a regression analysis the association. Load the data as follows:</p>
+</div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="collection-of-exercises.html#cb188-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;haven&quot;</span>)</span>
+<span id="cb188-2"><a href="collection-of-exercises.html#cb188-2" tabindex="-1"></a>classdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv&quot;</span>)</span></code></pre></div>
+<p>A sketch of a solution is provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R">here</a>.</p>
+<div class="exercise">
+<p><span id="exr:execal" class="exercise"><strong>Exercise 6.11  </strong></span>Calories and weight</p>
+<p>Download the file <a href="https://github.com/hubchev/courses/blob/main/pdfs/exe_calories.pdf">exe_calories.pdf</a> from GitHub and answer the questions therein.</p>
+<p>Solutions are provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_calories.R">here</a>.</p>
 </div>
 
 </div>

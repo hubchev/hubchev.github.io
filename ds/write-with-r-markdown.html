@@ -315,21 +315,35 @@ R Markdown file to transcript your work, run code, and generate high quality rep
 <ul>
 <li>Make a new script with <em>File &gt; New File &gt; R Script</em>.</li>
 <li>Go to <a href="https://scholar.google.de/">https://scholar.google.de/</a> and search for <em>osrmtime</em>.</li>
-<li>Click on <em>“cite”</em> and <em>“BibTeX”</em>. Copy and paste everything that you see into your script and save the script as <em>lit.bib</em>. R Studio will ask you if you confirm the file type change. Click yes.</li>
-<li>Add the text <em>“bibliography: references.bib”</em> to your YAML header of your R Markdown file so that it looks somehow like that:</li>
+<li>Click on <em>“cite”</em> and <em>“BibTeX”</em>. Copy and paste everything that you see into your script and save the script as <em>lit.bib</em>. R Studio will ask you if you confirm the file type change. Click yes. Your <em>lit.bib</em> file should look like this:</li>
 </ul>
 </div>
-<div class="sourceCode" id="cb189"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb189-1"><a href="write-with-r-markdown.html#cb189-1" tabindex="-1"></a>title: &quot;Untitled&quot;</span>
-<span id="cb189-2"><a href="write-with-r-markdown.html#cb189-2" tabindex="-1"></a>author: &quot;Stephan Huber&quot;</span>
-<span id="cb189-3"><a href="write-with-r-markdown.html#cb189-3" tabindex="-1"></a>date: &quot;`r Sys.Date()`&quot;</span>
-<span id="cb189-4"><a href="write-with-r-markdown.html#cb189-4" tabindex="-1"></a>output: html_document</span>
-<span id="cb189-5"><a href="write-with-r-markdown.html#cb189-5" tabindex="-1"></a>bibliography: lit.bib</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb189-1"><a href="write-with-r-markdown.html#cb189-1" tabindex="-1"></a>@article{huber2016calculate,</span>
+<span id="cb189-2"><a href="write-with-r-markdown.html#cb189-2" tabindex="-1"></a>  title={Calculate travel time and distance with OpenStreetMap data using the Open Source Routing Machine (OSRM)},</span>
+<span id="cb189-3"><a href="write-with-r-markdown.html#cb189-3" tabindex="-1"></a>  author={Huber, Stephan and Rust, Christoph},</span>
+<span id="cb189-4"><a href="write-with-r-markdown.html#cb189-4" tabindex="-1"></a>  journal={The Stata Journal},</span>
+<span id="cb189-5"><a href="write-with-r-markdown.html#cb189-5" tabindex="-1"></a>  volume={16},</span>
+<span id="cb189-6"><a href="write-with-r-markdown.html#cb189-6" tabindex="-1"></a>  number={2},</span>
+<span id="cb189-7"><a href="write-with-r-markdown.html#cb189-7" tabindex="-1"></a>  pages={416--423},</span>
+<span id="cb189-8"><a href="write-with-r-markdown.html#cb189-8" tabindex="-1"></a>  year={2016},</span>
+<span id="cb189-9"><a href="write-with-r-markdown.html#cb189-9" tabindex="-1"></a>  publisher={SAGE Publications Sage CA: Los Angeles, CA}</span>
+<span id="cb189-10"><a href="write-with-r-markdown.html#cb189-10" tabindex="-1"></a>}</span></code></pre></div>
+<ul>
+<li>Add the text <em>“bibliography: references.bib”</em> to your YAML header of your R Markdown file so that it looks somehow like that:</li>
+</ul>
+<div class="sourceCode" id="cb190"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb190-1"><a href="write-with-r-markdown.html#cb190-1" tabindex="-1"></a>---</span>
+<span id="cb190-2"><a href="write-with-r-markdown.html#cb190-2" tabindex="-1"></a>title: &quot;Untitled&quot;</span>
+<span id="cb190-3"><a href="write-with-r-markdown.html#cb190-3" tabindex="-1"></a>author: &quot;Stephan Huber&quot;</span>
+<span id="cb190-4"><a href="write-with-r-markdown.html#cb190-4" tabindex="-1"></a>date: &quot;`r Sys.Date()`&quot;</span>
+<span id="cb190-5"><a href="write-with-r-markdown.html#cb190-5" tabindex="-1"></a>output: html_document</span>
+<span id="cb190-6"><a href="write-with-r-markdown.html#cb190-6" tabindex="-1"></a>bibliography: lit.bib</span>
+<span id="cb190-7"><a href="write-with-r-markdown.html#cb190-7" tabindex="-1"></a>---</span></code></pre></div>
 <ul>
 <li>Now you can cite the OSRMTIME paper with <code>@huber2016calculate</code> somewhere in the text of your R Markdown file.</li>
 <li>Knit the R Markdown file and you should see the paper cited and a reference list at the end of the html report.</li>
 <li>You can manipulate the citation style you can specify a CSL (Citation Style Language) file in the YAML header. For example the APA style can be chosen with:</li>
 </ul>
-<div class="sourceCode" id="cb190"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb190-1"><a href="write-with-r-markdown.html#cb190-1" tabindex="-1"></a>csl: &quot;https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb191-1"><a href="write-with-r-markdown.html#cb191-1" tabindex="-1"></a>csl: &quot;https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl&quot;</span></code></pre></div>
 <p>Many more citation styles can be found <a href="https://github.com/citation-style-language/styles">here</a>.</p>
 <div class="exercise">
 <p><span id="exr:rmdsecond" class="exercise"><strong>Exercise 7.3  </strong></span>R Markdown template</p>

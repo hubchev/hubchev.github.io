@@ -684,17 +684,6 @@ for (uni_v in uni_ds) {
 ## 
 
 
-## Explain the weight
-
-## 
-
-## In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with corelations and a regression analysis the association. Load the data as follows:
-
-## 
-
-library("haven")
-classdata <- read.csv("https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv")
-
 ## 
 
 ## Unemployment and GDP in Germany and France
@@ -851,6 +840,34 @@ plot(dfger$gdppc, dfger$unemployment, type = "b",
 
 ## 
 
+## Explain the weight
+
+## 
+
+## In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with corelations and a regression analysis the association. Load the data as follows:
+
+## 
+
+library("haven")
+classdata <- read.csv("https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv")
+
+## 
+
+## Calories and weight
+
+## 
+
+## Download the file [exe_calories.pdf](https://github.com/hubchev/courses/blob/main/pdfs/exe_calories.pdf) from GitHub and answer the questions therein.
+
+## 
+
+## Solutions are provided [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_calories.R).
+
+## 
+
+
+## 
+
 ## Start Markdown and R Markdown
 
 ## 
@@ -890,12 +907,33 @@ plot(dfger$gdppc, dfger$unemployment, type = "b",
 
 ## - Go to [https://scholar.google.de/](https://scholar.google.de/) and search for _osrmtime_.
 
-## - Click on _"cite"_ and _"BibTeX"_. Copy and paste everything that you see into your script and save the script as _lit.bib_. R Studio will ask you if you confirm the file type change. Click yes.
-
-## - Add the text _"bibliography: references.bib"_ to your YAML header of your R Markdown file so that it looks somehow like that:
+## - Click on _"cite"_ and _"BibTeX"_. Copy and paste everything that you see into your script and save the script as _lit.bib_. R Studio will ask you if you confirm the file type change. Click yes. Your _lit.bib_ file should look like this:
 
 ## 
 
+
+## @article{huber2016calculate,
+
+##   title={Calculate travel time and distance with OpenStreetMap data using the Open Source Routing Machine (OSRM)},
+
+##   author={Huber, Stephan and Rust, Christoph},
+
+##   journal={The Stata Journal},
+
+##   volume={16},
+
+##   number={2},
+
+##   pages={416--423},
+
+##   year={2016},
+
+##   publisher={SAGE Publications Sage CA: Los Angeles, CA}
+
+## }
+
+
+## ---
 
 ## title: "Untitled"
 
@@ -906,6 +944,8 @@ plot(dfger$gdppc, dfger$unemployment, type = "b",
 ## output: html_document
 
 ## bibliography: lit.bib
+
+## ---
 
 
 ## csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl"
