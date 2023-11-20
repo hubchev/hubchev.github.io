@@ -116,6 +116,10 @@
 \usepackage{lmodern}
 \usepackage[T1]{fontenc}
 
+
+
+% \renewcommand{\familydefault}{\sfdefault}
+
 \renewcommand{\texteuro}{\text{\euro}} 
 %\hypersetup{colorlinks=false, pdfborderstyle={/S/U/W 1} }
 
@@ -345,7 +349,7 @@ Here I summarize some useful tips:
 \hypertarget{Rlearninglit}{%
 \section{Learning resources}\label{Rlearninglit}}
 
-\includegraphics[width=0.4\textwidth,height=\textheight]{fig/aweres.png}
+\includegraphics[width=0.2\textwidth,height=\textheight]{fig/aweres.png}
 
 Thousand of freely available books and resources exist. On \href{https://bookdown.org}{bookdown.org} and in the \href{www.bigbookofr.com}{Big Book of R} is a big collection of links to R books that verifies my claim. Another nice collection of learning ressources can be found here:
 \href{https://github.com/iamericfletcher/awesome-r-learning-resources}{AWESOME R Learning-Resources}
@@ -356,8 +360,8 @@ and \href{https://support.rstudio.com/hc/en-us/articles/200552336-Getting-Help-w
 
 Since you may feel overwhelmed by the number of resources, I would like to highlight five books:
 
-\includegraphics[width=0.3\textwidth,height=\textheight]{fig/ds-a-first-intro-cover.jpg}
-\includegraphics[width=0.3\textwidth,height=\textheight]{fig/rfordatas.png}
+\includegraphics[width=0.25\textwidth,height=\textheight]{fig/ds-a-first-intro-cover.jpg}
+\includegraphics[width=0.3\textwidth,height=\textheight]{fig/r4ds-cover.jpg}
 \includegraphics[width=0.3\textwidth,height=\textheight]{fig/irizarrybook.png}
 
 \begin{enumerate}
@@ -1016,7 +1020,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr"
+## [1] "/usr/local/lib/R/site-library/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1499,14 +1503,10 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##   iso3c date        value    indicatorID         indicator iso2c
-## 1   AFE 2022 1.169484e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH
-## 2   AFE 2021 1.081998e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH
-## 3   AFE 2020 9.275933e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH
-##                       country
-## 1 Africa Eastern and Southern
-## 2 Africa Eastern and Southern
-## 3 Africa Eastern and Southern
+##   iso3c date        value    indicatorID         indicator iso2c                     country
+## 1   AFE 2022 1.169484e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+## 2   AFE 2021 1.081998e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+## 3   AFE 2020 9.275933e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
 \end{verbatim}
 
 \begin{Shaded}
@@ -1518,13 +1518,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \begin{verbatim}
 ## Rows: 13,365
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AF~
-## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "201~
-## $ value       <dbl> 1.169484e+12, 1.081998e+12, 9.275933e+11, 1.000834e+~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD"~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (curr~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH"~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and S~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE",~
+## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2~
+## $ value       <dbl> 1.169484e+12, 1.081998e+12, 9.275933e+11, 1.000834e+12, 1.007196e+12, 1.021043e+12, 8.8517~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", ~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", ~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1534,26 +1534,19 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##     iso3c               date               value          
-##  Length:13365       Length:13365       Min.   :8.825e+06  
-##  Class :character   Class :character   1st Qu.:2.523e+09  
-##  Mode  :character   Mode  :character   Median :1.843e+10  
-##                                        Mean   :1.207e+12  
-##                                        3rd Qu.:2.244e+11  
-##                                        Max.   :1.006e+14  
-##  indicatorID         indicator            iso2c          
-##  Length:13365       Length:13365       Length:13365      
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##    country         
-##  Length:13365      
-##  Class :character  
-##  Mode  :character  
-##                    
-##                    
+##     iso3c               date               value           indicatorID         indicator        
+##  Length:13365       Length:13365       Min.   :8.825e+06   Length:13365       Length:13365      
+##  Class :character   Class :character   1st Qu.:2.523e+09   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Median :1.843e+10   Mode  :character   Mode  :character  
+##                                        Mean   :1.207e+12                                        
+##                                        3rd Qu.:2.244e+11                                        
+##                                        Max.   :1.006e+14                                        
+##     iso2c             country         
+##  Length:13365       Length:13365      
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
 ## 
 \end{verbatim}
 
@@ -1634,17 +1627,14 @@ One difference between data frames and tibbles is that dataframes store the row 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"         
-##  [4] "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"            
-##  [7] "Duster 360"          "Merc 240D"           "Merc 230"           
-## [10] "Merc 280"            "Merc 280C"           "Merc 450SE"         
-## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood" 
-## [16] "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"           
-## [19] "Honda Civic"         "Toyota Corolla"      "Toyota Corona"      
-## [22] "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
-## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"      
-## [28] "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
-## [31] "Maserati Bora"       "Volvo 142E"
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"     
+##  [5] "Hornet Sportabout"   "Valiant"             "Duster 360"          "Merc 240D"          
+##  [9] "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"         
+## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood"  "Lincoln Continental"
+## [17] "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"     
+## [21] "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
+## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"       
+## [29] "Ford Pantera L"      "Ferrari Dino"        "Maserati Bora"       "Volvo 142E"
 \end{verbatim}
 
 To store \texttt{mtcars} as a tibble, we can use the \texttt{as\_tibble} function:
@@ -1708,11 +1698,11 @@ When we look at the data, we've lost the names of the cars. To store the these, 
 
 \begin{verbatim}
 ## # A tibble: 3 x 12
-##   car      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##   <chr>  <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
-## 1 Mazda~  21       6   160   110  3.9   2.62  16.5     0     1     4     4
-## 2 Mazda~  21       6   160   110  3.9   2.88  17.0     0     1     4     4
-## 3 Datsu~  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1
+##   car             mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##   <chr>         <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+## 1 Mazda RX4      21       6   160   110  3.9   2.62  16.5     0     1     4     4
+## 2 Mazda RX4 Wag  21       6   160   110  3.9   2.88  17.0     0     1     4     4
+## 3 Datsun 710     22.8     4   108    93  3.85  2.32  18.6     1     1     4     1
 \end{verbatim}
 
 \hypertarget{data-types}{%
@@ -2169,20 +2159,20 @@ When you have a fixed number of cases and don't want to use a long chain of if-e
 \end{Highlighting}
 \end{Shaded}
 
-The \texttt{mutate()} function is used to add the new variable, and \texttt{case\_when()} is used to assign the values ``four'', ``six'', or ``eight'' to the new variable based on the number of cylinders in each car.
+The \texttt{mutate()} function is used to add the new variable, and \texttt{case\_when()} is used to assign the values ``four'', ``six'', or ``eight'' to the new variable based on the number of cylinders in each car. Both functions are part of the \texttt{dplyr} package (see chapter \ref{ch:dplyr}).
 
 It evaluates one of several expressions based on the value of a given control expression. It takes two arguments: the control expression and a list of named expressions, each of which is evaluated if its name matches the value of the control expression. If no match is found, an optional default expression is evaluated. The switch() function is particularly useful
 
-\hypertarget{data-manipulation-with-dplyr}{%
-\section{Data manipulation with dplyr}\label{data-manipulation-with-dplyr}}
+\hypertarget{ch:dplyr}{%
+\section{\texorpdfstring{Data manipulation with \texttt{dplyr}}{Data manipulation with dplyr}}\label{ch:dplyr}}
 
 \begin{figure}
 \centering
 \includegraphics[width=0.2\textwidth,height=\textheight]{fig/dplyr-logo.png}
-\caption{\label{fig:dplyr-logo} The logo of the dplyr package}
+\caption{\label{fig:dplyr-logo} The logo of the \texttt{dplyr} package}
 \end{figure}
 
-The dplyr package is part of tidyverse and makes data manipulation easy:
+The \texttt{dplyr} package is part of tidyverse and makes data manipulation easy:
 
 \begin{itemize}
 \tightlist
@@ -2445,17 +2435,17 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8,~
-## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4,~
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.~
-## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 1~
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92,~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.19~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.0~
-## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1,~
-## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,~
-## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4,~
-## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1,~
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 1~
+## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8~
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, ~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 6~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, ~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, ~
+## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0~
+## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1~
+## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5~
+## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6, 8~
 \end{verbatim}
 
 \hypertarget{how-to-explore-a-dataset}{%
@@ -2491,22 +2481,14 @@ Here are some examples that may help to understand these functions:
 \end{Shaded}
 
 \begin{verbatim}
-##   integer_var  numeric_var    character_var       factor_var
-##  Min.   :1    Min.   :1.100   Length:5           blue  :1   
-##  1st Qu.:2    1st Qu.:1.925   Class :character   green :1   
-##  Median :3    Median :3.300   Mode  :character   red   :2   
-##  Mean   :3    Mean   :3.300                      yellow:1   
-##  3rd Qu.:4    3rd Qu.:4.675                                 
-##  Max.   :5    Max.   :5.500                                 
-##               NA's   :1                                     
-##  logical_var        date_var         
-##  Mode :logical   Min.   :2022-01-01  
-##  FALSE:1         1st Qu.:2022-02-01  
-##  TRUE :4         Median :2022-03-01  
-##                  Mean   :2022-03-02  
-##                  3rd Qu.:2022-04-01  
-##                  Max.   :2022-05-01  
-## 
+##   integer_var  numeric_var    character_var       factor_var logical_var        date_var         
+##  Min.   :1    Min.   :1.100   Length:5           blue  :1    Mode :logical   Min.   :2022-01-01  
+##  1st Qu.:2    1st Qu.:1.925   Class :character   green :1    FALSE:1         1st Qu.:2022-02-01  
+##  Median :3    Median :3.300   Mode  :character   red   :2    TRUE :4         Median :2022-03-01  
+##  Mean   :3    Mean   :3.300                      yellow:1                    Mean   :2022-03-02  
+##  3rd Qu.:4    3rd Qu.:4.675                                                  3rd Qu.:2022-04-01  
+##  Max.   :5    Max.   :5.500                                                  Max.   :2022-05-01  
+##               NA's   :1
 \end{verbatim}
 
 \begin{Shaded}
@@ -2523,7 +2505,7 @@ Here are some examples that may help to understand these functions:
 ## $ character_var <chr> "apple", "banana", "orange", "cherry", "grape"
 ## $ factor_var    <fct> red, yellow, red, blue, green
 ## $ logical_var   <lgl> TRUE, TRUE, TRUE, FALSE, TRUE
-## $ date_var      <date> 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 20~
+## $ date_var      <date> 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-05-01
 \end{verbatim}
 
 \begin{Shaded}
@@ -2678,14 +2660,10 @@ Here are some examples that may help to understand these functions:
 \end{Shaded}
 
 \begin{verbatim}
-##  cyl 52 62 65 66 91 93 95 97 105 109 110 113 123 150 175 180 205 215 230
-##    4  1  1  1  2  1  1  1  1   0   1   0   1   0   0   0   0   0   0   0
-##    6  0  0  0  0  0  0  0  0   1   0   3   0   2   0   1   0   0   0   0
-##    8  0  0  0  0  0  0  0  0   0   0   0   0   0   2   2   3   1   1   1
-##  245 264 335
-##    0   0   0
-##    0   0   0
-##    2   1   1
+##  cyl 52 62 65 66 91 93 95 97 105 109 110 113 123 150 175 180 205 215 230 245 264 335
+##    4  1  1  1  2  1  1  1  1   0   1   0   1   0   0   0   0   0   0   0   0   0   0
+##    6  0  0  0  0  0  0  0  0   1   0   3   0   2   0   1   0   0   0   0   0   0   0
+##    8  0  0  0  0  0  0  0  0   0   0   0   0   0   2   2   3   1   1   1   2   1   1
 \end{verbatim}
 
 \hypertarget{collection-of-exercises}{%
@@ -3249,7 +3227,7 @@ Data Description:
 
 \begin{verbatim}
 ## Rows: 6 Columns: 5
-## -- Column specification --------------------------------------------------
+## -- Column specification ----------------------------------------------------------------------------------------
 ## Delimiter: ","
 ## chr (1): sex
 ## dbl (4): age, weight, calories, sport
@@ -3735,67 +3713,51 @@ When seeking help, be sure to provide information about your machine, including 
 \end{Shaded}
 
 \begin{verbatim}
-## R version 4.2.2 Patched (2022-11-10 r83330)
+## R version 4.3.1 (2023-06-16)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 12 (bookworm)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
-## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.11.0 
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.11.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## time zone: Europe/Berlin
+## tzcode source: system (glibc)
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.3          sjPlot_2.8.15        ggpubr_0.6.0        
-##  [4] datasauRus_0.1.6     haven_2.5.1          wbstats_1.0.4       
-##  [7] scales_1.2.1         bundesligR_0.1.0     knitr_1.45          
-## [10] pacman_0.5.1         captioner_2.2.3.9000 janitor_2.2.0       
-## [13] readxl_1.4.2         lubridate_1.9.2      forcats_1.0.0       
-## [16] stringr_1.5.0        purrr_1.0.2          readr_2.1.4         
-## [19] tidyr_1.3.0          tibble_3.2.1         ggplot2_3.4.3       
-## [22] tidyverse_2.0.0     
+##  [1] dplyr_1.1.2          sjPlot_2.8.15        ggpubr_0.6.0         datasauRus_0.1.6     haven_2.5.3         
+##  [6] janitor_2.2.0        wbstats_1.0.4        scales_1.2.1         lubridate_1.9.3      forcats_1.0.0       
+## [11] purrr_1.0.2          readr_2.1.4          tidyr_1.3.0          tibble_3.2.1         ggplot2_3.4.3       
+## [16] tidyverse_2.0.0      stringr_1.5.0        bundesligR_0.1.0     knitr_1.42           pacman_0.5.1        
+## [21] captioner_2.2.3.9000
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] nlme_3.1-162       bit64_4.0.5        insight_0.19.4    
-##  [4] httr_1.4.5         tools_4.2.2        backports_1.4.1   
-##  [7] bslib_0.5.1        utf8_1.2.4         R6_2.5.1          
-## [10] sjlabelled_1.2.0   colorspace_2.1-0   withr_2.5.2       
-## [13] tidyselect_1.2.0   rematch_1.0.1      emmeans_1.8.8     
-## [16] bit_4.0.5          curl_5.0.0         compiler_4.2.2    
-## [19] performance_0.10.5 textshaping_0.3.6  cli_3.6.1         
-## [22] sandwich_3.0-2     labeling_0.4.3     bookdown_0.36     
-## [25] bayestestR_0.13.1  sass_0.4.7         mvtnorm_1.1-3     
-## [28] systemfonts_1.0.4  digest_0.6.33      minqa_1.2.5       
-## [31] rmarkdown_2.25     pkgconfig_2.0.3    htmltools_0.5.7   
-## [34] lme4_1.1-31        fastmap_1.1.1      highr_0.10        
-## [37] rlang_1.1.2        rstudioapi_0.15.0  jquerylib_0.1.4   
-## [40] farver_2.1.1       generics_0.1.3     zoo_1.8-11        
-## [43] jsonlite_1.8.7     vroom_1.6.3        car_3.1-1         
-## [46] magrittr_2.0.3     Matrix_1.5-4       Rcpp_1.0.10       
-## [49] munsell_0.5.0      fansi_1.0.5        abind_1.4-5       
-## [52] lifecycle_1.0.4    stringi_1.8.1      multcomp_1.4-22   
-## [55] yaml_2.3.7         snakecase_0.11.1   carData_3.0-5     
-## [58] MASS_7.3-58.2      grid_4.2.2         parallel_4.2.2    
-## [61] sjmisc_2.8.9       crayon_1.5.2       lattice_0.20-45   
-## [64] splines_4.2.2      ggeffects_1.3.1    sjstats_0.18.2    
-## [67] hms_1.1.3          pillar_1.9.0       boot_1.3-28.1     
-## [70] estimability_1.4.1 ggsignif_0.6.4     codetools_0.2-19  
-## [73] glue_1.6.2         evaluate_0.23      modelr_0.1.11     
-## [76] nloptr_2.0.3       vctrs_0.6.4        tzdb_0.3.0        
-## [79] cellranger_1.1.0   gtable_0.3.4       cachem_1.0.8      
-## [82] xfun_0.41          xtable_1.8-4       broom_1.0.5       
-## [85] coda_0.19-4        rstatix_0.7.2      survival_3.5-3    
-## [88] ragg_1.2.5         tinytex_0.48       timechange_0.2.0  
-## [91] TH.data_1.1-1
+##  [1] sandwich_3.0-2     rlang_1.1.1        magrittr_2.0.3     multcomp_1.4-25    snakecase_0.11.1  
+##  [6] compiler_4.3.1     systemfonts_1.0.4  vctrs_0.6.3        pkgconfig_2.0.3    crayon_1.5.2      
+## [11] fastmap_1.1.1      backports_1.4.1    labeling_0.4.2     utf8_1.2.3         rmarkdown_2.21    
+## [16] tzdb_0.4.0         nloptr_2.0.3       ragg_1.2.5         tinytex_0.45       bit_4.0.5         
+## [21] xfun_0.40          cachem_1.0.8       jsonlite_1.8.4     highr_0.10         sjmisc_2.8.9      
+## [26] ggeffects_1.3.1    broom_1.0.5        parallel_4.3.1     R6_2.5.1           bslib_0.4.2       
+## [31] stringi_1.7.12     car_3.1-2          boot_1.3-28.1      jquerylib_0.1.4    estimability_1.4.1
+## [36] Rcpp_1.0.10        bookdown_0.35      modelr_0.1.11      zoo_1.8-12         Matrix_1.6-1.1    
+## [41] splines_4.3.1      timechange_0.2.0   tidyselect_1.2.0   rstudioapi_0.15.0  abind_1.4-5       
+## [46] yaml_2.3.7         codetools_0.2-19   sjlabelled_1.2.0   curl_5.1.0         lattice_0.20-45   
+## [51] withr_2.5.0        bayestestR_0.13.1  coda_0.19-4        evaluate_0.22      survival_3.5-3    
+## [56] pillar_1.9.0       carData_3.0-5      insight_0.19.5     generics_0.1.3     vroom_1.6.3       
+## [61] hms_1.1.3          munsell_0.5.0      minqa_1.2.6        xtable_1.8-4       glue_1.6.2        
+## [66] emmeans_1.8.8      tools_4.3.1        lme4_1.1-34        ggsignif_0.6.4     mvtnorm_1.2-3     
+## [71] grid_4.3.1         colorspace_2.1-0   nlme_3.1-162       performance_0.10.5 cli_3.6.1         
+## [76] textshaping_0.3.6  fansi_1.0.4        sjstats_0.18.2     gtable_0.3.3       rstatix_0.7.2     
+## [81] sass_0.4.6         digest_0.6.31      TH.data_1.1-2      farver_2.1.1       htmltools_0.5.5   
+## [86] lifecycle_1.0.3    httr_1.4.7         bit64_4.0.5        MASS_7.3-60
 \end{verbatim}
 
   \bibliography{book.bib}
