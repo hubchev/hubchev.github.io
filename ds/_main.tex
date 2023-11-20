@@ -164,7 +164,7 @@ How to Use R for Data Science}
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 15 November, 2023}
+\date{Last compiled on 20 November, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -193,17 +193,6 @@ How to Use R for Data Science}
 }
 \hypertarget{preface}{%
 \chapter*{Preface}\label{preface}}
-\addcontentsline{toc}{chapter}{Preface}
-
-While data science is an appealing buzzword that combines different fields of knowledge such as computer science, software engineering, informatics, database management, statistics, econometrics, business intelligence, and mathematics, there is no universally accepted definition of it and I think it is not important to define it precisely. \citet[p.~97]{Kelleher2018Data} wrote ``Data science is best understood as a partnership between a data scientist and a computer.'' So data science is about embracing the power of computers for scientific, commercial or social purposes. Of course, empirical models and statistics play a role in gaining meaningful insights. The graphic on the cover page may illustrate that R combines four important fields, that are, data, science, computer, and statistics.
-
-The programming language R allows you to manipulate, visualize, and analyze data. It works on different operating systems (Windows, Mac, Linux) and can do a lot of things better than other programs (Python, Stata, Eviews, SPSS, SAS, Excel, etc.). R is open source and widely used. This facilitates the
-entry enormously. Nevertheless, learning the command syntax is essential for advanced data analysis.
-data analysis.
-
-I began my journey into data science in 2003 with the introductory course Statistics by \href{https://scholar.google.com/citations?user=geLs3JUAAAAJ\&hl=en}{Daniel Rösch}. I learned a lot. In particular, that probabilities often play a role when analyzing data. After that, I joined \href{https://scholar.google.ca/citations?user=tHNB7wIAAAAJ\&hl=en}{Harry Haupt's} \emph{Introductory Econometrics} course, where I studied the infamous Jeffrey M. \citet{Wooldridge2002Introductory} textbook. It got me hooked and I took all the courses \href{https://www.uni-regensburg.de/business-economics-and-management-information-systems/economics-tschernig/team/rolf-tschernig/index.html}{Rolf Tschernig} offered at his chair of Econometrics, where I became a tutor at the University of Regensburg and a research assistant of \href{https://iab.de/en/employee/m\%C3\%B6ller-joachim/}{Joachim Möller}. Despite everything we did had to do with how to make sense out of data, we never actually used the term \emph{data science} which is also absent in the more 850 pages long textbook by \citet{Wooldridge2002Introductory}. The book also remains silent about \emph{machine learning} or \emph{artificial intelligence}. These terms became popular only after I graduated. The \emph{Harvard Business Review} article by \citet{Davenport2012Data} who claimed that data scientist is ``The Sexiest Job of the 21st Century'' may have boosted the popularity.
-
-This makes me wonder if I can call myself a data scientist and why so many of my former comolitons, colleagues, and students call themselves now data scientists even though the term basically played no role in our education.
 
 \hypertarget{about-the-lecture-notes}{%
 \section*{About the lecture notes}\label{about-the-lecture-notes}}
@@ -220,9 +209,20 @@ This makes me wonder if I can call myself a data scientist and why so many of my
   I appreciate you reading it, and I appreciate any comments.
 \item
   This is work in progress so please check for updates regularly.
+  The programming language R enables you to handle, visualize, and analyze data. It is compatible with various operating systems (Windows, Mac, Linux) and can do a lot of things better compared to other programs like Python, Stata, Eviews, SPSS, SAS, Excel, for example. R is open source, extensively utilized, and there are abundant resources available for learning it. These notes don't aim to rival comprehensive textbooks such as ``\citet{Wickham2023R}.'' Instead, they offer a curated collection of explanations, exercises, and tips to facilitate learning R without causing unnecessary frustration.
 \item
   These notes are published under a Creative Commons BY-SA license (CC BY-SA) version 4.0. This means it can be reused, remixed, retained, revised and redistributed as long as appropriate credit is given to the authors. If you remix, or modify the original version of this open textbook, you must redistribute all versions of this open textbook under the same license---CC BY-SA. This script is build on the work of \citet{Navarro2020Learning}, \citet{Muschelli2022Introduction}, \citet{Thulin2021Modern}, and \citet{Ismay2022Statistical} which is also published under CC BY-SA.
 \end{itemize}
+
+\hypertarget{the-buzzword-data-science}{%
+\section*{The buzzword data science}\label{the-buzzword-data-science}}
+\addcontentsline{toc}{section}{The buzzword data science}
+
+Data science is a buzzword that combines different fields of knowledge such as computer science, software engineering, informatics, database management, statistics, econometrics, business intelligence, and mathematics. However, there is no universally accepted definition of it and I think it is not important to define it precisely. \citet[p.~97]{Kelleher2018Data} wrote ``Data science is best understood as a partnership between a data scientist and a computer.'' So data science is about embracing the power of computers for scientific, commercial or social purposes. Of course, empirical models and statistics play a role in gaining meaningful insights. The graphic on the cover page may illustrate that R combines four important fields, that are, data, science, computer, and statistics.
+
+I began my journey into data science in 2003 with the introductory course Statistics by \href{https://scholar.google.com/citations?user=geLs3JUAAAAJ\&hl=en}{Daniel Rösch}. I learned a lot. In particular, that probabilities often play a role when analyzing data. After that, I joined \href{https://scholar.google.ca/citations?user=tHNB7wIAAAAJ\&hl=en}{Harry Haupt's} \emph{Introductory Econometrics} course, where I studied the infamous Jeffrey M. \citet{Wooldridge2002Introductory} textbook. It got me hooked and I took all the courses \href{https://www.uni-regensburg.de/business-economics-and-management-information-systems/economics-tschernig/team/rolf-tschernig/index.html}{Rolf Tschernig} offered at his chair of Econometrics, where I became a tutor at the University of Regensburg and a research assistant of \href{https://iab.de/en/employee/m\%C3\%B6ller-joachim/}{Joachim Möller}. Despite everything we did had to do with how to make sense out of data, we never actually used the term \emph{data science} which is also absent in the more 850 pages long textbook by \citet{Wooldridge2002Introductory}. The book also remains silent about \emph{machine learning} or \emph{artificial intelligence}. These terms became popular only after I graduated. The \emph{Harvard Business Review} article by \citet{Davenport2012Data} who claimed that data scientist is ``The Sexiest Job of the 21st Century'' may have boosted the popularity.
+
+This makes me wonder if its okay that I and so many of my former comolitons, colleagues, and students call themselves now data scientists even though the term basically played no role in our education.
 
 \hypertarget{about-the-author}{%
 \section*{About the author}\label{about-the-author}}
@@ -1016,7 +1016,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/usr/local/lib/R/site-library/dplyr"
+## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1499,10 +1499,14 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##   iso3c date        value    indicatorID         indicator iso2c                     country
-## 1   AFE 2022 1.169484e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
-## 2   AFE 2021 1.081998e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
-## 3   AFE 2020 9.275933e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+##   iso3c date        value    indicatorID         indicator iso2c
+## 1   AFE 2022 1.169484e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH
+## 2   AFE 2021 1.081998e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH
+## 3   AFE 2020 9.275933e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH
+##                       country
+## 1 Africa Eastern and Southern
+## 2 Africa Eastern and Southern
+## 3 Africa Eastern and Southern
 \end{verbatim}
 
 \begin{Shaded}
@@ -1514,13 +1518,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \begin{verbatim}
 ## Rows: 13,365
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AF~
-## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", ~
-## $ value       <dbl> 1.169484e+12, 1.081998e+12, 9.275933e+11, 1.000834e+12, 1.007196e+12, 1.021043e+~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "Z~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern an~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AF~
+## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "201~
+## $ value       <dbl> 1.169484e+12, 1.081998e+12, 9.275933e+11, 1.000834e+~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD"~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (curr~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH"~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and S~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1530,19 +1534,26 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##     iso3c               date               value           indicatorID         indicator        
-##  Length:13365       Length:13365       Min.   :8.825e+06   Length:13365       Length:13365      
-##  Class :character   Class :character   1st Qu.:2.523e+09   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Median :1.843e+10   Mode  :character   Mode  :character  
-##                                        Mean   :1.207e+12                                        
-##                                        3rd Qu.:2.244e+11                                        
-##                                        Max.   :1.006e+14                                        
-##     iso2c             country         
-##  Length:13365       Length:13365      
-##  Class :character   Class :character  
-##  Mode  :character   Mode  :character  
-##                                       
-##                                       
+##     iso3c               date               value          
+##  Length:13365       Length:13365       Min.   :8.825e+06  
+##  Class :character   Class :character   1st Qu.:2.523e+09  
+##  Mode  :character   Mode  :character   Median :1.843e+10  
+##                                        Mean   :1.207e+12  
+##                                        3rd Qu.:2.244e+11  
+##                                        Max.   :1.006e+14  
+##  indicatorID         indicator            iso2c          
+##  Length:13365       Length:13365       Length:13365      
+##  Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Mode  :character  
+##                                                          
+##                                                          
+##                                                          
+##    country         
+##  Length:13365      
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
 ## 
 \end{verbatim}
 
@@ -1623,14 +1634,17 @@ One difference between data frames and tibbles is that dataframes store the row 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"     
-##  [5] "Hornet Sportabout"   "Valiant"             "Duster 360"          "Merc 240D"          
-##  [9] "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"         
-## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood"  "Lincoln Continental"
-## [17] "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"     
-## [21] "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
-## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"       
-## [29] "Ford Pantera L"      "Ferrari Dino"        "Maserati Bora"       "Volvo 142E"
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"         
+##  [4] "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"            
+##  [7] "Duster 360"          "Merc 240D"           "Merc 230"           
+## [10] "Merc 280"            "Merc 280C"           "Merc 450SE"         
+## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood" 
+## [16] "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"           
+## [19] "Honda Civic"         "Toyota Corolla"      "Toyota Corona"      
+## [22] "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
+## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"      
+## [28] "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
+## [31] "Maserati Bora"       "Volvo 142E"
 \end{verbatim}
 
 To store \texttt{mtcars} as a tibble, we can use the \texttt{as\_tibble} function:
@@ -1694,11 +1708,11 @@ When we look at the data, we've lost the names of the cars. To store the these, 
 
 \begin{verbatim}
 ## # A tibble: 3 x 12
-##   car             mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##   <chr>         <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
-## 1 Mazda RX4      21       6   160   110  3.9   2.62  16.5     0     1     4     4
-## 2 Mazda RX4 Wag  21       6   160   110  3.9   2.88  17.0     0     1     4     4
-## 3 Datsun 710     22.8     4   108    93  3.85  2.32  18.6     1     1     4     1
+##   car      mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##   <chr>  <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+## 1 Mazda~  21       6   160   110  3.9   2.62  16.5     0     1     4     4
+## 2 Mazda~  21       6   160   110  3.9   2.88  17.0     0     1     4     4
+## 3 Datsu~  22.8     4   108    93  3.85  2.32  18.6     1     1     4     1
 \end{verbatim}
 
 \hypertarget{data-types}{%
@@ -2431,17 +2445,17 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.~
-## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, ~
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.~
-## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230,~
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.0~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.07~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.4~
-## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, ~
-## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, ~
-## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, ~
-## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, ~
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8,~
+## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4,~
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 1~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92,~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.19~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.0~
+## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1,~
+## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,~
+## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4,~
+## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1,~
 \end{verbatim}
 
 \hypertarget{how-to-explore-a-dataset}{%
@@ -2477,14 +2491,22 @@ Here are some examples that may help to understand these functions:
 \end{Shaded}
 
 \begin{verbatim}
-##   integer_var  numeric_var    character_var       factor_var logical_var        date_var         
-##  Min.   :1    Min.   :1.100   Length:5           blue  :1    Mode :logical   Min.   :2022-01-01  
-##  1st Qu.:2    1st Qu.:1.925   Class :character   green :1    FALSE:1         1st Qu.:2022-02-01  
-##  Median :3    Median :3.300   Mode  :character   red   :2    TRUE :4         Median :2022-03-01  
-##  Mean   :3    Mean   :3.300                      yellow:1                    Mean   :2022-03-02  
-##  3rd Qu.:4    3rd Qu.:4.675                                                  3rd Qu.:2022-04-01  
-##  Max.   :5    Max.   :5.500                                                  Max.   :2022-05-01  
-##               NA's   :1
+##   integer_var  numeric_var    character_var       factor_var
+##  Min.   :1    Min.   :1.100   Length:5           blue  :1   
+##  1st Qu.:2    1st Qu.:1.925   Class :character   green :1   
+##  Median :3    Median :3.300   Mode  :character   red   :2   
+##  Mean   :3    Mean   :3.300                      yellow:1   
+##  3rd Qu.:4    3rd Qu.:4.675                                 
+##  Max.   :5    Max.   :5.500                                 
+##               NA's   :1                                     
+##  logical_var        date_var         
+##  Mode :logical   Min.   :2022-01-01  
+##  FALSE:1         1st Qu.:2022-02-01  
+##  TRUE :4         Median :2022-03-01  
+##                  Mean   :2022-03-02  
+##                  3rd Qu.:2022-04-01  
+##                  Max.   :2022-05-01  
+## 
 \end{verbatim}
 
 \begin{Shaded}
@@ -2501,7 +2523,7 @@ Here are some examples that may help to understand these functions:
 ## $ character_var <chr> "apple", "banana", "orange", "cherry", "grape"
 ## $ factor_var    <fct> red, yellow, red, blue, green
 ## $ logical_var   <lgl> TRUE, TRUE, TRUE, FALSE, TRUE
-## $ date_var      <date> 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-05-01
+## $ date_var      <date> 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 20~
 \end{verbatim}
 
 \begin{Shaded}
@@ -2656,10 +2678,14 @@ Here are some examples that may help to understand these functions:
 \end{Shaded}
 
 \begin{verbatim}
-##  cyl 52 62 65 66 91 93 95 97 105 109 110 113 123 150 175 180 205 215 230 245 264 335
-##    4  1  1  1  2  1  1  1  1   0   1   0   1   0   0   0   0   0   0   0   0   0   0
-##    6  0  0  0  0  0  0  0  0   1   0   3   0   2   0   1   0   0   0   0   0   0   0
-##    8  0  0  0  0  0  0  0  0   0   0   0   0   0   2   2   3   1   1   1   2   1   1
+##  cyl 52 62 65 66 91 93 95 97 105 109 110 113 123 150 175 180 205 215 230
+##    4  1  1  1  2  1  1  1  1   0   1   0   1   0   0   0   0   0   0   0
+##    6  0  0  0  0  0  0  0  0   1   0   3   0   2   0   1   0   0   0   0
+##    8  0  0  0  0  0  0  0  0   0   0   0   0   0   2   2   3   1   1   1
+##  245 264 335
+##    0   0   0
+##    0   0   0
+##    2   1   1
 \end{verbatim}
 
 \hypertarget{collection-of-exercises}{%
@@ -3151,12 +3177,164 @@ In the statistic course of WS 2020, I asked 23 students about their weight, heig
 A sketch of a solution is provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R}{here}.
 
 \begin{exercise}
-\protect\hypertarget{exr:execal}{}\label{exr:execal}Calories and weight
+\protect\hypertarget{exr:execal}{}\label{exr:execal}
 
-Download the file \href{https://github.com/hubchev/courses/blob/main/pdfs/exe_calories.pdf}{exe\_calories.pdf} from GitHub and answer the questions therein.
+Calories and weight
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Write down your name, your matriculation number, and the date.
+\item
+  Set your working directory.
+\item
+  Clear your global environment.
+\item
+  Load the following package: \texttt{tidyverse}
+\end{enumerate}
+
+\end{exercise}
+
+The following table stems from a survey carried out at the Campus of the German Sport University of Cologne at Opening Day (first day of the new semester) between 8:00am and 8:20am. The survey consists of 6 individuals with the following information:
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule\noalign{}
+id & sex & age & weight & calories & sport \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & f & 21 & 48 & 1700 & 60 \\
+2 & f & 19 & 55 & 1800 & 120 \\
+3 & f & 23 & 50 & 2300 & 180 \\
+4 & m & 18 & 71 & 2000 & 60 \\
+5 & m & 20 & 77 & 2800 & 240 \\
+6 & m & 61 & 85 & 2500 & 30 \\
+\end{longtable}
+
+Data Description:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{id:} Variable with an anonymized identifier for each participant.
+\item
+  \textbf{sex:} Gender, i.e., the participants replied to be either male (m) or female (f).
+\item
+  \textbf{age:} The age in years of the participants at the time of the survey.
+\item
+  \textbf{weight:} Number of kg the participants pretended to weight.
+\item
+  \textbf{calories:} Estimate of the participants on their average daily consumption of calories.
+\item
+  \textbf{sport:} Estimate of the participants on their average daily time that they spend on doing sports (measured in minutes).
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Which type of data do we have here? (Panel data, repeated cross-sectional data, cross-sectional data, time Series data)
+\item
+  Store each of the five variables in a vector and put all five variables into a dataframe with the title \texttt{df}. If you fail here, read in the data using this line of code:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"https://raw.githubusercontent.com/hubchev/courses/main/dta/df{-}calories.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 6 Columns: 5
+## -- Column specification --------------------------------------------------
+## Delimiter: ","
+## chr (1): sex
+## dbl (4): age, weight, calories, sport
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{6}
+\item
+  Show for all numerical variables the summary statistics including the mean, median, minimum, and the maximum.
+\item
+  Show for all numerical variables the summary statistics including the mean and the standard deviation, \textbf{separated by male and female}. Use therefore the pipe operator.
+\item
+  Suppose you want to analyze the general impact of average calories consumption per day on the weight. Discuss if the sample design is appropriate to draw conclusions on the population. What may cause some bias in the data? Discuss possibilities to improve the sampling and the survey, respectively.
+\item
+  The following plot visualizes the two variables weight and calories. Discuss what can be improved in the graphical visualization.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.25\textwidth,height=\textheight]{/home/sthu/Dropbox/hsf/exams/21-04/stuff/sport-r}
+\caption{Weight vs.~Calories}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{10}
+\item
+  Make a scatterplot matrix containing all numerical variables.
+\item
+  Calculate the Pearson Correlation Coefficient of the two variables
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \tightlist
+  \item
+    \texttt{calories} and \texttt{sport}
+  \item
+    \texttt{weight} and \texttt{calories}
+  \end{enumerate}
+\item
+  Make a scatterplot with \texttt{weight} in the y-axis and \texttt{calories} on the x-axis. Additionally, the plot should contain a linear fit and the points should be labeled with the \texttt{sex} just like in the figure shown above.
+\item
+  Estimate the following regression specification using the OLS method:
+  \[weight_i=\beta_0+\beta_1 calories_i+ \epsilon_i\]
+\end{enumerate}
+
+Show a summary of the estimates that look like the following:
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = weight ~ calories, data = df)
+## 
+## Residuals:
+##      1      2      3      4      5      6 
+## -5.490 -1.182 -6.640  9.435 -6.099  9.976 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)  
+## (Intercept)  7.730275  20.197867   0.383   0.7214  
+## calories     0.026917   0.009107   2.956   0.0417 *
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 8.68 on 4 degrees of freedom
+## Multiple R-squared:  0.6859, Adjusted R-squared:  0.6074 
+## F-statistic: 8.735 on 1 and 4 DF,  p-value: 0.04174
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{14}
+\item
+  Interpret the results. In particular, interpret how many kg the estimated weight increases---on average and ceteris paribus---if calories increase by 100 calories. Additionally, discuss the statistical properties of the estimated coefficient \(\hat{\beta_1}\) and the meaning of the \textbf{Adjusted R-squared}.
+\item
+  OLS estimates can suffer from omitted variable bias. State the two conditions that need to be fulfilled for omitted bias to occur.
+\item
+  Discuss potential confounding variables that may cause omitted variable bias. Given the dataset above how can some of the confounding variables be \emph{controlled for}?
+\end{enumerate}
 
 Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_calories.R}{here}.
-\end{exercise}
 
 \hypertarget{write-with-r-markdown}{%
 \chapter{Write with R Markdown}\label{write-with-r-markdown}}
@@ -3557,52 +3735,67 @@ When seeking help, be sure to provide information about your machine, including 
 \end{Shaded}
 
 \begin{verbatim}
-## R version 4.3.1 (2023-06-16)
+## R version 4.2.2 Patched (2022-11-10 r83330)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 12 (bookworm)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.11.0 
-## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.11.0
+## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
+## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
-##  [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
-## [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-## 
-## time zone: Europe/Berlin
-## tzcode source: system (glibc)
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.2          sjPlot_2.8.15        ggpubr_0.6.0         datasauRus_0.1.6    
-##  [5] haven_2.5.3          janitor_2.2.0        wbstats_1.0.4        scales_1.2.1        
-##  [9] lubridate_1.9.3      forcats_1.0.0        purrr_1.0.2          readr_2.1.4         
-## [13] tidyr_1.3.0          tibble_3.2.1         ggplot2_3.4.3        tidyverse_2.0.0     
-## [17] stringr_1.5.0        bundesligR_0.1.0     knitr_1.42           pacman_0.5.1        
-## [21] captioner_2.2.3.9000
+##  [1] dplyr_1.1.3          sjPlot_2.8.15        ggpubr_0.6.0        
+##  [4] datasauRus_0.1.6     haven_2.5.1          wbstats_1.0.4       
+##  [7] scales_1.2.1         bundesligR_0.1.0     knitr_1.45          
+## [10] pacman_0.5.1         captioner_2.2.3.9000 janitor_2.2.0       
+## [13] readxl_1.4.2         lubridate_1.9.2      forcats_1.0.0       
+## [16] stringr_1.5.0        purrr_1.0.2          readr_2.1.4         
+## [19] tidyr_1.3.0          tibble_3.2.1         ggplot2_3.4.3       
+## [22] tidyverse_2.0.0     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] tidyselect_1.2.0   sjlabelled_1.2.0   farver_2.1.1       fastmap_1.1.1      TH.data_1.1-2     
-##  [6] bayestestR_0.13.1  sjstats_0.18.2     digest_0.6.31      timechange_0.2.0   estimability_1.4.1
-## [11] lifecycle_1.0.3    survival_3.5-3     magrittr_2.0.3     compiler_4.3.1     rlang_1.1.1       
-## [16] sass_0.4.6         tools_4.3.1        utf8_1.2.3         yaml_2.3.7         ggsignif_0.6.4    
-## [21] labeling_0.4.2     curl_5.1.0         abind_1.4-5        multcomp_1.4-25    withr_2.5.0       
-## [26] grid_4.3.1         fansi_1.0.4        xtable_1.8-4       colorspace_2.1-0   emmeans_1.8.8     
-## [31] MASS_7.3-60        tinytex_0.45       insight_0.19.5     cli_3.6.1          mvtnorm_1.2-3     
-## [36] rmarkdown_2.21     crayon_1.5.2       ragg_1.2.5         generics_0.1.3     rstudioapi_0.15.0 
-## [41] performance_0.10.5 modelr_0.1.11      httr_1.4.7         tzdb_0.4.0         minqa_1.2.6       
-## [46] cachem_1.0.8       splines_4.3.1      vctrs_0.6.3        boot_1.3-28.1      Matrix_1.6-1.1    
-## [51] sandwich_3.0-2     jsonlite_1.8.4     carData_3.0-5      bookdown_0.35      car_3.1-2         
-## [56] hms_1.1.3          rstatix_0.7.2      systemfonts_1.0.4  jquerylib_0.1.4    glue_1.6.2        
-## [61] nloptr_2.0.3       codetools_0.2-19   stringi_1.7.12     gtable_0.3.3       ggeffects_1.3.1   
-## [66] lme4_1.1-34        munsell_0.5.0      pillar_1.9.0       htmltools_0.5.5    R6_2.5.1          
-## [71] textshaping_0.3.6  evaluate_0.22      lattice_0.20-45    highr_0.10         backports_1.4.1   
-## [76] broom_1.0.5        snakecase_0.11.1   bslib_0.4.2        Rcpp_1.0.10        nlme_3.1-162      
-## [81] coda_0.19-4        xfun_0.40          zoo_1.8-12         sjmisc_2.8.9       pkgconfig_2.0.3
+##  [1] nlme_3.1-162       bit64_4.0.5        insight_0.19.4    
+##  [4] httr_1.4.5         tools_4.2.2        backports_1.4.1   
+##  [7] bslib_0.5.1        utf8_1.2.4         R6_2.5.1          
+## [10] sjlabelled_1.2.0   colorspace_2.1-0   withr_2.5.2       
+## [13] tidyselect_1.2.0   rematch_1.0.1      emmeans_1.8.8     
+## [16] bit_4.0.5          curl_5.0.0         compiler_4.2.2    
+## [19] performance_0.10.5 textshaping_0.3.6  cli_3.6.1         
+## [22] sandwich_3.0-2     labeling_0.4.3     bookdown_0.36     
+## [25] bayestestR_0.13.1  sass_0.4.7         mvtnorm_1.1-3     
+## [28] systemfonts_1.0.4  digest_0.6.33      minqa_1.2.5       
+## [31] rmarkdown_2.25     pkgconfig_2.0.3    htmltools_0.5.7   
+## [34] lme4_1.1-31        fastmap_1.1.1      highr_0.10        
+## [37] rlang_1.1.2        rstudioapi_0.15.0  jquerylib_0.1.4   
+## [40] farver_2.1.1       generics_0.1.3     zoo_1.8-11        
+## [43] jsonlite_1.8.7     vroom_1.6.3        car_3.1-1         
+## [46] magrittr_2.0.3     Matrix_1.5-4       Rcpp_1.0.10       
+## [49] munsell_0.5.0      fansi_1.0.5        abind_1.4-5       
+## [52] lifecycle_1.0.4    stringi_1.8.1      multcomp_1.4-22   
+## [55] yaml_2.3.7         snakecase_0.11.1   carData_3.0-5     
+## [58] MASS_7.3-58.2      grid_4.2.2         parallel_4.2.2    
+## [61] sjmisc_2.8.9       crayon_1.5.2       lattice_0.20-45   
+## [64] splines_4.2.2      ggeffects_1.3.1    sjstats_0.18.2    
+## [67] hms_1.1.3          pillar_1.9.0       boot_1.3-28.1     
+## [70] estimability_1.4.1 ggsignif_0.6.4     codetools_0.2-19  
+## [73] glue_1.6.2         evaluate_0.23      modelr_0.1.11     
+## [76] nloptr_2.0.3       vctrs_0.6.4        tzdb_0.3.0        
+## [79] cellranger_1.1.0   gtable_0.3.4       cachem_1.0.8      
+## [82] xfun_0.41          xtable_1.8-4       broom_1.0.5       
+## [85] coda_0.19-4        rstatix_0.7.2      survival_3.5-3    
+## [88] ragg_1.2.5         tinytex_0.48       timechange_0.2.0  
+## [91] TH.data_1.1-1
 \end{verbatim}
 
   \bibliography{book.bib}

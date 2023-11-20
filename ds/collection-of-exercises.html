@@ -7,7 +7,7 @@
   <title>6 Collection of exercises |  How to Use R for Data Science</title>
   <meta name="description" content="<br />
 How to Use R for Data Science</p>" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Collection of exercises |  How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -163,7 +163,6 @@ div.csl-indent {
  <li><a href="./">How to Use R for Data Science</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting started with R</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#sec:whyR"><i class="fa fa-check"></i><b>1.1</b> Why R?</a></li>
@@ -509,9 +508,144 @@ The result should look something like this:</p>
 <p>A sketch of a solution is provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R">here</a>.</p>
 <div class="exercise">
 <p><span id="exr:execal" class="exercise"><strong>Exercise 6.11  </strong></span>Calories and weight</p>
-<p>Download the file <a href="https://github.com/hubchev/courses/blob/main/pdfs/exe_calories.pdf">exe_calories.pdf</a> from GitHub and answer the questions therein.</p>
-<p>Solutions are provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_calories.R">here</a>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Write down your name, your matriculation number, and the date.</li>
+<li>Set your working directory.</li>
+<li>Clear your global environment.</li>
+<li>Load the following package: <code>tidyverse</code></li>
+</ol>
 </div>
+<p>The following table stems from a survey carried out at the Campus of the German Sport University of Cologne at Opening Day (first day of the new semester) between 8:00am and 8:20am. The survey consists of 6 individuals with the following information:</p>
+<table>
+<thead>
+<tr class="header">
+<th>id</th>
+<th>sex</th>
+<th>age</th>
+<th>weight</th>
+<th>calories</th>
+<th>sport</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>f</td>
+<td>21</td>
+<td>48</td>
+<td>1700</td>
+<td>60</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>f</td>
+<td>19</td>
+<td>55</td>
+<td>1800</td>
+<td>120</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>f</td>
+<td>23</td>
+<td>50</td>
+<td>2300</td>
+<td>180</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>m</td>
+<td>18</td>
+<td>71</td>
+<td>2000</td>
+<td>60</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>m</td>
+<td>20</td>
+<td>77</td>
+<td>2800</td>
+<td>240</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>m</td>
+<td>61</td>
+<td>85</td>
+<td>2500</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<p>Data Description:</p>
+<ul>
+<li><strong>id:</strong> Variable with an anonymized identifier for each participant.</li>
+<li><strong>sex:</strong> Gender, i.e., the participants replied to be either male (m) or female (f).</li>
+<li><strong>age:</strong> The age in years of the participants at the time of the survey.</li>
+<li><strong>weight:</strong> Number of kg the participants pretended to weight.</li>
+<li><strong>calories:</strong> Estimate of the participants on their average daily consumption of calories.</li>
+<li><strong>sport:</strong> Estimate of the participants on their average daily time that they spend on doing sports (measured in minutes).</li>
+</ul>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Which type of data do we have here? (Panel data, repeated cross-sectional data, cross-sectional data, time Series data)</li>
+<li>Store each of the five variables in a vector and put all five variables into a dataframe with the title <code>df</code>. If you fail here, read in the data using this line of code:</li>
+</ol>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="collection-of-exercises.html#cb189-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/hubchev/courses/main/dta/df-calories.csv&quot;</span>)</span></code></pre></div>
+<pre><code>## Rows: 6 Columns: 5
+## ── Column specification ─────────────────────────────────────────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr (1): sex
+## dbl (4): age, weight, calories, sport
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<ol start="7" style="list-style-type: lower-alpha">
+<li><p>Show for all numerical variables the summary statistics including the mean, median, minimum, and the maximum.</p></li>
+<li><p>Show for all numerical variables the summary statistics including the mean and the standard deviation, <strong>separated by male and female</strong>. Use therefore the pipe operator.</p></li>
+<li><p>Suppose you want to analyze the general impact of average calories consumption per day on the weight. Discuss if the sample design is appropriate to draw conclusions on the population. What may cause some bias in the data? Discuss possibilities to improve the sampling and the survey, respectively.</p></li>
+<li><p>The following plot visualizes the two variables weight and calories. Discuss what can be improved in the graphical visualization.</p></li>
+</ol>
+<div class="float">
+<img src="/home/sthu/Dropbox/hsf/exams/21-04/stuff/sport-r" style="width:25.0%" alt="Weight vs. Calories" />
+<div class="figcaption">Weight vs. Calories</div>
+</div>
+<ol start="11" style="list-style-type: lower-alpha">
+<li><p>Make a scatterplot matrix containing all numerical variables.</p></li>
+<li><p>Calculate the Pearson Correlation Coefficient of the two variables</p>
+<ol style="list-style-type: decimal">
+<li><code>calories</code> and <code>sport</code></li>
+<li><code>weight</code> and <code>calories</code></li>
+</ol></li>
+<li><p>Make a scatterplot with <code>weight</code> in the y-axis and <code>calories</code> on the x-axis. Additionally, the plot should contain a linear fit and the points should be labeled with the <code>sex</code> just like in the figure shown above.</p></li>
+<li><p>Estimate the following regression specification using the OLS method:
+<span class="math display">\[weight_i=\beta_0+\beta_1 calories_i+ \epsilon_i\]</span></p></li>
+</ol>
+<p>Show a summary of the estimates that look like the following:</p>
+<pre><code>## 
+## Call:
+## lm(formula = weight ~ calories, data = df)
+## 
+## Residuals:
+##      1      2      3      4      5      6 
+## -5.490 -1.182 -6.640  9.435 -6.099  9.976 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)  7.730275  20.197867   0.383   0.7214  
+## calories     0.026917   0.009107   2.956   0.0417 *
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.68 on 4 degrees of freedom
+## Multiple R-squared:  0.6859, Adjusted R-squared:  0.6074 
+## F-statistic: 8.735 on 1 and 4 DF,  p-value: 0.04174</code></pre>
+<ol start="15" style="list-style-type: lower-alpha">
+<li><p>Interpret the results. In particular, interpret how many kg the estimated weight increases—on average and ceteris paribus—if calories increase by 100 calories. Additionally, discuss the statistical properties of the estimated coefficient <span class="math inline">\(\hat{\beta_1}\)</span> and the meaning of the <strong>Adjusted R-squared</strong>.</p></li>
+<li><p>OLS estimates can suffer from omitted variable bias. State the two conditions that need to be fulfilled for omitted bias to occur.</p></li>
+<li><p>Discuss potential confounding variables that may cause omitted variable bias. Given the dataset above how can some of the confounding variables be <em>controlled for</em>?</p></li>
+</ol>
+<p>Solutions are provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_calories.R">here</a>.</p>
 
 </div>
 <div class="footnotes">

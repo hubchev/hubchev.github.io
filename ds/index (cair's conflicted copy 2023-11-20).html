@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> How to Use R for Data Science</title>
+  <meta name="description" content="<br />
+How to Use R for Data Science</p>" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" How to Use R for Data Science" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://hubchev.github.io/ds/fig/cover.png" />
+  
+  <meta name="github-repo" content="hubchev/hubchev.github.io" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" How to Use R for Data Science" />
+  
+  
+  <meta name="twitter:image" content="https://hubchev.github.io/ds/fig/cover.png" />
+
+<meta name="author" content="© Prof. Dr. Stephan Huber (Stephan.Huber@hs-fresenius.de)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="getting-started.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="preamble.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="fig/cover.png"></a></li>
+ <li><a href="./">How to Use R for Data Science</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting started with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#sec:whyR"><i class="fa fa-check"></i><b>1.1</b> Why R?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#howtolearnr"><i class="fa fa-check"></i><b>1.2</b> How to learn R</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#Rlearninglit"><i class="fa fa-check"></i><b>1.3</b> Learning resources</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#r-rstudio"><i class="fa fa-check"></i><b>1.4</b> What are R and RStudio?</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#how-to-use-r-and-rstudio-without-installation"><i class="fa fa-check"></i><b>1.5</b> How to use R and RStudio without installation</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#installing"><i class="fa fa-check"></i><b>1.6</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.7" data-path="getting-started.html"><a href="getting-started.html#packages"><i class="fa fa-check"></i><b>1.7</b> What are R packages?</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="getting-started.html"><a href="getting-started.html#package-installation"><i class="fa fa-check"></i><b>1.7.1</b> Package installation</a></li>
+<li class="chapter" data-level="1.7.2" data-path="getting-started.html"><a href="getting-started.html#package-loading"><i class="fa fa-check"></i><b>1.7.2</b> Package loading</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="getting-started.html"><a href="getting-started.html#what-is-a-function-in-r"><i class="fa fa-check"></i><b>1.8</b> What is a function in R?</a></li>
+<li class="chapter" data-level="1.9" data-path="getting-started.html"><a href="getting-started.html#sec:objects"><i class="fa fa-check"></i><b>1.9</b> What are objects in R?</a></li>
+<li class="chapter" data-level="1.10" data-path="getting-started.html"><a href="getting-started.html#are-there-some-guidelines-for-working-with-r"><i class="fa fa-check"></i><b>1.10</b> Are there some guidelines for working with R?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="swirl.html"><a href="swirl.html"><i class="fa fa-check"></i><b>2</b> Learn interactively with swirl</a></li>
+<li class="chapter" data-level="3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html"><i class="fa fa-check"></i><b>3</b> Work with R scripts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#r-scripts-why-they-are-useful"><i class="fa fa-check"></i><b>3.1</b> R Scripts: Why they are useful</a></li>
+<li class="chapter" data-level="3.2" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write, and run R scripts</a></li>
+<li class="chapter" data-level="3.3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:assignmentoper"><i class="fa fa-check"></i><b>3.3</b> The assignment operator: <code>&lt;-</code></a></li>
+<li class="chapter" data-level="3.4" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#doing-calculation-in-scripts"><i class="fa fa-check"></i><b>3.4</b> Doing calculation in scripts</a></li>
+<li class="chapter" data-level="3.5" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:generics"><i class="fa fa-check"></i><b>3.5</b> User-defined functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualizing-data.html"><a href="visualizing-data.html"><i class="fa fa-check"></i><b>4</b> Visualizing data</a></li>
+<li class="chapter" data-level="5" data-path="manage-data.html"><a href="manage-data.html"><i class="fa fa-check"></i><b>5</b> Manage data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="manage-data.html"><a href="manage-data.html#the-tidyverse-universe"><i class="fa fa-check"></i><b>5.1</b> The tidyverse universe</a></li>
+<li class="chapter" data-level="5.2" data-path="manage-data.html"><a href="manage-data.html#pipeoperator"><i class="fa fa-check"></i><b>5.2</b> The pipe operator</a></li>
+<li class="chapter" data-level="5.3" data-path="manage-data.html"><a href="manage-data.html#import-data"><i class="fa fa-check"></i><b>5.3</b> Import data</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="manage-data.html"><a href="manage-data.html#vectors-and-matrices"><i class="fa fa-check"></i><b>5.3.1</b> Vectors and matrices</a></li>
+<li class="chapter" data-level="5.3.2" data-path="manage-data.html"><a href="manage-data.html#open-rdata-files"><i class="fa fa-check"></i><b>5.3.2</b> Open RData files</a></li>
+<li class="chapter" data-level="5.3.3" data-path="manage-data.html"><a href="manage-data.html#open-datasets-of-packages"><i class="fa fa-check"></i><b>5.3.3</b> Open datasets of packages</a></li>
+<li class="chapter" data-level="5.3.4" data-path="manage-data.html"><a href="manage-data.html#import-data-using-public-apis"><i class="fa fa-check"></i><b>5.3.4</b> Import data using public APIs</a></li>
+<li class="chapter" data-level="5.3.5" data-path="manage-data.html"><a href="manage-data.html#import-various-file-formats"><i class="fa fa-check"></i><b>5.3.5</b> Import various file formats</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.4</b> Data</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="manage-data.html"><a href="manage-data.html#data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.4.1</b> Data frames and tibbles</a></li>
+<li class="chapter" data-level="5.4.2" data-path="manage-data.html"><a href="manage-data.html#tidy-data"><i class="fa fa-check"></i><b>5.4.2</b> Tidy data</a></li>
+<li class="chapter" data-level="5.4.3" data-path="manage-data.html"><a href="manage-data.html#data-types"><i class="fa fa-check"></i><b>5.4.3</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#tools-to-manipulate-data"><i class="fa fa-check"></i><b>5.5</b> Tools to manipulate data</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="manage-data.html"><a href="manage-data.html#the-in-operator"><i class="fa fa-check"></i><b>5.5.1</b> The <code>%in%</code> operator</a></li>
+<li class="chapter" data-level="5.5.2" data-path="manage-data.html"><a href="manage-data.html#extract-operators"><i class="fa fa-check"></i><b>5.5.2</b> Extract operators</a></li>
+<li class="chapter" data-level="5.5.3" data-path="manage-data.html"><a href="manage-data.html#logical-operators"><i class="fa fa-check"></i><b>5.5.3</b> Logical operators</a></li>
+<li class="chapter" data-level="5.5.4" data-path="manage-data.html"><a href="manage-data.html#if-statements"><i class="fa fa-check"></i><b>5.5.4</b> If statements</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="manage-data.html"><a href="manage-data.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>5.6</b> Data manipulation with dplyr</a></li>
+<li class="chapter" data-level="5.7" data-path="manage-data.html"><a href="manage-data.html#how-to-explore-a-dataset"><i class="fa fa-check"></i><b>5.7</b> How to explore a dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html"><i class="fa fa-check"></i><b>6</b> Collection of exercises</a></li>
+<li class="chapter" data-level="7" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Write with R Markdown</a></li>
+<li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#helpful-shortcuts"><i class="fa fa-check"></i><b>8.1</b> Helpful shortcuts</a></li>
+<li class="chapter" data-level="8.2" data-path="appendix.html"><a href="appendix.html#sec:navigation"><i class="fa fa-check"></i><b>8.2</b> Navigating the file system</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="appendix.html"><a href="appendix.html#sec:filesystem"><i class="fa fa-check"></i><b>8.2.1</b> The file system</a></li>
+<li class="chapter" data-level="8.2.2" data-path="appendix.html"><a href="appendix.html#working-directory"><i class="fa fa-check"></i><b>8.2.2</b> Working directory</a></li>
+<li class="chapter" data-level="8.2.3" data-path="appendix.html"><a href="appendix.html#sec:navigationR"><i class="fa fa-check"></i><b>8.2.3</b> Navigating the file system using the R console</a></li>
+<li class="chapter" data-level="8.2.4" data-path="appendix.html"><a href="appendix.html#sec:rstudioprojects"><i class="fa fa-check"></i><b>8.2.4</b> R Studio projects</a></li>
+<li class="chapter" data-level="8.2.5" data-path="appendix.html"><a href="appendix.html#sec:winbackslash"><i class="fa fa-check"></i><b>8.2.5</b> Why do the Windows paths use the back-slash?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="appendix.html"><a href="appendix.html#troubleshooting"><i class="fa fa-check"></i><b>8.3</b> Troubleshooting</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li>&copy; Prof. Dr. Stephan Huber.</li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><img src="fig/cover.png" style="width:8cm" /><br />
+How to Use R for Data Science</p></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title"><p><img src="fig/cover.png" style="width:8cm" /><br />
+How to Use R for Data Science</p></h1>
+<h2 class="subtitle"><em>Lecture Notes</em></h2>
+<p class="author"><em>© Prof. Dr. Stephan Huber (<a href="mailto:Stephan.Huber@hs-fresenius.de" class="email">Stephan.Huber@hs-fresenius.de</a>)</em></p>
+<p class="date"><em>Last compiled on 20 November, 2023</em></p>
+</div>
+<div id="preface" class="section level1 unlisted unnumbered hasAnchor">
+<h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="about-the-lecture-notes" class="section level2 unlisted unnumbered hasAnchor">
+<h2>About the lecture notes<a href="index.html#about-the-lecture-notes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>These notes aims to support my lecture at the HS Fresenius but are incomplete and no substitute for taking actively part in class.</li>
+<li>A pdf version of these notes is available <a href="https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/ds/_main.pdf">here</a></li>
+<li>I host the notes in a <a href="https://github.com/hubchev/hubchev.github.io/tree/main/ds">GitHub repo</a>.</li>
+<li>I appreciate you reading it, and I appreciate any comments.</li>
+<li>This is work in progress so please check for updates regularly.
+The programming language R enables you to handle, visualize, and analyze data. It is compatible with various operating systems (Windows, Mac, Linux) and can do a lot of things better compared to other programs like Python, Stata, Eviews, SPSS, SAS, Excel, for example. R is open source, extensively utilized, and there are abundant resources available for learning it. These notes don’t aim to rival comprehensive textbooks such as “<span class="citation">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R">2023</a>)</span>.” Instead, they offer a curated collection of explanations, exercises, and tips to facilitate learning R without causing unnecessary frustration.</li>
+<li>These notes are published under a Creative Commons BY-SA license (CC BY-SA) version 4.0. This means it can be reused, remixed, retained, revised and redistributed as long as appropriate credit is given to the authors. If you remix, or modify the original version of this open textbook, you must redistribute all versions of this open textbook under the same license—CC BY-SA. This script is build on the work of <span class="citation">Navarro (<a href="references.html#ref-Navarro2020Learning">2020</a>)</span>, <span class="citation">Muschelli &amp; Jaffe (<a href="references.html#ref-Muschelli2022Introduction">2022</a>)</span>, <span class="citation">Thulin (<a href="references.html#ref-Thulin2021Modern">2021</a>)</span>, and <span class="citation">Ismay &amp; Kim (<a href="references.html#ref-Ismay2022Statistical">2022</a>)</span> which is also published under CC BY-SA.</li>
+</ul>
+</div>
+<div id="the-buzzword-data-science" class="section level2 unnumbered hasAnchor">
+<h2>The buzzword data science<a href="index.html#the-buzzword-data-science" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Data science is a buzzword that combines different fields of knowledge such as computer science, software engineering, informatics, database management, statistics, econometrics, business intelligence, and mathematics. However, there is no universally accepted definition of it and I think it is not important to define it precisely. <span class="citation">Kelleher &amp; Tierney (<a href="references.html#ref-Kelleher2018Data">2018, p. 97</a>)</span> wrote “Data science is best understood as a partnership between a data scientist and a computer.” So data science is about embracing the power of computers for scientific, commercial or social purposes. Of course, empirical models and statistics play a role in gaining meaningful insights. The graphic on the cover page may illustrate that R combines four important fields, that are, data, science, computer, and statistics.</p>
+<p>I began my journey into data science in 2003 with the introductory course Statistics by <a href="https://scholar.google.com/citations?user=geLs3JUAAAAJ&amp;hl=en">Daniel Rösch</a>. I learned a lot. In particular, that probabilities often play a role when analyzing data. After that, I joined <a href="https://scholar.google.ca/citations?user=tHNB7wIAAAAJ&amp;hl=en">Harry Haupt’s</a> <em>Introductory Econometrics</em> course, where I studied the infamous Jeffrey M. <span class="citation">Wooldridge (<a href="references.html#ref-Wooldridge2002Introductory">2002</a>)</span> textbook. It got me hooked and I took all the courses <a href="https://www.uni-regensburg.de/business-economics-and-management-information-systems/economics-tschernig/team/rolf-tschernig/index.html">Rolf Tschernig</a> offered at his chair of Econometrics, where I became a tutor at the University of Regensburg and a research assistant of <a href="https://iab.de/en/employee/m%C3%B6ller-joachim/">Joachim Möller</a>. Despite everything we did had to do with how to make sense out of data, we never actually used the term <em>data science</em> which is also absent in the more 850 pages long textbook by <span class="citation">Wooldridge (<a href="references.html#ref-Wooldridge2002Introductory">2002</a>)</span>. The book also remains silent about <em>machine learning</em> or <em>artificial intelligence</em>. These terms became popular only after I graduated. The <em>Harvard Business Review</em> article by <span class="citation">Davenport &amp; Patil (<a href="references.html#ref-Davenport2012Data">2012</a>)</span> who claimed that data scientist is “The Sexiest Job of the 21st Century” may have boosted the popularity.</p>
+<p>This makes me wonder if its okay that I and so many of my former comolitons, colleagues, and students call themselves now data scientists even though the term basically played no role in our education.</p>
+</div>
+<div id="about-the-author" class="section level2 unlisted unnumbered hasAnchor">
+<h2>About the author<a href="index.html#about-the-author" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="float">
+<img src="fig/huber2.jpeg" style="width:25.0%" alt=" Prof. Dr. Stephan Huber" />
+<div class="figcaption"> Prof. Dr. Stephan Huber</div>
+</div>
+<p>I am a Professor of International Economics and Data Science at HS Fresenius, holding a Diploma in Economics from the University of Regensburg and a Doctoral Degree (summa cum laude) from the University of Trier. I completed postgraduate studies at the Interdisciplinary Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU) in Trier. Prior to my current position, I worked as a research assistant to Prof. Dr. Dr. h.c. Joachim Möller at the University of Regensburg, a post-doc at the Leibniz Institute for East and Southeast European Studies (IOS) in Regensburg, and a freelancer at Charles University in Prague.</p>
+<p>Throughout my career, I have also worked as a lecturer at various institutions, including the TU Munich, the University of Regensburg, Saarland University, and the Universities of Applied Sciences in Frankfurt and Augsburg. Additionally, I have had the opportunity to teach abroad for the University of Cordoba in Spain and the University of Perugia. My published work can be found in international journals such as the Canadian Journal of Economics and the Stata Journal. For more information on my work, please visit my private homepage at <a href="www.hubchev.github.io">hubchev.github.io</a>.</p>
+<p><strong>Contact</strong></p>
+<pre><code>   Hochschule Fresenius für Wirtschaft &amp; Medien GmbH
+   Im MediaPark 4c
+   50670 Cologne
+   
+   Office: 4b OG-1 Bü01 
+   Telefon: +49 221 973199-523
+   Mail: stephan.huber@hs-fresenius.de
+   Private homepage: www.hubchev.github.io
+   Github: https://github.com/hubchev</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="getting-started.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
