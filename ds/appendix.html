@@ -7,7 +7,7 @@
   <title>8 Appendix |  How to Use R for Data Science</title>
   <meta name="description" content="<br />
 How to Use R for Data Science</p>" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8 Appendix |  How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -219,7 +219,6 @@ div.csl-indent {
 <li class="chapter" data-level="5.7" data-path="manage-data.html"><a href="manage-data.html#how-to-explore-a-dataset"><i class="fa fa-check"></i><b>5.7</b> How to explore a dataset</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html"><i class="fa fa-check"></i><b>6</b> Collection of exercises</a></li>
-<li class="chapter" data-level="7" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Write with R Markdown</a></li>
 <li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#helpful-shortcuts"><i class="fa fa-check"></i><b>8.1</b> Helpful shortcuts</a></li>
@@ -406,23 +405,23 @@ How to Use R for Data Science</p></a>
 <p>It is quite common on computers that have multiple users to define <code>~</code> to be the user’s <em>home directory</em>. The home directory on a Mac for the `<code>huber'' user is</code>/Users/huber/<code>. And so, not surprisingly, it is possible to define other directories in terms of their relationship to the home directory. For example, an alternative way to describe the location of the</code>rcourse-book.pdf` file on a Mac would be</p>
 <pre><code>~\Rbook\rcourse-book.pdf</code></pre>
 <p>You can find out your home directory with the <code>path.expand()</code> function:</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="appendix.html#cb197-1" tabindex="-1"></a><span class="fu">path.expand</span>(<span class="st">&quot;~&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="appendix.html#cb198-1" tabindex="-1"></a><span class="fu">path.expand</span>(<span class="st">&quot;~&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &quot;/home/sthu&quot;</code></pre>
 <p>Thus, on my machine ~ is an abbreviation for the path /home/sthu.</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="appendix.html#cb199-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="appendix.html#cb200-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;/home/sthu/Dropbox/hsf/courses/ds&quot;</code></pre>
 </div>
 <div id="sec:navigationR" class="section level3 hasAnchor" number="8.2.3">
 <h3><span class="header-section-number">8.2.3</span> Navigating the file system using the R console<a href="appendix.html#sec:navigationR" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When you want to load or save a file in R it’s important to know what the working directory is. You can find out by using the <code>getwd()</code> command. For the moment, let’s assume that I’m using Mac OS or Linux, since things are different on Windows, see section <a href="appendix.html#sec:winbackslash">8.2.5</a>.
 Let’s check the current active working directory:</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="appendix.html#cb201-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="appendix.html#cb202-1" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div>
 <pre><code>## [1] &quot;/home/sthu/Dropbox/hsf/courses/ds&quot;</code></pre>
 <p>The function <code>setwd()</code> allows to change the working directory:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="appendix.html#cb203-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/Users/huber/Rbook/data&quot;</span>)</span>
-<span id="cb203-2"><a href="appendix.html#cb203-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./Rbook/data&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="appendix.html#cb204-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/Users/huber/Rbook/data&quot;</span>)</span>
+<span id="cb204-2"><a href="appendix.html#cb204-2" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./Rbook/data&quot;</span>)</span></code></pre></div>
 <p>The function <code>list.files()</code> lists all the files in that directory:</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="appendix.html#cb204-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="appendix.html#cb205-1" tabindex="-1"></a><span class="fu">list.files</span>()</span></code></pre></div>
 </div>
 <div id="sec:rstudioprojects" class="section level3 hasAnchor" number="8.2.4">
 <h3><span class="header-section-number">8.2.4</span> R Studio projects<a href="appendix.html#sec:rstudioprojects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -432,63 +431,63 @@ Let’s check the current active working directory:</p>
 <div id="sec:winbackslash" class="section level3 hasAnchor" number="8.2.5">
 <h3><span class="header-section-number">8.2.5</span> Why do the Windows paths use the back-slash?<a href="appendix.html#sec:winbackslash" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s suppose I’m using a computer with Windows. As before, I can find out what my current working directory is like this:</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="appendix.html#cb205-1" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb205-2"><a href="appendix.html#cb205-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;C:/Users/huber/</span></span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="appendix.html#cb206-1" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb206-2"><a href="appendix.html#cb206-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">&quot;C:/Users/huber/</span></span></code></pre></div>
 <p>R is displaying a Windows path using the wrong type of slash, the back-slash. The answer has to do with the fact that R treats the <code>\</code> character as <em>special</em>. If you’re deeply wedded to the idea of specifying a path using the Windows style slashes, then what you need to use two back-slashes <code>\\</code> whenever you mean <code>\</code>. In other words, if you want to specify the working directory on a Windows computer, you need to use one of the following commands:</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="appendix.html#cb206-1" tabindex="-1"></a><span class="fu">setwd</span>( <span class="st">&quot;C:/Users/huber&quot;</span> )</span>
-<span id="cb206-2"><a href="appendix.html#cb206-2" tabindex="-1"></a><span class="fu">setwd</span>( <span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">huber&quot;</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="appendix.html#cb207-1" tabindex="-1"></a><span class="fu">setwd</span>( <span class="st">&quot;C:/Users/huber&quot;</span> )</span>
+<span id="cb207-2"><a href="appendix.html#cb207-2" tabindex="-1"></a><span class="fu">setwd</span>( <span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">huber&quot;</span> )</span></code></pre></div>
 </div>
 </div>
 <div id="troubleshooting" class="section level2 hasAnchor" number="8.3">
 <h2><span class="header-section-number">8.3</span> Troubleshooting<a href="appendix.html#troubleshooting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Troubleshooting is perhaps the most important skill for a data scientist. To tackle problems effectively, you need to understand them, replicate them, and then work to solve them. To help you with this process, here are some guidelines:</p>
 <p>When seeking help, be sure to provide information about your machine, including the operating system, the version of R, and the packages you have loaded. You can use the sessionInfo() function to gather this information. Here’s an example from my machine:</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="appendix.html#cb207-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
-<pre><code>## R version 4.3.1 (2023-06-16)
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="appendix.html#cb208-1" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div>
+<pre><code>## R version 4.2.2 Patched (2022-11-10 r83330)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 12 (bookworm)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.11.0 
-## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.11.0
+## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
+## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-## 
-## time zone: Europe/Berlin
-## tzcode source: system (glibc)
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
+##  [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
+## [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.2          sjPlot_2.8.15        ggpubr_0.6.0         datasauRus_0.1.6     haven_2.5.3         
-##  [6] janitor_2.2.0        wbstats_1.0.4        scales_1.2.1         lubridate_1.9.3      forcats_1.0.0       
-## [11] purrr_1.0.2          readr_2.1.4          tidyr_1.3.0          tibble_3.2.1         ggplot2_3.4.3       
-## [16] tidyverse_2.0.0      stringr_1.5.0        bundesligR_0.1.0     knitr_1.42           pacman_0.5.1        
-## [21] captioner_2.2.3.9000
+##  [1] dplyr_1.1.3          papaja_0.1.2         tinylabels_0.2.4     sjPlot_2.8.15       
+##  [5] ggpubr_0.6.0         datasauRus_0.1.6     haven_2.5.1          janitor_2.2.0       
+##  [9] wbstats_1.0.4        scales_1.2.1         lubridate_1.9.2      forcats_1.0.0       
+## [13] purrr_1.0.2          readr_2.1.4          tidyr_1.3.0          tibble_3.2.1        
+## [17] ggplot2_3.4.3        tidyverse_2.0.0      stringr_1.5.0        bundesligR_0.1.0    
+## [21] knitr_1.45           pacman_0.5.1         captioner_2.2.3.9000
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] sandwich_3.0-2     rlang_1.1.1        magrittr_2.0.3     multcomp_1.4-25    snakecase_0.11.1  
-##  [6] compiler_4.3.1     systemfonts_1.0.4  vctrs_0.6.3        pkgconfig_2.0.3    crayon_1.5.2      
-## [11] fastmap_1.1.1      backports_1.4.1    labeling_0.4.2     utf8_1.2.3         rmarkdown_2.21    
-## [16] tzdb_0.4.0         nloptr_2.0.3       ragg_1.2.5         tinytex_0.45       bit_4.0.5         
-## [21] xfun_0.40          cachem_1.0.8       jsonlite_1.8.4     highr_0.10         sjmisc_2.8.9      
-## [26] ggeffects_1.3.1    broom_1.0.5        parallel_4.3.1     R6_2.5.1           bslib_0.4.2       
-## [31] stringi_1.7.12     car_3.1-2          boot_1.3-28.1      jquerylib_0.1.4    estimability_1.4.1
-## [36] Rcpp_1.0.10        bookdown_0.35      modelr_0.1.11      zoo_1.8-12         Matrix_1.6-1.1    
-## [41] splines_4.3.1      timechange_0.2.0   tidyselect_1.2.0   rstudioapi_0.15.0  abind_1.4-5       
-## [46] yaml_2.3.7         codetools_0.2-19   sjlabelled_1.2.0   curl_5.1.0         lattice_0.20-45   
-## [51] withr_2.5.0        bayestestR_0.13.1  coda_0.19-4        evaluate_0.22      survival_3.5-3    
-## [56] pillar_1.9.0       carData_3.0-5      insight_0.19.5     generics_0.1.3     vroom_1.6.3       
-## [61] hms_1.1.3          munsell_0.5.0      minqa_1.2.6        xtable_1.8-4       glue_1.6.2        
-## [66] emmeans_1.8.8      tools_4.3.1        lme4_1.1-34        ggsignif_0.6.4     mvtnorm_1.2-3     
-## [71] grid_4.3.1         colorspace_2.1-0   nlme_3.1-162       performance_0.10.5 cli_3.6.1         
-## [76] textshaping_0.3.6  fansi_1.0.4        sjstats_0.18.2     gtable_0.3.3       rstatix_0.7.2     
-## [81] sass_0.4.6         digest_0.6.31      TH.data_1.1-2      farver_2.1.1       htmltools_0.5.5   
-## [86] lifecycle_1.0.3    httr_1.4.7         bit64_4.0.5        MASS_7.3-60</code></pre>
+##  [1] nlme_3.1-162       bit64_4.0.5        insight_0.19.4     httr_1.4.5         tools_4.2.2       
+##  [6] backports_1.4.1    bslib_0.5.1        utf8_1.2.4         R6_2.5.1           sjlabelled_1.2.0  
+## [11] colorspace_2.1-0   withr_2.5.2        tidyselect_1.2.0   emmeans_1.8.8      bit_4.0.5         
+## [16] curl_5.1.0         compiler_4.2.2     performance_0.10.5 textshaping_0.3.6  cli_3.6.1         
+## [21] sandwich_3.0-2     labeling_0.4.3     bookdown_0.36      bayestestR_0.13.1  sass_0.4.7        
+## [26] mvtnorm_1.1-3      systemfonts_1.0.4  digest_0.6.33      minqa_1.2.5        rmarkdown_2.25    
+## [31] pkgconfig_2.0.3    htmltools_0.5.7    lme4_1.1-31        fastmap_1.1.1      highr_0.10        
+## [36] rlang_1.1.2        rstudioapi_0.15.0  jquerylib_0.1.4    farver_2.1.1       generics_0.1.3    
+## [41] zoo_1.8-11         jsonlite_1.8.7     vroom_1.6.3        car_3.1-1          magrittr_2.0.3    
+## [46] parameters_0.21.1  Matrix_1.5-4       Rcpp_1.0.10        munsell_0.5.0      fansi_1.0.5       
+## [51] abind_1.4-5        lifecycle_1.0.4    stringi_1.8.1      multcomp_1.4-22    yaml_2.3.7        
+## [56] snakecase_0.11.1   carData_3.0-5      MASS_7.3-58.2      grid_4.2.2         parallel_4.2.2    
+## [61] sjmisc_2.8.9       crayon_1.5.2       lattice_0.20-45    ggeffects_1.3.1    splines_4.2.2     
+## [66] sjstats_0.18.2     hms_1.1.3          pillar_1.9.0       boot_1.3-28.1      estimability_1.4.1
+## [71] ggsignif_0.6.4     effectsize_0.8.5   codetools_0.2-19   glue_1.6.2         evaluate_0.23     
+## [76] modelr_0.1.11      nloptr_2.0.3       vctrs_0.6.4        tzdb_0.3.0         gtable_0.3.4      
+## [81] datawizard_0.8.0   cachem_1.0.8       xfun_0.41          xtable_1.8-4       broom_1.0.5       
+## [86] coda_0.19-4        rstatix_0.7.2      ragg_1.2.5         survival_3.5-3     tinytex_0.48      
+## [91] timechange_0.2.0   TH.data_1.1-1</code></pre>
 
 </div>
 </div>

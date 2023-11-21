@@ -7,7 +7,7 @@
   <title>6 Collection of exercises |  How to Use R for Data Science</title>
   <meta name="description" content="<br />
 How to Use R for Data Science</p>" />
-  <meta name="generator" content="bookdown 0.35 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Collection of exercises |  How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -219,7 +219,6 @@ div.csl-indent {
 <li class="chapter" data-level="5.7" data-path="manage-data.html"><a href="manage-data.html#how-to-explore-a-dataset"><i class="fa fa-check"></i><b>5.7</b> How to explore a dataset</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html"><i class="fa fa-check"></i><b>6</b> Collection of exercises</a></li>
-<li class="chapter" data-level="7" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Write with R Markdown</a></li>
 <li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a>
 <ul>
 <li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#helpful-shortcuts"><i class="fa fa-check"></i><b>8.1</b> Helpful shortcuts</a></li>
@@ -593,7 +592,7 @@ The result should look something like this:</p>
 </ol>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="collection-of-exercises.html#cb189-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/hubchev/courses/main/dta/df-calories.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 6 Columns: 5
-## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ──────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (1): sex
 ## dbl (4): age, weight, calories, sport
@@ -646,8 +645,46 @@ The result should look something like this:</p>
 <li><p>Discuss potential confounding variables that may cause omitted variable bias. Given the dataset above how can some of the confounding variables be <em>controlled for</em>?</p></li>
 </ol>
 <p>Solutions are provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_calories.R">here</a>.</p>
+<div class="exercise">
+<p><span id="exr:dfb" class="exercise"><strong>Exercise 6.12  </strong></span>Bundesliga</p>
+<p>Open the script that you find <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/bundesliga.R">here</a> and work on the following tasks:</p>
+<ol style="list-style-type: decimal">
+<li><p>Set your working directory.</p></li>
+<li><p>Clear th environment.</p></li>
+<li><p>Install and load the <code>bundesligR</code> and <code>tidyverse</code>.</p></li>
+<li><p>Read in the data <code>bundesligR</code> as a tibble.</p></li>
+<li><p>Replace “Bor. Moenchengladbach” with “Borussia Moenchengladbach.”</p></li>
+<li><p>Check for the data class.</p></li>
+<li><p>View the data.</p></li>
+<li><p>Glimpse on the data.</p></li>
+<li><p>Show the first and last observations.</p></li>
+<li><p>Show summary statistics to all variables.</p></li>
+<li><p>How many teams have played in the league over the years?</p></li>
+<li><p>Which teams have played Bundesliga so far?</p></li>
+<li><p>How many teams have played Bundesliga?</p></li>
+<li><p>How often has each team played in the Bundesliga?</p></li>
+<li><p>Show summary statistics of variable <code>Season</code> only.</p></li>
+<li><p>Show summary statistics of all numeric variables (<code>Team</code> is a character).</p></li>
+<li><p>What is the highest number of points ever received by a team? Show only the name of the club with the highest number of points ever received.</p></li>
+<li><p>Create a new tibble using <code>liga</code> removing the variable <code>Pts_pre_95</code> from the data.</p></li>
+<li><p>Create a new tibble using <code>liga</code> renaming W, D, and L to Win, Draw, and Loss. Additionally rename GF, GA, GD to Goals_shot, Goals_received, Goal_difference.</p></li>
+<li><p>Create a new tibble using <code>liga</code> without the variable <code>Pts_pre_95</code> and only observations before the year 1996.</p></li>
+<li><p>Remove the three tibbles just created from the environment.</p></li>
+<li><p>Rename all variables of <code>liga</code> to lowercase and store it as <code>dfb</code>.</p></li>
+<li><p>Show the winner and the runner up after the year 2010. Additionally show the points received.</p></li>
+<li><p>Create a variable that counts how often a team was ranked first.</p></li>
+<li><p>How often has each team played in the Bundesliga?</p></li>
+<li><p>Make a ranking that shows which team has played the Bundesliga most often.</p></li>
+<li><p>Add a variable to <code>dfb</code> that contains the number of appearances of a team in the league.</p></li>
+<li><p>Create a number that indicates how often a team has played Bundesliga in a given year.</p></li>
+<li><p>Make a ranking with the number of titles of all teams that ever won the league.</p></li>
+<li><p>Create a numeric identifying variable for each team.</p></li>
+<li><p>When a team is in the league, what is the probability that it wins the league?</p></li>
+<li><p>Make a scatterplot with points on the y-axis and position on the x-axis.</p></li>
+<li><p>Make a scatterplot with points on the y-axis and position on the x-axis. Additionally, only consider seasons with 18 teams and add lines that make clear how many points you needed to be placed in between rank 2 and 15.</p></li>
+</ol>
+<p>Solutions are provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/bundesliga.R">here</a>.</p>
 
-</div>
 <div class="footnotes">
 <hr />
 <ol start="4">
