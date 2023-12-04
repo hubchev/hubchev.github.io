@@ -881,9 +881,7 @@ summary(reg_base)
 
 ## 
 
-## 
-
-## Open the script that you find [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/bundesliga.R) and work on the following tasks:
+## Open the script that you find [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/dfb.R) and work on the following tasks:
 
 ## 
 
@@ -1111,11 +1109,13 @@ summary(reg_base)
 ## csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl"
 
 
-## `papaja` (Preparing APA Journal Articles)
+## 
+
+## Preparing APA journal articles (`papaja`)
 
 ## 
 
-## There is an easy way to write a manuscript that follows all the APA rules using the package `papaja` written by psychologists from Cologne. Please read their [manual](https://frederikaust.com/papaja_man/introduction.html) and consider their [repository on GitHub](https://github.com/crsh/papaja).
+## There is an easy way to write a manuscript that follows all the APA rules using the package `papaja` written by two psychologists from Cologne. Please read their [manual](https://frederikaust.com/papaja_man/introduction.html) and consider their [repository on GitHub](https://github.com/crsh/papaja).
 
 ## 
 

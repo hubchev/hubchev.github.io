@@ -168,7 +168,7 @@ How to Use R for Data Science}
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 22 November, 2023}
+\date{Last compiled on 23 November, 2023}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -239,7 +239,7 @@ This makes me wonder if its okay that I and so many of my former comolitons, col
 
 I am a Professor of International Economics and Data Science at HS Fresenius, holding a Diploma in Economics from the University of Regensburg and a Doctoral Degree (summa cum laude) from the University of Trier. I completed postgraduate studies at the Interdisciplinary Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU) in Trier. Prior to my current position, I worked as a research assistant to Prof.~Dr.~Dr.~h.c. Joachim Möller at the University of Regensburg, a post-doc at the Leibniz Institute for East and Southeast European Studies (IOS) in Regensburg, and a freelancer at Charles University in Prague.
 
-Throughout my career, I have also worked as a lecturer at various institutions, including the TU Munich, the University of Regensburg, Saarland University, and the Universities of Applied Sciences in Frankfurt and Augsburg. Additionally, I have had the opportunity to teach abroad for the University of Cordoba in Spain and the University of Perugia. My published work can be found in international journals such as the Canadian Journal of Economics and the Stata Journal. For more information on my work, please visit my private homepage at \href{www.hubchev.github.io}{hubchev.github.io}.
+Throughout my career, I have also worked as a lecturer at various institutions, including the TU Munich, the University of Regensburg, Saarland University, and the Universities of Applied Sciences in Frankfurt and Augsburg. Additionally, I have had the opportunity to teach abroad for the University of Cordoba in Spain, the University of Perugia in Italy, and the Petra Christian University in Surabaya, Indonesia. My published work can be found in international journals such as the Canadian Journal of Economics and the Stata Journal. For more information on my work, please visit my private homepage at \href{www.hubchev.github.io}{hubchev.github.io}.
 
 \textbf{Contact}
 
@@ -248,7 +248,7 @@ Throughout my career, I have also worked as a lecturer at various institutions, 
    Im MediaPark 4c
    50670 Cologne
    
-   Office: 4b OG-1 Bü01 
+   Office: 4e OG-3 
    Telefon: +49 221 973199-523
    Mail: stephan.huber@hs-fresenius.de
    Private homepage: www.hubchev.github.io
@@ -1518,13 +1518,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \begin{verbatim}
 ## Rows: 13,365
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE"~
-## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "~
-## $ value       <dbl> 1.169484e+12, 1.081998e+12, 9.275933e+11, 1.000834e+12, 1.007196e+12, 1.021043e+12, 8.851~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD",~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP ~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH",~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Souther~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AF~
+## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010~
+## $ value       <dbl> 1.169484e+12, 1.081998e+12, 9.275933e+11, 1.000834e+12, 1.007196e+12, 1.021043e+12, 8.851764e+11, 9.2~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKT~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH",~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa ~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1534,19 +1534,19 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##     iso3c               date               value           indicatorID         indicator        
-##  Length:13365       Length:13365       Min.   :8.825e+06   Length:13365       Length:13365      
-##  Class :character   Class :character   1st Qu.:2.523e+09   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Median :1.843e+10   Mode  :character   Mode  :character  
-##                                        Mean   :1.207e+12                                        
-##                                        3rd Qu.:2.244e+11                                        
-##                                        Max.   :1.006e+14                                        
-##     iso2c             country         
-##  Length:13365       Length:13365      
-##  Class :character   Class :character  
-##  Mode  :character   Mode  :character  
-##                                       
-##                                       
+##     iso3c               date               value           indicatorID         indicator            iso2c          
+##  Length:13365       Length:13365       Min.   :8.825e+06   Length:13365       Length:13365       Length:13365      
+##  Class :character   Class :character   1st Qu.:2.523e+09   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Median :1.843e+10   Mode  :character   Mode  :character   Mode  :character  
+##                                        Mean   :1.207e+12                                                           
+##                                        3rd Qu.:2.244e+11                                                           
+##                                        Max.   :1.006e+14                                                           
+##    country         
+##  Length:13365      
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
 ## 
 \end{verbatim}
 
@@ -1627,14 +1627,13 @@ One difference between data frames and tibbles is that dataframes store the row 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"     
-##  [5] "Hornet Sportabout"   "Valiant"             "Duster 360"          "Merc 240D"          
-##  [9] "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"         
-## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood"  "Lincoln Continental"
-## [17] "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"     
-## [21] "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
-## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"       
-## [29] "Ford Pantera L"      "Ferrari Dino"        "Maserati Bora"       "Volvo 142E"
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"  
+##  [6] "Valiant"             "Duster 360"          "Merc 240D"           "Merc 230"            "Merc 280"           
+## [11] "Merc 280C"           "Merc 450SE"          "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood" 
+## [16] "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"     
+## [21] "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"          "Pontiac Firebird"   
+## [26] "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
+## [31] "Maserati Bora"       "Volvo 142E"
 \end{verbatim}
 
 To store \texttt{mtcars} as a tibble, we can use the \texttt{as\_tibble} function:
@@ -2435,17 +2434,17 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, ~
-## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, ~
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8,~
-## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, ~
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, ~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730,~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60,~
-## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, ~
-## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, ~
-## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, ~
-## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6, ~
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, ~
+## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150,~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, ~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.25~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.9~
+## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
+## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
+## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
+## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6, 8, 2
 \end{verbatim}
 
 \hypertarget{how-to-explore-a-dataset}{%
@@ -3227,7 +3226,7 @@ Data Description:
 
 \begin{verbatim}
 ## Rows: 6 Columns: 5
-## -- Column specification ---------------------------------------------------------------------------------------
+## -- Column specification ---------------------------------------------------------------------------------------------------
 ## Delimiter: ","
 ## chr (1): sex
 ## dbl (4): age, weight, calories, sport
@@ -3317,7 +3316,7 @@ Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/m
 \begin{exercise}
 \protect\hypertarget{exr:dfb}{}\label{exr:dfb}Bundesliga
 
-Open the script that you find \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/bundesliga.R}{here} and work on the following tasks:
+Open the script that you find \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/dfb.R}{here} and work on the following tasks:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3395,6 +3394,9 @@ Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/m
 \hypertarget{write-with-r-markdown}{%
 \chapter{Write with R Markdown}\label{write-with-r-markdown}}
 
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
 \begin{figure}
 \centering
 \includegraphics[width=0.75\textwidth,height=\textheight]{fig/rmstudio.png}
@@ -3443,6 +3445,11 @@ In contrast to Quarto (see: \url{https://quarto.org} and \url{https://quarto.org
 \end{figure}
 
 Please watch the video \href{https://vimeo.com/178485416}{What is R Markdown?} and then study the \href{https://rmarkdown.rstudio.com/lesson-1.html}{R Markdown tutorial from RStudio}.
+
+\hypertarget{working-directory-in-r-markdown}{%
+\section{Working directory in R Markdown}\label{working-directory-in-r-markdown}}
+
+The working directory is by default set to the directory that contains the Rmd document. In case you want to use another directory you can do so by changing the working directory with \texttt{setwd()}. However, that is not persistent in R Markdown and only works for the current code chunk. After the code chunk has been evaluated, the working directory will be restored to the directory where the Rmd file is placed.
 
 \begin{exercise}
 \protect\hypertarget{exr:rmdfirst}{}\label{exr:rmdfirst}
@@ -3559,9 +3566,9 @@ R Markdown cite literature
 Many more citation styles can be found \href{https://github.com/citation-style-language/styles}{here}.
 
 \begin{exercise}
-\protect\hypertarget{exr:papaja}{}\label{exr:papaja}\texttt{papaja} (Preparing APA Journal Articles)
+\protect\hypertarget{exr:papaja}{}\label{exr:papaja}Preparing APA journal articles (\texttt{papaja})
 
-There is an easy way to write a manuscript that follows all the APA rules using the package \texttt{papaja} written by psychologists from Cologne. Please read their \href{https://frederikaust.com/papaja_man/introduction.html}{manual} and consider their \href{https://github.com/crsh/papaja}{repository on GitHub}.
+There is an easy way to write a manuscript that follows all the APA rules using the package \texttt{papaja} written by two psychologists from Cologne. Please read their \href{https://frederikaust.com/papaja_man/introduction.html}{manual} and consider their \href{https://github.com/crsh/papaja}{repository on GitHub}.
 
 Now, install and load the package:
 \end{exercise}
@@ -3819,10 +3826,9 @@ When seeking help, be sure to provide information about your machine, including 
 ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.11.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
-##  [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
-## [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## time zone: Europe/Berlin
 ## tzcode source: system (glibc)
@@ -3838,24 +3844,21 @@ When seeking help, be sure to provide information about your machine, including 
 ## [21] captioner_2.2.3.9000
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] sandwich_3.0-2     rlang_1.1.1        magrittr_2.0.3     multcomp_1.4-25    snakecase_0.11.1  
-##  [6] compiler_4.3.1     systemfonts_1.0.4  vctrs_0.6.3        pkgconfig_2.0.3    crayon_1.5.2      
-## [11] fastmap_1.1.1      backports_1.4.1    labeling_0.4.2     utf8_1.2.3         rmarkdown_2.21    
-## [16] tzdb_0.4.0         nloptr_2.0.3       ragg_1.2.5         bit_4.0.5          xfun_0.40         
-## [21] cachem_1.0.8       jsonlite_1.8.4     highr_0.10         sjmisc_2.8.9       ggeffects_1.3.1   
-## [26] broom_1.0.5        parallel_4.3.1     R6_2.5.1           bslib_0.4.2        stringi_1.7.12    
-## [31] car_3.1-2          boot_1.3-28.1      jquerylib_0.1.4    estimability_1.4.1 Rcpp_1.0.10       
-## [36] bookdown_0.35      modelr_0.1.11      zoo_1.8-12         Matrix_1.6-1.1     splines_4.3.1     
-## [41] timechange_0.2.0   tidyselect_1.2.0   rstudioapi_0.15.0  abind_1.4-5        yaml_2.3.7        
-## [46] codetools_0.2-19   sjlabelled_1.2.0   curl_5.1.0         lattice_0.20-45    withr_2.5.0       
-## [51] bayestestR_0.13.1  coda_0.19-4        evaluate_0.22      survival_3.5-3     pillar_1.9.0      
-## [56] carData_3.0-5      insight_0.19.5     generics_0.1.3     vroom_1.6.3        hms_1.1.3         
-## [61] munsell_0.5.0      minqa_1.2.6        xtable_1.8-4       glue_1.6.2         emmeans_1.8.8     
-## [66] tools_4.3.1        lme4_1.1-34        ggsignif_0.6.4     mvtnorm_1.2-3      grid_4.3.1        
-## [71] colorspace_2.1-0   nlme_3.1-162       performance_0.10.5 cli_3.6.1          textshaping_0.3.6 
-## [76] fansi_1.0.4        sjstats_0.18.2     gtable_0.3.3       rstatix_0.7.2      sass_0.4.6        
-## [81] digest_0.6.31      TH.data_1.1-2      farver_2.1.1       htmltools_0.5.5    lifecycle_1.0.3   
-## [86] httr_1.4.7         bit64_4.0.5        MASS_7.3-60
+##  [1] sandwich_3.0-2     rlang_1.1.1        magrittr_2.0.3     multcomp_1.4-25    snakecase_0.11.1   compiler_4.3.1    
+##  [7] systemfonts_1.0.4  vctrs_0.6.3        pkgconfig_2.0.3    crayon_1.5.2       fastmap_1.1.1      backports_1.4.1   
+## [13] labeling_0.4.2     utf8_1.2.3         rmarkdown_2.21     tzdb_0.4.0         nloptr_2.0.3       ragg_1.2.5        
+## [19] bit_4.0.5          xfun_0.40          cachem_1.0.8       jsonlite_1.8.4     highr_0.10         sjmisc_2.8.9      
+## [25] ggeffects_1.3.1    broom_1.0.5        parallel_4.3.1     R6_2.5.1           bslib_0.4.2        stringi_1.7.12    
+## [31] car_3.1-2          boot_1.3-28.1      jquerylib_0.1.4    estimability_1.4.1 Rcpp_1.0.10        bookdown_0.35     
+## [37] modelr_0.1.11      zoo_1.8-12         Matrix_1.6-1.1     splines_4.3.1      timechange_0.2.0   tidyselect_1.2.0  
+## [43] rstudioapi_0.15.0  abind_1.4-5        yaml_2.3.7         codetools_0.2-19   sjlabelled_1.2.0   curl_5.1.0        
+## [49] lattice_0.20-45    withr_2.5.0        bayestestR_0.13.1  coda_0.19-4        evaluate_0.22      survival_3.5-3    
+## [55] pillar_1.9.0       carData_3.0-5      insight_0.19.5     generics_0.1.3     vroom_1.6.3        hms_1.1.3         
+## [61] munsell_0.5.0      minqa_1.2.6        xtable_1.8-4       glue_1.6.2         emmeans_1.8.8      tools_4.3.1       
+## [67] lme4_1.1-34        ggsignif_0.6.4     mvtnorm_1.2-3      grid_4.3.1         colorspace_2.1-0   nlme_3.1-162      
+## [73] performance_0.10.5 cli_3.6.1          textshaping_0.3.6  fansi_1.0.4        sjstats_0.18.2     gtable_0.3.3      
+## [79] rstatix_0.7.2      sass_0.4.6         digest_0.6.31      TH.data_1.1-2      farver_2.1.1       htmltools_0.5.5   
+## [85] lifecycle_1.0.3    httr_1.4.7         bit64_4.0.5        MASS_7.3-60
 \end{verbatim}
 
   \bibliography{book.bib}
