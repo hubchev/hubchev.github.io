@@ -168,25 +168,8 @@ How to Use R for Data Science}
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 23 November, 2023}
+\date{Last compiled on 12 December, 2023}
 
-\usepackage{amsthm}
-\newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{lemma}{Lemma}[chapter]
-\newtheorem{corollary}{Corollary}[chapter]
-\newtheorem{proposition}{Proposition}[chapter]
-\newtheorem{conjecture}{Conjecture}[chapter]
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
-\theoremstyle{definition}
-\newtheorem{example}{Example}[chapter]
-\theoremstyle{definition}
-\newtheorem{exercise}{Exercise}[chapter]
-\theoremstyle{definition}
-\newtheorem{hypothesis}{Hypothesis}[chapter]
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-\newtheorem*{solution}{Solution}
 \begin{document}
 \maketitle
 
@@ -198,8 +181,18 @@ How to Use R for Data Science}
 \hypertarget{preface}{%
 \chapter*{Preface}\label{preface}}
 
-\hypertarget{about-the-lecture-notes}{%
-\section*{About the lecture notes}\label{about-the-lecture-notes}}
+\hypertarget{about-r}{%
+\subsubsection*{About R}\label{about-r}}
+
+The programming language R enables you to handle, visualize, and analyze data. It is compatible with various operating systems (Windows, Mac, Linux) and can do a lot of things better compared to other programs like Python, Stata, Eviews, SPSS, SAS, and Excel. R is open source, extensively utilized, and there are abundant resources available for learning it. These notes are just my five cents.
+
+\hypertarget{about-the-cover-of-the-notes}{%
+\subsubsection*{About the cover of the notes}\label{about-the-cover-of-the-notes}}
+
+Data science is a buzzword that combines different fields of knowledge such as computer science, software engineering, informatics, database management, statistics, econometrics, business intelligence, and mathematics. However, there is no universally accepted definition of it and I think it is not important to define it precisely. \citet[p.~97]{Kelleher2018Data} wrote ``Data science is best understood as a partnership between a data scientist and a computer.'' So data science is about embracing the power of computers for scientific, commercial or social purposes. Of course, empirical models and statistics play a role in gaining meaningful insights. The graphic on the cover page may illustrate that R combines four important fields, that are, data, science, computer, and statistics.
+
+\hypertarget{about-the-notes}{%
+\subsubsection*{About the notes}\label{about-the-notes}}
 
 \begin{itemize}
 \tightlist
@@ -213,23 +206,14 @@ How to Use R for Data Science}
   I appreciate you reading it, and I appreciate any comments.
 \item
   This is work in progress so please check for updates regularly.
-  The programming language R enables you to handle, visualize, and analyze data. It is compatible with various operating systems (Windows, Mac, Linux) and can do a lot of things better compared to other programs like Python, Stata, Eviews, SPSS, SAS, Excel, for example. R is open source, extensively utilized, and there are abundant resources available for learning it. These notes don't aim to rival comprehensive textbooks such as ``\citet{Wickham2023R}.'' Instead, they offer a curated collection of explanations, exercises, and tips to facilitate learning R without causing unnecessary frustration.
+\item
+  These notes offer a curated collection of explanations, exercises, and tips to facilitate learning R without causing unnecessary frustration. However, these notes don't aim to rival comprehensive textbooks such as \citet{Wickham2023R}.
 \item
   These notes are published under a Creative Commons BY-SA license (CC BY-SA) version 4.0. This means it can be reused, remixed, retained, revised and redistributed as long as appropriate credit is given to the authors. If you remix, or modify the original version of this open textbook, you must redistribute all versions of this open textbook under the same license---CC BY-SA. This script is build on the work of \citet{Navarro2020Learning}, \citet{Muschelli2022Introduction}, \citet{Thulin2021Modern}, and \citet{Ismay2022Statistical} which is also published under CC BY-SA.
 \end{itemize}
 
-\hypertarget{the-buzzword-data-science}{%
-\section*{The buzzword data science}\label{the-buzzword-data-science}}
-\addcontentsline{toc}{section}{The buzzword data science}
-
-Data science is a buzzword that combines different fields of knowledge such as computer science, software engineering, informatics, database management, statistics, econometrics, business intelligence, and mathematics. However, there is no universally accepted definition of it and I think it is not important to define it precisely. \citet[p.~97]{Kelleher2018Data} wrote ``Data science is best understood as a partnership between a data scientist and a computer.'' So data science is about embracing the power of computers for scientific, commercial or social purposes. Of course, empirical models and statistics play a role in gaining meaningful insights. The graphic on the cover page may illustrate that R combines four important fields, that are, data, science, computer, and statistics.
-
-I began my journey into data science in 2003 with the introductory course Statistics by \href{https://scholar.google.com/citations?user=geLs3JUAAAAJ\&hl=en}{Daniel Rösch}. I learned a lot. In particular, that probabilities often play a role when analyzing data. After that, I joined \href{https://scholar.google.ca/citations?user=tHNB7wIAAAAJ\&hl=en}{Harry Haupt's} \emph{Introductory Econometrics} course, where I studied the infamous Jeffrey M. \citet{Wooldridge2002Introductory} textbook. It got me hooked and I took all the courses \href{https://www.uni-regensburg.de/business-economics-and-management-information-systems/economics-tschernig/team/rolf-tschernig/index.html}{Rolf Tschernig} offered at his chair of Econometrics, where I became a tutor at the University of Regensburg and a research assistant of \href{https://iab.de/en/employee/m\%C3\%B6ller-joachim/}{Joachim Möller}. Despite everything we did had to do with how to make sense out of data, we never actually used the term \emph{data science} which is also absent in the more 850 pages long textbook by \citet{Wooldridge2002Introductory}. The book also remains silent about \emph{machine learning} or \emph{artificial intelligence}. These terms became popular only after I graduated. The \emph{Harvard Business Review} article by \citet{Davenport2012Data} who claimed that data scientist is ``The Sexiest Job of the 21st Century'' may have boosted the popularity.
-
-This makes me wonder if its okay that I and so many of my former comolitons, colleagues, and students call themselves now data scientists even though the term basically played no role in our education.
-
 \hypertarget{about-the-author}{%
-\section*{About the author}\label{about-the-author}}
+\subsubsection*{About the author}\label{about-the-author}}
 
 \begin{figure}
 \centering
@@ -240,6 +224,10 @@ This makes me wonder if its okay that I and so many of my former comolitons, col
 I am a Professor of International Economics and Data Science at HS Fresenius, holding a Diploma in Economics from the University of Regensburg and a Doctoral Degree (summa cum laude) from the University of Trier. I completed postgraduate studies at the Interdisciplinary Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU) in Trier. Prior to my current position, I worked as a research assistant to Prof.~Dr.~Dr.~h.c. Joachim Möller at the University of Regensburg, a post-doc at the Leibniz Institute for East and Southeast European Studies (IOS) in Regensburg, and a freelancer at Charles University in Prague.
 
 Throughout my career, I have also worked as a lecturer at various institutions, including the TU Munich, the University of Regensburg, Saarland University, and the Universities of Applied Sciences in Frankfurt and Augsburg. Additionally, I have had the opportunity to teach abroad for the University of Cordoba in Spain, the University of Perugia in Italy, and the Petra Christian University in Surabaya, Indonesia. My published work can be found in international journals such as the Canadian Journal of Economics and the Stata Journal. For more information on my work, please visit my private homepage at \href{www.hubchev.github.io}{hubchev.github.io}.
+
+I began my journey into data science in 2003 with the introductory course Statistics by \href{https://scholar.google.com/citations?user=geLs3JUAAAAJ\&hl=en}{Daniel Rösch}. I learned a lot. In particular, that probabilities often play a role when analyzing data. After that, I joined \href{https://scholar.google.ca/citations?user=tHNB7wIAAAAJ\&hl=en}{Harry Haupt's} \emph{Introductory Econometrics} course, where I studied the infamous Jeffrey M. \citet{Wooldridge2002Introductory} textbook. It got me hooked and I took all the courses \href{https://www.uni-regensburg.de/business-economics-and-management-information-systems/economics-tschernig/team/rolf-tschernig/index.html}{Rolf Tschernig} offered at his chair of Econometrics, where I became a tutor at the University of Regensburg and a research assistant of \href{https://iab.de/en/employee/m\%C3\%B6ller-joachim/}{Joachim Möller}. Despite everything we did had to do with how to make sense out of data, we never actually used the term \emph{data science} which is also absent in the more 850 pages long textbook by \citet{Wooldridge2002Introductory}. The book also remains silent about \emph{machine learning} or \emph{artificial intelligence}. These terms became popular only after I graduated. The \emph{Harvard Business Review} article by \citet{Davenport2012Data} who claimed that data scientist is ``The Sexiest Job of the 21st Century'' may have boosted the popularity.
+
+This makes me wonder if its okay that I and so many of my former comolitons, colleagues, and students call themselves now data scientists even though the term basically played no role in our education.
 
 \textbf{Contact}
 
@@ -569,7 +557,7 @@ The installation of packages can take some time. However, if your CPU has many c
 \hypertarget{package-loading}{%
 \subsection{Package loading}\label{package-loading}}
 
-Recall that after you've installed a package, you need to \emph{load it}. In other words, you need to \emph{open it}. We do this by using the \texttt{library()} command. \index{R packages!loading}
+Recall that after you've installed a package, you need to \emph{load it}. We do this by using the \texttt{library()} command. \index{R packages!loading}
 
 For example, to load the \texttt{ggplot2} package, run the following code in the console pane. What do we mean by ``run the following code''? Either type or copy-and-paste the following code into the console pane and then hit the Enter key.
 
@@ -595,6 +583,56 @@ Error: could not find function
 
 R is informing you that you are attempting to use a function from a package that has not yet been loaded. Forgetting to load packages is a common mistake made by new users, and it can be a bit frustrating to get used to at first. However, with practice, it will become second nature for you.
 Unloading packages can be done with \texttt{detach(,\ unload=TRUE)}.
+
+\hypertarget{package-management}{%
+\subsection{\texorpdfstring{Simplified package management with \texttt{p\_load}}{Simplified package management with p\_load}}\label{package-management}}
+
+There is a convenient way to handle both package installation and loading without the need for manual checks. The \texttt{p\_load()} function does this seamlessly by verifying if a package is installed; if not, it installs the package.
+
+For instance, instead of the traditional approach:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}
+  \FunctionTok{c}\NormalTok{(}\StringTok{"arrow"}\NormalTok{, }\StringTok{"babynames"}\NormalTok{, }\StringTok{"curl"}\NormalTok{, }\StringTok{"duckdb"}\NormalTok{, }\StringTok{"gapminder"}\NormalTok{, }
+    \StringTok{"ggrepel"}\NormalTok{, }\StringTok{"ggridges"}\NormalTok{, }\StringTok{"ggthemes"}\NormalTok{, }\StringTok{"hexbin"}\NormalTok{, }\StringTok{"janitor"}\NormalTok{, }\StringTok{"Lahman"}\NormalTok{, }
+    \StringTok{"leaflet"}\NormalTok{, }\StringTok{"maps"}\NormalTok{, }\StringTok{"nycflights13"}\NormalTok{, }\StringTok{"openxlsx"}\NormalTok{, }\StringTok{"palmerpenguins"}\NormalTok{, }
+    \StringTok{"repurrrsive"}\NormalTok{, }\StringTok{"tidymodels"}\NormalTok{, }\StringTok{"writexl"}\NormalTok{)}
+\NormalTok{  )}
+\FunctionTok{library}\NormalTok{(}
+  \FunctionTok{c}\NormalTok{(}\StringTok{"arrow"}\NormalTok{, }\StringTok{"babynames"}\NormalTok{, }\StringTok{"curl"}\NormalTok{, }\StringTok{"duckdb"}\NormalTok{, }\StringTok{"gapminder"}\NormalTok{, }
+    \StringTok{"ggrepel"}\NormalTok{, }\StringTok{"ggridges"}\NormalTok{, }\StringTok{"ggthemes"}\NormalTok{, }\StringTok{"hexbin"}\NormalTok{, }\StringTok{"janitor"}\NormalTok{, }\StringTok{"Lahman"}\NormalTok{, }
+    \StringTok{"leaflet"}\NormalTok{, }\StringTok{"maps"}\NormalTok{, }\StringTok{"nycflights13"}\NormalTok{, }\StringTok{"openxlsx"}\NormalTok{, }\StringTok{"palmerpenguins"}\NormalTok{, }
+    \StringTok{"repurrrsive"}\NormalTok{, }\StringTok{"tidymodels"}\NormalTok{, }\StringTok{"writexl"}\NormalTok{)}
+\NormalTok{  )}
+\end{Highlighting}
+\end{Shaded}
+
+You can streamline the process as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Install and load the required packages using p\_load}
+\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(pacman)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"pacman"}\NormalTok{)}
+
+\NormalTok{pacman}\SpecialCharTok{::}\FunctionTok{p\_load}\NormalTok{(}
+\NormalTok{  arrow, babynames, curl, duckdb, gapminder, }
+\NormalTok{  ggrepel, ggridges, ggthemes, hexbin, janitor, Lahman, }
+\NormalTok{  leaflet, maps, nycflights13, openxlsx, palmerpenguins, }
+\NormalTok{  repurrrsive, tidymodels, writexl}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+The line
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{if}\NormalTok{ (}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(pacman)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"pacman"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+ensures the installation of the \texttt{pacman} package, which is necessary for using the \texttt{p\_load} function.
 
 \hypertarget{what-is-a-function-in-r}{%
 \section{What is a function in R?}\label{what-is-a-function-in-r}}
@@ -804,10 +842,6 @@ Regardless of your preferred way of generating a script, we can now start \textb
 \FunctionTok{print}\NormalTok{(x)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## [1] "hello world"
-\end{verbatim}
 
 Then save the script using the menus (File \textgreater{} Save) as hello.R.
 
@@ -1020,7 +1054,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/usr/local/lib/R/site-library/dplyr"
+## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1096,8 +1130,9 @@ That looks good now. And here is a way to calculate growth rates with a self-wri
 
 In R, all functions are written by users, and it is not uncommon for two people to name their functions identically. In such cases, we must resolve the conflict by choosing which function to use. To use the lag function from the \texttt{stats} package, you can use the double colon operator \texttt{::} like this \texttt{stats::lag(arguments)}.
 
-\begin{exercise}
-\protect\hypertarget{exr:growthrate}{}\label{exr:growthrate}All roads lead to R(ome)
+\hypertarget{exercise-all-roads-lead-to-rome}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} All roads lead to R(ome)}{EXERCISE: All roads lead to R(ome)}}\label{exercise-all-roads-lead-to-rome}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} All roads lead to R(ome)}
 
 If you ask ten programmers to solve a particular problem, you will probably receive ten different soltuions that are all valid. R is no exception here. This can be very confussing when just started to learn R.
 
@@ -1124,7 +1159,6 @@ Below you find more ways to calculate the a growth rate. Do you understand them?
 \end{verbatim}
 
 An often-used method for approximating growth rates is to calculate the differences in the logarithm of values over time. Section \ref{pipeoperator} illustrates how to perform this calculation with R.
-\end{exercise}
 
 \hypertarget{visualizing-data}{%
 \chapter{Visualizing data}\label{visualizing-data}}
@@ -1398,17 +1432,18 @@ The two most common formats to store and work with data in R are dataframe and t
 \end{Highlighting}
 \end{Shaded}
 
-\begin{exercise}
-\protect\hypertarget{exr:importcovid}{}\label{exr:importcovid}Import data
+\hypertarget{exercise-import-data}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Import data}{EXERCISE: Import data}}\label{exercise-import-data}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Import data}
 
-Table \texttt{r\ table\_nums("tab:covid",\ display\ =\ "cite")} shows COVID for three states in Germany:
+Table Table 1 shows COVID for three states in Germany:
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2464}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1304}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3478}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2754}}@{}}
-\caption{\texttt{r\ table\_nums(name\ =\ "tab:covid",\ caption\ =\ "Covid\ cases\ and\ deaths\ till\ August\ 2022")}}\tabularnewline
+\caption{Table 1: Covid cases and deaths till August 2022}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 state
@@ -1452,7 +1487,6 @@ Write down the code you would need to put into the R-console\ldots{}
 \end{itemize}
 
 Please find solution to the exercise \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/import_covid_data.R}{here}
-\end{exercise}
 
 \hypertarget{open-rdata-files}{%
 \subsection{Open RData files}\label{open-rdata-files}}
@@ -1518,13 +1552,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \begin{verbatim}
 ## Rows: 13,365
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AF~
-## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010~
-## $ value       <dbl> 1.169484e+12, 1.081998e+12, 9.275933e+11, 1.000834e+12, 1.007196e+12, 1.021043e+12, 8.851764e+11, 9.2~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKT~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH",~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa ~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE~
+## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", ~
+## $ value       <dbl> 1.169484e+12, 1.081998e+12, 9.275933e+11, 1.000834e+12, 1.007196e+12, 1.021043e+12, 8.85~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD"~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH"~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southe~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1534,19 +1568,19 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##     iso3c               date               value           indicatorID         indicator            iso2c          
-##  Length:13365       Length:13365       Min.   :8.825e+06   Length:13365       Length:13365       Length:13365      
-##  Class :character   Class :character   1st Qu.:2.523e+09   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Median :1.843e+10   Mode  :character   Mode  :character   Mode  :character  
-##                                        Mean   :1.207e+12                                                           
-##                                        3rd Qu.:2.244e+11                                                           
-##                                        Max.   :1.006e+14                                                           
-##    country         
-##  Length:13365      
-##  Class :character  
-##  Mode  :character  
-##                    
-##                    
+##     iso3c               date               value           indicatorID         indicator        
+##  Length:13365       Length:13365       Min.   :8.825e+06   Length:13365       Length:13365      
+##  Class :character   Class :character   1st Qu.:2.523e+09   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Median :1.843e+10   Mode  :character   Mode  :character  
+##                                        Mean   :1.207e+12                                        
+##                                        3rd Qu.:2.244e+11                                        
+##                                        Max.   :1.006e+14                                        
+##     iso2c             country         
+##  Length:13365       Length:13365      
+##  Class :character   Class :character  
+##  Mode  :character   Mode  :character  
+##                                       
+##                                       
 ## 
 \end{verbatim}
 
@@ -1627,13 +1661,14 @@ One difference between data frames and tibbles is that dataframes store the row 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"  
-##  [6] "Valiant"             "Duster 360"          "Merc 240D"           "Merc 230"            "Merc 280"           
-## [11] "Merc 280C"           "Merc 450SE"          "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood" 
-## [16] "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"     
-## [21] "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"          "Pontiac Firebird"   
-## [26] "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
-## [31] "Maserati Bora"       "Volvo 142E"
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"     
+##  [5] "Hornet Sportabout"   "Valiant"             "Duster 360"          "Merc 240D"          
+##  [9] "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"         
+## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood"  "Lincoln Continental"
+## [17] "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"     
+## [21] "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
+## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"       
+## [29] "Ford Pantera L"      "Ferrari Dino"        "Maserati Bora"       "Volvo 142E"
 \end{verbatim}
 
 To store \texttt{mtcars} as a tibble, we can use the \texttt{as\_tibble} function:
@@ -1888,14 +1923,14 @@ Thus, x\$y is actually just a short form for x{[}{[}``y''{]}{]}.
 \hypertarget{logical-operators}{%
 \subsection{Logical operators}\label{logical-operators}}
 
-The extract operators can be combined with the \emph{logical operators} (more precisely, I should call these \emph{binary relational operators}) that are shown in table Table 1.
+The extract operators can be combined with the \emph{logical operators} (more precisely, I should call these \emph{binary relational operators}) that are shown in table Table 2.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3553}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1447}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3553}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1447}}@{}}
-\caption{Table 1: Logical operators}\tabularnewline
+\caption{Table 2: Logical operators}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 operation
@@ -2434,17 +2469,17 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, ~
-## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.~
-## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150,~
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, ~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.25~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.9~
-## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
-## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
-## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
-## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6, 8, 2
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4,~
+## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6,~
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52,~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93,~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60~
+## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0,~
+## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,~
+## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5,~
+## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6,~
 \end{verbatim}
 
 \hypertarget{how-to-explore-a-dataset}{%
@@ -2668,11 +2703,11 @@ Here are some examples that may help to understand these functions:
 \hypertarget{collection-of-exercises}{%
 \chapter{Collection of exercises}\label{collection-of-exercises}}
 
-\begin{exercise}
-\protect\hypertarget{exr:genanddrop}{}\label{exr:genanddrop}Generate and drop variables
+\hypertarget{exercise-generate-and-drop-variables}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Generate and drop variables}{EXERCISE: Generate and drop variables}}\label{exercise-generate-and-drop-variables}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Generate and drop variables}
 
 Use the \emph{mtcars} dataset. It is part of the package \emph{datasets} and can be called with
-\end{exercise}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2692,8 +2727,9 @@ Use the \emph{mtcars} dataset. It is part of the package \emph{datasets} and can
 
 Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_genanddrop.R}{here}.
 
-\begin{exercise}
-\protect\hypertarget{exr:baseorpipe}{}\label{exr:baseorpipe}Base R or pipe
+\hypertarget{exercise-base-r-or-pipe}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Base R or pipe}{EXERCISE: Base R or pipe}}\label{exercise-base-r-or-pipe}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Base R or pipe}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -2724,10 +2760,10 @@ Compare the resulting dataframes using the identical() function.
 \end{enumerate}
 
 Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_base_pipe.R}{here}.
-\end{exercise}
 
-\begin{exercise}
-\protect\hypertarget{exr:subsetting}{}\label{exr:subsetting}Subsetting
+\hypertarget{exercise-subsetting}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Subsetting}{EXERCISE: Subsetting}}\label{exercise-subsetting}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Subsetting}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2769,19 +2805,18 @@ Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/ma
 \end{enumerate}
 
 Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_subset.R}{here}.
-\end{exercise}
 
-\begin{exercise}
-\protect\hypertarget{exr:exer4ds}{}\label{exr:exer4ds}Data transformation
+\hypertarget{exercise-data-transformation}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Data transformation}{EXERCISE: Data transformation}}\label{exercise-data-transformation}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Data transformation}
 
 Please download and open the R-script you find \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/data_transformation.R}{here} and try to answer the questions therein.
 
 Solutions to the questions are linked in the script.
-\end{exercise}
 
-\begin{exercise}
-\protect\hypertarget{exr:exeposer}{}\label{exr:exeposer}Load the Stata dataset ``auto'' using R
-\end{exercise}
+\hypertarget{exercise-load-the-stata-dataset-auto-using-r}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Load the Stata dataset ``auto'' using R}{EXERCISE: Load the Stata dataset ``auto'' using R}}\label{exercise-load-the-stata-dataset-auto-using-r}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Load the Stata dataset ``auto'' using R}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -2799,10 +2834,9 @@ Solutions to the questions are linked in the script.
 
 Please find the solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_poser.R}{here}.
 
-\begin{exercise}
-\protect\hypertarget{exr:DatasauRus}{}\label{exr:DatasauRus}
-
-DatasauRus
+\hypertarget{exercise-datasaurus}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} DatasauRus}{EXERCISE: DatasauRus}}\label{exercise-datasaurus}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} DatasauRus}
 
 \begin{figure}
 \centering
@@ -2813,16 +2847,8 @@ DatasauRus
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
-\tightlist
 \item
   Load the packages \texttt{datasauRus} and \texttt{tidyverse}. If necessary, install these packages.
-\end{enumerate}
-
-\end{exercise}
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi})}
-\setcounter{enumi}{1}
 \item
   The package\texttt{datasauRus} comes with a dataset in two different formats: \texttt{datasaurus\_dozen} and \texttt{datasaurus\_dozen\_wide}. Store them as \texttt{ds} and \texttt{ds\_wide}.
 \item
@@ -2847,8 +2873,9 @@ DatasauRus
 
 Please find the solutions \href{https://htmlpreview.github.io/?https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/datasaurus_solution.html}{here}.
 
-\begin{exercise}
-\protect\hypertarget{exr:execonvergence}{}\label{exr:execonvergence}Convergence
+\hypertarget{exercise-convergence}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Convergence}{EXERCISE: Convergence}}\label{exercise-convergence}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Convergence}
 
 The dataset convergence.dta, see \url{https://github.com/hubchev/courses/blob/main/dta/convergence.dta}, contains the per capita GDP of 1960 (gdppc60) and the average growth rate of GDP per capita between 1960 and 1995 (growth) for different countries (country), as well as 3 dummy variables indicating the belonging of a country to the region Asia (asia), Western Europe (weurope) or Africa (africa).
 
@@ -2873,12 +2900,10 @@ The dataset convergence.dta, see \url{https://github.com/hubchev/courses/blob/ma
 \end{itemize}
 
 Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R}{here}.
-\end{exercise}
 
-\begin{exercise}
-\protect\hypertarget{exr:unemgerfra}{}\label{exr:unemgerfra}
-
-Unemployment and GDP in Germany and France
+\hypertarget{exercise-unemployment-and-gdp-in-germany-and-france}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Unemployment and GDP in Germany and France}{EXERCISE: Unemployment and GDP in Germany and France}}\label{exercise-unemployment-and-gdp-in-germany-and-france}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Unemployment and GDP in Germany and France}
 
 The following exercise was a former exam.
 
@@ -2895,13 +2920,6 @@ Suppose you aim to empirically examine unemployment and GDP for Germany and Fran
   Write down your name, matriculation number, and date.
 \item
   Set your working directory.
-\end{enumerate}
-
-\end{exercise}
-
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\setcounter{enumi}{1}
 \item
   Clear your global environment.
 \item
@@ -3070,7 +3088,7 @@ your working directory and load it from there with:
   (Hint: Below you can see one of many \textbar\textgreater{} of what your result may look like).
 \end{enumerate}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-86-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-89-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -3081,7 +3099,7 @@ your working directory and load it from there with:
   The following chart shows the simultaneous development of the unemployment rate and GDP per capita over time for \textbf{France}.
 \end{enumerate}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-87-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-90-1.pdf}
 
 Suppose you want to visualize the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany as well.\\
 Suppose further that you have found the following lines of code that create the kind of chart you are looking for.
@@ -3098,12 +3116,12 @@ Suppose further that you have found the following lines of code that create the 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-88-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-91-1.pdf}
 
 Use these lines of code and customize them to create the co-movement visualization for \textbf{Germany} using the available `df' data.
 The result should look something like this:
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-89-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-92-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -3115,8 +3133,9 @@ The result should look something like this:
 
 Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/un_gdp_ger_fra.R}{here}.
 
-\begin{exercise}
-\protect\hypertarget{exr:hortacsu}{}\label{exr:hortacsu}Import data and write a report
+\hypertarget{exercise-import-data-and-write-a-report}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Import data and write a report}{EXERCISE: Import data and write a report}}\label{exercise-import-data-and-write-a-report}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Import data and write a report}
 
 Reproduce Figure 3 of \citet[p.~99]{Hortacsu2015Ongoing} using R. Write a clear report about your work, i.e., document everything with a R script or a R Markdown file.
 
@@ -3136,13 +3155,12 @@ Here are the required steps:
 \end{enumerate}
 
 Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/hortacsu_figure_3.R}{here}.
-\end{exercise}
 
-\begin{exercise}
-\protect\hypertarget{exr:explainweight}{}\label{exr:explainweight}Explain the weight
+\hypertarget{exercise-explain-the-weight}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Explain the weight}{EXERCISE: Explain the weight}}\label{exercise-explain-the-weight}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Explain the weight}
 
 In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with corelations and a regression analysis the association. Load the data as follows:
-\end{exercise}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3153,10 +3171,9 @@ In the statistic course of WS 2020, I asked 23 students about their weight, heig
 
 A sketch of a solution is provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R}{here}.
 
-\begin{exercise}
-\protect\hypertarget{exr:execal}{}\label{exr:execal}
-
-Calories and weight
+\hypertarget{exercise-calories-and-weight}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Calories and weight}{EXERCISE: Calories and weight}}\label{exercise-calories-and-weight}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Calories and weight}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -3170,8 +3187,6 @@ Calories and weight
 \item
   Load the following package: \texttt{tidyverse}
 \end{enumerate}
-
-\end{exercise}
 
 The following table stems from a survey carried out at the Campus of the German Sport University of Cologne at Opening Day (first day of the new semester) between 8:00am and 8:20am. The survey consists of 6 individuals with the following information:
 
@@ -3226,7 +3241,7 @@ Data Description:
 
 \begin{verbatim}
 ## Rows: 6 Columns: 5
-## -- Column specification ---------------------------------------------------------------------------------------------------
+## -- Column specification --------------------------------------------------------------------------------------
 ## Delimiter: ","
 ## chr (1): sex
 ## dbl (4): age, weight, calories, sport
@@ -3250,7 +3265,7 @@ Data Description:
 
 \begin{figure}
 \centering
-\includegraphics[width=0.25\textwidth,height=\textheight]{/home/sthu/Dropbox/hsf/exams/21-04/stuff/sport-r}
+\includegraphics[width=0.4\textwidth,height=\textheight]{/home/sthu/Dropbox/hsf/exams/21-04/stuff/sport-r}
 \caption{Weight vs.~Calories}
 \end{figure}
 
@@ -3313,8 +3328,9 @@ Show a summary of the estimates that look like the following:
 
 Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_calories.R}{here}.
 
-\begin{exercise}
-\protect\hypertarget{exr:dfb}{}\label{exr:dfb}Bundesliga
+\hypertarget{exercise-bundesliga}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Bundesliga}{EXERCISE: Bundesliga}}\label{exercise-bundesliga}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Bundesliga}
 
 Open the script that you find \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/dfb.R}{here} and work on the following tasks:
 
@@ -3386,10 +3402,41 @@ Open the script that you find \href{https://raw.githubusercontent.com/hubchev/co
   Make a scatterplot with points on the y-axis and position on the x-axis.
 \item
   Make a scatterplot with points on the y-axis and position on the x-axis. Additionally, only consider seasons with 18 teams and add lines that make clear how many points you needed to be placed in between rank 2 and 15.
+\item
+  Remove all objects from the environment except \texttt{dfb} and \texttt{liga}.
+\item
+  In Figure \ref{fig:fckpic}, the ranking history of \emph{1. FC Kaiserslautern} is shown. Replicate that plot.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics{_main_files/figure-latex/fckpic-1.pdf}
+\caption{\label{fig:fckpic}Ranking history: 1. FC Kaiserslautern}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{33}
+\tightlist
+\item
+  In Figure \ref{fig:efzplot}, I made the graph a bit nicer. Can you spot all differences and can you guess what the dashed line and the triangles mean? How could the visualization be improved further? Replicate the plot.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics{_main_files/figure-latex/efzplot-1.pdf}
+\caption{\label{fig:efzplot}Ranking history: 1. FC Köln}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{34}
+\tightlist
+\item
+  Try to make the ranking history for each club ever played the league and export the graph as a \texttt{png} file.
 \end{enumerate}
 
 Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/bundesliga.R}{here}.
-\end{exercise}
 
 \hypertarget{write-with-r-markdown}{%
 \chapter{Write with R Markdown}\label{write-with-r-markdown}}
@@ -3451,10 +3498,9 @@ Please watch the video \href{https://vimeo.com/178485416}{What is R Markdown?} a
 
 The working directory is by default set to the directory that contains the Rmd document. In case you want to use another directory you can do so by changing the working directory with \texttt{setwd()}. However, that is not persistent in R Markdown and only works for the current code chunk. After the code chunk has been evaluated, the working directory will be restored to the directory where the Rmd file is placed.
 
-\begin{exercise}
-\protect\hypertarget{exr:rmdfirst}{}\label{exr:rmdfirst}
-
-Start Markdown and R Markdown
+\hypertarget{exercise-start-markdown-and-r-markdown}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Start Markdown and R Markdown}{EXERCISE: Start Markdown and R Markdown}}\label{exercise-start-markdown-and-r-markdown}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Start Markdown and R Markdown}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -3487,47 +3533,31 @@ Start Markdown and R Markdown
   Set your working directory to the folder where you have saved your first Rmd-file. Can you come up with a way to generate different output format with just one function.
 \end{enumerate}
 
-\end{exercise}
+\begin{verbatim}
 
-\begin{exercise}
-\protect\hypertarget{exr:rmdapa}{}\label{exr:rmdapa}
+## _EXERCISE:_ R Markdown cite literature {-}
 
-R Markdown cite literature
+a) Create a new R Markdown file (_File > New File > R Markdown_), save the file in an empty folder, and knit it.
+b) 
 
-\begin{enumerate}
-\def\labelenumi{\alph{enumi})}
-\tightlist
-\item
-  Create a new R Markdown file (\emph{File \textgreater{} New File \textgreater{} R Markdown}), save the file in an empty folder, and knit it.
-\item
-\end{enumerate}
+- Make a new script with _File > New File > R Script_. 
+- Go to [https://scholar.google.de/](https://scholar.google.de/) and search for _osrmtime_. 
+- Click on _"cite"_ and _"BibTeX"_. Copy and paste everything that you see into your script and save the script as _lit.bib_. R Studio will ask you if you confirm the file type change. Click yes. Your _lit.bib_ file should look like this:
 
-\begin{itemize}
-\tightlist
-\item
-  Make a new script with \emph{File \textgreater{} New File \textgreater{} R Script}.
-\item
-  Go to \url{https://scholar.google.de/} and search for \emph{osrmtime}.
-\item
-  Click on \emph{``cite''} and \emph{``BibTeX''}. Copy and paste everything that you see into your script and save the script as \emph{lit.bib}. R Studio will ask you if you confirm the file type change. Click yes. Your \emph{lit.bib} file should look like this:
-\end{itemize}
+  
 
-\end{exercise}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{@article\{huber2016calculate,}
-\NormalTok{  title=\{Calculate travel time and distance with OpenStreetMap data using the Open Source Routing Machine (OSRM)\},}
-\NormalTok{  author=\{Huber, Stephan and Rust, Christoph\},}
-\NormalTok{  journal=\{The Stata Journal\},}
-\NormalTok{  volume=\{16\},}
-\NormalTok{  number=\{2\},}
-\NormalTok{  pages=\{416{-}{-}423\},}
-\NormalTok{  year=\{2016\},}
-\NormalTok{  publisher=\{SAGE Publications Sage CA: Los Angeles, CA\}}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
+```default
+@article{huber2016calculate,
+  title={Calculate travel time and distance with OpenStreetMap data using the Open Source Routing Machine (OSRM)},
+  author={Huber, Stephan and Rust, Christoph},
+  journal={The Stata Journal},
+  volume={16},
+  number={2},
+  pages={416--423},
+  year={2016},
+  publisher={SAGE Publications Sage CA: Los Angeles, CA}
+}
+\end{verbatim}
 
 \begin{itemize}
 \tightlist
@@ -3565,13 +3595,13 @@ R Markdown cite literature
 
 Many more citation styles can be found \href{https://github.com/citation-style-language/styles}{here}.
 
-\begin{exercise}
-\protect\hypertarget{exr:papaja}{}\label{exr:papaja}Preparing APA journal articles (\texttt{papaja})
+\hypertarget{exercise-preparing-apa-journal-articles-papaja}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Preparing APA journal articles (\texttt{papaja})}{EXERCISE: Preparing APA journal articles (papaja)}}\label{exercise-preparing-apa-journal-articles-papaja}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Preparing APA journal articles (\texttt{papaja})}
 
 There is an easy way to write a manuscript that follows all the APA rules using the package \texttt{papaja} written by two psychologists from Cologne. Please read their \href{https://frederikaust.com/papaja_man/introduction.html}{manual} and consider their \href{https://github.com/crsh/papaja}{repository on GitHub}.
 
 Now, install and load the package:
-\end{exercise}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3584,10 +3614,9 @@ Then, click ``File \textgreater{} New File \textgreater{} R Markdown'' and choos
 
 Apart from the obvious adjustments, I recommend to make at least two general adjustments: Change \texttt{classoption} to ``doc'' and \texttt{linenumbers} to ``no''.
 
-\begin{exercise}
-\protect\hypertarget{exr:rmdsecond}{}\label{exr:rmdsecond}
-
-R Markdown template
+\hypertarget{exercise-r-markdown-template}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} R Markdown template}{EXERCISE: R Markdown template}}\label{exercise-r-markdown-template}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} R Markdown template}
 
 Please follow the instructions below to access the file ``23-09\_ds-project-desc.Rmd'' from my GitHub account:
 
@@ -3603,8 +3632,6 @@ Please follow the instructions below to access the file ``23-09\_ds-project-desc
 \item
   In the project template, I have used BibTeX to cite literature. This method is excellent for automating tedious tasks such as citing papers and generating reference lists based on citation styles, saving time and reducing the likelihood of citation errors. The literature cited is in a separate file, which can be found on one of my GitHub repositories.
 \end{enumerate}
-
-\end{exercise}
 
 \hypertarget{appendix}{%
 \chapter{Appendix}\label{appendix}}
@@ -3817,48 +3844,52 @@ When seeking help, be sure to provide information about your machine, including 
 \end{Shaded}
 
 \begin{verbatim}
-## R version 4.3.1 (2023-06-16)
+## R version 4.2.2 Patched (2022-11-10 r83330)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 12 (bookworm)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.11.0 
-## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.11.0
+## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
+## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-## 
-## time zone: Europe/Berlin
-## tzcode source: system (glibc)
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
+##  [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
+## [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.2          sjPlot_2.8.15        ggpubr_0.6.0         datasauRus_0.1.6     haven_2.5.3         
-##  [6] janitor_2.2.0        wbstats_1.0.4        scales_1.2.1         lubridate_1.9.3      forcats_1.0.0       
-## [11] purrr_1.0.2          readr_2.1.4          tidyr_1.3.0          tibble_3.2.1         ggplot2_3.4.3       
-## [16] tidyverse_2.0.0      stringr_1.5.0        bundesligR_0.1.0     knitr_1.42           pacman_0.5.1        
-## [21] captioner_2.2.3.9000
+##  [1] dplyr_1.1.4          sjPlot_2.8.15        ggpubr_0.6.0         datasauRus_0.1.6     haven_2.5.4         
+##  [6] janitor_2.2.0        wbstats_1.0.4        scales_1.3.0         lubridate_1.9.3      forcats_1.0.0       
+## [11] purrr_1.0.2          readr_2.1.4          tidyr_1.3.0          tibble_3.2.1         ggplot2_3.4.4       
+## [16] tidyverse_2.0.0      stringr_1.5.1        bundesligR_0.1.0     captioner_2.2.3.9000 knitr_1.45          
+## [21] pacman_0.5.1        
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] sandwich_3.0-2     rlang_1.1.1        magrittr_2.0.3     multcomp_1.4-25    snakecase_0.11.1   compiler_4.3.1    
-##  [7] systemfonts_1.0.4  vctrs_0.6.3        pkgconfig_2.0.3    crayon_1.5.2       fastmap_1.1.1      backports_1.4.1   
-## [13] labeling_0.4.2     utf8_1.2.3         rmarkdown_2.21     tzdb_0.4.0         nloptr_2.0.3       ragg_1.2.5        
-## [19] bit_4.0.5          xfun_0.40          cachem_1.0.8       jsonlite_1.8.4     highr_0.10         sjmisc_2.8.9      
-## [25] ggeffects_1.3.1    broom_1.0.5        parallel_4.3.1     R6_2.5.1           bslib_0.4.2        stringi_1.7.12    
-## [31] car_3.1-2          boot_1.3-28.1      jquerylib_0.1.4    estimability_1.4.1 Rcpp_1.0.10        bookdown_0.35     
-## [37] modelr_0.1.11      zoo_1.8-12         Matrix_1.6-1.1     splines_4.3.1      timechange_0.2.0   tidyselect_1.2.0  
-## [43] rstudioapi_0.15.0  abind_1.4-5        yaml_2.3.7         codetools_0.2-19   sjlabelled_1.2.0   curl_5.1.0        
-## [49] lattice_0.20-45    withr_2.5.0        bayestestR_0.13.1  coda_0.19-4        evaluate_0.22      survival_3.5-3    
-## [55] pillar_1.9.0       carData_3.0-5      insight_0.19.5     generics_0.1.3     vroom_1.6.3        hms_1.1.3         
-## [61] munsell_0.5.0      minqa_1.2.6        xtable_1.8-4       glue_1.6.2         emmeans_1.8.8      tools_4.3.1       
-## [67] lme4_1.1-34        ggsignif_0.6.4     mvtnorm_1.2-3      grid_4.3.1         colorspace_2.1-0   nlme_3.1-162      
-## [73] performance_0.10.5 cli_3.6.1          textshaping_0.3.6  fansi_1.0.4        sjstats_0.18.2     gtable_0.3.3      
-## [79] rstatix_0.7.2      sass_0.4.6         digest_0.6.31      TH.data_1.1-2      farver_2.1.1       htmltools_0.5.5   
-## [85] lifecycle_1.0.3    httr_1.4.7         bit64_4.0.5        MASS_7.3-60
+##   [1] minqa_1.2.6         TH.data_1.1-2       colorspace_2.1-0    ggsignif_0.6.4      class_7.3-22       
+##   [6] sjlabelled_1.2.0    estimability_1.4.1  snakecase_0.11.1    rstudioapi_0.15.0   listenv_0.9.0      
+##  [11] farver_2.1.1        bit64_4.0.5         prodlim_2023.08.28  fansi_1.0.5         mvtnorm_1.2-4      
+##  [16] codetools_0.2-19    splines_4.2.2       cachem_1.0.8        sjmisc_2.8.9        jsonlite_1.8.7     
+##  [21] nloptr_2.0.3        ggeffects_1.3.2     broom_1.0.5         compiler_4.2.2      httr_1.4.7         
+##  [26] sjstats_0.18.2      emmeans_1.8.9       backports_1.4.1     Matrix_1.6-4        fastmap_1.1.1      
+##  [31] cli_3.6.2           htmltools_0.5.7     tools_4.2.2         coda_0.19-4         gtable_0.3.4       
+##  [36] glue_1.6.2          Rcpp_1.0.11         carData_3.0-5       jquerylib_0.1.4     vctrs_0.6.4        
+##  [41] nlme_3.1-164        insight_0.19.6      timeDate_4022.108   gower_1.0.1         xfun_0.41          
+##  [46] globals_0.16.2      lme4_1.1-35.1       timechange_0.2.0    lifecycle_1.0.4     rstatix_0.7.2      
+##  [51] future_1.33.0       zoo_1.8-12          MASS_7.3-60         ipred_0.9-14        vroom_1.6.5        
+##  [56] ragg_1.2.7          hms_1.1.3           sandwich_3.1-0      parallel_4.2.2      yaml_2.3.8         
+##  [61] curl_5.1.0          sass_0.4.7          rpart_4.1.23        stringi_1.8.2       highr_0.10         
+##  [66] bayestestR_0.13.1   boot_1.3-28.1       hardhat_1.3.0       lava_1.7.3          rlang_1.1.2        
+##  [71] pkgconfig_2.0.3     systemfonts_1.0.5   evaluate_0.23       lattice_0.22-5      recipes_1.0.8      
+##  [76] labeling_0.4.3      bit_4.0.5           tidyselect_1.2.0    parallelly_1.36.0   magrittr_2.0.3     
+##  [81] bookdown_0.36       R6_2.5.1            generics_0.1.3      multcomp_1.4-25     pillar_1.9.0       
+##  [86] withr_2.5.2         survival_3.5-7      abind_1.4-5         nnet_7.3-19         future.apply_1.11.0
+##  [91] performance_0.10.8  modelr_0.1.11       crayon_1.5.2        car_3.1-1           utf8_1.2.4         
+##  [96] tzdb_0.4.0          rmarkdown_2.25      grid_4.2.2          data.table_1.14.10  digest_0.6.33      
+## [101] xtable_1.8-4        textshaping_0.3.7   munsell_0.5.0       bslib_0.6.0
 \end{verbatim}
 
   \bibliography{book.bib}

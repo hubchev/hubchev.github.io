@@ -1,9 +1,9 @@
-library("captioner")
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(knitr, captioner, bundesligR, stringr,tidyverse,recipes,dplyr)
+
 table_nums <- captioner::captioner(prefix = "Table")
 fig_nums <- captioner()
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(knitr, captioner, bundesligR, stringr)
-library("tidyverse")
+
 
 
 
@@ -21,13 +21,35 @@ library("tidyverse")
 
 ## library("ggplot2")
 
-## > q()
+## install.packages(
+##   c("arrow", "babynames", "curl", "duckdb", "gapminder",
+##     "ggrepel", "ggridges", "ggthemes", "hexbin", "janitor", "Lahman",
+##     "leaflet", "maps", "nycflights13", "openxlsx", "palmerpenguins",
+##     "repurrrsive", "tidymodels", "writexl")
+##   )
+## library(
+##   c("arrow", "babynames", "curl", "duckdb", "gapminder",
+##     "ggrepel", "ggridges", "ggthemes", "hexbin", "janitor", "Lahman",
+##     "leaflet", "maps", "nycflights13", "openxlsx", "palmerpenguins",
+##     "repurrrsive", "tidymodels", "writexl")
+##   )
 
+## # Install and load the required packages using p_load
+## if (!require(pacman)) install.packages("pacman")
+## 
+## pacman::p_load(
+##   arrow, babynames, curl, duckdb, gapminder,
+##   ggrepel, ggridges, ggthemes, hexbin, janitor, Lahman,
+##   leaflet, maps, nycflights13, openxlsx, palmerpenguins,
+##   repurrrsive, tidymodels, writexl
+## )
+
+## if (!require(pacman)) install.packages("pacman")
+
+## > q()
 ## Save workspace image? [y/n/c]:
 
-
 ## > q(save = "no")
-
 
 ## install.packages("swirl")
 ## library("swirl")
@@ -40,9 +62,9 @@ library("tidyverse")
 
 ## file.create("hello.R")
 
-setwd("/home/sthu/Dropbox/hsf/23-ss/ds/")
-x <- "hello world"
-print(x)
+## setwd("/home/sthu/Dropbox/hsf/23-ss/ds/")
+## x <- "hello world"
+## print(x)
 
 ## source( "hello.R" )
 
@@ -129,6 +151,7 @@ revenue_per_day
 # round number 
 round(revenue_per_day) 
 
+detach("package:recipes")
 if(any(grepl("package:dplyr", search()))) detach("package:dplyr") else message("dplyr not loaded")
 
 lag(revenue)
@@ -213,47 +236,6 @@ print(m_ab_label)
 # convert the matrix into dataframe
 df_ab=as.data.frame(m_ab_label)
 tbl_ab=as_tibble(m_ab_label)
-
-## 
-
-## Import data
-
-## 
-
-## Table `r table_nums("tab:covid", display = "cite")` shows COVID for three states in Germany:
-
-## 	
-
-## | state           | Bavaria | North Rhine-Westphalia | Baden-Württemberg |
-
-## |-----------------|---------|------------------------|-------------------|
-
-## | deaths (in mio) | 4,92M   | 5,32M                  | 3,69M             |
-
-## | cases           | 24.111  | 25.466                 | 16.145            |
-
-## 
-
-## Table: `r table_nums(name = "tab:covid", caption = "Covid cases and deaths till August 2022")`
-
-## 	
-
-## Write down the code you would need to put into the R-console...
-
-## 
-
-## - ...to store each of variables _state_ and _deaths_ in a vector.
-
-## - ...to store both vectors in a data frame with the name `df_covid`.
-
-## - ...to store both vectors in a tibble with the name `tbl_covid`.
-
-## 
-
-## Please find solution to the exercise [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/import_covid_data.R)
-
-## 
-
 
 library("datasets")
 head(mtcars, 3)
@@ -454,132 +436,11 @@ mtcars |>
 
 
 
-## 
-
-## Generate and drop variables
-
-## 
-
-## Use the _mtcars_ dataset. It is part of the package _datasets_ and can be called with
-
-## 
-
 ## mtcars
-
-## 
-
-## Base R or pipe
-
-## 
-
-## a) Using the mtcars dataset, write code to create a new dataframe that includes only the rows where the number of cylinders is either 4 or 6, and the weight (wt) is less than 3.5.
-
-## 
-
-## Do this in two different ways using:
-
-## 
-
-## 1. The `%in%` operator and the pipe |> .
-
-## 2. Base R without the pipe |>.
-
-## 
-
-## Compare the resulting dataframes using the identical() function.
-
-## 
-
-## b) Using the mtcars dataset, generate a logical variable that indicates with `TRUE` all cars with either 4 or 6 cylinders that wt is less than 3.5 and add this variable to a new dataset.
-
-## 
-
-## Please find solutions [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_base_pipe.R).
-
-## 
-
-
-## 
-
-## Subsetting
-
-## 
-
-## 1. Check to see if you have the mtcars dataset by entering the command mtcars.
-
-## 1. Save the mtcars dataset in an object named cars.
-
-## 1. What class is cars?
-
-##   1. How many observations (rows) and variables (columns) are in the mtcars dataset?
-
-##   1. Rename mpg in cars to MPG. Use rename().
-
-## 1. Convert the column names of cars to all upper case. Use rename_all, and the toupper command.
-
-## 1. Convert the rownames of cars to a column called car using rownames_to_column.
-
-## 1. Subset the columns from cars that end in "p" and call it pvars using ends_with().
-
-## 1. Create a subset cars that only contains the columns: wt, qsec, and hp and assign this object to carsSub. (Use select().)
-
-## 1. What are the dimensions of carsSub? (Use dim().)
-
-## 1. Convert the column names of carsSub to all upper case. Use rename_all(), and toupper() (or colnames()).
-
-## 1. Subset the rows of cars that get more than 20 miles per gallon (mpg) of fuel efficiency. How many are there? (Use filter().)
-
-## 1. Subset the rows that get less than 16 miles per gallon (mpg) of fuel efficiency and have more than 100 horsepower (hp). How many are there? (Use filter() and the pipe operator.)
-
-## 1. Create a subset of the cars data that only contains the columns: wt, qsec, and hp for cars with 8 cylinders (cyl) and reassign this object to carsSub. What are the dimensions of this dataset? Do not use the pipe operator.
-
-## 1. Create a subset of the cars data that only contains the columns: wt, qsec, and hp for cars with 8 cylinders (cyl) and reassign this object to carsSub2. Use the pipe operator.
-
-## 1. Re-order the rows of carsSub by weight (wt) in increasing order. (Use arrange().)
-
-## 1. Create a new variable in carsSub called wt2, which is equal to wt^2, using mutate() and piping `%>%`.
-
-## 
-
-## Please find solutions [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_subset.R).
-
-## 
-
-
-## 
-
-## Data transformation
-
-## 
-
-## Please download and open the R-script you find [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/data_transformation.R) and try to answer the questions therein.
-
-## 
-
-## Solutions to the questions are linked in the script.
-
-## 
-
-
-## Load the Stata dataset "auto" using R
-
-## 
 
 library("tidyverse")
 library("haven")
 auto <- read_dta("http://www.stata-press.com/data/r8/auto.dta")
-
-## DatasauRus
-
-## 
-
-## ![(\#fig:label) The logo of the DatasauRus package^[Figure is taken from https://github.com/jumpingrivers/datasauRus]](fig/datasaurus.png){ width=25% }
-
-## 
-
-## a) Load the packages `datasauRus` and `tidyverse`. If necessary, install these packages.
-
-## 
 
   #install.packages("datasauRus")
   library("datasauRus")
@@ -618,7 +479,6 @@ ds |>
 
 ## The standard deviation, the mean, and the correlation are basically the same for all datasets. The median is different.
 
-
 ggplot(ds, aes(x = x, y = y)) +
   geom_point() +
   facet_wrap(~ dataset, ncol = 3) +
@@ -646,77 +506,6 @@ for (uni_v in uni_ds) {
   filename <- paste0("fig/", "plot_ds_", uni_v, ".png")
   ggsave(filename, plot = graph)
 }
-
-## 
-
-## Convergence
-
-## 
-
-## The dataset convergence.dta, see  https://github.com/hubchev/courses/blob/main/dta/convergence.dta, contains the per capita GDP of 1960 (gdppc60) and the average growth rate of GDP per capita between 1960 and 1995 (growth) for different countries (country), as well as 3 dummy variables indicating the belonging of a country to the region Asia (asia), Western Europe (weurope) or Africa (africa).
-
-## 
-
-## 
-
-## -  Some countries are not assigned to a certain country group. Name the countries which are assign to be part of Western Europe, Africa or Asia. If you find countries that are members of the EU, assign them a '1' in the variable weurope.
-
-## -  Create a table that shows the average GDP per capita for all available points in time. Group by Western European, Asian, African, and the remaining countries.
-
-## -  Create the growth rate of GDP per capita from 1960 to 1995 and call it gdpgrowth. (Note: The log value X minus the log value X of the previous period is approximately equal to the growth rate).
-
-## -  Calculate the unconditional convergence of all countries by constructing a graph in which a scatterplot shows the GDP per capita growth rate between 1960 and 1995 (gdpgrowth) on the y-axis and the 1960 GDP per capita (gdppc60) on the x-axis. Add to the same graph the estimated linear relationship. You do not need to label the graph further, just two things: title the graph `world` and label the individual observations with the country names.
-
-## -  Create three graphs describing the same relationship for the sample of Western European, African and Asian countries. Title the graph accordingly with `weurope`, `africa` and `asia`.
-
-## -  Combine the four graphs into one image. Discuss how an upward or downward sloping regression line can be interpreted.
-
-## -  Estimate the relationships illustrated in the 4 graphs using the least squares method. Present the 4 estimation results in a table, indicating the significance level with stars. In addition, the Akaike information criterion, and the number of observations should be displayed in the table. Interpret the four estimation results regarding their significance.
-
-## -  Put the data set into the so-called long format and calculate the GDP per capita growth rates for the available time points in the countries.
-
-## 
-
-## 
-
-## Please find solutions [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R).
-
-## 
-
-
-## 
-
-## Unemployment and GDP in Germany and France
-
-## 
-
-## The following exercise was a former exam.
-
-## 
-
-## Please answer all (!) questions in an R script. Normal text should be written as comments, using the '#' to comment out text. Make sure the script runs without errors before submitting it. Each task (starting with 1) is worth five points. You have a total of 120 minutes of editing time. Please do not forget to number your answers.
-
-## 
-
-## When you are done with your work, save the R script, export the script to pdf format and upload the pdf file.
-
-## 
-
-## Suppose you aim to empirically examine unemployment and GDP for Germany and France. The data set that we use in the following is 'forest.Rdata'.
-
-## 
-
-## (0)
-
-## Write down your name, matriculation number, and date.
-
-## 
-
-## (1)
-
-## Set your working directory.
-
-## 
 
 ## setwd("/home/sthu/Dropbox/hsf/exams/22-11/scr/")
 
@@ -807,65 +596,8 @@ labels <- 1992:2020
 plot(dfger$gdppc, dfger$unemployment, type = "b", 
      xlab = "Var 1", ylab = "Var 2"); text(dfger$gdppc + 0.7, dfger$unemployment + 0.4, labels); title("Germany")
 
-## 
-
-## Import data and write a report
-
-## 
-
-## Reproduce Figure 3 of @Hortacsu2015Ongoing[p. 99] using R. Write a clear report about your work, i.e., document everything with a R script or a R Markdown file.
-
-## 
-
-## Here are the required steps:
-
-## 
-
-##   1. Go to [https://www.aeaweb.org/articles?id=10.1257/jep.29.4.89](https://www.aeaweb.org/articles?id=10.1257/jep.29.4.89) and download the _replication package_ from the _OPENICPSR_ page. Please note, that you can download the replication package after you have registered for the platform.
-
-##   2. Unzip the replication package.
-
-##   3. In the file _diffusion_curves_figure.xlsx_ you find the required data. Import them to R.
-
-##   4. Reproduce the plot using ggplot().
-
-## 
-
-## 
-
-## Please find solutions [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/hortacsu_figure_3.R).
-
-## 
-
-
-## 
-
-## Explain the weight
-
-## 
-
-## In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with corelations and a regression analysis the association. Load the data as follows:
-
-## 
-
 library("haven")
 classdata <- read.csv("https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv")
-
-## 
-
-## Calories and weight
-
-## 
-
-## a) Write down your name, your matriculation number, and the date.
-
-## b) Set your working directory.
-
-## c) Clear your global environment.
-
-## d) Load the following package: `tidyverse`
-
-## 
 
 library("tidyverse")
 
@@ -875,285 +607,84 @@ df <- read_csv("https://raw.githubusercontent.com/hubchev/courses/main/dta/df-ca
 reg_base <- lm(weight ~ calories, data = df)
 summary(reg_base)
 
-## 
-
-## Bundesliga
-
-## 
-
-## Open the script that you find [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/dfb.R) and work on the following tasks:
-
-## 
-
-## 1. Set your working directory.
-
-## 
-
-## 2. Clear th environment.
-
-## 
-
-## 3. Install and load the `bundesligR` and `tidyverse`.
-
-## 
-
-## 3. Read in the data `bundesligR` as a tibble.
-
-## 
-
-## 3. Replace "Bor. Moenchengladbach" with "Borussia Moenchengladbach."
-
-## 
-
-## 4. Check for the data class.
-
-## 
-
-## 5. View the data.
-
-## 
-
-## 6. Glimpse on the data.
-
-## 
-
-## 7. Show the first and last observations.
-
-## 
-
-## 8. Show summary statistics to all variables.
-
-## 
-
-## 9. How many teams have played in the league over the years?
-
-## 
-
-## 10. Which teams have played Bundesliga so far?
-
-## 
-
-## 11. How many teams have played Bundesliga?
-
-## 
-
-## 12. How often has each team played in the Bundesliga?
-
-## 
-
-## 13. Show summary statistics of variable `Season` only.
-
-## 
-
-## 14. Show summary statistics of all numeric variables (`Team` is a character).
-
-## 
-
-## 15. What is the highest number of points ever received by a team? Show only the name of the club with the highest number of points ever received.
-
-## 
-
-## 16. Create a new tibble using `liga` removing the variable `Pts_pre_95` from the data.
-
-## 
-
-## 17. Create a new tibble using `liga` renaming W, D, and L to Win, Draw, and Loss. Additionally rename GF, GA, GD to Goals_shot, Goals_received, Goal_difference.
-
-## 
-
-## 18. Create a new tibble using `liga` without the variable `Pts_pre_95` and only observations before the year 1996.
-
-## 
-
-## 19. Remove the three tibbles just created from the environment.
-
-## 
-
-## 20. Rename all variables of `liga` to lowercase and store it as `dfb`.
-
-## 
-
-## 21. Show the winner and the runner up after the year 2010. Additionally show the points received.
-
-## 
-
-## 22. Create a variable that counts how often a team was ranked first.
-
-## 
-
-## 23. How often has each team played in the Bundesliga?
-
-## 
-
-## 24. Make a ranking that shows which team has played the Bundesliga most often.
-
-## 
-
-## 25. Add a variable to `dfb` that contains the number of appearances of a team in the league.
-
-## 
-
-## 26. Create a number that indicates how often a team has played Bundesliga in a given year.
-
-## 
-
-## 27. Make a ranking with the number of titles of all teams that ever won the league.
-
-## 
-
-## 28. Create a numeric identifying variable for each team.
-
-## 
-
-## 29. When a team is in the league, what is the probability that it wins the league?
-
-## 
-
-## 30. Make a scatterplot with points on the y-axis and position on the x-axis.
-
-## 
-
-## 31. Make a scatterplot with points on the y-axis and position on the x-axis. Additionally, only consider seasons with 18 teams and add lines that make clear how many points you needed to be placed in between rank 2 and 15.
-
-## 
-
-## 
-
-## Solutions are provided [here](https://raw.githubusercontent.com/hubchev/courses/main/scr/bundesliga.R).
-
-## 
-
-
-## 
-
-## Start Markdown and R Markdown
-
-## 
-
-## a) You can learn Markdown (not R Markdown!) in 10 minutes. Just go to https://www.markdowntutorial.com and work throught the interactive lessons.
-
-## b) Now create your first R Markdown file in 3 minutes by doing the following:
-
-##   - click in RStudio on _File > New File > R Markdown_
-
-##   - click _OK_
-
-##   - look for a button entitled _Knit_ and click it
-
-##   - save your file (it will be saved with .Rmd file extension)
-
-## c) Play around with the file. For example, change the output format can you create a word file or a presentation. Play around with the code chunks. Add a picture that you find somewhere online.
-
-## d) Set your working directory to the folder where you have saved your first Rmd-file. Can you come up with a way to generate different output format with just one function.
-
-## 
-
-
-## 
-
-## R Markdown cite literature
-
-## 
-
-## a) Create a new R Markdown file (_File > New File > R Markdown_), save the file in an empty folder, and knit it.
-
-## b)
-
-## 
-
-## - Make a new script with _File > New File > R Script_.
-
-## - Go to [https://scholar.google.de/](https://scholar.google.de/) and search for _osrmtime_.
-
-## - Click on _"cite"_ and _"BibTeX"_. Copy and paste everything that you see into your script and save the script as _lit.bib_. R Studio will ask you if you confirm the file type change. Click yes. Your _lit.bib_ file should look like this:
-
-## 
-
+# (Install and) load packagages
+pacman::p_load(
+  bundesligR,
+  tidyverse
+  )
+
+# Read in the data as tibble
+liga <- as_tibble(bundesligR) |> 
+  rename_all(tolower)
+
+dfb_bal <- liga |> 
+  select(season, team, position) |> 
+  as_tibble() |> 
+  complete(season, team) 
+
+dfb_fck <- dfb_bal |> 
+  filter(team == "1. FC Kaiserslautern") 
+
+fck_pic <- ggplot(dfb_fck, aes(x = season, y = position)) +
+  geom_point() +
+  geom_line() +
+  scale_y_reverse(breaks = seq(1, 18, by = 1))
+
+fck_pic
+
+dfb_bal <- dfb_bal |> 
+  mutate(godown = ifelse(season <= 1964, 14.5, NA)) |> 
+  mutate(godown = ifelse(season > 1964 & season <= 1973, 16.5, godown)) |>
+  mutate(godown = ifelse(season > 1973 & season <= 1980, 15.5, godown)) |>
+  mutate(godown = ifelse(season > 1980 & season <= 1990, 16, godown)) |>
+  mutate(godown = ifelse(season == 1991, 16.5, godown)) |>
+  mutate(godown = ifelse(season > 1991 & season <= 2008, 15.5, godown)) |>
+  mutate(godown = ifelse(season > 2008 , 16, godown)) |> 
+  mutate(inliga = ifelse(is.na(position), 0, 1))
+
+dfb_subset <- subset(dfb_bal, team == "1. FC Koeln")
+  
+efzplot <- ggplot(dfb_subset, aes(x = season)) +
+    geom_point(aes(y = position), shape = 15) +
+    geom_line(aes(y = position)) +
+    geom_point(aes(y = godown), shape = 25) +
+    scale_y_reverse(breaks = seq(1, 20, by = 1) , limits = c(20, 1)) + 
+    xlim(1963, 2015) +
+    theme(panel.grid.minor = element_blank()) +
+    geom_hline(yintercept = 1.5, linetype = "dashed", color = "gray") +
+    geom_point(aes(y = position), shape = 1) +
+    labs(title = paste("Ranking History:", "1. FC Koeln"))
+
+efzplot
 
 ## @article{huber2016calculate,
-
 ##   title={Calculate travel time and distance with OpenStreetMap data using the Open Source Routing Machine (OSRM)},
-
 ##   author={Huber, Stephan and Rust, Christoph},
-
 ##   journal={The Stata Journal},
-
 ##   volume={16},
-
 ##   number={2},
-
 ##   pages={416--423},
-
 ##   year={2016},
-
 ##   publisher={SAGE Publications Sage CA: Los Angeles, CA}
-
 ## }
 
-
 ## ---
-
 ## title: "Untitled"
-
 ## author: "Stephan Huber"
-
 ## date: "`r Sys.Date()`"
-
 ## output: html_document
-
 ## bibliography: lit.bib
-
 ## ---
-
 
 ## csl: "https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl"
 
-
-## 
-
-## Preparing APA journal articles (`papaja`)
-
-## 
-
-## There is an easy way to write a manuscript that follows all the APA rules using the package `papaja` written by two psychologists from Cologne. Please read their [manual](https://frederikaust.com/papaja_man/introduction.html) and consider their [repository on GitHub](https://github.com/crsh/papaja).
-
-## 
-
-## Now, install and load the package:
-
-## 
-
 ## install.packages("papaja")
 ## library("papaja")
-
-## 
-
-## R Markdown template
-
-## 
-
-## Please follow the instructions below to access the file "23-09_ds-project-desc.Rmd" from my GitHub account:
-
-## 
-
-## 1. Download the file from my GitHub account by clicking on the link provided here.
-
-## 2. Save the file in your working directory.
-
-## 3. Use the knit function to run the file, but be aware that it may not work properly at first. If you encounter any issues, troubleshooting may be required. Don`t worry, error messages will usually provide guidance to help you resolve the issue. Please note that the YAML header is sensitive to spacing, so be careful when setting it up to avoid breaking the code.
-
-## 4. In the project template, I have used BibTeX to cite literature. This method is excellent for automating tedious tasks such as citing papers and generating reference lists based on citation styles, saving time and reducing the likelihood of citation errors. The literature cited is in a separate file, which can be found on one of my GitHub repositories.
-
-## 
-
-## 
-
 
 library("captioner")
 table_nums <- captioner(prefix = "Table")
 
 ## /Users/huber/Rbook/rcourse-book.pdf
-
 
 path.expand("~")
 
