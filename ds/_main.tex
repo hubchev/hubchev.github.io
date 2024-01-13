@@ -168,7 +168,7 @@ How to Use R for Data Science}
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 12 December, 2023}
+\date{Last compiled on 13 January, 2024}
 
 \begin{document}
 \maketitle
@@ -1054,7 +1054,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr"
+## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.3/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1538,9 +1538,9 @@ An API which stands for \emph{application programming interface} specifies how c
 
 \begin{verbatim}
 ##   iso3c date        value    indicatorID         indicator iso2c                     country
-## 1   AFE 2022 1.169484e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
-## 2   AFE 2021 1.081998e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
-## 3   AFE 2020 9.275933e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+## 1   AFE 2022 1.185138e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+## 2   AFE 2021 1.086531e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+## 3   AFE 2020 9.288802e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
 \end{verbatim}
 
 \begin{Shaded}
@@ -1550,15 +1550,15 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-## Rows: 13,365
+## Rows: 13,200
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE~
-## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", ~
-## $ value       <dbl> 1.169484e+12, 1.081998e+12, 9.275933e+11, 1.000834e+12, 1.007196e+12, 1.021043e+12, 8.85~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD"~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH"~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southe~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "~
+## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012~
+## $ value       <dbl> 1.185138e+12, 1.086531e+12, 9.288802e+11, 1.006191e+12, 1.012521e+12, 1.028394e+12, 8~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Sou~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1569,14 +1569,14 @@ An API which stands for \emph{application programming interface} specifies how c
 
 \begin{verbatim}
 ##     iso3c               date               value           indicatorID         indicator        
-##  Length:13365       Length:13365       Min.   :8.825e+06   Length:13365       Length:13365      
-##  Class :character   Class :character   1st Qu.:2.523e+09   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Median :1.843e+10   Mode  :character   Mode  :character  
-##                                        Mean   :1.207e+12                                        
-##                                        3rd Qu.:2.244e+11                                        
-##                                        Max.   :1.006e+14                                        
+##  Length:13200       Length:13200       Min.   :8.825e+06   Length:13200       Length:13200      
+##  Class :character   Class :character   1st Qu.:2.435e+09   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Median :1.786e+10   Mode  :character   Mode  :character  
+##                                        Mean   :1.224e+12                                        
+##                                        3rd Qu.:2.272e+11                                        
+##                                        Max.   :1.013e+14                                        
 ##     iso2c             country         
-##  Length:13365       Length:13365      
+##  Length:13200       Length:13200      
 ##  Class :character   Class :character  
 ##  Mode  :character   Mode  :character  
 ##                                       
@@ -2469,17 +2469,17 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4,~
-## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6,~
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8~
-## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52,~
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93,~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60~
-## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0,~
-## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,~
-## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5,~
-## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6,~
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10~
+## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8,~
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 27~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, ~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17~
+## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0,~
+## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1,~
+## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5,~
+## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4,~
 \end{verbatim}
 
 \hypertarget{how-to-explore-a-dataset}{%
@@ -3241,7 +3241,7 @@ Data Description:
 
 \begin{verbatim}
 ## Rows: 6 Columns: 5
-## -- Column specification --------------------------------------------------------------------------------------
+## -- Column specification -----------------------------------------------------------------------------------
 ## Delimiter: ","
 ## chr (1): sex
 ## dbl (4): age, weight, calories, sport
@@ -3438,6 +3438,237 @@ Open the script that you find \href{https://raw.githubusercontent.com/hubchev/co
 
 Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/bundesliga.R}{here}.
 
+\hypertarget{exercise-okuns-law}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Okun's Law}{EXERCISE: Okun's Law}}\label{exercise-okuns-law}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Okun's Law}
+
+\emph{Suppose you aim to empirically examine unemployment and GDP for Germany and France.
+The data set that we use in the following is `forest.Rdata' and should already
+been known to you from the lecture.}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{-1}
+\item
+  Write down your name, matriculation number, and date.
+\item
+  Set your working directory.
+\item
+  Clear your global environment.
+\item
+  Install and load the following packages: `tidyverse', `sjPlot', and `ggpubr'
+\item
+  Download and load the data, respectively, with the following code:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{load}\NormalTok{(}\FunctionTok{url}\NormalTok{(}\StringTok{"https://github.com/hubchev/courses/raw/main/dta/forest.Rdata"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+If that is not working, you can also download the data from ILIAS, save it in
+your working directory and load it from there with:
+
+\begin{verbatim}
+load("forest.Rdata")
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{4}
+\item
+  Show the \textbf{first eight} observations of the dataset `df'.
+\item
+  Show the \textbf{last observation} of the dataset `df'.
+\item
+  Which type of data do we have here (Panel, cross-section,time series, \ldots)?
+  Name the variable(s) that are necessary to identify the observations in the dataset.
+\item
+  Explain what the \textbf{assignment operator} in R is and what it is good for.
+\item
+  Write down the R code to store the number of observations and the number of variables
+  that are in the dataset `df'. Name the object in which you store these numbers `observations\_df'.
+\item
+  In the dataset `df', rename the variable `country.x' to `nation' and the
+  variable `date' to `year'.
+\item
+  Explain what the \textbf{pipe operator} in R is and what it is good for.
+\item
+  For the upcoming analysis you are only interested the following \textbf{variables}
+  that are part of the dataframe `df': nation, year, gdp, pop, gdppc,
+  and unemployment. Drop all other variables from the dataframe `df'.
+\item
+  Create a variable that indicates the GDP per capita (`gdp' divided by `pop').
+  Name the variable `gdp\_pc'. (Hint: If you fail here, use the variable `gdppc' which is
+  already in the dataset as a replacement for `gdp\_pc' in the following tasks.)
+\item
+  For the upcoming analysis you are only interested the following \textbf{countries}
+  that are part of the dataframe `df': Germany and France. Drop all other
+  countries from the dataframe `df'.
+\item
+  Create a table showing the \textbf{average} unemployment rate and GDP per capita for Germany
+  and France in the given years. Use the pipe operator. (Hint: See below for how your results should
+  look like.)
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   nation  `mean(unemployment)` `mean(gdppc)`
+##   <chr>                  <dbl>         <dbl>
+## 1 France                  9.75        34356.
+## 2 Germany                 7.22        36739.
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{15}
+\tightlist
+\item
+  Create a table showing the unemployment rate and GDP per capita for Germany
+  and France in the \textbf{year 2020}. Use the pipe operator. (Hint: See below for how your results should
+  look like.)
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   nation  `mean(unemployment)` `mean(gdppc)`
+##   <chr>                  <dbl>         <dbl>
+## 1 France                  8.01        35786.
+## 2 Germany                 3.81        41315.
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{16}
+\tightlist
+\item
+  Create a table showing the \textbf{highest} unemployment rate and the \textbf{highest}
+  GDP per capita for Germany and France during the given period.
+  Use the pipe operator. (Hint: See below for how your results should look like.)
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   nation  `max(unemployment)` `max(gdppc)`
+##   <chr>                 <dbl>        <dbl>
+## 1 France                 12.6       38912.
+## 2 Germany                11.2       43329.
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{17}
+\tightlist
+\item
+  Calculate the standard deviation of the unemployment rate and GDP per capita for Germany
+  and France in the given years. (Hint: See below for how your result should
+  look like.)
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 2 x 3
+##   nation  `sd(gdppc)` `sd(unemployment)`
+##   <chr>         <dbl>              <dbl>
+## 1 France        2940.               1.58
+## 2 Germany       4015.               2.37
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{18}
+\tightlist
+\item
+  In statistics, the coefficient of variation (COV) is a standardized measure of
+  dispersion. It is defined as the ratio of the standard deviation (\(\sigma\)) to the mean (\(\mu\)):
+  \(COV={\frac {\sigma }{\mu }}\).
+  Write down the R code to calculate the coefficient of variation (COV) for the
+  \textbf{unemployment rate} in Germany and France. (Hint: See below for what your result should should look like.)
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   nation  `sd(unemployment)` `mean(unemployment)`   cov
+##   <chr>                <dbl>                <dbl> <dbl>
+## 1 France                1.58                 9.75 0.162
+## 2 Germany               2.37                 7.22 0.328
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{19}
+\tightlist
+\item
+  Write down the R code to calculate the coefficient of variation (COV) for the \textbf{GDP per capita}
+  in Germany and France. (Hint: See below for what your result should should look like.)
+\end{enumerate}
+
+look like.)
+
+\begin{verbatim}
+## # A tibble: 2 x 4
+##   nation  `sd(gdppc)` `mean(gdppc)`    cov
+##   <chr>         <dbl>         <dbl>  <dbl>
+## 1 France        2940.        34356. 0.0856
+## 2 Germany       4015.        36739. 0.109
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{20}
+\tightlist
+\item
+  Create a chart (bar chart, line chart, or scatter plot) that shows the
+  unemployment rate of \textbf{Germany} over the available years. Label the chart
+  `Germany' with `ggtitle(``Germany'')'. Please note that you may choose any type of graphical representation.
+  (Hint: Below you can see one of many possible examples of what your result may look like).
+\end{enumerate}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-117-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{21}
+\tightlist
+\item
+  and 23. \emph{(This task is worth 10 points)}
+  The following chart shows the simultaneous development of the unemployment rate and GDP per capita over time for \textbf{France}.
+\end{enumerate}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-118-1.pdf}
+
+Suppose you want to visualize the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany as well.\\
+Suppose further that you have found the following lines of code that create the kind of chart you are looking for.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Data}
+\NormalTok{x }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{8}\NormalTok{, }\DecValTok{9}\NormalTok{)}
+\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{12}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{22}\NormalTok{)}
+\NormalTok{labels }\OtherTok{\textless{}{-}} \DecValTok{1970}\SpecialCharTok{:}\DecValTok{1978}
+
+\CommentTok{\# Connected scatter plot with text}
+\FunctionTok{plot}\NormalTok{(x, y, }\AttributeTok{type =} \StringTok{"b"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Var 1"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Var 2"}\NormalTok{); }\FunctionTok{text}\NormalTok{(x }\SpecialCharTok{+} \FloatTok{0.4}\NormalTok{, y }\SpecialCharTok{+} \FloatTok{0.1}\NormalTok{, labels) }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-119-1.pdf}
+
+Use these lines of code and customize them to create the co-movement visualization for \textbf{Germany} using the available `df' data.
+The result should look something like this:
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-120-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{23}
+\tightlist
+\item
+  Interpret the two graphs above, which show the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany and France. What are your expectations regarding the correlation between the unemployment rate and GDP per capita variables? Can you see this expectation in the figures? Discuss.
+\end{enumerate}
+
+Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_okun_solution.R}{here}.
+
 \hypertarget{write-with-r-markdown}{%
 \chapter{Write with R Markdown}\label{write-with-r-markdown}}
 
@@ -3533,31 +3764,42 @@ The working directory is by default set to the directory that contains the Rmd d
   Set your working directory to the folder where you have saved your first Rmd-file. Can you come up with a way to generate different output format with just one function.
 \end{enumerate}
 
-\begin{verbatim}
+\hypertarget{exercise-r-markdown-cite-literature}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} R Markdown cite literature}{EXERCISE: R Markdown cite literature}}\label{exercise-r-markdown-cite-literature}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} R Markdown cite literature}
 
-## _EXERCISE:_ R Markdown cite literature {-}
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Create a new R Markdown file (\emph{File \textgreater{} New File \textgreater{} R Markdown}), save the file in an empty folder, and knit it.
+\item
+\end{enumerate}
 
-a) Create a new R Markdown file (_File > New File > R Markdown_), save the file in an empty folder, and knit it.
-b) 
+\begin{itemize}
+\tightlist
+\item
+  Make a new script with \emph{File \textgreater{} New File \textgreater{} R Script}.
+\item
+  Go to \url{https://scholar.google.de/} and search for \emph{osrmtime}.
+\item
+  Click on \emph{``cite''} and \emph{``BibTeX''}. Copy and paste everything that you see into your script and save the script as \emph{lit.bib}. R Studio will ask you if you confirm the file type change. Click yes. Your \emph{lit.bib} file should look like this:
+\end{itemize}
 
-- Make a new script with _File > New File > R Script_. 
-- Go to [https://scholar.google.de/](https://scholar.google.de/) and search for _osrmtime_. 
-- Click on _"cite"_ and _"BibTeX"_. Copy and paste everything that you see into your script and save the script as _lit.bib_. R Studio will ask you if you confirm the file type change. Click yes. Your _lit.bib_ file should look like this:
-
-  
-
-```default
-@article{huber2016calculate,
-  title={Calculate travel time and distance with OpenStreetMap data using the Open Source Routing Machine (OSRM)},
-  author={Huber, Stephan and Rust, Christoph},
-  journal={The Stata Journal},
-  volume={16},
-  number={2},
-  pages={416--423},
-  year={2016},
-  publisher={SAGE Publications Sage CA: Los Angeles, CA}
-}
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{@article\{huber2016calculate,}
+\NormalTok{  title=\{Calculate travel time and distance with OpenStreetMap data using the Open Source Routing Machine (OSRM)\},}
+\NormalTok{  author=\{Huber, Stephan and Rust, Christoph\},}
+\NormalTok{  journal=\{The Stata Journal\},}
+\NormalTok{  volume=\{16\},}
+\NormalTok{  number=\{2\},}
+\NormalTok{  pages=\{416{-}{-}423\},}
+\NormalTok{  year=\{2016\},}
+\NormalTok{  publisher=\{SAGE Publications Sage CA: Los Angeles, CA\}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
 \begin{itemize}
 \tightlist
@@ -3844,13 +4086,13 @@ When seeking help, be sure to provide information about your machine, including 
 \end{Shaded}
 
 \begin{verbatim}
-## R version 4.2.2 Patched (2022-11-10 r83330)
+## R version 4.3.2 (2023-10-31)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 12 (bookworm)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
-## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so
+## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
+## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so;  LAPACK version 3.11.0
 ## 
 ## locale:
 ##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
@@ -3858,38 +4100,46 @@ When seeking help, be sure to provide information about your machine, including 
 ##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
 ## [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
+## time zone: Europe/Berlin
+## tzcode source: system (glibc)
+## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.4          sjPlot_2.8.15        ggpubr_0.6.0         datasauRus_0.1.6     haven_2.5.4         
-##  [6] janitor_2.2.0        wbstats_1.0.4        scales_1.3.0         lubridate_1.9.3      forcats_1.0.0       
-## [11] purrr_1.0.2          readr_2.1.4          tidyr_1.3.0          tibble_3.2.1         ggplot2_3.4.4       
-## [16] tidyverse_2.0.0      stringr_1.5.1        bundesligR_0.1.0     captioner_2.2.3.9000 knitr_1.45          
-## [21] pacman_0.5.1        
+##  [1] dplyr_1.1.4          sjPlot_2.8.15        ggpubr_0.6.0         datasauRus_0.1.6    
+##  [5] haven_2.5.4          wbstats_1.0.4        scales_1.3.0         captioner_2.2.3.9000
+##  [9] bundesligR_0.1.0     BiocManager_1.30.22  knitr_1.45           pacman_0.5.1        
+## [13] babynames_1.0.1      janitor_2.2.0        lubridate_1.9.3      forcats_1.0.0       
+## [17] stringr_1.5.1        purrr_1.0.2          readr_2.1.5          tidyr_1.3.0         
+## [21] tibble_3.2.1         ggplot2_3.4.4        tidyverse_2.0.0     
 ## 
 ## loaded via a namespace (and not attached):
-##   [1] minqa_1.2.6         TH.data_1.1-2       colorspace_2.1-0    ggsignif_0.6.4      class_7.3-22       
-##   [6] sjlabelled_1.2.0    estimability_1.4.1  snakecase_0.11.1    rstudioapi_0.15.0   listenv_0.9.0      
-##  [11] farver_2.1.1        bit64_4.0.5         prodlim_2023.08.28  fansi_1.0.5         mvtnorm_1.2-4      
-##  [16] codetools_0.2-19    splines_4.2.2       cachem_1.0.8        sjmisc_2.8.9        jsonlite_1.8.7     
-##  [21] nloptr_2.0.3        ggeffects_1.3.2     broom_1.0.5         compiler_4.2.2      httr_1.4.7         
-##  [26] sjstats_0.18.2      emmeans_1.8.9       backports_1.4.1     Matrix_1.6-4        fastmap_1.1.1      
-##  [31] cli_3.6.2           htmltools_0.5.7     tools_4.2.2         coda_0.19-4         gtable_0.3.4       
-##  [36] glue_1.6.2          Rcpp_1.0.11         carData_3.0-5       jquerylib_0.1.4     vctrs_0.6.4        
-##  [41] nlme_3.1-164        insight_0.19.6      timeDate_4022.108   gower_1.0.1         xfun_0.41          
-##  [46] globals_0.16.2      lme4_1.1-35.1       timechange_0.2.0    lifecycle_1.0.4     rstatix_0.7.2      
-##  [51] future_1.33.0       zoo_1.8-12          MASS_7.3-60         ipred_0.9-14        vroom_1.6.5        
-##  [56] ragg_1.2.7          hms_1.1.3           sandwich_3.1-0      parallel_4.2.2      yaml_2.3.8         
-##  [61] curl_5.1.0          sass_0.4.7          rpart_4.1.23        stringi_1.8.2       highr_0.10         
-##  [66] bayestestR_0.13.1   boot_1.3-28.1       hardhat_1.3.0       lava_1.7.3          rlang_1.1.2        
-##  [71] pkgconfig_2.0.3     systemfonts_1.0.5   evaluate_0.23       lattice_0.22-5      recipes_1.0.8      
-##  [76] labeling_0.4.3      bit_4.0.5           tidyselect_1.2.0    parallelly_1.36.0   magrittr_2.0.3     
-##  [81] bookdown_0.36       R6_2.5.1            generics_0.1.3      multcomp_1.4-25     pillar_1.9.0       
-##  [86] withr_2.5.2         survival_3.5-7      abind_1.4-5         nnet_7.3-19         future.apply_1.11.0
-##  [91] performance_0.10.8  modelr_0.1.11       crayon_1.5.2        car_3.1-1           utf8_1.2.4         
-##  [96] tzdb_0.4.0          rmarkdown_2.25      grid_4.2.2          data.table_1.14.10  digest_0.6.33      
-## [101] xtable_1.8-4        textshaping_0.3.7   munsell_0.5.0       bslib_0.6.0
+##   [1] rstudioapi_0.15.0   jsonlite_1.8.8      magrittr_2.0.3      TH.data_1.1-2       estimability_1.4.1 
+##   [6] nloptr_2.0.3        farver_2.1.1        rmarkdown_2.25      fs_1.6.3            ragg_1.2.7         
+##  [11] vctrs_0.6.5         minqa_1.2.6         memoise_2.0.1       rstatix_0.7.2       htmltools_0.5.7    
+##  [16] usethis_2.2.2       curl_5.2.0          broom_1.0.5         sjmisc_2.8.9        sass_0.4.8         
+##  [21] parallelly_1.36.0   bslib_0.6.1         htmlwidgets_1.6.4   desc_1.4.3          sandwich_3.1-0     
+##  [26] zoo_1.8-12          emmeans_1.9.0       cachem_1.0.8        mime_0.12           lifecycle_1.0.4    
+##  [31] pkgconfig_2.0.3     sjlabelled_1.2.0    Matrix_1.6-5        R6_2.5.1            fastmap_1.1.1      
+##  [36] future_1.33.1       shiny_1.8.0         snakecase_0.11.1    digest_0.6.34       colorspace_2.1-0   
+##  [41] ps_1.7.5            pkgload_1.3.3       textshaping_0.3.7   labeling_0.4.3      fansi_1.0.6        
+##  [46] timechange_0.2.0    httr_1.4.7          abind_1.4-5         compiler_4.3.2      remotes_2.4.2.1    
+##  [51] bit64_4.0.5         withr_2.5.2         backports_1.4.1     carData_3.0-5       performance_0.10.8 
+##  [56] pkgbuild_1.4.3      highr_0.10          ggsignif_0.6.4      MASS_7.3-60         lava_1.7.3         
+##  [61] sjstats_0.18.2      sessioninfo_1.2.2   tools_4.3.2         httpuv_1.6.13       future.apply_1.11.1
+##  [66] nnet_7.3-19         glue_1.7.0          callr_3.7.3         nlme_3.1-164        promises_1.2.1     
+##  [71] grid_4.3.2          generics_0.1.3      recipes_1.0.9       gtable_0.3.1        tzdb_0.4.0         
+##  [76] class_7.3-22        data.table_1.14.10  hms_1.1.3           car_3.1-2           utf8_1.2.4         
+##  [81] pillar_1.9.0        vroom_1.6.5         later_1.3.2         splines_4.3.2       lattice_0.22-5     
+##  [86] bit_4.0.5           survival_3.5-7      tidyselect_1.2.0    miniUI_0.1.1.1      bookdown_0.32      
+##  [91] xfun_0.41           hardhat_1.3.0       devtools_2.4.5      timeDate_4032.109   stringi_1.8.3      
+##  [96] boot_1.3-28.1       yaml_2.3.8          evaluate_0.23       codetools_0.2-19    cli_3.6.2          
+## [101] rpart_4.1.23        xtable_1.8-4        systemfonts_1.0.5   munsell_0.5.0       processx_3.8.3     
+## [106] jquerylib_0.1.4     modelr_0.1.11       Rcpp_1.0.12         globals_0.16.2      ggeffects_1.3.4    
+## [111] parallel_4.3.2      ellipsis_0.3.2      gower_1.0.1         bayestestR_0.13.1   profvis_0.3.8      
+## [116] urlchecker_1.0.1    lme4_1.1-35.1       listenv_0.9.0       mvtnorm_1.2-4       ipred_0.9-14       
+## [121] prodlim_2023.08.28  insight_0.19.7      crayon_1.5.2        rlang_1.1.3         multcomp_1.4-25
 \end{verbatim}
 
   \bibliography{book.bib}
