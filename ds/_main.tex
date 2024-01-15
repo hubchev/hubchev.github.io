@@ -168,7 +168,7 @@ How to Use R for Data Science}
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 13 January, 2024}
+\date{Last compiled on 15 January, 2024}
 
 \begin{document}
 \maketitle
@@ -1552,13 +1552,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \begin{verbatim}
 ## Rows: 13,200
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "~
-## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012~
-## $ value       <dbl> 1.185138e+12, 1.086531e+12, 9.288802e+11, 1.006191e+12, 1.012521e+12, 1.028394e+12, 8~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Sou~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", ~
+## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "200~
+## $ value       <dbl> 1.185138e+12, 1.086531e+12, 9.288802e+11, 1.006191e+12, 1.012521e+12, 1.028394e+12, 8.900514e+11, 9.325135e+11, 1.006992e+12, 9.863429e+11, ~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.C~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current ~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "Z~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern ~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1568,20 +1568,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##     iso3c               date               value           indicatorID         indicator        
-##  Length:13200       Length:13200       Min.   :8.825e+06   Length:13200       Length:13200      
-##  Class :character   Class :character   1st Qu.:2.435e+09   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Median :1.786e+10   Mode  :character   Mode  :character  
-##                                        Mean   :1.224e+12                                        
-##                                        3rd Qu.:2.272e+11                                        
-##                                        Max.   :1.013e+14                                        
-##     iso2c             country         
-##  Length:13200       Length:13200      
-##  Class :character   Class :character  
-##  Mode  :character   Mode  :character  
-##                                       
-##                                       
-## 
+##     iso3c               date               value           indicatorID         indicator            iso2c             country         
+##  Length:13200       Length:13200       Min.   :8.825e+06   Length:13200       Length:13200       Length:13200       Length:13200      
+##  Class :character   Class :character   1st Qu.:2.435e+09   Class :character   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Median :1.786e+10   Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+##                                        Mean   :1.224e+12                                                                              
+##                                        3rd Qu.:2.272e+11                                                                              
+##                                        Max.   :1.013e+14
 \end{verbatim}
 
 \hypertarget{import-various-file-formats}{%
@@ -1661,13 +1654,10 @@ One difference between data frames and tibbles is that dataframes store the row 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"     
-##  [5] "Hornet Sportabout"   "Valiant"             "Duster 360"          "Merc 240D"          
-##  [9] "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"         
-## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood"  "Lincoln Continental"
-## [17] "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"     
-## [21] "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
-## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"       
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"             "Duster 360"         
+##  [8] "Merc 240D"           "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"          "Merc 450SL"          "Merc 450SLC"        
+## [15] "Cadillac Fleetwood"  "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"      "Toyota Corona"      
+## [22] "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"          "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"       
 ## [29] "Ford Pantera L"      "Ferrari Dino"        "Maserati Bora"       "Volvo 142E"
 \end{verbatim}
 
@@ -2469,17 +2459,17 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10~
-## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8,~
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 27~
-## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, ~
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17~
-## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0,~
-## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1,~
-## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5,~
-## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4,~
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.~
+## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7, 75.7, 71.1, 120.~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 150, 245, 175, 66, 91, 113, 264, 175, ~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.70, 2.76, 3.15, 3.7~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.200, 1.615, 1.835, 2~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.47, 18.52, 19.90, 2~
+## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
+## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
+## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
+## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6, 8, 2
 \end{verbatim}
 
 \hypertarget{how-to-explore-a-dataset}{%
@@ -3241,7 +3231,7 @@ Data Description:
 
 \begin{verbatim}
 ## Rows: 6 Columns: 5
-## -- Column specification -----------------------------------------------------------------------------------
+## -- Column specification ------------------------------------------------------------------------------------------------------------------------------------------
 ## Delimiter: ","
 ## chr (1): sex
 ## dbl (4): age, weight, calories, sport
@@ -3669,6 +3659,35 @@ The result should look something like this:
 
 Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_okun_solution.R}{here}.
 
+\hypertarget{exercise-names-and-duplicates}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Names and duplicates}{EXERCISE: Names and duplicates}}\label{exercise-names-and-duplicates}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Names and duplicates}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Load the required packages (\texttt{pacman}, \texttt{tidyverse}, \texttt{janitor}, \texttt{babynames}, \texttt{stringr}).
+\item
+  Load the dataset from the URL: \url{https://github.com/hubchev/courses/raw/main/dta/df_names.RData}. Make yourself familiar with the data.
+\item
+  After loading the dataset, remove all objects except \texttt{df\_2022} and \texttt{df\_2022\_error}.
+\item
+  Reorder the data using the \texttt{relocate} function so that \texttt{surname}, \texttt{name}, and \texttt{age} appear first. Save the changed data in a tibble called \texttt{df}.
+\item
+  Sort the data according to \texttt{surname}, \texttt{name}, and \texttt{age}.
+\item
+  Make a variable named \texttt{born} that contains the year of birth. How is the \texttt{born} variable calculated?
+\item
+  Create a new variable named \texttt{id} that identifies each person by \texttt{surname}, \texttt{name}, and their birth year (\texttt{born}). Why is this identifier useful?
+\item
+  Investigate how the data is identified. Are there any duplicates? If so, can you think of strategies to identify and how to deal with these duplicates.
+\item
+  Unload the packages used in the script. Why is unloading packages considered good practice?
+\end{enumerate}
+
+Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_duplicates.R}{here}.
+
 \hypertarget{write-with-r-markdown}{%
 \chapter{Write with R Markdown}\label{write-with-r-markdown}}
 
@@ -4095,10 +4114,9 @@ When seeking help, be sure to provide information about your machine, including 
 ## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so;  LAPACK version 3.11.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
-##  [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
-## [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8   
+##  [6] LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## time zone: Europe/Berlin
 ## tzcode source: system (glibc)
@@ -4107,39 +4125,26 @@ When seeking help, be sure to provide information about your machine, including 
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.4          sjPlot_2.8.15        ggpubr_0.6.0         datasauRus_0.1.6    
-##  [5] haven_2.5.4          wbstats_1.0.4        scales_1.3.0         captioner_2.2.3.9000
-##  [9] bundesligR_0.1.0     BiocManager_1.30.22  knitr_1.45           pacman_0.5.1        
-## [13] babynames_1.0.1      janitor_2.2.0        lubridate_1.9.3      forcats_1.0.0       
-## [17] stringr_1.5.1        purrr_1.0.2          readr_2.1.5          tidyr_1.3.0         
-## [21] tibble_3.2.1         ggplot2_3.4.4        tidyverse_2.0.0     
+##  [1] dplyr_1.1.4          sjPlot_2.8.15        ggpubr_0.6.0         datasauRus_0.1.6     haven_2.5.4          janitor_2.2.0        wbstats_1.0.4       
+##  [8] scales_1.3.0         lubridate_1.9.3      forcats_1.0.0        purrr_1.0.2          readr_2.1.5          tidyr_1.3.0          tibble_3.2.1        
+## [15] ggplot2_3.4.4        tidyverse_2.0.0      stringr_1.5.1        bundesligR_0.1.0     captioner_2.2.3.9000 knitr_1.45           pacman_0.5.1        
 ## 
 ## loaded via a namespace (and not attached):
-##   [1] rstudioapi_0.15.0   jsonlite_1.8.8      magrittr_2.0.3      TH.data_1.1-2       estimability_1.4.1 
-##   [6] nloptr_2.0.3        farver_2.1.1        rmarkdown_2.25      fs_1.6.3            ragg_1.2.7         
-##  [11] vctrs_0.6.5         minqa_1.2.6         memoise_2.0.1       rstatix_0.7.2       htmltools_0.5.7    
-##  [16] usethis_2.2.2       curl_5.2.0          broom_1.0.5         sjmisc_2.8.9        sass_0.4.8         
-##  [21] parallelly_1.36.0   bslib_0.6.1         htmlwidgets_1.6.4   desc_1.4.3          sandwich_3.1-0     
-##  [26] zoo_1.8-12          emmeans_1.9.0       cachem_1.0.8        mime_0.12           lifecycle_1.0.4    
-##  [31] pkgconfig_2.0.3     sjlabelled_1.2.0    Matrix_1.6-5        R6_2.5.1            fastmap_1.1.1      
-##  [36] future_1.33.1       shiny_1.8.0         snakecase_0.11.1    digest_0.6.34       colorspace_2.1-0   
-##  [41] ps_1.7.5            pkgload_1.3.3       textshaping_0.3.7   labeling_0.4.3      fansi_1.0.6        
-##  [46] timechange_0.2.0    httr_1.4.7          abind_1.4-5         compiler_4.3.2      remotes_2.4.2.1    
-##  [51] bit64_4.0.5         withr_2.5.2         backports_1.4.1     carData_3.0-5       performance_0.10.8 
-##  [56] pkgbuild_1.4.3      highr_0.10          ggsignif_0.6.4      MASS_7.3-60         lava_1.7.3         
-##  [61] sjstats_0.18.2      sessioninfo_1.2.2   tools_4.3.2         httpuv_1.6.13       future.apply_1.11.1
-##  [66] nnet_7.3-19         glue_1.7.0          callr_3.7.3         nlme_3.1-164        promises_1.2.1     
-##  [71] grid_4.3.2          generics_0.1.3      recipes_1.0.9       gtable_0.3.1        tzdb_0.4.0         
-##  [76] class_7.3-22        data.table_1.14.10  hms_1.1.3           car_3.1-2           utf8_1.2.4         
-##  [81] pillar_1.9.0        vroom_1.6.5         later_1.3.2         splines_4.3.2       lattice_0.22-5     
-##  [86] bit_4.0.5           survival_3.5-7      tidyselect_1.2.0    miniUI_0.1.1.1      bookdown_0.32      
-##  [91] xfun_0.41           hardhat_1.3.0       devtools_2.4.5      timeDate_4032.109   stringi_1.8.3      
-##  [96] boot_1.3-28.1       yaml_2.3.8          evaluate_0.23       codetools_0.2-19    cli_3.6.2          
-## [101] rpart_4.1.23        xtable_1.8-4        systemfonts_1.0.5   munsell_0.5.0       processx_3.8.3     
-## [106] jquerylib_0.1.4     modelr_0.1.11       Rcpp_1.0.12         globals_0.16.2      ggeffects_1.3.4    
-## [111] parallel_4.3.2      ellipsis_0.3.2      gower_1.0.1         bayestestR_0.13.1   profvis_0.3.8      
-## [116] urlchecker_1.0.1    lme4_1.1-35.1       listenv_0.9.0       mvtnorm_1.2-4       ipred_0.9-14       
-## [121] prodlim_2023.08.28  insight_0.19.7      crayon_1.5.2        rlang_1.1.3         multcomp_1.4-25
+##   [1] sandwich_3.1-0      rlang_1.1.3         magrittr_2.0.3      multcomp_1.4-25     snakecase_0.11.1    compiler_4.3.2      systemfonts_1.0.5  
+##   [8] vctrs_0.6.5         pkgconfig_2.0.3     crayon_1.5.2        fastmap_1.1.1       backports_1.4.1     labeling_0.4.3      utf8_1.2.4         
+##  [15] rmarkdown_2.25      prodlim_2023.08.28  tzdb_0.4.0          nloptr_2.0.3        ragg_1.2.7          bit_4.0.5           xfun_0.41          
+##  [22] cachem_1.0.8        jsonlite_1.8.8      recipes_1.0.9       highr_0.10          sjmisc_2.8.9        ggeffects_1.3.4     broom_1.0.5        
+##  [29] parallel_4.3.2      R6_2.5.1            bslib_0.6.1         stringi_1.8.3       boot_1.3-28.1       parallelly_1.36.0   car_3.1-2          
+##  [36] rpart_4.1.23        estimability_1.4.1  jquerylib_0.1.4     Rcpp_1.0.12         bookdown_0.37       modelr_0.1.11       future.apply_1.11.1
+##  [43] zoo_1.8-12          Matrix_1.6-5        splines_4.3.2       nnet_7.3-19         timechange_0.2.0    tidyselect_1.2.0    rstudioapi_0.15.0  
+##  [50] abind_1.4-5         yaml_2.3.8          timeDate_4032.109   sjlabelled_1.2.0    codetools_0.2-19    curl_5.2.0          listenv_0.9.0      
+##  [57] lattice_0.22-5      bayestestR_0.13.1   withr_2.5.2         evaluate_0.23       future_1.33.1       survival_3.5-7      pillar_1.9.0       
+##  [64] carData_3.0-5       insight_0.19.7      generics_0.1.3      vroom_1.6.5         hms_1.1.3           munsell_0.5.0       minqa_1.2.6        
+##  [71] xtable_1.8-4        globals_0.16.2      class_7.3-22        glue_1.7.0          emmeans_1.9.0       tools_4.3.2         data.table_1.14.10 
+##  [78] lme4_1.1-35.1       gower_1.0.1         ggsignif_0.6.4      mvtnorm_1.2-4       grid_4.3.2          ipred_0.9-14        colorspace_2.1-0   
+##  [85] nlme_3.1-164        performance_0.10.8  cli_3.6.2           textshaping_0.3.7   fansi_1.0.6         sjstats_0.18.2      lava_1.7.3         
+##  [92] gtable_0.3.4        rstatix_0.7.2       sass_0.4.8          digest_0.6.34       TH.data_1.1-2       farver_2.1.1        htmltools_0.5.7    
+##  [99] lifecycle_1.0.4     hardhat_1.3.0       httr_1.4.7          bit64_4.0.5         MASS_7.3-60
 \end{verbatim}
 
   \bibliography{book.bib}
