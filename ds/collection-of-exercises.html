@@ -7,7 +7,7 @@
   <title>6 Collection of exercises |  How to Use R for Data Science</title>
   <meta name="description" content="<br />
 How to Use R for Data Science</p>" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Collection of exercises |  How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -239,6 +239,12 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-bundesliga"><i class="fa fa-check"></i><em>EXERCISE:</em> Bundesliga</a></li>
 <li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-okuns-law"><i class="fa fa-check"></i><em>EXERCISE:</em> Okun’s Law</a></li>
 <li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-names-and-duplicates"><i class="fa fa-check"></i><em>EXERCISE:</em> Names and duplicates</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-zipfs-law"><i class="fa fa-check"></i><em>EXERCISE:</em> Zipf’s law</a>
+<ul>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#preamble"><i class="fa fa-check"></i>Preamble</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#read-in-inspect-and-clean-the-data"><i class="fa fa-check"></i>Read in, inspect, and clean the data</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#data-analysis-zipfs-law"><i class="fa fa-check"></i>Data analysis (Zipf’s Law)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Write with R Markdown</a>
 <ul>
@@ -617,7 +623,7 @@ The result should look something like this:</p>
 </ol>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="collection-of-exercises.html#cb197-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/hubchev/courses/main/dta/df-calories.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 6 Columns: 5
-## ── Column specification ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+## ── Column specification ───────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
 ## chr (1): sex
 ## dbl (4): age, weight, calories, sport
@@ -872,7 +878,280 @@ The result should look something like this:</p>
 <li>Unload the packages used in the script. Why is unloading packages considered good practice?</li>
 </ol>
 <p>Solutions are provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_duplicates.R">here</a>.</p>
+</div>
+<div id="exercise-zipfs-law" class="section level2 unnumbered hasAnchor">
+<h2><em>EXERCISE:</em> Zipf’s law<a href="collection-of-exercises.html#exercise-zipfs-law" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>The data under investigation includes population information for various German cities, identified by the variable <code>stadt</code>, spanning the years 1970, 1987, and 2010. The variable status provides details about the legislative status of the cities, and the variable <code>state</code> (Bundesland) indicates the state in which each respective city is situated.</strong></p>
+<div id="preamble" class="section level3 unnumbered hasAnchor">
+<h3>Preamble<a href="collection-of-exercises.html#preamble" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Set your working directory.</li>
+</ol>
+<pre><code>## The following packages have been unloaded:
+## sjPlot, ggpubr, datasauRus, haven, janitor, wbstats, dplyr, scales, lubridate, forcats, purrr, readr, tidyr, tibble, ggplot2, tidyverse, stringr, bundesligR, captioner, knitr, pacman</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Clear your global environment.</p></li>
+<li><p>Install and load the following packages: ‘tidyverse’, ‘haven’, and ‘janitor’.</p></li>
+</ol>
+<pre><code>## Installing package into &#39;/home/sthu/R/x86_64-pc-linux-gnu-library/4.3&#39;
+## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre><code>## also installing the dependency &#39;pander&#39;</code></pre>
+<pre><code>## 
+## jtools installed</code></pre>
+</div>
+<div id="read-in-inspect-and-clean-the-data" class="section level3 unnumbered hasAnchor">
+<h3>Read in, inspect, and clean the data<a href="collection-of-exercises.html#read-in-inspect-and-clean-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol start="4" style="list-style-type: decimal">
+<li>Download and load the data, respectively, with the following code:</li>
+</ol>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="collection-of-exercises.html#cb213-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(</span>
+<span id="cb213-2"><a href="collection-of-exercises.html#cb213-2" tabindex="-1"></a>  <span class="st">&quot;https://github.com/hubchev/courses/raw/main/dta/city.dta&quot;</span>, </span>
+<span id="cb213-3"><a href="collection-of-exercises.html#cb213-3" tabindex="-1"></a>  <span class="at">encoding=</span><span class="st">&quot;latin1&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb213-4"><a href="collection-of-exercises.html#cb213-4" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span></code></pre></div>
+<p>If that is not working, you can also download the data from ILIAS, save it in
+your working directory and load it from there with:</p>
+<pre><code>load(&quot;city.RData&quot;)</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Show the first six and the last six observations of the dataset ‘df’.</p></li>
+<li><p>How many observations (rows) and variables (columns) are in the dataset?</p></li>
+<li><p>Show for all numerical variables the summary statistics including the mean,
+median, minimum, and the maximum.</p></li>
+<li><p>Rename the variable <code>stadt</code> to <code>city</code>.</p></li>
+<li><p>Remove the variables <code>pop1970</code> and <code>pop1987</code>.</p></li>
+<li><p>Replicate the following table which contains some summary statistics.</p></li>
+</ol>
+<pre><code>## # A tibble: 17 × 3
+##    state                  `mean(pop2011)` `sum(pop2011)`
+##    &lt;chr&gt;                            &lt;dbl&gt;          &lt;dbl&gt;
+##  1 Baden-Wrttemberg                 7580            7580
+##  2 Baden-Württemberg               23680.        7837917
+##  3 Bayern                          23996.        7558677
+##  4 Berlin                        3292365         3292365
+##  5 Brandenburg                     18472.        1865632
+##  6 Bremen                         325432.         650863
+##  7 Hamburg                       1706696         1706696
+##  8 Hessen                          22996.        5036121
+##  9 Mecklenburg-Vorpommern          27034.         811005
+## 10 Niedersachsen                   24107.        6219515
+## 11 Nordrhein-Westfalen             47465.       18036727
+## 12 Rheinland-Pfalz                 25644.        1871995
+## 13 Saarland                           NA              NA
+## 14 Sachsen                         27788.        2973351
+## 15 Sachsen-Anhalt                  21212.        1993915
+## 16 Schleswig-Holstein              24157.        1739269
+## 17 Th_ringen                       29192.        1167692</code></pre>
+<ol start="11" style="list-style-type: decimal">
+<li>The states “Baden-Wrttemberg” and “Th_ringen” are falsely pronounced. Correct
+the names and regenerate the summary statistics table presented above. Your
+result should look like this:</li>
+</ol>
+<pre><code>## # A tibble: 16 × 3
+##    state                  `mean(pop2011)` `sum(pop2011)`
+##    &lt;chr&gt;                            &lt;dbl&gt;          &lt;dbl&gt;
+##  1 Baden-Württemberg               23631.        7845497
+##  2 Bayern                          23996.        7558677
+##  3 Berlin                        3292365         3292365
+##  4 Brandenburg                     18472.        1865632
+##  5 Bremen                         325432.         650863
+##  6 Hamburg                       1706696         1706696
+##  7 Hessen                          22996.        5036121
+##  8 Mecklenburg-Vorpommern          27034.         811005
+##  9 Niedersachsen                   24107.        6219515
+## 10 Nordrhein-Westfalen             47465.       18036727
+## 11 Rheinland-Pfalz                 25644.        1871995
+## 12 Saarland                           NA              NA
+## 13 Sachsen                         27788.        2973351
+## 14 Sachsen-Anhalt                  21212.        1993915
+## 15 Schleswig-Holstein              24157.        1739269
+## 16 Thüringen                       29192.        1167692</code></pre>
+<ol start="12" style="list-style-type: decimal">
+<li>To investigate the reason for observing only <code>NAs</code> for Saarland, examine all
+cities within Saarland. Therefore, please display all observations for cities in
+Saarland in the Console, as illustrated below.</li>
+</ol>
+<pre><code>## # A tibble: 47 × 5
+##    city                status  state    pop2011 rankX
+##    &lt;chr&gt;               &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1 Perl                Commune Saarland    7775  2003
+##  2 Freisen             Commune Saarland    8270  1894
+##  3 Großrosseln         Commune Saarland    8403  1868
+##  4 Nonnweiler          Commune Saarland    8844  1775
+##  5 Nalbach             Commune Saarland    9302  1678
+##  6 Wallerfangen        Commune Saarland    9542  1642
+##  7 Kirkel              Commune Saarland   10058  1541
+##  8 Merchweiler         Commune Saarland   10219  1515
+##  9 Nohfelden           Commune Saarland   10247  1511
+## 10 Friedrichsthal      City    Saarland   10409  1489
+## 11 Marpingen           Commune Saarland   10590  1461
+## 12 Mandelbachtal       Commune Saarland   11107  1390
+## 13 Kleinblittersdorf   Commune Saarland   11396  1354
+## 14 Überherrn           Commune Saarland   11655  1317
+## 15 Mettlach            Commune Saarland   12180  1241
+## 16 Tholey              Commune Saarland   12385  1217
+## 17 Saarwellingen       Commune Saarland   13348  1104
+## 18 Quierschied         Commune Saarland   13506  1088
+## 19 Spiesen-Elversberg  Commune Saarland   13509  1086
+## 20 Rehlingen-Siersburg Commune Saarland   14526   996
+## 21 Riegelsberg         Commune Saarland   14763   982
+## 22 Ottweiler           City    Saarland   14934   969
+## 23 Beckingen           Commune Saarland   15355   931
+## 24 Losheim am See      Commune Saarland   15906   887
+## 25 Schiffweiler        Commune Saarland   15993   882
+## 26 Wadern              City    Saarland   16181   874
+## 27 Schmelz             Commune Saarland   16435   857
+## 28 Sulzbach/Saar       City    Saarland   16591   849
+## 29 Illingen            Commune Saarland   16978   827
+## 30 Schwalbach          Commune Saarland   17320   812
+## 31 Eppelborn           Commune Saarland   17726   793
+## 32 Wadgassen           Commune Saarland   17885   785
+## 33 Bexbach             City    Saarland   18038   777
+## 34 Heusweiler          Commune Saarland   18201   762
+## 35 Püttlingen          City    Saarland   19134   718
+## 36 Lebach              City    Saarland   19484   701
+## 37 Dillingen/Saar      City    Saarland   20253   654
+## 38 Blieskastel         City    Saarland   21255   601
+## 39 St. Wendel          City    Saarland   26220   460
+## 40 Merzig              City    Saarland   29727   392
+## 41 Saarlouis           City    Saarland   34479   323
+## 42 St. Ingbert         City    Saarland   36645   299
+## 43 Völklingen          City    Saarland   38809   279
+## 44 Homburg             City    Saarland   41502   247
+## 45 Neunkirchen         City    Saarland   46172   206
+## 46 Saarbrücken         City    Saarland  175853    43
+## 47 Perl                Commune Saarland      NA    NA</code></pre>
+<ol start="13" style="list-style-type: decimal">
+<li><p>With reference to the table above, we have identified an entry for the city of Perl that solely consists of <code>NAs</code>. This city is duplicated in the dataset, appearing at positions 1 and 47. The latter duplicate contains only <code>NAs</code> and can be safely removed without the loss of valuable information. Please eliminate this duplification and regenerate the list of all cities in the Saarland.</p></li>
+<li><p>Calculate the total population and average size of cities in Saarland.</p></li>
+<li><p>Check if any other city is recorded more than once in the dataset.
+To do so, reproduce the table below.</p></li>
+</ol>
+<pre><code>## # A tibble: 23 × 5
+## # Groups:   city [11]
+##    city        status                  state               pop2011 unique_count
+##    &lt;chr&gt;       &lt;chr&gt;                   &lt;chr&gt;                 &lt;dbl&gt;        &lt;int&gt;
+##  1 Bonn        City with County Rights Nordrhein-Westfalen  305765            3
+##  2 Bonn        City with County Rights Nordrhein-Westfalen  305765            3
+##  3 Bonn        City with County Rights Nordrhein-Westfalen  305765            3
+##  4 Brühl       Commune                 Baden-Württemberg     13805            2
+##  5 Brühl       City                    Nordrhein-Westfalen   43568            2
+##  6 Erbach      City                    Baden-Württemberg     13024            2
+##  7 Erbach      City                    Hessen                13245            2
+##  8 Fürth       City with County Rights Bayern               115613            2
+##  9 Fürth       Commune                 Hessen                10481            2
+## 10 Lichtenau   City                    Nordrhein-Westfalen   10473            2
+## 11 Lichtenau   Commune                 Sachsen                7544            2
+## 12 Münster     Commune                 Hessen                14071            2
+## 13 Münster     City with County Rights Nordrhein-Westfalen  289576            2
+## 14 Neunkirchen Commune                 Nordrhein-Westfalen   13930            2
+## 15 Neunkirchen City                    Saarland              46172            2
+## 16 Neuried     Commune                 Baden-Württemberg      9383            2
+## 17 Neuried     Commune                 Bayern                 8277            2
+## 18 Petersberg  Commune                 Hessen                14766            2
+## 19 Petersberg  Commune                 Sachsen-Anhalt        10097            2
+## 20 Senden      City                    Bayern                21560            2
+## 21 Senden      Commune                 Nordrhein-Westfalen   19976            2
+## 22 Staufenberg City                    Hessen                 8114            2
+## 23 Staufenberg Commune                 Niedersachsen          7983            2</code></pre>
+<ol start="16" style="list-style-type: decimal">
+<li>The table indicates that the city of Bonn appears three times in the dataset,
+and all three observations contain identical information. Thus, remove two of
+these observations to ensure that Bonn is uniquely represented in the dataset.
+All other cities that occur more than once in the data are situated in
+different states. That means, these are distinct cities that coincidentally
+share the same name.</li>
+</ol>
+</div>
+<div id="data-analysis-zipfs-law" class="section level3 unnumbered hasAnchor">
+<h3>Data analysis (Zipf’s Law)<a href="collection-of-exercises.html#data-analysis-zipfs-law" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><em><strong>Note:</strong> If you have failed to solve the data cleaning tasks above, you can download the cleaned data from ILIAS, save it in your working directory and load it from there with:</em>
+<code>load("city_clean.RData")</code></p>
+<p>In the following, you aim to examine the validity of Zipf’s Law for Germany.
+Zipf’s Law postulates how the size of cities is distributed. The “law” states that there is a special relationship between the size of a city and the rank it occupies in a series sorted by city size. In the estimation equation
+<span class="math display">\[ \log(M_j) = c - q \log(R_j), \]</span>
+the law postulates a coefficient of <span class="math inline">\(q=1\)</span> (<span class="math inline">\(c\)</span> is a constant; <span class="math inline">\(M_j\)</span> is the size of city <span class="math inline">\(j\)</span>; <span class="math inline">\(R_j\)</span> is the rank that city <span class="math inline">\(j\)</span> occupies in a series sorted by city size).</p>
+<ol start="17" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p>Create a variable named <code>rank</code> that includes a ranking of cities based on the population size in the year 2011. Therefore, Berlin should have a rank of 1, Hamburg a rank of 2, Munich a rank of 3, and so on.</p>
+<p><em><strong>Note:</strong> If you cannot solve this task, use the variable <code>rankX</code> as a substitute for the variable that was not generated.</em></p>
+<pre><code>## # A tibble: 6 × 3
+##   city                    pop2011  rank
+##   &lt;chr&gt;                     &lt;dbl&gt; &lt;int&gt;
+## 1 Berlin                  3292365     1
+## 2 Hamburg                 1706696     2
+## 3 München [Munich]        1348335     3
+## 4 Köln [Cologne]          1005775     4
+## 5 Frankfurt am Main        667925     5
+## 6 Düsseldorf [Dusseldorf]  586291     6</code></pre>
+<ol start="18" style="list-style-type: decimal">
+<li>Calculate the Pearson Correlation Coefficient of the two variables
+‘pop2011’ and ‘rank’. The result should be:</li>
+</ol>
+<pre><code>## [1] -0.2948903</code></pre>
+<ol start="19" style="list-style-type: decimal">
+<li>Create a scatter plot. On the x-axis, plot the variable <code>rank</code>, and on the y-axis, plot <code>pop2011</code>. Add a regression line representing the observed relationship to the same scatter plot.</li>
+</ol>
+<p><img src="_main_files/figure-html/unnamed-chunk-139-1.png" width="672" /></p>
+<ol start="20" style="list-style-type: decimal">
+<li>Logarithmize the variables <code>rank</code> and <code>pop2011</code>. Title the new variables as <code>lnrank</code> and <code>lnpop2011</code>, respectively. Here is a snapshot of the resulting variables:</li>
+</ol>
+<pre><code>## # A tibble: 6 × 5
+##   city                     rank lnrank pop2011 lnpop2011
+##   &lt;chr&gt;                   &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Berlin                      1  0     3292365      15.0
+## 2 Hamburg                     2  0.693 1706696      14.4
+## 3 München [Munich]            3  1.10  1348335      14.1
+## 4 Köln [Cologne]              4  1.39  1005775      13.8
+## 5 Frankfurt am Main           5  1.61   667925      13.4
+## 6 Düsseldorf [Dusseldorf]     6  1.79   586291      13.3</code></pre>
+<ol start="21" style="list-style-type: decimal">
+<li>Calculate the Pearson Correlation Coefficient of the two variables
+‘lnpop2011’ and ‘lnrank’. The result should be:</li>
+</ol>
+<pre><code>## [1] -0.9990053</code></pre>
+<ol start="22" style="list-style-type: decimal">
+<li>Create a scatter plot. On the x-axis, plot the variable <code>lnrank</code>, and on the y-axis, plot <code>lnpop2011</code>. Add a regression line representing the observed relationship to the same scatter plot. Additionally, add a title and label the axes like is shown here:</li>
+</ol>
+<p><img src="_main_files/figure-html/unnamed-chunk-142-1.png" width="672" /></p>
+<ol start="23" style="list-style-type: decimal">
+<li>Now, test the relationship postulated in Zipf’s Law.
+Regress the logarithmized city size in the year 2011 on the logarithmized rank
+of a city in a series sorted by city size. Briefly interpret the results, addressing the coefficient of determination. Show the regression results. Here is one way to present the results of the regression <em>(Note: The way how you present your regression results do not matter)</em>:</li>
+</ol>
+<pre><code>## 
+## Call:
+## lm(formula = lnpop2011 ~ lnrank, data = df)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.28015 -0.01879  0.01083  0.02005  0.25973 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 14.947859   0.005141    2908   &lt;2e-16 ***
+## lnrank      -0.780259   0.000766   -1019   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.03454 on 2067 degrees of freedom
+## Multiple R-squared:  0.998,  Adjusted R-squared:  0.998 
+## F-statistic: 1.038e+06 on 1 and 2067 DF,  p-value: &lt; 2.2e-16</code></pre>
+<ol start="24" style="list-style-type: decimal">
+<li>Explain the following lines of code.</li>
+</ol>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="collection-of-exercises.html#cb224-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb224-2"><a href="collection-of-exercises.html#cb224-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prediction =</span> <span class="fu">predict</span>(zipf, <span class="at">newdata =</span> df)) <span class="sc">|&gt;</span> </span>
+<span id="cb224-3"><a href="collection-of-exercises.html#cb224-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pred_pop =</span> <span class="fu">exp</span>(prediction))</span>
+<span id="cb224-4"><a href="collection-of-exercises.html#cb224-4" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb224-5"><a href="collection-of-exercises.html#cb224-5" tabindex="-1"></a>  <span class="fu">select</span>(city, pop2011, pred_pop) <span class="sc">|&gt;</span> </span>
+<span id="cb224-6"><a href="collection-of-exercises.html#cb224-6" tabindex="-1"></a>  <span class="fu">filter</span>(city <span class="sc">==</span> <span class="st">&quot;Regensburg&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   city       pop2011 pred_pop
+##   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Regensburg  135403  134194.</code></pre>
+<p>Solutions are provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_zipf_solution.R">here</a>.</p>
 
+</div>
 </div>
 </div>
 <div class="footnotes">

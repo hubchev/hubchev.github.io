@@ -7,7 +7,7 @@
   <title>5 Manage data |  How to Use R for Data Science</title>
   <meta name="description" content="<br />
 How to Use R for Data Science</p>" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Manage data |  How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -239,6 +239,12 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-bundesliga"><i class="fa fa-check"></i><em>EXERCISE:</em> Bundesliga</a></li>
 <li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-okuns-law"><i class="fa fa-check"></i><em>EXERCISE:</em> Okun’s Law</a></li>
 <li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-names-and-duplicates"><i class="fa fa-check"></i><em>EXERCISE:</em> Names and duplicates</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-zipfs-law"><i class="fa fa-check"></i><em>EXERCISE:</em> Zipf’s law</a>
+<ul>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#preamble"><i class="fa fa-check"></i>Preamble</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#read-in-inspect-and-clean-the-data"><i class="fa fa-check"></i>Read in, inspect, and clean the data</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#data-analysis-zipfs-law"><i class="fa fa-check"></i>Data analysis (Zipf’s Law)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Write with R Markdown</a>
 <ul>
@@ -475,21 +481,28 @@ One such dataset that we will be using further is the <code>mtcars</code> datase
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="manage-data.html#cb80-1" tabindex="-1"></a><span class="fu">glimpse</span>(df_gdp)</span></code></pre></div>
 <pre><code>## Rows: 13,200
 ## Columns: 7
-## $ iso3c       &lt;chr&gt; &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, …
-## $ date        &lt;chr&gt; &quot;2022&quot;, &quot;2021&quot;, &quot;2020&quot;, &quot;2019&quot;, &quot;2018&quot;, &quot;2017&quot;, &quot;2016&quot;, &quot;2015&quot;, &quot;2014&quot;, &quot;2013&quot;, &quot;2012&quot;, &quot;2011&quot;, &quot;2010&quot;, &quot;2009&quot;, &quot;2008&quot;, &quot;2007&quot;, &quot;2006&quot;, &quot;200…
-## $ value       &lt;dbl&gt; 1.185138e+12, 1.086531e+12, 9.288802e+11, 1.006191e+12, 1.012521e+12, 1.028394e+12, 8.900514e+11, 9.325135e+11, 1.006992e+12, 9.863429e+11, …
-## $ indicatorID &lt;chr&gt; &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.C…
-## $ indicator   &lt;chr&gt; &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current …
-## $ iso2c       &lt;chr&gt; &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;Z…
-## $ country     &lt;chr&gt; &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern …</code></pre>
+## $ iso3c       &lt;chr&gt; &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AFE&quot;, &quot;AF…
+## $ date        &lt;chr&gt; &quot;2022&quot;, &quot;2021&quot;, &quot;2020&quot;, &quot;2019&quot;, &quot;2018&quot;, &quot;2017&quot;, &quot;2016&quot;, &quot;2015&quot;, &quot;2014&quot;, &quot;2013&quot;, &quot;2012&quot;, &quot;2011&quot;, &quot;2010…
+## $ value       &lt;dbl&gt; 1.185138e+12, 1.086531e+12, 9.288802e+11, 1.006191e+12, 1.012521e+12, 1.028394e+12, 8.900514e+11, 9.3…
+## $ indicatorID &lt;chr&gt; &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKTP.CD&quot;, &quot;NY.GDP.MKT…
+## $ indicator   &lt;chr&gt; &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$)&quot;, &quot;GDP (current US$…
+## $ iso2c       &lt;chr&gt; &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;, &quot;ZH&quot;,…
+## $ country     &lt;chr&gt; &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa Eastern and Southern&quot;, &quot;Africa …</code></pre>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="manage-data.html#cb82-1" tabindex="-1"></a><span class="fu">summary</span>(df_gdp)</span></code></pre></div>
-<pre><code>##     iso3c               date               value           indicatorID         indicator            iso2c             country         
-##  Length:13200       Length:13200       Min.   :8.825e+06   Length:13200       Length:13200       Length:13200       Length:13200      
-##  Class :character   Class :character   1st Qu.:2.435e+09   Class :character   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Median :1.786e+10   Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-##                                        Mean   :1.224e+12                                                                              
-##                                        3rd Qu.:2.272e+11                                                                              
-##                                        Max.   :1.013e+14</code></pre>
+<pre><code>##     iso3c               date               value           indicatorID         indicator            iso2c          
+##  Length:13200       Length:13200       Min.   :8.825e+06   Length:13200       Length:13200       Length:13200      
+##  Class :character   Class :character   1st Qu.:2.435e+09   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Median :1.786e+10   Mode  :character   Mode  :character   Mode  :character  
+##                                        Mean   :1.224e+12                                                           
+##                                        3rd Qu.:2.272e+11                                                           
+##                                        Max.   :1.013e+14                                                           
+##    country         
+##  Length:13200      
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+## </code></pre>
 </div>
 <div id="import-various-file-formats" class="section level3 hasAnchor" number="5.3.5">
 <h3><span class="header-section-number">5.3.5</span> Import various file formats<a href="manage-data.html#import-various-file-formats" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -533,11 +546,13 @@ One such dataset that we will be using further is the <code>mtcars</code> datase
 <div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="manage-data.html#cb84-1" tabindex="-1"></a><span class="fu">class</span>(mtcars) <span class="co"># mtcars is a data frame</span></span></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="manage-data.html#cb86-1" tabindex="-1"></a><span class="fu">rownames</span>(mtcars) </span></code></pre></div>
-<pre><code>##  [1] &quot;Mazda RX4&quot;           &quot;Mazda RX4 Wag&quot;       &quot;Datsun 710&quot;          &quot;Hornet 4 Drive&quot;      &quot;Hornet Sportabout&quot;   &quot;Valiant&quot;             &quot;Duster 360&quot;         
-##  [8] &quot;Merc 240D&quot;           &quot;Merc 230&quot;            &quot;Merc 280&quot;            &quot;Merc 280C&quot;           &quot;Merc 450SE&quot;          &quot;Merc 450SL&quot;          &quot;Merc 450SLC&quot;        
-## [15] &quot;Cadillac Fleetwood&quot;  &quot;Lincoln Continental&quot; &quot;Chrysler Imperial&quot;   &quot;Fiat 128&quot;            &quot;Honda Civic&quot;         &quot;Toyota Corolla&quot;      &quot;Toyota Corona&quot;      
-## [22] &quot;Dodge Challenger&quot;    &quot;AMC Javelin&quot;         &quot;Camaro Z28&quot;          &quot;Pontiac Firebird&quot;    &quot;Fiat X1-9&quot;           &quot;Porsche 914-2&quot;       &quot;Lotus Europa&quot;       
-## [29] &quot;Ford Pantera L&quot;      &quot;Ferrari Dino&quot;        &quot;Maserati Bora&quot;       &quot;Volvo 142E&quot;</code></pre>
+<pre><code>##  [1] &quot;Mazda RX4&quot;           &quot;Mazda RX4 Wag&quot;       &quot;Datsun 710&quot;          &quot;Hornet 4 Drive&quot;      &quot;Hornet Sportabout&quot;  
+##  [6] &quot;Valiant&quot;             &quot;Duster 360&quot;          &quot;Merc 240D&quot;           &quot;Merc 230&quot;            &quot;Merc 280&quot;           
+## [11] &quot;Merc 280C&quot;           &quot;Merc 450SE&quot;          &quot;Merc 450SL&quot;          &quot;Merc 450SLC&quot;         &quot;Cadillac Fleetwood&quot; 
+## [16] &quot;Lincoln Continental&quot; &quot;Chrysler Imperial&quot;   &quot;Fiat 128&quot;            &quot;Honda Civic&quot;         &quot;Toyota Corolla&quot;     
+## [21] &quot;Toyota Corona&quot;       &quot;Dodge Challenger&quot;    &quot;AMC Javelin&quot;         &quot;Camaro Z28&quot;          &quot;Pontiac Firebird&quot;   
+## [26] &quot;Fiat X1-9&quot;           &quot;Porsche 914-2&quot;       &quot;Lotus Europa&quot;        &quot;Ford Pantera L&quot;      &quot;Ferrari Dino&quot;       
+## [31] &quot;Maserati Bora&quot;       &quot;Volvo 142E&quot;</code></pre>
 <p>To store <code>mtcars</code> as a tibble, we can use the <code>as_tibble</code> function:</p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="manage-data.html#cb88-1" tabindex="-1"></a>tbl_mtcars <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(mtcars)</span>
 <span id="cb88-2"><a href="manage-data.html#cb88-2" tabindex="-1"></a><span class="fu">class</span>(tbl_mtcars) <span class="co"># check if it is a tibble now</span></span></code></pre></div>
@@ -1045,13 +1060,13 @@ Select rows where the number of cylinders is greater than or equal to 6:</p>
 <span id="cb152-4"><a href="manage-data.html#cb152-4" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div>
 <pre><code>## Rows: 32
 ## Columns: 11
-## $ mpg        &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.…
+## $ mpg        &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, …
 ## $ cyl        &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
-## $ disp       &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7, 75.7, 71.1, 120.…
-## $ horsepower &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 150, 245, 175, 66, 91, 113, 264, 175, …
-## $ drat       &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.70, 2.76, 3.15, 3.7…
-## $ wt         &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.200, 1.615, 1.835, 2…
-## $ qsec       &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.47, 18.52, 19.90, 2…
+## $ disp       &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.…
+## $ horsepower &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150,…
+## $ drat       &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, …
+## $ wt         &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.25…
+## $ qsec       &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.9…
 ## $ vs         &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
 ## $ am         &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
 ## $ gear       &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4

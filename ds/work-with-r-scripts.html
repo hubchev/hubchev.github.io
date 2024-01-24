@@ -7,7 +7,7 @@
   <title>3 Work with R scripts |  How to Use R for Data Science</title>
   <meta name="description" content="<br />
 How to Use R for Data Science</p>" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Work with R scripts |  How to Use R for Data Science" />
   <meta property="og:type" content="book" />
@@ -239,6 +239,12 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-bundesliga"><i class="fa fa-check"></i><em>EXERCISE:</em> Bundesliga</a></li>
 <li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-okuns-law"><i class="fa fa-check"></i><em>EXERCISE:</em> Okun’s Law</a></li>
 <li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-names-and-duplicates"><i class="fa fa-check"></i><em>EXERCISE:</em> Names and duplicates</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-zipfs-law"><i class="fa fa-check"></i><em>EXERCISE:</em> Zipf’s law</a>
+<ul>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#preamble"><i class="fa fa-check"></i>Preamble</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#read-in-inspect-and-clean-the-data"><i class="fa fa-check"></i>Read in, inspect, and clean the data</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#data-analysis-zipfs-law"><i class="fa fa-check"></i>Data analysis (Zipf’s Law)</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Write with R Markdown</a>
 <ul>
@@ -457,7 +463,7 @@ Finally, you can return the value of the object from the function, meaning pass 
 <p>Unfortunately, this does not work out. The <code>lag()</code> function does not work as we think it should. Well, the reason is simply that we are using the wrong function. The current <code>lag()</code> function is part of the stats package which is part of the package <code>stats</code> which is part of R base and is loaded automatically. The <code>lag()</code> function we aim to use stems from the dplyr package which we must install and load to be able to use it. So let’s do it:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="work-with-r-scripts.html#cb31-1" tabindex="-1"></a><span class="co"># check if the package is installed</span></span>
 <span id="cb31-2"><a href="work-with-r-scripts.html#cb31-2" tabindex="-1"></a><span class="fu">find.package</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;/home/sthu/R/x86_64-pc-linux-gnu-library/4.3/dplyr&quot;</code></pre>
+<pre><code>## [1] &quot;/usr/local/lib/R/site-library/dplyr&quot;</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="work-with-r-scripts.html#cb33-1" tabindex="-1"></a><span class="co"># I already installed the package so I can just load it</span></span>
 <span id="cb33-2"><a href="work-with-r-scripts.html#cb33-2" tabindex="-1"></a><span class="co"># install.packages(&quot;dplyr&quot;)</span></span>
 <span id="cb33-3"><a href="work-with-r-scripts.html#cb33-3" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
