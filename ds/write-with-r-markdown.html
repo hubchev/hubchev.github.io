@@ -378,40 +378,40 @@ R Markdown file to transcript your work, run code, and generate high quality rep
 <li>Go to <a href="https://scholar.google.de/">https://scholar.google.de/</a> and search for <em>osrmtime</em>.</li>
 <li>Click on <em>“cite”</em> and <em>“BibTeX”</em>. Copy and paste everything that you see into your script and save the script as <em>lit.bib</em>. R Studio will ask you if you confirm the file type change. Click yes. Your <em>lit.bib</em> file should look like this:</li>
 </ul>
-<div class="sourceCode" id="cb218"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb218-1"><a href="write-with-r-markdown.html#cb218-1" tabindex="-1"></a>@article{huber2016calculate,</span>
-<span id="cb218-2"><a href="write-with-r-markdown.html#cb218-2" tabindex="-1"></a>  title={Calculate travel time and distance with OpenStreetMap data using the Open Source Routing Machine (OSRM)},</span>
-<span id="cb218-3"><a href="write-with-r-markdown.html#cb218-3" tabindex="-1"></a>  author={Huber, Stephan and Rust, Christoph},</span>
-<span id="cb218-4"><a href="write-with-r-markdown.html#cb218-4" tabindex="-1"></a>  journal={The Stata Journal},</span>
-<span id="cb218-5"><a href="write-with-r-markdown.html#cb218-5" tabindex="-1"></a>  volume={16},</span>
-<span id="cb218-6"><a href="write-with-r-markdown.html#cb218-6" tabindex="-1"></a>  number={2},</span>
-<span id="cb218-7"><a href="write-with-r-markdown.html#cb218-7" tabindex="-1"></a>  pages={416--423},</span>
-<span id="cb218-8"><a href="write-with-r-markdown.html#cb218-8" tabindex="-1"></a>  year={2016},</span>
-<span id="cb218-9"><a href="write-with-r-markdown.html#cb218-9" tabindex="-1"></a>  publisher={SAGE Publications Sage CA: Los Angeles, CA}</span>
-<span id="cb218-10"><a href="write-with-r-markdown.html#cb218-10" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb212-1"><a href="write-with-r-markdown.html#cb212-1" tabindex="-1"></a>@article{huber2016calculate,</span>
+<span id="cb212-2"><a href="write-with-r-markdown.html#cb212-2" tabindex="-1"></a>  title={Calculate travel time and distance with OpenStreetMap data using the Open Source Routing Machine (OSRM)},</span>
+<span id="cb212-3"><a href="write-with-r-markdown.html#cb212-3" tabindex="-1"></a>  author={Huber, Stephan and Rust, Christoph},</span>
+<span id="cb212-4"><a href="write-with-r-markdown.html#cb212-4" tabindex="-1"></a>  journal={The Stata Journal},</span>
+<span id="cb212-5"><a href="write-with-r-markdown.html#cb212-5" tabindex="-1"></a>  volume={16},</span>
+<span id="cb212-6"><a href="write-with-r-markdown.html#cb212-6" tabindex="-1"></a>  number={2},</span>
+<span id="cb212-7"><a href="write-with-r-markdown.html#cb212-7" tabindex="-1"></a>  pages={416--423},</span>
+<span id="cb212-8"><a href="write-with-r-markdown.html#cb212-8" tabindex="-1"></a>  year={2016},</span>
+<span id="cb212-9"><a href="write-with-r-markdown.html#cb212-9" tabindex="-1"></a>  publisher={SAGE Publications Sage CA: Los Angeles, CA}</span>
+<span id="cb212-10"><a href="write-with-r-markdown.html#cb212-10" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li>Add the text <em>“bibliography: references.bib”</em> to your YAML header of your R Markdown file so that it looks somehow like that:</li>
 </ul>
-<div class="sourceCode" id="cb219"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb219-1"><a href="write-with-r-markdown.html#cb219-1" tabindex="-1"></a>---</span>
-<span id="cb219-2"><a href="write-with-r-markdown.html#cb219-2" tabindex="-1"></a>title: &quot;Untitled&quot;</span>
-<span id="cb219-3"><a href="write-with-r-markdown.html#cb219-3" tabindex="-1"></a>author: &quot;Stephan Huber&quot;</span>
-<span id="cb219-4"><a href="write-with-r-markdown.html#cb219-4" tabindex="-1"></a>date: &quot;`r Sys.Date()`&quot;</span>
-<span id="cb219-5"><a href="write-with-r-markdown.html#cb219-5" tabindex="-1"></a>output: html_document</span>
-<span id="cb219-6"><a href="write-with-r-markdown.html#cb219-6" tabindex="-1"></a>bibliography: lit.bib</span>
-<span id="cb219-7"><a href="write-with-r-markdown.html#cb219-7" tabindex="-1"></a>---</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb213-1"><a href="write-with-r-markdown.html#cb213-1" tabindex="-1"></a>---</span>
+<span id="cb213-2"><a href="write-with-r-markdown.html#cb213-2" tabindex="-1"></a>title: &quot;Untitled&quot;</span>
+<span id="cb213-3"><a href="write-with-r-markdown.html#cb213-3" tabindex="-1"></a>author: &quot;Stephan Huber&quot;</span>
+<span id="cb213-4"><a href="write-with-r-markdown.html#cb213-4" tabindex="-1"></a>date: &quot;`r Sys.Date()`&quot;</span>
+<span id="cb213-5"><a href="write-with-r-markdown.html#cb213-5" tabindex="-1"></a>output: html_document</span>
+<span id="cb213-6"><a href="write-with-r-markdown.html#cb213-6" tabindex="-1"></a>bibliography: lit.bib</span>
+<span id="cb213-7"><a href="write-with-r-markdown.html#cb213-7" tabindex="-1"></a>---</span></code></pre></div>
 <ul>
 <li>Now you can cite the OSRMTIME paper with <code>@huber2016calculate</code> somewhere in the text of your R Markdown file.</li>
 <li>Knit the R Markdown file and you should see the paper cited and a reference list at the end of the html report.</li>
 <li>You can manipulate the citation style you can specify a CSL (Citation Style Language) file in the YAML header. For example the APA style can be chosen with:</li>
 </ul>
-<div class="sourceCode" id="cb220"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb220-1"><a href="write-with-r-markdown.html#cb220-1" tabindex="-1"></a>csl: &quot;https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode default"><code class="sourceCode default"><span id="cb214-1"><a href="write-with-r-markdown.html#cb214-1" tabindex="-1"></a>csl: &quot;https://raw.githubusercontent.com/citation-style-language/styles/master/apa.csl&quot;</span></code></pre></div>
 <p>Many more citation styles can be found <a href="https://github.com/citation-style-language/styles">here</a>.</p>
 </div>
 <div id="exercise-preparing-apa-journal-articles-papaja" class="section level2 unnumbered hasAnchor">
 <h2><em>EXERCISE:</em> Preparing APA journal articles (<code>papaja</code>)<a href="write-with-r-markdown.html#exercise-preparing-apa-journal-articles-papaja" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There is an easy way to write a manuscript that follows all the APA rules using the package <code>papaja</code> written by two psychologists from Cologne. Please read their <a href="https://frederikaust.com/papaja_man/introduction.html">manual</a> and consider their <a href="https://github.com/crsh/papaja">repository on GitHub</a>.</p>
 <p>Now, install and load the package:</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="write-with-r-markdown.html#cb221-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;papaja&quot;</span>)</span>
-<span id="cb221-2"><a href="write-with-r-markdown.html#cb221-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;papaja&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="write-with-r-markdown.html#cb215-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;papaja&quot;</span>)</span>
+<span id="cb215-2"><a href="write-with-r-markdown.html#cb215-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;papaja&quot;</span>)</span></code></pre></div>
 <p>Then, click “File &gt; New File &gt; R Markdown” and choose the “APA-style manuscript” from the section “from template”. Knit the R markdown template and you will have a template for a APA manuscript.</p>
 <p>Apart from the obvious adjustments, I recommend to make at least two general adjustments: Change <code>classoption</code> to “doc” and <code>linenumbers</code> to “no”.</p>
 </div>

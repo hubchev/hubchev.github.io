@@ -315,7 +315,7 @@ How to Use R for Data Science</p></a>
 <div id="exercise-generate-and-drop-variables" class="section level2 unnumbered hasAnchor">
 <h2><em>EXERCISE:</em> Generate and drop variables<a href="collection-of-exercises.html#exercise-generate-and-drop-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Use the <em>mtcars</em> dataset. It is part of the package <em>datasets</em> and can be called with</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="collection-of-exercises.html#cb182-1" tabindex="-1"></a>mtcars</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="collection-of-exercises.html#cb176-1" tabindex="-1"></a>mtcars</span></code></pre></div>
 <ol style="list-style-type: lower-alpha">
 <li><p>Create a new tibble called <code>mtcars_new</code> using the pipe operator |&gt;. Generate a new dummy variable called <code>d_cyl_6to8</code> that takes the value 1 if the number of cylinders (cyl) is greater than 6, and 0 otherwise. Do all of this in a single pipe.</p></li>
 <li><p>Generate a new dummy variable called <code>posercar</code> that takes a value of 1 if a car has more than 6 cylinders (cyl) and can drive less than 18 miles per gallon (mpg), and 0 otherwise. Add this variable to the tibble <code>mtcars_new</code>.</p></li>
@@ -454,7 +454,7 @@ How to Use R for Data Science</p></a>
 <li>Estimate the relationships illustrated in the 4 graphs using the least squares method. Present the 4 estimation results in a table, indicating the significance level with stars. In addition, the Akaike information criterion, and the number of observations should be displayed in the table. Interpret the four estimation results regarding their significance.</li>
 <li>Put the data set into the so-called long format and calculate the GDP per capita growth rates for the available time points in the countries.</li>
 </ul>
-<p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R">here</a>.</p>
+<p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_convergence.R">here</a>.</p>
 </div>
 <div id="exercise-unemployment-and-gdp-in-germany-and-france" class="section level2 unnumbered hasAnchor">
 <h2><em>EXERCISE:</em> Unemployment and GDP in Germany and France<a href="collection-of-exercises.html#exercise-unemployment-and-gdp-in-germany-and-france" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -469,10 +469,10 @@ How to Use R for Data Science</p></a>
 <li><p>Install and load the following packages: ‘tidyverse’, ‘sjPlot’, and ‘ggpubr’</p></li>
 <li><p>Download and load the data, respectively, with the following code:</p></li>
 </ol>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="collection-of-exercises.html#cb183-1" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/hubchev/courses/raw/main/dta/forest.Rdata&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="collection-of-exercises.html#cb177-1" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/hubchev/courses/raw/main/dta/forest.Rdata&quot;</span>))</span></code></pre></div>
 <p>If that is not working, you can also download the data from ILIAS, save it in
 your working directory and load it from there with:</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="collection-of-exercises.html#cb184-1" tabindex="-1"></a><span class="co"># load(&quot;forest.Rdata&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="collection-of-exercises.html#cb178-1" tabindex="-1"></a><span class="co"># load(&quot;forest.Rdata&quot;)</span></span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li><p>Show the <strong>first eight</strong> observations of the dataset ‘df’.</p></li>
 <li><p>Show the <strong>last observation</strong> of the dataset ‘df’.</p></li>
@@ -564,13 +564,13 @@ The following chart shows the simultaneous development of the unemployment rate 
 <p><img src="_main_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
 <p>Suppose you want to visualize the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany as well.<br />
 Suppose further that you have found the following lines of code that create the kind of chart you are looking for.</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="collection-of-exercises.html#cb191-1" tabindex="-1"></a><span class="co"># Data</span></span>
-<span id="cb191-2"><a href="collection-of-exercises.html#cb191-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
-<span id="cb191-3"><a href="collection-of-exercises.html#cb191-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">13</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">22</span>)</span>
-<span id="cb191-4"><a href="collection-of-exercises.html#cb191-4" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="dv">1970</span><span class="sc">:</span><span class="dv">1978</span></span>
-<span id="cb191-5"><a href="collection-of-exercises.html#cb191-5" tabindex="-1"></a></span>
-<span id="cb191-6"><a href="collection-of-exercises.html#cb191-6" tabindex="-1"></a><span class="co"># Connected scatter plot with text</span></span>
-<span id="cb191-7"><a href="collection-of-exercises.html#cb191-7" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Var 1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Var 2&quot;</span>); <span class="fu">text</span>(x <span class="sc">+</span> <span class="fl">0.4</span>, y <span class="sc">+</span> <span class="fl">0.1</span>, labels) </span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="collection-of-exercises.html#cb185-1" tabindex="-1"></a><span class="co"># Data</span></span>
+<span id="cb185-2"><a href="collection-of-exercises.html#cb185-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
+<span id="cb185-3"><a href="collection-of-exercises.html#cb185-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">13</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">22</span>)</span>
+<span id="cb185-4"><a href="collection-of-exercises.html#cb185-4" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="dv">1970</span><span class="sc">:</span><span class="dv">1978</span></span>
+<span id="cb185-5"><a href="collection-of-exercises.html#cb185-5" tabindex="-1"></a></span>
+<span id="cb185-6"><a href="collection-of-exercises.html#cb185-6" tabindex="-1"></a><span class="co"># Connected scatter plot with text</span></span>
+<span id="cb185-7"><a href="collection-of-exercises.html#cb185-7" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Var 1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Var 2&quot;</span>); <span class="fu">text</span>(x <span class="sc">+</span> <span class="fl">0.4</span>, y <span class="sc">+</span> <span class="fl">0.1</span>, labels) </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
 <p>Use these lines of code and customize them to create the co-movement visualization for <strong>Germany</strong> using the available ‘df’ data.
 The result should look something like this:</p>
@@ -578,7 +578,7 @@ The result should look something like this:</p>
 <ol start="24" style="list-style-type: decimal">
 <li>Interpret the two graphs above, which show the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany and France. What are your expectations regarding the correlation between the unemployment rate and GDP per capita variables? Can you see this expectation in the figures? Discuss.</li>
 </ol>
-<p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/un_gdp_ger_fra.R">here</a>.</p>
+<p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_un_gdp_ger_fra.R">here</a>.</p>
 </div>
 <div id="exercise-import-data-and-write-a-report" class="section level2 unnumbered hasAnchor">
 <h2><em>EXERCISE:</em> Import data and write a report<a href="collection-of-exercises.html#exercise-import-data-and-write-a-report" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -590,14 +590,14 @@ The result should look something like this:</p>
 <li>In the file <em>diffusion_curves_figure.xlsx</em> you find the required data. Import them to R.</li>
 <li>Reproduce the plot using ggplot().</li>
 </ol>
-<p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/hortacsu_figure_3.R">here</a>.</p>
+<p>Please find solutions <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_hortacsu_figure_3.R">here</a>.</p>
 </div>
 <div id="exercise-explain-the-weight" class="section level2 unnumbered hasAnchor">
 <h2><em>EXERCISE:</em> Explain the weight<a href="collection-of-exercises.html#exercise-explain-the-weight" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with corelations and a regression analysis the association. Load the data as follows:</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="collection-of-exercises.html#cb192-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;haven&quot;</span>)</span>
-<span id="cb192-2"><a href="collection-of-exercises.html#cb192-2" tabindex="-1"></a>classdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv&quot;</span>)</span></code></pre></div>
-<p>A sketch of a solution is provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R">here</a>.</p>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="collection-of-exercises.html#cb186-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;haven&quot;</span>)</span>
+<span id="cb186-2"><a href="collection-of-exercises.html#cb186-2" tabindex="-1"></a>classdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv&quot;</span>)</span></code></pre></div>
+<p>A sketch of a solution is provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_regress_lecture.R">here</a>.</p>
 </div>
 <div id="exercise-calories-and-weight" class="section level2 unnumbered hasAnchor">
 <h2><em>EXERCISE:</em> Calories and weight<a href="collection-of-exercises.html#exercise-calories-and-weight" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -683,7 +683,7 @@ The result should look something like this:</p>
 <li>Which type of data do we have here? (Panel data, repeated cross-sectional data, cross-sectional data, time Series data)</li>
 <li>Store each of the five variables in a vector and put all five variables into a dataframe with the title <code>df</code>. If you fail here, read in the data using this line of code:</li>
 </ol>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="collection-of-exercises.html#cb193-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/hubchev/courses/main/dta/df-calories.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="collection-of-exercises.html#cb187-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/hubchev/courses/main/dta/df-calories.csv&quot;</span>)</span></code></pre></div>
 <pre><code>## Rows: 6 Columns: 5
 ## ── Column specification ────────────────────────────────────────────────────────────────────────────────────────────────
 ## Delimiter: &quot;,&quot;
@@ -741,7 +741,7 @@ The result should look something like this:</p>
 </div>
 <div id="exercise-bundesliga" class="section level2 unnumbered hasAnchor">
 <h2><em>EXERCISE:</em> Bundesliga<a href="collection-of-exercises.html#exercise-bundesliga" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Open the script that you find <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/dfb.R">here</a> and work on the following tasks:</p>
+<p>Open the script that you find <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/ask_dfb.R">here</a> and work on the following tasks:</p>
 <ol style="list-style-type: decimal">
 <li><p>Set your working directory.</p></li>
 <li><p>Clear th environment.</p></li>
@@ -797,7 +797,7 @@ Figure 6.3: Ranking history: 1. FC Köln
 <ol start="35" style="list-style-type: decimal">
 <li>Try to make the ranking history for each club ever played the league and export the graph as a <code>png</code> file.</li>
 </ol>
-<p>Solutions are provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/bundesliga.R">here</a>.</p>
+<p>Solutions are provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_bundesliga.R">here</a>.</p>
 </div>
 <div id="exercise-okuns-law" class="section level2 unnumbered hasAnchor">
 <h2><em>EXERCISE:</em> Okun’s Law<a href="collection-of-exercises.html#exercise-okuns-law" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -811,7 +811,7 @@ been known to you from the lecture.</em></p>
 <li><p>Install and load the following packages: ‘tidyverse’, ‘sjPlot’, and ‘ggpubr’</p></li>
 <li><p>Download and load the data, respectively, with the following code:</p></li>
 </ol>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="collection-of-exercises.html#cb196-1" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/hubchev/courses/raw/main/dta/forest.Rdata&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="collection-of-exercises.html#cb190-1" tabindex="-1"></a><span class="fu">load</span>(<span class="fu">url</span>(<span class="st">&quot;https://github.com/hubchev/courses/raw/main/dta/forest.Rdata&quot;</span>))</span></code></pre></div>
 <p>If that is not working, you can also download the data from ILIAS, save it in
 your working directory and load it from there with:</p>
 <pre><code>load(&quot;forest.Rdata&quot;)</code></pre>
@@ -910,13 +910,13 @@ The following chart shows the simultaneous development of the unemployment rate 
 <p><img src="_main_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
 <p>Suppose you want to visualize the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany as well.<br />
 Suppose further that you have found the following lines of code that create the kind of chart you are looking for.</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="collection-of-exercises.html#cb204-1" tabindex="-1"></a><span class="co"># Data</span></span>
-<span id="cb204-2"><a href="collection-of-exercises.html#cb204-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
-<span id="cb204-3"><a href="collection-of-exercises.html#cb204-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">13</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">22</span>)</span>
-<span id="cb204-4"><a href="collection-of-exercises.html#cb204-4" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="dv">1970</span><span class="sc">:</span><span class="dv">1978</span></span>
-<span id="cb204-5"><a href="collection-of-exercises.html#cb204-5" tabindex="-1"></a></span>
-<span id="cb204-6"><a href="collection-of-exercises.html#cb204-6" tabindex="-1"></a><span class="co"># Connected scatter plot with text</span></span>
-<span id="cb204-7"><a href="collection-of-exercises.html#cb204-7" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Var 1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Var 2&quot;</span>); <span class="fu">text</span>(x <span class="sc">+</span> <span class="fl">0.4</span>, y <span class="sc">+</span> <span class="fl">0.1</span>, labels) </span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="collection-of-exercises.html#cb198-1" tabindex="-1"></a><span class="co"># Data</span></span>
+<span id="cb198-2"><a href="collection-of-exercises.html#cb198-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>)</span>
+<span id="cb198-3"><a href="collection-of-exercises.html#cb198-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">18</span>, <span class="dv">16</span>, <span class="dv">13</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">22</span>)</span>
+<span id="cb198-4"><a href="collection-of-exercises.html#cb198-4" tabindex="-1"></a>labels <span class="ot">&lt;-</span> <span class="dv">1970</span><span class="sc">:</span><span class="dv">1978</span></span>
+<span id="cb198-5"><a href="collection-of-exercises.html#cb198-5" tabindex="-1"></a></span>
+<span id="cb198-6"><a href="collection-of-exercises.html#cb198-6" tabindex="-1"></a><span class="co"># Connected scatter plot with text</span></span>
+<span id="cb198-7"><a href="collection-of-exercises.html#cb198-7" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Var 1&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Var 2&quot;</span>); <span class="fu">text</span>(x <span class="sc">+</span> <span class="fl">0.4</span>, y <span class="sc">+</span> <span class="fl">0.1</span>, labels) </span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-118-1.png" width="672" /></p>
 <p>Use these lines of code and customize them to create the co-movement visualization for <strong>Germany</strong> using the available ‘df’ data.
 The result should look something like this:</p>
@@ -957,10 +957,10 @@ The result should look something like this:</p>
 <ol start="4" style="list-style-type: decimal">
 <li>Download and load the data, respectively, with the following code:</li>
 </ol>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="collection-of-exercises.html#cb205-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(</span>
-<span id="cb205-2"><a href="collection-of-exercises.html#cb205-2" tabindex="-1"></a>  <span class="st">&quot;https://github.com/hubchev/courses/raw/main/dta/city.dta&quot;</span>, </span>
-<span id="cb205-3"><a href="collection-of-exercises.html#cb205-3" tabindex="-1"></a>  <span class="at">encoding=</span><span class="st">&quot;latin1&quot;</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb205-4"><a href="collection-of-exercises.html#cb205-4" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="collection-of-exercises.html#cb199-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(</span>
+<span id="cb199-2"><a href="collection-of-exercises.html#cb199-2" tabindex="-1"></a>  <span class="st">&quot;https://github.com/hubchev/courses/raw/main/dta/city.dta&quot;</span>, </span>
+<span id="cb199-3"><a href="collection-of-exercises.html#cb199-3" tabindex="-1"></a>  <span class="at">encoding=</span><span class="st">&quot;latin1&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb199-4"><a href="collection-of-exercises.html#cb199-4" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span></code></pre></div>
 <p>If that is not working, you can also download the data from ILIAS, save it in
 your working directory and load it from there with:</p>
 <pre><code>load(&quot;city.RData&quot;)</code></pre>
@@ -1192,12 +1192,12 @@ of a city in a series sorted by city size. Briefly interpret the results, addres
 <ol start="24" style="list-style-type: decimal">
 <li>Explain the following lines of code.</li>
 </ol>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="collection-of-exercises.html#cb216-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
-<span id="cb216-2"><a href="collection-of-exercises.html#cb216-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prediction =</span> <span class="fu">predict</span>(zipf, <span class="at">newdata =</span> df)) <span class="sc">|&gt;</span> </span>
-<span id="cb216-3"><a href="collection-of-exercises.html#cb216-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pred_pop =</span> <span class="fu">exp</span>(prediction))</span>
-<span id="cb216-4"><a href="collection-of-exercises.html#cb216-4" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
-<span id="cb216-5"><a href="collection-of-exercises.html#cb216-5" tabindex="-1"></a>  <span class="fu">select</span>(city, pop2011, pred_pop) <span class="sc">|&gt;</span> </span>
-<span id="cb216-6"><a href="collection-of-exercises.html#cb216-6" tabindex="-1"></a>  <span class="fu">filter</span>(city <span class="sc">==</span> <span class="st">&quot;Regensburg&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="collection-of-exercises.html#cb210-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb210-2"><a href="collection-of-exercises.html#cb210-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prediction =</span> <span class="fu">predict</span>(zipf, <span class="at">newdata =</span> df)) <span class="sc">|&gt;</span> </span>
+<span id="cb210-3"><a href="collection-of-exercises.html#cb210-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pred_pop =</span> <span class="fu">exp</span>(prediction))</span>
+<span id="cb210-4"><a href="collection-of-exercises.html#cb210-4" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb210-5"><a href="collection-of-exercises.html#cb210-5" tabindex="-1"></a>  <span class="fu">select</span>(city, pop2011, pred_pop) <span class="sc">|&gt;</span> </span>
+<span id="cb210-6"><a href="collection-of-exercises.html#cb210-6" tabindex="-1"></a>  <span class="fu">filter</span>(city <span class="sc">==</span> <span class="st">&quot;Regensburg&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
 ##   city       pop2011 pred_pop
 ##   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;
