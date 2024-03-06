@@ -168,7 +168,7 @@ How to Use R for Data Science}
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 15 January, 2024}
+\date{Last compiled on 06 March, 2024}
 
 \begin{document}
 \maketitle
@@ -481,11 +481,37 @@ You will first need to download and install both R and RStudio (Desktop version)
   \end{itemize}
 \end{enumerate}
 
+\hypertarget{what-is-a-function-in-r}{%
+\section{What is a function in R?}\label{what-is-a-function-in-r}}
+
+One of the keys to understand R is a \emph{functional programming language}. Or, to put in in the words of \citet[p.~4]{Chambers2017Extending}: ``Everything that happens is a function call.'' When you like to exit R, for example, you do it with the function \texttt{q()}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textgreater{} q()}
+\NormalTok{Save workspace image? [y/n/c]: }
+\end{Highlighting}
+\end{Shaded}
+
+If you don't want to be asked what you want to do with your workspace (that is the place where you store all your objects, see section \ref{sec:objects}) you can do it with an argument that is part of the function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textgreater{} q(save = "no")}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{sec:objects}{%
+\section{What are objects in R?}\label{sec:objects}}
+
+Everything you do is made with a function and ``everything that exists in R is an object'' \citep[p.~4]{Chambers2017Extending}. Objects are the fundamental units that are used to store information. Objects can be created using a variety of data types, including vectors, matrices, data frames, lists, functions. All objects are shown in the \emph{workspace} which is shown in the \emph{Environment} panel.
+
+In R, you can show the content of the workspace with \texttt{ls()}. The function \texttt{rm()} allows to remove objects and with \texttt{rm(list=ls())} you clear all objects from the workspace.
+
 \hypertarget{packages}{%
 \section{What are R packages?}\label{packages}}
 
-A package is basically just a big collection of functions, data sets and other R objects that are all grouped together under a common name. Some packages are already installed when you put R on your computer, but the vast majority of them of R packages are out there on the internet, waiting for you to download, install and use them.
-R packages are collections of functions and data sets developed by the community. They increase the power of R by improving existing base R functionalities, or by adding new ones. For example, if you are usually working with data frames, probably you will have heard about \emph{dplyr} or \emph{data.table}, two of the most popular R packages. More than 10,000 packages are available at the official repository (CRAN) and many more are publicly available through the internet.
+A package is a collection of functions, data sets and other R objects that are all grouped together under a common name. More than 10,000 packages are available at the official repository (CRAN) and many more are publicly available through the internet.
 
 In this section, I'll describe how to work with packages using the Rstudio tools. Along the way, you'll see that whenever you get Rstudio to do something (e.g., install a package), you'll actually see the R commands that get created.
 
@@ -500,64 +526,29 @@ However, before we get started, there's a critical distinction that you need to 
   A package must be loaded before it can be used.
 \end{enumerate}
 
-We only need to install a package once on our computer. However, to use the package, we need to load the library every time we start a new R environment. You can think of this as installing a bulb versus turning on the light.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth,height=\textheight]{fig/lightpackage.jpeg}
-\caption{\label{fig:lightpackage} Installing packages}
-\end{figure}
-
-The two step process might seem a little odd at first, but the designers of R had very good reasons to do it this way. That is, there are more than 10.000 packages, and probably about 8000 authors of packages, and no-one really knows what all of them do. Keeping the installation separate from the loading minimizes the chances that two packages will interact with each other in a nasty way. Moreover having installed all available packages would probably blow your hard disk.
-
-Another good analogy for R packages \index{R packages} is they are like apps you can download onto a mobile phone:
-
-\begin{figure}
-\includegraphics[width=0.7\linewidth]{fig/R_vs_R_packages} \caption{Analogy of R versus R packages.}\label{fig:R-vs-R-packages}
-\end{figure}
-
-So R is like a new mobile phone: while it has a certain amount of features when you use it for the first time, it doesn't have everything. R packages are like the apps you can download onto your phone from Apple's App Store or Android's Google Play.
+We only need to install a package once on our computer. However, to use the package, we need to load it every time we start a new R environment or R Studio, respectively.
 
 \hypertarget{package-installation}{%
 \subsection{Package installation}\label{package-installation}}
 
-There are two ways to install an R package: an easy way and a very easy way. \index{R packages!installation} Let's install the \texttt{ggplot2} package the easy way first as shown in Figure \ref{fig:easy-way-install}. In the Files pane of RStudio:
-
-\begin{enumerate}
-\def\labelenumi{\alph{enumi})}
-\tightlist
-\item
-  Click on the ``Packages'' tab.
-\item
-  Click on ``Install'' next to Update.
-\item
-  Type the name of the package under ``Packages (separate multiple with space or comma):'' In this case, type \texttt{ggplot2}.
-\item
-  Click ``Install.''
-\end{enumerate}
-
-\begin{figure}
-\includegraphics[width=0.55\linewidth,height=0.55\textheight]{fig/install_packages_easy_way} \caption{Installing packages in R the easy way.}\label{fig:easy-way-install}
-\end{figure}
-
-An alternative way to install a package is by typing
+To install an R package you can use the GUI of R Studio or the command line. In R Studio you can click on the \emph{Packages} tab, then on the \emph{Install} button, then you must search for a package and click \emph{Install}. An alternative way to install a package is by typing
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"package\_name"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 in the console pane of RStudio and pressing Return/Enter on your keyboard. Note you must include the quotation marks around the name of the package.
 
-Much like an app on your phone, you only have to install a package once. However, if you want to update a previously installed package to a newer version, you need to re-install it by repeating the earlier steps or you use \texttt{update.packages()}. To uninstall packages you can use \texttt{remove.packages()}.
+If you want to update a previously installed package to a newer version, you need to re-install it by repeating the earlier steps or you use \texttt{update.packages()}. To uninstall packages you can use \texttt{remove.packages()}.
 
-The installation of packages can take some time. However, if your CPU has many cores, you can speed up the process a lot using the argument \texttt{Ncpus} like this \texttt{update.packages(ask\ =\ F,\ Ncpus\ =\ 4L)}. This option allows you to adjust the number of parallel processes R can use on your PC. So, if you have a CPU with many cores you can increase that number.
+The installation of packages can take some time. However, if your CPU has many cores, you can speed up the process a lot using the argument \texttt{Ncpus} like this \texttt{update.packages(ask\ =\ F,\ Ncpus\ =\ 4L)}. This option allows you to adjust the number of parallel processes R can use on your PC. So, if you have a CPU with many cores you can increase that number. A tutorial on how to set the number of cores used by R permanently can be found here: \url{https://www.jumpingrivers.com/blog/speeding-up-package-installation/}
 
 \hypertarget{package-loading}{%
 \subsection{Package loading}\label{package-loading}}
 
-Recall that after you've installed a package, you need to \emph{load it}. We do this by using the \texttt{library()} command. \index{R packages!loading}
+Recall that after you've installed a package, you need to \emph{load it}. We do this by using the \texttt{library()} command.
 
 For example, to load the \texttt{ggplot2} package, run the following code in the console pane. What do we mean by ``run the following code''? Either type or copy-and-paste the following code into the console pane and then hit the Enter key.
 
@@ -633,33 +624,6 @@ The line
 \end{Shaded}
 
 ensures the installation of the \texttt{pacman} package, which is necessary for using the \texttt{p\_load} function.
-
-\hypertarget{what-is-a-function-in-r}{%
-\section{What is a function in R?}\label{what-is-a-function-in-r}}
-
-One of the keys to understand R is a \emph{functional programming language}. Or, to put in in the words of \citet[p.~4]{Chambers2017Extending}: ``Everything that happens is a function call.'' When you like to exit R, for example, you do it with the function \texttt{q()}:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{\textgreater{} q()}
-\NormalTok{Save workspace image? [y/n/c]: }
-\end{Highlighting}
-\end{Shaded}
-
-If you don't want to be asked what you want to do with your workspace (that is the place where you store all your objects, see section \ref{sec:objects}) you can do it with an argument that is part of the function:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{\textgreater{} q(save = "no")}
-\end{Highlighting}
-\end{Shaded}
-
-\hypertarget{sec:objects}{%
-\section{What are objects in R?}\label{sec:objects}}
-
-Everything you do is made with a function and ``everything that exists in R is an object'' \citep[p.~4]{Chambers2017Extending}. Objects are the fundamental units that are used to store information. Objects can be created using a variety of data types, including vectors, matrices, data frames, lists, functions. All objects are shown in the \emph{workspace} which is shown in the \emph{Environment} panel.
-
-In R, you can show the content of the workspace with \texttt{ls()}. The function \texttt{rm()} allows to remove objects and with \texttt{rm(list=ls())} you clear all objects from the workspace.
 
 \hypertarget{are-there-some-guidelines-for-working-with-r}{%
 \section{Are there some guidelines for working with R?}\label{are-there-some-guidelines-for-working-with-r}}
@@ -1054,7 +1018,7 @@ Unfortunately, this does not work out. The \texttt{lag()} function does not work
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.3/dplyr"
+## [1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr"
 \end{verbatim}
 
 \begin{Shaded}
@@ -1129,36 +1093,6 @@ That looks good now. And here is a way to calculate growth rates with a self-wri
 \end{verbatim}
 
 In R, all functions are written by users, and it is not uncommon for two people to name their functions identically. In such cases, we must resolve the conflict by choosing which function to use. To use the lag function from the \texttt{stats} package, you can use the double colon operator \texttt{::} like this \texttt{stats::lag(arguments)}.
-
-\hypertarget{exercise-all-roads-lead-to-rome}{%
-\section*{\texorpdfstring{\emph{EXERCISE:} All roads lead to R(ome)}{EXERCISE: All roads lead to R(ome)}}\label{exercise-all-roads-lead-to-rome}}
-\addcontentsline{toc}{section}{\emph{EXERCISE:} All roads lead to R(ome)}
-
-If you ask ten programmers to solve a particular problem, you will probably receive ten different soltuions that are all valid. R is no exception here. This can be very confussing when just started to learn R.
-
-Below you find more ways to calculate the a growth rate. Do you understand them?
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{c}\NormalTok{(}\ConstantTok{NA}\NormalTok{, }\FunctionTok{diff}\NormalTok{(revenue)}\SpecialCharTok{/}\FunctionTok{head}\NormalTok{(revenue, }\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{))}\SpecialCharTok{*}\DecValTok{100}        
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{(revenue}\SpecialCharTok{/}\FunctionTok{c}\NormalTok{(}\ConstantTok{NA}\NormalTok{,revenue[}\SpecialCharTok{{-}}\FunctionTok{length}\NormalTok{(revenue)])}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{)}\SpecialCharTok{*}\DecValTok{100}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##  [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN
-\end{verbatim}
-
-An often-used method for approximating growth rates is to calculate the differences in the logarithm of values over time. Section \ref{pipeoperator} illustrates how to perform this calculation with R.
 
 \hypertarget{visualizing-data}{%
 \chapter{Visualizing data}\label{visualizing-data}}
@@ -1432,62 +1366,6 @@ The two most common formats to store and work with data in R are dataframe and t
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{exercise-import-data}{%
-\section*{\texorpdfstring{\emph{EXERCISE:} Import data}{EXERCISE: Import data}}\label{exercise-import-data}}
-\addcontentsline{toc}{section}{\emph{EXERCISE:} Import data}
-
-Table Table 1 shows COVID for three states in Germany:
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2464}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1304}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3478}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2754}}@{}}
-\caption{Table 1: Covid cases and deaths till August 2022}\tabularnewline
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-state
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Bavaria
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-North Rhine-Westphalia
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Baden-Württemberg
-\end{minipage} \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-state
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Bavaria
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-North Rhine-Westphalia
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Baden-Württemberg
-\end{minipage} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-deaths (in mio) & 4,92M & 5,32M & 3,69M \\
-cases & 24.111 & 25.466 & 16.145 \\
-\end{longtable}
-
-Write down the code you would need to put into the R-console\ldots{}
-
-\begin{itemize}
-\tightlist
-\item
-  \ldots to store each of variables \emph{state} and \emph{deaths} in a vector.
-\item
-  \ldots to store both vectors in a data frame with the name \texttt{df\_covid}.
-\item
-  \ldots to store both vectors in a tibble with the name \texttt{tbl\_covid}.
-\end{itemize}
-
-Please find solution to the exercise \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/import_covid_data.R}{here}
-
 \hypertarget{open-rdata-files}{%
 \subsection{Open RData files}\label{open-rdata-files}}
 
@@ -1550,15 +1428,15 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-## Rows: 13,200
+## Rows: 13,198
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", ~
-## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2007", "2006", "200~
-## $ value       <dbl> 1.185138e+12, 1.086531e+12, 9.288802e+11, 1.006191e+12, 1.012521e+12, 1.028394e+12, 8.900514e+11, 9.325135e+11, 1.006992e+12, 9.863429e+11, ~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.C~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current ~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "Z~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern ~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", ~
+## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2~
+## $ value       <dbl> 1.185138e+12, 1.086531e+12, 9.288802e+11, 1.006191e+12, 1.012521e+12, 1.028394e+12, 8.900514e+11, ~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current ~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "Z~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Afri~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1568,13 +1446,20 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##     iso3c               date               value           indicatorID         indicator            iso2c             country         
-##  Length:13200       Length:13200       Min.   :8.825e+06   Length:13200       Length:13200       Length:13200       Length:13200      
-##  Class :character   Class :character   1st Qu.:2.435e+09   Class :character   Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Median :1.786e+10   Mode  :character   Mode  :character   Mode  :character   Mode  :character  
-##                                        Mean   :1.224e+12                                                                              
-##                                        3rd Qu.:2.272e+11                                                                              
-##                                        Max.   :1.013e+14
+##     iso3c               date               value           indicatorID         indicator            iso2c          
+##  Length:13198       Length:13198       Min.   :8.825e+06   Length:13198       Length:13198       Length:13198      
+##  Class :character   Class :character   1st Qu.:2.435e+09   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Median :1.786e+10   Mode  :character   Mode  :character   Mode  :character  
+##                                        Mean   :1.224e+12                                                           
+##                                        3rd Qu.:2.264e+11                                                           
+##                                        Max.   :1.009e+14                                                           
+##    country         
+##  Length:13198      
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+## 
 \end{verbatim}
 
 \hypertarget{import-various-file-formats}{%
@@ -1654,11 +1539,13 @@ One difference between data frames and tibbles is that dataframes store the row 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"             "Duster 360"         
-##  [8] "Merc 240D"           "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"          "Merc 450SL"          "Merc 450SLC"        
-## [15] "Cadillac Fleetwood"  "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"      "Toyota Corona"      
-## [22] "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"          "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"       
-## [29] "Ford Pantera L"      "Ferrari Dino"        "Maserati Bora"       "Volvo 142E"
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"  
+##  [6] "Valiant"             "Duster 360"          "Merc 240D"           "Merc 230"            "Merc 280"           
+## [11] "Merc 280C"           "Merc 450SE"          "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood" 
+## [16] "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"            "Honda Civic"         "Toyota Corolla"     
+## [21] "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"          "Pontiac Firebird"   
+## [26] "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
+## [31] "Maserati Bora"       "Volvo 142E"
 \end{verbatim}
 
 To store \texttt{mtcars} as a tibble, we can use the \texttt{as\_tibble} function:
@@ -1913,14 +1800,14 @@ Thus, x\$y is actually just a short form for x{[}{[}``y''{]}{]}.
 \hypertarget{logical-operators}{%
 \subsection{Logical operators}\label{logical-operators}}
 
-The extract operators can be combined with the \emph{logical operators} (more precisely, I should call these \emph{binary relational operators}) that are shown in table Table 2.
+The extract operators can be combined with the \emph{logical operators} (more precisely, I should call these \emph{binary relational operators}) that are shown in table Table 1.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3553}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1447}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3553}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1447}}@{}}
-\caption{Table 2: Logical operators}\tabularnewline
+\caption{Table 1: Logical operators}\tabularnewline
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 operation
@@ -2459,13 +2346,13 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.5, 15.5, 15.2, 13.~
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.~
 ## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7, 75.7, 71.1, 120.~
-## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 150, 245, 175, 66, 91, 113, 264, 175, ~
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.70, 2.76, 3.15, 3.7~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.200, 1.615, 1.835, 2~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.47, 18.52, 19.90, 2~
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 4~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 1~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.2~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 1~
 ## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
 ## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
 ## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
@@ -2716,6 +2603,62 @@ Use the \emph{mtcars} dataset. It is part of the package \emph{datasets} and can
 \end{enumerate}
 
 Please find solutions \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_genanddrop.R}{here}.
+
+\hypertarget{exercise-import-data}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Import data}{EXERCISE: Import data}}\label{exercise-import-data}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Import data}
+
+Table 2 shows COVID for three states in Germany:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2464}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1304}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3478}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2754}}@{}}
+\caption{Table 2: Covid cases and deaths till August 2022}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+state
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Bavaria
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+North Rhine-Westphalia
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Baden-Württemberg
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+state
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Bavaria
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+North Rhine-Westphalia
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Baden-Württemberg
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+deaths (in mio) & 4,92M & 5,32M & 3,69M \\
+cases & 24.111 & 25.466 & 16.145 \\
+\end{longtable}
+
+Write down the code you would need to put into the R-console\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  \ldots to store each of variables \emph{state} and \emph{deaths} in a vector.
+\item
+  \ldots to store both vectors in a data frame with the name \texttt{df\_covid}.
+\item
+  \ldots to store both vectors in a tibble with the name \texttt{tbl\_covid}.
+\end{itemize}
+
+Please find solution to the exercise \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/import_covid_data.R}{here}
 
 \hypertarget{exercise-base-r-or-pipe}{%
 \section*{\texorpdfstring{\emph{EXERCISE:} Base R or pipe}{EXERCISE: Base R or pipe}}\label{exercise-base-r-or-pipe}}
@@ -3078,7 +3021,7 @@ your working directory and load it from there with:
   (Hint: Below you can see one of many \textbar\textgreater{} of what your result may look like).
 \end{enumerate}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-89-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-88-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -3089,7 +3032,7 @@ your working directory and load it from there with:
   The following chart shows the simultaneous development of the unemployment rate and GDP per capita over time for \textbf{France}.
 \end{enumerate}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-90-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-89-1.pdf}
 
 Suppose you want to visualize the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany as well.\\
 Suppose further that you have found the following lines of code that create the kind of chart you are looking for.
@@ -3106,12 +3049,12 @@ Suppose further that you have found the following lines of code that create the 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-91-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-90-1.pdf}
 
 Use these lines of code and customize them to create the co-movement visualization for \textbf{Germany} using the available `df' data.
 The result should look something like this:
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-92-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-91-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -3231,7 +3174,7 @@ Data Description:
 
 \begin{verbatim}
 ## Rows: 6 Columns: 5
-## -- Column specification ------------------------------------------------------------------------------------------------------------------------------------------
+## -- Column specification ------------------------------------------------------------------------------------------------
 ## Delimiter: ","
 ## chr (1): sex
 ## dbl (4): age, weight, calories, sport
@@ -3614,7 +3557,7 @@ look like.)
   (Hint: Below you can see one of many possible examples of what your result may look like).
 \end{enumerate}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-117-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-116-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -3625,7 +3568,7 @@ look like.)
   The following chart shows the simultaneous development of the unemployment rate and GDP per capita over time for \textbf{France}.
 \end{enumerate}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-118-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-117-1.pdf}
 
 Suppose you want to visualize the simultaneous evolution of the unemployment rate and GDP per capita over time for Germany as well.\\
 Suppose further that you have found the following lines of code that create the kind of chart you are looking for.
@@ -3642,12 +3585,12 @@ Suppose further that you have found the following lines of code that create the 
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-119-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-118-1.pdf}
 
 Use these lines of code and customize them to create the co-movement visualization for \textbf{Germany} using the available `df' data.
 The result should look something like this:
 
-\includegraphics{_main_files/figure-latex/unnamed-chunk-120-1.pdf}
+\includegraphics{_main_files/figure-latex/unnamed-chunk-119-1.pdf}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -3687,6 +3630,405 @@ Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/m
 \end{enumerate}
 
 Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_duplicates.R}{here}.
+
+\hypertarget{exercise-zipfs-law}{%
+\section*{\texorpdfstring{\emph{EXERCISE:} Zipf's law}{EXERCISE: Zipf's law}}\label{exercise-zipfs-law}}
+\addcontentsline{toc}{section}{\emph{EXERCISE:} Zipf's law}
+
+\textbf{The data under investigation includes population information for various German cities, identified by the variable \texttt{stadt}, spanning the years 1970, 1987, and 2010. The variable status provides details about the legislative status of the cities, and the variable \texttt{state} (Bundesland) indicates the state in which each respective city is situated.}
+
+\hypertarget{preamble}{%
+\subsection*{Preamble}\label{preamble}}
+\addcontentsline{toc}{subsection}{Preamble}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  Set your working directory.
+\item
+  Clear your global environment.
+\item
+  Install and load the following packages: `tidyverse', `haven', and `janitor'.
+\end{enumerate}
+
+\hypertarget{read-in-inspect-and-clean-the-data}{%
+\subsection*{Read in, inspect, and clean the data}\label{read-in-inspect-and-clean-the-data}}
+\addcontentsline{toc}{subsection}{Read in, inspect, and clean the data}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Download and load the data, respectively, with the following code:
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{read\_dta}\NormalTok{(}
+  \StringTok{"https://github.com/hubchev/courses/raw/main/dta/city.dta"}\NormalTok{, }
+  \AttributeTok{encoding=}\StringTok{"latin1"}\NormalTok{) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{as\_tibble}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+If that is not working, you can also download the data from ILIAS, save it in
+your working directory and load it from there with:
+
+\begin{verbatim}
+load("city.RData")
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{4}
+\item
+  Show the first six and the last six observations of the dataset `df'.
+\item
+  How many observations (rows) and variables (columns) are in the dataset?
+\item
+  Show for all numerical variables the summary statistics including the mean,
+  median, minimum, and the maximum.
+\item
+  Rename the variable \texttt{stadt} to \texttt{city}.
+\item
+  Remove the variables \texttt{pop1970} and \texttt{pop1987}.
+\item
+  Replicate the following table which contains some summary statistics.
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 17 x 3
+##    state                  `mean(pop2011)` `sum(pop2011)`
+##    <chr>                            <dbl>          <dbl>
+##  1 Baden-Wrttemberg                 7580            7580
+##  2 Baden-Württemberg               23680.        7837917
+##  3 Bayern                          23996.        7558677
+##  4 Berlin                        3292365         3292365
+##  5 Brandenburg                     18472.        1865632
+##  6 Bremen                         325432.         650863
+##  7 Hamburg                       1706696         1706696
+##  8 Hessen                          22996.        5036121
+##  9 Mecklenburg-Vorpommern          27034.         811005
+## 10 Niedersachsen                   24107.        6219515
+## 11 Nordrhein-Westfalen             47465.       18036727
+## 12 Rheinland-Pfalz                 25644.        1871995
+## 13 Saarland                           NA              NA
+## 14 Sachsen                         27788.        2973351
+## 15 Sachsen-Anhalt                  21212.        1993915
+## 16 Schleswig-Holstein              24157.        1739269
+## 17 Th_ringen                       29192.        1167692
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{10}
+\tightlist
+\item
+  The states ``Baden-Wrttemberg'' and ``Th\_ringen'' are falsely pronounced. Correct
+  the names and regenerate the summary statistics table presented above. Your
+  result should look like this:
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 16 x 3
+##    state                  `mean(pop2011)` `sum(pop2011)`
+##    <chr>                            <dbl>          <dbl>
+##  1 Baden-Württemberg               23631.        7845497
+##  2 Bayern                          23996.        7558677
+##  3 Berlin                        3292365         3292365
+##  4 Brandenburg                     18472.        1865632
+##  5 Bremen                         325432.         650863
+##  6 Hamburg                       1706696         1706696
+##  7 Hessen                          22996.        5036121
+##  8 Mecklenburg-Vorpommern          27034.         811005
+##  9 Niedersachsen                   24107.        6219515
+## 10 Nordrhein-Westfalen             47465.       18036727
+## 11 Rheinland-Pfalz                 25644.        1871995
+## 12 Saarland                           NA              NA
+## 13 Sachsen                         27788.        2973351
+## 14 Sachsen-Anhalt                  21212.        1993915
+## 15 Schleswig-Holstein              24157.        1739269
+## 16 Thüringen                       29192.        1167692
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{11}
+\tightlist
+\item
+  To investigate the reason for observing only \texttt{NAs} for Saarland, examine all
+  cities within Saarland. Therefore, please display all observations for cities in
+  Saarland in the Console, as illustrated below.
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 47 x 5
+##    city                status  state    pop2011 rankX
+##    <chr>               <chr>   <chr>      <dbl> <dbl>
+##  1 Perl                Commune Saarland    7775  2003
+##  2 Freisen             Commune Saarland    8270  1894
+##  3 Großrosseln         Commune Saarland    8403  1868
+##  4 Nonnweiler          Commune Saarland    8844  1775
+##  5 Nalbach             Commune Saarland    9302  1678
+##  6 Wallerfangen        Commune Saarland    9542  1642
+##  7 Kirkel              Commune Saarland   10058  1541
+##  8 Merchweiler         Commune Saarland   10219  1515
+##  9 Nohfelden           Commune Saarland   10247  1511
+## 10 Friedrichsthal      City    Saarland   10409  1489
+## 11 Marpingen           Commune Saarland   10590  1461
+## 12 Mandelbachtal       Commune Saarland   11107  1390
+## 13 Kleinblittersdorf   Commune Saarland   11396  1354
+## 14 Überherrn           Commune Saarland   11655  1317
+## 15 Mettlach            Commune Saarland   12180  1241
+## 16 Tholey              Commune Saarland   12385  1217
+## 17 Saarwellingen       Commune Saarland   13348  1104
+## 18 Quierschied         Commune Saarland   13506  1088
+## 19 Spiesen-Elversberg  Commune Saarland   13509  1086
+## 20 Rehlingen-Siersburg Commune Saarland   14526   996
+## 21 Riegelsberg         Commune Saarland   14763   982
+## 22 Ottweiler           City    Saarland   14934   969
+## 23 Beckingen           Commune Saarland   15355   931
+## 24 Losheim am See      Commune Saarland   15906   887
+## 25 Schiffweiler        Commune Saarland   15993   882
+## 26 Wadern              City    Saarland   16181   874
+## 27 Schmelz             Commune Saarland   16435   857
+## 28 Sulzbach/Saar       City    Saarland   16591   849
+## 29 Illingen            Commune Saarland   16978   827
+## 30 Schwalbach          Commune Saarland   17320   812
+## 31 Eppelborn           Commune Saarland   17726   793
+## 32 Wadgassen           Commune Saarland   17885   785
+## 33 Bexbach             City    Saarland   18038   777
+## 34 Heusweiler          Commune Saarland   18201   762
+## 35 Püttlingen          City    Saarland   19134   718
+## 36 Lebach              City    Saarland   19484   701
+## 37 Dillingen/Saar      City    Saarland   20253   654
+## 38 Blieskastel         City    Saarland   21255   601
+## 39 St. Wendel          City    Saarland   26220   460
+## 40 Merzig              City    Saarland   29727   392
+## 41 Saarlouis           City    Saarland   34479   323
+## 42 St. Ingbert         City    Saarland   36645   299
+## 43 Völklingen          City    Saarland   38809   279
+## 44 Homburg             City    Saarland   41502   247
+## 45 Neunkirchen         City    Saarland   46172   206
+## 46 Saarbrücken         City    Saarland  175853    43
+## 47 Perl                Commune Saarland      NA    NA
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{12}
+\item
+  With reference to the table above, we have identified an entry for the city of Perl that solely consists of \texttt{NAs}. This city is duplicated in the dataset, appearing at positions 1 and 47. The latter duplicate contains only \texttt{NAs} and can be safely removed without the loss of valuable information. Please eliminate this duplification and regenerate the list of all cities in the Saarland.
+\item
+  Calculate the total population and average size of cities in Saarland.
+\item
+  Check if any other city is recorded more than once in the dataset.
+  To do so, reproduce the table below.
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 23 x 5
+## # Groups:   city [11]
+##    city        status                  state               pop2011 unique_count
+##    <chr>       <chr>                   <chr>                 <dbl>        <int>
+##  1 Bonn        City with County Rights Nordrhein-Westfalen  305765            3
+##  2 Bonn        City with County Rights Nordrhein-Westfalen  305765            3
+##  3 Bonn        City with County Rights Nordrhein-Westfalen  305765            3
+##  4 Brühl       Commune                 Baden-Württemberg     13805            2
+##  5 Brühl       City                    Nordrhein-Westfalen   43568            2
+##  6 Erbach      City                    Baden-Württemberg     13024            2
+##  7 Erbach      City                    Hessen                13245            2
+##  8 Fürth       City with County Rights Bayern               115613            2
+##  9 Fürth       Commune                 Hessen                10481            2
+## 10 Lichtenau   City                    Nordrhein-Westfalen   10473            2
+## 11 Lichtenau   Commune                 Sachsen                7544            2
+## 12 Münster     Commune                 Hessen                14071            2
+## 13 Münster     City with County Rights Nordrhein-Westfalen  289576            2
+## 14 Neunkirchen Commune                 Nordrhein-Westfalen   13930            2
+## 15 Neunkirchen City                    Saarland              46172            2
+## 16 Neuried     Commune                 Baden-Württemberg      9383            2
+## 17 Neuried     Commune                 Bayern                 8277            2
+## 18 Petersberg  Commune                 Hessen                14766            2
+## 19 Petersberg  Commune                 Sachsen-Anhalt        10097            2
+## 20 Senden      City                    Bayern                21560            2
+## 21 Senden      Commune                 Nordrhein-Westfalen   19976            2
+## 22 Staufenberg City                    Hessen                 8114            2
+## 23 Staufenberg Commune                 Niedersachsen          7983            2
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{15}
+\tightlist
+\item
+  The table indicates that the city of Bonn appears three times in the dataset,
+  and all three observations contain identical information. Thus, remove two of
+  these observations to ensure that Bonn is uniquely represented in the dataset.
+  All other cities that occur more than once in the data are situated in
+  different states. That means, these are distinct cities that coincidentally
+  share the same name.
+\end{enumerate}
+
+\hypertarget{data-analysis-zipfs-law}{%
+\subsection*{Data analysis (Zipf's Law)}\label{data-analysis-zipfs-law}}
+\addcontentsline{toc}{subsection}{Data analysis (Zipf's Law)}
+
+\emph{\textbf{Note:} If you have failed to solve the data cleaning tasks above, you can download the cleaned data from ILIAS, save it in your working directory and load it from there with:}
+\texttt{load("city\_clean.RData")}
+
+In the following, you aim to examine the validity of Zipf's Law for Germany.
+Zipf's Law postulates how the size of cities is distributed. The ``law'' states that there is a special relationship between the size of a city and the rank it occupies in a series sorted by city size. In the estimation equation
+\[ \log(M_j) = c - q \log(R_j), \]
+the law postulates a coefficient of \(q=1\) (\(c\) is a constant; \(M_j\) is the size of city \(j\); \(R_j\) is the rank that city \(j\) occupies in a series sorted by city size).
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{16}
+\tightlist
+\item
+\end{enumerate}
+
+Create a variable named \texttt{rank} that includes a ranking of cities based on the population size in the year 2011. Therefore, Berlin should have a rank of 1, Hamburg a rank of 2, Munich a rank of 3, and so on.
+
+\emph{\textbf{Note:} If you cannot solve this task, use the variable \texttt{rankX} as a substitute for the variable \textsl{rank} that was not generated.}
+
+\begin{verbatim}
+## # A tibble: 6 x 3
+##   city                    pop2011  rank
+##   <chr>                     <dbl> <int>
+## 1 Berlin                  3292365     1
+## 2 Hamburg                 1706696     2
+## 3 München [Munich]        1348335     3
+## 4 Köln [Cologne]          1005775     4
+## 5 Frankfurt am Main        667925     5
+## 6 Düsseldorf [Dusseldorf]  586291     6
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{17}
+\tightlist
+\item
+  Calculate the Pearson Correlation Coefficient of the two variables
+  `pop2011' and `rank'. The result should be:
+\end{enumerate}
+
+\begin{verbatim}
+## [1] -0.2948903
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{18}
+\tightlist
+\item
+  Create a scatter plot. On the x-axis, plot the variable \texttt{rank}, and on the y-axis, plot \texttt{pop2011}. Add a regression line representing the observed relationship to the same scatter plot.
+\end{enumerate}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-138-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{19}
+\tightlist
+\item
+  Logarithmize the variables \texttt{rank} and \texttt{pop2011}. Title the new variables as \texttt{lnrank} and \texttt{lnpop2011}, respectively. Here is a snapshot of the resulting variables:
+\end{enumerate}
+
+\begin{verbatim}
+## # A tibble: 6 x 5
+##   city                     rank lnrank pop2011 lnpop2011
+##   <chr>                   <int>  <dbl>   <dbl>     <dbl>
+## 1 Berlin                      1  0     3292365      15.0
+## 2 Hamburg                     2  0.693 1706696      14.4
+## 3 München [Munich]            3  1.10  1348335      14.1
+## 4 Köln [Cologne]              4  1.39  1005775      13.8
+## 5 Frankfurt am Main           5  1.61   667925      13.4
+## 6 Düsseldorf [Dusseldorf]     6  1.79   586291      13.3
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{20}
+\tightlist
+\item
+  Calculate the Pearson Correlation Coefficient of the two variables
+  `lnpop2011' and `lnrank'. The result should be:
+\end{enumerate}
+
+\begin{verbatim}
+## [1] -0.9990053
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{21}
+\tightlist
+\item
+  Create a scatter plot. On the x-axis, plot the variable \texttt{lnrank}, and on the y-axis, plot \texttt{lnpop2011}. Add a regression line representing the observed relationship to the same scatter plot. Additionally, add a title and label the axes like is shown here:
+\end{enumerate}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-141-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{22}
+\tightlist
+\item
+  Now, test the relationship postulated in Zipf's Law.
+  Regress the logarithmized city size in the year 2011 on the logarithmized rank
+  of a city in a series sorted by city size. Briefly interpret the results, addressing the coefficient of determination. Show the regression results. Here is one way to present the results of the regression \emph{(Note: The way how you present your regression results do not matter)}:
+\end{enumerate}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = lnpop2011 ~ lnrank, data = df)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.28015 -0.01879  0.01083  0.02005  0.25973 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 14.947859   0.005141    2908   <2e-16 ***
+## lnrank      -0.780259   0.000766   -1019   <2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.03454 on 2067 degrees of freedom
+## Multiple R-squared:  0.998,  Adjusted R-squared:  0.998 
+## F-statistic: 1.038e+06 on 1 and 2067 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{23}
+\tightlist
+\item
+  Explain the following lines of code.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df }\OtherTok{\textless{}{-}}\NormalTok{ df }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{prediction =} \FunctionTok{predict}\NormalTok{(zipf, }\AttributeTok{newdata =}\NormalTok{ df)) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{pred\_pop =} \FunctionTok{exp}\NormalTok{(prediction))}
+\NormalTok{df }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{select}\NormalTok{(city, pop2011, pred\_pop) }\SpecialCharTok{|\textgreater{}} 
+  \FunctionTok{filter}\NormalTok{(city }\SpecialCharTok{==} \StringTok{"Regensburg"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 3
+##   city       pop2011 pred_pop
+##   <chr>        <dbl>    <dbl>
+## 1 Regensburg  135403  134194.
+\end{verbatim}
+
+Solutions are provided \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_zipf_solution.R}{here}.
 
 \hypertarget{write-with-r-markdown}{%
 \chapter{Write with R Markdown}\label{write-with-r-markdown}}
@@ -4105,47 +4447,472 @@ When seeking help, be sure to provide information about your machine, including 
 \end{Shaded}
 
 \begin{verbatim}
-## R version 4.3.2 (2023-10-31)
+## R version 4.2.2 Patched (2022-11-10 r83330)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Debian GNU/Linux 12 (bookworm)
 ## 
 ## Matrix products: default
-## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
-## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so;  LAPACK version 3.11.0
+## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.11.0
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.11.0
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8   
-##  [6] LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-## 
-## time zone: Europe/Berlin
-## tzcode source: system (glibc)
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.4          sjPlot_2.8.15        ggpubr_0.6.0         datasauRus_0.1.6     haven_2.5.4          janitor_2.2.0        wbstats_1.0.4       
-##  [8] scales_1.3.0         lubridate_1.9.3      forcats_1.0.0        purrr_1.0.2          readr_2.1.5          tidyr_1.3.0          tibble_3.2.1        
-## [15] ggplot2_3.4.4        tidyverse_2.0.0      stringr_1.5.1        bundesligR_0.1.0     captioner_2.2.3.9000 knitr_1.45           pacman_0.5.1        
+##  [1] dplyr_1.1.4      jtools_2.2.2     sjPlot_2.8.15    ggpubr_0.6.0     datasauRus_0.1.8 haven_2.5.4     
+##  [7] janitor_2.2.0    wbstats_1.0.4    scales_1.3.0     lubridate_1.9.3  forcats_1.0.0    purrr_1.0.2     
+## [13] readr_2.1.4      tidyr_1.3.0      tibble_3.2.1     ggplot2_3.5.0    tidyverse_2.0.0  stringr_1.5.1   
+## [19] bundesligR_0.1.0 captioner_2.2.3  knitr_1.45       pacman_0.5.1    
 ## 
 ## loaded via a namespace (and not attached):
-##   [1] sandwich_3.1-0      rlang_1.1.3         magrittr_2.0.3      multcomp_1.4-25     snakecase_0.11.1    compiler_4.3.2      systemfonts_1.0.5  
-##   [8] vctrs_0.6.5         pkgconfig_2.0.3     crayon_1.5.2        fastmap_1.1.1       backports_1.4.1     labeling_0.4.3      utf8_1.2.4         
-##  [15] rmarkdown_2.25      prodlim_2023.08.28  tzdb_0.4.0          nloptr_2.0.3        ragg_1.2.7          bit_4.0.5           xfun_0.41          
-##  [22] cachem_1.0.8        jsonlite_1.8.8      recipes_1.0.9       highr_0.10          sjmisc_2.8.9        ggeffects_1.3.4     broom_1.0.5        
-##  [29] parallel_4.3.2      R6_2.5.1            bslib_0.6.1         stringi_1.8.3       boot_1.3-28.1       parallelly_1.36.0   car_3.1-2          
-##  [36] rpart_4.1.23        estimability_1.4.1  jquerylib_0.1.4     Rcpp_1.0.12         bookdown_0.37       modelr_0.1.11       future.apply_1.11.1
-##  [43] zoo_1.8-12          Matrix_1.6-5        splines_4.3.2       nnet_7.3-19         timechange_0.2.0    tidyselect_1.2.0    rstudioapi_0.15.0  
-##  [50] abind_1.4-5         yaml_2.3.8          timeDate_4032.109   sjlabelled_1.2.0    codetools_0.2-19    curl_5.2.0          listenv_0.9.0      
-##  [57] lattice_0.22-5      bayestestR_0.13.1   withr_2.5.2         evaluate_0.23       future_1.33.1       survival_3.5-7      pillar_1.9.0       
-##  [64] carData_3.0-5       insight_0.19.7      generics_0.1.3      vroom_1.6.5         hms_1.1.3           munsell_0.5.0       minqa_1.2.6        
-##  [71] xtable_1.8-4        globals_0.16.2      class_7.3-22        glue_1.7.0          emmeans_1.9.0       tools_4.3.2         data.table_1.14.10 
-##  [78] lme4_1.1-35.1       gower_1.0.1         ggsignif_0.6.4      mvtnorm_1.2-4       grid_4.3.2          ipred_0.9-14        colorspace_2.1-0   
-##  [85] nlme_3.1-164        performance_0.10.8  cli_3.6.2           textshaping_0.3.7   fansi_1.0.6         sjstats_0.18.2      lava_1.7.3         
-##  [92] gtable_0.3.4        rstatix_0.7.2       sass_0.4.8          digest_0.6.34       TH.data_1.1-2       farver_2.1.1        htmltools_0.5.7    
-##  [99] lifecycle_1.0.4     hardhat_1.3.0       httr_1.4.7          bit64_4.0.5         MASS_7.3-60
+##   [1] minqa_1.2.6         TH.data_1.1-2       colorspace_2.1-0    ggsignif_0.6.4      class_7.3-22       
+##   [6] sjlabelled_1.2.0    estimability_1.4.1  snakecase_0.11.1    rstudioapi_0.15.0   listenv_0.9.0      
+##  [11] farver_2.1.1        bit64_4.0.5         prodlim_2023.08.28  fansi_1.0.6         mvtnorm_1.2-4      
+##  [16] codetools_0.2-19    splines_4.2.2       cachem_1.0.8        sjmisc_2.8.9        jsonlite_1.8.8     
+##  [21] nloptr_2.0.3        ggeffects_1.3.4     broom_1.0.5         compiler_4.2.2      httr_1.4.7         
+##  [26] sjstats_0.18.2      emmeans_1.9.0       backports_1.4.1     Matrix_1.6-4        fastmap_1.1.1      
+##  [31] cli_3.6.2           htmltools_0.5.7     tools_4.2.2         coda_0.19-4         gtable_0.3.4       
+##  [36] glue_1.6.2          Rcpp_1.0.11         carData_3.0-5       jquerylib_0.1.4     vctrs_0.6.5        
+##  [41] nlme_3.1-164        insight_0.19.7      timeDate_4032.109   gower_1.0.1         xfun_0.41          
+##  [46] globals_0.16.2      lme4_1.1-35.1       timechange_0.2.0    lifecycle_1.0.4     rstatix_0.7.2      
+##  [51] future_1.33.1       zoo_1.8-12          MASS_7.3-60         ipred_0.9-14        vroom_1.6.5        
+##  [56] ragg_1.2.7          hms_1.1.3           sandwich_3.1-0      parallel_4.2.2      yaml_2.3.8         
+##  [61] curl_5.2.0          pander_0.6.5        sass_0.4.8          rpart_4.1.23        stringi_1.8.3      
+##  [66] highr_0.10          bayestestR_0.13.1   boot_1.3-28.1       hardhat_1.3.0       lava_1.7.3         
+##  [71] rlang_1.1.2         pkgconfig_2.0.3     systemfonts_1.0.5   evaluate_0.23       lattice_0.22-5     
+##  [76] recipes_1.0.9       labeling_0.4.3      bit_4.0.5           tidyselect_1.2.0    parallelly_1.36.0  
+##  [81] magrittr_2.0.3      bookdown_0.37       R6_2.5.1            generics_0.1.3      multcomp_1.4-25    
+##  [86] mgcv_1.9-1          pillar_1.9.0        withr_2.5.2         survival_3.5-7      abind_1.4-5        
+##  [91] nnet_7.3-19         future.apply_1.11.1 performance_0.10.8  modelr_0.1.11       crayon_1.5.2       
+##  [96] car_3.1-2           utf8_1.2.4          tzdb_0.4.0          rmarkdown_2.25      grid_4.2.2         
+## [101] data.table_1.14.10  digest_0.6.33       xtable_1.8-4        textshaping_0.3.7   munsell_0.5.0      
+## [106] bslib_0.6.1
 \end{verbatim}
+
+\hypertarget{operators}{%
+\section{Operators}\label{operators}}
+
+\hypertarget{assignment}{%
+\subsection{Assignment:}\label{assignment}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\textless{}-} (assignment operator)
+\end{itemize}
+
+\hypertarget{arithmetic}{%
+\subsection{Arithmetic:}\label{arithmetic}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{+} (addition)
+\item
+  \texttt{-} (subtraction)
+\item
+  \texttt{*} (multiplication)
+\item
+  \texttt{/} (division)
+\item
+  \texttt{\^{}} or \texttt{**} (exponentiation)
+\item
+  \texttt{\%\%} (modulo, remainder)
+\item
+  \texttt{\%/\%} (integer division)
+\end{itemize}
+
+\hypertarget{relational}{%
+\subsection{Relational:}\label{relational}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\textless{}} (less than)
+\item
+  \texttt{\textgreater{}} (greater than)
+\item
+  \texttt{\textless{}=} (less than or equal to)
+\item
+  \texttt{\textgreater{}=} (greater than or equal to)
+\item
+  \texttt{==} (equal to)
+\item
+  \texttt{!=} or \texttt{\textless{}\textgreater{}} (not equal to)
+\end{itemize}
+
+\hypertarget{logical}{%
+\subsection{Logical:}\label{logical}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\&} (element-wise AND)
+\item
+  \texttt{\textbar{}} (element-wise OR)
+\item
+  \texttt{!} (logical NOT)
+\item
+  \texttt{\&\&} (scalar AND)
+\item
+  \texttt{\textbar{}\textbar{}} (scalar OR)
+\end{itemize}
+
+\hypertarget{others}{%
+\subsection{Others:}\label{others}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{\%*\%} (matrix multiplication)
+\item
+  \texttt{\%in\%} (checks if an element is in a vector)
+\item
+  \texttt{\%\textgreater{}\%} or \texttt{\textbar{}\textgreater{}} (pipe operator from the magrittr package)
+\item
+  \texttt{{[}{]}}: Extract content from vectors, lists, or data frames.
+\item
+  \texttt{{[}{[}\ {]}{]}} and \texttt{\$}: Extract a single item from an object.
+\end{itemize}
+
+\hypertarget{popular-functions}{%
+\section{Popular functions}\label{popular-functions}}
+
+\hypertarget{help}{%
+\subsection{Help}\label{help}}
+
+\begin{itemize}
+\tightlist
+\item
+  ?: Search R documentation for a specific term.
+\item
+  ?? Search R help files for a word or phrase.
+\item
+  RSiteSearch: Search search.r-project.org
+\item
+  findFn: Search search.r-project.org for functions (Hint: requires the ``sos'' library loaded!)
+\item
+  help.start: Access to html manuals and documentations implemented in R
+\item
+  apropos: Returns a character vector giving the names of objects in the search list matching (as a regular expression) what.
+\item
+  find: Returns where objects of a given name can be found.
+\item
+  vignette: View a specified package vignette, i.e., supporting material such as introductions.
+\end{itemize}
+
+\hypertarget{package-management-1}{%
+\subsection{Package management}\label{package-management-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{install.packages}: Installs packages from CRAN.
+\item
+  \texttt{pacman::p\_load}: Installs and loads specified R packages.
+\item
+  \texttt{library}: (Install and) loads specified R packages.
+\end{itemize}
+
+\hypertarget{general}{%
+\subsection{General}\label{general}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{setwd}: Sets the working directory to the specified path.
+\item
+  \texttt{rm}: Removes objects (variables) from the workspace.
+\item
+  \texttt{sessionInfo}: Information about the R environment.
+\item
+  \texttt{source}: Executes R code from a file.
+\end{itemize}
+
+\hypertarget{tools}{%
+\subsection{Tools}\label{tools}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{else}: Execute a block of code if the preceding condition is false.
+\item
+  \texttt{else\ if}: Specify a new condition to test if the first condition is false.
+\item
+  \texttt{if}: Execute a block of code if a specified condition is true.
+\item
+  \texttt{ifelse}: Check a condition for every element of a vector.
+\end{itemize}
+
+\hypertarget{data-import}{%
+\subsection{Data import}\label{data-import}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{c}: Combine values into a vector or list.
+\item
+  \texttt{read.csv}: Reads a CSV file into a data frame.
+\item
+  \texttt{read\_dta}: Read Stata dataset.
+\item
+  \texttt{load}: Loads an RData file.
+\end{itemize}
+
+\hypertarget{inspect-data}{%
+\subsection{Inspect data}\label{inspect-data}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{dim}: Returns the dimensions (number of rows and columns) of a data frame.
+\item
+  \texttt{glimpse}: Provide a concise summary.
+\item
+  \texttt{head}: Returns the first elements.
+\item
+  \texttt{length}: Returns the number of elements in an object.
+\item
+  \texttt{print}: Prints the specified object.
+\item
+  \texttt{names}: Returns the variable names in a data frame.
+\item
+  \texttt{n()\ or\ nrow()}: Counts the number of observations in a data frame or group of observations.
+\item
+  \texttt{ncol}: Returns the number of columns in a data frame.
+\item
+  \texttt{summary}: Summary statistics.
+\item
+  \texttt{table}: Create a table of counts or cross-tabulation.
+\item
+  \texttt{tail}: Returns the first n elements.
+\item
+  \texttt{unique}: Extracts unique elements from a vector.
+\item
+  \texttt{view}: Opens a viewer for data frames.
+\end{itemize}
+
+\hypertarget{graphics}{%
+\subsection{Graphics}\label{graphics}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{abline}: Adds lines to a plot.
+\item
+  \texttt{aes}: Aesthetic mapping in ggplot.
+\item
+  \texttt{facet\_wrap}: Creates a grid of facetted plots.
+\item
+  \texttt{geom\_hline}: Adds horizontal lines to a ggplot.
+\item
+  \texttt{geom\_line}: Adds lines to a ggplot.
+\item
+  \texttt{geom\_point}: Adds points to a ggplot.
+\item
+  \texttt{geom\_smooth}: Adds a smoothed line to a ggplot.
+\item
+  \texttt{geom\_text}: Adds text to a ggplot.
+\item
+  \texttt{geom\_vline}: Adds vertical lines to a ggplot.
+\item
+  \texttt{ggsave}: Saves a ggplot to a file.
+\item
+  \texttt{labs}: Adds or modifies plot labels.
+\item
+  \texttt{plot}: Creates a scatter plot.
+\item
+  \texttt{scale\_y\_reverse}: Reverses the y-axis in a ggplot.
+\item
+  \texttt{stat\_smooth}: Adds a smoothed line to a ggplot.
+\item
+  \texttt{theme\_classic}: Applies a classic theme to a ggplot.
+\item
+  \texttt{theme\_minimal}: Applies a minimal theme to a ggplot.
+\end{itemize}
+
+\hypertarget{data-management}{%
+\subsection{Data management}\label{data-management}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{arrange}: Reorder the rows of a data frame.
+\item
+  \texttt{clean\_names}: Cleans names of an object (usually a data.frame).
+\item
+  \texttt{complete}: Completes a data frame with all combinations of specified columns.
+\item
+  \texttt{data.frame}: Creates a data frame.
+\item
+  \texttt{distinct}: Removes duplicate rows from a data frame.
+\item
+  \texttt{identical}: Check if two objects are identical.
+\item
+  \texttt{is(na)}: Identify and flag a missing or undefined value (NA).
+\item
+  \texttt{is\_tibble}: Check if an object is a tibble.
+\item
+  \texttt{rm}: Removes objects (variables) from the workspace.
+\item
+  \texttt{relocate}: Reorders columns in a dataframe.
+\item
+  \texttt{round}: Rounds a numeric vector to the nearest integer.
+\item
+  \texttt{rownames}: Get or set the row names of a matrix-like object.
+\item
+  \texttt{tibble}: Creates a tibble, a modern and tidy data frame.
+\end{itemize}
+
+\hypertarget{dplyr-functions}{%
+\subsection{\texorpdfstring{\texttt{dplyr} functions}{dplyr functions}}\label{dplyr-functions}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{arrange}: Reorder the rows of a data frame.
+\item
+  \texttt{complete}: Completes a data frame with all combinations of specified columns.
+\item
+  \texttt{ends\_with}: matches to a specified suffix
+\item
+  \texttt{filter}: Pick observations by their values.
+\item
+  \texttt{first}: Returns the first element.
+\item
+  \texttt{group\_by}: Group data by one or more variables.
+\item
+  \texttt{last}: Returns the last element.
+\item
+  \texttt{mutate}: Add new variables or modify existing variables in a data frame.
+\item
+  \texttt{nth}: Returns the nth element.
+\item
+  \texttt{n\_distinct}: Returns the number of distinct elements.
+\item
+  \texttt{rename}: Rename variables in a data frame.
+\item
+  \texttt{rename\_all}: Renames all variables in a data frame.
+\item
+  \texttt{row\_number}: Adds a column with row numbers.
+\item
+  \texttt{rowwise}: Perform operations row by row.
+\item
+  \texttt{select}: Pick variables by their names.
+\item
+  \texttt{select\_all}: Selects all columns in a data frame.
+\item
+  \texttt{slice\_head}: Selects the top N rows from each group.
+\item
+  \texttt{starts\_with}: Select variables whose names start with a certain string.
+\item
+  \texttt{summarise}: Reduce data to a single summary value.
+\end{itemize}
+
+\hypertarget{data-analysis}{%
+\subsection{Data analysis}\label{data-analysis}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{aggregate}: Apply a function to the data by levels of one or more factors.
+\item
+  \texttt{anti\_join}: Return rows from the first data frame that do not have a match in the second data frame.
+\item
+  \texttt{cor}: Computes correlation coefficients.
+\item
+  \texttt{cov}: Computes covariance.
+\item
+  \texttt{diff}: Calculates differences between consecutive elements.
+\item
+  \texttt{get\_dupes}: Identify duplicate rows in a data frame (from the janitor package).
+\item
+  \texttt{paste0}: Concatenate vectors after converting to character.
+\item
+  \texttt{predict}: Predict method for model fits.
+\item
+  \texttt{prop.table}: Create a table of proportions.
+\end{itemize}
+
+\hypertarget{statistical-functions}{%
+\subsection{Statistical functions}\label{statistical-functions}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{cor()}: Computes correlation coefficients.
+\item
+  \texttt{cov()}: Computes the covariance.
+\item
+  \texttt{exp()}: Exponential function.
+\item
+  \texttt{IQR()}: Computes the interquartile range.
+\item
+  \texttt{kurtosis()}: Computes the kurtosis.
+\item
+  \texttt{log()}: Natural logarithm.
+\item
+  \texttt{mad()}: Computes the mean absolute deviation.
+\item
+  \texttt{max()}: Returns the maximum value.
+\item
+  \texttt{mean()}: Calculates the mean.
+\item
+  \texttt{median()}: Computes the median.
+\item
+  \texttt{min()}: Returns the minimum value.
+\item
+  \texttt{quantile()}: Computes sample quantiles.
+\item
+  \texttt{sd()}: Calculates the standard deviation.
+\item
+  \texttt{skewness()}: Calculates the skewness.
+\item
+  \texttt{var()}: Calculates the variance.
+\end{itemize}
+
+\hypertarget{links-to-solutions}{%
+\section{Links to solutions}\label{links-to-solutions}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_duplicates.R}{exe\_duplicates.R}
+\item
+  \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_import_covid.R}{exe\_import\_covid.R}
+\item
+  \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_genanddrop.R}{exe\_genanddrop.R}
+\item
+  \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_base_pipe.R}{exe\_base\_pipe.R}
+\item
+  \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_subset.R}{exe\_subset.R}
+\item
+  \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/data_transformation.R}{data\_transformation.R}
+\item
+  \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_poser.R}{exe\_poser.R}
+\item
+  \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/datasauRus.R}{datasaurus\_solution.html}
+\item
+  \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/convergence.R}{convergence.R}
+\item
+  \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/un_gdp_ger_fra.R}{un\_gdp\_ger\_fra.R}
+\item
+  \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/hortacsu_figure_3.R}{hortacsu\_figure\_3.R}
+\item
+  \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/regress_lecture.R}{regress\_lecture.R}
+\item
+  \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_calories.R}{exe\_calories.R}
+\item
+  \href{https://raw.githubusercontent.com/hubchev/courses/main/scr/bundesliga.R}{bundesliga.R}
+\item
+  {[}exe\_okun\_solution.R{]}(\url{https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_ok\#} Script: exe\_duplicates.R (not in the lecture notes)
+\end{enumerate}
 
   \bibliography{book.bib}
 

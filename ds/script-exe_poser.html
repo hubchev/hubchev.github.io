@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>14 Script: exe_poser.R |  How to Use R for Data Science</title>
+  <meta name="description" content="<br />
+How to Use R for Data Science</p>" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="14 Script: exe_poser.R |  How to Use R for Data Science" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://hubchev.github.io/ds/fig/cover.png" />
+  
+  <meta name="github-repo" content="hubchev/hubchev.github.io" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="14 Script: exe_poser.R |  How to Use R for Data Science" />
+  
+  
+  <meta name="twitter:image" content="https://hubchev.github.io/ds/fig/cover.png" />
+
+<meta name="author" content="© Prof. Dr. Stephan Huber (Stephan.Huber@hs-fresenius.de)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="script-exe_subset.html"/>
+<link rel="next" href="script-datasaurus.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="preamble.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="fig/cover.png"></a></li>
+ <li><a href="./">How to Use R for Data Science</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting started with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#sec:whyR"><i class="fa fa-check"></i><b>1.1</b> Why R?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#howtolearnr"><i class="fa fa-check"></i><b>1.2</b> How to learn R</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#Rlearninglit"><i class="fa fa-check"></i><b>1.3</b> Learning resources</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#r-rstudio"><i class="fa fa-check"></i><b>1.4</b> What are R and RStudio?</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#how-to-use-r-and-rstudio-without-installation"><i class="fa fa-check"></i><b>1.5</b> How to use R and RStudio without installation</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#installing"><i class="fa fa-check"></i><b>1.6</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.7" data-path="getting-started.html"><a href="getting-started.html#what-is-a-function-in-r"><i class="fa fa-check"></i><b>1.7</b> What is a function in R?</a></li>
+<li class="chapter" data-level="1.8" data-path="getting-started.html"><a href="getting-started.html#sec:objects"><i class="fa fa-check"></i><b>1.8</b> What are objects in R?</a></li>
+<li class="chapter" data-level="1.9" data-path="getting-started.html"><a href="getting-started.html#packages"><i class="fa fa-check"></i><b>1.9</b> What are R packages?</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="getting-started.html"><a href="getting-started.html#package-installation"><i class="fa fa-check"></i><b>1.9.1</b> Package installation</a></li>
+<li class="chapter" data-level="1.9.2" data-path="getting-started.html"><a href="getting-started.html#package-loading"><i class="fa fa-check"></i><b>1.9.2</b> Package loading</a></li>
+<li class="chapter" data-level="1.9.3" data-path="getting-started.html"><a href="getting-started.html#package-management"><i class="fa fa-check"></i><b>1.9.3</b> Simplified package management with <code>p_load</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="getting-started.html"><a href="getting-started.html#are-there-some-guidelines-for-working-with-r"><i class="fa fa-check"></i><b>1.10</b> Are there some guidelines for working with R?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="swirl.html"><a href="swirl.html"><i class="fa fa-check"></i><b>2</b> Learn interactively with swirl</a></li>
+<li class="chapter" data-level="3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html"><i class="fa fa-check"></i><b>3</b> Work with R scripts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#r-scripts-why-they-are-useful"><i class="fa fa-check"></i><b>3.1</b> R Scripts: Why they are useful</a></li>
+<li class="chapter" data-level="3.2" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write, and run R scripts</a></li>
+<li class="chapter" data-level="3.3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:assignmentoper"><i class="fa fa-check"></i><b>3.3</b> The assignment operator: <code>&lt;-</code></a></li>
+<li class="chapter" data-level="3.4" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#doing-calculation-in-scripts"><i class="fa fa-check"></i><b>3.4</b> Doing calculation in scripts</a></li>
+<li class="chapter" data-level="3.5" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:generics"><i class="fa fa-check"></i><b>3.5</b> User-defined functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualizing-data.html"><a href="visualizing-data.html"><i class="fa fa-check"></i><b>4</b> Visualizing data</a></li>
+<li class="chapter" data-level="5" data-path="manage-data.html"><a href="manage-data.html"><i class="fa fa-check"></i><b>5</b> Manage data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="manage-data.html"><a href="manage-data.html#the-tidyverse-universe"><i class="fa fa-check"></i><b>5.1</b> The tidyverse universe</a></li>
+<li class="chapter" data-level="5.2" data-path="manage-data.html"><a href="manage-data.html#pipeoperator"><i class="fa fa-check"></i><b>5.2</b> The pipe operator</a></li>
+<li class="chapter" data-level="5.3" data-path="manage-data.html"><a href="manage-data.html#import-data"><i class="fa fa-check"></i><b>5.3</b> Import data</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="manage-data.html"><a href="manage-data.html#vectors-and-matrices"><i class="fa fa-check"></i><b>5.3.1</b> Vectors and matrices</a></li>
+<li class="chapter" data-level="5.3.2" data-path="manage-data.html"><a href="manage-data.html#open-rdata-files"><i class="fa fa-check"></i><b>5.3.2</b> Open RData files</a></li>
+<li class="chapter" data-level="5.3.3" data-path="manage-data.html"><a href="manage-data.html#open-datasets-of-packages"><i class="fa fa-check"></i><b>5.3.3</b> Open datasets of packages</a></li>
+<li class="chapter" data-level="5.3.4" data-path="manage-data.html"><a href="manage-data.html#import-data-using-public-apis"><i class="fa fa-check"></i><b>5.3.4</b> Import data using public APIs</a></li>
+<li class="chapter" data-level="5.3.5" data-path="manage-data.html"><a href="manage-data.html#import-various-file-formats"><i class="fa fa-check"></i><b>5.3.5</b> Import various file formats</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.4</b> Data</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="manage-data.html"><a href="manage-data.html#data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.4.1</b> Data frames and tibbles</a></li>
+<li class="chapter" data-level="5.4.2" data-path="manage-data.html"><a href="manage-data.html#tidy-data"><i class="fa fa-check"></i><b>5.4.2</b> Tidy data</a></li>
+<li class="chapter" data-level="5.4.3" data-path="manage-data.html"><a href="manage-data.html#data-types"><i class="fa fa-check"></i><b>5.4.3</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#tools-to-manipulate-data"><i class="fa fa-check"></i><b>5.5</b> Tools to manipulate data</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="manage-data.html"><a href="manage-data.html#the-in-operator"><i class="fa fa-check"></i><b>5.5.1</b> The <code>%in%</code> operator</a></li>
+<li class="chapter" data-level="5.5.2" data-path="manage-data.html"><a href="manage-data.html#extract-operators"><i class="fa fa-check"></i><b>5.5.2</b> Extract operators</a></li>
+<li class="chapter" data-level="5.5.3" data-path="manage-data.html"><a href="manage-data.html#logical-operators"><i class="fa fa-check"></i><b>5.5.3</b> Logical operators</a></li>
+<li class="chapter" data-level="5.5.4" data-path="manage-data.html"><a href="manage-data.html#if-statements"><i class="fa fa-check"></i><b>5.5.4</b> If statements</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="manage-data.html"><a href="manage-data.html#ch:dplyr"><i class="fa fa-check"></i><b>5.6</b> Data manipulation with <code>dplyr</code></a></li>
+<li class="chapter" data-level="5.7" data-path="manage-data.html"><a href="manage-data.html#how-to-explore-a-dataset"><i class="fa fa-check"></i><b>5.7</b> How to explore a dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html"><i class="fa fa-check"></i><b>6</b> Collection of exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-generate-and-drop-variables"><i class="fa fa-check"></i><em>EXERCISE:</em> Generate and drop variables</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-import-data"><i class="fa fa-check"></i><em>EXERCISE:</em> Import data</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-base-r-or-pipe"><i class="fa fa-check"></i><em>EXERCISE:</em> Base R or pipe</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-subsetting"><i class="fa fa-check"></i><em>EXERCISE:</em> Subsetting</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-data-transformation"><i class="fa fa-check"></i><em>EXERCISE:</em> Data transformation</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-load-the-stata-dataset-auto-using-r"><i class="fa fa-check"></i><em>EXERCISE:</em> Load the Stata dataset “auto” using R</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-datasaurus"><i class="fa fa-check"></i><em>EXERCISE:</em> DatasauRus</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-convergence"><i class="fa fa-check"></i><em>EXERCISE:</em> Convergence</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-unemployment-and-gdp-in-germany-and-france"><i class="fa fa-check"></i><em>EXERCISE:</em> Unemployment and GDP in Germany and France</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-import-data-and-write-a-report"><i class="fa fa-check"></i><em>EXERCISE:</em> Import data and write a report</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-explain-the-weight"><i class="fa fa-check"></i><em>EXERCISE:</em> Explain the weight</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-calories-and-weight"><i class="fa fa-check"></i><em>EXERCISE:</em> Calories and weight</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-bundesliga"><i class="fa fa-check"></i><em>EXERCISE:</em> Bundesliga</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-okuns-law"><i class="fa fa-check"></i><em>EXERCISE:</em> Okun’s Law</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-names-and-duplicates"><i class="fa fa-check"></i><em>EXERCISE:</em> Names and duplicates</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-zipfs-law"><i class="fa fa-check"></i><em>EXERCISE:</em> Zipf’s law</a>
+<ul>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#preamble"><i class="fa fa-check"></i>Preamble</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#read-in-inspect-and-clean-the-data"><i class="fa fa-check"></i>Read in, inspect, and clean the data</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#data-analysis-zipfs-law"><i class="fa fa-check"></i>Data analysis (Zipf’s Law)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Write with R Markdown</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#working-directory-in-r-markdown"><i class="fa fa-check"></i><b>7.2</b> Working directory in R Markdown</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-start-markdown-and-r-markdown"><i class="fa fa-check"></i><em>EXERCISE:</em> Start Markdown and R Markdown</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-r-markdown-cite-literature"><i class="fa fa-check"></i><em>EXERCISE:</em> R Markdown cite literature</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-preparing-apa-journal-articles-papaja"><i class="fa fa-check"></i><em>EXERCISE:</em> Preparing APA journal articles (<code>papaja</code>)</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-r-markdown-template"><i class="fa fa-check"></i><em>EXERCISE:</em> R Markdown template</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#helpful-shortcuts"><i class="fa fa-check"></i><b>8.1</b> Helpful shortcuts</a></li>
+<li class="chapter" data-level="8.2" data-path="appendix.html"><a href="appendix.html#sec:navigation"><i class="fa fa-check"></i><b>8.2</b> Navigating the file system</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="appendix.html"><a href="appendix.html#sec:filesystem"><i class="fa fa-check"></i><b>8.2.1</b> The file system</a></li>
+<li class="chapter" data-level="8.2.2" data-path="appendix.html"><a href="appendix.html#working-directory"><i class="fa fa-check"></i><b>8.2.2</b> Working directory</a></li>
+<li class="chapter" data-level="8.2.3" data-path="appendix.html"><a href="appendix.html#sec:navigationR"><i class="fa fa-check"></i><b>8.2.3</b> Navigating the file system using the R console</a></li>
+<li class="chapter" data-level="8.2.4" data-path="appendix.html"><a href="appendix.html#sec:rstudioprojects"><i class="fa fa-check"></i><b>8.2.4</b> R Studio projects</a></li>
+<li class="chapter" data-level="8.2.5" data-path="appendix.html"><a href="appendix.html#sec:winbackslash"><i class="fa fa-check"></i><b>8.2.5</b> Why do the Windows paths use the back-slash?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="appendix.html"><a href="appendix.html#troubleshooting"><i class="fa fa-check"></i><b>8.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="8.4" data-path="appendix.html"><a href="appendix.html#operators"><i class="fa fa-check"></i><b>8.4</b> Operators</a></li>
+<li class="chapter" data-level="8.5" data-path="appendix.html"><a href="appendix.html#popular-functions"><i class="fa fa-check"></i><b>8.5</b> Popular functions</a></li>
+<li class="chapter" data-level="8.6" data-path="appendix.html"><a href="appendix.html#operators-1"><i class="fa fa-check"></i><b>8.6</b> Operators</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="appendix.html"><a href="appendix.html#assignment-1"><i class="fa fa-check"></i><b>8.6.1</b> Assignment:</a></li>
+<li class="chapter" data-level="8.6.2" data-path="appendix.html"><a href="appendix.html#arithmetic-1"><i class="fa fa-check"></i><b>8.6.2</b> Arithmetic:</a></li>
+<li class="chapter" data-level="8.6.3" data-path="appendix.html"><a href="appendix.html#relational-1"><i class="fa fa-check"></i><b>8.6.3</b> Relational:</a></li>
+<li class="chapter" data-level="8.6.4" data-path="appendix.html"><a href="appendix.html#logical-1"><i class="fa fa-check"></i><b>8.6.4</b> Logical:</a></li>
+<li class="chapter" data-level="8.6.5" data-path="appendix.html"><a href="appendix.html#others-1"><i class="fa fa-check"></i><b>8.6.5</b> Others:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="appendix.html"><a href="appendix.html#popular-functions-1"><i class="fa fa-check"></i><b>8.7</b> Popular functions</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="appendix.html"><a href="appendix.html#help-1"><i class="fa fa-check"></i><b>8.7.1</b> Help</a></li>
+<li class="chapter" data-level="8.7.2" data-path="appendix.html"><a href="appendix.html#package-management-2"><i class="fa fa-check"></i><b>8.7.2</b> Package management</a></li>
+<li class="chapter" data-level="8.7.3" data-path="appendix.html"><a href="appendix.html#general-1"><i class="fa fa-check"></i><b>8.7.3</b> General</a></li>
+<li class="chapter" data-level="8.7.4" data-path="appendix.html"><a href="appendix.html#tools-1"><i class="fa fa-check"></i><b>8.7.4</b> Tools</a></li>
+<li class="chapter" data-level="8.7.5" data-path="appendix.html"><a href="appendix.html#data-import-1"><i class="fa fa-check"></i><b>8.7.5</b> Data import</a></li>
+<li class="chapter" data-level="8.7.6" data-path="appendix.html"><a href="appendix.html#inspect-data-1"><i class="fa fa-check"></i><b>8.7.6</b> Inspect data</a></li>
+<li class="chapter" data-level="8.7.7" data-path="appendix.html"><a href="appendix.html#graphics-1"><i class="fa fa-check"></i><b>8.7.7</b> Graphics</a></li>
+<li class="chapter" data-level="8.7.8" data-path="appendix.html"><a href="appendix.html#data-management-1"><i class="fa fa-check"></i><b>8.7.8</b> Data management</a></li>
+<li class="chapter" data-level="8.7.9" data-path="appendix.html"><a href="appendix.html#dplyr-functions-1"><i class="fa fa-check"></i><b>8.7.9</b> <code>dplyr</code> functions</a></li>
+<li class="chapter" data-level="8.7.10" data-path="appendix.html"><a href="appendix.html#data-analysis-1"><i class="fa fa-check"></i><b>8.7.10</b> Data analysis</a></li>
+<li class="chapter" data-level="8.7.11" data-path="appendix.html"><a href="appendix.html#statistical-functions-1"><i class="fa fa-check"></i><b>8.7.11</b> Statistical functions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="appendix.html"><a href="appendix.html#links-to-solutions"><i class="fa fa-check"></i><b>8.8</b> Links to solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="script-exe_duplicates.r-not-in-the-lecture-notes.html"><a href="script-exe_duplicates.r-not-in-the-lecture-notes.html"><i class="fa fa-check"></i><b>9</b> Script: exe_duplicates.R (not in the lecture notes)</a></li>
+<li class="chapter" data-level="10" data-path="script-exe_genanddrop.html"><a href="script-exe_genanddrop.html"><i class="fa fa-check"></i><b>10</b> Script: exe_genanddrop.R</a></li>
+<li class="chapter" data-level="11" data-path="script-exe_import_covid.html"><a href="script-exe_import_covid.html"><i class="fa fa-check"></i><b>11</b> Script: exe_import_covid.R</a></li>
+<li class="chapter" data-level="12" data-path="script-exe_base_pipe.html"><a href="script-exe_base_pipe.html"><i class="fa fa-check"></i><b>12</b> Script: exe_base_pipe.R</a></li>
+<li class="chapter" data-level="13" data-path="script-exe_subset.html"><a href="script-exe_subset.html"><i class="fa fa-check"></i><b>13</b> Script: exe_subset.R</a></li>
+<li class="chapter" data-level="14" data-path="script-exe_poser.html"><a href="script-exe_poser.html"><i class="fa fa-check"></i><b>14</b> Script: exe_poser.R</a></li>
+<li class="chapter" data-level="15" data-path="script-datasaurus.html"><a href="script-datasaurus.html"><i class="fa fa-check"></i><b>15</b> Script: datasauRus.R</a></li>
+<li class="chapter" data-level="16" data-path="script-convergence.html"><a href="script-convergence.html"><i class="fa fa-check"></i><b>16</b> Script: convergence.R</a></li>
+<li class="chapter" data-level="17" data-path="script-un_gdp_ger_fra.html"><a href="script-un_gdp_ger_fra.html"><i class="fa fa-check"></i><b>17</b> Script: un_gdp_ger_fra.R</a></li>
+<li class="chapter" data-level="18" data-path="script-hortacsu_figure_3.html"><a href="script-hortacsu_figure_3.html"><i class="fa fa-check"></i><b>18</b> Script: hortacsu_figure_3.R</a></li>
+<li class="chapter" data-level="19" data-path="script-regress_lecture.html"><a href="script-regress_lecture.html"><i class="fa fa-check"></i><b>19</b> Script: regress_lecture.R</a></li>
+<li class="chapter" data-level="20" data-path="script-exe_calories.html"><a href="script-exe_calories.html"><i class="fa fa-check"></i><b>20</b> Script: exe_calories.R</a></li>
+<li class="chapter" data-level="21" data-path="script-bundesliga.html"><a href="script-bundesliga.html"><i class="fa fa-check"></i><b>21</b> Script: bundesliga.R</a></li>
+<li class="chapter" data-level="22" data-path="script-exe_okun_solution.html"><a href="script-exe_okun_solution.html"><i class="fa fa-check"></i><b>22</b> Script: exe_okun_solution.R</a></li>
+<li class="chapter" data-level="23" data-path="script-exe_zipf_solution.html"><a href="script-exe_zipf_solution.html"><i class="fa fa-check"></i><b>23</b> Script: exe_zipf_solution.R</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li>&copy; Prof. Dr. Stephan Huber.</li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><img src="fig/cover.png" style="width:8cm" /><br />
+How to Use R for Data Science</p></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="script-exe_poser.r" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">14</span> Script: exe_poser.R<a href="script-exe_poser.html#script-exe_poser.r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="script-exe_poser.html#cb318-1" tabindex="-1"></a><span class="co"># Load the required libraries</span></span>
+<span id="cb318-2"><a href="script-exe_poser.html#cb318-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb318-3"><a href="script-exe_poser.html#cb318-3" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, haven, ggrepel)</span>
+<span id="cb318-4"><a href="script-exe_poser.html#cb318-4" tabindex="-1"></a></span>
+<span id="cb318-5"><a href="script-exe_poser.html#cb318-5" tabindex="-1"></a><span class="co"># setwd(&quot;~/Dropbox/hsf/23-ws/R_begin&quot;)</span></span>
+<span id="cb318-6"><a href="script-exe_poser.html#cb318-6" tabindex="-1"></a></span>
+<span id="cb318-7"><a href="script-exe_poser.html#cb318-7" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb318-8"><a href="script-exe_poser.html#cb318-8" tabindex="-1"></a></span>
+<span id="cb318-9"><a href="script-exe_poser.html#cb318-9" tabindex="-1"></a><span class="co"># Read the Stata dataset</span></span>
+<span id="cb318-10"><a href="script-exe_poser.html#cb318-10" tabindex="-1"></a>auto <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;http://www.stata-press.com/data/r8/auto.dta&quot;</span>)</span>
+<span id="cb318-11"><a href="script-exe_poser.html#cb318-11" tabindex="-1"></a></span>
+<span id="cb318-12"><a href="script-exe_poser.html#cb318-12" tabindex="-1"></a></span>
+<span id="cb318-13"><a href="script-exe_poser.html#cb318-13" tabindex="-1"></a><span class="co"># Create a scatter plot of price vs. weight</span></span>
+<span id="cb318-14"><a href="script-exe_poser.html#cb318-14" tabindex="-1"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(auto, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> price, <span class="at">label =</span> make)) <span class="sc">+</span></span>
+<span id="cb318-15"><a href="script-exe_poser.html#cb318-15" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>  </span>
+<span id="cb318-16"><a href="script-exe_poser.html#cb318-16" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>() <span class="sc">+</span> </span>
+<span id="cb318-17"><a href="script-exe_poser.html#cb318-17" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Miles per Gallon&quot;</span>) <span class="sc">+</span></span>
+<span id="cb318-18"><a href="script-exe_poser.html#cb318-18" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Price in Dollar&quot;</span>) <span class="sc">+</span></span>
+<span id="cb318-19"><a href="script-exe_poser.html#cb318-19" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb318-20"><a href="script-exe_poser.html#cb318-20" tabindex="-1"></a></span>
+<span id="cb318-21"><a href="script-exe_poser.html#cb318-21" tabindex="-1"></a>scatter_plot</span></code></pre></div>
+<pre><code>## Warning: ggrepel: 43 unlabeled data points (too many overlaps). Consider increasing max.overlaps</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-163-1.png" width="672" /></p>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="script-exe_poser.html#cb320-1" tabindex="-1"></a><span class="co"># Save the scatter plot in different formats</span></span>
+<span id="cb320-2"><a href="script-exe_poser.html#cb320-2" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;scatter_plot.png&quot;</span>, <span class="at">plot =</span> scatter_plot, <span class="at">device =</span> <span class="st">&quot;png&quot;</span>)</span></code></pre></div>
+<pre><code>## Saving 7 x 5 in image</code></pre>
+<pre><code>## Warning: ggrepel: 44 unlabeled data points (too many overlaps). Consider increasing max.overlaps</code></pre>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="script-exe_poser.html#cb323-1" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;scatter_plot.pdf&quot;</span>, <span class="at">plot =</span> scatter_plot, <span class="at">device =</span> <span class="st">&quot;pdf&quot;</span>)</span></code></pre></div>
+<pre><code>## Saving 7 x 5 in image</code></pre>
+<pre><code>## Warning: ggrepel: 43 unlabeled data points (too many overlaps). Consider increasing max.overlaps</code></pre>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="script-exe_poser.html#cb326-1" tabindex="-1"></a><span class="co"># Create &#39;lp100km&#39; variable for fuel consumption</span></span>
+<span id="cb326-2"><a href="script-exe_poser.html#cb326-2" tabindex="-1"></a>n_auto <span class="ot">&lt;-</span> auto <span class="sc">%&gt;%</span></span>
+<span id="cb326-3"><a href="script-exe_poser.html#cb326-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lp100km =</span> (<span class="dv">1</span><span class="sc">/</span>(mpg <span class="sc">*</span> <span class="fl">1.6</span><span class="sc">/</span> <span class="fl">3.8</span>))  <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb326-4"><a href="script-exe_poser.html#cb326-4" tabindex="-1"></a></span>
+<span id="cb326-5"><a href="script-exe_poser.html#cb326-5" tabindex="-1"></a><span class="co"># Create &#39;larger6000&#39; dummy variable</span></span>
+<span id="cb326-6"><a href="script-exe_poser.html#cb326-6" tabindex="-1"></a>n_auto <span class="ot">&lt;-</span> n_auto <span class="sc">%&gt;%</span></span>
+<span id="cb326-7"><a href="script-exe_poser.html#cb326-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">larger6000 =</span> <span class="fu">ifelse</span>(price <span class="sc">&gt;</span> <span class="dv">6000</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb326-8"><a href="script-exe_poser.html#cb326-8" tabindex="-1"></a></span>
+<span id="cb326-9"><a href="script-exe_poser.html#cb326-9" tabindex="-1"></a>n_auto <span class="ot">&lt;-</span> n_auto <span class="sc">|&gt;</span> </span>
+<span id="cb326-10"><a href="script-exe_poser.html#cb326-10" tabindex="-1"></a>  <span class="fu">filter</span>(larger6000 <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb326-11"><a href="script-exe_poser.html#cb326-11" tabindex="-1"></a></span>
+<span id="cb326-12"><a href="script-exe_poser.html#cb326-12" tabindex="-1"></a><span class="co"># Normalize variables</span></span>
+<span id="cb326-13"><a href="script-exe_poser.html#cb326-13" tabindex="-1"></a></span>
+<span id="cb326-14"><a href="script-exe_poser.html#cb326-14" tabindex="-1"></a><span class="do">## Do it slowly</span></span>
+<span id="cb326-15"><a href="script-exe_poser.html#cb326-15" tabindex="-1"></a>n_auto <span class="ot">&lt;-</span> n_auto <span class="sc">|&gt;</span> </span>
+<span id="cb326-16"><a href="script-exe_poser.html#cb326-16" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sprice =</span> ( price <span class="sc">-</span> <span class="fu">min</span>(auto<span class="sc">$</span>price) )<span class="sc">/</span>( <span class="fu">max</span>(auto<span class="sc">$</span>price) <span class="sc">-</span> <span class="fu">min</span>(auto<span class="sc">$</span>price) ) )</span>
+<span id="cb326-17"><a href="script-exe_poser.html#cb326-17" tabindex="-1"></a></span>
+<span id="cb326-18"><a href="script-exe_poser.html#cb326-18" tabindex="-1"></a><span class="do">## Do it with a self-written function </span></span>
+<span id="cb326-19"><a href="script-exe_poser.html#cb326-19" tabindex="-1"></a>min_max_norm <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb326-20"><a href="script-exe_poser.html#cb326-20" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">min</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> (<span class="fu">max</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="sc">-</span> <span class="fu">min</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb326-21"><a href="script-exe_poser.html#cb326-21" tabindex="-1"></a>}</span>
+<span id="cb326-22"><a href="script-exe_poser.html#cb326-22" tabindex="-1"></a></span>
+<span id="cb326-23"><a href="script-exe_poser.html#cb326-23" tabindex="-1"></a>n_auto <span class="ot">&lt;-</span> n_auto <span class="sc">|&gt;</span> </span>
+<span id="cb326-24"><a href="script-exe_poser.html#cb326-24" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">smpg =</span> <span class="fu">min_max_norm</span>(mpg)) <span class="sc">|&gt;</span> </span>
+<span id="cb326-25"><a href="script-exe_poser.html#cb326-25" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sturn =</span> <span class="fu">min_max_norm</span>(turn)) <span class="sc">|&gt;</span> </span>
+<span id="cb326-26"><a href="script-exe_poser.html#cb326-26" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">slp100km =</span> <span class="fu">min_max_norm</span>(lp100km)) <span class="sc">|&gt;</span> </span>
+<span id="cb326-27"><a href="script-exe_poser.html#cb326-27" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sprice =</span> <span class="fu">min_max_norm</span>(price)) <span class="sc">|&gt;</span> </span>
+<span id="cb326-28"><a href="script-exe_poser.html#cb326-28" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">srep78 =</span> <span class="fu">min_max_norm</span>(rep78)) </span>
+<span id="cb326-29"><a href="script-exe_poser.html#cb326-29" tabindex="-1"></a></span>
+<span id="cb326-30"><a href="script-exe_poser.html#cb326-30" tabindex="-1"></a><span class="do">## With a loop:</span></span>
+<span id="cb326-31"><a href="script-exe_poser.html#cb326-31" tabindex="-1"></a></span>
+<span id="cb326-32"><a href="script-exe_poser.html#cb326-32" tabindex="-1"></a><span class="co"># vars_to_normalize &lt;- c(&quot;mpg&quot;, &quot;turn&quot;, &quot;lp100km&quot;, &quot;price&quot;, &quot;rep78&quot;)</span></span>
+<span id="cb326-33"><a href="script-exe_poser.html#cb326-33" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb326-34"><a href="script-exe_poser.html#cb326-34" tabindex="-1"></a><span class="co"># # Loop through the selected variables and apply min_max_norm</span></span>
+<span id="cb326-35"><a href="script-exe_poser.html#cb326-35" tabindex="-1"></a><span class="co"># for (var in c(&quot;mpg&quot;, &quot;turn&quot;, &quot;lp100km&quot;, &quot;price&quot;, &quot;rep78&quot;)) {</span></span>
+<span id="cb326-36"><a href="script-exe_poser.html#cb326-36" tabindex="-1"></a><span class="co">#   auto &lt;- auto |&gt; </span></span>
+<span id="cb326-37"><a href="script-exe_poser.html#cb326-37" tabindex="-1"></a><span class="co">#     mutate(!!paste0(&quot;s&quot;, var) := min_max_norm(!!sym(var))) |&gt; </span></span>
+<span id="cb326-38"><a href="script-exe_poser.html#cb326-38" tabindex="-1"></a><span class="co">#     select(make, starts_with(&quot;s&quot;))</span></span>
+<span id="cb326-39"><a href="script-exe_poser.html#cb326-39" tabindex="-1"></a><span class="co"># }</span></span>
+<span id="cb326-40"><a href="script-exe_poser.html#cb326-40" tabindex="-1"></a></span>
+<span id="cb326-41"><a href="script-exe_poser.html#cb326-41" tabindex="-1"></a><span class="do">## mpg and rep78 need to be changed because a SMALL value is poser-like </span></span>
+<span id="cb326-42"><a href="script-exe_poser.html#cb326-42" tabindex="-1"></a>n_auto <span class="ot">&lt;-</span> n_auto <span class="sc">|&gt;</span> </span>
+<span id="cb326-43"><a href="script-exe_poser.html#cb326-43" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">smpg =</span> <span class="dv">1</span><span class="sc">-</span>smpg) <span class="sc">|&gt;</span> </span>
+<span id="cb326-44"><a href="script-exe_poser.html#cb326-44" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">srep78 =</span> <span class="dv">1</span><span class="sc">-</span>srep78) </span>
+<span id="cb326-45"><a href="script-exe_poser.html#cb326-45" tabindex="-1"></a></span>
+<span id="cb326-46"><a href="script-exe_poser.html#cb326-46" tabindex="-1"></a><span class="do">## create the poser (composite) indicator </span></span>
+<span id="cb326-47"><a href="script-exe_poser.html#cb326-47" tabindex="-1"></a>n_auto <span class="ot">&lt;-</span> n_auto <span class="sc">|&gt;</span> </span>
+<span id="cb326-48"><a href="script-exe_poser.html#cb326-48" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">poser =</span> (sturn<span class="sc">+</span>smpg<span class="sc">+</span>sprice<span class="sc">+</span>srep78) <span class="sc">/</span> <span class="dv">4</span> )</span>
+<span id="cb326-49"><a href="script-exe_poser.html#cb326-49" tabindex="-1"></a></span>
+<span id="cb326-50"><a href="script-exe_poser.html#cb326-50" tabindex="-1"></a><span class="do">## filter results</span></span>
+<span id="cb326-51"><a href="script-exe_poser.html#cb326-51" tabindex="-1"></a>n_auto <span class="sc">|&gt;</span> </span>
+<span id="cb326-52"><a href="script-exe_poser.html#cb326-52" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(poser)) <span class="sc">|&gt;</span> </span>
+<span id="cb326-53"><a href="script-exe_poser.html#cb326-53" tabindex="-1"></a>  <span class="fu">select</span>(make, poser) <span class="sc">|&gt;</span> </span>
+<span id="cb326-54"><a href="script-exe_poser.html#cb326-54" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>)  </span></code></pre></div>
+<pre><code>## # A tibble: 5 × 2
+##   make             poser
+##   &lt;chr&gt;            &lt;dbl&gt;
+## 1 Dodge Magnum     0.888
+## 2 Pont. Firebird   0.782
+## 3 Merc. Cougar     0.763
+## 4 Buick LeSabre    0.754
+## 5 Pont. Grand Prix 0.720</code></pre>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="script-exe_poser.html#cb328-1" tabindex="-1"></a>df_poser <span class="ot">&lt;-</span> n_auto <span class="sc">|&gt;</span> </span>
+<span id="cb328-2"><a href="script-exe_poser.html#cb328-2" tabindex="-1"></a>  <span class="fu">filter</span>(larger6000 <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb328-3"><a href="script-exe_poser.html#cb328-3" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(poser)) <span class="sc">|&gt;</span> </span>
+<span id="cb328-4"><a href="script-exe_poser.html#cb328-4" tabindex="-1"></a>  <span class="fu">select</span>(make, poser) <span class="sc">|&gt;</span> </span>
+<span id="cb328-5"><a href="script-exe_poser.html#cb328-5" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb328-6"><a href="script-exe_poser.html#cb328-6" tabindex="-1"></a></span>
+<span id="cb328-7"><a href="script-exe_poser.html#cb328-7" tabindex="-1"></a><span class="co"># Five top poser cars</span></span>
+<span id="cb328-8"><a href="script-exe_poser.html#cb328-8" tabindex="-1"></a><span class="fu">head</span>(df_poser, <span class="dv">15</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 15 × 2
+##    make              poser
+##    &lt;chr&gt;             &lt;dbl&gt;
+##  1 Dodge Magnum      0.888
+##  2 Pont. Firebird    0.782
+##  3 Merc. Cougar      0.763
+##  4 Buick LeSabre     0.754
+##  5 Pont. Grand Prix  0.720
+##  6 Chev. Impala      0.702
+##  7 Dodge Diplomat    0.690
+##  8 Chev. Monte Carlo 0.684
+##  9 Pont. Catalina    0.678
+## 10 Olds Cutl Supr    0.671
+## 11 Plym. Volare      0.665
+## 12 Buick Regal       0.663
+## 13 Olds Cutlass      0.629
+## 14 Olds Starfire     0.626
+## 15 AMC Pacer         0.619</code></pre>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="script-exe_poser.html#cb330-1" tabindex="-1"></a><span class="co"># Five top non-poser cars</span></span>
+<span id="cb330-2"><a href="script-exe_poser.html#cb330-2" tabindex="-1"></a><span class="fu">tail</span>(df_poser, <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 2
+##   make           poser
+##   &lt;chr&gt;          &lt;dbl&gt;
+## 1 VW Diesel      0.261
+## 2 Dodge Colt     0.227
+## 3 Toyota Corolla 0.195
+## 4 Datsun 210     0.195
+## 5 Subaru         0.178</code></pre>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="script-exe_poser.html#cb332-1" tabindex="-1"></a><span class="co"># unload packages</span></span>
+<span id="cb332-2"><a href="script-exe_poser.html#cb332-2" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_unload</span>(tidyverse, haven, ggrepel)</span></code></pre></div>
+<pre><code>## The following packages have been unloaded:
+## tidyverse, haven, ggrepel</code></pre>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="script-exe_subset.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="script-datasaurus.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

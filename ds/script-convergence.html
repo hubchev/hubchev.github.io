@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>16 Script: convergence.R |  How to Use R for Data Science</title>
+  <meta name="description" content="<br />
+How to Use R for Data Science</p>" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="16 Script: convergence.R |  How to Use R for Data Science" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://hubchev.github.io/ds/fig/cover.png" />
+  
+  <meta name="github-repo" content="hubchev/hubchev.github.io" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="16 Script: convergence.R |  How to Use R for Data Science" />
+  
+  
+  <meta name="twitter:image" content="https://hubchev.github.io/ds/fig/cover.png" />
+
+<meta name="author" content="© Prof. Dr. Stephan Huber (Stephan.Huber@hs-fresenius.de)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="script-datasaurus.html"/>
+<link rel="next" href="script-un_gdp_ger_fra.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="preamble.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="fig/cover.png"></a></li>
+ <li><a href="./">How to Use R for Data Science</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting started with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#sec:whyR"><i class="fa fa-check"></i><b>1.1</b> Why R?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#howtolearnr"><i class="fa fa-check"></i><b>1.2</b> How to learn R</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#Rlearninglit"><i class="fa fa-check"></i><b>1.3</b> Learning resources</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#r-rstudio"><i class="fa fa-check"></i><b>1.4</b> What are R and RStudio?</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#how-to-use-r-and-rstudio-without-installation"><i class="fa fa-check"></i><b>1.5</b> How to use R and RStudio without installation</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#installing"><i class="fa fa-check"></i><b>1.6</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.7" data-path="getting-started.html"><a href="getting-started.html#what-is-a-function-in-r"><i class="fa fa-check"></i><b>1.7</b> What is a function in R?</a></li>
+<li class="chapter" data-level="1.8" data-path="getting-started.html"><a href="getting-started.html#sec:objects"><i class="fa fa-check"></i><b>1.8</b> What are objects in R?</a></li>
+<li class="chapter" data-level="1.9" data-path="getting-started.html"><a href="getting-started.html#packages"><i class="fa fa-check"></i><b>1.9</b> What are R packages?</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="getting-started.html"><a href="getting-started.html#package-installation"><i class="fa fa-check"></i><b>1.9.1</b> Package installation</a></li>
+<li class="chapter" data-level="1.9.2" data-path="getting-started.html"><a href="getting-started.html#package-loading"><i class="fa fa-check"></i><b>1.9.2</b> Package loading</a></li>
+<li class="chapter" data-level="1.9.3" data-path="getting-started.html"><a href="getting-started.html#package-management"><i class="fa fa-check"></i><b>1.9.3</b> Simplified package management with <code>p_load</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="getting-started.html"><a href="getting-started.html#are-there-some-guidelines-for-working-with-r"><i class="fa fa-check"></i><b>1.10</b> Are there some guidelines for working with R?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="swirl.html"><a href="swirl.html"><i class="fa fa-check"></i><b>2</b> Learn interactively with swirl</a></li>
+<li class="chapter" data-level="3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html"><i class="fa fa-check"></i><b>3</b> Work with R scripts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#r-scripts-why-they-are-useful"><i class="fa fa-check"></i><b>3.1</b> R Scripts: Why they are useful</a></li>
+<li class="chapter" data-level="3.2" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write, and run R scripts</a></li>
+<li class="chapter" data-level="3.3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:assignmentoper"><i class="fa fa-check"></i><b>3.3</b> The assignment operator: <code>&lt;-</code></a></li>
+<li class="chapter" data-level="3.4" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#doing-calculation-in-scripts"><i class="fa fa-check"></i><b>3.4</b> Doing calculation in scripts</a></li>
+<li class="chapter" data-level="3.5" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:generics"><i class="fa fa-check"></i><b>3.5</b> User-defined functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualizing-data.html"><a href="visualizing-data.html"><i class="fa fa-check"></i><b>4</b> Visualizing data</a></li>
+<li class="chapter" data-level="5" data-path="manage-data.html"><a href="manage-data.html"><i class="fa fa-check"></i><b>5</b> Manage data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="manage-data.html"><a href="manage-data.html#the-tidyverse-universe"><i class="fa fa-check"></i><b>5.1</b> The tidyverse universe</a></li>
+<li class="chapter" data-level="5.2" data-path="manage-data.html"><a href="manage-data.html#pipeoperator"><i class="fa fa-check"></i><b>5.2</b> The pipe operator</a></li>
+<li class="chapter" data-level="5.3" data-path="manage-data.html"><a href="manage-data.html#import-data"><i class="fa fa-check"></i><b>5.3</b> Import data</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="manage-data.html"><a href="manage-data.html#vectors-and-matrices"><i class="fa fa-check"></i><b>5.3.1</b> Vectors and matrices</a></li>
+<li class="chapter" data-level="5.3.2" data-path="manage-data.html"><a href="manage-data.html#open-rdata-files"><i class="fa fa-check"></i><b>5.3.2</b> Open RData files</a></li>
+<li class="chapter" data-level="5.3.3" data-path="manage-data.html"><a href="manage-data.html#open-datasets-of-packages"><i class="fa fa-check"></i><b>5.3.3</b> Open datasets of packages</a></li>
+<li class="chapter" data-level="5.3.4" data-path="manage-data.html"><a href="manage-data.html#import-data-using-public-apis"><i class="fa fa-check"></i><b>5.3.4</b> Import data using public APIs</a></li>
+<li class="chapter" data-level="5.3.5" data-path="manage-data.html"><a href="manage-data.html#import-various-file-formats"><i class="fa fa-check"></i><b>5.3.5</b> Import various file formats</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.4</b> Data</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="manage-data.html"><a href="manage-data.html#data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.4.1</b> Data frames and tibbles</a></li>
+<li class="chapter" data-level="5.4.2" data-path="manage-data.html"><a href="manage-data.html#tidy-data"><i class="fa fa-check"></i><b>5.4.2</b> Tidy data</a></li>
+<li class="chapter" data-level="5.4.3" data-path="manage-data.html"><a href="manage-data.html#data-types"><i class="fa fa-check"></i><b>5.4.3</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#tools-to-manipulate-data"><i class="fa fa-check"></i><b>5.5</b> Tools to manipulate data</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="manage-data.html"><a href="manage-data.html#the-in-operator"><i class="fa fa-check"></i><b>5.5.1</b> The <code>%in%</code> operator</a></li>
+<li class="chapter" data-level="5.5.2" data-path="manage-data.html"><a href="manage-data.html#extract-operators"><i class="fa fa-check"></i><b>5.5.2</b> Extract operators</a></li>
+<li class="chapter" data-level="5.5.3" data-path="manage-data.html"><a href="manage-data.html#logical-operators"><i class="fa fa-check"></i><b>5.5.3</b> Logical operators</a></li>
+<li class="chapter" data-level="5.5.4" data-path="manage-data.html"><a href="manage-data.html#if-statements"><i class="fa fa-check"></i><b>5.5.4</b> If statements</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="manage-data.html"><a href="manage-data.html#ch:dplyr"><i class="fa fa-check"></i><b>5.6</b> Data manipulation with <code>dplyr</code></a></li>
+<li class="chapter" data-level="5.7" data-path="manage-data.html"><a href="manage-data.html#how-to-explore-a-dataset"><i class="fa fa-check"></i><b>5.7</b> How to explore a dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html"><i class="fa fa-check"></i><b>6</b> Collection of exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-generate-and-drop-variables"><i class="fa fa-check"></i><em>EXERCISE:</em> Generate and drop variables</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-import-data"><i class="fa fa-check"></i><em>EXERCISE:</em> Import data</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-base-r-or-pipe"><i class="fa fa-check"></i><em>EXERCISE:</em> Base R or pipe</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-subsetting"><i class="fa fa-check"></i><em>EXERCISE:</em> Subsetting</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-data-transformation"><i class="fa fa-check"></i><em>EXERCISE:</em> Data transformation</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-load-the-stata-dataset-auto-using-r"><i class="fa fa-check"></i><em>EXERCISE:</em> Load the Stata dataset “auto” using R</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-datasaurus"><i class="fa fa-check"></i><em>EXERCISE:</em> DatasauRus</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-convergence"><i class="fa fa-check"></i><em>EXERCISE:</em> Convergence</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-unemployment-and-gdp-in-germany-and-france"><i class="fa fa-check"></i><em>EXERCISE:</em> Unemployment and GDP in Germany and France</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-import-data-and-write-a-report"><i class="fa fa-check"></i><em>EXERCISE:</em> Import data and write a report</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-explain-the-weight"><i class="fa fa-check"></i><em>EXERCISE:</em> Explain the weight</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-calories-and-weight"><i class="fa fa-check"></i><em>EXERCISE:</em> Calories and weight</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-bundesliga"><i class="fa fa-check"></i><em>EXERCISE:</em> Bundesliga</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-okuns-law"><i class="fa fa-check"></i><em>EXERCISE:</em> Okun’s Law</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-names-and-duplicates"><i class="fa fa-check"></i><em>EXERCISE:</em> Names and duplicates</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-zipfs-law"><i class="fa fa-check"></i><em>EXERCISE:</em> Zipf’s law</a>
+<ul>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#preamble"><i class="fa fa-check"></i>Preamble</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#read-in-inspect-and-clean-the-data"><i class="fa fa-check"></i>Read in, inspect, and clean the data</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#data-analysis-zipfs-law"><i class="fa fa-check"></i>Data analysis (Zipf’s Law)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Write with R Markdown</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#working-directory-in-r-markdown"><i class="fa fa-check"></i><b>7.2</b> Working directory in R Markdown</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-start-markdown-and-r-markdown"><i class="fa fa-check"></i><em>EXERCISE:</em> Start Markdown and R Markdown</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-r-markdown-cite-literature"><i class="fa fa-check"></i><em>EXERCISE:</em> R Markdown cite literature</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-preparing-apa-journal-articles-papaja"><i class="fa fa-check"></i><em>EXERCISE:</em> Preparing APA journal articles (<code>papaja</code>)</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-r-markdown-template"><i class="fa fa-check"></i><em>EXERCISE:</em> R Markdown template</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#helpful-shortcuts"><i class="fa fa-check"></i><b>8.1</b> Helpful shortcuts</a></li>
+<li class="chapter" data-level="8.2" data-path="appendix.html"><a href="appendix.html#sec:navigation"><i class="fa fa-check"></i><b>8.2</b> Navigating the file system</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="appendix.html"><a href="appendix.html#sec:filesystem"><i class="fa fa-check"></i><b>8.2.1</b> The file system</a></li>
+<li class="chapter" data-level="8.2.2" data-path="appendix.html"><a href="appendix.html#working-directory"><i class="fa fa-check"></i><b>8.2.2</b> Working directory</a></li>
+<li class="chapter" data-level="8.2.3" data-path="appendix.html"><a href="appendix.html#sec:navigationR"><i class="fa fa-check"></i><b>8.2.3</b> Navigating the file system using the R console</a></li>
+<li class="chapter" data-level="8.2.4" data-path="appendix.html"><a href="appendix.html#sec:rstudioprojects"><i class="fa fa-check"></i><b>8.2.4</b> R Studio projects</a></li>
+<li class="chapter" data-level="8.2.5" data-path="appendix.html"><a href="appendix.html#sec:winbackslash"><i class="fa fa-check"></i><b>8.2.5</b> Why do the Windows paths use the back-slash?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="appendix.html"><a href="appendix.html#troubleshooting"><i class="fa fa-check"></i><b>8.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="8.4" data-path="appendix.html"><a href="appendix.html#operators"><i class="fa fa-check"></i><b>8.4</b> Operators</a></li>
+<li class="chapter" data-level="8.5" data-path="appendix.html"><a href="appendix.html#popular-functions"><i class="fa fa-check"></i><b>8.5</b> Popular functions</a></li>
+<li class="chapter" data-level="8.6" data-path="appendix.html"><a href="appendix.html#operators-1"><i class="fa fa-check"></i><b>8.6</b> Operators</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="appendix.html"><a href="appendix.html#assignment-1"><i class="fa fa-check"></i><b>8.6.1</b> Assignment:</a></li>
+<li class="chapter" data-level="8.6.2" data-path="appendix.html"><a href="appendix.html#arithmetic-1"><i class="fa fa-check"></i><b>8.6.2</b> Arithmetic:</a></li>
+<li class="chapter" data-level="8.6.3" data-path="appendix.html"><a href="appendix.html#relational-1"><i class="fa fa-check"></i><b>8.6.3</b> Relational:</a></li>
+<li class="chapter" data-level="8.6.4" data-path="appendix.html"><a href="appendix.html#logical-1"><i class="fa fa-check"></i><b>8.6.4</b> Logical:</a></li>
+<li class="chapter" data-level="8.6.5" data-path="appendix.html"><a href="appendix.html#others-1"><i class="fa fa-check"></i><b>8.6.5</b> Others:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="appendix.html"><a href="appendix.html#popular-functions-1"><i class="fa fa-check"></i><b>8.7</b> Popular functions</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="appendix.html"><a href="appendix.html#help-1"><i class="fa fa-check"></i><b>8.7.1</b> Help</a></li>
+<li class="chapter" data-level="8.7.2" data-path="appendix.html"><a href="appendix.html#package-management-2"><i class="fa fa-check"></i><b>8.7.2</b> Package management</a></li>
+<li class="chapter" data-level="8.7.3" data-path="appendix.html"><a href="appendix.html#general-1"><i class="fa fa-check"></i><b>8.7.3</b> General</a></li>
+<li class="chapter" data-level="8.7.4" data-path="appendix.html"><a href="appendix.html#tools-1"><i class="fa fa-check"></i><b>8.7.4</b> Tools</a></li>
+<li class="chapter" data-level="8.7.5" data-path="appendix.html"><a href="appendix.html#data-import-1"><i class="fa fa-check"></i><b>8.7.5</b> Data import</a></li>
+<li class="chapter" data-level="8.7.6" data-path="appendix.html"><a href="appendix.html#inspect-data-1"><i class="fa fa-check"></i><b>8.7.6</b> Inspect data</a></li>
+<li class="chapter" data-level="8.7.7" data-path="appendix.html"><a href="appendix.html#graphics-1"><i class="fa fa-check"></i><b>8.7.7</b> Graphics</a></li>
+<li class="chapter" data-level="8.7.8" data-path="appendix.html"><a href="appendix.html#data-management-1"><i class="fa fa-check"></i><b>8.7.8</b> Data management</a></li>
+<li class="chapter" data-level="8.7.9" data-path="appendix.html"><a href="appendix.html#dplyr-functions-1"><i class="fa fa-check"></i><b>8.7.9</b> <code>dplyr</code> functions</a></li>
+<li class="chapter" data-level="8.7.10" data-path="appendix.html"><a href="appendix.html#data-analysis-1"><i class="fa fa-check"></i><b>8.7.10</b> Data analysis</a></li>
+<li class="chapter" data-level="8.7.11" data-path="appendix.html"><a href="appendix.html#statistical-functions-1"><i class="fa fa-check"></i><b>8.7.11</b> Statistical functions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="appendix.html"><a href="appendix.html#links-to-solutions"><i class="fa fa-check"></i><b>8.8</b> Links to solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="script-exe_duplicates.r-not-in-the-lecture-notes.html"><a href="script-exe_duplicates.r-not-in-the-lecture-notes.html"><i class="fa fa-check"></i><b>9</b> Script: exe_duplicates.R (not in the lecture notes)</a></li>
+<li class="chapter" data-level="10" data-path="script-exe_genanddrop.html"><a href="script-exe_genanddrop.html"><i class="fa fa-check"></i><b>10</b> Script: exe_genanddrop.R</a></li>
+<li class="chapter" data-level="11" data-path="script-exe_import_covid.html"><a href="script-exe_import_covid.html"><i class="fa fa-check"></i><b>11</b> Script: exe_import_covid.R</a></li>
+<li class="chapter" data-level="12" data-path="script-exe_base_pipe.html"><a href="script-exe_base_pipe.html"><i class="fa fa-check"></i><b>12</b> Script: exe_base_pipe.R</a></li>
+<li class="chapter" data-level="13" data-path="script-exe_subset.html"><a href="script-exe_subset.html"><i class="fa fa-check"></i><b>13</b> Script: exe_subset.R</a></li>
+<li class="chapter" data-level="14" data-path="script-exe_poser.html"><a href="script-exe_poser.html"><i class="fa fa-check"></i><b>14</b> Script: exe_poser.R</a></li>
+<li class="chapter" data-level="15" data-path="script-datasaurus.html"><a href="script-datasaurus.html"><i class="fa fa-check"></i><b>15</b> Script: datasauRus.R</a></li>
+<li class="chapter" data-level="16" data-path="script-convergence.html"><a href="script-convergence.html"><i class="fa fa-check"></i><b>16</b> Script: convergence.R</a></li>
+<li class="chapter" data-level="17" data-path="script-un_gdp_ger_fra.html"><a href="script-un_gdp_ger_fra.html"><i class="fa fa-check"></i><b>17</b> Script: un_gdp_ger_fra.R</a></li>
+<li class="chapter" data-level="18" data-path="script-hortacsu_figure_3.html"><a href="script-hortacsu_figure_3.html"><i class="fa fa-check"></i><b>18</b> Script: hortacsu_figure_3.R</a></li>
+<li class="chapter" data-level="19" data-path="script-regress_lecture.html"><a href="script-regress_lecture.html"><i class="fa fa-check"></i><b>19</b> Script: regress_lecture.R</a></li>
+<li class="chapter" data-level="20" data-path="script-exe_calories.html"><a href="script-exe_calories.html"><i class="fa fa-check"></i><b>20</b> Script: exe_calories.R</a></li>
+<li class="chapter" data-level="21" data-path="script-bundesliga.html"><a href="script-bundesliga.html"><i class="fa fa-check"></i><b>21</b> Script: bundesliga.R</a></li>
+<li class="chapter" data-level="22" data-path="script-exe_okun_solution.html"><a href="script-exe_okun_solution.html"><i class="fa fa-check"></i><b>22</b> Script: exe_okun_solution.R</a></li>
+<li class="chapter" data-level="23" data-path="script-exe_zipf_solution.html"><a href="script-exe_zipf_solution.html"><i class="fa fa-check"></i><b>23</b> Script: exe_zipf_solution.R</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li>&copy; Prof. Dr. Stephan Huber.</li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><img src="fig/cover.png" style="width:8cm" /><br />
+How to Use R for Data Science</p></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="script-convergence.r" class="section level1 hasAnchor" number="16">
+<h1><span class="header-section-number">16</span> Script: convergence.R<a href="script-convergence.html#script-convergence.r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="script-convergence.html#cb357-1" tabindex="-1"></a><span class="co"># Convergence</span></span>
+<span id="cb357-2"><a href="script-convergence.html#cb357-2" tabindex="-1"></a></span>
+<span id="cb357-3"><a href="script-convergence.html#cb357-3" tabindex="-1"></a><span class="co"># set working directory</span></span>
+<span id="cb357-4"><a href="script-convergence.html#cb357-4" tabindex="-1"></a><span class="co"># setwd(&quot;/home/sthu/Dropbox/hsf/github/courses/&quot;)</span></span>
+<span id="cb357-5"><a href="script-convergence.html#cb357-5" tabindex="-1"></a></span>
+<span id="cb357-6"><a href="script-convergence.html#cb357-6" tabindex="-1"></a></span>
+<span id="cb357-7"><a href="script-convergence.html#cb357-7" tabindex="-1"></a><span class="co"># clear the environment</span></span>
+<span id="cb357-8"><a href="script-convergence.html#cb357-8" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb357-9"><a href="script-convergence.html#cb357-9" tabindex="-1"></a></span>
+<span id="cb357-10"><a href="script-convergence.html#cb357-10" tabindex="-1"></a><span class="co"># some packages needed install.packages(...) and load packages library(...)</span></span>
+<span id="cb357-11"><a href="script-convergence.html#cb357-11" tabindex="-1"></a></span>
+<span id="cb357-12"><a href="script-convergence.html#cb357-12" tabindex="-1"></a><span class="co"># Let us do the following:</span></span>
+<span id="cb357-13"><a href="script-convergence.html#cb357-13" tabindex="-1"></a>  <span class="co"># 1. check if a package is installed</span></span>
+<span id="cb357-14"><a href="script-convergence.html#cb357-14" tabindex="-1"></a>  <span class="co"># 2. if not installed the package should be installed and loaded</span></span>
+<span id="cb357-15"><a href="script-convergence.html#cb357-15" tabindex="-1"></a>  <span class="co"># 3. if installed the package should be loaded</span></span>
+<span id="cb357-16"><a href="script-convergence.html#cb357-16" tabindex="-1"></a><span class="co"># I like to do it with a function that is part of pacman package:</span></span>
+<span id="cb357-17"><a href="script-convergence.html#cb357-17" tabindex="-1"></a></span>
+<span id="cb357-18"><a href="script-convergence.html#cb357-18" tabindex="-1"></a></span>
+<span id="cb357-19"><a href="script-convergence.html#cb357-19" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb357-20"><a href="script-convergence.html#cb357-20" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb357-21"><a href="script-convergence.html#cb357-21" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(haven, tidyverse, vtable, gtsummary, pastecs, Hmisc, </span>
+<span id="cb357-22"><a href="script-convergence.html#cb357-22" tabindex="-1"></a>               sjlabelled, tis, ggpubr, sjPlot, psych)</span>
+<span id="cb357-23"><a href="script-convergence.html#cb357-23" tabindex="-1"></a></span>
+<span id="cb357-24"><a href="script-convergence.html#cb357-24" tabindex="-1"></a><span class="co"># an alternative is to install and load it like that</span></span>
+<span id="cb357-25"><a href="script-convergence.html#cb357-25" tabindex="-1"></a><span class="co"># install.packages(c(&quot;haven&quot;, &quot;tidyverse&quot;, &quot;vtable&quot;, &quot;gtsummary&quot;, &quot;pastecs&quot;))</span></span>
+<span id="cb357-26"><a href="script-convergence.html#cb357-26" tabindex="-1"></a><span class="co"># library(c(&quot;haven&quot;, &quot;tidyverse&quot;, &quot;vtable&quot;, &quot;gtsummary&quot;, &quot;pastecs&quot;))</span></span>
+<span id="cb357-27"><a href="script-convergence.html#cb357-27" tabindex="-1"></a></span>
+<span id="cb357-28"><a href="script-convergence.html#cb357-28" tabindex="-1"></a><span class="co"># import data</span></span>
+<span id="cb357-29"><a href="script-convergence.html#cb357-29" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">&quot;https://github.com/hubchev/courses/raw/main/dta/convergence.dta&quot;</span>)</span>
+<span id="cb357-30"><a href="script-convergence.html#cb357-30" tabindex="-1"></a></span>
+<span id="cb357-31"><a href="script-convergence.html#cb357-31" tabindex="-1"></a><span class="co"># inspect data</span></span>
+<span id="cb357-32"><a href="script-convergence.html#cb357-32" tabindex="-1"></a><span class="fu">names</span>(data)</span></code></pre></div>
+<pre><code>##  [1] &quot;country&quot; &quot;gdppc60&quot; &quot;gdppc65&quot; &quot;gdppc70&quot; &quot;gdppc75&quot; &quot;gdppc80&quot; &quot;gdppc85&quot; &quot;gdppc90&quot; &quot;gdppc95&quot; &quot;africa&quot;  &quot;asia&quot;    &quot;weurope&quot; &quot;growth&quot;</code></pre>
+<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="script-convergence.html#cb359-1" tabindex="-1"></a><span class="fu">str</span>(data)</span></code></pre></div>
+<pre><code>## tibble [107 × 13] (S3: tbl_df/tbl/data.frame)
+##  $ country: chr [1:107] &quot;Algeria&quot; &quot;Angola&quot; &quot;Argentina&quot; &quot;Australia&quot; ...
+##   ..- attr(*, &quot;format.stata&quot;)= chr &quot;%24s&quot;
+##  $ gdppc60: num [1:107] 2848 2642 7879 11436 7842 ...
+##   ..- attr(*, &quot;label&quot;)= chr &quot;real gdp per capita 1960&quot;
+##   ..- attr(*, &quot;format.stata&quot;)= chr &quot;%9.0g&quot;
+##  $ gdppc65: num [1:107] 3536 3072 8802 13192 9387 ...
+##   ..- attr(*, &quot;label&quot;)= chr &quot;real gdp per capita 1965&quot;
+##   ..- attr(*, &quot;format.stata&quot;)= chr &quot;%9.0g&quot;
+##  $ gdppc70: num [1:107] 3670 3558 9903 15842 11946 ...
+##   ..- attr(*, &quot;label&quot;)= chr &quot;real gdp per capita 1970&quot;
+##   ..- attr(*, &quot;format.stata&quot;)= chr &quot;%9.0g&quot;
+##  $ gdppc75: num [1:107] 3917 2230 10609 16716 14198 ...
+##   ..- attr(*, &quot;label&quot;)= chr &quot;real gdp per capita 1975&quot;
+##   ..- attr(*, &quot;format.stata&quot;)= chr &quot;%9.0g&quot;
+##  $ gdppc80: num [1:107] 5094 2059 11359 18300 16869 ...
+##   ..- attr(*, &quot;label&quot;)= chr &quot;real gdp per capita 1980&quot;
+##   ..- attr(*, &quot;format.stata&quot;)= chr &quot;%9.0g&quot;
+##  $ gdppc85: num [1:107] 5876 1988 9246 19669 17919 ...
+##   ..- attr(*, &quot;label&quot;)= chr &quot;real gdp per capita 1985&quot;
+##   ..- attr(*, &quot;format.stata&quot;)= chr &quot;%9.0g&quot;
+##  $ gdppc90: num [1:107] 5307 2081 7716 21446 21178 ...
+##   ..- attr(*, &quot;label&quot;)= chr &quot;real gdp per capita 1990&quot;
+##   ..- attr(*, &quot;format.stata&quot;)= chr &quot;%9.0g&quot;
+##  $ gdppc95: num [1:107] 4935 1339 10973 23827 22474 ...
+##   ..- attr(*, &quot;label&quot;)= chr &quot;real gdp per capita 1995&quot;
+##   ..- attr(*, &quot;format.stata&quot;)= chr &quot;%9.0g&quot;
+##  $ africa : num [1:107] 1 1 0 0 0 0 0 0 1 0 ...
+##   ..- attr(*, &quot;label&quot;)= chr &quot;=1 if in Africa&quot;
+##   ..- attr(*, &quot;format.stata&quot;)= chr &quot;%8.0g&quot;
+##  $ asia   : num [1:107] 0 0 0 0 0 1 0 0 0 0 ...
+##   ..- attr(*, &quot;label&quot;)= chr &quot;=1 if in Asia&quot;
+##   ..- attr(*, &quot;format.stata&quot;)= chr &quot;%8.0g&quot;
+##  $ weurope: num [1:107] 0 0 0 0 0 0 0 1 0 0 ...
+##   ..- attr(*, &quot;label&quot;)= chr &quot;=1 if in Western Europe&quot;
+##   ..- attr(*, &quot;format.stata&quot;)= chr &quot;%8.0g&quot;
+##  $ growth : num [1:107] 0.55 -0.68 0.331 0.734 1.053 ...
+##   ..- attr(*, &quot;format.stata&quot;)= chr &quot;%9.0g&quot;</code></pre>
+<div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="script-convergence.html#cb361-1" tabindex="-1"></a>data</span></code></pre></div>
+<pre><code>## # A tibble: 107 × 13
+##    country    gdppc60 gdppc65 gdppc70 gdppc75 gdppc80 gdppc85 gdppc90 gdppc95 africa  asia weurope    growth
+##    &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+##  1 Algeria      2848.   3536.   3670.   3917.   5094.   5876.   5307.   4935.      1     0       0  0.550   
+##  2 Angola       2642.   3072.   3558.   2230.   2059.   1988.   2081.   1339.      1     0       0 -0.680   
+##  3 Argentina    7879.   8802.   9903.  10609.  11359.   9246.   7716.  10973.      0     0       0  0.331   
+##  4 Australia   11436.  13192.  15842.  16716.  18300.  19669.  21446.  23827.      0     0       0  0.734   
+##  5 Austria      7842.   9387.  11946.  14198.  16869.  17919.  21178.  22474.      0     0       0  1.05    
+##  6 Bangladesh   1130.   1164.   1181.   1030.   1040.   1245.   1366.   1568.      0     1       0  0.328   
+##  7 Barbados     3632.   4632.   6456.   8827.  10911.  11090.  14411.  14636.      0     0       0  1.39    
+##  8 Belgium      8314.  10454.  12980.  15024.  17451.  18109.  21246.  22356.      0     0       1  0.989   
+##  9 Benin        1140.   1188.   1170.   1048.   1069.   1252.   1069.   1139.      1     0       0 -0.000731
+## 10 Bolivia      2516.   2880.   2670.   3124.   3264.   2718.   2615.   2795.      0     0       0  0.105   
+## # ℹ 97 more rows</code></pre>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="script-convergence.html#cb363-1" tabindex="-1"></a><span class="fu">head</span>(data)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 13
+##   country    gdppc60 gdppc65 gdppc70 gdppc75 gdppc80 gdppc85 gdppc90 gdppc95 africa  asia weurope growth
+##   &lt;chr&gt;        &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Algeria      2848.   3536.   3670.   3917.   5094.   5876.   5307.   4935.      1     0       0  0.550
+## 2 Angola       2642.   3072.   3558.   2230.   2059.   1988.   2081.   1339.      1     0       0 -0.680
+## 3 Argentina    7879.   8802.   9903.  10609.  11359.   9246.   7716.  10973.      0     0       0  0.331
+## 4 Australia   11436.  13192.  15842.  16716.  18300.  19669.  21446.  23827.      0     0       0  0.734
+## 5 Austria      7842.   9387.  11946.  14198.  16869.  17919.  21178.  22474.      0     0       0  1.05 
+## 6 Bangladesh   1130.   1164.   1181.   1030.   1040.   1245.   1366.   1568.      0     1       0  0.328</code></pre>
+<div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="script-convergence.html#cb365-1" tabindex="-1"></a><span class="fu">tail</span>(data)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 13
+##   country                  gdppc60 gdppc65 gdppc70 gdppc75 gdppc80 gdppc85 gdppc90 gdppc95 africa  asia weurope growth
+##   &lt;chr&gt;                      &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+## 1 United Kingdom            10341.  11633.  12917.  14072.  15302.  16878.  19585.  20963.      0     0       1  0.707
+## 2 United States of America  13118.  15697.  17478.  19284.  22806.  25251.  28281.  30366.      0     0       0  0.839
+## 3 Uruguay                    6279.   5936.   6553.   6949.   8580.   6625.   7763.   9399.      0     0       0  0.403
+## 4 Venezuela                  8381.  10618.  11253.   8815.   8516.   7274.   7431.   7582.      0     0       0 -0.100
+## 5 Zambia                     1290.   1564.   1427.   1446.   1324.   1167.   1091.    870.      1     0       0 -0.393
+## 6 Zimbabwe                   1317.   1539.   2303.   2694.   2816.   2923.   3115.   2832.      1     0       0  0.766</code></pre>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="script-convergence.html#cb367-1" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code></pre></div>
+<pre><code>##    country             gdppc60           gdppc65           gdppc70           gdppc75           gdppc80           gdppc85       
+##  Length:107         Min.   :  407.8   Min.   :  513.6   Min.   :  354.5   Min.   :  617.9   Min.   :  473.6   Min.   :  542.3  
+##  Class :character   1st Qu.: 1153.2   1st Qu.: 1364.5   1st Qu.: 1488.0   1st Qu.: 1480.7   1st Qu.: 1708.6   1st Qu.: 1598.8  
+##  Mode  :character   Median : 2484.7   Median : 2884.4   Median : 3072.2   Median : 3741.7   Median : 4306.2   Median : 4200.7  
+##                     Mean   : 3634.3   Mean   : 4367.5   Mean   : 5128.4   Mean   : 5759.1   Mean   : 6553.6   Mean   : 6900.3  
+##                     3rd Qu.: 4354.0   3rd Qu.: 5873.3   3rd Qu.: 6994.6   3rd Qu.: 8355.8   3rd Qu.: 9968.6   3rd Qu.:10037.2  
+##                     Max.   :16010.3   Max.   :18928.9   Max.   :22030.9   Max.   :21808.9   Max.   :23860.1   Max.   :25251.4  
+##     gdppc90           gdppc95            africa            asia           weurope           growth       
+##  Min.   :  527.7   Min.   :  499.3   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :-0.6888  
+##  1st Qu.: 1829.0   1st Qu.: 1673.7   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.: 0.2458  
+##  Median : 4034.0   Median : 4467.9   Median :0.0000   Median :0.0000   Median :0.0000   Median : 0.6587  
+##  Mean   : 7775.1   Mean   : 8468.2   Mean   :0.3738   Mean   :0.1308   Mean   :0.1402   Mean   : 0.6345  
+##  3rd Qu.:11716.2   3rd Qu.:13627.8   3rd Qu.:1.0000   3rd Qu.:0.0000   3rd Qu.:0.0000   3rd Qu.: 1.0505  
+##  Max.   :28744.1   Max.   :36741.1   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   : 2.3493</code></pre>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="script-convergence.html#cb369-1" tabindex="-1"></a><span class="fu">view</span>(data)</span>
+<span id="cb369-2"><a href="script-convergence.html#cb369-2" tabindex="-1"></a></span>
+<span id="cb369-3"><a href="script-convergence.html#cb369-3" tabindex="-1"></a><span class="co">#library(vtable)</span></span>
+<span id="cb369-4"><a href="script-convergence.html#cb369-4" tabindex="-1"></a><span class="co"># vtable(data, missing=TRUE)</span></span>
+<span id="cb369-5"><a href="script-convergence.html#cb369-5" tabindex="-1"></a></span>
+<span id="cb369-6"><a href="script-convergence.html#cb369-6" tabindex="-1"></a><span class="co"># library(pastecs)</span></span>
+<span id="cb369-7"><a href="script-convergence.html#cb369-7" tabindex="-1"></a><span class="fu">stat.desc</span>(data)</span></code></pre></div>
+<pre><code>##          country      gdppc60      gdppc65      gdppc70      gdppc75      gdppc80      gdppc85      gdppc90      gdppc95       africa
+## nbr.val       NA 1.070000e+02 1.070000e+02 1.070000e+02 1.070000e+02 1.070000e+02 1.070000e+02 1.070000e+02 1.070000e+02 107.00000000
+## nbr.null      NA 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00  67.00000000
+## nbr.na        NA 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00 0.000000e+00   0.00000000
+## min           NA 4.078180e+02 5.135667e+02 3.545075e+02 6.178639e+02 4.735793e+02 5.422725e+02 5.277151e+02 4.993415e+02   0.00000000
+## max           NA 1.601025e+04 1.892888e+04 2.203095e+04 2.180892e+04 2.386009e+04 2.525136e+04 2.874414e+04 3.674105e+04   1.00000000
+## range         NA 1.560243e+04 1.841531e+04 2.167644e+04 2.119105e+04 2.338651e+04 2.470909e+04 2.821642e+04 3.624171e+04   1.00000000
+## sum           NA 3.888715e+05 4.673224e+05 5.487424e+05 6.162241e+05 7.012400e+05 7.383373e+05 8.319308e+05 9.061030e+05  40.00000000
+## median        NA 2.484720e+03 2.884388e+03 3.072176e+03 3.741725e+03 4.306217e+03 4.200733e+03 4.034010e+03 4.467940e+03   0.00000000
+## mean          NA 3.634313e+03 4.367500e+03 5.128433e+03 5.759103e+03 6.553645e+03 6.900349e+03 7.775054e+03 8.468253e+03   0.37383178
+## SE.mean       NA 3.314566e+02 4.021934e+02 4.736475e+02 5.272377e+02 6.018749e+02 6.552251e+02 7.711596e+02 8.456513e+02   0.04699273
+## CI.mean       NA 6.571449e+02 7.973875e+02 9.390523e+02 1.045300e+03 1.193276e+03 1.299048e+03 1.528899e+03 1.676586e+03   0.09316766
+## var           NA 1.175539e+07 1.730827e+07 2.400459e+07 2.974381e+07 3.876112e+07 4.593724e+07 6.363152e+07 7.651850e+07   0.23628990
+## std.dev       NA 3.428613e+03 4.160321e+03 4.899448e+03 5.453789e+03 6.225843e+03 6.777701e+03 7.976937e+03 8.747486e+03   0.48609659
+## coef.var      NA 9.434006e-01 9.525635e-01 9.553499e-01 9.469857e-01 9.499817e-01 9.822259e-01 1.025965e+00 1.032974e+00   1.30030838
+##                  asia      weurope      growth
+## nbr.val  107.00000000 107.00000000 107.0000000
+## nbr.null  93.00000000  92.00000000   0.0000000
+## nbr.na     0.00000000   0.00000000   0.0000000
+## min        0.00000000   0.00000000  -0.6887722
+## max        1.00000000   1.00000000   2.3493433
+## range      1.00000000   1.00000000   3.0381155
+## sum       14.00000000  15.00000000  67.8899760
+## median     0.00000000   0.00000000   0.6586871
+## mean       0.13084112   0.14018692   0.6344858
+## SE.mean    0.03275433   0.03372119   0.0601857
+## CI.mean    0.06493865   0.06685553   0.1193240
+## var        0.11479457   0.12167166   0.3875881
+## std.dev    0.33881347   0.34881465   0.6225657
+## coef.var   2.58950297   2.48821120   0.9812131</code></pre>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="script-convergence.html#cb371-1" tabindex="-1"></a><span class="co"># library(Hmisc)</span></span>
+<span id="cb371-2"><a href="script-convergence.html#cb371-2" tabindex="-1"></a><span class="fu">describe</span>(data)</span></code></pre></div>
+<pre><code>##          vars   n    mean      sd  median trimmed     mad    min      max    range skew kurtosis     se
+## country*    1 107   54.00   31.03   54.00   54.00   40.03   1.00   107.00   106.00 0.00    -1.23   3.00
+## gdppc60     2 107 3634.31 3428.61 2484.72 3032.19 2027.76 407.82 16010.25 15602.43 1.53     1.55 331.46
+## gdppc65     3 107 4367.50 4160.32 2884.39 3673.42 2579.50 513.57 18928.88 18415.31 1.41     1.16 402.19
+## gdppc70     4 107 5128.43 4899.45 3072.18 4370.29 2854.11 354.51 22030.95 21676.44 1.29     0.74 473.65
+## gdppc75     5 107 5759.10 5453.79 3741.72 4977.54 3708.25 617.86 21808.92 21191.05 1.15     0.09 527.24
+## gdppc80     6 107 6553.64 6225.84 4306.22 5707.40 4476.29 473.58 23860.09 23386.51 1.07    -0.11 601.87
+## gdppc85     7 107 6900.35 6777.70 4200.73 5929.46 4382.44 542.27 25251.36 24709.09 1.14     0.01 655.23
+## gdppc90     8 107 7775.05 7976.94 4034.01 6660.00 4258.37 527.72 28744.14 28216.42 1.13    -0.10 771.16
+## gdppc95     9 107 8468.25 8747.49 4467.94 7235.12 4935.09 499.34 36741.05 36241.71 1.14     0.12 845.65
+## africa     10 107    0.37    0.49    0.00    0.34    0.00   0.00     1.00     1.00 0.51    -1.75   0.05
+## asia       11 107    0.13    0.34    0.00    0.05    0.00   0.00     1.00     1.00 2.16     2.69   0.03
+## weurope    12 107    0.14    0.35    0.00    0.06    0.00   0.00     1.00     1.00 2.04     2.20   0.03
+## growth     13 107    0.63    0.62    0.66    0.63    0.59  -0.69     2.35     3.04 0.15     0.07   0.06</code></pre>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="script-convergence.html#cb373-1" tabindex="-1"></a><span class="co"># library(gtsummary)</span></span>
+<span id="cb373-2"><a href="script-convergence.html#cb373-2" tabindex="-1"></a><span class="fu">tbl_summary</span>(data)</span></code></pre></div>
+<div id="gnwyxwzekv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gnwyxwzekv table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#gnwyxwzekv thead, #gnwyxwzekv tbody, #gnwyxwzekv tfoot, #gnwyxwzekv tr, #gnwyxwzekv td, #gnwyxwzekv th {
+  border-style: none;
+}
+
+#gnwyxwzekv p {
+  margin: 0;
+  padding: 0;
+}
+
+#gnwyxwzekv .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#gnwyxwzekv .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#gnwyxwzekv .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#gnwyxwzekv .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#gnwyxwzekv .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gnwyxwzekv .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gnwyxwzekv .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gnwyxwzekv .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#gnwyxwzekv .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#gnwyxwzekv .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#gnwyxwzekv .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#gnwyxwzekv .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#gnwyxwzekv .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#gnwyxwzekv .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#gnwyxwzekv .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#gnwyxwzekv .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#gnwyxwzekv .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#gnwyxwzekv .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#gnwyxwzekv .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gnwyxwzekv .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#gnwyxwzekv .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#gnwyxwzekv .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#gnwyxwzekv .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gnwyxwzekv .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#gnwyxwzekv .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#gnwyxwzekv .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gnwyxwzekv .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gnwyxwzekv .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#gnwyxwzekv .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gnwyxwzekv .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#gnwyxwzekv .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gnwyxwzekv .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gnwyxwzekv .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gnwyxwzekv .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gnwyxwzekv .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gnwyxwzekv .gt_left {
+  text-align: left;
+}
+
+#gnwyxwzekv .gt_center {
+  text-align: center;
+}
+
+#gnwyxwzekv .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#gnwyxwzekv .gt_font_normal {
+  font-weight: normal;
+}
+
+#gnwyxwzekv .gt_font_bold {
+  font-weight: bold;
+}
+
+#gnwyxwzekv .gt_font_italic {
+  font-style: italic;
+}
+
+#gnwyxwzekv .gt_super {
+  font-size: 65%;
+}
+
+#gnwyxwzekv .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#gnwyxwzekv .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#gnwyxwzekv .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#gnwyxwzekv .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#gnwyxwzekv .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#gnwyxwzekv .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#gnwyxwzekv .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;N = 107&lt;/strong&gt;&lt;span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/span&gt;"><strong>N = 107</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left">country</td>
+<td headers="stat_0" class="gt_row gt_center"><br /></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Algeria</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Angola</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Argentina</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Australia</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Austria</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Bangladesh</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Barbados</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Belgium</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Benin</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Bolivia</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Botswana</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Brazil</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Burkina Faso</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Burundi</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Cameroon</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Canada</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Cape Verde</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Central African Republic</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Chad</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Chile</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    China</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Colombia</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Comoros</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Congo, Republic of</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Costa Rica</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Cote d'lvoire</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Cyprus</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Denmark</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Dominican Republic</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Ecuador</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Egypt</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    El Salvador</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Ethiopia</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Fiji</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Finland</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    France</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Gabon</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Gambia, The</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Ghana</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Greece</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Guatemala</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Guinea</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Guinea-Bissau</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Guyana</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Honduras</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Hong Kong</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Iceland</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    India</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Indonesia</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Iran</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Ireland</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Israel</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Italy</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Jamaica</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Japan</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Jordan</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Kenya</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Lesotho</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Luxembourg</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Madagascar</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Malawi</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Malaysia</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Mali</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Mauritania</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Mauritius</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Mexico</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Morocco</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Mozambique</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Namibia</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Nepal</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Netherlands</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    New Zealand</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Nicaragua</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Niger</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Nigeria</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Norway</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Pakistan</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Panama</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Papua New Guinea</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Paraguay</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Peru</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Philippines</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Portugal</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Romania</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Rwanda</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Senegal</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Seychelles</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Singapore</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    South Africa</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    South Korea</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Spain</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Sri Lanka</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Sweden</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Switzerland</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Syria</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Tanzania</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Thailand</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Togo</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Trinidad &amp; Tobago</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Turkey</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Uganda</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    United Kingdom</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    United States of America</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Uruguay</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Venezuela</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Zambia</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Zimbabwe</td>
+<td headers="stat_0" class="gt_row gt_center">1 (0.9%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">real gdp per capita 1960</td>
+<td headers="stat_0" class="gt_row gt_center">2,485 (1,153, 4,354)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">real gdp per capita 1965</td>
+<td headers="stat_0" class="gt_row gt_center">2,884 (1,365, 5,873)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">real gdp per capita 1970</td>
+<td headers="stat_0" class="gt_row gt_center">3,072 (1,488, 6,995)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">real gdp per capita 1975</td>
+<td headers="stat_0" class="gt_row gt_center">3,742 (1,481, 8,356)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">real gdp per capita 1980</td>
+<td headers="stat_0" class="gt_row gt_center">4,306 (1,709, 9,969)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">real gdp per capita 1985</td>
+<td headers="stat_0" class="gt_row gt_center">4,201 (1,599, 10,037)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">real gdp per capita 1990</td>
+<td headers="stat_0" class="gt_row gt_center">4,034 (1,829, 11,716)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">real gdp per capita 1995</td>
+<td headers="stat_0" class="gt_row gt_center">4,468 (1,674, 13,628)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">=1 if in Africa</td>
+<td headers="stat_0" class="gt_row gt_center">40 (37%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">=1 if in Asia</td>
+<td headers="stat_0" class="gt_row gt_center">14 (13%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">=1 if in Western Europe</td>
+<td headers="stat_0" class="gt_row gt_center">15 (14%)</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">growth</td>
+<td headers="stat_0" class="gt_row gt_center">0.66 (0.25, 1.05)</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="2"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> n (%); Median (IQR)</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="script-convergence.html#cb374-1" tabindex="-1"></a><span class="co"># check the assignments of countries to continents</span></span>
+<span id="cb374-2"><a href="script-convergence.html#cb374-2" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb374-3"><a href="script-convergence.html#cb374-3" tabindex="-1"></a>  <span class="fu">select</span>(country, africa, asia, weurope) <span class="sc">%&gt;%</span> </span>
+<span id="cb374-4"><a href="script-convergence.html#cb374-4" tabindex="-1"></a>  <span class="fu">view</span>()</span>
+<span id="cb374-5"><a href="script-convergence.html#cb374-5" tabindex="-1"></a></span>
+<span id="cb374-6"><a href="script-convergence.html#cb374-6" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(data, <span class="at">x_1 =</span> africa <span class="sc">+</span> asia <span class="sc">+</span> weurope)</span>
+<span id="cb374-7"><a href="script-convergence.html#cb374-7" tabindex="-1"></a></span>
+<span id="cb374-8"><a href="script-convergence.html#cb374-8" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb374-9"><a href="script-convergence.html#cb374-9" tabindex="-1"></a>  <span class="fu">filter</span>(x_1<span class="sc">==</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb374-10"><a href="script-convergence.html#cb374-10" tabindex="-1"></a>  <span class="fu">select</span>(africa, asia, weurope, country) <span class="sc">%&gt;%</span> </span>
+<span id="cb374-11"><a href="script-convergence.html#cb374-11" tabindex="-1"></a>  <span class="fu">view</span>()</span>
+<span id="cb374-12"><a href="script-convergence.html#cb374-12" tabindex="-1"></a></span>
+<span id="cb374-13"><a href="script-convergence.html#cb374-13" tabindex="-1"></a><span class="co"># correct the assignment manually</span></span>
+<span id="cb374-14"><a href="script-convergence.html#cb374-14" tabindex="-1"></a>data<span class="sc">$</span>weurope[data<span class="sc">$</span>country <span class="sc">==</span> <span class="st">&quot;Austria&quot;</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb374-15"><a href="script-convergence.html#cb374-15" tabindex="-1"></a>data<span class="sc">$</span>weurope[data<span class="sc">$</span>country <span class="sc">==</span> <span class="st">&quot;Greece&quot;</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb374-16"><a href="script-convergence.html#cb374-16" tabindex="-1"></a>data<span class="sc">$</span>weurope[data<span class="sc">$</span>country <span class="sc">==</span> <span class="st">&quot;Cyprus&quot;</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb374-17"><a href="script-convergence.html#cb374-17" tabindex="-1"></a></span>
+<span id="cb374-18"><a href="script-convergence.html#cb374-18" tabindex="-1"></a><span class="fu">filter</span>(data, data<span class="sc">$</span>weurope<span class="sc">==</span><span class="dv">1</span>) <span class="co"># check changes</span></span></code></pre></div>
+<pre><code>## # A tibble: 18 × 14
+##    country        gdppc60 gdppc65 gdppc70 gdppc75 gdppc80 gdppc85 gdppc90 gdppc95 africa  asia weurope growth   x_1
+##    &lt;chr&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+##  1 Austria          7842.   9387.  11946.  14198.  16869.  17919.  21178.  22474.      0     0       1  1.05      0
+##  2 Belgium          8314.  10454.  12980.  15024.  17451.  18109.  21246.  22356.      0     0       1  0.989     1
+##  3 Cyprus           3178.   4261.   5638.   4827.   8302.  10228.  13798.  17169.      0     0       1  1.69      0
+##  4 Denmark         11745.  14749.  17143.  17750.  19558.  21596.  23308.  25293.      0     0       1  0.767     1
+##  5 Finland          8007.   9851.  12198.  14884.  16621.  18585.  21667.  20084.      0     0       1  0.920     1
+##  6 France           8364.  10497.  13186.  14951.  17335.  18429.  21403.  21502.      0     0       1  0.944     1
+##  7 Greece           4454.   6549.   9022.  11121.  12672.  12287.  12794.  13332.      0     0       1  1.10      0
+##  8 Iceland          8786.  11403.  11678.  15235.  19440.  20414.  22502.  21901.      0     0       1  0.913     1
+##  9 Ireland          5490.   6413.   7760.   9064.  10649.  11641.  15133.  18456.      0     0       1  1.21      1
+## 10 Italy            7364.   9097.  12072.  13386.  16286.  17518.  20638.  21691.      0     0       1  1.08      1
+## 11 Luxembourg      12510.  14019.  16163.  17384.  19089.  21414.  28744.  36741.      0     0       1  1.08      1
+## 12 Netherlands      9883.  11702.  14237.  15803.  17339.  17974.  20823.  22320.      0     0       1  0.815     1
+## 13 Norway           8808.  10478.  11959.  14873.  17977.  20630.  21855.  25538.      0     0       1  1.06      1
+## 14 Portugal         3665.   4866.   6730.   7951.   9667.   9847.  13155.  13924.      0     0       1  1.33      1
+## 15 Spain            4956.   7459.   9701.  11970.  12294.  12583.  15475.  17434.      0     0       1  1.26      1
+## 16 Sweden          10870.  13552.  15850.  17588.  18348.  20001.  22219.  22122.      0     0       1  0.711     1
+## 17 Switzerland     16010.  18929.  22031.  21809.  23860.  24844.  27931.  26227.      0     0       1  0.494     1
+## 18 United Kingdom  10341.  11633.  12917.  14072.  15302.  16878.  19585.  20963.      0     0       1  0.707     1</code></pre>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="script-convergence.html#cb376-1" tabindex="-1"></a><span class="co"># In the following, I do the same with a loop</span></span>
+<span id="cb376-2"><a href="script-convergence.html#cb376-2" tabindex="-1"></a><span class="co"># c_europe &lt;- c(&quot;Austria&quot;,&quot;Greece&quot;,&quot;Cyprus&quot;)</span></span>
+<span id="cb376-3"><a href="script-convergence.html#cb376-3" tabindex="-1"></a><span class="co"># sum(data$weurope)                       # check changes</span></span>
+<span id="cb376-4"><a href="script-convergence.html#cb376-4" tabindex="-1"></a><span class="co"># for (i in c_europe){</span></span>
+<span id="cb376-5"><a href="script-convergence.html#cb376-5" tabindex="-1"></a><span class="co">#   print(i)</span></span>
+<span id="cb376-6"><a href="script-convergence.html#cb376-6" tabindex="-1"></a><span class="co">#   data$weurope[data$country == i] &lt;- 1</span></span>
+<span id="cb376-7"><a href="script-convergence.html#cb376-7" tabindex="-1"></a><span class="co">#   }</span></span>
+<span id="cb376-8"><a href="script-convergence.html#cb376-8" tabindex="-1"></a><span class="co"># sum(data$weurope)                       # check changes</span></span>
+<span id="cb376-9"><a href="script-convergence.html#cb376-9" tabindex="-1"></a><span class="co"># data$weurope[data$country == &quot;Austria&quot;] # check changes</span></span>
+<span id="cb376-10"><a href="script-convergence.html#cb376-10" tabindex="-1"></a></span>
+<span id="cb376-11"><a href="script-convergence.html#cb376-11" tabindex="-1"></a><span class="co"># create a category for the remaining countries</span></span>
+<span id="cb376-12"><a href="script-convergence.html#cb376-12" tabindex="-1"></a><span class="co"># use ifelse -- ifelse(condition, result if TRUE, result if FALSE)</span></span>
+<span id="cb376-13"><a href="script-convergence.html#cb376-13" tabindex="-1"></a>data<span class="sc">$</span>rest <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(data<span class="sc">$</span>africa <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> data<span class="sc">$</span>asia <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> data<span class="sc">$</span>weurope <span class="sc">==</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb376-14"><a href="script-convergence.html#cb376-14" tabindex="-1"></a>data<span class="sc">$</span>rest <span class="ot">&lt;-</span> <span class="fu">set_label</span>(data<span class="sc">$</span>rest, <span class="at">label =</span> <span class="st">&quot;=1 if not in Africa, W.Europe, or Asia&quot;</span>)</span>
+<span id="cb376-15"><a href="script-convergence.html#cb376-15" tabindex="-1"></a></span>
+<span id="cb376-16"><a href="script-convergence.html#cb376-16" tabindex="-1"></a><span class="co"># create table with means across country groups</span></span>
+<span id="cb376-17"><a href="script-convergence.html#cb376-17" tabindex="-1"></a>table_gdp <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb376-18"><a href="script-convergence.html#cb376-18" tabindex="-1"></a>  <span class="fu">group_by</span>(africa, asia, weurope) <span class="sc">%&gt;%</span></span>
+<span id="cb376-19"><a href="script-convergence.html#cb376-19" tabindex="-1"></a>  <span class="fu">summarise_at</span>(<span class="fu">vars</span>(gdppc60<span class="sc">:</span>gdppc95), <span class="fu">list</span>(<span class="at">name =</span> mean))</span>
+<span id="cb376-20"><a href="script-convergence.html#cb376-20" tabindex="-1"></a></span>
+<span id="cb376-21"><a href="script-convergence.html#cb376-21" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb376-22"><a href="script-convergence.html#cb376-22" tabindex="-1"></a>  <span class="fu">group_by</span>(africa, asia, weurope) <span class="sc">%&gt;%</span></span>
+<span id="cb376-23"><a href="script-convergence.html#cb376-23" tabindex="-1"></a>  <span class="fu">select</span>(gdppc60<span class="sc">:</span>gdppc95) <span class="sc">%&gt;%</span> </span>
+<span id="cb376-24"><a href="script-convergence.html#cb376-24" tabindex="-1"></a>  <span class="fu">summarise_all</span>(mean)</span></code></pre></div>
+<pre><code>## Adding missing grouping variables: `africa`, `asia`, `weurope`</code></pre>
+<pre><code>## # A tibble: 4 × 11
+## # Groups:   africa, asia [3]
+##   africa  asia weurope gdppc60 gdppc65 gdppc70 gdppc75 gdppc80 gdppc85 gdppc90 gdppc95
+##    &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1      0     0       0   4288.   5034.   5727.   6411.   7042.   7185.   7457.   8212.
+## 2      0     0       1   8366.  10294.  12401.  13994.  16059.  17272.  20192.  21640.
+## 3      0     1       0   1739.   2247.   3090.   3760.   4905.   5761.   7501.   9143.
+## 4      1     0       0   1596.   1860.   2046.   2182.   2426.   2382.   2562.   2528.</code></pre>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="script-convergence.html#cb379-1" tabindex="-1"></a><span class="co"># create growth rate</span></span>
+<span id="cb379-2"><a href="script-convergence.html#cb379-2" tabindex="-1"></a>data<span class="sc">$</span>gr1 <span class="ot">&lt;-</span> (data<span class="sc">$</span>gdppc95 <span class="sc">-</span> data<span class="sc">$</span>gdppc60)<span class="sc">/</span>data<span class="sc">$</span>gdppc60</span>
+<span id="cb379-3"><a href="script-convergence.html#cb379-3" tabindex="-1"></a>data<span class="sc">$</span>gr2 <span class="ot">&lt;-</span> <span class="fu">log</span>(data<span class="sc">$</span>gdppc95) <span class="sc">-</span> <span class="fu">log</span>(data<span class="sc">$</span>gdppc60)</span>
+<span id="cb379-4"><a href="script-convergence.html#cb379-4" tabindex="-1"></a><span class="fu">cor</span>(data<span class="sc">$</span>gr1, data<span class="sc">$</span>gr2)</span></code></pre></div>
+<pre><code>## [1] 0.9008887</code></pre>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="script-convergence.html#cb381-1" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> gdppc60, <span class="at">y =</span> growth, <span class="at">label=</span>country)) <span class="sc">+</span></span>
+<span id="cb381-2"><a href="script-convergence.html#cb381-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb381-3"><a href="script-convergence.html#cb381-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">hjust=</span><span class="dv">0</span>, <span class="at">vjust=</span><span class="dv">0</span>) </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-165-1.png" width="672" /></p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="script-convergence.html#cb382-1" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> gdppc60, <span class="at">y =</span> growth, <span class="at">label=</span>country )) <span class="sc">+</span></span>
+<span id="cb382-2"><a href="script-convergence.html#cb382-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb382-3"><a href="script-convergence.html#cb382-3" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">formula=</span>y<span class="sc">~</span>x, <span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">colour=</span><span class="st">&quot;red&quot;</span>, <span class="at">linetype=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb382-4"><a href="script-convergence.html#cb382-4" tabindex="-1"></a> <span class="co"># geom_text(hjust=0, vjust=0) +</span></span>
+<span id="cb382-5"><a href="script-convergence.html#cb382-5" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;World&quot;</span>)</span>
+<span id="cb382-6"><a href="script-convergence.html#cb382-6" tabindex="-1"></a></span>
+<span id="cb382-7"><a href="script-convergence.html#cb382-7" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb382-8"><a href="script-convergence.html#cb382-8" tabindex="-1"></a>  <span class="fu">filter</span>(weurope<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb382-9"><a href="script-convergence.html#cb382-9" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> gdppc60, <span class="at">y =</span> growth, <span class="at">label=</span>country )) <span class="sc">+</span></span>
+<span id="cb382-10"><a href="script-convergence.html#cb382-10" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb382-11"><a href="script-convergence.html#cb382-11" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">formula=</span>y<span class="sc">~</span>x, <span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">colour=</span><span class="st">&quot;red&quot;</span>, <span class="at">linetype=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb382-12"><a href="script-convergence.html#cb382-12" tabindex="-1"></a>  <span class="co">#geom_text(hjust=0, vjust=0) +</span></span>
+<span id="cb382-13"><a href="script-convergence.html#cb382-13" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Western Europe&quot;</span>)</span>
+<span id="cb382-14"><a href="script-convergence.html#cb382-14" tabindex="-1"></a></span>
+<span id="cb382-15"><a href="script-convergence.html#cb382-15" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb382-16"><a href="script-convergence.html#cb382-16" tabindex="-1"></a>  <span class="fu">filter</span>(asia<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb382-17"><a href="script-convergence.html#cb382-17" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> gdppc60, <span class="at">y =</span> growth, <span class="at">label=</span>country )) <span class="sc">+</span></span>
+<span id="cb382-18"><a href="script-convergence.html#cb382-18" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb382-19"><a href="script-convergence.html#cb382-19" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">formula=</span>y<span class="sc">~</span>x, <span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">colour=</span><span class="st">&quot;red&quot;</span>, <span class="at">linetype=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb382-20"><a href="script-convergence.html#cb382-20" tabindex="-1"></a> <span class="co"># geom_text(hjust=0, vjust=0) +</span></span>
+<span id="cb382-21"><a href="script-convergence.html#cb382-21" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Asia&quot;</span>)</span>
+<span id="cb382-22"><a href="script-convergence.html#cb382-22" tabindex="-1"></a></span>
+<span id="cb382-23"><a href="script-convergence.html#cb382-23" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb382-24"><a href="script-convergence.html#cb382-24" tabindex="-1"></a>  <span class="fu">filter</span>(africa<span class="sc">==</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb382-25"><a href="script-convergence.html#cb382-25" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(<span class="at">x =</span> gdppc60, <span class="at">y =</span> growth, <span class="at">label=</span>country )) <span class="sc">+</span></span>
+<span id="cb382-26"><a href="script-convergence.html#cb382-26" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb382-27"><a href="script-convergence.html#cb382-27" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">formula=</span>y<span class="sc">~</span>x, <span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">colour=</span><span class="st">&quot;red&quot;</span>, <span class="at">linetype=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb382-28"><a href="script-convergence.html#cb382-28" tabindex="-1"></a><span class="co">#  geom_text( hjust=0, vjust=0) +</span></span>
+<span id="cb382-29"><a href="script-convergence.html#cb382-29" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&quot;Africa&quot;</span>)</span>
+<span id="cb382-30"><a href="script-convergence.html#cb382-30" tabindex="-1"></a></span>
+<span id="cb382-31"><a href="script-convergence.html#cb382-31" tabindex="-1"></a><span class="fu">ggarrange</span>(p1, p2, p3, p4 , </span>
+<span id="cb382-32"><a href="script-convergence.html#cb382-32" tabindex="-1"></a>          <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>),</span>
+<span id="cb382-33"><a href="script-convergence.html#cb382-33" tabindex="-1"></a>          <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## Warning: The following aesthetics were dropped during statistical transformation: label
+## ℹ This can happen when ggplot fails to infer the correct grouping structure in the data.
+## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical variable into a factor?
+## The following aesthetics were dropped during statistical transformation: label
+## ℹ This can happen when ggplot fails to infer the correct grouping structure in the data.
+## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical variable into a factor?
+## The following aesthetics were dropped during statistical transformation: label
+## ℹ This can happen when ggplot fails to infer the correct grouping structure in the data.
+## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical variable into a factor?
+## The following aesthetics were dropped during statistical transformation: label
+## ℹ This can happen when ggplot fails to infer the correct grouping structure in the data.
+## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical variable into a factor?</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-165-2.png" width="672" /></p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="script-convergence.html#cb384-1" tabindex="-1"></a><span class="co"># Regression analysis</span></span>
+<span id="cb384-2"><a href="script-convergence.html#cb384-2" tabindex="-1"></a>m1  <span class="ot">&lt;-</span>  <span class="fu">lm</span>(growth <span class="sc">~</span> gdppc60, <span class="at">data =</span> data)</span>
+<span id="cb384-3"><a href="script-convergence.html#cb384-3" tabindex="-1"></a>m2  <span class="ot">&lt;-</span>  <span class="fu">lm</span>(growth <span class="sc">~</span> gdppc60, <span class="at">data =</span> <span class="fu">subset</span>(data, weurope<span class="sc">==</span><span class="dv">1</span>))</span>
+<span id="cb384-4"><a href="script-convergence.html#cb384-4" tabindex="-1"></a>m3  <span class="ot">&lt;-</span>  <span class="fu">lm</span>(growth <span class="sc">~</span> gdppc60, <span class="at">data =</span> <span class="fu">subset</span>(data, asia<span class="sc">==</span><span class="dv">1</span>))</span>
+<span id="cb384-5"><a href="script-convergence.html#cb384-5" tabindex="-1"></a>m4  <span class="ot">&lt;-</span>  <span class="fu">lm</span>(growth <span class="sc">~</span> gdppc60, <span class="at">data =</span> <span class="fu">subset</span>(data, africa<span class="sc">==</span><span class="dv">1</span>))</span>
+<span id="cb384-6"><a href="script-convergence.html#cb384-6" tabindex="-1"></a></span>
+<span id="cb384-7"><a href="script-convergence.html#cb384-7" tabindex="-1"></a><span class="fu">tab_model</span>(m1, m2, m3, m4,</span>
+<span id="cb384-8"><a href="script-convergence.html#cb384-8" tabindex="-1"></a>          <span class="at">p.style =</span> <span class="st">&quot;stars&quot;</span>,</span>
+<span id="cb384-9"><a href="script-convergence.html#cb384-9" tabindex="-1"></a>          <span class="at">p.threshold =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>),</span>
+<span id="cb384-10"><a href="script-convergence.html#cb384-10" tabindex="-1"></a>          <span class="at">show.ci =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb384-11"><a href="script-convergence.html#cb384-11" tabindex="-1"></a>          <span class="at">show.se =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb384-12"><a href="script-convergence.html#cb384-12" tabindex="-1"></a>          <span class="at">show.aic =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb384-13"><a href="script-convergence.html#cb384-13" tabindex="-1"></a>          <span class="at">dv.labels =</span> <span class="fu">c</span>(<span class="st">&quot;World&quot;</span>, <span class="st">&quot;W.Europe&quot;</span>, <span class="st">&quot;Asia&quot;</span>, <span class="st">&quot;Africa&quot;</span>)) </span></code></pre></div>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+World
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+W.Europe
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+Asia
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+Africa
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictors
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.54 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+1.59 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.91 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.20 <sup></sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+real gdp per capita 1960
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.00 <sup>*</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-0.00 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.00 <sup>*</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.00 <sup></sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+107
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+18
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+14
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+40
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+R<sup>2</sup> / R<sup>2</sup> adjusted
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.021 / 0.012
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.727 / 0.710
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.158 / 0.088
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.002 / -0.024
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+AIC
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+204.917
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+-14.237
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+31.220
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+76.318
+</td>
+</tr>
+<tr>
+<td colspan="5" style="font-style:italic; border-top:double black; text-align:right;">
+<ul>
+<li>p&lt;0.2   ** p&lt;0.1   *** p&lt;0.05
+</td>
+</tr></li>
+</ul>
+</table>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="script-convergence.html#cb385-1" tabindex="-1"></a><span class="co"># reshape data (see: https://stackoverflow.com/questions/2185252/reshaping-data-frame-from-wide-to-long-format)</span></span>
+<span id="cb385-2"><a href="script-convergence.html#cb385-2" tabindex="-1"></a>data_long <span class="ot">&lt;-</span> <span class="fu">gather</span>(data, condition, measurement, gdppc60<span class="sc">:</span>gdppc95, <span class="at">factor_key=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Warning: attributes are not identical across measure variables; they will be dropped</code></pre>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="script-convergence.html#cb387-1" tabindex="-1"></a>data_long<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">substr</span>(data_long<span class="sc">$</span>condition, <span class="dv">6</span>, <span class="dv">7</span>))</span>
+<span id="cb387-2"><a href="script-convergence.html#cb387-2" tabindex="-1"></a></span>
+<span id="cb387-3"><a href="script-convergence.html#cb387-3" tabindex="-1"></a>data_long<span class="sc">$</span>gr_long <span class="ot">&lt;-</span> data_long <span class="sc">%&gt;%</span> </span>
+<span id="cb387-4"><a href="script-convergence.html#cb387-4" tabindex="-1"></a>  <span class="fu">select</span>(country,measurement) <span class="sc">%&gt;%</span></span>
+<span id="cb387-5"><a href="script-convergence.html#cb387-5" tabindex="-1"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
+<span id="cb387-6"><a href="script-convergence.html#cb387-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gr =</span> <span class="fu">c</span>(<span class="cn">NA</span>,<span class="fu">diff</span>(measurement))<span class="sc">/</span><span class="fu">lag</span>(measurement, <span class="dv">1</span>))</span>
+<span id="cb387-7"><a href="script-convergence.html#cb387-7" tabindex="-1"></a></span>
+<span id="cb387-8"><a href="script-convergence.html#cb387-8" tabindex="-1"></a><span class="co"># erase all helping variables</span></span>
+<span id="cb387-9"><a href="script-convergence.html#cb387-9" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">select</span>(data, <span class="sc">-</span><span class="fu">starts_with</span>(<span class="st">&quot;h_&quot;</span>))</span>
+<span id="cb387-10"><a href="script-convergence.html#cb387-10" tabindex="-1"></a></span>
+<span id="cb387-11"><a href="script-convergence.html#cb387-11" tabindex="-1"></a><span class="co"># generate and remove variables in a dataframe</span></span>
+<span id="cb387-12"><a href="script-convergence.html#cb387-12" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">mutate</span>(data, <span class="at">Land =</span> country)</span>
+<span id="cb387-13"><a href="script-convergence.html#cb387-13" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">select</span>(data, <span class="sc">-</span>country)</span>
+<span id="cb387-14"><a href="script-convergence.html#cb387-14" tabindex="-1"></a></span>
+<span id="cb387-15"><a href="script-convergence.html#cb387-15" tabindex="-1"></a></span>
+<span id="cb387-16"><a href="script-convergence.html#cb387-16" tabindex="-1"></a></span>
+<span id="cb387-17"><a href="script-convergence.html#cb387-17" tabindex="-1"></a></span>
+<span id="cb387-18"><a href="script-convergence.html#cb387-18" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb387-19"><a href="script-convergence.html#cb387-19" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb387-20"><a href="script-convergence.html#cb387-20" tabindex="-1"></a>    <span class="at">y65 =</span> <span class="fu">mean</span>(gdppc65, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb387-21"><a href="script-convergence.html#cb387-21" tabindex="-1"></a>    <span class="at">y70 =</span> <span class="fu">mean</span>(gdppc70, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb387-22"><a href="script-convergence.html#cb387-22" tabindex="-1"></a>    <span class="at">y75 =</span> <span class="fu">mean</span>(gdppc75, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb387-23"><a href="script-convergence.html#cb387-23" tabindex="-1"></a>    <span class="at">y80 =</span> <span class="fu">mean</span>(gdppc80, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb387-24"><a href="script-convergence.html#cb387-24" tabindex="-1"></a>    <span class="at">y85 =</span> <span class="fu">mean</span>(gdppc85, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb387-25"><a href="script-convergence.html#cb387-25" tabindex="-1"></a>    <span class="at">y90 =</span> <span class="fu">mean</span>(gdppc90, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb387-26"><a href="script-convergence.html#cb387-26" tabindex="-1"></a>    <span class="at">y95 =</span> <span class="fu">mean</span>(gdppc95, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb387-27"><a href="script-convergence.html#cb387-27" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 7
+##     y65   y70   y75   y80   y85   y90   y95
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 4367. 5128. 5759. 6554. 6900. 7775. 8468.</code></pre>
+<div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb389-1"><a href="script-convergence.html#cb389-1" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_unload</span>(haven, tidyverse, vtable, gtsummary, pastecs, Hmisc, </span>
+<span id="cb389-2"><a href="script-convergence.html#cb389-2" tabindex="-1"></a>               sjlabelled, tis, ggpubr, sjPlot)</span></code></pre></div>
+<pre><code>## The following packages have been unloaded:
+## haven, tidyverse, vtable, gtsummary, pastecs, Hmisc, sjlabelled, tis, ggpubr, sjPlot</code></pre>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="script-datasaurus.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="script-un_gdp_ger_fra.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>23 Script: exe_zipf_solution.R |  How to Use R for Data Science</title>
+  <meta name="description" content="<br />
+How to Use R for Data Science</p>" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="23 Script: exe_zipf_solution.R |  How to Use R for Data Science" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://hubchev.github.io/ds/fig/cover.png" />
+  
+  <meta name="github-repo" content="hubchev/hubchev.github.io" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="23 Script: exe_zipf_solution.R |  How to Use R for Data Science" />
+  
+  
+  <meta name="twitter:image" content="https://hubchev.github.io/ds/fig/cover.png" />
+
+<meta name="author" content="© Prof. Dr. Stephan Huber (Stephan.Huber@hs-fresenius.de)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="script-exe_okun_solution.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="preamble.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="fig/cover.png"></a></li>
+ <li><a href="./">How to Use R for Data Science</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting started with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#sec:whyR"><i class="fa fa-check"></i><b>1.1</b> Why R?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#howtolearnr"><i class="fa fa-check"></i><b>1.2</b> How to learn R</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#Rlearninglit"><i class="fa fa-check"></i><b>1.3</b> Learning resources</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#r-rstudio"><i class="fa fa-check"></i><b>1.4</b> What are R and RStudio?</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#how-to-use-r-and-rstudio-without-installation"><i class="fa fa-check"></i><b>1.5</b> How to use R and RStudio without installation</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#installing"><i class="fa fa-check"></i><b>1.6</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.7" data-path="getting-started.html"><a href="getting-started.html#what-is-a-function-in-r"><i class="fa fa-check"></i><b>1.7</b> What is a function in R?</a></li>
+<li class="chapter" data-level="1.8" data-path="getting-started.html"><a href="getting-started.html#sec:objects"><i class="fa fa-check"></i><b>1.8</b> What are objects in R?</a></li>
+<li class="chapter" data-level="1.9" data-path="getting-started.html"><a href="getting-started.html#packages"><i class="fa fa-check"></i><b>1.9</b> What are R packages?</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="getting-started.html"><a href="getting-started.html#package-installation"><i class="fa fa-check"></i><b>1.9.1</b> Package installation</a></li>
+<li class="chapter" data-level="1.9.2" data-path="getting-started.html"><a href="getting-started.html#package-loading"><i class="fa fa-check"></i><b>1.9.2</b> Package loading</a></li>
+<li class="chapter" data-level="1.9.3" data-path="getting-started.html"><a href="getting-started.html#package-management"><i class="fa fa-check"></i><b>1.9.3</b> Simplified package management with <code>p_load</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="getting-started.html"><a href="getting-started.html#are-there-some-guidelines-for-working-with-r"><i class="fa fa-check"></i><b>1.10</b> Are there some guidelines for working with R?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="swirl.html"><a href="swirl.html"><i class="fa fa-check"></i><b>2</b> Learn interactively with swirl</a></li>
+<li class="chapter" data-level="3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html"><i class="fa fa-check"></i><b>3</b> Work with R scripts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#r-scripts-why-they-are-useful"><i class="fa fa-check"></i><b>3.1</b> R Scripts: Why they are useful</a></li>
+<li class="chapter" data-level="3.2" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write, and run R scripts</a></li>
+<li class="chapter" data-level="3.3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:assignmentoper"><i class="fa fa-check"></i><b>3.3</b> The assignment operator: <code>&lt;-</code></a></li>
+<li class="chapter" data-level="3.4" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#doing-calculation-in-scripts"><i class="fa fa-check"></i><b>3.4</b> Doing calculation in scripts</a></li>
+<li class="chapter" data-level="3.5" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:generics"><i class="fa fa-check"></i><b>3.5</b> User-defined functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualizing-data.html"><a href="visualizing-data.html"><i class="fa fa-check"></i><b>4</b> Visualizing data</a></li>
+<li class="chapter" data-level="5" data-path="manage-data.html"><a href="manage-data.html"><i class="fa fa-check"></i><b>5</b> Manage data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="manage-data.html"><a href="manage-data.html#the-tidyverse-universe"><i class="fa fa-check"></i><b>5.1</b> The tidyverse universe</a></li>
+<li class="chapter" data-level="5.2" data-path="manage-data.html"><a href="manage-data.html#pipeoperator"><i class="fa fa-check"></i><b>5.2</b> The pipe operator</a></li>
+<li class="chapter" data-level="5.3" data-path="manage-data.html"><a href="manage-data.html#import-data"><i class="fa fa-check"></i><b>5.3</b> Import data</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="manage-data.html"><a href="manage-data.html#vectors-and-matrices"><i class="fa fa-check"></i><b>5.3.1</b> Vectors and matrices</a></li>
+<li class="chapter" data-level="5.3.2" data-path="manage-data.html"><a href="manage-data.html#open-rdata-files"><i class="fa fa-check"></i><b>5.3.2</b> Open RData files</a></li>
+<li class="chapter" data-level="5.3.3" data-path="manage-data.html"><a href="manage-data.html#open-datasets-of-packages"><i class="fa fa-check"></i><b>5.3.3</b> Open datasets of packages</a></li>
+<li class="chapter" data-level="5.3.4" data-path="manage-data.html"><a href="manage-data.html#import-data-using-public-apis"><i class="fa fa-check"></i><b>5.3.4</b> Import data using public APIs</a></li>
+<li class="chapter" data-level="5.3.5" data-path="manage-data.html"><a href="manage-data.html#import-various-file-formats"><i class="fa fa-check"></i><b>5.3.5</b> Import various file formats</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.4</b> Data</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="manage-data.html"><a href="manage-data.html#data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.4.1</b> Data frames and tibbles</a></li>
+<li class="chapter" data-level="5.4.2" data-path="manage-data.html"><a href="manage-data.html#tidy-data"><i class="fa fa-check"></i><b>5.4.2</b> Tidy data</a></li>
+<li class="chapter" data-level="5.4.3" data-path="manage-data.html"><a href="manage-data.html#data-types"><i class="fa fa-check"></i><b>5.4.3</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#tools-to-manipulate-data"><i class="fa fa-check"></i><b>5.5</b> Tools to manipulate data</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="manage-data.html"><a href="manage-data.html#the-in-operator"><i class="fa fa-check"></i><b>5.5.1</b> The <code>%in%</code> operator</a></li>
+<li class="chapter" data-level="5.5.2" data-path="manage-data.html"><a href="manage-data.html#extract-operators"><i class="fa fa-check"></i><b>5.5.2</b> Extract operators</a></li>
+<li class="chapter" data-level="5.5.3" data-path="manage-data.html"><a href="manage-data.html#logical-operators"><i class="fa fa-check"></i><b>5.5.3</b> Logical operators</a></li>
+<li class="chapter" data-level="5.5.4" data-path="manage-data.html"><a href="manage-data.html#if-statements"><i class="fa fa-check"></i><b>5.5.4</b> If statements</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="manage-data.html"><a href="manage-data.html#ch:dplyr"><i class="fa fa-check"></i><b>5.6</b> Data manipulation with <code>dplyr</code></a></li>
+<li class="chapter" data-level="5.7" data-path="manage-data.html"><a href="manage-data.html#how-to-explore-a-dataset"><i class="fa fa-check"></i><b>5.7</b> How to explore a dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html"><i class="fa fa-check"></i><b>6</b> Collection of exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-generate-and-drop-variables"><i class="fa fa-check"></i><em>EXERCISE:</em> Generate and drop variables</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-import-data"><i class="fa fa-check"></i><em>EXERCISE:</em> Import data</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-base-r-or-pipe"><i class="fa fa-check"></i><em>EXERCISE:</em> Base R or pipe</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-subsetting"><i class="fa fa-check"></i><em>EXERCISE:</em> Subsetting</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-data-transformation"><i class="fa fa-check"></i><em>EXERCISE:</em> Data transformation</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-load-the-stata-dataset-auto-using-r"><i class="fa fa-check"></i><em>EXERCISE:</em> Load the Stata dataset “auto” using R</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-datasaurus"><i class="fa fa-check"></i><em>EXERCISE:</em> DatasauRus</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-convergence"><i class="fa fa-check"></i><em>EXERCISE:</em> Convergence</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-unemployment-and-gdp-in-germany-and-france"><i class="fa fa-check"></i><em>EXERCISE:</em> Unemployment and GDP in Germany and France</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-import-data-and-write-a-report"><i class="fa fa-check"></i><em>EXERCISE:</em> Import data and write a report</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-explain-the-weight"><i class="fa fa-check"></i><em>EXERCISE:</em> Explain the weight</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-calories-and-weight"><i class="fa fa-check"></i><em>EXERCISE:</em> Calories and weight</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-bundesliga"><i class="fa fa-check"></i><em>EXERCISE:</em> Bundesliga</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-okuns-law"><i class="fa fa-check"></i><em>EXERCISE:</em> Okun’s Law</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-names-and-duplicates"><i class="fa fa-check"></i><em>EXERCISE:</em> Names and duplicates</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-zipfs-law"><i class="fa fa-check"></i><em>EXERCISE:</em> Zipf’s law</a>
+<ul>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#preamble"><i class="fa fa-check"></i>Preamble</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#read-in-inspect-and-clean-the-data"><i class="fa fa-check"></i>Read in, inspect, and clean the data</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#data-analysis-zipfs-law"><i class="fa fa-check"></i>Data analysis (Zipf’s Law)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Write with R Markdown</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#working-directory-in-r-markdown"><i class="fa fa-check"></i><b>7.2</b> Working directory in R Markdown</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-start-markdown-and-r-markdown"><i class="fa fa-check"></i><em>EXERCISE:</em> Start Markdown and R Markdown</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-r-markdown-cite-literature"><i class="fa fa-check"></i><em>EXERCISE:</em> R Markdown cite literature</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-preparing-apa-journal-articles-papaja"><i class="fa fa-check"></i><em>EXERCISE:</em> Preparing APA journal articles (<code>papaja</code>)</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-r-markdown-template"><i class="fa fa-check"></i><em>EXERCISE:</em> R Markdown template</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#helpful-shortcuts"><i class="fa fa-check"></i><b>8.1</b> Helpful shortcuts</a></li>
+<li class="chapter" data-level="8.2" data-path="appendix.html"><a href="appendix.html#sec:navigation"><i class="fa fa-check"></i><b>8.2</b> Navigating the file system</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="appendix.html"><a href="appendix.html#sec:filesystem"><i class="fa fa-check"></i><b>8.2.1</b> The file system</a></li>
+<li class="chapter" data-level="8.2.2" data-path="appendix.html"><a href="appendix.html#working-directory"><i class="fa fa-check"></i><b>8.2.2</b> Working directory</a></li>
+<li class="chapter" data-level="8.2.3" data-path="appendix.html"><a href="appendix.html#sec:navigationR"><i class="fa fa-check"></i><b>8.2.3</b> Navigating the file system using the R console</a></li>
+<li class="chapter" data-level="8.2.4" data-path="appendix.html"><a href="appendix.html#sec:rstudioprojects"><i class="fa fa-check"></i><b>8.2.4</b> R Studio projects</a></li>
+<li class="chapter" data-level="8.2.5" data-path="appendix.html"><a href="appendix.html#sec:winbackslash"><i class="fa fa-check"></i><b>8.2.5</b> Why do the Windows paths use the back-slash?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="appendix.html"><a href="appendix.html#troubleshooting"><i class="fa fa-check"></i><b>8.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="8.4" data-path="appendix.html"><a href="appendix.html#operators"><i class="fa fa-check"></i><b>8.4</b> Operators</a></li>
+<li class="chapter" data-level="8.5" data-path="appendix.html"><a href="appendix.html#popular-functions"><i class="fa fa-check"></i><b>8.5</b> Popular functions</a></li>
+<li class="chapter" data-level="8.6" data-path="appendix.html"><a href="appendix.html#operators-1"><i class="fa fa-check"></i><b>8.6</b> Operators</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="appendix.html"><a href="appendix.html#assignment-1"><i class="fa fa-check"></i><b>8.6.1</b> Assignment:</a></li>
+<li class="chapter" data-level="8.6.2" data-path="appendix.html"><a href="appendix.html#arithmetic-1"><i class="fa fa-check"></i><b>8.6.2</b> Arithmetic:</a></li>
+<li class="chapter" data-level="8.6.3" data-path="appendix.html"><a href="appendix.html#relational-1"><i class="fa fa-check"></i><b>8.6.3</b> Relational:</a></li>
+<li class="chapter" data-level="8.6.4" data-path="appendix.html"><a href="appendix.html#logical-1"><i class="fa fa-check"></i><b>8.6.4</b> Logical:</a></li>
+<li class="chapter" data-level="8.6.5" data-path="appendix.html"><a href="appendix.html#others-1"><i class="fa fa-check"></i><b>8.6.5</b> Others:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="appendix.html"><a href="appendix.html#popular-functions-1"><i class="fa fa-check"></i><b>8.7</b> Popular functions</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="appendix.html"><a href="appendix.html#help-1"><i class="fa fa-check"></i><b>8.7.1</b> Help</a></li>
+<li class="chapter" data-level="8.7.2" data-path="appendix.html"><a href="appendix.html#package-management-2"><i class="fa fa-check"></i><b>8.7.2</b> Package management</a></li>
+<li class="chapter" data-level="8.7.3" data-path="appendix.html"><a href="appendix.html#general-1"><i class="fa fa-check"></i><b>8.7.3</b> General</a></li>
+<li class="chapter" data-level="8.7.4" data-path="appendix.html"><a href="appendix.html#tools-1"><i class="fa fa-check"></i><b>8.7.4</b> Tools</a></li>
+<li class="chapter" data-level="8.7.5" data-path="appendix.html"><a href="appendix.html#data-import-1"><i class="fa fa-check"></i><b>8.7.5</b> Data import</a></li>
+<li class="chapter" data-level="8.7.6" data-path="appendix.html"><a href="appendix.html#inspect-data-1"><i class="fa fa-check"></i><b>8.7.6</b> Inspect data</a></li>
+<li class="chapter" data-level="8.7.7" data-path="appendix.html"><a href="appendix.html#graphics-1"><i class="fa fa-check"></i><b>8.7.7</b> Graphics</a></li>
+<li class="chapter" data-level="8.7.8" data-path="appendix.html"><a href="appendix.html#data-management-1"><i class="fa fa-check"></i><b>8.7.8</b> Data management</a></li>
+<li class="chapter" data-level="8.7.9" data-path="appendix.html"><a href="appendix.html#dplyr-functions-1"><i class="fa fa-check"></i><b>8.7.9</b> <code>dplyr</code> functions</a></li>
+<li class="chapter" data-level="8.7.10" data-path="appendix.html"><a href="appendix.html#data-analysis-1"><i class="fa fa-check"></i><b>8.7.10</b> Data analysis</a></li>
+<li class="chapter" data-level="8.7.11" data-path="appendix.html"><a href="appendix.html#statistical-functions-1"><i class="fa fa-check"></i><b>8.7.11</b> Statistical functions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="appendix.html"><a href="appendix.html#links-to-solutions"><i class="fa fa-check"></i><b>8.8</b> Links to solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="script-exe_duplicates.r-not-in-the-lecture-notes.html"><a href="script-exe_duplicates.r-not-in-the-lecture-notes.html"><i class="fa fa-check"></i><b>9</b> Script: exe_duplicates.R (not in the lecture notes)</a></li>
+<li class="chapter" data-level="10" data-path="script-exe_genanddrop.html"><a href="script-exe_genanddrop.html"><i class="fa fa-check"></i><b>10</b> Script: exe_genanddrop.R</a></li>
+<li class="chapter" data-level="11" data-path="script-exe_import_covid.html"><a href="script-exe_import_covid.html"><i class="fa fa-check"></i><b>11</b> Script: exe_import_covid.R</a></li>
+<li class="chapter" data-level="12" data-path="script-exe_base_pipe.html"><a href="script-exe_base_pipe.html"><i class="fa fa-check"></i><b>12</b> Script: exe_base_pipe.R</a></li>
+<li class="chapter" data-level="13" data-path="script-exe_subset.html"><a href="script-exe_subset.html"><i class="fa fa-check"></i><b>13</b> Script: exe_subset.R</a></li>
+<li class="chapter" data-level="14" data-path="script-exe_poser.html"><a href="script-exe_poser.html"><i class="fa fa-check"></i><b>14</b> Script: exe_poser.R</a></li>
+<li class="chapter" data-level="15" data-path="script-datasaurus.html"><a href="script-datasaurus.html"><i class="fa fa-check"></i><b>15</b> Script: datasauRus.R</a></li>
+<li class="chapter" data-level="16" data-path="script-convergence.html"><a href="script-convergence.html"><i class="fa fa-check"></i><b>16</b> Script: convergence.R</a></li>
+<li class="chapter" data-level="17" data-path="script-un_gdp_ger_fra.html"><a href="script-un_gdp_ger_fra.html"><i class="fa fa-check"></i><b>17</b> Script: un_gdp_ger_fra.R</a></li>
+<li class="chapter" data-level="18" data-path="script-hortacsu_figure_3.html"><a href="script-hortacsu_figure_3.html"><i class="fa fa-check"></i><b>18</b> Script: hortacsu_figure_3.R</a></li>
+<li class="chapter" data-level="19" data-path="script-regress_lecture.html"><a href="script-regress_lecture.html"><i class="fa fa-check"></i><b>19</b> Script: regress_lecture.R</a></li>
+<li class="chapter" data-level="20" data-path="script-exe_calories.html"><a href="script-exe_calories.html"><i class="fa fa-check"></i><b>20</b> Script: exe_calories.R</a></li>
+<li class="chapter" data-level="21" data-path="script-bundesliga.html"><a href="script-bundesliga.html"><i class="fa fa-check"></i><b>21</b> Script: bundesliga.R</a></li>
+<li class="chapter" data-level="22" data-path="script-exe_okun_solution.html"><a href="script-exe_okun_solution.html"><i class="fa fa-check"></i><b>22</b> Script: exe_okun_solution.R</a></li>
+<li class="chapter" data-level="23" data-path="script-exe_zipf_solution.html"><a href="script-exe_zipf_solution.html"><i class="fa fa-check"></i><b>23</b> Script: exe_zipf_solution.R</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li>&copy; Prof. Dr. Stephan Huber.</li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><img src="fig/cover.png" style="width:8cm" /><br />
+How to Use R for Data Science</p></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="script-exe_zipf_solution.r" class="section level1 hasAnchor" number="23">
+<h1><span class="header-section-number">23</span> Script: exe_zipf_solution.R<a href="script-exe_zipf_solution.html#script-exe_zipf_solution.r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb789-1"><a href="script-exe_zipf_solution.html#cb789-1" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb789-2"><a href="script-exe_zipf_solution.html#cb789-2" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb789-3"><a href="script-exe_zipf_solution.html#cb789-3" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_unload</span>(all)</span></code></pre></div>
+<pre><code>## The following packages have been unloaded:
+## ggpubr, tidyverse, sjPlot, dplyr, tibble, stringr, psych, kableExtra, jtools, wbstats, scales, lubridate, forcats, purrr, readr, tidyr, ggplot2, captioner, knitr, pacman</code></pre>
+<div class="sourceCode" id="cb791"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb791-1"><a href="script-exe_zipf_solution.html#cb791-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;~/Dropbox/hsf/exams/24-01/Rmd&quot;</span>)</span>
+<span id="cb791-2"><a href="script-exe_zipf_solution.html#cb791-2" tabindex="-1"></a></span>
+<span id="cb791-3"><a href="script-exe_zipf_solution.html#cb791-3" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span>
+<span id="cb791-4"><a href="script-exe_zipf_solution.html#cb791-4" tabindex="-1"></a></span>
+<span id="cb791-5"><a href="script-exe_zipf_solution.html#cb791-5" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, haven, janitor, jtools)</span>
+<span id="cb791-6"><a href="script-exe_zipf_solution.html#cb791-6" tabindex="-1"></a></span>
+<span id="cb791-7"><a href="script-exe_zipf_solution.html#cb791-7" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(</span>
+<span id="cb791-8"><a href="script-exe_zipf_solution.html#cb791-8" tabindex="-1"></a>  <span class="st">&quot;https://github.com/hubchev/courses/raw/main/dta/city.dta&quot;</span>, </span>
+<span id="cb791-9"><a href="script-exe_zipf_solution.html#cb791-9" tabindex="-1"></a>  <span class="at">encoding=</span><span class="st">&quot;latin1&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb791-10"><a href="script-exe_zipf_solution.html#cb791-10" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb791-11"><a href="script-exe_zipf_solution.html#cb791-11" tabindex="-1"></a></span>
+<span id="cb791-12"><a href="script-exe_zipf_solution.html#cb791-12" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 7
+##   stadt              status  state              pop1970 pop1987 pop2011 rankX
+##   &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;                &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 Vohenstrauß        City    Bayern                7349    7059    7500  2069
+## 2 Stockstadt a. Main Commune Bayern                6416    6615    7504  2068
+## 3 Jesteburg          Commune Niedersachsen         4141    5818    7510  2067
+## 4 Bordesholm         Commune Schleswig-Holstein    6011    6726    7513  2066
+## 5 Herrieden          City    Bayern                5631    6250    7516  2065
+## 6 Weida              City    Th_ringen               NA      NA    7522  2064</code></pre>
+<div class="sourceCode" id="cb793"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb793-1"><a href="script-exe_zipf_solution.html#cb793-1" tabindex="-1"></a><span class="fu">tail</span>(df)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 7
+##   stadt             status                  state               pop1970 pop1987 pop2011 rankX
+##   &lt;chr&gt;             &lt;chr&gt;                   &lt;chr&gt;                 &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 Frankfurt am Main City with County Rights Hessen               699297  618266  667925     5
+## 2 Köln [Cologne]    City with County Rights Nordrhein-Westfalen  994705  928309 1005775     4
+## 3 München [Munich]  City with County Rights Bayern              1293599 1185421 1348335     3
+## 4 Hamburg           City with County Rights Hamburg             1793823 1592770 1706696     2
+## 5 Berlin            City with County Rights Berlin              3210000 3260000 3292365     1
+## 6 Perl              Commune                 Saarland                 NA      NA      NA    NA</code></pre>
+<div class="sourceCode" id="cb795"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb795-1"><a href="script-exe_zipf_solution.html#cb795-1" tabindex="-1"></a><span class="fu">dim</span>(df)</span></code></pre></div>
+<pre><code>## [1] 2072    7</code></pre>
+<div class="sourceCode" id="cb797"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb797-1"><a href="script-exe_zipf_solution.html#cb797-1" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code></pre></div>
+<pre><code>##     stadt              status             state              pop1970           pop1987           pop2011            rankX       
+##  Length:2072        Length:2072        Length:2072        Min.   :   1604   Min.   :   4003   Min.   :   7500   Min.   :   1.0  
+##  Class :character   Class :character   Class :character   1st Qu.:   8149   1st Qu.:   9194   1st Qu.:   9998   1st Qu.: 516.5  
+##  Mode  :character   Mode  :character   Mode  :character   Median :  11912   Median :  13118   Median :  13937   Median :1034.0  
+##                                                           Mean   :  30504   Mean   :  30854   Mean   :  30772   Mean   :1034.0  
+##                                                           3rd Qu.:  21318   3rd Qu.:  23074   3rd Qu.:  24096   3rd Qu.:1551.5  
+##                                                           Max.   :3210000   Max.   :3260000   Max.   :3292365   Max.   :2069.0  
+##                                                           NA&#39;s   :355       NA&#39;s   :248       NA&#39;s   :1         NA&#39;s   :1</code></pre>
+<div class="sourceCode" id="cb799"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb799-1"><a href="script-exe_zipf_solution.html#cb799-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb799-2"><a href="script-exe_zipf_solution.html#cb799-2" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">city =</span> stadt) </span>
+<span id="cb799-3"><a href="script-exe_zipf_solution.html#cb799-3" tabindex="-1"></a></span>
+<span id="cb799-4"><a href="script-exe_zipf_solution.html#cb799-4" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb799-5"><a href="script-exe_zipf_solution.html#cb799-5" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>pop1970, <span class="sc">-</span>pop1987) </span>
+<span id="cb799-6"><a href="script-exe_zipf_solution.html#cb799-6" tabindex="-1"></a></span>
+<span id="cb799-7"><a href="script-exe_zipf_solution.html#cb799-7" tabindex="-1"></a>df  <span class="sc">%&gt;%</span></span>
+<span id="cb799-8"><a href="script-exe_zipf_solution.html#cb799-8" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">%&gt;%</span></span>
+<span id="cb799-9"><a href="script-exe_zipf_solution.html#cb799-9" tabindex="-1"></a>  <span class="fu">summarise</span>( <span class="fu">mean</span>(pop2011), </span>
+<span id="cb799-10"><a href="script-exe_zipf_solution.html#cb799-10" tabindex="-1"></a>             <span class="fu">sum</span>(pop2011)</span>
+<span id="cb799-11"><a href="script-exe_zipf_solution.html#cb799-11" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 17 × 3
+##    state                  `mean(pop2011)` `sum(pop2011)`
+##    &lt;chr&gt;                            &lt;dbl&gt;          &lt;dbl&gt;
+##  1 Baden-Wrttemberg                 7580            7580
+##  2 Baden-Württemberg               23680.        7837917
+##  3 Bayern                          23996.        7558677
+##  4 Berlin                        3292365         3292365
+##  5 Brandenburg                     18472.        1865632
+##  6 Bremen                         325432.         650863
+##  7 Hamburg                       1706696         1706696
+##  8 Hessen                          22996.        5036121
+##  9 Mecklenburg-Vorpommern          27034.         811005
+## 10 Niedersachsen                   24107.        6219515
+## 11 Nordrhein-Westfalen             47465.       18036727
+## 12 Rheinland-Pfalz                 25644.        1871995
+## 13 Saarland                           NA              NA
+## 14 Sachsen                         27788.        2973351
+## 15 Sachsen-Anhalt                  21212.        1993915
+## 16 Schleswig-Holstein              24157.        1739269
+## 17 Th_ringen                       29192.        1167692</code></pre>
+<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb801-1"><a href="script-exe_zipf_solution.html#cb801-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb801-2"><a href="script-exe_zipf_solution.html#cb801-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">state =</span> <span class="fu">case_when</span>(</span>
+<span id="cb801-3"><a href="script-exe_zipf_solution.html#cb801-3" tabindex="-1"></a>    state <span class="sc">==</span> <span class="st">&quot;Baden-Wrttemberg&quot;</span>  <span class="sc">~</span> <span class="st">&quot;Baden-Württemberg&quot;</span>,</span>
+<span id="cb801-4"><a href="script-exe_zipf_solution.html#cb801-4" tabindex="-1"></a>    state <span class="sc">==</span> <span class="st">&quot;Th_ringen&quot;</span> <span class="sc">~</span> <span class="st">&quot;Thüringen&quot;</span>,</span>
+<span id="cb801-5"><a href="script-exe_zipf_solution.html#cb801-5" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> state</span>
+<span id="cb801-6"><a href="script-exe_zipf_solution.html#cb801-6" tabindex="-1"></a>  ))</span>
+<span id="cb801-7"><a href="script-exe_zipf_solution.html#cb801-7" tabindex="-1"></a></span>
+<span id="cb801-8"><a href="script-exe_zipf_solution.html#cb801-8" tabindex="-1"></a>df  <span class="sc">%&gt;%</span></span>
+<span id="cb801-9"><a href="script-exe_zipf_solution.html#cb801-9" tabindex="-1"></a>  <span class="fu">group_by</span>(state) <span class="sc">%&gt;%</span></span>
+<span id="cb801-10"><a href="script-exe_zipf_solution.html#cb801-10" tabindex="-1"></a>  <span class="fu">summarise</span>( <span class="fu">mean</span>(pop2011), </span>
+<span id="cb801-11"><a href="script-exe_zipf_solution.html#cb801-11" tabindex="-1"></a>             <span class="fu">sum</span>(pop2011)</span>
+<span id="cb801-12"><a href="script-exe_zipf_solution.html#cb801-12" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 16 × 3
+##    state                  `mean(pop2011)` `sum(pop2011)`
+##    &lt;chr&gt;                            &lt;dbl&gt;          &lt;dbl&gt;
+##  1 Baden-Württemberg               23631.        7845497
+##  2 Bayern                          23996.        7558677
+##  3 Berlin                        3292365         3292365
+##  4 Brandenburg                     18472.        1865632
+##  5 Bremen                         325432.         650863
+##  6 Hamburg                       1706696         1706696
+##  7 Hessen                          22996.        5036121
+##  8 Mecklenburg-Vorpommern          27034.         811005
+##  9 Niedersachsen                   24107.        6219515
+## 10 Nordrhein-Westfalen             47465.       18036727
+## 11 Rheinland-Pfalz                 25644.        1871995
+## 12 Saarland                           NA              NA
+## 13 Sachsen                         27788.        2973351
+## 14 Sachsen-Anhalt                  21212.        1993915
+## 15 Schleswig-Holstein              24157.        1739269
+## 16 Thüringen                       29192.        1167692</code></pre>
+<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb803-1"><a href="script-exe_zipf_solution.html#cb803-1" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb803-2"><a href="script-exe_zipf_solution.html#cb803-2" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;Saarland&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb803-3"><a href="script-exe_zipf_solution.html#cb803-3" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">100</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 47 × 5
+##    city                status  state    pop2011 rankX
+##    &lt;chr&gt;               &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1 Perl                Commune Saarland    7775  2003
+##  2 Freisen             Commune Saarland    8270  1894
+##  3 Großrosseln         Commune Saarland    8403  1868
+##  4 Nonnweiler          Commune Saarland    8844  1775
+##  5 Nalbach             Commune Saarland    9302  1678
+##  6 Wallerfangen        Commune Saarland    9542  1642
+##  7 Kirkel              Commune Saarland   10058  1541
+##  8 Merchweiler         Commune Saarland   10219  1515
+##  9 Nohfelden           Commune Saarland   10247  1511
+## 10 Friedrichsthal      City    Saarland   10409  1489
+## 11 Marpingen           Commune Saarland   10590  1461
+## 12 Mandelbachtal       Commune Saarland   11107  1390
+## 13 Kleinblittersdorf   Commune Saarland   11396  1354
+## 14 Überherrn           Commune Saarland   11655  1317
+## 15 Mettlach            Commune Saarland   12180  1241
+## 16 Tholey              Commune Saarland   12385  1217
+## 17 Saarwellingen       Commune Saarland   13348  1104
+## 18 Quierschied         Commune Saarland   13506  1088
+## 19 Spiesen-Elversberg  Commune Saarland   13509  1086
+## 20 Rehlingen-Siersburg Commune Saarland   14526   996
+## 21 Riegelsberg         Commune Saarland   14763   982
+## 22 Ottweiler           City    Saarland   14934   969
+## 23 Beckingen           Commune Saarland   15355   931
+## 24 Losheim am See      Commune Saarland   15906   887
+## 25 Schiffweiler        Commune Saarland   15993   882
+## 26 Wadern              City    Saarland   16181   874
+## 27 Schmelz             Commune Saarland   16435   857
+## 28 Sulzbach/Saar       City    Saarland   16591   849
+## 29 Illingen            Commune Saarland   16978   827
+## 30 Schwalbach          Commune Saarland   17320   812
+## 31 Eppelborn           Commune Saarland   17726   793
+## 32 Wadgassen           Commune Saarland   17885   785
+## 33 Bexbach             City    Saarland   18038   777
+## 34 Heusweiler          Commune Saarland   18201   762
+## 35 Püttlingen          City    Saarland   19134   718
+## 36 Lebach              City    Saarland   19484   701
+## 37 Dillingen/Saar      City    Saarland   20253   654
+## 38 Blieskastel         City    Saarland   21255   601
+## 39 St. Wendel          City    Saarland   26220   460
+## 40 Merzig              City    Saarland   29727   392
+## 41 Saarlouis           City    Saarland   34479   323
+## 42 St. Ingbert         City    Saarland   36645   299
+## 43 Völklingen          City    Saarland   38809   279
+## 44 Homburg             City    Saarland   41502   247
+## 45 Neunkirchen         City    Saarland   46172   206
+## 46 Saarbrücken         City    Saarland  175853    43
+## 47 Perl                Commune Saarland      NA    NA</code></pre>
+<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb805-1"><a href="script-exe_zipf_solution.html#cb805-1" tabindex="-1"></a>df <span class="ot">&lt;-</span>  df <span class="sc">|&gt;</span> </span>
+<span id="cb805-2"><a href="script-exe_zipf_solution.html#cb805-2" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(city<span class="sc">==</span><span class="st">&quot;Perl&quot;</span> <span class="sc">&amp;</span> <span class="fu">is.na</span>(pop2011)) )</span>
+<span id="cb805-3"><a href="script-exe_zipf_solution.html#cb805-3" tabindex="-1"></a></span>
+<span id="cb805-4"><a href="script-exe_zipf_solution.html#cb805-4" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb805-5"><a href="script-exe_zipf_solution.html#cb805-5" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;Saarland&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb805-6"><a href="script-exe_zipf_solution.html#cb805-6" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">100</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 46 × 5
+##    city                status  state    pop2011 rankX
+##    &lt;chr&gt;               &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1 Perl                Commune Saarland    7775  2003
+##  2 Freisen             Commune Saarland    8270  1894
+##  3 Großrosseln         Commune Saarland    8403  1868
+##  4 Nonnweiler          Commune Saarland    8844  1775
+##  5 Nalbach             Commune Saarland    9302  1678
+##  6 Wallerfangen        Commune Saarland    9542  1642
+##  7 Kirkel              Commune Saarland   10058  1541
+##  8 Merchweiler         Commune Saarland   10219  1515
+##  9 Nohfelden           Commune Saarland   10247  1511
+## 10 Friedrichsthal      City    Saarland   10409  1489
+## 11 Marpingen           Commune Saarland   10590  1461
+## 12 Mandelbachtal       Commune Saarland   11107  1390
+## 13 Kleinblittersdorf   Commune Saarland   11396  1354
+## 14 Überherrn           Commune Saarland   11655  1317
+## 15 Mettlach            Commune Saarland   12180  1241
+## 16 Tholey              Commune Saarland   12385  1217
+## 17 Saarwellingen       Commune Saarland   13348  1104
+## 18 Quierschied         Commune Saarland   13506  1088
+## 19 Spiesen-Elversberg  Commune Saarland   13509  1086
+## 20 Rehlingen-Siersburg Commune Saarland   14526   996
+## 21 Riegelsberg         Commune Saarland   14763   982
+## 22 Ottweiler           City    Saarland   14934   969
+## 23 Beckingen           Commune Saarland   15355   931
+## 24 Losheim am See      Commune Saarland   15906   887
+## 25 Schiffweiler        Commune Saarland   15993   882
+## 26 Wadern              City    Saarland   16181   874
+## 27 Schmelz             Commune Saarland   16435   857
+## 28 Sulzbach/Saar       City    Saarland   16591   849
+## 29 Illingen            Commune Saarland   16978   827
+## 30 Schwalbach          Commune Saarland   17320   812
+## 31 Eppelborn           Commune Saarland   17726   793
+## 32 Wadgassen           Commune Saarland   17885   785
+## 33 Bexbach             City    Saarland   18038   777
+## 34 Heusweiler          Commune Saarland   18201   762
+## 35 Püttlingen          City    Saarland   19134   718
+## 36 Lebach              City    Saarland   19484   701
+## 37 Dillingen/Saar      City    Saarland   20253   654
+## 38 Blieskastel         City    Saarland   21255   601
+## 39 St. Wendel          City    Saarland   26220   460
+## 40 Merzig              City    Saarland   29727   392
+## 41 Saarlouis           City    Saarland   34479   323
+## 42 St. Ingbert         City    Saarland   36645   299
+## 43 Völklingen          City    Saarland   38809   279
+## 44 Homburg             City    Saarland   41502   247
+## 45 Neunkirchen         City    Saarland   46172   206
+## 46 Saarbrücken         City    Saarland  175853    43</code></pre>
+<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb807-1"><a href="script-exe_zipf_solution.html#cb807-1" tabindex="-1"></a>df  <span class="sc">%&gt;%</span></span>
+<span id="cb807-2"><a href="script-exe_zipf_solution.html#cb807-2" tabindex="-1"></a>  <span class="fu">filter</span>(state <span class="sc">==</span> <span class="st">&quot;Saarland&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb807-3"><a href="script-exe_zipf_solution.html#cb807-3" tabindex="-1"></a>  <span class="fu">summarise</span>( <span class="fu">mean</span>(pop2011), </span>
+<span id="cb807-4"><a href="script-exe_zipf_solution.html#cb807-4" tabindex="-1"></a>             <span class="fu">sum</span>(pop2011)</span>
+<span id="cb807-5"><a href="script-exe_zipf_solution.html#cb807-5" tabindex="-1"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
+##   `mean(pop2011)` `sum(pop2011)`
+##             &lt;dbl&gt;          &lt;dbl&gt;
+## 1          20850.         959110</code></pre>
+<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb809-1"><a href="script-exe_zipf_solution.html#cb809-1" tabindex="-1"></a>df <span class="sc">|&gt;</span>  </span>
+<span id="cb809-2"><a href="script-exe_zipf_solution.html#cb809-2" tabindex="-1"></a>  <span class="fu">group_by</span>(city) <span class="sc">|&gt;</span> </span>
+<span id="cb809-3"><a href="script-exe_zipf_solution.html#cb809-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">unique_count =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb809-4"><a href="script-exe_zipf_solution.html#cb809-4" tabindex="-1"></a>  <span class="fu">arrange</span>(city, state) <span class="sc">|&gt;</span> </span>
+<span id="cb809-5"><a href="script-exe_zipf_solution.html#cb809-5" tabindex="-1"></a>  <span class="fu">filter</span>(unique_count <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb809-6"><a href="script-exe_zipf_solution.html#cb809-6" tabindex="-1"></a>  <span class="fu">select</span>(city, status, state, <span class="fu">starts_with</span>(<span class="st">&quot;pop&quot;</span>), unique_count) <span class="sc">|&gt;</span> </span>
+<span id="cb809-7"><a href="script-exe_zipf_solution.html#cb809-7" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">100</span>) </span></code></pre></div>
+<pre><code>## # A tibble: 23 × 5
+## # Groups:   city [11]
+##    city        status                  state               pop2011 unique_count
+##    &lt;chr&gt;       &lt;chr&gt;                   &lt;chr&gt;                 &lt;dbl&gt;        &lt;int&gt;
+##  1 Bonn        City with County Rights Nordrhein-Westfalen  305765            3
+##  2 Bonn        City with County Rights Nordrhein-Westfalen  305765            3
+##  3 Bonn        City with County Rights Nordrhein-Westfalen  305765            3
+##  4 Brühl       Commune                 Baden-Württemberg     13805            2
+##  5 Brühl       City                    Nordrhein-Westfalen   43568            2
+##  6 Erbach      City                    Baden-Württemberg     13024            2
+##  7 Erbach      City                    Hessen                13245            2
+##  8 Fürth       City with County Rights Bayern               115613            2
+##  9 Fürth       Commune                 Hessen                10481            2
+## 10 Lichtenau   City                    Nordrhein-Westfalen   10473            2
+## 11 Lichtenau   Commune                 Sachsen                7544            2
+## 12 Münster     Commune                 Hessen                14071            2
+## 13 Münster     City with County Rights Nordrhein-Westfalen  289576            2
+## 14 Neunkirchen Commune                 Nordrhein-Westfalen   13930            2
+## 15 Neunkirchen City                    Saarland              46172            2
+## 16 Neuried     Commune                 Baden-Württemberg      9383            2
+## 17 Neuried     Commune                 Bayern                 8277            2
+## 18 Petersberg  Commune                 Hessen                14766            2
+## 19 Petersberg  Commune                 Sachsen-Anhalt        10097            2
+## 20 Senden      City                    Bayern                21560            2
+## 21 Senden      Commune                 Nordrhein-Westfalen   19976            2
+## 22 Staufenberg City                    Hessen                 8114            2
+## 23 Staufenberg Commune                 Niedersachsen          7983            2</code></pre>
+<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb811-1"><a href="script-exe_zipf_solution.html#cb811-1" tabindex="-1"></a>df <span class="sc">|&gt;</span>  </span>
+<span id="cb811-2"><a href="script-exe_zipf_solution.html#cb811-2" tabindex="-1"></a>  <span class="fu">group_by</span>(city, state) <span class="sc">|&gt;</span> </span>
+<span id="cb811-3"><a href="script-exe_zipf_solution.html#cb811-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">unique_count =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb811-4"><a href="script-exe_zipf_solution.html#cb811-4" tabindex="-1"></a>  <span class="fu">arrange</span>(city, state) <span class="sc">|&gt;</span> </span>
+<span id="cb811-5"><a href="script-exe_zipf_solution.html#cb811-5" tabindex="-1"></a>  <span class="fu">filter</span>(unique_count <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb811-6"><a href="script-exe_zipf_solution.html#cb811-6" tabindex="-1"></a>  <span class="fu">select</span>(city, status, state, <span class="fu">starts_with</span>(<span class="st">&quot;pop&quot;</span>), unique_count) <span class="sc">|&gt;</span> </span>
+<span id="cb811-7"><a href="script-exe_zipf_solution.html#cb811-7" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">100</span>) </span></code></pre></div>
+<pre><code>## # A tibble: 3 × 5
+## # Groups:   city, state [1]
+##   city  status                  state               pop2011 unique_count
+##   &lt;chr&gt; &lt;chr&gt;                   &lt;chr&gt;                 &lt;dbl&gt;        &lt;int&gt;
+## 1 Bonn  City with County Rights Nordrhein-Westfalen  305765            3
+## 2 Bonn  City with County Rights Nordrhein-Westfalen  305765            3
+## 3 Bonn  City with County Rights Nordrhein-Westfalen  305765            3</code></pre>
+<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb813-1"><a href="script-exe_zipf_solution.html#cb813-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb813-2"><a href="script-exe_zipf_solution.html#cb813-2" tabindex="-1"></a>  <span class="fu">group_by</span>(city, state) <span class="sc">|&gt;</span> </span>
+<span id="cb813-3"><a href="script-exe_zipf_solution.html#cb813-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n_row =</span> <span class="fu">row_number</span>() ) <span class="sc">|&gt;</span> </span>
+<span id="cb813-4"><a href="script-exe_zipf_solution.html#cb813-4" tabindex="-1"></a>  <span class="fu">filter</span>(n_row <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb813-5"><a href="script-exe_zipf_solution.html#cb813-5" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>n_row)</span>
+<span id="cb813-6"><a href="script-exe_zipf_solution.html#cb813-6" tabindex="-1"></a></span>
+<span id="cb813-7"><a href="script-exe_zipf_solution.html#cb813-7" tabindex="-1"></a>df <span class="sc">|&gt;</span>  </span>
+<span id="cb813-8"><a href="script-exe_zipf_solution.html#cb813-8" tabindex="-1"></a>  <span class="fu">group_by</span>(city, state) <span class="sc">|&gt;</span> </span>
+<span id="cb813-9"><a href="script-exe_zipf_solution.html#cb813-9" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">unique_count =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb813-10"><a href="script-exe_zipf_solution.html#cb813-10" tabindex="-1"></a>  <span class="fu">arrange</span>(city, state) <span class="sc">|&gt;</span> </span>
+<span id="cb813-11"><a href="script-exe_zipf_solution.html#cb813-11" tabindex="-1"></a>  <span class="fu">filter</span>(unique_count <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb813-12"><a href="script-exe_zipf_solution.html#cb813-12" tabindex="-1"></a>  <span class="fu">select</span>(city, status, state, <span class="fu">starts_with</span>(<span class="st">&quot;pop&quot;</span>), unique_count) <span class="sc">|&gt;</span> </span>
+<span id="cb813-13"><a href="script-exe_zipf_solution.html#cb813-13" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">100</span>) </span></code></pre></div>
+<pre><code>## # A tibble: 0 × 5
+## # Groups:   city, state [0]
+## # ℹ 5 variables: city &lt;chr&gt;, status &lt;chr&gt;, state &lt;chr&gt;, pop2011 &lt;dbl&gt;, unique_count &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb815-1"><a href="script-exe_zipf_solution.html#cb815-1" tabindex="-1"></a><span class="fu">save</span>(df, <span class="at">file =</span> <span class="st">&quot;city_clean.RData&quot;</span>)</span>
+<span id="cb815-2"><a href="script-exe_zipf_solution.html#cb815-2" tabindex="-1"></a></span>
+<span id="cb815-3"><a href="script-exe_zipf_solution.html#cb815-3" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb815-4"><a href="script-exe_zipf_solution.html#cb815-4" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb815-5"><a href="script-exe_zipf_solution.html#cb815-5" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pop2011)) <span class="sc">|&gt;</span> </span>
+<span id="cb815-6"><a href="script-exe_zipf_solution.html#cb815-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank =</span> <span class="fu">row_number</span>() )</span>
+<span id="cb815-7"><a href="script-exe_zipf_solution.html#cb815-7" tabindex="-1"></a></span>
+<span id="cb815-8"><a href="script-exe_zipf_solution.html#cb815-8" tabindex="-1"></a>df <span class="sc">|&gt;</span>  </span>
+<span id="cb815-9"><a href="script-exe_zipf_solution.html#cb815-9" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>rankX, <span class="sc">-</span>status, <span class="sc">-</span>state) <span class="sc">|&gt;</span> </span>
+<span id="cb815-10"><a href="script-exe_zipf_solution.html#cb815-10" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   city                    pop2011  rank
+##   &lt;chr&gt;                     &lt;dbl&gt; &lt;int&gt;
+## 1 Berlin                  3292365     1
+## 2 Hamburg                 1706696     2
+## 3 München [Munich]        1348335     3
+## 4 Köln [Cologne]          1005775     4
+## 5 Frankfurt am Main        667925     5
+## 6 Düsseldorf [Dusseldorf]  586291     6</code></pre>
+<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb817-1"><a href="script-exe_zipf_solution.html#cb817-1" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>pop2011, df<span class="sc">$</span>rank, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;pearson&quot;</span>))</span></code></pre></div>
+<pre><code>## [1] -0.2948903</code></pre>
+<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb819-1"><a href="script-exe_zipf_solution.html#cb819-1" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> rank, <span class="at">y =</span> pop2011)) <span class="sc">+</span></span>
+<span id="cb819-2"><a href="script-exe_zipf_solution.html#cb819-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>  </span>
+<span id="cb819-3"><a href="script-exe_zipf_solution.html#cb819-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) </span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-172-1.png" width="672" /></p>
+<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb821-1"><a href="script-exe_zipf_solution.html#cb821-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb821-2"><a href="script-exe_zipf_solution.html#cb821-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lnrank =</span> <span class="fu">log</span>(rank) ) <span class="sc">|&gt;</span> </span>
+<span id="cb821-3"><a href="script-exe_zipf_solution.html#cb821-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lnpop2011 =</span> <span class="fu">log</span>(pop2011) )</span>
+<span id="cb821-4"><a href="script-exe_zipf_solution.html#cb821-4" tabindex="-1"></a></span>
+<span id="cb821-5"><a href="script-exe_zipf_solution.html#cb821-5" tabindex="-1"></a>df <span class="sc">|&gt;</span>  </span>
+<span id="cb821-6"><a href="script-exe_zipf_solution.html#cb821-6" tabindex="-1"></a>  <span class="fu">select</span>(city, rank, lnrank, pop2011, lnpop2011) <span class="sc">|&gt;</span> </span>
+<span id="cb821-7"><a href="script-exe_zipf_solution.html#cb821-7" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##   city                     rank lnrank pop2011 lnpop2011
+##   &lt;chr&gt;                   &lt;int&gt;  &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Berlin                      1  0     3292365      15.0
+## 2 Hamburg                     2  0.693 1706696      14.4
+## 3 München [Munich]            3  1.10  1348335      14.1
+## 4 Köln [Cologne]              4  1.39  1005775      13.8
+## 5 Frankfurt am Main           5  1.61   667925      13.4
+## 6 Düsseldorf [Dusseldorf]     6  1.79   586291      13.3</code></pre>
+<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb823-1"><a href="script-exe_zipf_solution.html#cb823-1" tabindex="-1"></a><span class="fu">cor</span>(df<span class="sc">$</span>lnpop2011, df<span class="sc">$</span>lnrank, <span class="at">method =</span> <span class="fu">c</span>(<span class="st">&quot;pearson&quot;</span>))</span></code></pre></div>
+<pre><code>## [1] -0.9990053</code></pre>
+<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb825-1"><a href="script-exe_zipf_solution.html#cb825-1" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> lnrank, <span class="at">y =</span> lnpop2011)) <span class="sc">+</span></span>
+<span id="cb825-2"><a href="script-exe_zipf_solution.html#cb825-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>  </span>
+<span id="cb825-3"><a href="script-exe_zipf_solution.html#cb825-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span>  </span>
+<span id="cb825-4"><a href="script-exe_zipf_solution.html#cb825-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Scatterplot with Regression Line&quot;</span>,</span>
+<span id="cb825-5"><a href="script-exe_zipf_solution.html#cb825-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;lnrank (Logarithmized Rank)&quot;</span>,</span>
+<span id="cb825-6"><a href="script-exe_zipf_solution.html#cb825-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;lnpop2011 (Logarithmized Population 2011)&quot;</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-172-2.png" width="672" /></p>
+<div class="sourceCode" id="cb827"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb827-1"><a href="script-exe_zipf_solution.html#cb827-1" tabindex="-1"></a>zipf <span class="ot">&lt;-</span> <span class="fu">lm</span>(lnpop2011 <span class="sc">~</span> lnrank, <span class="at">data =</span> df)</span>
+<span id="cb827-2"><a href="script-exe_zipf_solution.html#cb827-2" tabindex="-1"></a><span class="fu">summary</span>(zipf)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = lnpop2011 ~ lnrank, data = df)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.28015 -0.01879  0.01083  0.02005  0.25973 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 14.947859   0.005141    2908   &lt;2e-16 ***
+## lnrank      -0.780259   0.000766   -1019   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.03454 on 2067 degrees of freedom
+## Multiple R-squared:  0.998,  Adjusted R-squared:  0.998 
+## F-statistic: 1.038e+06 on 1 and 2067 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb829"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb829-1"><a href="script-exe_zipf_solution.html#cb829-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb829-2"><a href="script-exe_zipf_solution.html#cb829-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prediction =</span> <span class="fu">predict</span>(zipf, <span class="at">newdata =</span> df)) <span class="sc">|&gt;</span> </span>
+<span id="cb829-3"><a href="script-exe_zipf_solution.html#cb829-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pred_pop =</span> <span class="fu">exp</span>(prediction))</span>
+<span id="cb829-4"><a href="script-exe_zipf_solution.html#cb829-4" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
+<span id="cb829-5"><a href="script-exe_zipf_solution.html#cb829-5" tabindex="-1"></a>  <span class="fu">select</span>(city, pop2011, pred_pop) <span class="sc">|&gt;</span> </span>
+<span id="cb829-6"><a href="script-exe_zipf_solution.html#cb829-6" tabindex="-1"></a>  <span class="fu">filter</span>(city <span class="sc">==</span> <span class="st">&quot;Regensburg&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   city       pop2011 pred_pop
+##   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Regensburg  135403  134194.</code></pre>
+<div class="sourceCode" id="cb831"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb831-1"><a href="script-exe_zipf_solution.html#cb831-1" tabindex="-1"></a><span class="co"># rmarkdown::render(&quot;24-01_dsda.Rmd&quot;, &quot;all&quot;)</span></span>
+<span id="cb831-2"><a href="script-exe_zipf_solution.html#cb831-2" tabindex="-1"></a></span>
+<span id="cb831-3"><a href="script-exe_zipf_solution.html#cb831-3" tabindex="-1"></a><span class="co"># knitr::purl(input = &quot;24-01_dsda.Rmd&quot;, output = &quot;24-01_dsda_solution.R&quot;,documentation = 0)</span></span></code></pre></div>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="script-exe_okun_solution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

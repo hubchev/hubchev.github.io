@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>19 Script: regress_lecture.R |  How to Use R for Data Science</title>
+  <meta name="description" content="<br />
+How to Use R for Data Science</p>" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="19 Script: regress_lecture.R |  How to Use R for Data Science" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://hubchev.github.io/ds/fig/cover.png" />
+  
+  <meta name="github-repo" content="hubchev/hubchev.github.io" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="19 Script: regress_lecture.R |  How to Use R for Data Science" />
+  
+  
+  <meta name="twitter:image" content="https://hubchev.github.io/ds/fig/cover.png" />
+
+<meta name="author" content="© Prof. Dr. Stephan Huber (Stephan.Huber@hs-fresenius.de)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="script-hortacsu_figure_3.html"/>
+<link rel="next" href="script-exe_calories.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="preamble.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="fig/cover.png"></a></li>
+ <li><a href="./">How to Use R for Data Science</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i><b>1</b> Getting started with R</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started.html"><a href="getting-started.html#sec:whyR"><i class="fa fa-check"></i><b>1.1</b> Why R?</a></li>
+<li class="chapter" data-level="1.2" data-path="getting-started.html"><a href="getting-started.html#howtolearnr"><i class="fa fa-check"></i><b>1.2</b> How to learn R</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started.html"><a href="getting-started.html#Rlearninglit"><i class="fa fa-check"></i><b>1.3</b> Learning resources</a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started.html"><a href="getting-started.html#r-rstudio"><i class="fa fa-check"></i><b>1.4</b> What are R and RStudio?</a></li>
+<li class="chapter" data-level="1.5" data-path="getting-started.html"><a href="getting-started.html#how-to-use-r-and-rstudio-without-installation"><i class="fa fa-check"></i><b>1.5</b> How to use R and RStudio without installation</a></li>
+<li class="chapter" data-level="1.6" data-path="getting-started.html"><a href="getting-started.html#installing"><i class="fa fa-check"></i><b>1.6</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.7" data-path="getting-started.html"><a href="getting-started.html#what-is-a-function-in-r"><i class="fa fa-check"></i><b>1.7</b> What is a function in R?</a></li>
+<li class="chapter" data-level="1.8" data-path="getting-started.html"><a href="getting-started.html#sec:objects"><i class="fa fa-check"></i><b>1.8</b> What are objects in R?</a></li>
+<li class="chapter" data-level="1.9" data-path="getting-started.html"><a href="getting-started.html#packages"><i class="fa fa-check"></i><b>1.9</b> What are R packages?</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="getting-started.html"><a href="getting-started.html#package-installation"><i class="fa fa-check"></i><b>1.9.1</b> Package installation</a></li>
+<li class="chapter" data-level="1.9.2" data-path="getting-started.html"><a href="getting-started.html#package-loading"><i class="fa fa-check"></i><b>1.9.2</b> Package loading</a></li>
+<li class="chapter" data-level="1.9.3" data-path="getting-started.html"><a href="getting-started.html#package-management"><i class="fa fa-check"></i><b>1.9.3</b> Simplified package management with <code>p_load</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="getting-started.html"><a href="getting-started.html#are-there-some-guidelines-for-working-with-r"><i class="fa fa-check"></i><b>1.10</b> Are there some guidelines for working with R?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="swirl.html"><a href="swirl.html"><i class="fa fa-check"></i><b>2</b> Learn interactively with swirl</a></li>
+<li class="chapter" data-level="3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html"><i class="fa fa-check"></i><b>3</b> Work with R scripts</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#r-scripts-why-they-are-useful"><i class="fa fa-check"></i><b>3.1</b> R Scripts: Why they are useful</a></li>
+<li class="chapter" data-level="3.2" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#generate-write-and-run-r-scripts"><i class="fa fa-check"></i><b>3.2</b> Generate, write, and run R scripts</a></li>
+<li class="chapter" data-level="3.3" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:assignmentoper"><i class="fa fa-check"></i><b>3.3</b> The assignment operator: <code>&lt;-</code></a></li>
+<li class="chapter" data-level="3.4" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#doing-calculation-in-scripts"><i class="fa fa-check"></i><b>3.4</b> Doing calculation in scripts</a></li>
+<li class="chapter" data-level="3.5" data-path="work-with-r-scripts.html"><a href="work-with-r-scripts.html#sec:generics"><i class="fa fa-check"></i><b>3.5</b> User-defined functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualizing-data.html"><a href="visualizing-data.html"><i class="fa fa-check"></i><b>4</b> Visualizing data</a></li>
+<li class="chapter" data-level="5" data-path="manage-data.html"><a href="manage-data.html"><i class="fa fa-check"></i><b>5</b> Manage data</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="manage-data.html"><a href="manage-data.html#the-tidyverse-universe"><i class="fa fa-check"></i><b>5.1</b> The tidyverse universe</a></li>
+<li class="chapter" data-level="5.2" data-path="manage-data.html"><a href="manage-data.html#pipeoperator"><i class="fa fa-check"></i><b>5.2</b> The pipe operator</a></li>
+<li class="chapter" data-level="5.3" data-path="manage-data.html"><a href="manage-data.html#import-data"><i class="fa fa-check"></i><b>5.3</b> Import data</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="manage-data.html"><a href="manage-data.html#vectors-and-matrices"><i class="fa fa-check"></i><b>5.3.1</b> Vectors and matrices</a></li>
+<li class="chapter" data-level="5.3.2" data-path="manage-data.html"><a href="manage-data.html#open-rdata-files"><i class="fa fa-check"></i><b>5.3.2</b> Open RData files</a></li>
+<li class="chapter" data-level="5.3.3" data-path="manage-data.html"><a href="manage-data.html#open-datasets-of-packages"><i class="fa fa-check"></i><b>5.3.3</b> Open datasets of packages</a></li>
+<li class="chapter" data-level="5.3.4" data-path="manage-data.html"><a href="manage-data.html#import-data-using-public-apis"><i class="fa fa-check"></i><b>5.3.4</b> Import data using public APIs</a></li>
+<li class="chapter" data-level="5.3.5" data-path="manage-data.html"><a href="manage-data.html#import-various-file-formats"><i class="fa fa-check"></i><b>5.3.5</b> Import various file formats</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="manage-data.html"><a href="manage-data.html#sec:tidy"><i class="fa fa-check"></i><b>5.4</b> Data</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="manage-data.html"><a href="manage-data.html#data-frames-and-tibbles"><i class="fa fa-check"></i><b>5.4.1</b> Data frames and tibbles</a></li>
+<li class="chapter" data-level="5.4.2" data-path="manage-data.html"><a href="manage-data.html#tidy-data"><i class="fa fa-check"></i><b>5.4.2</b> Tidy data</a></li>
+<li class="chapter" data-level="5.4.3" data-path="manage-data.html"><a href="manage-data.html#data-types"><i class="fa fa-check"></i><b>5.4.3</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="manage-data.html"><a href="manage-data.html#tools-to-manipulate-data"><i class="fa fa-check"></i><b>5.5</b> Tools to manipulate data</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="manage-data.html"><a href="manage-data.html#the-in-operator"><i class="fa fa-check"></i><b>5.5.1</b> The <code>%in%</code> operator</a></li>
+<li class="chapter" data-level="5.5.2" data-path="manage-data.html"><a href="manage-data.html#extract-operators"><i class="fa fa-check"></i><b>5.5.2</b> Extract operators</a></li>
+<li class="chapter" data-level="5.5.3" data-path="manage-data.html"><a href="manage-data.html#logical-operators"><i class="fa fa-check"></i><b>5.5.3</b> Logical operators</a></li>
+<li class="chapter" data-level="5.5.4" data-path="manage-data.html"><a href="manage-data.html#if-statements"><i class="fa fa-check"></i><b>5.5.4</b> If statements</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="manage-data.html"><a href="manage-data.html#ch:dplyr"><i class="fa fa-check"></i><b>5.6</b> Data manipulation with <code>dplyr</code></a></li>
+<li class="chapter" data-level="5.7" data-path="manage-data.html"><a href="manage-data.html#how-to-explore-a-dataset"><i class="fa fa-check"></i><b>5.7</b> How to explore a dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html"><i class="fa fa-check"></i><b>6</b> Collection of exercises</a>
+<ul>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-generate-and-drop-variables"><i class="fa fa-check"></i><em>EXERCISE:</em> Generate and drop variables</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-import-data"><i class="fa fa-check"></i><em>EXERCISE:</em> Import data</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-base-r-or-pipe"><i class="fa fa-check"></i><em>EXERCISE:</em> Base R or pipe</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-subsetting"><i class="fa fa-check"></i><em>EXERCISE:</em> Subsetting</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-data-transformation"><i class="fa fa-check"></i><em>EXERCISE:</em> Data transformation</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-load-the-stata-dataset-auto-using-r"><i class="fa fa-check"></i><em>EXERCISE:</em> Load the Stata dataset “auto” using R</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-datasaurus"><i class="fa fa-check"></i><em>EXERCISE:</em> DatasauRus</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-convergence"><i class="fa fa-check"></i><em>EXERCISE:</em> Convergence</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-unemployment-and-gdp-in-germany-and-france"><i class="fa fa-check"></i><em>EXERCISE:</em> Unemployment and GDP in Germany and France</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-import-data-and-write-a-report"><i class="fa fa-check"></i><em>EXERCISE:</em> Import data and write a report</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-explain-the-weight"><i class="fa fa-check"></i><em>EXERCISE:</em> Explain the weight</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-calories-and-weight"><i class="fa fa-check"></i><em>EXERCISE:</em> Calories and weight</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-bundesliga"><i class="fa fa-check"></i><em>EXERCISE:</em> Bundesliga</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-okuns-law"><i class="fa fa-check"></i><em>EXERCISE:</em> Okun’s Law</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-names-and-duplicates"><i class="fa fa-check"></i><em>EXERCISE:</em> Names and duplicates</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#exercise-zipfs-law"><i class="fa fa-check"></i><em>EXERCISE:</em> Zipf’s law</a>
+<ul>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#preamble"><i class="fa fa-check"></i>Preamble</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#read-in-inspect-and-clean-the-data"><i class="fa fa-check"></i>Read in, inspect, and clean the data</a></li>
+<li class="chapter" data-level="" data-path="collection-of-exercises.html"><a href="collection-of-exercises.html#data-analysis-zipfs-law"><i class="fa fa-check"></i>Data analysis (Zipf’s Law)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html"><i class="fa fa-check"></i><b>7</b> Write with R Markdown</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#working-directory-in-r-markdown"><i class="fa fa-check"></i><b>7.2</b> Working directory in R Markdown</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-start-markdown-and-r-markdown"><i class="fa fa-check"></i><em>EXERCISE:</em> Start Markdown and R Markdown</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-r-markdown-cite-literature"><i class="fa fa-check"></i><em>EXERCISE:</em> R Markdown cite literature</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-preparing-apa-journal-articles-papaja"><i class="fa fa-check"></i><em>EXERCISE:</em> Preparing APA journal articles (<code>papaja</code>)</a></li>
+<li class="chapter" data-level="" data-path="write-with-r-markdown.html"><a href="write-with-r-markdown.html#exercise-r-markdown-template"><i class="fa fa-check"></i><em>EXERCISE:</em> R Markdown template</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>8</b> Appendix</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="appendix.html"><a href="appendix.html#helpful-shortcuts"><i class="fa fa-check"></i><b>8.1</b> Helpful shortcuts</a></li>
+<li class="chapter" data-level="8.2" data-path="appendix.html"><a href="appendix.html#sec:navigation"><i class="fa fa-check"></i><b>8.2</b> Navigating the file system</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="appendix.html"><a href="appendix.html#sec:filesystem"><i class="fa fa-check"></i><b>8.2.1</b> The file system</a></li>
+<li class="chapter" data-level="8.2.2" data-path="appendix.html"><a href="appendix.html#working-directory"><i class="fa fa-check"></i><b>8.2.2</b> Working directory</a></li>
+<li class="chapter" data-level="8.2.3" data-path="appendix.html"><a href="appendix.html#sec:navigationR"><i class="fa fa-check"></i><b>8.2.3</b> Navigating the file system using the R console</a></li>
+<li class="chapter" data-level="8.2.4" data-path="appendix.html"><a href="appendix.html#sec:rstudioprojects"><i class="fa fa-check"></i><b>8.2.4</b> R Studio projects</a></li>
+<li class="chapter" data-level="8.2.5" data-path="appendix.html"><a href="appendix.html#sec:winbackslash"><i class="fa fa-check"></i><b>8.2.5</b> Why do the Windows paths use the back-slash?</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="appendix.html"><a href="appendix.html#troubleshooting"><i class="fa fa-check"></i><b>8.3</b> Troubleshooting</a></li>
+<li class="chapter" data-level="8.4" data-path="appendix.html"><a href="appendix.html#operators"><i class="fa fa-check"></i><b>8.4</b> Operators</a></li>
+<li class="chapter" data-level="8.5" data-path="appendix.html"><a href="appendix.html#popular-functions"><i class="fa fa-check"></i><b>8.5</b> Popular functions</a></li>
+<li class="chapter" data-level="8.6" data-path="appendix.html"><a href="appendix.html#operators-1"><i class="fa fa-check"></i><b>8.6</b> Operators</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="appendix.html"><a href="appendix.html#assignment-1"><i class="fa fa-check"></i><b>8.6.1</b> Assignment:</a></li>
+<li class="chapter" data-level="8.6.2" data-path="appendix.html"><a href="appendix.html#arithmetic-1"><i class="fa fa-check"></i><b>8.6.2</b> Arithmetic:</a></li>
+<li class="chapter" data-level="8.6.3" data-path="appendix.html"><a href="appendix.html#relational-1"><i class="fa fa-check"></i><b>8.6.3</b> Relational:</a></li>
+<li class="chapter" data-level="8.6.4" data-path="appendix.html"><a href="appendix.html#logical-1"><i class="fa fa-check"></i><b>8.6.4</b> Logical:</a></li>
+<li class="chapter" data-level="8.6.5" data-path="appendix.html"><a href="appendix.html#others-1"><i class="fa fa-check"></i><b>8.6.5</b> Others:</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="appendix.html"><a href="appendix.html#popular-functions-1"><i class="fa fa-check"></i><b>8.7</b> Popular functions</a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="appendix.html"><a href="appendix.html#help-1"><i class="fa fa-check"></i><b>8.7.1</b> Help</a></li>
+<li class="chapter" data-level="8.7.2" data-path="appendix.html"><a href="appendix.html#package-management-2"><i class="fa fa-check"></i><b>8.7.2</b> Package management</a></li>
+<li class="chapter" data-level="8.7.3" data-path="appendix.html"><a href="appendix.html#general-1"><i class="fa fa-check"></i><b>8.7.3</b> General</a></li>
+<li class="chapter" data-level="8.7.4" data-path="appendix.html"><a href="appendix.html#tools-1"><i class="fa fa-check"></i><b>8.7.4</b> Tools</a></li>
+<li class="chapter" data-level="8.7.5" data-path="appendix.html"><a href="appendix.html#data-import-1"><i class="fa fa-check"></i><b>8.7.5</b> Data import</a></li>
+<li class="chapter" data-level="8.7.6" data-path="appendix.html"><a href="appendix.html#inspect-data-1"><i class="fa fa-check"></i><b>8.7.6</b> Inspect data</a></li>
+<li class="chapter" data-level="8.7.7" data-path="appendix.html"><a href="appendix.html#graphics-1"><i class="fa fa-check"></i><b>8.7.7</b> Graphics</a></li>
+<li class="chapter" data-level="8.7.8" data-path="appendix.html"><a href="appendix.html#data-management-1"><i class="fa fa-check"></i><b>8.7.8</b> Data management</a></li>
+<li class="chapter" data-level="8.7.9" data-path="appendix.html"><a href="appendix.html#dplyr-functions-1"><i class="fa fa-check"></i><b>8.7.9</b> <code>dplyr</code> functions</a></li>
+<li class="chapter" data-level="8.7.10" data-path="appendix.html"><a href="appendix.html#data-analysis-1"><i class="fa fa-check"></i><b>8.7.10</b> Data analysis</a></li>
+<li class="chapter" data-level="8.7.11" data-path="appendix.html"><a href="appendix.html#statistical-functions-1"><i class="fa fa-check"></i><b>8.7.11</b> Statistical functions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="appendix.html"><a href="appendix.html#links-to-solutions"><i class="fa fa-check"></i><b>8.8</b> Links to solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="script-exe_duplicates.r-not-in-the-lecture-notes.html"><a href="script-exe_duplicates.r-not-in-the-lecture-notes.html"><i class="fa fa-check"></i><b>9</b> Script: exe_duplicates.R (not in the lecture notes)</a></li>
+<li class="chapter" data-level="10" data-path="script-exe_genanddrop.html"><a href="script-exe_genanddrop.html"><i class="fa fa-check"></i><b>10</b> Script: exe_genanddrop.R</a></li>
+<li class="chapter" data-level="11" data-path="script-exe_import_covid.html"><a href="script-exe_import_covid.html"><i class="fa fa-check"></i><b>11</b> Script: exe_import_covid.R</a></li>
+<li class="chapter" data-level="12" data-path="script-exe_base_pipe.html"><a href="script-exe_base_pipe.html"><i class="fa fa-check"></i><b>12</b> Script: exe_base_pipe.R</a></li>
+<li class="chapter" data-level="13" data-path="script-exe_subset.html"><a href="script-exe_subset.html"><i class="fa fa-check"></i><b>13</b> Script: exe_subset.R</a></li>
+<li class="chapter" data-level="14" data-path="script-exe_poser.html"><a href="script-exe_poser.html"><i class="fa fa-check"></i><b>14</b> Script: exe_poser.R</a></li>
+<li class="chapter" data-level="15" data-path="script-datasaurus.html"><a href="script-datasaurus.html"><i class="fa fa-check"></i><b>15</b> Script: datasauRus.R</a></li>
+<li class="chapter" data-level="16" data-path="script-convergence.html"><a href="script-convergence.html"><i class="fa fa-check"></i><b>16</b> Script: convergence.R</a></li>
+<li class="chapter" data-level="17" data-path="script-un_gdp_ger_fra.html"><a href="script-un_gdp_ger_fra.html"><i class="fa fa-check"></i><b>17</b> Script: un_gdp_ger_fra.R</a></li>
+<li class="chapter" data-level="18" data-path="script-hortacsu_figure_3.html"><a href="script-hortacsu_figure_3.html"><i class="fa fa-check"></i><b>18</b> Script: hortacsu_figure_3.R</a></li>
+<li class="chapter" data-level="19" data-path="script-regress_lecture.html"><a href="script-regress_lecture.html"><i class="fa fa-check"></i><b>19</b> Script: regress_lecture.R</a></li>
+<li class="chapter" data-level="20" data-path="script-exe_calories.html"><a href="script-exe_calories.html"><i class="fa fa-check"></i><b>20</b> Script: exe_calories.R</a></li>
+<li class="chapter" data-level="21" data-path="script-bundesliga.html"><a href="script-bundesliga.html"><i class="fa fa-check"></i><b>21</b> Script: bundesliga.R</a></li>
+<li class="chapter" data-level="22" data-path="script-exe_okun_solution.html"><a href="script-exe_okun_solution.html"><i class="fa fa-check"></i><b>22</b> Script: exe_okun_solution.R</a></li>
+<li class="chapter" data-level="23" data-path="script-exe_zipf_solution.html"><a href="script-exe_zipf_solution.html"><i class="fa fa-check"></i><b>23</b> Script: exe_zipf_solution.R</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li>&copy; Prof. Dr. Stephan Huber.</li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><p><img src="fig/cover.png" style="width:8cm" /><br />
+How to Use R for Data Science</p></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="script-regress_lecture.r" class="section level1 hasAnchor" number="19">
+<h1><span class="header-section-number">19</span> Script: regress_lecture.R<a href="script-regress_lecture.html#script-regress_lecture.r" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="script-regress_lecture.html#cb417-1" tabindex="-1"></a><span class="do">## ---- echo = TRUE--------------------------------------------------</span></span>
+<span id="cb417-2"><a href="script-regress_lecture.html#cb417-2" tabindex="-1"></a><span class="co"># install and load packages</span></span>
+<span id="cb417-3"><a href="script-regress_lecture.html#cb417-3" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span>
+<span id="cb417-4"><a href="script-regress_lecture.html#cb417-4" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, haven)</span>
+<span id="cb417-5"><a href="script-regress_lecture.html#cb417-5" tabindex="-1"></a></span>
+<span id="cb417-6"><a href="script-regress_lecture.html#cb417-6" tabindex="-1"></a>classdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv&quot;</span>)</span>
+<span id="cb417-7"><a href="script-regress_lecture.html#cb417-7" tabindex="-1"></a></span>
+<span id="cb417-8"><a href="script-regress_lecture.html#cb417-8" tabindex="-1"></a><span class="fu">head</span>(classdata)</span></code></pre></div>
+<pre><code>##   id sex weight height siblings row
+## 1  1   w     53    156        1   g
+## 2  2   w     73    170        1   g
+## 3  3   m     68    169        1   g
+## 4  4   w     67    166        1   g
+## 5  5   w     65    175        1   g
+## 6  6   w     48    161        0   g</code></pre>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb419-1"><a href="script-regress_lecture.html#cb419-1" tabindex="-1"></a><span class="do">## ---- echo = TRUE--------------------------------------------------</span></span>
+<span id="cb419-2"><a href="script-regress_lecture.html#cb419-2" tabindex="-1"></a></span>
+<span id="cb419-3"><a href="script-regress_lecture.html#cb419-3" tabindex="-1"></a><span class="fu">summary</span>(classdata)</span></code></pre></div>
+<pre><code>##        id           sex                weight          height         siblings         row           
+##  Min.   : 1.0   Length:23          Min.   :48.00   Min.   :156.0   Min.   :0.000   Length:23         
+##  1st Qu.: 6.5   Class :character   1st Qu.:64.50   1st Qu.:168.0   1st Qu.:1.000   Class :character  
+##  Median :12.0   Mode  :character   Median :70.00   Median :175.0   Median :1.000   Mode  :character  
+##  Mean   :12.0                      Mean   :70.61   Mean   :173.7   Mean   :1.391                     
+##  3rd Qu.:17.5                      3rd Qu.:81.00   3rd Qu.:180.0   3rd Qu.:2.000                     
+##  Max.   :23.0                      Max.   :90.00   Max.   :194.0   Max.   :4.000</code></pre>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb421-1"><a href="script-regress_lecture.html#cb421-1" tabindex="-1"></a><span class="do">## ----pressure, echo=TRUE-------------------------------------------</span></span>
+<span id="cb421-2"><a href="script-regress_lecture.html#cb421-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb421-3"><a href="script-regress_lecture.html#cb421-3" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x=</span>height, <span class="at">y=</span>weight)) <span class="sc">+</span> <span class="fu">geom_point</span>() </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-168-1.png" width="672" /></p>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="script-regress_lecture.html#cb422-1" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
+<span id="cb422-2"><a href="script-regress_lecture.html#cb422-2" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x=</span>height, <span class="at">y=</span>weight)) <span class="sc">+</span></span>
+<span id="cb422-3"><a href="script-regress_lecture.html#cb422-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb422-4"><a href="script-regress_lecture.html#cb422-4" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">formula=</span>y<span class="sc">~</span>x, <span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">colour=</span><span class="st">&quot;red&quot;</span>, <span class="at">linetype=</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-168-2.png" width="672" /></p>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="script-regress_lecture.html#cb423-1" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
+<span id="cb423-2"><a href="script-regress_lecture.html#cb423-2" tabindex="-1"></a><span class="do">## baseline regression  model</span></span>
+<span id="cb423-3"><a href="script-regress_lecture.html#cb423-3" tabindex="-1"></a>model  <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex , <span class="at">data =</span> classdata )</span>
+<span id="cb423-4"><a href="script-regress_lecture.html#cb423-4" tabindex="-1"></a><span class="fu">show</span>(model)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = weight ~ height + sex, data = classdata)
+## 
+## Coefficients:
+## (Intercept)       height         sexw  
+##    -29.5297       0.5923      -5.7894</code></pre>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="script-regress_lecture.html#cb425-1" tabindex="-1"></a>interm <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">1</span>] </span>
+<span id="cb425-2"><a href="script-regress_lecture.html#cb425-2" tabindex="-1"></a>slope  <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">2</span>]</span>
+<span id="cb425-3"><a href="script-regress_lecture.html#cb425-3" tabindex="-1"></a>interw <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">1</span>]<span class="sc">+</span>model<span class="sc">$</span>coefficients[<span class="dv">3</span>] </span>
+<span id="cb425-4"><a href="script-regress_lecture.html#cb425-4" tabindex="-1"></a></span>
+<span id="cb425-5"><a href="script-regress_lecture.html#cb425-5" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
+<span id="cb425-6"><a href="script-regress_lecture.html#cb425-6" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = weight ~ height + sex, data = classdata)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -17.086  -3.730   2.850   7.245  12.914 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept) -29.5297    47.6606  -0.620   0.5425  
+## height        0.5923     0.2671   2.217   0.0383 *
+## sexw         -5.7894     4.4773  -1.293   0.2107  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 8.942 on 20 degrees of freedom
+## Multiple R-squared:  0.4124, Adjusted R-squared:  0.3537 
+## F-statistic: 7.019 on 2 and 20 DF,  p-value: 0.004904</code></pre>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="script-regress_lecture.html#cb427-1" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
+<span id="cb427-2"><a href="script-regress_lecture.html#cb427-2" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x=</span>height, <span class="at">y=</span>weight, <span class="at">shape =</span> sex)) <span class="sc">+</span></span>
+<span id="cb427-3"><a href="script-regress_lecture.html#cb427-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb427-4"><a href="script-regress_lecture.html#cb427-4" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope, <span class="at">intercept =</span> interw, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">size=</span><span class="fl">1.5</span>)<span class="sc">+</span></span>
+<span id="cb427-5"><a href="script-regress_lecture.html#cb427-5" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope, <span class="at">intercept =</span> interm, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">size=</span><span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb427-6"><a href="script-regress_lecture.html#cb427-6" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fu">coef</span>(model)[[<span class="dv">2</span>]], <span class="at">intercept =</span> <span class="fu">coef</span>(model)[[<span class="dv">1</span>]]) </span></code></pre></div>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-168-3.png" width="672" /></p>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="script-regress_lecture.html#cb429-1" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
+<span id="cb429-2"><a href="script-regress_lecture.html#cb429-2" tabindex="-1"></a></span>
+<span id="cb429-3"><a href="script-regress_lecture.html#cb429-3" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x=</span>height, <span class="at">y=</span>weight, <span class="at">shape =</span> sex)) <span class="sc">+</span></span>
+<span id="cb429-4"><a href="script-regress_lecture.html#cb429-4" tabindex="-1"></a>  <span class="fu">geom_point</span>( <span class="fu">aes</span>(<span class="at">size =</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb429-5"><a href="script-regress_lecture.html#cb429-5" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x,  <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, </span>
+<span id="cb429-6"><a href="script-regress_lecture.html#cb429-6" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="at">linetype =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-168-4.png" width="672" /></p>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="script-regress_lecture.html#cb430-1" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
+<span id="cb430-2"><a href="script-regress_lecture.html#cb430-2" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x=</span>height, <span class="at">y=</span>weight, <span class="at">shape =</span> sex)) <span class="sc">+</span></span>
+<span id="cb430-3"><a href="script-regress_lecture.html#cb430-3" tabindex="-1"></a>  <span class="fu">geom_point</span>( <span class="fu">aes</span>(<span class="at">size =</span> siblings)) </span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-168-5.png" width="672" /></p>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="script-regress_lecture.html#cb431-1" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
+<span id="cb431-2"><a href="script-regress_lecture.html#cb431-2" tabindex="-1"></a><span class="do">## baseline model</span></span>
+<span id="cb431-3"><a href="script-regress_lecture.html#cb431-3" tabindex="-1"></a>model  <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex , <span class="at">data =</span> classdata )</span>
+<span id="cb431-4"><a href="script-regress_lecture.html#cb431-4" tabindex="-1"></a></span>
+<span id="cb431-5"><a href="script-regress_lecture.html#cb431-5" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x=</span>height, <span class="at">y=</span>weight, <span class="at">shape =</span> sex)) <span class="sc">+</span></span>
+<span id="cb431-6"><a href="script-regress_lecture.html#cb431-6" tabindex="-1"></a>  <span class="fu">geom_point</span>( <span class="fu">aes</span>(<span class="at">size =</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb431-7"><a href="script-regress_lecture.html#cb431-7" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x,  </span>
+<span id="cb431-8"><a href="script-regress_lecture.html#cb431-8" tabindex="-1"></a>              <span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, </span>
+<span id="cb431-9"><a href="script-regress_lecture.html#cb431-9" tabindex="-1"></a>              <span class="at">se =</span> T, </span>
+<span id="cb431-10"><a href="script-regress_lecture.html#cb431-10" tabindex="-1"></a>              <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>, </span>
+<span id="cb431-11"><a href="script-regress_lecture.html#cb431-11" tabindex="-1"></a>              <span class="at">linetype =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-168-6.png" width="672" /></p>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="script-regress_lecture.html#cb432-1" tabindex="-1"></a><span class="do">## ---- echo=TRUE, results=&#39;hide&#39;------------------------------------</span></span>
+<span id="cb432-2"><a href="script-regress_lecture.html#cb432-2" tabindex="-1"></a></span>
+<span id="cb432-3"><a href="script-regress_lecture.html#cb432-3" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height , <span class="at">data =</span> classdata )</span>
+<span id="cb432-4"><a href="script-regress_lecture.html#cb432-4" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex , <span class="at">data =</span> classdata )</span>
+<span id="cb432-5"><a href="script-regress_lecture.html#cb432-5" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex <span class="sc">+</span> height <span class="sc">*</span> sex , <span class="at">data =</span> classdata )</span>
+<span id="cb432-6"><a href="script-regress_lecture.html#cb432-6" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex <span class="sc">+</span> height <span class="sc">*</span> sex <span class="sc">+</span> siblings , <span class="at">data =</span> classdata )</span>
+<span id="cb432-7"><a href="script-regress_lecture.html#cb432-7" tabindex="-1"></a>m5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex <span class="sc">+</span> height <span class="sc">*</span> sex , <span class="at">data =</span> <span class="fu">subset</span>(classdata, siblings <span class="sc">&lt;</span> <span class="dv">4</span> ))</span>
+<span id="cb432-8"><a href="script-regress_lecture.html#cb432-8" tabindex="-1"></a></span>
+<span id="cb432-9"><a href="script-regress_lecture.html#cb432-9" tabindex="-1"></a><span class="fu">library</span>(sjPlot)</span>
+<span id="cb432-10"><a href="script-regress_lecture.html#cb432-10" tabindex="-1"></a><span class="fu">tab_model</span>(m1, m2, m3, m4, m5,</span>
+<span id="cb432-11"><a href="script-regress_lecture.html#cb432-11" tabindex="-1"></a>          <span class="at">p.style =</span> <span class="st">&quot;stars&quot;</span>,</span>
+<span id="cb432-12"><a href="script-regress_lecture.html#cb432-12" tabindex="-1"></a>          <span class="at">p.threshold =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>),</span>
+<span id="cb432-13"><a href="script-regress_lecture.html#cb432-13" tabindex="-1"></a>          <span class="at">show.ci =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb432-14"><a href="script-regress_lecture.html#cb432-14" tabindex="-1"></a>          <span class="at">show.se =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+weight
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+weight
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+weight
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+weight
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+weight
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictors
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-65.44 <sup>*</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-29.53 <sup></sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+47.14 <sup></sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+50.27 <sup></sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+27.69 <sup></sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+height
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.78 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.59 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.16 <sup></sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.16 <sup></sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.28 <sup></sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+sex [w]
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-5.79 <sup></sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-153.96 <sup>**</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-161.92 <sup>**</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-134.51 <sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+height × sex [w]
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.85 <sup>*</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.89 <sup>*</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.74 <sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+siblings
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-1.16 <sup></sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+23
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+23
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+23
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+23
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+21
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+R<sup>2</sup> / R<sup>2</sup> adjusted
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.363 / 0.333
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.412 / 0.354
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.487 / 0.407
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.496 / 0.385
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.572 / 0.497
+</td>
+</tr>
+<tr>
+<td colspan="6" style="font-style:italic; border-top:double black; text-align:right;">
+<ul>
+<li>p&lt;0.2   ** p&lt;0.1   *** p&lt;0.05
+</td>
+</tr></li>
+</ul>
+</table>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="script-regress_lecture.html#cb433-1" tabindex="-1"></a><span class="do">## ---- echo=FALSE---------------------------------------------------</span></span>
+<span id="cb433-2"><a href="script-regress_lecture.html#cb433-2" tabindex="-1"></a><span class="fu">tab_model</span>(m1, m2, m3, m4, </span>
+<span id="cb433-3"><a href="script-regress_lecture.html#cb433-3" tabindex="-1"></a>          <span class="at">p.style =</span> <span class="st">&quot;stars&quot;</span>,</span>
+<span id="cb433-4"><a href="script-regress_lecture.html#cb433-4" tabindex="-1"></a>          <span class="at">p.threshold =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>),</span>
+<span id="cb433-5"><a href="script-regress_lecture.html#cb433-5" tabindex="-1"></a>          <span class="at">show.ci =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb433-6"><a href="script-regress_lecture.html#cb433-6" tabindex="-1"></a>          <span class="at">show.se =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+weight
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+weight
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+weight
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+weight
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictors
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-65.44 <sup>*</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-29.53 <sup></sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+47.14 <sup></sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+50.27 <sup></sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+height
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.78 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.59 <sup>***</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.16 <sup></sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.16 <sup></sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+sex [w]
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-5.79 <sup></sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-153.96 <sup>**</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-161.92 <sup>**</sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+height × sex [w]
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.85 <sup>*</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.89 <sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+siblings
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-1.16 <sup></sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+23
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+23
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+23
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+23
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+R<sup>2</sup> / R<sup>2</sup> adjusted
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.363 / 0.333
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.412 / 0.354
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.487 / 0.407
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.496 / 0.385
+</td>
+</tr>
+<tr>
+<td colspan="5" style="font-style:italic; border-top:double black; text-align:right;">
+<ul>
+<li>p&lt;0.2   ** p&lt;0.1   *** p&lt;0.05
+</td>
+</tr></li>
+</ul>
+</table>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="script-regress_lecture.html#cb434-1" tabindex="-1"></a><span class="do">## ---- echo=FALSE---------------------------------------------------</span></span>
+<span id="cb434-2"><a href="script-regress_lecture.html#cb434-2" tabindex="-1"></a><span class="fu">tab_model</span>(m3, m5,</span>
+<span id="cb434-3"><a href="script-regress_lecture.html#cb434-3" tabindex="-1"></a>          <span class="at">p.style =</span> <span class="st">&quot;stars&quot;</span>,</span>
+<span id="cb434-4"><a href="script-regress_lecture.html#cb434-4" tabindex="-1"></a>          <span class="at">p.threshold =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>),</span>
+<span id="cb434-5"><a href="script-regress_lecture.html#cb434-5" tabindex="-1"></a>          <span class="at">show.ci =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb434-6"><a href="script-regress_lecture.html#cb434-6" tabindex="-1"></a>          <span class="at">show.se =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
+<table style="border-collapse:collapse; border:none;">
+<tr>
+<th style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm;  text-align:left; ">
+ 
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+weight
+</th>
+<th colspan="1" style="border-top: double; text-align:center; font-style:normal; font-weight:bold; padding:0.2cm; ">
+weight
+</th>
+</tr>
+<tr>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  text-align:left; ">
+Predictors
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+<td style=" text-align:center; border-bottom:1px solid; font-style:italic; font-weight:normal;  ">
+Estimates
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+(Intercept)
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+47.14 <sup></sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+27.69 <sup></sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+height
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.16 <sup></sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.28 <sup></sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+sex [w]
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-153.96 <sup>**</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+-134.51 <sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; ">
+height × sex [w]
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.85 <sup>*</sup>
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:center;  ">
+0.74 <sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm; border-top:1px solid;">
+Observations
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+23
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left; border-top:1px solid;" colspan="1">
+21
+</td>
+</tr>
+<tr>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; text-align:left; padding-top:0.1cm; padding-bottom:0.1cm;">
+R<sup>2</sup> / R<sup>2</sup> adjusted
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.487 / 0.407
+</td>
+<td style=" padding:0.2cm; text-align:left; vertical-align:top; padding-top:0.1cm; padding-bottom:0.1cm; text-align:left;" colspan="1">
+0.572 / 0.497
+</td>
+</tr>
+<tr>
+<td colspan="3" style="font-style:italic; border-top:double black; text-align:right;">
+<ul>
+<li>p&lt;0.2   ** p&lt;0.1   *** p&lt;0.05
+</td>
+</tr></li>
+</ul>
+</table>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="script-regress_lecture.html#cb435-1" tabindex="-1"></a><span class="do">## ---- echo=T-------------------------------------------------------</span></span>
+<span id="cb435-2"><a href="script-regress_lecture.html#cb435-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">residuals</span>(m3), <span class="fu">fitted</span>(m3))</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-168-7.png" width="672" /></p>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="script-regress_lecture.html#cb436-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">residuals</span>(m3), classdata<span class="sc">$</span>siblings)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-168-8.png" width="672" /></p>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="script-regress_lecture.html#cb437-1" tabindex="-1"></a><span class="do">## ----eval=FALSE----------------------------------------------------</span></span>
+<span id="cb437-2"><a href="script-regress_lecture.html#cb437-2" tabindex="-1"></a><span class="co">#  rmarkdown::render(&quot;regress_lecture.Rmd&quot;, &quot;all&quot;)</span></span>
+<span id="cb437-3"><a href="script-regress_lecture.html#cb437-3" tabindex="-1"></a></span>
+<span id="cb437-4"><a href="script-regress_lecture.html#cb437-4" tabindex="-1"></a><span class="co">#  unload packages</span></span>
+<span id="cb437-5"><a href="script-regress_lecture.html#cb437-5" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_unload</span>(tidyverse, haven)</span></code></pre></div>
+<pre><code>## The following packages have been unloaded:
+## tidyverse, haven</code></pre>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="script-hortacsu_figure_3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="script-exe_calories.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

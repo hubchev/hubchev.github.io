@@ -13,11 +13,12 @@ fig_nums <- captioner()
 
 
 
+## > q()
+## Save workspace image? [y/n/c]:
 
+## > q(save = "no")
 
-
-
-## install.packages("ggplot2")
+## install.packages("package_name")
 
 ## library("ggplot2")
 
@@ -45,11 +46,6 @@ fig_nums <- captioner()
 ## )
 
 ## if (!require(pacman)) install.packages("pacman")
-
-## > q()
-## Save workspace image? [y/n/c]:
-
-## > q(save = "no")
 
 ## install.packages("swirl")
 ## library("swirl")
@@ -170,10 +166,6 @@ growth_rate <- function(x)(x/lag(x)-1)*100
 growth_rate(revenue)
 sales_gr_rate <- growth_rate(revenue)
 sales_gr_rate
-
-c(NA, diff(revenue)/head(revenue, -1))*100        
-(revenue/c(NA,revenue[-length(revenue)])-1)*100
-
 
 ## install.packages("tidyverse")
 ## library("tidyverse")
@@ -741,8 +733,8 @@ plot(dfger$gdppc, dfger$unemployment, type = "b",
 
 # load packages
 if (!require(pacman)) install.packages("pacman")
-pacman::p_unload(all)
-setwd("~/Dropbox/hsf/exams/24-01/Rmd")
+# pacman::p_unload(all)
+# setwd("~/Dropbox/hsf/exams/24-01/Rmd")
 
 rm(list=ls())
 
