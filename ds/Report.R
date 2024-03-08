@@ -47,6 +47,8 @@ fig_nums <- captioner()
 
 ## if (!require(pacman)) install.packages("pacman")
 
+## pacman::p_unload(all)
+
 ## install.packages("swirl")
 ## library("swirl")
 ## install_course_github("hubchev", "swirl-it")
