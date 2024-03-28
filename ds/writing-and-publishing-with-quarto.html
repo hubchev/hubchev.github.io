@@ -4,19 +4,19 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Visualizing data |  How to Use R for Data Science</title>
+  <title>8 Writing and publishing with Quarto |  How to Use R for Data Science</title>
   <meta name="description" content="<br />
 How to Use R for Data Science</p>" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Visualizing data |  How to Use R for Data Science" />
+  <meta property="og:title" content="8 Writing and publishing with Quarto |  How to Use R for Data Science" />
   <meta property="og:type" content="book" />
   <meta property="og:image" content="https://hubchev.github.io/ds/fig/cover_transparent.png" />
   
   <meta name="github-repo" content="hubchev/hubchev.github.io" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Visualizing data |  How to Use R for Data Science" />
+  <meta name="twitter:title" content="8 Writing and publishing with Quarto |  How to Use R for Data Science" />
   
   
   <meta name="twitter:image" content="https://hubchev.github.io/ds/fig/cover_transparent.png" />
@@ -30,8 +30,8 @@ How to Use R for Data Science</p>" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="work-with-r-scripts.html"/>
-<link rel="next" href="manage-data.html"/>
+<link rel="prev" href="write-with-r-markdown.html"/>
+<link rel="next" href="appendix.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -328,45 +328,93 @@ How to Use R for Data Science</p></a>
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="visualizing-data" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">4</span> Visualizing data<a href="visualizing-data.html#visualizing-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Data visualization is an art. The purposes of visualizing data are manifold. You can emphasize facts, get known to data, detect anomalies, and communicate a large amount of infirmation simply and intuitive. Whatever your goal is, thousand of appropiate ways exist to visualize data. Many decisions to take are simply a matter of taste. However, there are some conventions and guidelines that help you to make on average better decisions when designing a visualization:</p>
-<ul>
-<li>Good graphs are easy to understand and eye catching.</li>
-<li>Graphs can be misleading and manipulative and that is opposing to the ideas of science. Thus, be responsible and honest.</li>
-<li>Minimize colors and other attention-grabbing elements that are not directly related to the data of interest. Worldwide, there are approximately 300 million color blind people. In particular, red, green or blue light are problematic to color blind people. Thus, better rely on color schemes that are designed for colorblind people.</li>
-<li>Don’t truncate an axis or change the scaling within an axis just to make you your story more appealing. Show the full scale of the graph, then zoom to show the data of interest, if necessary.</li>
-<li>Label and describe your chart sufficiently so that everybody can fully understand the content of the shown data set and statistics without having to study the notes of the graph for too long.</li>
-<li>Don’t do pie charts. They may look simple, but they’re tricky to get right and there are usually better alternatives. Humans are not very good at comparing the size of angles and as there’s no scale in pie plots, reading accurate values is difficult. Figure <a href="#fig:piebad">4.1</a> may proof this.</li>
-<li>For more tips, see:
-<ul>
-<li><a href="https://guides.library.duke.edu/datavis/topten">Data Visualization: Chart Dos and Don’ts (by Duke University)</a></li>
-</ul></li>
-<li><a href="https://www.kirchkamp.de/graph/">Graphs and Visualising Data</a> by Oliver Kirchkamp. In particular, I highly recommend his <a href="https://www.kirchkamp.de/oekonometrie/pdf/gra-p.pdf">handout</a> <span class="citation">(<a href="references.html#ref-Kirchkamp2018Using">Kirchkamp, 2018</a>)</span>. It discusses many pitfalls of visualizing data, instructs how to do good graphs, and he shows the corresponding R code of all graphs.<br />
-</li>
-<li>The <a href="https://www.r-graph-gallery.com">R Graph Gallery</a> offers shows graphs and the corresponding R code to replicate the graphs</li>
-<li>The work of <a href="www.edwardtufte.com">Edward Tufte</a> and his book <em>The Visual Display of Quantitative Information</em> <span class="citation">(<a href="references.html#ref-Tufte2022Visual">Tufte, 2022</a>)</span> are classical readings.</li>
-</ul>
-<div class="float">
-<img src="fig/piebad.jpeg" style="width:70.0%" alt=" Pie charts are problematic" />
-<div class="figcaption"> Pie charts are problematic<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></div>
+<div id="writing-and-publishing-with-quarto" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Writing and publishing with Quarto<a href="writing-and-publishing-with-quarto.html#writing-and-publishing-with-quarto" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="writing-a-manuscript-paper-thesis-with-quarto" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Writing a manuscript (paper, thesis) with Quarto<a href="writing-and-publishing-with-quarto.html#writing-a-manuscript-paper-thesis-with-quarto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Writing is a significant academic skill. Choosing the right tools can make the process more efficient and your presentation more impactful. Quarto, a modern documentation system, is an excellent choice for thesis writing, especially for projects that require rigorous data analysis, visualization, and reproducibility. This tutorial will guide you through writing your thesis with Quarto, including how to create a supporting website for your thesis.</p>
+<div id="step-1-learn-markdown" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Step 1: Learn Markdown<a href="writing-and-publishing-with-quarto.html#step-1-learn-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Markdown is a lightweight markup language with plain-text formatting syntax. It’s an essential skill for using Quarto effectively. Start by learning enough Markdown to structure your thesis, including headings, lists, links, and code blocks.</p>
+<p>You can learn Markdown (not R Markdown!) in 10 minutes. Just go to <a href="https://www.markdowntutorial.com" class="uri">https://www.markdowntutorial.com</a> and work throught the interactive lessons.</p>
 </div>
-<p>When it comes to data visualization, there’s no better resource than the book by <span class="citation">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R">2023</a>)</span>. It introduces the ggplot function which is part of the ggplot2 package which, in turn, is part of the tidyverse package. Thus, if you’ve installed and loaded tidyverse, you automatically have access to ggplot. Creating beautiful and informative graphs is easy with ggplot. To proof that claim, study section 2 (<a href="https://r4ds.hadley.nz/data-visualize.html">Data visualization</a>) of <span class="citation">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R">2023</a>)</span>. To reap the best benefits from studying, I recommend to copy all the code that is shown in the book into a R script and try to run it on your PC. That is the best way to learn, understand, and create your own notes that may guide you later on. Whenever you see interesting code somewhere, try to run it on your PC. Moreover, I recommend the exercises of the book, they are challenging sometimes but to really understand code you need to run code yourself.</p>
+<div id="step-2-learn-quarto" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Step 2: Learn Quarto<a href="writing-and-publishing-with-quarto.html#step-2-learn-quarto" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Read <span class="citation">Telford (<a href="references.html#ref-Telford2023Markdown">2023</a>)</span>: <a href="https://biostats-r.github.io/biostats/quarto/">Enough Markdown to Write a Thesis</a>. This resource covers the basics and some advanced Markdown features that are useful for academic writing.</p>
+<p>More extensive resources on how to do things with Quarto can be found at <a href="https://quarto.org/docs/guide/">quarto.org</a>.</p>
+</div>
+</div>
+<div id="create-and-host-a-website-with-quarto-and-github" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Create and host a website with Quarto and GitHub<a href="writing-and-publishing-with-quarto.html#create-and-host-a-website-with-quarto-and-github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="creating-a-website-with-quarto" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Creating a Website with Quarto<a href="writing-and-publishing-with-quarto.html#creating-a-website-with-quarto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This tutorial guides you through creating a simple, yet professional-looking website using Quarto, a powerful tool for dynamic content generation.</p>
+<div id="step-1-install-quarto" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Step 1: Install Quarto<a href="writing-and-publishing-with-quarto.html#step-1-install-quarto" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ensure Quarto is installed on your system. If not, download and install it from <a href="https://quarto.org/">Quarto’s official website</a>.</p>
+</div>
+</div>
+<div id="step-2-create-a-website" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Step 2: Create a website<a href="writing-and-publishing-with-quarto.html#step-2-create-a-website" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Follow the tutorial that you find <a href="https://quarto.org/docs/websites/">here</a>.</p>
+</div>
+<div id="hosting-the-website-on-github" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Hosting the website on GitHub<a href="writing-and-publishing-with-quarto.html#hosting-the-website-on-github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="step-1-create-a-github-account" class="section level3 hasAnchor" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Step 1: Create a GitHub Account<a href="writing-and-publishing-with-quarto.html#step-1-create-a-github-account" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>GitHub will host your thesis website and manage version control for your thesis project. If you don’t already have a GitHub account, you’ll need to create one: Sign up at <a href="https://github.com/">GitHub</a>.</p>
+</div>
+</div>
+<div id="step-2-create-a-reopository" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Step 2: Create a reopository<a href="writing-and-publishing-with-quarto.html#step-2-create-a-reopository" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Create a repository. Name the repo with your username followed by <em>github.io</em>. You find a tutorial <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-a-repository-for-your-site">here</a>.</p>
+</div>
+<div id="step-3-obtain-a-personal-access-token" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> Step 3: Obtain a Personal Access Token<a href="writing-and-publishing-with-quarto.html#step-3-obtain-a-personal-access-token" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A personal access token (PAT) is required to authenticate with GitHub from Quarto and RStudio. This token allows you to push changes to your repository securely.</p>
+<ul>
+<li><strong>Guide</strong>: Follow the instructions to <a href="https://docs.github.com/en/enterprise-server@3.9/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">create a personal access token on GitHub</a>.</li>
+</ul>
+<p>Make sure to note down your token and keep it secure. You’ll use this token in RStudio and Quarto to authenticate your GitHub operations.</p>
+</div>
+<div id="step-4-use-git-in-rstudio" class="section level2 hasAnchor" number="8.8">
+<h2><span class="header-section-number">8.8</span> Step 4: Use Git in RStudio<a href="writing-and-publishing-with-quarto.html#step-4-use-git-in-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>RStudio is an integrated development environment (IDE) for R. It has excellent support for Git, making it easier to manage your thesis project’s version control.</p>
+<ul>
+<li><strong>Setup</strong>: If you haven’t already, configure Git in RStudio. You’ll need to provide your GitHub username, email, and the personal access token you generated in the previous step.</li>
+</ul>
+<p>For detailed instructions on configuring Git in RStudio, refer to RStudio’s documentation on version control.</p>
+</div>
+<div id="step-5-publish-your-thesis-as-a-website-with-quarto" class="section level2 hasAnchor" number="8.9">
+<h2><span class="header-section-number">8.9</span> Step 5: Publish Your Thesis as a Website with Quarto<a href="writing-and-publishing-with-quarto.html#step-5-publish-your-thesis-as-a-website-with-quarto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Quarto makes it straightforward to publish your thesis as a website, which can be hosted on GitHub Pages.</p>
+<ul>
+<li><strong>Tutorial</strong>: Follow the steps outlined in <a href="https://quarto.org/docs/publishing/github-pages.html">Publishing with GitHub Pages</a> to publish your thesis.</li>
+</ul>
+<p>This process involves:</p>
+<ol style="list-style-type: decimal">
+<li>Creating a Quarto project for your thesis in RStudio.</li>
+<li>Writing your thesis in Quarto files (<code>.qmd</code>).</li>
+<li>Using Quarto commands to render your thesis as a website.</li>
+<li>Pushing your thesis website to a GitHub repository.</li>
+<li>Configuring GitHub Pages to serve your thesis website.</li>
+</ol>
+<p>Throughout your writing process, remember to commit changes to your Git repository regularly. This habit not only backs up your work but also helps you track revisions and collaborate with others if needed.</p>
+</div>
+<div id="conclusion" class="section level2 hasAnchor" number="8.10">
+<h2><span class="header-section-number">8.10</span> Conclusion<a href="writing-and-publishing-with-quarto.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>By following these steps, you’ll have a solid foundation for writing and presenting your thesis using Quarto and GitHub. This approach not only leverages powerful tools for academic writing but also helps you share your work with a broader audience through a dedicated website.</p>
 
 </div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Picture is taken from <a href="https://en.wikipedia.org/wiki/Pie_chart" class="uri">https://en.wikipedia.org/wiki/Pie_chart</a><a href="visualizing-data.html#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="work-with-r-scripts.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="manage-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="write-with-r-markdown.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

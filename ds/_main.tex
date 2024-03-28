@@ -168,7 +168,7 @@ How to Use R for Data Science}
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 22 March, 2024}
+\date{Last compiled on 28 March, 2024}
 
 \begin{document}
 \maketitle
@@ -1425,14 +1425,10 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##   iso3c date        value    indicatorID         indicator iso2c
-## 1   AFE 2022 1.185138e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH
-## 2   AFE 2021 1.086531e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH
-## 3   AFE 2020 9.288802e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH
-##                       country
-## 1 Africa Eastern and Southern
-## 2 Africa Eastern and Southern
-## 3 Africa Eastern and Southern
+##   iso3c date        value    indicatorID         indicator iso2c                     country
+## 1   AFE 2022 1.185138e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+## 2   AFE 2021 1.086531e+12 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
+## 3   AFE 2020 9.288802e+11 NY.GDP.MKTP.CD GDP (current US$)    ZH Africa Eastern and Southern
 \end{verbatim}
 
 \begin{Shaded}
@@ -1444,13 +1440,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \begin{verbatim}
 ## Rows: 13,198
 ## Columns: 7
-## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE"~
-## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017",~
-## $ value       <dbl> 1.185138e+12, 1.086531e+12, 9.288802e+11, 1.006~
-## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKT~
-## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP ~
-## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH",~
-## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern ~
+## $ iso3c       <chr> "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AF~
+## $ date        <chr> "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010", "2009", "2008", "2~
+## $ value       <dbl> 1.185138e+12, 1.086531e+12, 9.288802e+11, 1.006191e+12, 1.012521e+12, 1.028394e+12, 8.900514e+11, 9.325135e+11, 1.006992e+~
+## $ indicatorID <chr> "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.CD", "NY.GDP.MKTP.C~
+## $ indicator   <chr> "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$)", "GDP (current US$~
+## $ iso2c       <chr> "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "ZH", "Z~
+## $ country     <chr> "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern", "Africa Eastern and Southern"~
 \end{verbatim}
 
 \begin{Shaded}
@@ -1460,27 +1456,13 @@ An API which stands for \emph{application programming interface} specifies how c
 \end{Shaded}
 
 \begin{verbatim}
-##     iso3c               date               value          
-##  Length:13198       Length:13198       Min.   :8.825e+06  
-##  Class :character   Class :character   1st Qu.:2.435e+09  
-##  Mode  :character   Mode  :character   Median :1.786e+10  
-##                                        Mean   :1.224e+12  
-##                                        3rd Qu.:2.264e+11  
-##                                        Max.   :1.009e+14  
-##  indicatorID         indicator            iso2c          
-##  Length:13198       Length:13198       Length:13198      
-##  Class :character   Class :character   Class :character  
-##  Mode  :character   Mode  :character   Mode  :character  
-##                                                          
-##                                                          
-##                                                          
-##    country         
-##  Length:13198      
-##  Class :character  
-##  Mode  :character  
-##                    
-##                    
-## 
+##     iso3c               date               value           indicatorID         indicator            iso2c             country         
+##  Length:13198       Length:13198       Min.   :8.825e+06   Length:13198       Length:13198       Length:13198       Length:13198      
+##  Class :character   Class :character   1st Qu.:2.435e+09   Class :character   Class :character   Class :character   Class :character  
+##  Mode  :character   Mode  :character   Median :1.786e+10   Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+##                                        Mean   :1.224e+12                                                                              
+##                                        3rd Qu.:2.264e+11                                                                              
+##                                        Max.   :1.009e+14
 \end{verbatim}
 
 \hypertarget{import-various-file-formats}{%
@@ -1560,21 +1542,11 @@ One difference between data frames and tibbles is that dataframes store the row 
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] "Mazda RX4"           "Mazda RX4 Wag"      
-##  [3] "Datsun 710"          "Hornet 4 Drive"     
-##  [5] "Hornet Sportabout"   "Valiant"            
-##  [7] "Duster 360"          "Merc 240D"          
-##  [9] "Merc 230"            "Merc 280"           
-## [11] "Merc 280C"           "Merc 450SE"         
-## [13] "Merc 450SL"          "Merc 450SLC"        
-## [15] "Cadillac Fleetwood"  "Lincoln Continental"
-## [17] "Chrysler Imperial"   "Fiat 128"           
-## [19] "Honda Civic"         "Toyota Corolla"     
-## [21] "Toyota Corona"       "Dodge Challenger"   
-## [23] "AMC Javelin"         "Camaro Z28"         
-## [25] "Pontiac Firebird"    "Fiat X1-9"          
-## [27] "Porsche 914-2"       "Lotus Europa"       
-## [29] "Ford Pantera L"      "Ferrari Dino"       
+##  [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"          "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"            
+##  [7] "Duster 360"          "Merc 240D"           "Merc 230"            "Merc 280"            "Merc 280C"           "Merc 450SE"         
+## [13] "Merc 450SL"          "Merc 450SLC"         "Cadillac Fleetwood"  "Lincoln Continental" "Chrysler Imperial"   "Fiat 128"           
+## [19] "Honda Civic"         "Toyota Corolla"      "Toyota Corona"       "Dodge Challenger"    "AMC Javelin"         "Camaro Z28"         
+## [25] "Pontiac Firebird"    "Fiat X1-9"           "Porsche 914-2"       "Lotus Europa"        "Ford Pantera L"      "Ferrari Dino"       
 ## [31] "Maserati Bora"       "Volvo 142E"
 \end{verbatim}
 
@@ -1639,12 +1611,11 @@ When we look at the data, we've lost the names of the cars. To store the these, 
 
 \begin{verbatim}
 ## # A tibble: 3 x 12
-##   car       mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear
-##   <chr>   <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
-## 1 Mazda ~  21       6   160   110  3.9   2.62  16.5     0     1     4
-## 2 Mazda ~  21       6   160   110  3.9   2.88  17.0     0     1     4
-## 3 Datsun~  22.8     4   108    93  3.85  2.32  18.6     1     1     4
-## # i 1 more variable: carb <dbl>
+##   car             mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
+##   <chr>         <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>
+## 1 Mazda RX4      21       6   160   110  3.9   2.62  16.5     0     1     4     4
+## 2 Mazda RX4 Wag  21       6   160   110  3.9   2.88  17.0     0     1     4     4
+## 3 Datsun 710     22.8     4   108    93  3.85  2.32  18.6     1     1     4     1
 \end{verbatim}
 
 \hypertarget{data-types}{%
@@ -1887,50 +1858,28 @@ Select rows where the number of cylinders is greater than or equal to 6:
 \end{Shaded}
 
 \begin{verbatim}
-##                      mpg cyl  disp  hp drat    wt  qsec vs am gear
-## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4
-## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4
-## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3
-## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3
-## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3
-## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3
-## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4
-## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4
-## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3
-## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3
-## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3
-## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3
-## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3
-## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3
-## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3
-## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3
-## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3
-## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3
-## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5
-## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5
-## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5
-##                     carb
-## Mazda RX4              4
-## Mazda RX4 Wag          4
-## Hornet 4 Drive         1
-## Hornet Sportabout      2
-## Valiant                1
-## Duster 360             4
-## Merc 280               4
-## Merc 280C              4
-## Merc 450SE             3
-## Merc 450SL             3
-## Merc 450SLC            3
-## Cadillac Fleetwood     4
-## Lincoln Continental    4
-## Chrysler Imperial      4
-## Dodge Challenger       2
-## AMC Javelin            2
-## Camaro Z28             4
-## Pontiac Firebird       2
-## Ford Pantera L         4
-## Ferrari Dino           6
-## Maserati Bora          8
+##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
 \end{verbatim}
 
 Select rows where the number of cylinders is either 4 or 6:
@@ -1993,52 +1942,29 @@ Select rows where the weight is less than 3.5 or the number of gears is greater 
 \end{Shaded}
 
 \begin{verbatim}
-##                    mpg cyl  disp  hp drat    wt  qsec vs am gear
-## Mazda RX4         21.0   6 160.0 110 3.90 2.620 16.46  0  1    4
-## Mazda RX4 Wag     21.0   6 160.0 110 3.90 2.875 17.02  0  1    4
-## Datsun 710        22.8   4 108.0  93 3.85 2.320 18.61  1  1    4
-## Hornet 4 Drive    21.4   6 258.0 110 3.08 3.215 19.44  1  0    3
-## Hornet Sportabout 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3
-## Valiant           18.1   6 225.0 105 2.76 3.460 20.22  1  0    3
-## Merc 240D         24.4   4 146.7  62 3.69 3.190 20.00  1  0    4
-## Merc 230          22.8   4 140.8  95 3.92 3.150 22.90  1  0    4
-## Merc 280          19.2   6 167.6 123 3.92 3.440 18.30  1  0    4
-## Merc 280C         17.8   6 167.6 123 3.92 3.440 18.90  1  0    4
-## Fiat 128          32.4   4  78.7  66 4.08 2.200 19.47  1  1    4
-## Honda Civic       30.4   4  75.7  52 4.93 1.615 18.52  1  1    4
-## Toyota Corolla    33.9   4  71.1  65 4.22 1.835 19.90  1  1    4
-## Toyota Corona     21.5   4 120.1  97 3.70 2.465 20.01  1  0    3
-## AMC Javelin       15.2   8 304.0 150 3.15 3.435 17.30  0  0    3
-## Fiat X1-9         27.3   4  79.0  66 4.08 1.935 18.90  1  1    4
-## Porsche 914-2     26.0   4 120.3  91 4.43 2.140 16.70  0  1    5
-## Lotus Europa      30.4   4  95.1 113 3.77 1.513 16.90  1  1    5
-## Ford Pantera L    15.8   8 351.0 264 4.22 3.170 14.50  0  1    5
-## Ferrari Dino      19.7   6 145.0 175 3.62 2.770 15.50  0  1    5
-## Maserati Bora     15.0   8 301.0 335 3.54 3.570 14.60  0  1    5
-## Volvo 142E        21.4   4 121.0 109 4.11 2.780 18.60  1  1    4
-##                   carb
-## Mazda RX4            4
-## Mazda RX4 Wag        4
-## Datsun 710           1
-## Hornet 4 Drive       1
-## Hornet Sportabout    2
-## Valiant              1
-## Merc 240D            2
-## Merc 230             2
-## Merc 280             4
-## Merc 280C            4
-## Fiat 128             1
-## Honda Civic          2
-## Toyota Corolla       1
-## Toyota Corona        1
-## AMC Javelin          2
-## Fiat X1-9            1
-## Porsche 914-2        2
-## Lotus Europa         2
-## Ford Pantera L       4
-## Ferrari Dino         6
-## Maserati Bora        8
-## Volvo 142E           2
+##                    mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Merc 240D         24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Merc 230          22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Merc 280          19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Merc 280C         17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Fiat 128          32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic       30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Toyota Corolla    33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Toyota Corona     21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## AMC Javelin       15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Fiat X1-9         27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2     26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Lotus Europa      30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Ford Pantera L    15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Ferrari Dino      19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Maserati Bora     15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Volvo 142E        21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
 \end{verbatim}
 
 Select rows where either mpg is greater than 25 or carb is less than 2, and the number of cylinders is either 4 or 8.
@@ -2209,72 +2135,39 @@ Here are some examples that may help to understand these functions:
 \end{Shaded}
 
 \begin{verbatim}
-##                      mpg cyl  disp  hp drat    wt  qsec vs am gear
-## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4
-## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4
-## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4
-## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5
-## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4
-## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5
-## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4
-## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4
-## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4
-## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3
-## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3
-## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4
-## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4
-## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4
-## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5
-## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4
-## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3
-## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3
-## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3
-## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4
-## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3
-## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3
-## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5
-## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3
-## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3
-## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3
-## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5
-## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3
-## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3
-## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3
-## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3
-## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3
-##                     carb
-## Toyota Corolla         1
-## Fiat 128               1
-## Honda Civic            2
-## Lotus Europa           2
-## Fiat X1-9              1
-## Porsche 914-2          2
-## Merc 240D              2
-## Datsun 710             1
-## Merc 230               2
-## Toyota Corona          1
-## Hornet 4 Drive         1
-## Volvo 142E             2
-## Mazda RX4              4
-## Mazda RX4 Wag          4
-## Ferrari Dino           6
-## Merc 280               4
-## Pontiac Firebird       2
-## Hornet Sportabout      2
-## Valiant                1
-## Merc 280C              4
-## Merc 450SL             3
-## Merc 450SE             3
-## Ford Pantera L         4
-## Dodge Challenger       2
-## Merc 450SLC            3
-## AMC Javelin            2
-## Maserati Bora          8
-## Chrysler Imperial      4
-## Duster 360             4
-## Camaro Z28             4
-## Cadillac Fleetwood     4
-## Lincoln Continental    4
+##                      mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+## Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+## Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+## Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+## Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+## Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+## Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+## Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+## Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+## Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+## Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+## Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+## Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+## Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+## Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+## Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+## Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+## Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+## Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+## Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+## Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+## Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+## Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+## Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+## AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+## Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+## Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+## Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+## Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+## Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
 \end{verbatim}
 
 \begin{Shaded}
@@ -2455,17 +2348,17 @@ Here are some examples that may help to understand these functions:
 \begin{verbatim}
 ## Rows: 32
 ## Columns: 11
-## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, ~
-## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, ~
-## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0,~
-## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 1~
-## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, ~
-## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570,~
-## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84,~
-## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, ~
-## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ~
-## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, ~
-## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, ~
+## $ mpg        <dbl> 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8, 16.4, 17.3, 15.2, 10.4, 10.4, 14.7, 32.4, 30.4, 33.9, 21.~
+## $ cyl        <dbl> 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8, 8, 8, 8, 4, 4, 4, 8, 6, 8, 4
+## $ disp       <dbl> 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 167.6, 167.6, 275.8, 275.8, 275.8, 472.0, 460.0, 440.0, 78.7~
+## $ horsepower <dbl> 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 180, 205, 215, 230, 66, 52, 65, 97, 150, 150, 245, 175, 66, 9~
+## $ drat       <dbl> 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92, 3.07, 3.07, 3.07, 2.93, 3.00, 3.23, 4.08, 4.93, 4.22, 3.7~
+## $ wt         <dbl> 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3.440, 3.440, 4.070, 3.730, 3.780, 5.250, 5.424, 5.345, 2.20~
+## $ qsec       <dbl> 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 18.30, 18.90, 17.40, 17.60, 18.00, 17.98, 17.82, 17.42, 19.4~
+## $ vs         <dbl> 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1
+## $ am         <dbl> 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1
+## $ gear       <dbl> 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4
+## $ carb       <dbl> 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2, 2, 4, 2, 1, 2, 2, 4, 6, 8, 2
 \end{verbatim}
 
 \hypertarget{how-to-explore-a-dataset}{%
@@ -2485,14 +2378,13 @@ Here are some examples that may help to understand these functions:
 
 \begin{verbatim}
 ## # A tibble: 5 x 6
-##   integer_var numeric_var character_var factor_var logical_var
-##         <dbl>       <dbl> <chr>         <fct>      <lgl>      
-## 1           1         1.1 apple         red        TRUE       
-## 2           2         2.2 banana        yellow     TRUE       
-## 3           3        NA   orange        red        TRUE       
-## 4           4         4.4 cherry        blue       FALSE      
-## 5           5         5.5 grape         green      TRUE       
-## # i 1 more variable: date_var <date>
+##   integer_var numeric_var character_var factor_var logical_var date_var  
+##         <dbl>       <dbl> <chr>         <fct>      <lgl>       <date>    
+## 1           1         1.1 apple         red        TRUE        2022-01-01
+## 2           2         2.2 banana        yellow     TRUE        2022-02-01
+## 3           3        NA   orange        red        TRUE        2022-03-01
+## 4           4         4.4 cherry        blue       FALSE       2022-04-01
+## 5           5         5.5 grape         green      TRUE        2022-05-01
 \end{verbatim}
 
 \begin{Shaded}
@@ -2502,22 +2394,14 @@ Here are some examples that may help to understand these functions:
 \end{Shaded}
 
 \begin{verbatim}
-##   integer_var  numeric_var    character_var       factor_var
-##  Min.   :1    Min.   :1.100   Length:5           blue  :1   
-##  1st Qu.:2    1st Qu.:1.925   Class :character   green :1   
-##  Median :3    Median :3.300   Mode  :character   red   :2   
-##  Mean   :3    Mean   :3.300                      yellow:1   
-##  3rd Qu.:4    3rd Qu.:4.675                                 
-##  Max.   :5    Max.   :5.500                                 
-##               NA's   :1                                     
-##  logical_var        date_var         
-##  Mode :logical   Min.   :2022-01-01  
-##  FALSE:1         1st Qu.:2022-02-01  
-##  TRUE :4         Median :2022-03-01  
-##                  Mean   :2022-03-02  
-##                  3rd Qu.:2022-04-01  
-##                  Max.   :2022-05-01  
-## 
+##   integer_var  numeric_var    character_var       factor_var logical_var        date_var         
+##  Min.   :1    Min.   :1.100   Length:5           blue  :1    Mode :logical   Min.   :2022-01-01  
+##  1st Qu.:2    1st Qu.:1.925   Class :character   green :1    FALSE:1         1st Qu.:2022-02-01  
+##  Median :3    Median :3.300   Mode  :character   red   :2    TRUE :4         Median :2022-03-01  
+##  Mean   :3    Mean   :3.300                      yellow:1                    Mean   :2022-03-02  
+##  3rd Qu.:4    3rd Qu.:4.675                                                  3rd Qu.:2022-04-01  
+##  Max.   :5    Max.   :5.500                                                  Max.   :2022-05-01  
+##               NA's   :1
 \end{verbatim}
 
 \begin{Shaded}
@@ -2534,7 +2418,7 @@ Here are some examples that may help to understand these functions:
 ## $ character_var <chr> "apple", "banana", "orange", "cherry", "grape"
 ## $ factor_var    <fct> red, yellow, red, blue, green
 ## $ logical_var   <lgl> TRUE, TRUE, TRUE, FALSE, TRUE
-## $ date_var      <date> 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-0~
+## $ date_var      <date> 2022-01-01, 2022-02-01, 2022-03-01, 2022-04-01, 2022-05-01
 \end{verbatim}
 
 \begin{Shaded}
@@ -2689,14 +2573,10 @@ Here are some examples that may help to understand these functions:
 \end{Shaded}
 
 \begin{verbatim}
-##  cyl 52 62 65 66 91 93 95 97 105 109 110 113 123 150 175 180 205 215
-##    4  1  1  1  2  1  1  1  1   0   1   0   1   0   0   0   0   0   0
-##    6  0  0  0  0  0  0  0  0   1   0   3   0   2   0   1   0   0   0
-##    8  0  0  0  0  0  0  0  0   0   0   0   0   0   2   2   3   1   1
-##  230 245 264 335
-##    0   0   0   0
-##    0   0   0   0
-##    1   2   1   1
+##  cyl 52 62 65 66 91 93 95 97 105 109 110 113 123 150 175 180 205 215 230 245 264 335
+##    4  1  1  1  2  1  1  1  1   0   1   0   1   0   0   0   0   0   0   0   0   0   0
+##    6  0  0  0  0  0  0  0  0   1   0   3   0   2   0   1   0   0   0   0   0   0   0
+##    8  0  0  0  0  0  0  0  0   0   0   0   0   0   2   2   3   1   1   1   2   1   1
 \end{verbatim}
 
 \hypertarget{collection-of-exercises}{%
@@ -3343,7 +3223,7 @@ Data Description:
 
 \begin{verbatim}
 ## Rows: 6 Columns: 5
-## -- Column specification ---------------------------------------------
+## -- Column specification ------------------------------------------------------------------------------------------------------------------------
 ## Delimiter: ","
 ## chr (1): sex
 ## dbl (4): age, weight, calories, sport
@@ -3997,31 +3877,31 @@ load("city.RData")
 \begin{verbatim}
 ## # A tibble: 23 x 5
 ## # Groups:   city [11]
-##    city        status                  state     pop2011 unique_count
-##    <chr>       <chr>                   <chr>       <dbl>        <int>
-##  1 Bonn        City with County Rights Nordrhei~  305765            3
-##  2 Bonn        City with County Rights Nordrhei~  305765            3
-##  3 Bonn        City with County Rights Nordrhei~  305765            3
-##  4 Brühl       Commune                 Baden-Wü~   13805            2
-##  5 Brühl       City                    Nordrhei~   43568            2
-##  6 Erbach      City                    Baden-Wü~   13024            2
-##  7 Erbach      City                    Hessen      13245            2
-##  8 Fürth       City with County Rights Bayern     115613            2
-##  9 Fürth       Commune                 Hessen      10481            2
-## 10 Lichtenau   City                    Nordrhei~   10473            2
-## 11 Lichtenau   Commune                 Sachsen      7544            2
-## 12 Münster     Commune                 Hessen      14071            2
-## 13 Münster     City with County Rights Nordrhei~  289576            2
-## 14 Neunkirchen Commune                 Nordrhei~   13930            2
-## 15 Neunkirchen City                    Saarland    46172            2
-## 16 Neuried     Commune                 Baden-Wü~    9383            2
-## 17 Neuried     Commune                 Bayern       8277            2
-## 18 Petersberg  Commune                 Hessen      14766            2
-## 19 Petersberg  Commune                 Sachsen-~   10097            2
-## 20 Senden      City                    Bayern      21560            2
-## 21 Senden      Commune                 Nordrhei~   19976            2
-## 22 Staufenberg City                    Hessen       8114            2
-## 23 Staufenberg Commune                 Niedersa~    7983            2
+##    city        status                  state               pop2011 unique_count
+##    <chr>       <chr>                   <chr>                 <dbl>        <int>
+##  1 Bonn        City with County Rights Nordrhein-Westfalen  305765            3
+##  2 Bonn        City with County Rights Nordrhein-Westfalen  305765            3
+##  3 Bonn        City with County Rights Nordrhein-Westfalen  305765            3
+##  4 Brühl       Commune                 Baden-Württemberg     13805            2
+##  5 Brühl       City                    Nordrhein-Westfalen   43568            2
+##  6 Erbach      City                    Baden-Württemberg     13024            2
+##  7 Erbach      City                    Hessen                13245            2
+##  8 Fürth       City with County Rights Bayern               115613            2
+##  9 Fürth       Commune                 Hessen                10481            2
+## 10 Lichtenau   City                    Nordrhein-Westfalen   10473            2
+## 11 Lichtenau   Commune                 Sachsen                7544            2
+## 12 Münster     Commune                 Hessen                14071            2
+## 13 Münster     City with County Rights Nordrhein-Westfalen  289576            2
+## 14 Neunkirchen Commune                 Nordrhein-Westfalen   13930            2
+## 15 Neunkirchen City                    Saarland              46172            2
+## 16 Neuried     Commune                 Baden-Württemberg      9383            2
+## 17 Neuried     Commune                 Bayern                 8277            2
+## 18 Petersberg  Commune                 Hessen                14766            2
+## 19 Petersberg  Commune                 Sachsen-Anhalt        10097            2
+## 20 Senden      City                    Bayern                21560            2
+## 21 Senden      Commune                 Nordrhein-Westfalen   19976            2
+## 22 Staufenberg City                    Hessen                 8114            2
+## 23 Staufenberg Commune                 Niedersachsen          7983            2
 \end{verbatim}
 
 \begin{enumerate}
@@ -4402,6 +4282,120 @@ Please follow the instructions below to access the file ``23-09\_ds-project-desc
   In the project template, I have used BibTeX to cite literature. This method is excellent for automating tedious tasks such as citing papers and generating reference lists based on citation styles, saving time and reducing the likelihood of citation errors. The literature cited is in a separate file, which can be found on one of my GitHub repositories.
 \end{enumerate}
 
+\hypertarget{writing-and-publishing-with-quarto}{%
+\chapter{Writing and publishing with Quarto}\label{writing-and-publishing-with-quarto}}
+
+\hypertarget{writing-a-manuscript-paper-thesis-with-quarto}{%
+\section{Writing a manuscript (paper, thesis) with Quarto}\label{writing-a-manuscript-paper-thesis-with-quarto}}
+
+Writing is a significant academic skill. Choosing the right tools can make the process more efficient and your presentation more impactful. Quarto, a modern documentation system, is an excellent choice for thesis writing, especially for projects that require rigorous data analysis, visualization, and reproducibility. This tutorial will guide you through writing your thesis with Quarto, including how to create a supporting website for your thesis.
+
+\hypertarget{step-1-learn-markdown}{%
+\subsection{Step 1: Learn Markdown}\label{step-1-learn-markdown}}
+
+Markdown is a lightweight markup language with plain-text formatting syntax. It's an essential skill for using Quarto effectively. Start by learning enough Markdown to structure your thesis, including headings, lists, links, and code blocks.
+
+You can learn Markdown (not R Markdown!) in 10 minutes. Just go to \url{https://www.markdowntutorial.com} and work throught the interactive lessons.
+
+\hypertarget{step-2-learn-quarto}{%
+\subsection{Step 2: Learn Quarto}\label{step-2-learn-quarto}}
+
+Read \citet{Telford2023Markdown}: \href{https://biostats-r.github.io/biostats/quarto/}{Enough Markdown to Write a Thesis}. This resource covers the basics and some advanced Markdown features that are useful for academic writing.
+
+More extensive resources on how to do things with Quarto can be found at \href{https://quarto.org/docs/guide/}{quarto.org}.
+
+\hypertarget{create-and-host-a-website-with-quarto-and-github}{%
+\section{Create and host a website with Quarto and GitHub}\label{create-and-host-a-website-with-quarto-and-github}}
+
+\hypertarget{creating-a-website-with-quarto}{%
+\section{Creating a Website with Quarto}\label{creating-a-website-with-quarto}}
+
+This tutorial guides you through creating a simple, yet professional-looking website using Quarto, a powerful tool for dynamic content generation.
+
+\hypertarget{step-1-install-quarto}{%
+\subsection{Step 1: Install Quarto}\label{step-1-install-quarto}}
+
+Ensure Quarto is installed on your system. If not, download and install it from \href{https://quarto.org/}{Quarto's official website}.
+
+\hypertarget{step-2-create-a-website}{%
+\section{Step 2: Create a website}\label{step-2-create-a-website}}
+
+Follow the tutorial that you find \href{https://quarto.org/docs/websites/}{here}.
+
+\hypertarget{hosting-the-website-on-github}{%
+\section{Hosting the website on GitHub}\label{hosting-the-website-on-github}}
+
+\hypertarget{step-1-create-a-github-account}{%
+\subsection{Step 1: Create a GitHub Account}\label{step-1-create-a-github-account}}
+
+GitHub will host your thesis website and manage version control for your thesis project. If you don't already have a GitHub account, you'll need to create one: Sign up at \href{https://github.com/}{GitHub}.
+
+\hypertarget{step-2-create-a-reopository}{%
+\section{Step 2: Create a reopository}\label{step-2-create-a-reopository}}
+
+Create a repository. Name the repo with your username followed by \emph{github.io}. You find a tutorial \href{https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site\#creating-a-repository-for-your-site}{here}.
+
+\hypertarget{step-3-obtain-a-personal-access-token}{%
+\section{Step 3: Obtain a Personal Access Token}\label{step-3-obtain-a-personal-access-token}}
+
+A personal access token (PAT) is required to authenticate with GitHub from Quarto and RStudio. This token allows you to push changes to your repository securely.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Guide}: Follow the instructions to \href{https://docs.github.com/en/enterprise-server@3.9/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens}{create a personal access token on GitHub}.
+\end{itemize}
+
+Make sure to note down your token and keep it secure. You'll use this token in RStudio and Quarto to authenticate your GitHub operations.
+
+\hypertarget{step-4-use-git-in-rstudio}{%
+\section{Step 4: Use Git in RStudio}\label{step-4-use-git-in-rstudio}}
+
+RStudio is an integrated development environment (IDE) for R. It has excellent support for Git, making it easier to manage your thesis project's version control.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Setup}: If you haven't already, configure Git in RStudio. You'll need to provide your GitHub username, email, and the personal access token you generated in the previous step.
+\end{itemize}
+
+For detailed instructions on configuring Git in RStudio, refer to RStudio's documentation on version control.
+
+\hypertarget{step-5-publish-your-thesis-as-a-website-with-quarto}{%
+\section{Step 5: Publish Your Thesis as a Website with Quarto}\label{step-5-publish-your-thesis-as-a-website-with-quarto}}
+
+Quarto makes it straightforward to publish your thesis as a website, which can be hosted on GitHub Pages.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Tutorial}: Follow the steps outlined in \href{https://quarto.org/docs/publishing/github-pages.html}{Publishing with GitHub Pages} to publish your thesis.
+\end{itemize}
+
+This process involves:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Creating a Quarto project for your thesis in RStudio.
+\item
+  Writing your thesis in Quarto files (\texttt{.qmd}).
+\item
+  Using Quarto commands to render your thesis as a website.
+\item
+  Pushing your thesis website to a GitHub repository.
+\item
+  Configuring GitHub Pages to serve your thesis website.
+\end{enumerate}
+
+Throughout your writing process, remember to commit changes to your Git repository regularly. This habit not only backs up your work but also helps you track revisions and collaborate with others if needed.
+
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
+
+By following these steps, you'll have a solid foundation for writing and presenting your thesis using Quarto and GitHub. This approach not only leverages powerful tools for academic writing but also helps you share your work with a broader audience through a dedicated website.
+
 \hypertarget{appendix}{%
 \chapter{Appendix}\label{appendix}}
 
@@ -4619,67 +4613,44 @@ When seeking help, be sure to provide information about your machine, including 
 ## 
 ## Matrix products: default
 ## BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
-## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/liblapack.so.3
+## LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8   
+##  [6] LC_MESSAGES=en_US.UTF-8    LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C               LC_TELEPHONE=C            
 ## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 ## 
 ## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods  
-## [7] base     
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-##  [1] dplyr_1.1.4      jtools_2.2.2     sjPlot_2.8.15   
-##  [4] ggpubr_0.6.0     datasauRus_0.1.8 haven_2.5.4     
-##  [7] janitor_2.2.0    wbstats_1.0.4    scales_1.3.0    
-## [10] lubridate_1.9.3  forcats_1.0.0    purrr_1.0.2     
-## [13] readr_2.1.4      tidyr_1.3.0      tibble_3.2.1    
-## [16] ggplot2_3.5.0    tidyverse_2.0.0  stringr_1.5.1   
-## [19] bundesligR_0.1.0 captioner_2.2.3  knitr_1.45      
-## [22] pacman_0.5.1    
+##  [1] dplyr_1.1.4      jtools_2.2.2     sjPlot_2.8.15    ggpubr_0.6.0     datasauRus_0.1.8 haven_2.5.4      janitor_2.2.0    wbstats_1.0.4   
+##  [9] scales_1.3.0     lubridate_1.9.3  forcats_1.0.0    purrr_1.0.2      readr_2.1.4      tidyr_1.3.0      tibble_3.2.1     ggplot2_3.5.0   
+## [17] tidyverse_2.0.0  stringr_1.5.1    bundesligR_0.1.0 captioner_2.2.3  knitr_1.45       pacman_0.5.1    
 ## 
 ## loaded via a namespace (and not attached):
-##   [1] minqa_1.2.6         TH.data_1.1-2       colorspace_2.1-0   
-##   [4] ggsignif_0.6.4      class_7.3-22        rsconnect_1.2.0    
-##   [7] sjlabelled_1.2.0    estimability_1.4.1  snakecase_0.11.1   
-##  [10] rstudioapi_0.15.0   listenv_0.9.0       farver_2.1.1       
-##  [13] bit64_4.0.5         prodlim_2023.08.28  fansi_1.0.6        
-##  [16] mvtnorm_1.2-4       codetools_0.2-19    splines_4.2.2      
-##  [19] cachem_1.0.8        sjmisc_2.8.9        jsonlite_1.8.8     
-##  [22] nloptr_2.0.3        ggeffects_1.3.4     broom_1.0.5        
-##  [25] compiler_4.2.2      httr_1.4.7          sjstats_0.18.2     
-##  [28] emmeans_1.9.0       backports_1.4.1     Matrix_1.6-4       
-##  [31] fastmap_1.1.1       cli_3.6.2           htmltools_0.5.7    
-##  [34] tools_4.2.2         coda_0.19-4         gtable_0.3.4       
-##  [37] glue_1.6.2          tinytex_0.49        Rcpp_1.0.11        
-##  [40] carData_3.0-5       jquerylib_0.1.4     vctrs_0.6.5        
-##  [43] nlme_3.1-164        insight_0.19.7      timeDate_4032.109  
-##  [46] gower_1.0.1         xfun_0.41           globals_0.16.2     
-##  [49] lme4_1.1-35.1       timechange_0.2.0    lifecycle_1.0.4    
-##  [52] rstatix_0.7.2       future_1.33.1       zoo_1.8-12         
-##  [55] MASS_7.3-60         ipred_0.9-14        vroom_1.6.5        
-##  [58] ragg_1.2.7          hms_1.1.3           sandwich_3.1-0     
-##  [61] parallel_4.2.2      yaml_2.3.8          curl_5.2.0         
-##  [64] pander_0.6.5        sass_0.4.8          rpart_4.1.23       
-##  [67] stringi_1.8.3       highr_0.10          bayestestR_0.13.1  
-##  [70] boot_1.3-28.1       hardhat_1.3.0       lava_1.7.3         
-##  [73] rlang_1.1.2         pkgconfig_2.0.3     systemfonts_1.0.5  
-##  [76] evaluate_0.23       lattice_0.22-5      recipes_1.0.9      
-##  [79] labeling_0.4.3      bit_4.0.5           tidyselect_1.2.0   
-##  [82] parallelly_1.36.0   magrittr_2.0.3      bookdown_0.37      
-##  [85] R6_2.5.1            generics_0.1.3      multcomp_1.4-25    
-##  [88] mgcv_1.9-1          pillar_1.9.0        withr_2.5.2        
-##  [91] survival_3.5-7      abind_1.4-5         nnet_7.3-19        
-##  [94] future.apply_1.11.1 performance_0.10.8  modelr_0.1.11      
-##  [97] crayon_1.5.2        car_3.1-2           utf8_1.2.4         
-## [100] tzdb_0.4.0          rmarkdown_2.25      grid_4.2.2         
-## [103] data.table_1.14.10  digest_0.6.33       xtable_1.8-4       
-## [106] textshaping_0.3.7   munsell_0.5.0       bslib_0.6.1
+##   [1] minqa_1.2.6               TH.data_1.1-2             colorspace_2.1-0          ggsignif_0.6.4            class_7.3-22             
+##   [6] sjlabelled_1.2.0          estimability_1.4.1        snakecase_0.11.1          rstudioapi_0.15.0         listenv_0.9.0            
+##  [11] farver_2.1.1              bit64_4.0.5               prodlim_2023.08.28        fansi_1.0.6               mvtnorm_1.2-4            
+##  [16] codetools_0.2-19          splines_4.2.2             cachem_1.0.8              sjmisc_2.8.9              jsonlite_1.8.8           
+##  [21] nloptr_2.0.3              ggeffects_1.3.4           broom_1.0.5               compiler_4.2.2            httr_1.4.7               
+##  [26] sjstats_0.18.2            emmeans_1.9.0             backports_1.4.1           Matrix_1.6-4              fastmap_1.1.1            
+##  [31] cli_3.6.2                 htmltools_0.5.7           tools_4.2.2               coda_0.19-4               gtable_0.3.4             
+##  [36] glue_1.6.2                Rcpp_1.0.11               carData_3.0-5             jquerylib_0.1.4           vctrs_0.6.5              
+##  [41] nlme_3.1-164              insight_0.19.7            timeDate_4032.109         gower_1.0.1               xfun_0.41                
+##  [46] globals_0.16.2            lme4_1.1-35.1             timechange_0.2.0          lifecycle_1.0.4           rstatix_0.7.2            
+##  [51] future_1.33.1             zoo_1.8-12                MASS_7.3-60               ipred_0.9-14              vroom_1.6.5              
+##  [56] ragg_1.2.7                hms_1.1.3                 sandwich_3.1-0            parallel_4.2.2            yaml_2.3.8               
+##  [61] curl_5.2.0                pander_0.6.5              wordcountaddin_0.3.0.9000 sass_0.4.8                rpart_4.1.23             
+##  [66] stringi_1.8.3             highr_0.10                bayestestR_0.13.1         boot_1.3-28.1             hardhat_1.3.0            
+##  [71] lava_1.7.3                rlang_1.1.2               pkgconfig_2.0.3           systemfonts_1.0.5         evaluate_0.23            
+##  [76] lattice_0.22-5            recipes_1.0.9             labeling_0.4.3            bit_4.0.5                 tidyselect_1.2.0         
+##  [81] parallelly_1.36.0         magrittr_2.0.3            bookdown_0.37             R6_2.5.1                  generics_0.1.3           
+##  [86] multcomp_1.4-25           mgcv_1.9-1                pillar_1.9.0              withr_2.5.2               survival_3.5-7           
+##  [91] abind_1.4-5               nnet_7.3-19               future.apply_1.11.1       performance_0.10.8        modelr_0.1.11            
+##  [96] crayon_1.5.2              car_3.1-2                 utf8_1.2.4                sylly_0.1-6               tzdb_0.4.0               
+## [101] rmarkdown_2.25            koRpus_0.13-8             grid_4.2.2                data.table_1.14.10        digest_0.6.33            
+## [106] xtable_1.8-4              textshaping_0.3.7         munsell_0.5.0             bslib_0.6.1
 \end{verbatim}
 
 \hypertarget{operators}{%
