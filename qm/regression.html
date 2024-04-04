@@ -439,7 +439,7 @@ Tip&nbsp;5.1: Statistical control requires causal justification
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Read <a href="identification.html#sec-scrcj" class="quarto-xref"><span>Section 3.5</span></a> (again).</p>
+<p>Read <a href="identification.html#sec-scrcj" class="quarto-xref"><span>Section 3.2.6</span></a> (again).</p>
 </div>
 </div>
 <p>A confounding variable is a factor that was not accounted for or controlled in a study but has the potential to influence the results. In other words, the true effects of the treatment or intervention can be obscured or muddled by the presence of this variable.</p>
@@ -473,6 +473,12 @@ Tip&nbsp;5.2
 <p>In regression analysis, “ceteris paribus” is a Latin phrase that translates to “all other things being equal” or “holding everything else constant.” It is a concept used to examine the relationship between two variables while assuming that all other factors or variables remain unchanged.</p>
 <p>When we say <em>ceteris paribus</em> in the context of regression analysis, we are isolating the effect of a specific independent variable on the dependent variable while assuming that the values of the other independent variables remain constant. By holding other variables constant, we can focus on understanding the direct relationship between the variables of interest.</p>
 <p>For example, consider a regression analysis that examines the relationship between income (dependent variable) and education level (independent variable) while controlling for age, gender, and work experience. By stating <em>ceteris paribus</em>, we are assuming that age, gender, and work experience remain constant, and we are solely interested in understanding the impact of education level on income.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-lookatoutput" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 5.1</strong></span> Look at the Output</p>
 <div id="fig-regstata2" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -494,6 +500,15 @@ Figure&nbsp;5.5: Regression output
 <li>Is the constant at a level of <span class="math inline">\(\alpha=0.05\)</span> statistically significant?</li>
 </ol>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-exrstataoutput" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 5.2</strong></span> Look at Stata Output</p>
 <p>In <a href="#fig-regstata3" class="quarto-xref">Figure&nbsp;<span>5.6</span></a> you find two regression outputs from Stata. Try to interpret the p-values and the confidence intervals. How are the t-values calculated. Can you use the <em>magic number</em> 1.96 to say if a corresponding estimated coefficient is statistically significant, or not? Which estimated model is <em>better</em>?</p>
@@ -519,8 +534,17 @@ Figure&nbsp;5.6: Stata regression output
 </figure>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-execal" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.3</strong></span> Explain the weight</p>
+<p><span class="theorem-title"><strong>Exercise 5.3</strong></span> Explain the weight (<a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_calories.R">Solutions online</a>)</p>
 <p>In the following exercise you need to use the programming language R.</p>
 <ol type="a">
 <li>Write down your name, your matriculation number, and the date.<br>
@@ -660,8 +684,16 @@ weight_i=\beta_0+\beta_1 calories_i+ \epsilon_i
 <li><p>OLS estimates can suffer from omitted variable bias. State the two conditions that need to be fulfilled for omitted bias to occur.</p></li>
 <li><p>Discuss potential confounding variables that may cause omitted variable bias. Given the dataset above how can some of the confounding variables be <em>controlled for</em>?</p></li>
 </ol>
-<p>Solutions are provided <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_calories.R">here</a>.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-causalgraphnhk" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 5.4</strong></span> Causal inference and animated plots</p>
 <p>Nick <span class="citation" data-cites="Huntington-Klein2022Effect">Huntington-Klein (<a href="references.html#ref-Huntington-Klein2022Effect" role="doc-biblioref">2022</a>)</span> has created wonderful animated graphs that give great and quick insights into how causal inference works. Please read his online chapter on <a href="https://www.nickchk.com/causalgraphs.html"><em>Causal Inference Animated Plots</em></a> and discuss</p>
@@ -670,6 +702,9 @@ weight_i=\beta_0+\beta_1 calories_i+ \epsilon_i
 <li>what methods exist to <em>close the back-door path</em>, and</li>
 <li>why it is sometimes necessary to omit variables from an estimated regression model.</li>
 </ol>
+</div>
+</div>
+</div>
 </div>
 
 

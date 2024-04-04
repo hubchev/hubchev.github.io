@@ -213,7 +213,7 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data-acquisition" id="toc-data-acquisition" class="nav-link active" data-scroll-target="#data-acquisition"><span class="header-section-number">3.1</span> Data acquisition</a>
+  <li><a href="#sec-acquistion" id="toc-sec-acquistion" class="nav-link active" data-scroll-target="#sec-acquistion"><span class="header-section-number">3.1</span> Data acquisition</a>
   <ul class="collapse">
   <li><a href="#interviews" id="toc-interviews" class="nav-link" data-scroll-target="#interviews"><span class="header-section-number">3.1.1</span> Interviews</a></li>
   <li><a href="#surveys" id="toc-surveys" class="nav-link" data-scroll-target="#surveys"><span class="header-section-number">3.1.2</span> Surveys</a></li>
@@ -221,18 +221,15 @@ window.Quarto = {
   <li><a href="#experiments" id="toc-experiments" class="nav-link" data-scroll-target="#experiments"><span class="header-section-number">3.1.4</span> Experiments</a></li>
   <li><a href="#observational-data" id="toc-observational-data" class="nav-link" data-scroll-target="#observational-data"><span class="header-section-number">3.1.5</span> Observational data</a></li>
   </ul></li>
-  <li><a href="#sec-cornotcaus" id="toc-sec-cornotcaus" class="nav-link" data-scroll-target="#sec-cornotcaus"><span class="header-section-number">3.2</span> Correlation does not imply causation</a></li>
-  <li><a href="#the-fundamental-problem-of-causal-inference" id="toc-the-fundamental-problem-of-causal-inference" class="nav-link" data-scroll-target="#the-fundamental-problem-of-causal-inference"><span class="header-section-number">3.3</span> The fundamental problem of causal inference</a>
+  <li><a href="#sec-causalinfer" id="toc-sec-causalinfer" class="nav-link" data-scroll-target="#sec-causalinfer"><span class="header-section-number">3.2</span> Causal inference</a>
   <ul class="collapse">
-  <li><a href="#simpsons-paradox" id="toc-simpsons-paradox" class="nav-link" data-scroll-target="#simpsons-paradox"><span class="header-section-number">3.3.1</span> Simpsons Paradox</a></li>
-  <li><a href="#rubin-causal-model" id="toc-rubin-causal-model" class="nav-link" data-scroll-target="#rubin-causal-model"><span class="header-section-number">3.3.2</span> Rubin causal model</a></li>
+  <li><a href="#the-fundamental-problem-of-causal-inference" id="toc-the-fundamental-problem-of-causal-inference" class="nav-link" data-scroll-target="#the-fundamental-problem-of-causal-inference"><span class="header-section-number">3.2.1</span> The fundamental problem of causal inference</a></li>
+  <li><a href="#sec-cornotcaus" id="toc-sec-cornotcaus" class="nav-link" data-scroll-target="#sec-cornotcaus"><span class="header-section-number">3.2.2</span> Correlation does not imply causation</a></li>
+  <li><a href="#simpsons-paradox" id="toc-simpsons-paradox" class="nav-link" data-scroll-target="#simpsons-paradox"><span class="header-section-number">3.2.3</span> Simpsons Paradox</a></li>
+  <li><a href="#rubin-causal-model" id="toc-rubin-causal-model" class="nav-link" data-scroll-target="#rubin-causal-model"><span class="header-section-number">3.2.4</span> Rubin causal model</a></li>
+  <li><a href="#sec-overfunda" id="toc-sec-overfunda" class="nav-link" data-scroll-target="#sec-overfunda"><span class="header-section-number">3.2.5</span> Its difficult to overcome the fundamental problem</a></li>
+  <li><a href="#sec-scrcj" id="toc-sec-scrcj" class="nav-link" data-scroll-target="#sec-scrcj"><span class="header-section-number">3.2.6</span> Statistical control requires causal justification</a></li>
   </ul></li>
-  <li><a href="#sec-overfunda" id="toc-sec-overfunda" class="nav-link" data-scroll-target="#sec-overfunda"><span class="header-section-number">3.4</span> Its difficult to overcome the fundamental problem</a>
-  <ul class="collapse">
-  <li><a href="#ignorability" id="toc-ignorability" class="nav-link" data-scroll-target="#ignorability"><span class="header-section-number">3.4.1</span> Ignorability</a></li>
-  <li><a href="#unconfoundedness" id="toc-unconfoundedness" class="nav-link" data-scroll-target="#unconfoundedness"><span class="header-section-number">3.4.2</span> Unconfoundedness</a></li>
-  </ul></li>
-  <li><a href="#sec-scrcj" id="toc-sec-scrcj" class="nav-link" data-scroll-target="#sec-scrcj"><span class="header-section-number">3.5</span> Statistical control requires causal justification</a></li>
   </ul>
 </nav>
     </div>
@@ -258,9 +255,9 @@ window.Quarto = {
 </header>
 
 
-<p>In empirical research, identification refers to the process of establishing a clear and logical relationship between a cause and an effect. This involves demonstrating that the cause is responsible for the observed effect, and that there are no other factors that could potentially explain the effect. The goal of identification is to provide strong evidence that a particular factor is indeed the cause of a particular outcome, rather than simply coincidentally happen. In order to identify a cause-and-effect relationship, researchers can use experimental or non-experimental, that is, observational data, or both. The next section discusses how to generate or collect this data.</p>
-<section id="data-acquisition" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="data-acquisition"><span class="header-section-number">3.1</span> Data acquisition</h2>
+<p>In empirical research, identification refers to the process of establishing a clear and logical relationship between a cause and an effect. This involves demonstrating that the cause is responsible for the observed effect, and that there are no other factors that could potentially explain the effect. The goal of identification is to provide strong evidence that a particular factor is indeed the cause of a particular outcome, rather than simply coincidentally happen. In order to identify a cause-and-effect relationship, researchers can use experimental or non-experimental, that is, observational data, or both. <a href="#sec-acquistion" class="quarto-xref"><span>Section 3.1</span></a> will discuss in greater detail how data can be collected that helps to evaluate causes and measure the magnitude of the effects of causes. <a href="#sec-cornotcaus" class="quarto-xref"><span>Section 3.2.2</span></a> will explain some difficulties researchers must face when they aim to find empirical evidence on causal effects.</p>
+<section id="sec-acquistion" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-acquistion"><span class="header-section-number">3.1</span> Data acquisition</h2>
 <!-- ::: {#fig-interview} -->
 <!-- ![Interview](fig/interview.jpg){width="30%"} -->
 <!-- ![Survey](fig/opinion-poll.jpg){width="30%"} -->
@@ -355,8 +352,14 @@ Figure&nbsp;3.3: Observational data<a href="#fn3" class="footnote-ref" id="fnref
 </div>
 <p>Observational data are data that had been observed before the research question was asked or being collected independently from the study. To understand how observational data can be used to constitute a causal relationship is a bit tricky because there is only one world and only one reality at a time. In other words, we usually miss a counterfactual which we can use for a comparison. Take, for example, the past COVID-19 pandemic, where you chose to be vaccinated or not. Regardless of what you chose, we will never find out what would have happened to you if you had chosen differently. Maybe you would have died, maybe you would have gotten more or less sick, or maybe you wouldn’t have gotten sick at all. We don’t know, and it’s impossible to find out because it’s impossible to observe the counterfactual outcomes. This makes it difficult to establish causality from observational data. However, ingenious minds have found reasonable procedures and methods to extract some level of knowledge from observational data that allows us to infer causal relationships from observational data where we cannot directly observe the counterfactual outcome. We will come back to these methods later on.</p>
 <p>In the upcoming sections, however, we will discuss experimental research designs including <em>randomized controlled trials</em> (RCTs) which are considered to be the “gold standard for measuring the effect of an action” <span class="citation" data-cites="Taddy2019Business">(<a href="references.html#ref-Taddy2019Business" role="doc-biblioref">Taddy, 2019, p. 128</a>)</span>. RCTs can be used, for example, to study the effectiveness of drugs by observing people randomly assigned to three groups, one taking the pill (or treatment), a second receiving a placebo, and a third taking nothing. If the first group responds in any way differently than the other groups, the drug has an effect. Before explaining an RCT in more detail, we need to be clear about the fundamental problem of causal inference. This will be discussed in the following.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-methodsinresearch" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.1</strong></span> Methods used in economic research</p>
+<p><span class="theorem-title"><strong>Exercise 3.1</strong></span> Methods used in economic research (<a href="#sol-methodsinresearch" class="quarto-xref">Solution&nbsp;<span>3.1</span></a>)</p>
 <p>Read <span class="citation" data-cites="Paldam2021Methods">Paldam (<a href="references.html#ref-Paldam2021Methods" role="doc-biblioref">2021</a>)</span> which is freely available <a href="https://doi.org/10.1515/econ-2021-0003">here</a> and answer the following questions:</p>
 <ol type="a">
 <li>List the eight types of research methods described in the paper and provide the description found in the paper.</li>
@@ -372,19 +375,57 @@ Figure&nbsp;3.3: Observational data<a href="#fn3" class="footnote-ref" id="fnref
 <li>Explain what is meant with and discuss the reasons that lead to that fatigue.</li>
 <li>According to <span class="citation" data-cites="Paldam2021Methods">Paldam (<a href="references.html#ref-Paldam2021Methods" role="doc-biblioref">2021</a>)</span>: What factors contribute to the immediate relevance of research papers for policymakers?</li>
 </ol>
-<p>See <a href="#sol-methodsinresearch" class="quarto-xref">Solution&nbsp;<span>3.1</span></a>.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 </section>
-<section id="sec-cornotcaus" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="sec-cornotcaus"><span class="header-section-number">3.2</span> Correlation does not imply causation</h2>
+<section id="sec-causalinfer" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-causalinfer"><span class="header-section-number">3.2</span> Causal inference</h2>
+<section id="the-fundamental-problem-of-causal-inference" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="the-fundamental-problem-of-causal-inference"><span class="header-section-number">3.2.1</span> The fundamental problem of causal inference</h3>
+<div id="fig-cimt" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-cimt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: Causal Inference: The Mixtape<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+</figcaption>
+<div aria-describedby="fig-cimt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="fig/cover-ci.jpg" class="img-fluid figure-img" style="width:25.0%">
+</div>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>, ch.&nbsp;1.3)</span>: <em>“It is my firm belief, which I will emphasize over and over in this book, that without prior knowledge, estimated causal effects are rarely, if ever, believable. Prior knowledge is required in order to justify any claim of a causal finding. And economic theory also highlights why causal inference is necessarily a thorny task.”</em></p>
+</blockquote>
+<p>As <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span> explains in his book (see <a href="#fig-cimt" class="quarto-xref">Figure&nbsp;<span>3.4</span></a>), it is very hard to claim causality. In the following section, I will paraphrase briefly two aspects why it is so difficult to claim to have found a causal effect. One reason for that is, that it is rather difficult to find or generate the right data and to use them properly so that the result is not biased. First, I will discuss Simpson’s Paradox as an example how easy it is to interpret the data falsely. It will provide an idea on how difficult it is to analyze observational data meaningful and that we need to have a theory when looking on data. Above that, we should try to challenge the assumptions on which the theory is build on. After that I will briefly discuss the fundamental problem of causal inference as a problem of missing counterfactual data.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-causalinf1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3.2</strong></span> Causal inference ch.1 (<a href="#sol-causalinf1" class="quarto-xref">Solution&nbsp;<span>3.2</span></a>)</p>
+<p>Please read chapter 1 (Introduction) of <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span> and answer the following questions. The book is freely available <a href="https://mixtape.scunning.com">here</a> and here you find <a href="https://mixtape.scunning.com/01-introduction">chapter 1</a>.</p>
+<ol type="1">
+<li>What are some common misconceptions about causality that the author addresses in chapter 1?</li>
+<li>What is the role of randomization in causal inference, as described in the book?</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-cornotcaus" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="sec-cornotcaus"><span class="header-section-number">3.2.2</span> Correlation does not imply causation</h3>
 <p>Correlation refers to a statistical relationship between two variables, where one variable tends to increase or decrease as the other variable also increases or decreases. However, just because two variables are correlated does not necessarily mean that one variable causes the other. This is known as the <em>correlation does not imply causation</em> principle.</p>
 <p>For example, it may be observed that the number of storks in a particular area is correlated with the birth rate of babies in that area. However, this does not mean that the presence of storks causes an increase in the birth rate. It is possible that both the number of storks and the number of babies born are influenced by other factors, such as the overall population density or economic conditions in the area.</p>
 <p>Therefore, it is important to carefully consider all possible explanations (confounders) for a correlation and to use empirical evidence to determine the true cause-and-effect relationship between variables.</p>
 <div id="fig-cdnic" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-cdnic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.4: Correlation does not imply causation<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+Figure&nbsp;3.5: Correlation does not imply causation<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
 </figcaption>
 <div aria-describedby="fig-cdnic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/neal1-3.png" class="img-fluid figure-img" style="width:50.0%">
@@ -405,33 +446,8 @@ Tip&nbsp;3.1
 </div>
 </div>
 </section>
-<section id="the-fundamental-problem-of-causal-inference" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="the-fundamental-problem-of-causal-inference"><span class="header-section-number">3.3</span> The fundamental problem of causal inference</h2>
-<div id="fig-cimt" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-cimt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.5: Causal Inference: The Mixtape<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
-</figcaption>
-<div aria-describedby="fig-cimt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/cover-ci.jpg" class="img-fluid figure-img" style="width:25.0%">
-</div>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>, ch.&nbsp;1.3)</span>: <em>“It is my firm belief, which I will emphasize over and over in this book, that without prior knowledge, estimated causal effects are rarely, if ever, believable. Prior knowledge is required in order to justify any claim of a causal finding. And economic theory also highlights why causal inference is necessarily a thorny task.”</em></p>
-</blockquote>
-<p>As <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span> explains in his book (see <a href="#fig-cimt" class="quarto-xref">Figure&nbsp;<span>3.5</span></a>), it is very hard to claim causality. In the following section, I will paraphrase briefly two aspects why it is so difficult to claim to have found a causal effect. One reason for that is, that it is rather difficult to find or generate the right data and to use them properly so that the result is not biased. First, I will discuss Simpson’s Paradox as an example how easy it is to interpret the data falsely. It will provide an idea on how difficult it is to analyze observational data meaningful and that we need to have a theory when looking on data. Above that, we should try to challenge the assumptions on which the theory is build on. After that I will briefly discuss the fundamental problem of causal inference as a problem of missing counterfactual data.</p>
-<div id="exr-causalinf1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.2</strong></span> Causal inference ch.1</p>
-<p>Please read chapter 1 (Introduction) of <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span> and answer the following questions. The book is freely available <a href="https://mixtape.scunning.com">here</a> and here you find <a href="https://mixtape.scunning.com/01-introduction">chapter 1</a>.</p>
-<ol type="1">
-<li>What are some common misconceptions about causality that the author addresses in chapter 1?</li>
-<li>What is the role of randomization in causal inference, as described in the book?</li>
-</ol>
-<p>See <a href="#sol-causalinf1" class="quarto-xref">Solution&nbsp;<span>3.2</span></a>.</p>
-</div>
-<section id="simpsons-paradox" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="simpsons-paradox"><span class="header-section-number">3.3.1</span> Simpsons Paradox</h3>
+<section id="simpsons-paradox" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="simpsons-paradox"><span class="header-section-number">3.2.3</span> Simpsons Paradox</h3>
 <div id="fig-waitingroom" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-waitingroom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -457,18 +473,32 @@ Figure&nbsp;3.7: Proportion of applicants that are women plotted against proport
 <blockquote class="blockquote">
 <p><em>“Examination of aggregate data on graduate admissions to the University of California, Berkeley, for fall 1973 shows a clear but misleading pattern of bias against female applicants. Examination of the disaggregated data reveals few decision-making units that show statistically significant departures from expected frequencies of female admissions, and about as many units appear to favor women as to favor men. If the data are properly pooled, taking into account the autonomy of departmental decision making, thus correcting for the tendency of women to apply to graduate departments that are more difficult for applicants of either sex to enter, there is a small but statistically significant bias in favor of women. The graduate departments that are easier to enter tend to be those that require more mathematics in the undergraduate preparatory curriculum. The bias in the aggregated data stems not from any pattern of discrimination on the part of admissions committees, which seem quite fair on the whole, but apparently from prior screening at earlier levels of the educational system. Women are shunted by their socialization and education toward fields of graduate study that are generally more crowded, less productive of completed degrees, and less well funded, and that frequently offer poorer professional employment prospects.”</em></p>
 </blockquote>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-graduateadmission" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.3</strong></span> Graduate admissions</p>
+<p><span class="theorem-title"><strong>Exercise 3.3</strong></span> Graduate admissions (<a href="#sol-graduateadmission" class="quarto-xref">Solution&nbsp;<span>3.3</span></a>)</p>
 <p>Read the first three pages of <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975</a>)</span>, i.e., pages 398-400, and answer the following questions. The article can be found <a href="https://www.science.org/doi/pdf/10.1126/science.187.4175.398">here</a>.</p>
 <ol type="a">
 <li>Describe the two assumptions that must be true in order to prove that UC Berkeley discriminates against women or men overall.</li>
 <li>Table 1, shows that 277 fewer women and 277 more men were admitted than we would have expected under the two assumptions. Show how this number was calculated.</li>
 <li>Explain the analogy with fish that illustrates the danger of pooling data.</li>
 </ol>
-<p>See <a href="#sol-graduateadmission" class="quarto-xref">Solution&nbsp;<span>3.3</span></a>.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-simpsonpara" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.4</strong></span> Simpson’s Paradox</p>
+<p><span class="theorem-title"><strong>Exercise 3.4</strong></span> Simpson’s Paradox (<a href="#sol-simpsonpara" class="quarto-xref">Solution&nbsp;<span>3.4</span></a>)</p>
 <ol type="1">
 <li>What is Simpson’s Paradox?
 <ol type="a">
@@ -484,11 +514,13 @@ Figure&nbsp;3.7: Proportion of applicants that are women plotted against proport
 <li>Differences in the sample size of the two variables</li>
 </ol></li>
 </ol>
-<p>See <a href="#sol-simpsonpara" class="quarto-xref">Solution&nbsp;<span>3.4</span></a>.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
-<section id="rubin-causal-model" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="rubin-causal-model"><span class="header-section-number">3.3.2</span> Rubin causal model</h3>
+<section id="rubin-causal-model" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="rubin-causal-model"><span class="header-section-number">3.2.4</span> Rubin causal model</h3>
 <blockquote class="blockquote">
 <p><span class="citation" data-cites="Keele2015statistics">Keele (<a href="references.html#ref-Keele2015statistics" role="doc-biblioref">2015, p. 314</a>)</span>: <em>“An identification analysis identifies the assumptions needed for statistical estimates to be given a causal interpretation.”</em></p>
 </blockquote>
@@ -594,18 +626,17 @@ Figure&nbsp;3.8: Average treatment effect (ATE)
 <p>Under certain assumptions, the Rubin Causal Model allows for the estimation of the Average Treatment Effect (ATE), which is the difference in the expected outcomes between the treatment and control groups, given by the formula: <span class="math display">\[
 ATE\triangleq \mathbb{E}[Y(1)-Y(0)]
 \]</span></p>
-<p>Several methods exist for estimating the ATE within the Rubin Causal Model, and this course will explore some of them. When applied correctly, this model can yield valuable insights into causal relationships and enhance decision-making processes. However, it’s important to recognize that the Rubin Causal Model is subject to certain limitations and assumptions. These assumptions must be satisfied to ensure the validity of the model’s inferences. Section <a href="#sec-overfunda" class="quarto-xref"><span>Section 3.4</span></a> addresses some of these critical assumptions.</p>
+<p>Several methods exist for estimating the ATE within the Rubin Causal Model, and this course will explore some of them. When applied correctly, this model can yield valuable insights into causal relationships and enhance decision-making processes. However, it’s important to recognize that the Rubin Causal Model is subject to certain limitations and assumptions. These assumptions must be satisfied to ensure the validity of the model’s inferences. Section <a href="#sec-overfunda" class="quarto-xref"><span>Section 3.2.5</span></a> addresses some of these critical assumptions.</p>
 <p>To get the average treatment effect (ATE) we can take the average of the individual treatment effects (ITE):</p>
 <p><span id="eq-feq"><span class="math display">\[
 ATE\triangleq \mathbb{E}[Y(1)-Y(0)] = \mathbb{E} [\underbrace{Y_i(1)-Y_i(0)}_{ITE}]
 \tag{3.1}\]</span></span></p>
 </section>
-</section>
-<section id="sec-overfunda" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="sec-overfunda"><span class="header-section-number">3.4</span> Its difficult to overcome the fundamental problem</h2>
+<section id="sec-overfunda" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="sec-overfunda"><span class="header-section-number">3.2.5</span> Its difficult to overcome the fundamental problem</h3>
 <p>In the following we will discuss conditions that need to hold in order to empirically draw causal conclusions from the ATE without bias. This is important because equation <a href="#eq-feq" class="quarto-xref">Equation&nbsp;<span>3.1</span></a> does very often not hold when using observational data.</p>
-<section id="ignorability" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="ignorability"><span class="header-section-number">3.4.1</span> Ignorability</h3>
+<section id="ignorability" class="level4" data-number="3.2.5.1">
+<h4 data-number="3.2.5.1" class="anchored" data-anchor-id="ignorability"><span class="header-section-number">3.2.5.1</span> Ignorability</h4>
 <p>Referring to table <a href="#tbl-tab21" class="quarto-xref">Table&nbsp;<span>3.1</span></a>, Brady <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>)</span> wrote:</p>
 <blockquote class="blockquote">
 <p><em>“what makes it valid to calculate the ATE by taking the average of the Y(0) column, ignoring the question marks, and subtracting that from the average of the Y(1) column, ignoring the question marks?” This ignoring of the question marks (missing data) is known as ignorability. Assuming ignorability is like ignoring how people ended up selecting the treatment they selected and just assuming they were randomly assigned their treatment”</em> <span class="citation" data-cites="Neal2020Introduction">(<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">Neal, 2020, p. 9</a>)</span></p>
@@ -618,11 +649,17 @@ ATE\triangleq \mathbb{E}[Y(1)-Y(0)] = \mathbb{E} [\underbrace{Y_i(1)-Y_i(0)}_{IT
 \end{align}\]</span></p>
 <p>Another perspective on this assumption is the concept of exchangeability. Exchangeability refers to the idea that the treatment groups can be interchanged such that if they were switched, the new treatment group would have the same outcomes as the old treatment group, and the new control group would have the same outcomes as the old control group.</p>
 </section>
-<section id="unconfoundedness" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="unconfoundedness"><span class="header-section-number">3.4.2</span> Unconfoundedness</h3>
-<p>While randomized controlled trials (RCTs) assume the concept of ignoreability, most observational data present challenges in drawing causal conclusions due to the presence of confounding factors that affect both (1) the likelihood of individuals being part of the treatment group and (2) the observed outcome. For instance, regional factors can affect both the number of storks and the number of babies born in a region. These factors are typically referred to as confounders, which we discussed in <a href="#sec-cornotcaus" class="quarto-xref"><span>Section 3.2</span></a> as having the potential to create the illusion of a causal impact where none exists. However, empirical methods are available <em>to control for</em> these confounders and prevent the violation of the ignoreability assumption.</p>
+<section id="unconfoundedness" class="level4" data-number="3.2.5.2">
+<h4 data-number="3.2.5.2" class="anchored" data-anchor-id="unconfoundedness"><span class="header-section-number">3.2.5.2</span> Unconfoundedness</h4>
+<p>While randomized controlled trials (RCTs) assume the concept of ignoreability, most observational data present challenges in drawing causal conclusions due to the presence of confounding factors that affect both (1) the likelihood of individuals being part of the treatment group and (2) the observed outcome. For instance, regional factors can affect both the number of storks and the number of babies born in a region. These factors are typically referred to as confounders, which we discussed in <a href="#sec-cornotcaus" class="quarto-xref"><span>Section 3.2.2</span></a> as having the potential to create the illusion of a causal impact where none exists. However, empirical methods are available <em>to control for</em> these confounders and prevent the violation of the ignoreability assumption.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="exr-treatmenteffects" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.5</strong></span> Treatment effects</p>
+<p><span class="theorem-title"><strong>Exercise 3.5</strong></span> Treatment effects (<a href="#sol-treatmenteffects" class="quarto-xref">Solution&nbsp;<span>3.5</span></a>)</p>
 <p>Read sections 2.1 and 2.3 of <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>)</span>.</p>
 <ol type="1">
 <li>What is the individual treatment effect (ITE)?</li>
@@ -631,12 +668,14 @@ ATE\triangleq \mathbb{E}[Y(1)-Y(0)] = \mathbb{E} [\underbrace{Y_i(1)-Y_i(0)}_{IT
 <li>Can the ATE be used to determine the effect of a treatment on an individual level?</li>
 <li>What are some potential sources of bias when estimating the ATE?</li>
 </ol>
-<p>See <a href="#sol-treatmenteffects" class="quarto-xref">Solution&nbsp;<span>3.5</span></a>.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 </section>
-<section id="sec-scrcj" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="sec-scrcj"><span class="header-section-number">3.5</span> Statistical control requires causal justification</h2>
+<section id="sec-scrcj" class="level3" data-number="3.2.6">
+<h3 data-number="3.2.6" class="anchored" data-anchor-id="sec-scrcj"><span class="header-section-number">3.2.6</span> Statistical control requires causal justification</h3>
 <div id="tip-wysocki" class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -652,8 +691,15 @@ Tip&nbsp;3.3
 </div>
 <p>Scientific research revolves around challenging our own views and findings. A good researcher does not merely present their results; instead, they engage in discussions about potential limitations and pitfalls to draw valid conclusions. Engaging in polemics goes against the essence of good research. We should not conceal potential weaknesses in our scientific strategy or empirical approach; rather, we should emphasize their existence. Even if this disappoints individuals seeking easy answers, it is crucial to acknowledge these limitations. The <a href="https://catalogofbias.org/biases/">Catalogue of Bias</a> is an excellent resource that provides insight into various potential pitfalls and challenges encountered during research, which may sometimes be difficult to completely rule out.</p>
 </section>
+</section>
 <section id="solutions-to-the-exercises" class="level2 unlisted unnumbered">
 <h2 class="unlisted unnumbered anchored" data-anchor-id="solutions-to-the-exercises">Solutions to the exercises</h2>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="sol-methodsinresearch" class="proof solution">
 <p><span class="proof-title"><em>Solution 3.1</em>. </span>Methods used in economic research (<a href="#exr-methodsinresearch" class="quarto-xref">Exercise&nbsp;<span>3.1</span></a>)</p>
 <ol type="a">
@@ -692,6 +738,15 @@ Tip&nbsp;3.3
 </ol>
 </section>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="sol-causalinf1" class="proof solution">
 <p><span class="proof-title"><em>Solution 3.2</em>. </span>Causal inference ch.1 (<a href="#exr-causalinf1" class="quarto-xref">Exercise&nbsp;<span>3.2</span></a>)</p>
 <ol type="1">
@@ -699,6 +754,15 @@ Tip&nbsp;3.3
 <li><p>The role of randomization in causal inference, as described in the book, is that it helps to control for confounding variables and allows for the estimation of causal effects.</p></li>
 </ol>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="sol-graduateadmission" class="proof solution">
 <p><span class="proof-title"><em>Solution 3.3</em>. </span>Graduate admissions (<a href="#exr-graduateadmission" class="quarto-xref">Exercise&nbsp;<span>3.3</span></a>)</p>
 <ol type="a">
@@ -711,12 +775,30 @@ Tip&nbsp;3.3
 </blockquote>
 <p>The UC Berkley case is just one of many examples to illustrate that uniformity of group assignment of individuals is a necessary condition to ensure that pooling of data does not lead to misleading conclusions when using statistics. The phenomenon of obtaining different results depending on whether one considers the data pooled or unpooled is often referred to as the <em>Simpson Paradox</em>.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="sol-simpsonpara" class="proof solution">
 <p><span class="proof-title"><em>Solution 3.4</em>. </span>Simpson’s Paradox (<a href="#exr-simpsonpara" class="quarto-xref">Exercise&nbsp;<span>3.4</span></a>)</p>
 <ol type="1">
 <li>a), 2. c) and d)</li>
 </ol>
 </div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <div id="sol-treatmenteffects" class="proof solution">
 <p><span class="proof-title"><em>Solution 3.5</em>. </span>Solution to exercise <a href="#exr-treatmenteffects" class="quarto-xref">Exercise&nbsp;<span>3.5</span></a></p>
 <ol type="1">
@@ -726,6 +808,9 @@ Tip&nbsp;3.3
 <li>No, the ATE is a population-level measure and cannot be used to determine the effect of a treatment on an individual level. To determine the effect of a treatment on an individual level, you would need to use techniques such as propensity score matching or instrumental variables.</li>
 <li>Some potential sources of bias when estimating the ATE include selection bias, measurement bias, and unobserved confounding variables. To mitigate these biases, researchers may use randomization or other advanced statistical techniques such as propensity score matching or instrumental variables to control for these potential sources of bias.</li>
 </ol>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -762,8 +847,8 @@ Wysocki, A. C., Lawson, K. M., &amp; Rhemtulla, M. (2022). Statistical control r
 <li id="fn1"><p>Source: https://commons.wikimedia.org/wiki/File:Daniel_Kahneman_(3283955327)_(cropped).jpg<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Source: https://youtu.be/Wy7qpJeozec<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>Source: https://pixabay.com/images/id-5029286/<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Source: https://youtu.be/DFPm_a-_uJM<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Source: <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Source: <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Source: https://youtu.be/DFPm_a-_uJM<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p>Source: The photography is public domain and stems from the Library of Congress Prints and Photographs Division Washington, see: http://hdl.loc.gov/loc.pnp/pp.print.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn7"><p>Source: <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975, p. 403</a>)</span><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn8"><p> A VAR is a statistical model used to capture the relationship between multiple quantities as they change over time.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
