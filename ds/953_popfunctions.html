@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof.&nbsp;Dr.&nbsp;Stephan Huber">
-<meta name="dcterms.date" content="2024-04-10">
 
-<title>How to Use R for Data Science</title>
+<title>How to Use R for Data Science - Appendix D — Popular functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -52,7 +30,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01_install.html" rel="next">
+<link href="./952_operators.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -107,7 +85,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./95_filesys.html">Appendices</a></li><li class="breadcrumb-item"><a href="./953_popfunctions.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Popular functions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -117,39 +95,17 @@ div.csl-indent {
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./95_filesys.html">Appendices</a></li><li class="breadcrumb-item"><a href="./953_popfunctions.html"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Popular functions</span></a></li></ol></nav>
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">How to Use R for Data Science</h1>
-            <p class="subtitle lead">Lecture Notes (currently under revision)</p>
+      <h1 class="title">Appendix D — Popular functions</h1>
                       </div>
   </div>
     
-  <div class="quarto-title-meta-author">
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-heading">Affiliation</div>
-    
-      <div class="quarto-title-meta-contents">
-      <p class="author">Prof.&nbsp;Dr.&nbsp;Stephan Huber <a href="mailto:stephan.huber@hs-fresenius.de" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-    </div>
-    <div class="quarto-title-meta-contents">
-          <p class="affiliation">
-              <a href="https://hubchev.github.io/">
-              Hochschule Fresenius - University of Applied Science
-              </a>
-            </p>
-        </div>
-    </div>
-
+  
   <div class="quarto-title-meta">
 
-        
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">April 10, 2024</p>
-      </div>
-    </div>
+      
     
       
     </div>
@@ -175,7 +131,7 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
@@ -250,7 +206,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./953_popfunctions.html" class="sidebar-item-text sidebar-link">
+  <a href="./953_popfunctions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Popular functions</span></span></a>
   </div>
 </li>
@@ -262,8 +218,25 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
-<p><a href="fig/cover_transparent.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="fig/cover_transparent.png" class="img-fluid"></a></p>
+<p><a href="fig/cover_transparent.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="fig/cover_transparent.png" class="img-fluid"></a></p>
 </div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#help" id="toc-help" class="nav-link active" data-scroll-target="#help"><span class="header-section-number">D.1</span> Help</a></li>
+  <li><a href="#package-management" id="toc-package-management" class="nav-link" data-scroll-target="#package-management"><span class="header-section-number">D.2</span> Package management</a></li>
+  <li><a href="#general" id="toc-general" class="nav-link" data-scroll-target="#general"><span class="header-section-number">D.3</span> General</a></li>
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="header-section-number">D.4</span> Tools</a></li>
+  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import"><span class="header-section-number">D.5</span> Data import</a></li>
+  <li><a href="#inspect-data" id="toc-inspect-data" class="nav-link" data-scroll-target="#inspect-data"><span class="header-section-number">D.6</span> Inspect data</a></li>
+  <li><a href="#graphics" id="toc-graphics" class="nav-link" data-scroll-target="#graphics"><span class="header-section-number">D.7</span> Graphics</a></li>
+  <li><a href="#data-management" id="toc-data-management" class="nav-link" data-scroll-target="#data-management"><span class="header-section-number">D.8</span> Data management</a></li>
+  <li><a href="#dplyr-functions" id="toc-dplyr-functions" class="nav-link" data-scroll-target="#dplyr-functions"><span class="header-section-number">D.9</span> <code>dplyr</code> functions</a></li>
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><span class="header-section-number">D.10</span> Data analysis</a></li>
+  <li><a href="#statistical-functions" id="toc-statistical-functions" class="nav-link" data-scroll-target="#statistical-functions"><span class="header-section-number">D.11</span> Statistical functions</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -272,101 +245,170 @@ div.csl-indent {
 
 
 
-<p><a href="fig/cover_transparent.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="fig/cover_transparent.png" class="img-fluid" style="width:90.0%"></a></p>
-<section id="preface" class="level1 unlisted unnumbered">
-<h1 class="unlisted unnumbered">Preface</h1>
-<section id="about-r" class="level4 unlisted unnumbered">
-<h4 class="unlisted unnumbered anchored" data-anchor-id="about-r">About R</h4>
-<p>The programming language R enables you to handle, visualize, and analyze data. It is compatible with various operating systems (Windows, Mac, Linux) and can do a lot of things better compared to other programs like Python, Stata, Eviews, SPSS, SAS, and Excel. R is open source, extensively utilized, and there are abundant resources available for learning it. These notes are just my five cents.</p>
-</section>
-<section id="about-the-cover-of-the-notes" class="level4 unlisted unnumbered">
-<h4 class="unlisted unnumbered anchored" data-anchor-id="about-the-cover-of-the-notes">About the cover of the notes</h4>
-<p>Data science is a buzzword that combines different fields of knowledge such as computer science, software engineering, informatics, database management, statistics, econometrics, business intelligence, and mathematics. However, there is no universally accepted definition of it and I think it is not important to define it precisely. <span class="citation" data-cites="Kelleher2018Data">Kelleher &amp; Tierney (<a href="references.html#ref-Kelleher2018Data" role="doc-biblioref">2018, p. 97</a>)</span> wrote “Data science is best understood as a partnership between a data scientist and a computer.” So data science is about embracing the power of computers for scientific, commercial or social purposes. Of course, empirical models and statistics play a role in gaining meaningful insights. The graphic on the cover page may illustrate that R combines four important fields, that are, data, science, computer, and statistics.</p>
-</section>
-<section id="about-the-notes" class="level4 unlisted unnumbered">
-<h4 class="unlisted unnumbered anchored" data-anchor-id="about-the-notes">About the notes</h4>
+<section id="help" class="level2" data-number="D.1">
+<h2 data-number="D.1" class="anchored" data-anchor-id="help"><span class="header-section-number">D.1</span> Help</h2>
 <ul>
-<li>These notes aims to support my lecture at the HS Fresenius but are incomplete and no substitute for taking actively part in class.</li>
-<li>A pdf version of these notes is available <a href="https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/ds/_main.pdf">here</a></li>
-<li>I host the notes in a <a href="https://github.com/hubchev/hubchev.github.io/tree/main/ds">GitHub repo</a>.</li>
-<li>I hope you find this book helpful. Any feedback is both welcome and appreciated.</li>
-<li>This is work in progress so please check for updates regularly.</li>
-<li>These notes offer a curated collection of explanations, exercises, and tips to facilitate learning R without causing unnecessary frustration. However, these notes don’t aim to rival comprehensive textbooks such as <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</li>
-<li>These notes are published under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>. This means it can be reused, remixed, retained, revised and redistributed as long as appropriate credit is given to the authors. If you remix, or modify the original version of this open textbook, you must redistribute all versions of this open textbook under the same license. This script draws from the work of <span class="citation" data-cites="Navarro2020Learning">Navarro (<a href="references.html#ref-Navarro2020Learning" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="Muschelli2022Introduction">Muschelli &amp; Jaffe (<a href="references.html#ref-Muschelli2022Introduction" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="Thulin2021Modern">Thulin (<a href="references.html#ref-Thulin2021Modern" role="doc-biblioref">2021</a>)</span>, and <span class="citation" data-cites="Ismay2022Statistical">Ismay &amp; Kim (<a href="references.html#ref-Ismay2022Statistical" role="doc-biblioref">2022</a>)</span> which is also published under the same license. <img src="fig/CC.png" class="img-fluid"></li>
+<li>?: Search R documentation for a specific term.</li>
+<li>?? Search R help files for a word or phrase.</li>
+<li>RSiteSearch: Search search.r-project.org</li>
+<li>findFn: Search search.r-project.org for functions (Hint: requires the “sos” library loaded!)</li>
+<li>help.start: Access to html manuals and documentations implemented in R</li>
+<li>apropos: Returns a character vector giving the names of objects in the search list matching (as a regular expression) what.</li>
+<li>find: Returns where objects of a given name can be found.</li>
+<li>vignette: View a specified package vignette, i.e., supporting material such as introductions.</li>
 </ul>
 </section>
-<section id="about-the-author" class="level4 unlisted unnumbered">
-<h4 class="unlisted unnumbered anchored" data-anchor-id="about-the-author">About the author</h4>
-<div class="callout callout-style-default callout-note callout-titled" title="Contact:">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Contact:
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Prof.&nbsp;Dr.&nbsp;Stephan Huber<br>
-Hochschule Fresenius für Wirtschaft &amp; Medien GmbH<br>
-Im MediaPark 4c<br>
-50670 Cologne</p>
-<p>Office: 4e OG-3<br>
-Telefon: +49 221 973199-523<br>
-Mail: stephan.huber@hs-fresenius.de<br>
-Private homepage: <a href="www.hubchev.github.io">www.hubchev.github.io</a><br>
-Github: <a href="https://github.com/hubchev">https://github.com/hubchev</a></p>
-</div>
-</div>
-</div>
-<div id="fig-huber2" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-huber2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Prof.&nbsp;Dr.&nbsp;Stephan Huber
-</figcaption>
-<div aria-describedby="fig-huber2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/huber2.jpeg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="fig/huber2.jpeg" class="img-fluid figure-img" style="width:25.0%"></a>
-</div>
-</figure>
-</div>
-<p>I am a Professor of <em>International Economics and Data Science</em> at HS Fresenius, holding a Diploma in Economics from the University of Regensburg and a Doctoral Degree (summa cum laude) from the University of Trier. I completed postgraduate studies at the Interdisciplinary Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU) in Trier. Prior to my current position, I worked as a research assistant to Prof.&nbsp;Dr.&nbsp;Dr.&nbsp;h.c. Joachim Möller at the University of Regensburg, a post-doc at the Leibniz Institute for East and Southeast European Studies (IOS) in Regensburg, and a freelancer at Charles University in Prague.</p>
-<p>Throughout my career, I have also worked as a lecturer at various institutions, including the TU Munich, the University of Regensburg, Saarland University, and the Universities of Applied Sciences in Frankfurt and Augsburg. Additionally, I have had the opportunity to teach abroad for the University of Cordoba in Spain, the University of Perugia in Italy, and the Petra Christian University in Surabaya, Indonesia. My published work can be found in international journals such as the Canadian Journal of Economics and the Stata Journal. For more information on my work, please visit my private homepage at <a href="www.hubchev.github.io">hubchev.github.io</a>.</p>
-<p>I was always fascinated by data and statistics. For example, in 1992 I could name all soccer players in Germany’s first division including how many goals they scored. Later, in 2003 I joined the introductory statistics course of <a href="https://scholar.google.com/citations?user=geLs3JUAAAAJ&amp;hl=en">Daniel Rösch</a>. I learned among others that probabilities often play a role when analyzing data. I continued my data science journey with <a href="https://scholar.google.ca/citations?user=tHNB7wIAAAAJ&amp;hl=en">Harry Haupt’s</a> <em>Introductory Econometrics</em> course, where I studied the infamous Jeffrey M. <span class="citation" data-cites="Wooldridge2002Introductory">Wooldridge (<a href="references.html#ref-Wooldridge2002Introductory" role="doc-biblioref">2002</a>)</span> textbook. It got me hooked and so I took all the courses <a href="https://www.uni-regensburg.de/business-economics-and-management-information-systems/economics-tschernig/team/rolf-tschernig/index.html">Rolf Tschernig</a> offered at his chair of Econometrics, where I became a tutor at the University of Regensburg and a research assistant of <a href="https://iab.de/en/employee/m%C3%B6ller-joachim/">Joachim Möller</a>. Despite everything we did had to do with how to make sense out of data, we never actually used the term <em>data science</em> which is also absent in the more 850 pages long textbook by <span class="citation" data-cites="Wooldridge2002Introductory">Wooldridge (<a href="references.html#ref-Wooldridge2002Introductory" role="doc-biblioref">2002</a>)</span>. The book also remains silent about <em>machine learning</em> or <em>artificial intelligence</em>. These terms became popular only after I graduated. The <em>Harvard Business Review</em> article by <span class="citation" data-cites="Davenport2012Data">Davenport &amp; Patil (<a href="references.html#ref-Davenport2012Data" role="doc-biblioref">2012</a>)</span> who claimed that data scientist is “The Sexiest Job of the 21st Century” may have boosted the popularity.</p>
-<p>The term “data scientist” has become remarkably popular, with many people eager to adopt this title. Interestingly, I find myself occasionally categorized as a data scientist, a label that doesn’t quite resonate with me, given its minimal relevance to my formal education. My professional identity aligns more closely with that of an applied, empirically-focused international economist rather than a data scientist. My hesitance to embrace the title “data scientist” also stems from the profound respect I’ve developed through my interactions with econometricians and statisticians. These experts are deeply committed to the rigorous advancement and application of empirical methods, frequently utilizing complex software tools in their work. In comparison to their deep expertise, I sometimes feel like a passionate amateur, reminiscent of my childhood days spent analyzing soccer statistics in my Panini sticker album, eager to uncover deeper understandings of the sport.</p>
-
-
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-3">Figure&nbsp;1: Prof.&nbsp;Dr.&nbsp;Stephan Huber</span>
-</div>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
-<div id="ref-Davenport2012Data" class="csl-entry" role="listitem">
-Davenport, T. H., &amp; Patil, D. (2012). Data scientist: The sexiest job of the 21st century. <em>Harvard Business Review</em>, <em>90</em>(5), 70–76.
-</div>
-<div id="ref-Ismay2022Statistical" class="csl-entry" role="listitem">
-Ismay, C., &amp; Kim, A. Y. (2022). <em>Statistical inference via data science: A ModernDive into <span>R</span> and the tidyverse</em>. CRC Press. <a href="https://moderndive.com/">https://moderndive.com/</a>
-</div>
-<div id="ref-Kelleher2018Data" class="csl-entry" role="listitem">
-Kelleher, J. D., &amp; Tierney, B. (2018). <em>Data science</em>. MIT Press.
-</div>
-<div id="ref-Muschelli2022Introduction" class="csl-entry" role="listitem">
-Muschelli, J., &amp; Jaffe, A. (2022). <em>Introduction to <span>R</span> for public health researchers</em>. GitHub. <a href="https://github.com/muschellij2/intro_to_r">https://github.com/muschellij2/intro_to_r</a>
-</div>
-<div id="ref-Navarro2020Learning" class="csl-entry" role="listitem">
-Navarro, D. (2020). <em>Learning statistics with r</em> (Version 0.6). <a href="https://learningstatisticswithr.com">https://learningstatisticswithr.com</a>
-</div>
-<div id="ref-Thulin2021Modern" class="csl-entry" role="listitem">
-Thulin, M. (2021). <em>Modern statistics with <span>R</span>: From wrangling and exploring data to inference and predictive modelling</em>. Eos Chasma Press. <a href="https://www.modernstatisticswithr.com/">https://www.modernstatisticswithr.com/</a>
-</div>
-<div id="ref-Wickham2023R" class="csl-entry" role="listitem">
-Wickham, H., &amp; Grolemund, G. (2023). <em>R for data science (2e)</em>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>
-</div>
-<div id="ref-Wooldridge2002Introductory" class="csl-entry" role="listitem">
-Wooldridge, J. M. (2002). Introductory econometrics: A modern approach. In <em>Delhi: Cengage Learnng</em> (2nd ed.). South-Western.
-</div>
-</div>
+<section id="package-management" class="level2" data-number="D.2">
+<h2 data-number="D.2" class="anchored" data-anchor-id="package-management"><span class="header-section-number">D.2</span> Package management</h2>
+<ul>
+<li><code>install.packages</code>: Installs packages from CRAN.</li>
+<li><code>pacman::p_load</code>: Installs and loads specified R packages.</li>
+<li><code>library</code>: (Install and) loads specified R packages.</li>
+</ul>
 </section>
+<section id="general" class="level2" data-number="D.3">
+<h2 data-number="D.3" class="anchored" data-anchor-id="general"><span class="header-section-number">D.3</span> General</h2>
+<ul>
+<li><code>setwd</code>: Sets the working directory to the specified path.</li>
+<li><code>rm</code>: Removes objects (variables) from the workspace.</li>
+<li><code>sessionInfo</code>: Information about the R environment.</li>
+<li><code>source</code>: Executes R code from a file.</li>
+</ul>
+</section>
+<section id="tools" class="level2" data-number="D.4">
+<h2 data-number="D.4" class="anchored" data-anchor-id="tools"><span class="header-section-number">D.4</span> Tools</h2>
+<ul>
+<li><code>else</code>: Execute a block of code if the preceding condition is false.</li>
+<li><code>else if</code>: Specify a new condition to test if the first condition is false.</li>
+<li><code>if</code>: Execute a block of code if a specified condition is true.</li>
+<li><code>ifelse</code>: Check a condition for every element of a vector.</li>
+</ul>
+</section>
+<section id="data-import" class="level2" data-number="D.5">
+<h2 data-number="D.5" class="anchored" data-anchor-id="data-import"><span class="header-section-number">D.5</span> Data import</h2>
+<ul>
+<li><code>c</code>: Combine values into a vector or list.</li>
+<li><code>read.csv</code>: Reads a CSV file into a data frame.</li>
+<li><code>read_dta</code>: Read Stata dataset.</li>
+<li><code>load</code>: Loads an RData file.</li>
+</ul>
+</section>
+<section id="inspect-data" class="level2" data-number="D.6">
+<h2 data-number="D.6" class="anchored" data-anchor-id="inspect-data"><span class="header-section-number">D.6</span> Inspect data</h2>
+<ul>
+<li><code>dim</code>: Returns the dimensions (number of rows and columns) of a data frame.</li>
+<li><code>glimpse</code>: Provide a concise summary.</li>
+<li><code>head</code>: Returns the first elements.</li>
+<li><code>length</code>: Returns the number of elements in an object.</li>
+<li><code>print</code>: Prints the specified object.</li>
+<li><code>names</code>: Returns the variable names in a data frame.</li>
+<li><code>n() or nrow()</code>: Counts the number of observations in a data frame or group of observations.</li>
+<li><code>ncol</code>: Returns the number of columns in a data frame.</li>
+<li><code>summary</code>: Summary statistics.</li>
+<li><code>table</code>: Create a table of counts or cross-tabulation.</li>
+<li><code>tail</code>: Returns the first n elements.</li>
+<li><code>unique</code>: Extracts unique elements from a vector.</li>
+<li><code>view</code>: Opens a viewer for data frames.</li>
+</ul>
+</section>
+<section id="graphics" class="level2" data-number="D.7">
+<h2 data-number="D.7" class="anchored" data-anchor-id="graphics"><span class="header-section-number">D.7</span> Graphics</h2>
+<ul>
+<li><code>abline</code>: Adds lines to a plot.</li>
+<li><code>aes</code>: Aesthetic mapping in ggplot.</li>
+<li><code>facet_wrap</code>: Creates a grid of facetted plots.</li>
+<li><code>geom_hline</code>: Adds horizontal lines to a ggplot.</li>
+<li><code>geom_line</code>: Adds lines to a ggplot.</li>
+<li><code>geom_point</code>: Adds points to a ggplot.</li>
+<li><code>geom_smooth</code>: Adds a smoothed line to a ggplot.</li>
+<li><code>geom_text</code>: Adds text to a ggplot.</li>
+<li><code>geom_vline</code>: Adds vertical lines to a ggplot.</li>
+<li><code>ggsave</code>: Saves a ggplot to a file.</li>
+<li><code>labs</code>: Adds or modifies plot labels.</li>
+<li><code>plot</code>: Creates a scatter plot.</li>
+<li><code>scale_y_reverse</code>: Reverses the y-axis in a ggplot.</li>
+<li><code>stat_smooth</code>: Adds a smoothed line to a ggplot.</li>
+<li><code>theme_classic</code>: Applies a classic theme to a ggplot.</li>
+<li><code>theme_minimal</code>: Applies a minimal theme to a ggplot.</li>
+</ul>
+</section>
+<section id="data-management" class="level2" data-number="D.8">
+<h2 data-number="D.8" class="anchored" data-anchor-id="data-management"><span class="header-section-number">D.8</span> Data management</h2>
+<ul>
+<li><code>arrange</code>: Reorder the rows of a data frame.</li>
+<li><code>clean_names</code>: Cleans names of an object (usually a data.frame).</li>
+<li><code>complete</code>: Completes a data frame with all combinations of specified columns.</li>
+<li><code>data.frame</code>: Creates a data frame.</li>
+<li><code>distinct</code>: Removes duplicate rows from a data frame.</li>
+<li><code>identical</code>: Check if two objects are identical.</li>
+<li><code>is(na)</code>: Identify and flag a missing or undefined value (NA).</li>
+<li><code>is_tibble</code>: Check if an object is a tibble.</li>
+<li><code>rm</code>: Removes objects (variables) from the workspace.</li>
+<li><code>relocate</code>: Reorders columns in a dataframe.</li>
+<li><code>round</code>: Rounds a numeric vector to the nearest integer.</li>
+<li><code>rownames</code>: Get or set the row names of a matrix-like object.</li>
+<li><code>tibble</code>: Creates a tibble, a modern and tidy data frame.</li>
+</ul>
+</section>
+<section id="dplyr-functions" class="level2" data-number="D.9">
+<h2 data-number="D.9" class="anchored" data-anchor-id="dplyr-functions"><span class="header-section-number">D.9</span> <code>dplyr</code> functions</h2>
+<ul>
+<li><code>arrange</code>: Reorder the rows of a data frame.</li>
+<li><code>complete</code>: Completes a data frame with all combinations of specified columns.</li>
+<li><code>ends_with</code>: matches to a specified suffix</li>
+<li><code>filter</code>: Pick observations by their values.</li>
+<li><code>first</code>: Returns the first element.</li>
+<li><code>group_by</code>: Group data by one or more variables.</li>
+<li><code>last</code>: Returns the last element.</li>
+<li><code>mutate</code>: Add new variables or modify existing variables in a data frame.</li>
+<li><code>nth</code>: Returns the nth element.</li>
+<li><code>n_distinct</code>: Returns the number of distinct elements.</li>
+<li><code>rename</code>: Rename variables in a data frame.</li>
+<li><code>rename_all</code>: Renames all variables in a data frame.</li>
+<li><code>row_number</code>: Adds a column with row numbers.</li>
+<li><code>rowwise</code>: Perform operations row by row.</li>
+<li><code>select</code>: Pick variables by their names.</li>
+<li><code>select_all</code>: Selects all columns in a data frame.</li>
+<li><code>slice_head</code>: Selects the top N rows from each group.</li>
+<li><code>starts_with</code>: Select variables whose names start with a certain string.</li>
+<li><code>summarise</code>: Reduce data to a single summary value.</li>
+</ul>
+</section>
+<section id="data-analysis" class="level2" data-number="D.10">
+<h2 data-number="D.10" class="anchored" data-anchor-id="data-analysis"><span class="header-section-number">D.10</span> Data analysis</h2>
+<ul>
+<li><code>aggregate</code>: Apply a function to the data by levels of one or more factors.</li>
+<li><code>anti_join</code>: Return rows from the first data frame that do not have a match in the second data frame.</li>
+<li><code>cor</code>: Computes correlation coefficients.</li>
+<li><code>cov</code>: Computes covariance.</li>
+<li><code>diff</code>: Calculates differences between consecutive elements.</li>
+<li><code>get_dupes</code>: Identify duplicate rows in a data frame (from the janitor package).</li>
+<li><code>paste0</code>: Concatenate vectors after converting to character.</li>
+<li><code>predict</code>: Predict method for model fits.</li>
+<li><code>prop.table</code>: Create a table of proportions.</li>
+</ul>
+</section>
+<section id="statistical-functions" class="level2" data-number="D.11">
+<h2 data-number="D.11" class="anchored" data-anchor-id="statistical-functions"><span class="header-section-number">D.11</span> Statistical functions</h2>
+<ul>
+<li><code>cor()</code>: Computes correlation coefficients.</li>
+<li><code>cov()</code>: Computes the covariance.</li>
+<li><code>exp()</code>: Exponential function.</li>
+<li><code>IQR()</code>: Computes the interquartile range.</li>
+<li><code>kurtosis()</code>: Computes the kurtosis.</li>
+<li><code>log()</code>: Natural logarithm.</li>
+<li><code>mad()</code>: Computes the mean absolute deviation.</li>
+<li><code>max()</code>: Returns the maximum value.</li>
+<li><code>mean()</code>: Calculates the mean.</li>
+<li><code>median()</code>: Computes the median.</li>
+<li><code>min()</code>: Returns the minimum value.</li>
+<li><code>quantile()</code>: Computes sample quantiles.</li>
+<li><code>sd()</code>: Calculates the standard deviation.</li>
+<li><code>skewness()</code>: Calculates the skewness.</li>
+<li><code>var()</code>: Calculates the variance.</li>
+</ul>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -925,15 +967,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./952_operators.html" class="pagination-link" aria-label="Operators">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Operators</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_install.html" class="pagination-link" aria-label="Getting started with R">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started with R</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"openEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
