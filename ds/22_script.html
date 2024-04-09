@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How to Use R for Data Science - 2&nbsp; Work with R scripts</title>
+<title>How to Use R for Data Science - 3&nbsp; Work with R scripts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./30_graph.html" rel="next">
-<link href="./01_install.html" rel="prev">
+<link href="./10_swirl.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -149,7 +149,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./22_script.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Work with R scripts</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./22_script.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Work with R scripts</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -162,7 +162,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Work with R scripts</span></h1>
+      <h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Work with R scripts</span></h1>
                       </div>
   </div>
     
@@ -207,26 +207,32 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./10_swirl.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An interactive introduction using <code>swirl</code></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./22_script.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./30_graph.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualizing data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Visualizing data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_manage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Manage data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Manage data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Collection of exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Collection of exercises</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -282,11 +288,11 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#r-scripts-why-they-are-useful" id="toc-r-scripts-why-they-are-useful" class="nav-link active" data-scroll-target="#r-scripts-why-they-are-useful"><span class="header-section-number">2.1</span> R Scripts: Why they are useful</a></li>
-  <li><a href="#generate-write-and-run-r-scripts" id="toc-generate-write-and-run-r-scripts" class="nav-link" data-scroll-target="#generate-write-and-run-r-scripts"><span class="header-section-number">2.2</span> Generate, write, and run R scripts</a></li>
-  <li><a href="#sec:assignmentoper" id="toc-sec:assignmentoper" class="nav-link" data-scroll-target="#sec\:assignmentoper"><span class="header-section-number">2.3</span> The assignment operator: <code>&lt;-</code></a></li>
-  <li><a href="#doing-calculation-in-scripts" id="toc-doing-calculation-in-scripts" class="nav-link" data-scroll-target="#doing-calculation-in-scripts"><span class="header-section-number">2.4</span> Doing calculation in scripts</a></li>
-  <li><a href="#sec:generics" id="toc-sec:generics" class="nav-link" data-scroll-target="#sec\:generics"><span class="header-section-number">2.5</span> User-defined functions</a></li>
+  <li><a href="#r-scripts-why-they-are-useful" id="toc-r-scripts-why-they-are-useful" class="nav-link active" data-scroll-target="#r-scripts-why-they-are-useful"><span class="header-section-number">3.1</span> R Scripts: Why they are useful</a></li>
+  <li><a href="#generate-write-and-run-r-scripts" id="toc-generate-write-and-run-r-scripts" class="nav-link" data-scroll-target="#generate-write-and-run-r-scripts"><span class="header-section-number">3.2</span> Generate, write, and run R scripts</a></li>
+  <li><a href="#sec:assignmentoper" id="toc-sec:assignmentoper" class="nav-link" data-scroll-target="#sec\:assignmentoper"><span class="header-section-number">3.3</span> The assignment operator: <code>&lt;-</code></a></li>
+  <li><a href="#doing-calculation-in-scripts" id="toc-doing-calculation-in-scripts" class="nav-link" data-scroll-target="#doing-calculation-in-scripts"><span class="header-section-number">3.4</span> Doing calculation in scripts</a></li>
+  <li><a href="#sec:generics" id="toc-sec:generics" class="nav-link" data-scroll-target="#sec\:generics"><span class="header-section-number">3.5</span> User-defined functions</a></li>
   </ul>
 </nav>
     </div>
@@ -297,8 +303,8 @@ window.Quarto = {
 
 
 
-<section id="r-scripts-why-they-are-useful" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="r-scripts-why-they-are-useful"><span class="header-section-number">2.1</span> R Scripts: Why they are useful</h2>
+<section id="r-scripts-why-they-are-useful" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="r-scripts-why-they-are-useful"><span class="header-section-number">3.1</span> R Scripts: Why they are useful</h2>
 <p>Typing functions into the console to run code may seem simple, but this interactive style has limitations:</p>
 <ul>
 <li>Typing commands one at a time can be cumbersome and time-consuming.</li>
@@ -319,8 +325,8 @@ window.Quarto = {
 <li>Scripts make it easy to share your work with others.</li>
 </ul>
 </section>
-<section id="generate-write-and-run-r-scripts" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="generate-write-and-run-r-scripts"><span class="header-section-number">2.2</span> Generate, write, and run R scripts</h2>
+<section id="generate-write-and-run-r-scripts" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="generate-write-and-run-r-scripts"><span class="header-section-number">3.2</span> Generate, write, and run R scripts</h2>
 <p>To <strong>generate a script</strong> you can</p>
 <ol type="1">
 <li>Go to the <em>File</em> menu, select <em>New File</em> and then choose <em>R Script</em> or</li>
@@ -355,8 +361,8 @@ window.Quarto = {
 <p>Just note that the dot, <code>.</code>, means the current folder. Instead of using the <code>source</code> function, you can click on the <code>source</code> button in Rstudio.</p>
 <p>With the character <code>#</code> you can write a comment in a script and R will simply ignore everything that follows in that line onwards.</p>
 </section>
-<section id="sec:assignmentoper" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="sec:assignmentoper"><span class="header-section-number">2.3</span> The assignment operator: <code>&lt;-</code></h2>
+<section id="sec:assignmentoper" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec:assignmentoper"><span class="header-section-number">3.3</span> The assignment operator: <code>&lt;-</code></h2>
 <p>Suppose I’m trying to calculate how much money I’m going to make from this book. I agree, it is an unrealistic example but it will help you to understand R. Let’s assume I’m only going to sell 350 copies. To create a variable called <code>sales</code> and assigns a value to it, we need to use the <em>assignment operator</em> of R, which is <code>&lt;-</code> as follows:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sales <span class="ot">&lt;-</span> <span class="dv">350</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -374,8 +380,8 @@ window.Quarto = {
 </div>
 <p>However, it is common practice to use <code>&lt;-</code> and I recommend only to use this one because it is easier to read in scripts.</p>
 </section>
-<section id="doing-calculation-in-scripts" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="doing-calculation-in-scripts"><span class="header-section-number">2.4</span> Doing calculation in scripts</h2>
+<section id="doing-calculation-in-scripts" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="doing-calculation-in-scripts"><span class="header-section-number">3.4</span> Doing calculation in scripts</h2>
 <p>R can do any kind of arithmetic calculation with the arithmetic operators given in the table below. Using the assignment operator, R functions, and the features of a R script is easy and gives an idea how R works and how you should embrace the power of the programming language.</p>
 <table class="table">
 <thead>
@@ -451,8 +457,8 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>?<span class="fu">round</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="sec:generics" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="sec:generics"><span class="header-section-number">2.5</span> User-defined functions</h2>
+<section id="sec:generics" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="sec:generics"><span class="header-section-number">3.5</span> User-defined functions</h2>
 <p>One of the great strengths of R is the user’s ability to add functions. Sometimes there is a small task (or series of tasks) you need done and you find yourself having to repeat it multiple times. In these types of situations it can be helpful to create your own custom function. The structure of a function is given below:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>name_of_function <span class="ot">&lt;-</span> <span class="cf">function</span>(argument1, argument2) {</span>
@@ -1103,18 +1109,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01_install.html" class="pagination-link" aria-label="Getting started with R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started with R</span></span>
+      <a href="./10_swirl.html" class="pagination-link" aria-label="An interactive introduction using `swirl`">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An interactive introduction using <code>swirl</code></span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./30_graph.html" class="pagination-link" aria-label="Visualizing data">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualizing data</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Visualizing data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

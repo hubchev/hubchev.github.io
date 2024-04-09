@@ -84,7 +84,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./22_script.html" rel="next">
+<link href="./10_swirl.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -227,26 +227,32 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./10_swirl.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An interactive introduction using <code>swirl</code></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./22_script.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./30_graph.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Visualizing data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Visualizing data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_manage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Manage data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Manage data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./45_exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Collection of exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Collection of exercises</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -317,12 +323,6 @@ window.Quarto = {
   <li><a href="#package-management" id="toc-package-management" class="nav-link" data-scroll-target="#package-management"><span class="header-section-number">1.9.3</span> Simplified package management with <code>p_load</code></a></li>
   </ul></li>
   <li><a href="#are-there-some-guidelines-for-working-with-r" id="toc-are-there-some-guidelines-for-working-with-r" class="nav-link" data-scroll-target="#are-there-some-guidelines-for-working-with-r"><span class="header-section-number">1.10</span> Are there some guidelines for working with R?</a></li>
-  <li><a href="#sec-swirl" id="toc-sec-swirl" class="nav-link" data-scroll-target="#sec-swirl"><span class="header-section-number">1.11</span> Learn interactively with swirl</a>
-  <ul class="collapse">
-  <li><a href="#swirl-modules-on-data-analytical-basics" id="toc-swirl-modules-on-data-analytical-basics" class="nav-link" data-scroll-target="#swirl-modules-on-data-analytical-basics"><span class="header-section-number">1.11.1</span> <code>swirl</code> modules on data analytical basics</a></li>
-  <li><a href="#swirl-module-on-the-tidyverse-package" id="toc-swirl-module-on-the-tidyverse-package" class="nav-link" data-scroll-target="#swirl-module-on-the-tidyverse-package"><span class="header-section-number">1.11.2</span> <code>swirl</code> module on the <code>tidyverse</code> package</a></li>
-  <li><a href="#other-swirl-modules" id="toc-other-swirl-modules" class="nav-link" data-scroll-target="#other-swirl-modules"><span class="header-section-number">1.11.3</span> Other <code>swirl</code> modules</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -354,7 +354,6 @@ Content of this chapter
 <li>What is a function in R?</li>
 <li>What are objects in R?</li>
 <li>Are there some guidelines for working with R?</li>
-<li>Learn interactively with swirl</li>
 </ol>
 </div>
 </div>
@@ -389,7 +388,7 @@ R has weaknesses
 </section>
 <section id="howtolearnr" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="howtolearnr"><span class="header-section-number">1.2</span> How to learn R</h2>
-<p>There are many different approaches to learning R. It pretty much depends on your preferences, needs, goals, prerequisites and limitations. It is up to you to search and find a suitable way to achieve your learning goals. While I hope you find my notes helpful, I additionally provide in section <a href="#sec-Rlearninglit" class="quarto-xref"><span>Section 1.3</span></a> a list of other resources that are worth considering. To start with, I recommend my swirl courses that provide an interactive learning environment, see <a href="#sec-swirl" class="quarto-xref"><span>Section 1.11</span></a>.</p>
+<p>There are many different approaches to learning R. It pretty much depends on your preferences, needs, goals, prerequisites and limitations. It is up to you to search and find a suitable way to achieve your learning goals. While I hope you find my notes helpful, I additionally provide in section <a href="#sec-Rlearninglit" class="quarto-xref"><span class="quarto-unresolved-ref">sec-Rlearninglit</span></a> a list of other resources that are worth considering. To start with, I recommend my swirl courses that provide an interactive learning environment, see <a href="#sec-swirl" class="quarto-xref"><span class="quarto-unresolved-ref">sec-swirl</span></a>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Make your hands dirty!">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -420,12 +419,12 @@ Make your hands dirty!
 <p>Since you may feel overwhelmed by the number of resources, I would like to highlight some books:</p>
 <p><img src="fig/ds-a-first-intro-cover.jpg" class="img-fluid" style="width:40.0%" alt="Data Science: A First Introduction"> <img src="fig/r4ds-cover.jpg" class="img-fluid" style="width:45.0%" alt="R for Data Science: Import, Tidy, Transform, Visualize, and Model Data"> <img src="fig/irizarrybook.png" class="img-fluid" style="width:42.0%"> <img src="fig/Kabacoff2024Modern.png" class="img-fluid" style="width:38.0%"></p>
 <ol type="1">
-<li><span class="citation" data-cites="Timbers2022Data">Timbers et al. (<a href="references.html#ref-Timbers2022Data" role="doc-biblioref">2022</a>)</span>: <a href="https://datasciencebook.ca/">Data Science: A First Introduction</a> is a free and up to date book that comes with exercises with worksheets that are available on <a href="https://github.com/UBC-DSCI/data-science-a-first-intro-worksheets">UBC-DSCI GitHub repository</a></li>
-<li><span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>: <a href="https://r4ds.hadley.nz/">R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</a> is the most popular source to learn R. It focuses on introducing the tidyverse package and is freely available online.</li>
-<li><span class="citation" data-cites="Irizarry2022Introduction">Irizarry (<a href="references.html#ref-Irizarry2022Introduction" role="doc-biblioref">2022</a>)</span>: <a href="http://rafalab.dfci.harvard.edu/dsbook/">Introduction to Data Science: Data Analysis and Prediction Algorithms With R</a> is a complete, up to date, and applied introduction.</li>
-<li><span class="citation" data-cites="Venables2022Introduction">Venables et al. (<a href="references.html#ref-Venables2022Introduction" role="doc-biblioref">2022</a>)</span> <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf">An Introduction to R: Notes on R: A Programming Environment for Data Analysis and Graphics</a> is a manual from the R Core Development Team that shows how to use R without having to install and load additional packages.</li>
-<li><span class="citation" data-cites="Neth2022ds4psy">Neth (<a href="references.html#ref-Neth2022ds4psy" role="doc-biblioref">2023</a>)</span>: <a href="https://bookdown.org/hneth/ds4psy/">Data Science for Psychologists</a> is a comprehensive introduction to R and data science for non experts of both programming and data science. It uses a variety of data types and includes many examples and exercises.</li>
-<li><span class="citation" data-cites="Kabacoff2024Modern">Kabacoff (<a href="references.html#ref-Kabacoff2024Modern" role="doc-biblioref">2024</a>)</span>: <a href="https://rkabacoff.github.io/datavis/">Modern Data Visualization with R</a> teaches how to create graphs from scratch providing a lot of examples that you can copy, paste and tweak.</li>
+<li><span class="citation" data-cites="Timbers2022Data">Timbers et al. (<a href="#ref-Timbers2022Data" role="doc-biblioref">2022</a>)</span>: <a href="https://datasciencebook.ca/">Data Science: A First Introduction</a> is a free and up to date book that comes with exercises with worksheets that are available on <a href="https://github.com/UBC-DSCI/data-science-a-first-intro-worksheets">UBC-DSCI GitHub repository</a></li>
+<li><span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>: <a href="https://r4ds.hadley.nz/">R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</a> is the most popular source to learn R. It focuses on introducing the tidyverse package and is freely available online.</li>
+<li><span class="citation" data-cites="Irizarry2022Introduction">Irizarry (<a href="#ref-Irizarry2022Introduction" role="doc-biblioref">2022</a>)</span>: <a href="http://rafalab.dfci.harvard.edu/dsbook/">Introduction to Data Science: Data Analysis and Prediction Algorithms With R</a> is a complete, up to date, and applied introduction.</li>
+<li><span class="citation" data-cites="Venables2022Introduction">Venables et al. (<a href="#ref-Venables2022Introduction" role="doc-biblioref">2022</a>)</span> <a href="https://cran.r-project.org/doc/manuals/r-release/R-intro.pdf">An Introduction to R: Notes on R: A Programming Environment for Data Analysis and Graphics</a> is a manual from the R Core Development Team that shows how to use R without having to install and load additional packages.</li>
+<li><span class="citation" data-cites="Neth2022ds4psy">Neth (<a href="#ref-Neth2022ds4psy" role="doc-biblioref">2023</a>)</span>: <a href="https://bookdown.org/hneth/ds4psy/">Data Science for Psychologists</a> is a comprehensive introduction to R and data science for non experts of both programming and data science. It uses a variety of data types and includes many examples and exercises.</li>
+<li><span class="citation" data-cites="Kabacoff2024Modern">Kabacoff (<a href="#ref-Kabacoff2024Modern" role="doc-biblioref">2024</a>)</span>: <a href="https://rkabacoff.github.io/datavis/">Modern Data Visualization with R</a> teaches how to create graphs from scratch providing a lot of examples that you can copy, paste and tweak.</li>
 </ol>
 <p>Some other sources that are worth mentioning are these:</p>
 <ul>
@@ -436,37 +435,37 @@ Make your hands dirty!
 </section>
 <section id="sec-r-rstudio" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="sec-r-rstudio"><span class="header-section-number">1.4</span> What are R and RStudio?</h2>
-<p>Throughout this book, I will assume that you are using R via RStudio. First time users often confuse the two. At its simplest, R is like a car’s engine while RStudio is like a car’s dashboard as illustrated in Figure <a href="#fig-R_vs_RStudio_1" class="quarto-xref">Figure&nbsp;<span>1.1</span></a>.</p>
+<p>Throughout this book, I will assume that you are using R via RStudio. First time users often confuse the two. At its simplest, R is like a car’s engine while RStudio is like a car’s dashboard as illustrated in Figure <a href="#fig-R_vs_RStudio_1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-R_vs_RStudio_1</span></a>.</p>
 <div id="fig-R_vs_RStudio_1" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-R_vs_RStudio_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.1: Analogy of difference between R and RStudio
 </figcaption>
 <div aria-describedby="fig-R_vs_RStudio_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/R_vs_RStudio_1.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="fig/R_vs_RStudio_1.png" class="img-fluid figure-img"></a>
+<a href="fig/R_vs_RStudio_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="fig/R_vs_RStudio_1.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
 </div>
 <p>More precisely, R is a programming language that runs computations, while RStudio is an <em>integrated development environment (IDE)</em> that provides an interface by adding many convenient features and tools. So just as the way of having access to a speedometer, rearview mirrors, and a navigation system makes driving much easier, using RStudio’s interface makes using R much easier as well.</p>
-<p>Much as we don’t drive a car by interacting directly with the engine but rather by interacting with elements on the car’s dashboard, we won’t be using R directly but rather we will use RStudio’s interface. After you install R and RStudio on your computer, you’ll have two new <em>programs</em> (also called <em>applications</em>) you can open. We’ll always work in RStudio and not in the R application. Figure <a href="#fig-R_vs_RStudio" class="quarto-xref">Figure&nbsp;<span>1.2</span></a> shows what icon you should be clicking on your computer.</p>
+<p>Much as we don’t drive a car by interacting directly with the engine but rather by interacting with elements on the car’s dashboard, we won’t be using R directly but rather we will use RStudio’s interface. After you install R and RStudio on your computer, you’ll have two new <em>programs</em> (also called <em>applications</em>) you can open. We’ll always work in RStudio and not in the R application. Figure <a href="#fig-R_vs_RStudio" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-R_vs_RStudio</span></a> shows what icon you should be clicking on your computer.</p>
 <div id="fig-R_vs_RStudio" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-R_vs_RStudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.2: Icons of R versus RStudio on your computer
 </figcaption>
 <div aria-describedby="fig-R_vs_RStudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/R_vs_RStudio.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="fig/R_vs_RStudio.png" class="img-fluid figure-img"></a>
+<a href="fig/R_vs_RStudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="fig/R_vs_RStudio.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
 </div>
-<p>After you open RStudio, you should see something similar to Figure <a href="#fig-rstudio2" class="quarto-xref">Figure&nbsp;<span>1.3</span></a> where three or four panels dividing the screen.</p>
+<p>After you open RStudio, you should see something similar to Figure <a href="#fig-rstudio2" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-rstudio2</span></a> where three or four panels dividing the screen.</p>
 <div id="fig-rstudio2" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-rstudio2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.3: RStudio interface to R
 </figcaption>
 <div aria-describedby="fig-rstudio2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/rstudio2.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><img src="fig/rstudio2.png" class="img-fluid figure-img"></a>
+<a href="fig/rstudio2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="fig/rstudio2.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
 </div>
@@ -521,21 +520,21 @@ Figure&nbsp;1.3: RStudio interface to R
 </section>
 <section id="what-is-a-function-in-r" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="what-is-a-function-in-r"><span class="header-section-number">1.7</span> What is a function in R?</h2>
-<p>One of the keys to understand R is a <em>functional programming language</em>. Or, to put in in the words of <span class="citation" data-cites="Chambers2017Extending">Chambers (<a href="references.html#ref-Chambers2017Extending" role="doc-biblioref">2017, p. 4</a>)</span>:</p>
+<p>One of the keys to understand R is a <em>functional programming language</em>. Or, to put in in the words of <span class="citation" data-cites="Chambers2017Extending">Chambers (<a href="#ref-Chambers2017Extending" role="doc-biblioref">2017, p. 4</a>)</span>:</p>
 <blockquote class="blockquote">
 <p>“Everything that happens is a function call.”</p>
 </blockquote>
 <p>For example, when you like to exit R, you do it with the function <code>q()</code>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&gt; q()</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Save workspace image? [y/n/c]: </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If you don’t want to be asked what you want to do with your workspace (that is the place where you store all your objects, see section <a href="#sec-objects" class="quarto-xref"><span>Section 1.8</span></a>) you can do it with an argument that is part of the function:</p>
+<p>If you don’t want to be asked what you want to do with your workspace (that is the place where you store all your objects, see section <a href="#sec-objects" class="quarto-xref"><span class="quarto-unresolved-ref">sec-objects</span></a>) you can do it with an argument that is part of the function:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&gt; q(save = "no")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="sec-objects" class="level2" data-number="1.8">
 <h2 data-number="1.8" class="anchored" data-anchor-id="sec-objects"><span class="header-section-number">1.8</span> What are objects in R?</h2>
 <p>Everything you do is made with a function and</p>
 <blockquote class="blockquote">
-<p>“everything that exists in R is an object” <span class="citation" data-cites="Chambers2017Extending">(<a href="references.html#ref-Chambers2017Extending" role="doc-biblioref">Chambers, 2017, p. 4</a>)</span>.</p>
+<p>“everything that exists in R is an object” <span class="citation" data-cites="Chambers2017Extending">(<a href="#ref-Chambers2017Extending" role="doc-biblioref">Chambers, 2017, p. 4</a>)</span>.</p>
 </blockquote>
 <p>Objects are the fundamental units that are used to store information. Objects can be created using a variety of data types, including vectors, matrices, data frames, lists, functions. All objects are shown in the <em>workspace</em> which is shown in the <em>Environment</em> panel.</p>
 <p>In R, you can show the content of the workspace with <code>ls()</code>. The function <code>rm()</code> allows to remove objects and with <code>rm(list=ls())</code> you clear all objects from the workspace.</p>
@@ -595,7 +594,7 @@ Speed up the installation of packages
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">library</span>(ggplot2) <span class="sc">:</span> there is no package called ‘ggplot2’</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>It means that you didn’t successfully install it. If you get this error message, go back to section <a href="#sec-package-installation" class="quarto-xref"><span>Section 1.9.1</span></a> on R package installation and make sure to install the <code>ggplot2</code> package before proceeding.</p>
+<p>It means that you didn’t successfully install it. If you get this error message, go back to section <a href="#sec-package-installation" class="quarto-xref"><span class="quarto-unresolved-ref">sec-package-installation</span></a> on R package installation and make sure to install the <code>ggplot2</code> package before proceeding.</p>
 <p>One very common mistake new R users make when wanting to use particular packages is they forget to <em>load</em> them first by using the <code>library()</code> command we just saw. Remember: <em>you have to load each package you want to use every time you start RStudio.</em> If you don’t first <em>load</em> a package, but attempt to use one of its features, you’ll see an error message similar to:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Error<span class="sc">:</span> could not find <span class="cf">function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -652,55 +651,17 @@ Speed up the installation of packages
 <li>Do start names of objects such as vectors, numbers, variables, and data frames with a letter, not a number.</li>
 <li>Do avoid using dots in names of objects.</li>
 <li>Do avoid using certain keywords in naming objects, such as if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, and NA.</li>
-<li>Do use front slash <code>/</code> instead of backslash <code>\</code> for navigating the file system (see <a href="95_filesys.html" class="quarto-xref"><span>Appendix B</span></a>).</li>
+<li>Do use front slash <code>/</code> instead of backslash <code>\</code> for navigating the file system (see <a href="#sec-navigation" class="quarto-xref"><span class="quarto-unresolved-ref">sec-navigation</span></a>).</li>
 <li>Do not use whitespace and indentation for naming files, directories, or objects.</li>
 <li>Do not ignore warnings or errors unless you know what they mean.</li>
 <li>Do define objects to represent hard-coded values instead of using them directly in code.</li>
 <li>Do remember to (install and) load packages that contain functions you want to use.</li>
-<li>Do remember to set your working directory. (Tip: Use R Studio projects, see <a href="95_filesys.html#sec-rstudioprojects" class="quarto-xref"><span>Section B.4</span></a>)</li>
+<li>Do remember to set your working directory. (Tip: Use R Studio projects, see <a href="#sec-rstudioprojects" class="quarto-xref"><span class="quarto-unresolved-ref">sec-rstudioprojects</span></a>)</li>
 <li>Do remember to comment your code.</li>
 <li>Do use <code>&lt;-</code> instead of <code>=</code> for assignment.</li>
 <li>Do clear the environment at the beginning of a script: <code>rm(list = ls())</code></li>
 </ol>
 <p>An exhaustive style guide on how to write code can be found <a href="https://style.tidyverse.org">here</a>.</p>
-</section>
-<section id="sec-swirl" class="level2" data-number="1.11">
-<h2 data-number="1.11" class="anchored" data-anchor-id="sec-swirl"><span class="header-section-number">1.11</span> Learn interactively with swirl</h2>
-<p>The R package <code>swirl</code> makes it fun and easy to learn R programming and data science. <code>swirl</code> teaches you R programming and data science interactively, at your own pace, and right in the R console! You get immediate feedback on your progress. If you are new to R, have no fear. <code>swirl</code> will walk you through each of the steps required to employ Rstudio and R for your purpose. To start it, please follow my instructions precisely!</p>
-<p>Open Rstudio and type in the console the following:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"swirl"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"swirl"</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install_course_github</span>(<span class="st">"hubchev"</span>, <span class="st">"swirl-it"</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The above lines of code do the following:</p>
-<ul>
-<li>Install the <code>swirl</code> package.</li>
-<li>Load the <code>swirl</code> package.</li>
-<li>Install my <code>swirl</code> course that is hosted on GitHub.</li>
-<li>With <code>swirl</code> you start <code>swirl</code> and your learning experience.</li>
-</ul>
-<p>If the course has failed to install, you can try to download the file <code>swirl-it.swc</code> from <a href="https://github.com/hubchev/swirl-it">github.com/hubchev/swirl-it</a> and install the course with loading the <code>swirl</code> package and typing <code>install_course()</code> into the console.</p>
-<p>Please choose the course <em>swirl-it</em> and the learning module <em>huber-intro-1</em>. You can exit <code>swirl</code> at any time by typing <code>bye()</code> or by clicking the <em>Esc</em> on your keyboard.</p>
-<p>After you have successfully finished learning module <em>huber-intro-1</em> please go ahead with the learning module <em>huber-intro-2</em> that is also part of my swirl course <em>swirl-it</em>.</p>
-<section id="swirl-modules-on-data-analytical-basics" class="level3" data-number="1.11.1">
-<h3 data-number="1.11.1" class="anchored" data-anchor-id="swirl-modules-on-data-analytical-basics"><span class="header-section-number">1.11.1</span> <code>swirl</code> modules on data analytical basics</h3>
-<p>In my <code>swirl</code> modules <em>huber-data-1</em>, <em>huber-data-2</em>, and <em>huber-data-3</em> I introduce some very basic statistical principles on how to analyse data.</p>
-</section>
-<section id="swirl-module-on-the-tidyverse-package" class="level3" data-number="1.11.2">
-<h3 data-number="1.11.2" class="anchored" data-anchor-id="swirl-module-on-the-tidyverse-package"><span class="header-section-number">1.11.2</span> <code>swirl</code> module on the <code>tidyverse</code> package</h3>
-<p>I compiled a short <code>swirl</code> module to introduce the <em>tidyverse</em> universe. This is a powerful collection of packages which I discuss later on. The learning module is also part of my <em>swirl-it</em> course.</p>
-</section>
-<section id="other-swirl-modules" class="level3" data-number="1.11.3">
-<h3 data-number="1.11.3" class="anchored" data-anchor-id="other-swirl-modules"><span class="header-section-number">1.11.3</span> Other <code>swirl</code> modules</h3>
-<p>You can also install some other courses. You find a list of courses here http://swirlstats.com/scn/index.html or here https://github.com/swirldev/swirl_courses.</p>
-<p>I recommend this one as it gives a general overview on very basic principles of R:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(swirl)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_course_github</span>(<span class="st">"swirldev"</span>, <span class="st">"R_Programming_E"</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 
 
 <div class="hidden" aria-hidden="true">
@@ -708,7 +669,7 @@ Speed up the installation of packages
 <span class="glightbox-desc lightbox-desc-3">Figure&nbsp;1.2: Icons of R versus RStudio on your computer</span>
 <span class="glightbox-desc lightbox-desc-4">Figure&nbsp;1.3: RStudio interface to R</span>
 </div>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-Chambers2017Extending" class="csl-entry" role="listitem">
 Chambers, J. M. (2017). <em>Extending <span>R</span></em>. CRC Press.
 </div>
@@ -731,7 +692,6 @@ Venables, W. N., Smith, D. M., &amp; R Core Team. (2022). <em>An introduction to
 Wickham, H., &amp; Grolemund, G. (2023). <em>R for data science (2e)</em>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1295,13 +1255,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./22_script.html" class="pagination-link" aria-label="Work with R scripts">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./10_swirl.html" class="pagination-link" aria-label="An interactive introduction using `swirl`">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An interactive introduction using <code>swirl</code></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
