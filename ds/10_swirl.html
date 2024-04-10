@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -111,7 +131,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -148,11 +168,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./fig/cover_transparent.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">How to Use R for Data Science</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <a href="./How-to-Use-R-for-Data-Science.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -252,18 +293,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
-<p><a href="fig/cover_transparent.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="fig/cover_transparent.png" class="img-fluid"></a></p>
-</div></div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#swirl-it-huber-intro-1" id="toc-swirl-it-huber-intro-1" class="nav-link active" data-scroll-target="#swirl-it-huber-intro-1"><span class="header-section-number">2.1</span> swirl-it: huber-intro-1</a></li>
-  <li><a href="#swirl-it-huber-intro-2" id="toc-swirl-it-huber-intro-2" class="nav-link" data-scroll-target="#swirl-it-huber-intro-2"><span class="header-section-number">2.2</span> swirl-it: huber-intro-2</a></li>
-  <li><a href="#swirl-it-data-analytical-basics" id="toc-swirl-it-data-analytical-basics" class="nav-link" data-scroll-target="#swirl-it-data-analytical-basics"><span class="header-section-number">2.3</span> swirl-it: Data analytical basics</a></li>
-  <li><a href="#swirl-it-the-tidyverse-package" id="toc-swirl-it-the-tidyverse-package" class="nav-link" data-scroll-target="#swirl-it-the-tidyverse-package"><span class="header-section-number">2.4</span> swirl-it: The <code>tidyverse</code> package</a></li>
-  <li><a href="#other-swirl-modules" id="toc-other-swirl-modules" class="nav-link" data-scroll-target="#other-swirl-modules"><span class="header-section-number">2.5</span> Other <code>swirl</code> modules</a></li>
+  <li><a href="#set-up-swirl" id="toc-set-up-swirl" class="nav-link active" data-scroll-target="#set-up-swirl"><span class="header-section-number">2.1</span> Set up <code>swirl</code></a></li>
+  <li><a href="#swirl-it-huber-intro-1" id="toc-swirl-it-huber-intro-1" class="nav-link" data-scroll-target="#swirl-it-huber-intro-1"><span class="header-section-number">2.2</span> swirl-it: huber-intro-1</a></li>
+  <li><a href="#swirl-it-huber-intro-2" id="toc-swirl-it-huber-intro-2" class="nav-link" data-scroll-target="#swirl-it-huber-intro-2"><span class="header-section-number">2.3</span> swirl-it: huber-intro-2</a></li>
+  <li><a href="#swirl-it-data-analytical-basics" id="toc-swirl-it-data-analytical-basics" class="nav-link" data-scroll-target="#swirl-it-data-analytical-basics"><span class="header-section-number">2.4</span> swirl-it: Data analytical basics</a></li>
+  <li><a href="#swirl-it-the-tidyverse-package" id="toc-swirl-it-the-tidyverse-package" class="nav-link" data-scroll-target="#swirl-it-the-tidyverse-package"><span class="header-section-number">2.5</span> swirl-it: The <code>tidyverse</code> package</a></li>
+  <li><a href="#other-swirl-modules" id="toc-other-swirl-modules" class="nav-link" data-scroll-target="#other-swirl-modules"><span class="header-section-number">2.6</span> Other <code>swirl</code> modules</a></li>
   </ul>
 </nav>
     </div>
@@ -274,7 +314,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>The R package <code>swirl</code> makes it fun and easy to learn R programming and data science. <code>swirl</code> teaches you R programming and data science interactively, at your own pace, and right in the R console! You get immediate feedback on your progress. If you are new to R, have no fear. <code>swirl</code> will walk you through each of the steps required to employ Rstudio and R for your purpose. To start it, please follow my instructions precisely!</p>
+<p>This section is designed to kickstart your journey into data science with R through the R package <code>swirl</code> that offers an interactive learning platform. <code>swirl</code> teaches you R programming and data science interactively, at your own pace, and right in the R console! You get immediate feedback on your progress. If you are new to R, have no fear. <code>swirl</code> will walk you through each of the steps required to employ Rstudio and R for your purpose.</p>
+<p>For those seeking additional or alternative resources beyond swirl, exploring other introductory textbooks and resources on R is highly recommended. Please consider the resources I discuss in <a href="01_install.html#sec-Rlearninglit" class="quarto-xref"><span>Section 1.3</span></a>. One notable example is <span class="citation" data-cites="Irizarry2022Introduction">Irizarry (<a href="references.html#ref-Irizarry2022Introduction" role="doc-biblioref">2022</a>)</span> who provides a comprehensive and conservative approach to understanding R.</p>
+<section id="set-up-swirl" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="set-up-swirl"><span class="header-section-number">2.1</span> Set up <code>swirl</code></h2>
+<p>To install <code>swirl</code> and my learning modules, please follow my instructions precisely!</p>
 <p>Open Rstudio and type in the console the following:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"swirl"</span>)</span>
@@ -282,19 +326,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install_course_github</span>(<span class="st">"hubchev"</span>, <span class="st">"swirl-it"</span>)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">swirl</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The above lines of code do the following:</p>
+<p>The above four lines of code do the following:</p>
 <ul>
-<li>Install the <code>swirl</code> package.</li>
-<li>Load the <code>swirl</code> package.</li>
-<li>Install my <code>swirl</code> course that is hosted on GitHub.</li>
-<li>With <code>swirl</code> you start <code>swirl</code> and your learning experience.</li>
+<li>Install the <code>swirl</code> package, ensuring it’s available for use in R.</li>
+<li>Load the <code>swirl</code> package, making its functions accessible.</li>
+<li>Install my <code>swirl</code> course that is hosted on GitHub, making its functions accessible.</li>
+<li>By entering swirl into the Console (located at the bottom-left in RStudio) and pressing the Enter key, you initiate swirl. This begins your interactive learning experience with the package.</li>
 </ul>
-<p>If the course has failed to install, you can try to download the file <code>swirl-it.swc</code> from <a href="https://github.com/hubchev/swirl-it">github.com/hubchev/swirl-it</a> and install the course with loading the <code>swirl</code> package and typing <code>install_course()</code> into the console.</p>
-<p>Please choose the course <em>swirl-it</em> and the learning module <em>huber-intro-1</em>. You can exit <code>swirl</code> at any time by typing <code>bye()</code> or by clicking the <em>Esc</em> on your keyboard.</p>
-<section id="swirl-it-huber-intro-1" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="swirl-it-huber-intro-1"><span class="header-section-number">2.1</span> swirl-it: huber-intro-1</h2>
+<div id="tip-bradycdn" class="callout callout-style-default callout-tip callout-titled" title="If the course has failed to install,">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip&nbsp;2.1: If the course has failed to install,
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>you can try to download the file <code>swirl-it.swc</code> from <a href="https://github.com/hubchev/swirl-it">github.com/hubchev/swirl-it</a> and install the course with loading the <code>swirl</code> package and typing <code>install_course()</code> into the console.</p>
+</div>
+</div>
+</div>
+<p>After initiating the <code>swirl</code> environment, follow the instructions displayed in the Console. Specifically, select the <em>swirl-it</em> course and the <em>huber-intro-1</em> learning module to begin. You can exit <code>swirl</code> at any moment by typing <code>bye()</code> into the Console or pressing the <em>Esc</em> key on your keyboard.</p>
+</section>
+<section id="swirl-it-huber-intro-1" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="swirl-it-huber-intro-1"><span class="header-section-number">2.2</span> swirl-it: huber-intro-1</h2>
 <div class="callout callout-style-default callout-note callout-titled" title="Click to see the full content of the module">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -303,7 +363,7 @@ Click to see the full content of the module
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Welcome to this swirl course. If you find any errors or if you have suggestions for improvement, please let me know via stephan.huber@hs-fresenius.de.</p>
 <p>The RStudio interface consists of several windows. You can change the size of the windows by dragging the grey bars between the windows. We’ll go through the most important windows now.</p>
@@ -319,7 +379,7 @@ Click to see the full content of the module
 </ol>
 <p><em>Hint: You find all shortcuts in the menu at Tools &gt; Keyboard Shortcuts Help or click ALT+SHIFT+K. If you are a Mac user, your shortcut is ‘Cmd+Return’ instead of ‘SHIFT+ENTER’. To move on type skip().</em></p>
 <div class="callout callout-style-default callout-note callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -328,7 +388,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>answer: b</p>
 </div>
@@ -445,8 +505,8 @@ Solution
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] -0.61653307 -1.32399403 -0.00071738  1.37406379  0.56227366  0.09565729
- [7] -1.66040806 -1.16104103 -0.53798481  1.18447273</code></pre>
+<pre><code> [1]  0.05877359  1.28392265  0.20501309  0.59365346 -1.71337407 -0.51491590
+ [7] -0.50257592  0.24136189  1.43515042 -0.52190368</code></pre>
 </div>
 </div>
 <p>Here rnorm is the function and the 10 is an argument specifying how many random numbers you want - in this case 10 numbers (typing <code>n=10</code> instead of just 10 would also work). The result is 10 random numbers organised in a vector with length 10.</p>
@@ -454,8 +514,8 @@ Solution
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean=</span><span class="fl">1.2</span>, <span class="at">sd=</span><span class="fl">3.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] -0.7833429  1.5100473  5.4253082  0.8562223 -1.5542823 -5.5033666
- [7] -0.3566872  3.6344049  6.7839795  5.3275258</code></pre>
+<pre><code> [1] -0.4906349  4.9913810  1.7608793  1.0998168  0.8202734 -2.1804023
+ [7]  5.8428551 -2.4129837 -2.0614530  6.8081501</code></pre>
 </div>
 </div>
 <p>This shows that the same function (<code>rnorm()</code>) may have different interfaces and that R has so called named arguments (in this case <code>mean</code> and <code>sd</code>).</p>
@@ -475,7 +535,7 @@ Solution
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="10_swirl_files/figure-html/unnamed-chunk-22-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="10_swirl_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="10_swirl_files/figure-html/unnamed-chunk-22-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="10_swirl_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -492,10 +552,10 @@ Solution
 </div>
 <p>After you have successfully finished learning module <em>huber-intro-1</em> please go ahead with the learning module <em>huber-intro-2</em> that is also part of my swirl course <em>swirl-it</em>.</p>
 </section>
-<section id="swirl-it-huber-intro-2" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="swirl-it-huber-intro-2"><span class="header-section-number">2.2</span> swirl-it: huber-intro-2</h2>
+<section id="swirl-it-huber-intro-2" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="swirl-it-huber-intro-2"><span class="header-section-number">2.3</span> swirl-it: huber-intro-2</h2>
 <div class="callout callout-style-default callout-note callout-titled" title="Click to see the full content of the module">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -504,7 +564,7 @@ Click to see the full content of the module
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Welcome to the second module. Again, if you find any errors or if you have suggestions for improvement, please let me know via stephan.huber@hs-fresenius.de .</p>
 <p>Before you start working, you should set your working directory to where all your data and script files are or should be stored. Within RStudio you can go to ‘Session’&gt; ‘Set working directory’, or you can type in <code>setwd(YOURPATH)</code>. Please do this now.</p>
@@ -603,7 +663,7 @@ Click to see the full content of the module
 <span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(...)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="Result">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -612,7 +672,7 @@ Result
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Text behind the #-sign is not evaluated as code by R. </span></span>
@@ -693,16 +753,16 @@ Result
 </div>
 </div>
 </section>
-<section id="swirl-it-data-analytical-basics" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="swirl-it-data-analytical-basics"><span class="header-section-number">2.3</span> swirl-it: Data analytical basics</h2>
+<section id="swirl-it-data-analytical-basics" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="swirl-it-data-analytical-basics"><span class="header-section-number">2.4</span> swirl-it: Data analytical basics</h2>
 <p>In my <code>swirl</code> modules <em>huber-data-1</em>, <em>huber-data-2</em>, and <em>huber-data-3</em> I introduce some very basic statistical principles on how to analyse data.</p>
 </section>
-<section id="swirl-it-the-tidyverse-package" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="swirl-it-the-tidyverse-package"><span class="header-section-number">2.4</span> swirl-it: The <code>tidyverse</code> package</h2>
+<section id="swirl-it-the-tidyverse-package" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="swirl-it-the-tidyverse-package"><span class="header-section-number">2.5</span> swirl-it: The <code>tidyverse</code> package</h2>
 <p>I compiled a short <code>swirl</code> module to introduce the <em>tidyverse</em> universe. This is a powerful collection of packages which I discuss later on. The learning module is also part of my <em>swirl-it</em> course.</p>
 </section>
-<section id="other-swirl-modules" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="other-swirl-modules"><span class="header-section-number">2.5</span> Other <code>swirl</code> modules</h2>
+<section id="other-swirl-modules" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="other-swirl-modules"><span class="header-section-number">2.6</span> Other <code>swirl</code> modules</h2>
 <p>You can also install some other courses. You find a list of courses here http://swirlstats.com/scn/index.html or here https://github.com/swirldev/swirl_courses.</p>
 <p>I recommend this one as it gives a general overview on very basic principles of R:</p>
 <div class="cell">
@@ -712,6 +772,11 @@ Result
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-Irizarry2022Introduction" class="csl-entry" role="listitem">
+Irizarry, R. A. (2022). <em>Introduction to data science: Data analysis and prediction algorithms with <span>R</span></em>. Accessed January 30, 2023; CRC Press. <a href="https://rafalab.github.io/dsbook/">https://rafalab.github.io/dsbook/</a>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1281,7 +1346,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
