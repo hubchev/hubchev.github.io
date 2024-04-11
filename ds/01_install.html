@@ -260,19 +260,19 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./30_graph.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Visualizing data</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./40_manage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Manage data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Manage data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./45_exercises.html" class="sidebar-item-text sidebar-link">
+  <a href="./50_graph.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Visualizing data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./80_exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Collection of exercises</span></span></a>
   </div>
 </li>
@@ -341,7 +341,8 @@ window.Quarto = {
   <li><a href="#sec-package-loading" id="toc-sec-package-loading" class="nav-link" data-scroll-target="#sec-package-loading"><span class="header-section-number">1.9.2</span> Package loading</a></li>
   <li><a href="#package-management" id="toc-package-management" class="nav-link" data-scroll-target="#package-management"><span class="header-section-number">1.9.3</span> Simplified package management with <code>p_load</code></a></li>
   </ul></li>
-  <li><a href="#are-there-some-guidelines-for-working-with-r" id="toc-are-there-some-guidelines-for-working-with-r" class="nav-link" data-scroll-target="#are-there-some-guidelines-for-working-with-r"><span class="header-section-number">1.10</span> Are there some guidelines for working with R?</a></li>
+  <li><a href="#base-r-and-the-tidyverse-universe" id="toc-base-r-and-the-tidyverse-universe" class="nav-link" data-scroll-target="#base-r-and-the-tidyverse-universe"><span class="header-section-number">1.10</span> Base R and the tidyverse universe</a></li>
+  <li><a href="#are-there-some-guidelines-for-working-with-r" id="toc-are-there-some-guidelines-for-working-with-r" class="nav-link" data-scroll-target="#are-there-some-guidelines-for-working-with-r"><span class="header-section-number">1.11</span> Are there some guidelines for working with R?</a></li>
   </ul>
 </nav>
     </div>
@@ -372,6 +373,7 @@ Content of this chapter
 <li>What are R packages?</li>
 <li>What is a function in R?</li>
 <li>What are objects in R?</li>
+<li>Base R and the tidyverse universe</li>
 <li>Are there some guidelines for working with R?</li>
 </ol>
 </div>
@@ -539,7 +541,7 @@ Figure&nbsp;1.3: RStudio interface to R
 </section>
 <section id="what-is-a-function-in-r" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="what-is-a-function-in-r"><span class="header-section-number">1.7</span> What is a function in R?</h2>
-<p>One of the keys to understand R is a <em>functional programming language</em>. Or, to put in in the words of <span class="citation" data-cites="Chambers2017Extending">Chambers (<a href="references.html#ref-Chambers2017Extending" role="doc-biblioref">2017, p. 4</a>)</span>:</p>
+<p>One of the keys to understand R is a <em>functional programming language</em>. If you want R to do something, you must use a function. Or, to put in in the words of <span class="citation" data-cites="Chambers2017Extending">Chambers (<a href="references.html#ref-Chambers2017Extending" role="doc-biblioref">2017, p. 4</a>)</span>:</p>
 <blockquote class="blockquote">
 <p>“Everything that happens is a function call.”</p>
 </blockquote>
@@ -548,6 +550,28 @@ Figure&nbsp;1.3: RStudio interface to R
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Save workspace image? [y/n/c]: </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you don’t want to be asked what you want to do with your workspace (that is the place where you store all your objects, see section <a href="#sec-objects" class="quarto-xref"><span>Section 1.8</span></a>) you can do it with an argument that is part of the function:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&gt; q(save = "no")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To learn more about a function, you can access its documentation by typing a question mark followed by the function name into the Console:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>?q()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Unfortunately, the documentation can sometimes be a bit confusing for beginners in applied contexts. However, the documentation for all functions is structured similarly, typically featuring several key sections:</p>
+<ul>
+<li><strong>Description</strong>: A brief overview of what the function does.</li>
+<li><strong>Usage</strong>: How to use the function, including the function name and its arguments.</li>
+<li><strong>Arguments</strong>: Detailed descriptions of each argument the function accepts, including what types of values are expected.</li>
+<li><strong>Details</strong>: Additional details about the function’s behavior and any important notes.</li>
+<li><strong>Examples</strong>: Practical examples demonstrating how to use the function in various contexts.</li>
+</ul>
+<p>Understanding these sections can significantly enhance your ability to navigate and utilize R documentation effectively.</p>
+<p>An excerpt of the <em>R Documentation</em> for the function <code>q()</code> is shown in <a href="#fig-help-q" class="quarto-xref">Figure&nbsp;<span>1.4</span></a>. Here, we observe that the function has three arguments that you can manipulate. If you do not specify any of these arguments explicitly, we see that <em>by default</em>, R sets the three arguments as shown.</p>
+<div id="fig-help-q" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-help-q-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.4: The R Documentation of <code>q()</code>
+</figcaption>
+<div aria-describedby="fig-help-q-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/help-q.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><img src="fig/help-q.png" class="img-fluid figure-img" style="width:70.0%"></a>
+</div>
+</figure>
+</div>
 </section>
 <section id="sec-objects" class="level2" data-number="1.8">
 <h2 data-number="1.8" class="anchored" data-anchor-id="sec-objects"><span class="header-section-number">1.8</span> What are objects in R?</h2>
@@ -560,8 +584,7 @@ Figure&nbsp;1.3: RStudio interface to R
 </section>
 <section id="sec-packages" class="level2" data-number="1.9">
 <h2 data-number="1.9" class="anchored" data-anchor-id="sec-packages"><span class="header-section-number">1.9</span> What are R packages?</h2>
-<p>A package is a collection of functions, data sets and other R objects that are all grouped together under a common name. More than 10,000 packages are available at the official repository (CRAN) and many more are publicly available through the internet.</p>
-<p>In this section, I’ll describe how to work with packages using the Rstudio tools. Along the way, you’ll see that whenever you get Rstudio to do something (that is, install a package), you’ll actually see the R commands that get created.</p>
+<p>In this section, I’ll describe how to work with packages using the Rstudio tools. A package is a collection of functions, data sets and other R objects that are all grouped together under a common name. More than 10,000 packages are available at the official repository (CRAN)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and many more are publicly available through the internet.</p>
 <p>However, before we get started, there’s a critical distinction that you need to understand, which is the difference between having a package <strong>installed</strong> on your computer, and having a package <strong>loaded</strong> in R. When you install R on your computer only a small number of packages come bundled with the basic R installation. The installed packages are on your computer. The critical thing to remember is that just because something is on your computer doesn’t mean R can use it. In order for R to be able to <em>use</em> one of your installed packages, that package must also be <em>loaded</em>. Generally, when you open up R, only a few of these packages (about 7 or 8) are actually loaded.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Package management">
 <div class="callout-header d-flex align-content-center">
@@ -584,7 +607,7 @@ Package management
 <h3 data-number="1.9.1" class="anchored" data-anchor-id="sec-package-installation"><span class="header-section-number">1.9.1</span> Package installation</h3>
 <p>To install an R package you can use the GUI of R Studio or the command line. In R Studio you can click on the <em>Packages</em> tab, then on the <em>Install</em> button, then you must search for a package and click <em>Install</em>. An alternative way to install a package is by typing</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"package_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"package_name"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>in the console pane of RStudio and pressing Return/Enter on your keyboard. Note you must include the quotation marks around the name of the package.</p>
 <p>If you want to update a previously installed package to a newer version, you need to re-install it by repeating the earlier steps or you use <code>update.packages()</code>. To uninstall packages you can use <code>remove.packages()</code>.</p>
@@ -607,16 +630,16 @@ Speed up the installation of packages
 <p>Recall that after you’ve installed a package, you need to <em>load it</em>. We do this by using the <code>library()</code> command.</p>
 <p>For example, to load the <code>ggplot2</code> package, run the following code in the console pane. What do we mean by “run the following code”? Either type or copy-and-paste the following code into the console pane and then hit the Enter key.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If after running the earlier code, a blinking cursor returns next to the <code>&gt;</code> “prompt” sign, it means you were successful and the <code>ggplot2</code> package is now loaded and ready to use. If, however, you get a red “error message” that reads</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">library</span>(ggplot2) <span class="sc">:</span> there is no package called ‘ggplot2’</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">library</span>(ggplot2) <span class="sc">:</span> there is no package called ‘ggplot2’</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>It means that you didn’t successfully install it. If you get this error message, go back to section <a href="#sec-package-installation" class="quarto-xref"><span>Section 1.9.1</span></a> on R package installation and make sure to install the <code>ggplot2</code> package before proceeding.</p>
 <p>One very common mistake new R users make when wanting to use particular packages is they forget to <em>load</em> them first by using the <code>library()</code> command we just saw. Remember: <em>you have to load each package you want to use every time you start RStudio.</em> If you don’t first <em>load</em> a package, but attempt to use one of its features, you’ll see an error message similar to:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Error<span class="sc">:</span> could not find <span class="cf">function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Error<span class="sc">:</span> could not find <span class="cf">function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>R is informing you that you are attempting to use a function from a package that has not yet been loaded. Forgetting to load packages is a common mistake made by new users, and it can be a bit frustrating to get used to at first. However, with practice, it will become second nature for you. Unloading packages can be done with <code>detach(, unload=TRUE)</code>.</p>
 </section>
@@ -625,45 +648,66 @@ Speed up the installation of packages
 <p>There is a convenient way to handle both package installation and loading without the need for manual checks. The <code>p_load()</code> function does this seamlessly by verifying if a package is installed; if not, it installs the package.</p>
 <p>For instance, instead of the traditional approach:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"arrow"</span>, <span class="st">"babynames"</span>, <span class="st">"curl"</span>, <span class="st">"duckdb"</span>, <span class="st">"gapminder"</span>, </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ggrepel"</span>, <span class="st">"ggridges"</span>, <span class="st">"ggthemes"</span>, <span class="st">"hexbin"</span>, <span class="st">"janitor"</span>, <span class="st">"Lahman"</span>, </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"leaflet"</span>, <span class="st">"maps"</span>, <span class="st">"nycflights13"</span>, <span class="st">"openxlsx"</span>, <span class="st">"palmerpenguins"</span>, </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"repurrrsive"</span>, <span class="st">"tidymodels"</span>, <span class="st">"writexl"</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"arrow"</span>, <span class="st">"babynames"</span>, <span class="st">"curl"</span>, <span class="st">"duckdb"</span>, <span class="st">"gapminder"</span>, </span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ggrepel"</span>, <span class="st">"ggridges"</span>, <span class="st">"ggthemes"</span>, <span class="st">"hexbin"</span>, <span class="st">"janitor"</span>, <span class="st">"Lahman"</span>, </span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"leaflet"</span>, <span class="st">"maps"</span>, <span class="st">"nycflights13"</span>, <span class="st">"openxlsx"</span>, <span class="st">"palmerpenguins"</span>, </span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"repurrrsive"</span>, <span class="st">"tidymodels"</span>, <span class="st">"writexl"</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"arrow"</span>, <span class="st">"babynames"</span>, <span class="st">"curl"</span>, <span class="st">"duckdb"</span>, <span class="st">"gapminder"</span>, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ggrepel"</span>, <span class="st">"ggridges"</span>, <span class="st">"ggthemes"</span>, <span class="st">"hexbin"</span>, <span class="st">"janitor"</span>, <span class="st">"Lahman"</span>, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"leaflet"</span>, <span class="st">"maps"</span>, <span class="st">"nycflights13"</span>, <span class="st">"openxlsx"</span>, <span class="st">"palmerpenguins"</span>, </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"repurrrsive"</span>, <span class="st">"tidymodels"</span>, <span class="st">"writexl"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"arrow"</span>, <span class="st">"babynames"</span>, <span class="st">"curl"</span>, <span class="st">"duckdb"</span>, <span class="st">"gapminder"</span>, </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ggrepel"</span>, <span class="st">"ggridges"</span>, <span class="st">"ggthemes"</span>, <span class="st">"hexbin"</span>, <span class="st">"janitor"</span>, <span class="st">"Lahman"</span>, </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"leaflet"</span>, <span class="st">"maps"</span>, <span class="st">"nycflights13"</span>, <span class="st">"openxlsx"</span>, <span class="st">"palmerpenguins"</span>, </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"repurrrsive"</span>, <span class="st">"tidymodels"</span>, <span class="st">"writexl"</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can streamline the process as follows:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the required packages using p_load</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  arrow, babynames, curl, duckdb, gapminder, </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  ggrepel, ggridges, ggthemes, hexbin, janitor, Lahman, </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  leaflet, maps, nycflights13, openxlsx, palmerpenguins, </span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  repurrrsive, tidymodels, writexl</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the required packages using p_load</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  arrow, babynames, curl, duckdb, gapminder, </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  ggrepel, ggridges, ggthemes, hexbin, janitor, Lahman, </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  leaflet, maps, nycflights13, openxlsx, palmerpenguins, </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  repurrrsive, tidymodels, writexl</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The line</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>ensures the installation of the <code>pacman</code> package, which is necessary for using the <code>p_load</code> function.</p>
 <p>Before you load packages in a script, I recommend to <em>unload</em> all other packages with</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_unload</span>(all)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_unload</span>(all)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>to avoid conflicts of functions.</p>
 </section>
 </section>
-<section id="are-there-some-guidelines-for-working-with-r" class="level2" data-number="1.10">
-<h2 data-number="1.10" class="anchored" data-anchor-id="are-there-some-guidelines-for-working-with-r"><span class="header-section-number">1.10</span> Are there some guidelines for working with R?</h2>
+<section id="base-r-and-the-tidyverse-universe" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="base-r-and-the-tidyverse-universe"><span class="header-section-number">1.10</span> Base R and the tidyverse universe</h2>
+<p>Upon successfully installing R, you gain access to functions that are part of <em>Base R</em>. This includes standard packages automatically installed and loaded with each R session, such as <code>stats</code>, <code>utils</code>, and <code>graphics</code>, providing a broad spectrum of functionalities for statistical analysis and graphical capabilities <span class="citation" data-cites="Venables2022Introduction">(see <a href="references.html#ref-Venables2022Introduction" role="doc-biblioref">Venables et al., 2022</a>)</span>. However, the syntax in <em>Base R</em> can become complex and less intuitive for users. Consequently, many individuals, including Hadley Wickham, the Chief Data Scientist at <em>Posit</em> (formerly RStudio), and his team, have developed an alternative suite of packages known as the <code>tidyverse</code>. These packages share a common philosophy and syntax, emphasizing readability and ease of use. We will heavily utilize the <code>tidyverse</code> in the following sections.</p>
+<div id="fig-tidyverse-logo" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-tidyverse-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.5: The tidyverse universe
+</figcaption>
+<div aria-describedby="fig-tidyverse-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/tidyverse-logo.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5"><img src="fig/tidyverse-logo.png" class="img-fluid figure-img" style="width:30.0%"></a>
+</div>
+</figure>
+</div>
+<p>The R package <code>tidyverse</code> (see <a href="#fig-tidyverse-logo" class="quarto-xref">Figure&nbsp;<span>1.5</span></a>) is a comprehensive collection of R packages including popular packages such are <code>ggplot2</code>, <code>dplyr</code>, <code>tidyr</code>, <code>readr</code>, <code>purrr</code>, <code>tibble</code>, <code>stringr</code>, and <code>forcats</code>, which together offer extensive capabilities for data modeling, transformation, and visualization.</p>
+<p>How to do data science with tidyverse is the subject of multiple books and tutorials. In particular, the popular book <em>R for Data Science</em> by <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span> is all about the tidyverse universe. Thus, I highly recommend reading sections <a href="https://r4ds.hadley.nz/workflow-basics.html">Workflow: basics</a>), <a href="https://r4ds.hadley.nz/data-transform.html">Data transformation</a>, and <a href="https://r4ds.hadley.nz/data-tidy">Data tidying</a>. Additionally, explore www.tidyverse.org for more resources, and consider completing the <em>tidyverse</em> module in my swirl package, <em>swirl-it</em>, as detailed in section <a href="10_swirl.html" class="quarto-xref"><span>Chapter 2</span></a>.</p>
+<p>To install and load tidyverse run the following lines of code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="are-there-some-guidelines-for-working-with-r" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="are-there-some-guidelines-for-working-with-r"><span class="header-section-number">1.11</span> Are there some guidelines for working with R?</h2>
 <p>To avoid running into issues with R, it’s important to be aware of the some conventions, rules, and best practices that apply to the language. While it can be tedious to go through all of the do’s and don’ts in detail, following them can make your life with R much easier. Trust me, the benefits of adhering to these guidelines will become clear over time. Here is a non-exhaustive list:</p>
 <ol type="1">
 <li>Do remember that R programming language is case sensitive.</li>
@@ -687,6 +731,8 @@ Speed up the installation of packages
 <span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1.1: Analogy of difference between R and RStudio</span>
 <span class="glightbox-desc lightbox-desc-2">Figure&nbsp;1.2: Icons of R versus RStudio on your computer</span>
 <span class="glightbox-desc lightbox-desc-3">Figure&nbsp;1.3: RStudio interface to R</span>
+<span class="glightbox-desc lightbox-desc-4">Figure&nbsp;1.4: The R Documentation of <code>q()</code></span>
+<span class="glightbox-desc lightbox-desc-5">Figure&nbsp;1.5: The tidyverse universe</span>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-Chambers2017Extending" class="csl-entry" role="listitem">
@@ -711,6 +757,12 @@ Venables, W. N., Smith, D. M., &amp; R Core Team. (2022). <em>An introduction to
 Wickham, H., &amp; Grolemund, G. (2023). <em>R for data science (2e)</em>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>
 </div>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>CRAN is a network of ftp and web servers around the world that store identical, up-to-date, versions of code and documentation for R, see: https://cran.r-project.org.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1280,7 +1332,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
