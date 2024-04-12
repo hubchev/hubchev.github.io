@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Dr.&nbsp;Stephan Huber">
-<meta name="dcterms.date" content="2024-04-11">
+<meta name="dcterms.date" content="2024-04-12">
 
 <title>How to Use R for Data Science</title>
 <style>
@@ -147,7 +147,7 @@ div.csl-indent {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">April 11, 2024</p>
+        <p class="date">April 12, 2024</p>
       </div>
     </div>
     
@@ -254,7 +254,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./95_filesys.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Helpful shortcuts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Navigating the file system</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -273,6 +273,12 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./953_popfunctions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Popular functions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./957_shortcuts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Helpful shortcuts</span></span></a>
   </div>
 </li>
       </ul>
@@ -364,7 +370,8 @@ Figure&nbsp;1: Prof.&nbsp;Dr.&nbsp;Stephan Huber
 <p>I am a Professor of <em>International Economics and Data Science</em> at HS Fresenius, holding a Diploma in Economics from the University of Regensburg and a Doctoral Degree (summa cum laude) from the University of Trier. I completed postgraduate studies at the Interdisciplinary Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU) in Trier. Prior to my current position, I worked as a research assistant to Prof.&nbsp;Dr.&nbsp;Dr.&nbsp;h.c. Joachim Möller at the University of Regensburg, a post-doc at the Leibniz Institute for East and Southeast European Studies (IOS) in Regensburg, and a freelancer at Charles University in Prague.</p>
 <p>Throughout my career, I have also worked as a lecturer at various institutions, including the TU Munich, the University of Regensburg, Saarland University, and the Universities of Applied Sciences in Frankfurt and Augsburg. Additionally, I have had the opportunity to teach abroad for the University of Cordoba in Spain, the University of Perugia in Italy, and the Petra Christian University in Surabaya, Indonesia. My published work can be found in international journals such as the Canadian Journal of Economics and the Stata Journal. For more information on my work, please visit my private homepage at <a href="https://hubchev.github.io/">hubchev.github.io</a>.</p>
 <p>I was always fascinated by data and statistics. For example, in 1992 I could name all soccer players in Germany’s first division including how many goals they scored. Later, in 2003 I joined the introductory statistics course of <a href="https://scholar.google.com/citations?user=geLs3JUAAAAJ&amp;hl=en">Daniel Rösch</a>. I learned among others that probabilities often play a role when analyzing data. I continued my data science journey with <a href="https://scholar.google.ca/citations?user=tHNB7wIAAAAJ&amp;hl=en">Harry Haupt’s</a> <em>Introductory Econometrics</em> course, where I studied the infamous Jeffrey M. <span class="citation" data-cites="Wooldridge2002Introductory">Wooldridge (<a href="references.html#ref-Wooldridge2002Introductory" role="doc-biblioref">2002</a>)</span> textbook. It got me hooked and so I took all the courses <a href="https://www.uni-regensburg.de/business-economics-and-management-information-systems/economics-tschernig/team/rolf-tschernig/index.html">Rolf Tschernig</a> offered at his chair of Econometrics, where I became a tutor at the University of Regensburg and a research assistant of <a href="https://iab.de/en/employee/m%C3%B6ller-joachim/">Joachim Möller</a>. Despite everything we did had to do with how to make sense out of data, we never actually used the term <em>data science</em> which is also absent in the more 850 pages long textbook by <span class="citation" data-cites="Wooldridge2002Introductory">Wooldridge (<a href="references.html#ref-Wooldridge2002Introductory" role="doc-biblioref">2002</a>)</span>. The book also remains silent about <em>machine learning</em> or <em>artificial intelligence</em>. These terms became popular only after I graduated. The <em>Harvard Business Review</em> article by <span class="citation" data-cites="Davenport2012Data">Davenport &amp; Patil (<a href="references.html#ref-Davenport2012Data" role="doc-biblioref">2012</a>)</span> who claimed that data scientist is “The Sexiest Job of the 21st Century” may have boosted the popularity.</p>
-<p>The term “data scientist” has become remarkably popular, and many people are eager to adopt this title. Although I am a professor of <em>data science</em>, my professional identity is more like that of an applied, empirically-oriented international economist. My hesitation to adopt the title “data scientist” also stems from the deep respect I have developed through my interactions with econometricians and statisticians. Some of them are very committed to the rigorous development and application of empirical methods and often use complex software tools in their work. Compared to their deep expertise, I sometimes feel like a passionate amateur poking around in data to find something interesting. I often think of my ten-year-old self analyzing soccer statistics to gain a deeper understanding of the sport.</p>
+<p>The term “data scientist” has become remarkably popular, and many people are eager to adopt this title. Although I am a professor of <em>data science</em>, my professional identity is more like that of an applied, empirically-oriented international economist. My hesitation to adopt the title “data scientist” also stems from the deep respect I have developed through my interactions with econometricians and statisticians. Considering their in-depth expertise, I feel like a passionate amateur.</p>
+<p>Ultimately, I poke around in data to find something interesting. Much like my ten-year-old younger self who analyzed soccer statistics to gain a deeper understanding of the sport. The only thing that has changed since then is that I know more promising methods and can efficiently use tools for data processing and data analysis.</p>
 
 
 <div class="hidden" aria-hidden="true">
@@ -963,7 +970,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

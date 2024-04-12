@@ -271,7 +271,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./95_filesys.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Helpful shortcuts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Navigating the file system</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -292,6 +292,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Popular functions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./957_shortcuts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Helpful shortcuts</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -306,9 +312,9 @@ window.Quarto = {
   <ul>
   <li><a href="#r-scripts-why-they-are-useful" id="toc-r-scripts-why-they-are-useful" class="nav-link active" data-scroll-target="#r-scripts-why-they-are-useful"><span class="header-section-number">3.1</span> R Scripts: Why they are useful</a></li>
   <li><a href="#generate-write-and-run-r-scripts" id="toc-generate-write-and-run-r-scripts" class="nav-link" data-scroll-target="#generate-write-and-run-r-scripts"><span class="header-section-number">3.2</span> Generate, write, and run R scripts</a></li>
-  <li><a href="#sec:assignmentoper" id="toc-sec:assignmentoper" class="nav-link" data-scroll-target="#sec\:assignmentoper"><span class="header-section-number">3.3</span> The assignment operator: <code>&lt;-</code></a></li>
+  <li><a href="#sec-assignmentoper" id="toc-sec-assignmentoper" class="nav-link" data-scroll-target="#sec-assignmentoper"><span class="header-section-number">3.3</span> The assignment operator: <code>&lt;-</code></a></li>
   <li><a href="#doing-calculation-in-scripts" id="toc-doing-calculation-in-scripts" class="nav-link" data-scroll-target="#doing-calculation-in-scripts"><span class="header-section-number">3.4</span> Doing calculation in scripts</a></li>
-  <li><a href="#sec:generics" id="toc-sec:generics" class="nav-link" data-scroll-target="#sec\:generics"><span class="header-section-number">3.5</span> User-defined functions</a></li>
+  <li><a href="#sec-generics" id="toc-sec-generics" class="nav-link" data-scroll-target="#sec-generics"><span class="header-section-number">3.5</span> User-defined functions and conflicts</a></li>
   </ul>
 </nav>
     </div>
@@ -362,23 +368,23 @@ window.Quarto = {
 <p>Then save the script using the menus (File &gt; Save) as hello.R.</p>
 <p>The above lines of code do the following:</p>
 <ul>
-<li><code>setwd()</code> allows to set the working directory. If you are not familiar with file systems, please read section @ref(sec:navigation) in the appendix.</li>
-<li>With the assignment operator <code>&lt;-</code> we create an object that stores the words “hello world” in an object entitled <code>x</code>. In the next section @ref(sec:assignmentoper) the assignment operator is further explained.</li>
+<li><code>setwd()</code> allows to set the working directory. If you are not familiar with file systems, please read section <a href="95_filesys.html" class="quarto-xref"><span>Appendix A</span></a> in the appendix.</li>
+<li>With the assignment operator <code>&lt;-</code> we create an object that stores the words “hello world” in an object entitled <code>x</code>. In the next section <a href="#sec-assignmentoper" class="quarto-xref"><span>Section 3.3</span></a> the assignment operator is further explained.</li>
 <li>With the third input we print the content of the object <code>x</code>.</li>
 </ul>
 <p>So how do we <strong>run the script</strong>? Assuming that the <code>hello.R</code> file has been saved to your working directory, then you can run the script using the following command:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>( <span class="st">"hello.R"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Suppose you saved the script in a sub-folder called of your working directory, then you need to run the script using the following command:</p>
+<p>Suppose you saved the script in a sub-folder called <em>scripts</em> of your working directory, then you need to run the script using the following command:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"./scripts/hello.R"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Just note that the dot, <code>.</code>, means the current folder. Instead of using the <code>source</code> function, you can click on the <code>source</code> button in Rstudio.</p>
 <p>With the character <code>#</code> you can write a comment in a script and R will simply ignore everything that follows in that line onwards.</p>
 </section>
-<section id="sec:assignmentoper" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="sec:assignmentoper"><span class="header-section-number">3.3</span> The assignment operator: <code>&lt;-</code></h2>
+<section id="sec-assignmentoper" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-assignmentoper"><span class="header-section-number">3.3</span> The assignment operator: <code>&lt;-</code></h2>
 <p>Suppose I’m trying to calculate how much money I’m going to make from this book. I agree, it is an unrealistic example but it will help you to understand R. Let’s assume I’m only going to sell 350 copies. To create a variable called <code>sales</code> and assigns a value to it, we need to use the <em>assignment operator</em> of R, which is <code>&lt;-</code> as follows:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sales <span class="ot">&lt;-</span> <span class="dv">350</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -468,31 +474,58 @@ window.Quarto = {
 <span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co"># round number </span></span>
 <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(revenue_per_day) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-round" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3.1</strong></span> Round numbers (<a href="#sol-round" class="quarto-xref">Solution&nbsp;<span>3.1</span></a>)</p>
 <p>Use the “<code>?</code>” to search for the documentation of all functions used. In particular, do you understand how the function <code>round()</code> works? What arguments does the function contain? How can you manipulate the pre-defined arguments. For example, can you calculate the rounded revenue per day with two or four digits? Try it out!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>?<span class="fu">round</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="sol-round" class="proof solution">
+<p><span class="proof-title"><em>Solution 3.1</em>. </span>Round numbers (<a href="#exr-round" class="quarto-xref">Exercise&nbsp;<span>3.1</span></a>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(revenue_per_day, <span class="at">digits =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="sec:generics" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="sec:generics"><span class="header-section-number">3.5</span> User-defined functions</h2>
+<section id="sec-generics" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="sec-generics"><span class="header-section-number">3.5</span> User-defined functions and conflicts</h2>
 <p>One of the great strengths of R is the user’s ability to add functions. Sometimes there is a small task (or series of tasks) you need done and you find yourself having to repeat it multiple times. In these types of situations it can be helpful to create your own custom function. The structure of a function is given below:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>name_of_function <span class="ot">&lt;-</span> <span class="cf">function</span>(argument1, argument2) {</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    statements or code that does something</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(something)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>name_of_function <span class="ot">&lt;-</span> <span class="cf">function</span>(argument1, argument2) {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    statements or code that does something</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(something)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>First you give your function a name. Then you assign value to it, where the value is the function. When defining the function you will want to provide the list of arguments required (inputs and/or options to modify behavior of the function), and wrapped between curly brackets place the tasks that are being executed on/using those arguments. The argument(s) can be any type of object (like a scalar, a matrix, a dataframe, a vector, a logical, etc), and it’s not necessary to define what it is in any way. Finally, you can return the value of the object from the function, meaning pass the value of it into the global environment. The important idea behind functions is that objects that are created within the function are local to the environment of the function – they don’t exist outside of the function. Note, a function doesn’t require any arguments.</p>
 <p>Let’s try creating a simple example function. This function will take in a numeric value as input, and return the squared value.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>square_it <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>   square <span class="ot">&lt;-</span> x <span class="sc">*</span> x</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">return</span>(square)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>square_it <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>   square <span class="ot">&lt;-</span> x <span class="sc">*</span> x</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">return</span>(square)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>} </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now, we can use the function as we would any other function. We type out the name of the function, and inside the parentheses we provide a numeric value <code>x</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">square_it</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">square_it</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 25</code></pre>
 </div>
@@ -502,13 +535,13 @@ window.Quarto = {
 <p><span class="math display">\[ g=\left(\frac{y_t-y_{t-1}}{y_{t-1}}\right)\cdot 100=\left(\frac{y_t}{y_{t-1}}-1\right)\cdot 100 \]</span></p>
 <p>So the challenge is to divide the value of <code>revenue</code> with the value of the previous period, a.k.a. the lagged value. Let us assume that the function <code>lag()</code> can give you exactly that value of a vector. Lets try it out:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(revenue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(revenue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]    0  700 1400  350  175   28   56    0    0    0    0    0
 attr(,"tsp")
 [1]  0 11  1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">lag</span>(revenue)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">lag</span>(revenue)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] NaN   0   0   0   0   0   0 NaN NaN NaN NaN NaN
 attr(,"tsp")
@@ -517,14 +550,14 @@ attr(,"tsp")
 </div>
 <p>Unfortunately, this does not work out. The <code>lag()</code> function does not work as we think it should. Well, the reason is simply that we are using the wrong function. The current <code>lag()</code> function is part of the stats package which is part of the package <code>stats</code> which is part of R base and is loaded automatically. The <code>lag()</code> function we aim to use stems from the dplyr package which we must install and load to be able to use it. So let’s do it:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if the package is installed</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">find.package</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if the package is installed</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">find.package</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I already installed the package so I can just load it</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("dplyr")</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I already installed the package so I can just load it</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("dplyr")</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'dplyr'</code></pre>
@@ -540,26 +573,31 @@ Attaching package: 'dplyr'</code></pre>
     intersect, setdiff, setequal, union</code></pre>
 </div>
 </div>
-<p>This message informs us that among other functions the <code>lag()</code> function is <em>masked</em>. That means that now the function of the newly loaded package is active. So, let’s try again:</p>
+<p>This message informs us that among other functions the <code>lag()</code> function is <em>masked</em>. That means that now the function of the newly loaded package is active. This is one example of why I highly recommend to unload all packages at the beginning of a script and then to use <code>p_load</code> to install and load the packages that should be used in the upcoming script:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(revenue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_unload</span>(all)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>So, let’s try again:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lag</span>(revenue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]   NA    0  700 1400  350  175   28   56    0    0    0    0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">lag</span>(revenue)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>(revenue<span class="sc">/</span><span class="fu">lag</span>(revenue)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
 </div>
 </div>
 <p>That looks good now. And here is a way to calculate growth rates with a self-written function:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>growth_rate <span class="ot">&lt;-</span> <span class="cf">function</span>(x)(x<span class="sc">/</span><span class="fu">lag</span>(x)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">growth_rate</span>(revenue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>growth_rate <span class="ot">&lt;-</span> <span class="cf">function</span>(x)(x<span class="sc">/</span><span class="fu">lag</span>(x)<span class="sc">-</span><span class="dv">1</span>)<span class="sc">*</span><span class="dv">100</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">growth_rate</span>(revenue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>sales_gr_rate <span class="ot">&lt;-</span> <span class="fu">growth_rate</span>(revenue)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>sales_gr_rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>sales_gr_rate <span class="ot">&lt;-</span> <span class="fu">growth_rate</span>(revenue)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>sales_gr_rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]   NA  Inf  100  -75  -50  -84  100 -100  NaN  NaN  NaN  NaN</code></pre>
 </div>
