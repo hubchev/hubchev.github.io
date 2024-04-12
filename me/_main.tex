@@ -116,7 +116,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 05 April, 2024}
+\date{Last compiled on 12 April, 2024}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -440,7 +440,7 @@ Gary S. Becker (1930-2014): ``Economics is all about how people make choices. So
 \end{quote}
 
 \begin{quote}
-\citet[ch.~1]{Greenlaw2018Principles}: Economics seeks to solve the problem of scarcity, which is when human wants for goods and services exceed the available supply. A modern economy displays a division of labor, in which people earn income by specializing in what they produce and then use that income to purchase the products they need or want. The division of labor allows individuals and firms to specialize and to produce more for several reasons: a) It allows the agents to focus on areas of advantage due to natural factors and skill levels; b) It encourages the agents to learn and invent; c) It allows agents to take advantage of economies of scale. Division and specialization of labor only work when individuals can purchase what they do not produce in markets. Learning about economics helps you understand the major problems facing the world today, prepares you to be a good citizen, and helps you become a well-rounded thinker.
+\citet[ch.~1]{Greenlaw2022Principles}: Economics seeks to solve the problem of scarcity, which is when human wants for goods and services exceed the available supply. A modern economy displays a division of labor, in which people earn income by specializing in what they produce and then use that income to purchase the products they need or want. The division of labor allows individuals and firms to specialize and to produce more for several reasons: a) It allows the agents to focus on areas of advantage due to natural factors and skill levels; b) It encourages the agents to learn and invent; c) It allows agents to take advantage of economies of scale. Division and specialization of labor only work when individuals can purchase what they do not produce in markets. Learning about economics helps you understand the major problems facing the world today, prepares you to be a good citizen, and helps you become a well-rounded thinker.
 \end{quote}
 
 \begin{quote}
@@ -878,9 +878,9 @@ The payoff or outcome depends on both the chosen alternative and the future stat
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-State of nature (N) & \(N_1\) & \(N_2\) & \(\cdots\) & \(N_j\) & \(\cdots\) & \(N_n\) \\
+State of nature (\(N_j\)) & \(N_1\) & \(N_2\) & \(\cdots\) & \(N_j\) & \(\cdots\) & \(N_n\) \\
 Probability (p) & \(p_1\) & \(p_2\) & \(\cdots\) & \(p_j\) & \(\cdots\) & \(p_n\) \\
-Alternative (A) & & & & & & \\
+Alternative (\(A_i\)) & & & & & & \\
 \(A_1\) & \(O_{11}\) & \(O_{12}\) & \(\cdots\) & \(O_{1j}\) & \(\cdots\) & \(O_{1n}\) \\
 \(A_2\) & \(O_{21}\) & \(O_{22}\) & \(\cdots\) & \(O_{2j}\) & \(\cdots\) & \(O_{2n}\) \\
 \(\cdots\) & \(\cdots\) & \(\cdots\) & \(\cdots\) & \(\cdots\) & \(\cdots\) & \(\cdots\) \\
@@ -1076,11 +1076,11 @@ According to this rule, we compare alternatives by the worst possible outcome un
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Calculate the utility maximum for each column of the payoff matrix: \[\overline{O}_j=\max_{i=1,\dots,m}{O_{ij}}\qquad \forall j.\]
+  Calculate the utility maximum for each column \(j\) of the payoff matrix: \[\overline{O}_j=\max_{i=1,\dots,m}{O_{ij}}\qquad \forall j.\]
 \item
   Calculate for each cell the relative utility, \[\frac{O_{ij}}{\overline{O}_j}.\]
 \item
-  Calculate for each row the minimum: \[\Phi(a_i)=\min_{j=1,\dots,p}\left(\frac{O_{ij}}{\overline{O}_j}\right).\]
+  Calculate for each row \(i\) the minimum: \[\Phi(a_i)=\min_{j=1,\dots,p}\left(\frac{O_{ij}}{\overline{O}_j}\right) \qquad \forall i.\]
 \item
   Set preferences by maximizing \(\Phi(a_i)\).
 \end{enumerate}
@@ -1203,9 +1203,11 @@ Please find solution to the exercise \protect\hyperlink{sol:koerth-example}{in t
 \hypertarget{lagrange-multiplier-method}{%
 \subsection{Lagrange multiplier method}\label{lagrange-multiplier-method}}
 
+The method outlined below requires an understanding of how to take derivatives of functions and solve systems of equations. If readers feel they need a refresher on these topics, I recommend consulting the lecture notes \href{https://raw.githubusercontent.com/hubchev/courses/main/pdfs/cla_A4.pdf}{\emph{Calculus and Linear Algebra}} from \citet{Huber2023Mathematics}.
+
 \begin{figure}
 \centering
-\includegraphics[width=0.5\textwidth,height=\textheight]{fig/Lagrange.jpg}
+\includegraphics[width=0.3\textwidth,height=\textheight]{fig/Lagrange.jpg}
 \caption[\label{fig:Lagrange} Joseph-Louis Lagrange (1736-1813)]{\label{fig:Lagrange} Joseph-Louis Lagrange (1736-1813)\footnotemark{}}
 \end{figure}
 \footnotetext{Picture is taken from \url{http://www-history.mcs.st-and.ac.uk/history/PictDisplay/Lagrange.html}}
@@ -1258,8 +1260,7 @@ The problem that we want to solve can be written in the following way,
 \[
 \begin{array}{ll}
     \max _{x, y} & F(x, y) \\
-    \
-    text { s.t. } & g(x, y)=0
+    \text{ s.t. } & g(x, y)=0
 \end{array}
 \]
 where \(F(x, y)\) is the function to be maximized and \(g(x, y)=0\) is the constraint to be respected.
@@ -1362,6 +1363,21 @@ Please find solution to the exercise \protect\hyperlink{sol:cchoice}{in the appe
 \end{exercise}
 
 \begin{exercise}
+\protect\hypertarget{exr:costmin}{}\label{exr:costmin}Cost-minimizing combination of factors
+
+Using two input factors \(r_1\) and \(r_2\), a firm wants to produces a fixed quantity of a product, that is \(x=20\). Given the production function
+\[
+    x=\frac{5}{4} r_1^{\frac{1}{2}} r_2^{\frac{1}{2}}
+    \] and the factor prices
+\[
+    p_{r_1}=1 \quad \textnormal{ and } p_{r_2}=4.
+    \]
+calculate the cost-minimizing combination of factors (\(r_1, r_2\)).
+
+Please find solution to the exercise \protect\hyperlink{sol:costmin}{in the appendix.}
+\end{exercise}
+
+\begin{exercise}
 \protect\hypertarget{exr:lagrcons}{}\label{exr:lagrcons}Lagrange with n-constraints
 
 Write down the Lagrangian multiplier for the following minimization problem:
@@ -1460,8 +1476,8 @@ However, the expected utility hypothesis states that the subjective value associ
 \hypertarget{ininite-st.-petersburg-lotteries}{%
 \subsubsection{Ininite St.~Petersburg lotteries}\label{ininite-st.-petersburg-lotteries}}
 
-Suppose a casino offers a game of chance for a single player, where a fair coin is tossed at each stage. At the beginning, the player stakes \$1. Every time a head appears, the stake is doubled. The game continues until the first tails appears, at which point the player receives \(\$ 2^{k-1}\), where k is the number of tosses (number of heads) plus one (for the final tails).
-For instance, if tails appears on the first toss, the player wins \$0. If tails appears on the second toss, the player wins \$2. If tails appears on the third toss, the player wins \$4, and so on. The extensive form is given in figure \ref{fig:spextensiveform}.
+Suppose a casino offers a game of chance for a single player, where a fair coin is tossed at each stage. The first time head appears the player gets \$1. From then onwards, every time a head appears, the stake is doubled. The game continues until the first tails appears, at which point the player receives \(\$ 2^{k-1}\), where k is the number of tosses (number of heads) plus one (for the final tails).
+For instance, if tails appears on the first toss, the player wins \$0. If tails appears on the second toss, the player wins \$2. If tails appears on the third toss, the player wins \$4, and so on. The extensive form of the game is given in figure \ref{fig:spextensiveform}.
 
 \begin{figure}
 \centering
@@ -1485,13 +1501,14 @@ The willingness to pay of most people who have given the opportunity to play the
 In the context of the St.~Petersburg Paradox, it becomes evident that relying solely on expected values is inadequate for certain games and for making well-informed decisions. Expected utility, on the other hand, has been the prevailing concept used to reconcile actual behavior with the notion of rationality thus far.
 
 \hypertarget{finite-st.-petersburg-lotteries}{%
-\subsubsection{Finite St.~Petersburg lotteries}\label{finite-st.-petersburg-lotteries}}
+\subsubsection*{Finite St.~Petersburg lotteries}\label{finite-st.-petersburg-lotteries}}
+\addcontentsline{toc}{subsubsection}{Finite St.~Petersburg lotteries}
 
 Let us assume that at the beginning, the casino and the player agrees upon how many times the coin will be tossed. So we have a finite number I of lotteries with \(1 \leq I \leq \infty\).
 
 To calculate the expected value of the game, the probability \(p(i)\) of throwing any number \(i\) of consecutive head is crucial. This probability is given by
 \[
-p(i)=\underbrace{\frac{1}{2} \cdot \frac{1}{2} \cdot \cdots \frac{1}{2}}_{i \text { Faktoren }}=\frac{1}{2^{i}}
+p(i)=\underbrace{\frac{1}{2} \cdot \frac{1}{2} \cdot \cdots \frac{1}{2}}_{i \text { factors}}=\frac{1}{2^{i}}
 \]
 The payoff \(W(I)\) is, if head appears \(I\)-times in a row by
 \[
@@ -2962,14 +2979,13 @@ Due to the price effect of an increase in output, the marginal revenue curve of 
 \subsubsection*{Welfare}\label{welfare}}
 \addcontentsline{toc}{subsubsection}{Welfare}
 
-Overall, the price-setting behavior of a monopolist is not good for overall welfare as figure \ref{fig:mono2} shows: The area of the \emph{monopoly profit} and the \emph{consumer surplus}, that is, the triangle above (600-B-1000), stands for total welfare. The triangle A-B-C is deadweight loss, that is, the welfare forgone because the monopolist supplies less goods at a higher price (MC=ATC) as compared to the scenario where many firms compete (MC=ATC).
+As illustrated in Figure \ref{fig:mono2}, the price-setting behavior of a monopolist typically leads to a reduction in overall welfare: The shaded green area represents the \emph{monopoly profit}, and the blue area denotes the \emph{consumer surplus}, the sum of both constitute the total welfare. The yellow triangle represents the deadweight loss, indicating the welfare that is lost due to the monopolist producing fewer goods at a higher price than in a competitive market. The horizontal line at \(p=100\) represents the marginal costs (MC).
 
 \begin{figure}
 \centering
-\includegraphics[width=0.75\textwidth,height=\textheight]{fig//mono2}
-\caption[\label{fig:mono2} Price setting of a monopolist]{\label{fig:mono2} Price setting of a monopolist\footnotemark{}}
+\includegraphics[width=1\textwidth,height=\textheight]{fig//monopoly}
+\caption{\label{fig:mono2} Price setting of a monopolist}
 \end{figure}
-\footnotetext{Graph stems from \citet{Krugman2009Microeconomics}.}
 
 \hypertarget{price-elasticity-and-market-power}{%
 \subsubsection*{Price elasticity and market power}\label{price-elasticity-and-market-power}}
@@ -3701,13 +3717,12 @@ In figure \ref{fig:burgerutility2}, I marked all 19 possible bundles of burger a
 \end{itemize}
 
 \[
-\mathcal{L}=B^{0.6}D^{0.4}-\lambda(12-3B-2D)
+\mathcal{L}=B^{0.6}D^{0.4}+\lambda(3B+2D-12)
 \]
 
 FOC:
-
 \begin{align*}
-12-3B+2D&=0\\
+3B+2D-12&=0\\
 0.6B^{-0.4}D^{0.4}+3\lambda&=0\\
 0.4B^{0.6}D^{-0.6}+2\lambda&=0
 \end{align*}
@@ -3724,8 +3739,8 @@ which we can plug into the first FOC to obtain:
 \subsection*{Solution to exercise \ref{exr:cchoice}: Consumption choice}\label{sol:cchoice}}
 
 \begin{align*}
-\mathcal{L}&=A^{0.8}B^{0.2}-\lambda(30-6A-4B)\\
-FOC: \frac{\partial \mathcal{L}}{\partial \lambda}&=30-6A-4B=0 \qquad (*)\\
+\mathcal{L}&=A^{0.8}B^{0.2}+\lambda(6A+4B-30)\\
+FOC: \frac{\partial \mathcal{L}}{\partial \lambda}&=6A+4B-30=0 \qquad (*)\\
 \frac{\partial \mathcal{L}}{\partial A}&=0.8A^{-0.2}B^{0.2}+6\lambda=0 \qquad (**)\\
 \frac{\partial \mathcal{L}}{\partial B}&=0.2A^{0.8}B^{-0.8}+4\lambda=0 \qquad (***)
 \end{align*}
@@ -3764,82 +3779,16 @@ The easiest way is to solve (\textbf{) and (}*) for \(\lambda\) and substitute i
 
 Thus, we'd consume 4 units of good A and 1.5 of good B.
 
-\hypertarget{sol:derofdemand}{%
-\subsection*{Solution to exercise \ref{exr:derofdemand}: Derivation of demand function using the Lagrangian multiplier}\label{sol:derofdemand}}
-
-The Lagrangian for this problem is
-\[
-  Z=x y+\lambda\left(B-P_{x} x-P_{y} y\right)
-\]
-The first order conditions are
-\[
-\begin{array}{l}
-Z_{x}=y-\lambda P_{x}=0 \\
-Z_{y}=x-\lambda P_{y}=0 \\
-Z_{\lambda}=B-P_{x} x-P_{y} y=0
-\end{array}
-\]
-
-Solving the first order conditions yield the following solutions
+\hypertarget{sol:costmin}{%
+\subsection*{Solution to exercise \ref{exr:lagrcons}: Cost-minimizing combination of factors}\label{sol:costmin}}
 
 \[
-  x^{M}=\frac{B}{2 P_{x}} \quad y^{M}=\frac{B}{2 P_{y}} \quad \lambda=\frac{B}{2 P_{x} P_{y}}
+\mathcal{L}=r_1+4r_2+\lambda\left(\frac{5}{4}r_1^{\frac{1}{2}}r_2^{\frac{1}{2}}-20\right)
 \]
-where \(x^{M}\) and \(y^{M}\) are the consumer's demand functions.
+Taking the FOC we get
+\[r_1=4r_2\] using that in the constraint, we get \(r_1=32\) and \(r_2=8\).
 
-\hypertarget{sol:cdanddemand}{%
-\subsection*{Solution to exercise \ref{exr:cdanddemand}: Cobb-Douglas and demand}\label{sol:cdanddemand}}
-
-The Lagrangian is
-\[
-\mathcal{L}(x, y)=A x^{\alpha} y^{\beta}-\lambda(p x+q y-I)
-\]
-
-Therefore, the first-order conditions are
-\[
-    \begin{aligned}
-        \mathcal{L}_{x}^{\prime}(x, y)=A \alpha x^{\alpha-1} y^{\beta}-\lambda p &=0 \qquad (*)\\
-        \mathcal{L}_{y}^{\prime}(x, y)=A x^{\alpha} \beta y^{\beta-1}-\lambda q &=0  \qquad (**)\\
-        p x+q y-I &=0  \qquad (***)
-    \end{aligned}
-\]
-
-Solving \((*)\) and \((**)\) for \(\lambda\) yields
-\[
-\lambda=\frac{A \alpha x^{\alpha-1} y^{\beta-1} y}{p}=\frac{A x^{\alpha-1} x \beta y^{\beta-1}}{q}
-\]
-Canceling the common factor \(A x^{\alpha-1} y^{\beta-1}\) from the last two fractions gives
-\[
-    \frac{\alpha y}{p}=\frac{x \beta}{q}
-\]
-and therefore
-\[
-q y=p x \frac{\beta}{\alpha}
-\]
-Inserting this result in \((***)\) yields
-\[
-p x+p x \frac{\beta}{\alpha}=I
-\]
-Rearranging gives
-\[
-p x\left(\frac{\alpha+\beta}{\alpha}\right)=I
-\]
-Solving for \(x\) yields the following \textit{demand function}
-\[
-x=\frac{\alpha}{\alpha+\beta} \frac{I}{p}
-\]
-Inserting
-\[
-p x=q y \frac{\alpha}{\beta}
-\]
-in \((***)\) gives
-\[
-q y \frac{\partial}{\beta}+q y=I
-\]
-and therefore the \textit{demand function}
-\[
-y=\frac{\beta}{\alpha+\beta}  \frac{I}{q}
-\]
+Also see \url{https://t1p.de/huber-lagr1} which uses this tool: \url{https://www.emathhelp.net/calculators/calculus-3/lagrange-multipliers-calculator/}
 
 \hypertarget{sol:lagrcons}{%
 \subsection*{Solution to exercise \ref{exr:lagrcons}: Lagrange with n-constraints}\label{sol:lagrcons}}
@@ -4333,6 +4282,83 @@ Figure @ref(fig:expgrowth\_graphs) provides the solution.
 \caption{(\#fig:expgrowth\_graphs) Various growth functions}
 \end{figure}
 
+\hypertarget{sol:derofdemand}{%
+\subsection*{Solution to exercise \ref{exr:derofdemand}: Derivation of demand function using the Lagrangian multiplier}\label{sol:derofdemand}}
+
+The Lagrangian for this problem is
+\[
+  Z=x y+\lambda\left(P_{x} x+P_{y} y-B\right)
+\]
+The first order conditions are
+\[
+\begin{array}{l}
+Z_{x}=y+\lambda P_{x}=0 \\
+Z_{y}=x+\lambda P_{y}=0 \\
+Z_{\lambda}=-B+P_{x} x+P_{y} y=0
+\end{array}
+\]
+
+Solving the first order conditions yield the following solutions
+
+\[
+  x^{M}=\frac{B}{2 P_{x}} \quad y^{M}=\frac{B}{2 P_{y}} \quad \lambda=\frac{B}{2 P_{x} P_{y}}
+\]
+where \(x^{M}\) and \(y^{M}\) are the consumer's demand functions.
+
+\hypertarget{sol:cdanddemand}{%
+\subsection*{Solution to exercise \ref{exr:cdanddemand}: Cobb-Douglas and demand}\label{sol:cdanddemand}}
+
+The Lagrangian is
+\[
+\mathcal{L}(x, y)=A x^{\alpha} y^{\beta}+\lambda(p x+q y-I)
+\]
+
+Therefore, the first-order conditions are
+\[
+    \begin{aligned}
+        \mathcal{L}_{x}^{\prime}(x, y)=A \alpha x^{\alpha-1} y^{\beta}+\lambda p &=0 \qquad (*)\\
+        \mathcal{L}_{y}^{\prime}(x, y)=A x^{\alpha} \beta y^{\beta-1}+\lambda q &=0  \qquad (**)\\
+        p x+q y-I &=0  \qquad (***)
+    \end{aligned}
+\]
+
+Solving \((*)\) and \((**)\) for \(\lambda\) yields
+\[
+\lambda=\frac{A \alpha x^{\alpha-1} y^{\beta-1} y}{p}=\frac{A x^{\alpha-1} x \beta y^{\beta-1}}{q}
+\]
+Canceling the common factor \(A x^{\alpha-1} y^{\beta-1}\) from the last two fractions gives
+\[
+    \frac{\alpha y}{p}=\frac{x \beta}{q}
+\]
+and therefore
+\[
+q y=p x \frac{\beta}{\alpha}
+\]
+Inserting this result in \((***)\) yields
+\[
+p x+p x \frac{\beta}{\alpha}=I
+\]
+Rearranging gives
+\[
+p x\left(\frac{\alpha+\beta}{\alpha}\right)=I
+\]
+Solving for \(x\) yields the following \textit{demand function}
+\[
+x=\frac{\alpha}{\alpha+\beta} \frac{I}{p}
+\]
+Inserting
+\[
+p x=q y \frac{\alpha}{\beta}
+\]
+in \((***)\) gives
+\[
+q y \frac{\partial}{\beta}+q y=I
+\]
+and therefore the \textit{demand function}
+\[
+y=\frac{\beta}{\alpha+\beta}  \frac{I}{q}
+\]
+
 \hypertarget{sol:Uic}{%
 \subsection*{Solution to exercise \ref{exr:Uic}: Understanding indifference curves and budget constraints}\label{sol:Uic}}
 
@@ -4366,7 +4392,7 @@ Graph (1) shows perfect complements and graph (2) perfect substitutes. The isoqu
 \item
   FOC:
   \begin{align*}
-     0 &= 0.4K^{-0.6}L^{0.4} - 8\lambda \quad (*) \\
+     0 &= 0.4K^{-0.6}L^{0.6} - 8\lambda \quad (*) \\
      0 &= 0.6K^{0.4}L^{-0.4} - 2\lambda \quad (**) \\
      0 &= 216 - 2L - 8K \quad (***) \\
   \end{align*}

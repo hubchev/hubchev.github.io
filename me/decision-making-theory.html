@@ -400,9 +400,9 @@ w_1=3/12; w_2=4/12; w_3=3/12; w_4 = w_5 =1/12.
 <h3>Körth’s Maximin-Rule<a href="decision-making-theory.html#körths-maximin-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>According to this rule, we compare alternatives by the worst possible outcome under each alternative, and we should choose the one which maximizes the utility of the worst outcome. More concrete, the procedure consists of 4 steps:</p>
 <ol style="list-style-type: decimal">
-<li>Calculate the utility maximum for each column of the payoff matrix: <span class="math display">\[\overline{O}_j=\max_{i=1,\dots,m}{O_{ij}}\qquad \forall j.\]</span></li>
+<li>Calculate the utility maximum for each column <span class="math inline">\(j\)</span> of the payoff matrix: <span class="math display">\[\overline{O}_j=\max_{i=1,\dots,m}{O_{ij}}\qquad \forall j.\]</span></li>
 <li>Calculate for each cell the relative utility, <span class="math display">\[\frac{O_{ij}}{\overline{O}_j}.\]</span></li>
-<li>Calculate for each row the minimum: <span class="math display">\[\Phi(a_i)=\min_{j=1,\dots,p}\left(\frac{O_{ij}}{\overline{O}_j}\right).\]</span></li>
+<li>Calculate for each row <span class="math inline">\(i\)</span> the minimum: <span class="math display">\[\Phi(a_i)=\min_{j=1,\dots,p}\left(\frac{O_{ij}}{\overline{O}_j}\right) \qquad \forall i.\]</span></li>
 <li>Set preferences by maximizing <span class="math inline">\(\Phi(a_i)\)</span>.</li>
 </ol>
 </div>
@@ -510,8 +510,9 @@ To illustrate the function let us consider some arbitrarily chosen levels of pro
 </div>
 <div id="lagrange-multiplier-method" class="section level3 hasAnchor" number="3.1.3">
 <h3><span class="header-section-number">3.1.3</span> Lagrange multiplier method<a href="decision-making-theory.html#lagrange-multiplier-method" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The method outlined below requires an understanding of how to take derivatives of functions and solve systems of equations. If readers feel they need a refresher on these topics, I recommend consulting the lecture notes <a href="https://raw.githubusercontent.com/hubchev/courses/main/pdfs/cla_A4.pdf"><em>Calculus and Linear Algebra</em></a> from <span class="citation">Huber (<a href="references.html#ref-Huber2023Mathematics">2023</a>)</span>.</p>
 <div class="float">
-<img src="fig/Lagrange.jpg" style="width:50.0%" alt=" Joseph-Louis Lagrange (1736-1813)" />
+<img src="fig/Lagrange.jpg" style="width:30.0%" alt=" Joseph-Louis Lagrange (1736-1813)" />
 <div class="figcaption"> Joseph-Louis Lagrange (1736-1813)<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></div>
 </div>
 <p>The decision-making process of consumers and producers lies at the core of microeconomic research and is of significant importance for managers. I will not go into detail here, but I will show some examples of how to come to a decision when certain information is given.</p>
@@ -547,8 +548,7 @@ This includes specifying the objective function to be maximized or minimized and
 <span class="math display">\[
 \begin{array}{ll}
     \max _{x, y} &amp; F(x, y) \\
-    \
-    text { s.t. } &amp; g(x, y)=0
+    \text{ s.t. } &amp; g(x, y)=0
 \end{array}
 \]</span>
 where <span class="math inline">\(F(x, y)\)</span> is the function to be maximized and <span class="math inline">\(g(x, y)=0\)</span> is the constraint to be respected.
@@ -614,7 +614,19 @@ is given as <span class="math display">\[U(A,B)=A^{0.8}B^{0.2}\]</span></p>
 <p>Please find solution to the exercise <a href="solutions-to-exercises.html#sol:cchoice">in the appendix.</a></p>
 </div>
 <div class="exercise">
-<p><span id="exr:lagrcons" class="exercise"><strong>Exercise 3.5  </strong></span>Lagrange with n-constraints</p>
+<p><span id="exr:costmin" class="exercise"><strong>Exercise 3.5  </strong></span>Cost-minimizing combination of factors</p>
+<p>Using two input factors <span class="math inline">\(r_1\)</span> and <span class="math inline">\(r_2\)</span>, a firm wants to produces a fixed quantity of a product, that is <span class="math inline">\(x=20\)</span>. Given the production function
+<span class="math display">\[
+    x=\frac{5}{4} r_1^{\frac{1}{2}} r_2^{\frac{1}{2}}
+    \]</span> and the factor prices
+<span class="math display">\[
+    p_{r_1}=1 \quad \textnormal{ and } p_{r_2}=4.
+    \]</span>
+calculate the cost-minimizing combination of factors (<span class="math inline">\(r_1, r_2\)</span>).</p>
+<p>Please find solution to the exercise <a href="solutions-to-exercises.html#sol:costmin">in the appendix.</a></p>
+</div>
+<div class="exercise">
+<p><span id="exr:lagrcons" class="exercise"><strong>Exercise 3.6  </strong></span>Lagrange with n-constraints</p>
 <p>Write down the Lagrangian multiplier for the following minimization problem:</p>
 <p>Minimize <span class="math inline">\(f(\mathbf{x})\)</span> subject to:
 <span class="math display">\[\begin{aligned}
@@ -691,7 +703,7 @@ The example that is shown in Figure 7 of <span class="citation">Finne (<a href="
 </table>
 <p>Thus, the order of preference is <span class="math inline">\(a_4\succ a_3 \succ a_1 \succ a_2\)</span>.</p>
 <div class="exercise">
-<p><span id="exr:finne" class="exercise"><strong>Exercise 3.6  </strong></span>Three categories</p>
+<p><span id="exr:finne" class="exercise"><strong>Exercise 3.7  </strong></span>Three categories</p>
 <p>Read <span class="citation">Finne (<a href="references.html#ref-Finne1998three">1998</a>)</span> and answer the following questions:</p>
 <ol style="list-style-type: lower-alpha">
 <li>Explain the three categories of decision making.</li>
@@ -709,8 +721,8 @@ The example that is shown in Figure 7 of <span class="citation">Finne (<a href="
 <h3><span class="header-section-number">3.3.1</span> St. Petersburg Paradox<a href="decision-making-theory.html#st.-petersburg-paradox" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="ininite-st.-petersburg-lotteries" class="section level4 hasAnchor" number="3.3.1.1">
 <h4><span class="header-section-number">3.3.1.1</span> Ininite St. Petersburg lotteries<a href="decision-making-theory.html#ininite-st.-petersburg-lotteries" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Suppose a casino offers a game of chance for a single player, where a fair coin is tossed at each stage. At the beginning, the player stakes $1. Every time a head appears, the stake is doubled. The game continues until the first tails appears, at which point the player receives <span class="math inline">\(\$ 2^{k-1}\)</span>, where k is the number of tosses (number of heads) plus one (for the final tails).
-For instance, if tails appears on the first toss, the player wins $0. If tails appears on the second toss, the player wins $2. If tails appears on the third toss, the player wins $4, and so on. The extensive form is given in figure <a href="#fig:spextensiveform">3.6</a>.</p>
+<p>Suppose a casino offers a game of chance for a single player, where a fair coin is tossed at each stage. The first time head appears the player gets $1. From then onwards, every time a head appears, the stake is doubled. The game continues until the first tails appears, at which point the player receives <span class="math inline">\(\$ 2^{k-1}\)</span>, where k is the number of tosses (number of heads) plus one (for the final tails).
+For instance, if tails appears on the first toss, the player wins $0. If tails appears on the second toss, the player wins $2. If tails appears on the third toss, the player wins $4, and so on. The extensive form of the game is given in figure <a href="#fig:spextensiveform">3.6</a>.</p>
 <div class="float">
 <img src="fig/spextensiveform.png" style="width:80.0%" alt=" Extensive form of the St. Petersburg paradox" />
 <div class="figcaption"> Extensive form of the St. Petersburg paradox</div>
@@ -728,12 +740,12 @@ That means the expected win for playing this game is an infinite amount of money
 The willingness to pay of most people who have given the opportunity to play the game deviates dramatically from the objectively calculable expected payout of the lottery. This describes the apparent paradox.</p>
 <p>In the context of the St. Petersburg Paradox, it becomes evident that relying solely on expected values is inadequate for certain games and for making well-informed decisions. Expected utility, on the other hand, has been the prevailing concept used to reconcile actual behavior with the notion of rationality thus far.</p>
 </div>
-<div id="finite-st.-petersburg-lotteries" class="section level4 hasAnchor" number="3.3.1.2">
-<h4><span class="header-section-number">3.3.1.2</span> Finite St. Petersburg lotteries<a href="decision-making-theory.html#finite-st.-petersburg-lotteries" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="finite-st.-petersburg-lotteries" class="section level4 unnumbered hasAnchor">
+<h4>Finite St. Petersburg lotteries<a href="decision-making-theory.html#finite-st.-petersburg-lotteries" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Let us assume that at the beginning, the casino and the player agrees upon how many times the coin will be tossed. So we have a finite number I of lotteries with <span class="math inline">\(1 \leq I \leq \infty\)</span>.</p>
 <p>To calculate the expected value of the game, the probability <span class="math inline">\(p(i)\)</span> of throwing any number <span class="math inline">\(i\)</span> of consecutive head is crucial. This probability is given by
 <span class="math display">\[
-p(i)=\underbrace{\frac{1}{2} \cdot \frac{1}{2} \cdot \cdots \frac{1}{2}}_{i \text { Faktoren }}=\frac{1}{2^{i}}
+p(i)=\underbrace{\frac{1}{2} \cdot \frac{1}{2} \cdot \cdots \frac{1}{2}}_{i \text { factors}}=\frac{1}{2^{i}}
 \]</span>
 The payoff <span class="math inline">\(W(I)\)</span> is, if head appears <span class="math inline">\(I\)</span>-times in a row by
 <span class="math display">\[
@@ -750,8 +762,8 @@ $50 for participation. The relatively high probability to leave the game with no
 Let’s assume, for example, that the casino’s maximum budget is $20,000,000. As a result, the game must conclude after 25 coin tosses because <span class="math inline">\(2^{25} = 33,554,432\)</span> would exceed the casino’s financial capacity. Consequently, the expected value of the game in this scenario would be significantly reduced to just $12.50.
 Interestingly, if you were to ask people, most would still be willing to pay less than $12.50 to participate. How can we explain this? Well, it is not the expected outcome that matters but the utility that stems from the outcome.</p>
 </div>
-<div id="the-impact-of-output-on-utility-matters" class="section level4 hasAnchor" number="3.3.1.3">
-<h4><span class="header-section-number">3.3.1.3</span> The impact of output on utility matters<a href="decision-making-theory.html#the-impact-of-output-on-utility-matters" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="the-impact-of-output-on-utility-matters" class="section level4 hasAnchor" number="3.3.1.2">
+<h4><span class="header-section-number">3.3.1.2</span> The impact of output on utility matters<a href="decision-making-theory.html#the-impact-of-output-on-utility-matters" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><em>Daniel Bernoulli</em> (1700 - 1782) worked on the paradox while being a professor in St. Petersburg. His solution builds on the conceptual separation of the expected payoff and its utility. He describes the basis of the paradox as follows:</p>
 <blockquote>
 <p>``Until now scientists have usually rested their hypothesis on the assumption that all gains must be evaluated exclusively in terms of themselves, i.e., on the basis of their intrinsic qualities, and that these gains will always produce a utility directly proportionate to the gain.’’ <span class="citation">(<a href="references.html#ref-Bernoulli1954Exposition">Bernoulli, 1954, p. 27</a>)</span></p>
@@ -775,7 +787,7 @@ E(u(W(\infty)))=a \cdot \ln 2 .
 <p>In experiments in which people were offered this game, their willingness to pay was roughly between 2 and 3 Euro. Thus, the suggests logarithmic utility function seems to be a pretty realistic specification.
 The main reason is mathematically that the increasing expected payoff has decreasing marginal utility and hence the utility function reflects the risk aversion of many people.</p>
 <div class="exercise">
-<p><span id="exr:ratrisk" class="exercise"><strong>Exercise 3.7  </strong></span>Rationality and risk</p>
+<p><span id="exr:ratrisk" class="exercise"><strong>Exercise 3.8  </strong></span>Rationality and risk</p>
 <p>There are 90 balls in an box. It is known that 30 of them are red, the remaining 60 are blue or green. An individual can choose between the following lotteries:</p>
 <table>
 <colgroup>
@@ -1017,7 +1029,7 @@ The probability of drawing a € 5 bill and then another € 5 bill is <span cla
 </ul>
 <p>Moreover, <a href="https://www.skobelevs.ie/BayesTheorem/">this interactive tool</a> can be helpful.</p>
 <div class="exercise">
-<p><span id="exr:tobevacornot" class="exercise"><strong>Exercise 3.8  </strong></span>To be vaccinated or not to be</p>
+<p><span id="exr:tobevacornot" class="exercise"><strong>Exercise 3.9  </strong></span>To be vaccinated or not to be</p>
 <div class="float">
 <img src="fig/diesurvive.png" style="width:50.0%" alt=" Tree diagramm vaccinated or not" />
 <div class="figcaption"> Tree diagramm vaccinated or not</div>
@@ -1035,7 +1047,7 @@ The probability of drawing a € 5 bill and then another € 5 bill is <span cla
 <hr />
 </div>
 <div class="exercise">
-<p><span id="exr:todieornot" class="exercise"><strong>Exercise 3.9  </strong></span>To die or not to die</p>
+<p><span id="exr:todieornot" class="exercise"><strong>Exercise 3.10  </strong></span>To die or not to die</p>
 <p>You read on Facebook that in the year 2021 about over 80% of people that died were vaccinated. You are shocked by this high probability that a dead person was vaccinated, <span class="math inline">\(P(V|D)\)</span>. You decide to check this fact. Reading the study to which the Facebook post is referring, you find out that the study only refers to people above the age of 90. Moreover, you find the following <em>Tree Diargram</em>. It allows checking the fact as it describes the vaccination rates and the conditional probabilities of people to die given the fact they were vaccinated or not.
 In particular, <span class="math inline">\(D\)</span> denotes the event of <em>die</em> and <span class="math inline">\(\neg D\)</span> denotes <em>not die</em>, i.e., survive; <span class="math inline">\(V\)</span> denotes the event of <em>vaccinated</em> and <span class="math inline">\(\neg V\)</span> <em>not vaccinated</em>.</p>
 </div>
@@ -1057,7 +1069,7 @@ Figure 3.14: Tree: To die or not to die
 <hr />
 <pre><code></code></pre>
 <div class="exercise">
-<p><span id="exr:falspos" class="exercise"><strong>Exercise 3.10  </strong></span>Corona false positive</p>
+<p><span id="exr:falspos" class="exercise"><strong>Exercise 3.11  </strong></span>Corona false positive</p>
 <p>Suppose that Corona infects one out of every 1000 people in a population and that the test for it comes back positive in 99% of all cases if a person has Corona. Moreover, the test also produces some false positive, that is about 2% of uninfected patients also tested positive.</p>
 <p>Now, assume you are tested positive and you want to know the chances of having the disease.
 Then, we have two events to work with:</p>
@@ -1093,7 +1105,7 @@ Then, we have two events to work with:</p>
 <h3><span class="header-section-number">3.5.3</span> Confirmation heuristic<a href="decision-making-theory.html#confirmation-heuristic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <strong>confirmation heuristic</strong> refers to our tendency to seek out information that confirms our existing beliefs and ignore information that contradicts them. For example, an investor who strongly believes in the potential of a particular investment might only read news and analysis that supports their belief and ignore any information that suggests otherwise. This can lead to a failure to consider potential risks and downsides of an investment.</p>
 <div class="exercise">
-<p><span id="exr:bazermanbias" class="exercise"><strong>Exercise 3.11  </strong></span>Twelve cognitive biases</p>
+<p><span id="exr:bazermanbias" class="exercise"><strong>Exercise 3.12  </strong></span>Twelve cognitive biases</p>
 <p>In the textbook of <span class="citation">Bazerman &amp; Moore (<a href="references.html#ref-Bazerman2017Judgement">2012</a>)</span> twelve cognitive biases that are described. Read chapter 2 of the book and summarize the twelve biases in a sentence.</p>
 <p>Please find solution to the exercise <a href="solutions-to-exercises.html#sol:bazermanbias">in the appendix.</a></p>
 <hr />
@@ -1112,7 +1124,7 @@ is, even well-educated people are not necessarily savvy about money.</p>
 <p>Unfortunately, financial illiteracy is widespread. While being better-educated is associated with making better financial decisions on average, “even well-educated people are not necessarily savvy about money” <span class="citation">(<a href="references.html#ref-Mitchell2015Financial">Mitchell &amp; Lusardi, 2015, p. 3</a>)</span>.</p>
 <p>There are various attempts to assess the levels of financial literacy. See <a href="https://www.oecd.org/finance/financial-education/measuringfinancialliteracy.htm" class="uri">https://www.oecd.org/finance/financial-education/measuringfinancialliteracy.htm</a> for example.</p>
 <div class="exercise">
-<p><span id="exr:flmeasure" class="exercise"><strong>Exercise 3.12  </strong></span>S&amp;P Global FinLit Survey</p>
+<p><span id="exr:flmeasure" class="exercise"><strong>Exercise 3.13  </strong></span>S&amp;P Global FinLit Survey</p>
 <p>One example of a comprehend way to measure financial literacy stems from the <em>Standard &amp; Poor`s Ratings Services Global Financial Literacy Survey</em> <span class="citation">(see <a href="references.html#ref-Klapper2020Financial">Klapper &amp; Lusardi, 2020</a>)</span>. They ask the following multiple-choice questions:</p>
 <ol style="list-style-type: decimal">
 <li>Suppose you have some money. Is it safer to put your money into one business or investment, or to put your money into multiple businesses or investments?
@@ -1159,7 +1171,7 @@ is, even well-educated people are not necessarily savvy about money.</p>
 <hr />
 </div>
 <div class="exercise">
-<p><span id="exr:bigthreeiq" class="exercise"><strong>Exercise 3.13  </strong></span>The <em>big three</em> questions</p>
+<p><span id="exr:bigthreeiq" class="exercise"><strong>Exercise 3.14  </strong></span>The <em>big three</em> questions</p>
 <p>Referring to <span class="citation">Mitchell &amp; Lusardi (<a href="references.html#ref-Mitchell2015Financial">2015</a>)</span>, only 21.7% of individuals in Germany with a lower secondary education and 72% of those with tertiary education can correctly answer all three of the following questions. Try it yourself!</p>
 <ol style="list-style-type: decimal">
 <li>Suppose you had $100 in a savings account and the interest rate was 2% per year. After 5 years, how much do you think you would have in the account if you left the money to grow?
@@ -1271,7 +1283,7 @@ The following list list shows according to <span class="citation">Stammers (<a h
 <li>Not controlling what you can</li>
 </ul>
 <div class="exercise">
-<p><span id="exr:commistakes" class="exercise"><strong>Exercise 3.14  </strong></span>Common investment mistakes</p>
+<p><span id="exr:commistakes" class="exercise"><strong>Exercise 3.15  </strong></span>Common investment mistakes</p>
 <p>Read the paper and summarize the 20 mistakes.</p>
 <p>Please find solution to the exercise <a href="solutions-to-exercises.html#sol:commistakes">in the appendix.</a></p>
 <hr />
@@ -1346,19 +1358,19 @@ P=Ae^{-rt}
 <p>Both NPV and IRR are important tools to help individuals make informed decisions about financial products. By comparing the NPV and IRR of different investment options, individuals can determine which investments are likely to generate the greatest returns over time, and which products may not be worth the initial investment.</p>
 <p>It is worth noting that while NPV and IRR are useful indicators for decision making, they are not the only factors to consider. Individuals should also consider other important factors such as risk, liquidity, and diversification when evaluating different financial products. By taking a holistic approach and considering all relevant factors, individuals can make informed decisions that are best suited to their financial goals and circumstances.</p>
 <div class="exercise">
-<p><span id="exr:invcase" class="exercise"><strong>Exercise 3.15  </strong></span>Investment case</p>
+<p><span id="exr:invcase" class="exercise"><strong>Exercise 3.16  </strong></span>Investment case</p>
 <p>You deposit 1,000 euros today into a savings account with an annual interest rate of 5% for 2 years. What is the balance after 2 years with annual, semi-annual (4 interest payments per year), and continuous compounding?</p>
 <p>Please find solution to the exercise <a href="solutions-to-exercises.html#sol:invcase">in the appendix.</a></p>
 <hr />
 </div>
 <div class="exercise">
-<p><span id="exr:presentvalueC" class="exercise"><strong>Exercise 3.16  </strong></span>Present value</p>
+<p><span id="exr:presentvalueC" class="exercise"><strong>Exercise 3.17  </strong></span>Present value</p>
 <p>You want to have 100,000 in 10 years, and you can save money with an interest rate of 5% p.a. How much do you need to invest today for annual, semi-annual (4 interest periods), and continuous compounding to achieve your goal?</p>
 <p>Please find solution to the exercise <a href="solutions-to-exercises.html#sol:presentvalueC">in the appendix.</a></p>
 <hr />
 </div>
 <div class="exercise">
-<p><span id="exr:invaorb" class="exercise"><strong>Exercise 3.17  </strong></span>Invest in A or B</p>
+<p><span id="exr:invaorb" class="exercise"><strong>Exercise 3.18  </strong></span>Invest in A or B</p>
 <p>You are considering investing in project A or B.</p>
 <p><strong>Project A:</strong> It costs 50,000 today and is expected to generate cash flows of 20,000 per year for the next 5 years. You have a required rate of return of 8%.</p>
 <p><strong>Project B:</strong> It costs 50,000 today and you get 100,000 back in 5 years.</p>
@@ -1367,7 +1379,7 @@ P=Ae^{-rt}
 <hr />
 </div>
 <div class="exercise">
-<p><span id="exr:netpresentvalue" class="exercise"><strong>Exercise 3.18  </strong></span>Net present value</p>
+<p><span id="exr:netpresentvalue" class="exercise"><strong>Exercise 3.19  </strong></span>Net present value</p>
 <p>You are considering investing in project A or B.</p>
 <p><strong>Project A:</strong> It costs 50,000 today and is expected to generate cash flows of 20,000 per year for the next 5 years. You have a required rate of return of 8%.</p>
 <p><strong>Project B:</strong> It costs 50,000 today and you get 100,000 back in 5 years.</p>
@@ -1376,7 +1388,7 @@ P=Ae^{-rt}
 <hr />
 </div>
 <div class="exercise">
-<p><span id="exr:irr" class="exercise"><strong>Exercise 3.19  </strong></span>Internal rate of return</p>
+<p><span id="exr:irr" class="exercise"><strong>Exercise 3.20  </strong></span>Internal rate of return</p>
 <p>You are considering investing in project A or B.</p>
 <p><strong>Project A:</strong> It costs 50,000 today and is expected to generate cash flows of 20,000 per year for the next 5 years. You have a required rate of return of 8%.</p>
 <p><strong>Project B:</strong> It costs 50,000 today and you get 100,000 back in 5 years.</p>
@@ -1385,7 +1397,7 @@ P=Ae^{-rt}
 <hr />
 </div>
 <div class="exercise">
-<p><span id="exr:rule70" class="exercise"><strong>Exercise 3.20  </strong></span>Rule of 70</p>
+<p><span id="exr:rule70" class="exercise"><strong>Exercise 3.21  </strong></span>Rule of 70</p>
 <p>The <em>Rule of 70</em> is often used to approximate the time required for a growing series to double. To understand this rule calculate how many periods it takes to double your money when it growth at a constant rate of 1% each period.</p>
 <p>Please find solution to the exercise <a href="solutions-to-exercises.html#sol:rule70">in the appendix.</a></p>
 <hr />
@@ -1443,13 +1455,13 @@ g \approx \frac{\ln (Y_{1989}) - \ln (Y_{1950})}{39}
 </div>
 <hr />
 <div class="exercise">
-<p><span id="exr:invovertime" class="exercise"><strong>Exercise 3.21  </strong></span>Investments over time
+<p><span id="exr:invovertime" class="exercise"><strong>Exercise 3.22  </strong></span>Investments over time
 Describe the formulas to describe the growth process of an investment over time when time is discrete and when time is continuous.</p>
 <p>Please find solution to the exercise <a href="solutions-to-exercises.html#sol:invovertime">in the appendix.</a></p>
 <hr />
 </div>
 <div class="exercise">
-<p><span id="exr:expovertime" class="exercise"><strong>Exercise 3.22  </strong></span>Exponential growth</p>
+<p><span id="exr:expovertime" class="exercise"><strong>Exercise 3.23  </strong></span>Exponential growth</p>
 <p>Sketch a timeline for each of the following series:</p>
 <ul>
 <li><span class="math inline">\(a_t=a_{t-1}+g\)</span></li>
@@ -1461,7 +1473,7 @@ Describe the formulas to describe the growth process of an investment over time 
 <hr />
 </div>
 <div class="exercise">
-<p><span id="exr:Covidcases" class="exercise"><strong>Exercise 3.23  </strong></span>COVID and how to plot it</p>
+<p><span id="exr:Covidcases" class="exercise"><strong>Exercise 3.24  </strong></span>COVID and how to plot it</p>
 <p>I downloaded the complete <strong>Our World in Data COVID-19</strong> dataset from <a href="https://ourworldindata.org/coronavirus/country/germany">ourworldindata.org</a>. I created some graphs which I will show you below. Can you discuss the scaling and how to interpret them? What is your opinion on these graphs? Are some of them a bit misleading (at least if you don’t look twice)?</p>
 <div class="float">
 <img src="fig/total.png" style="width:50.0%" alt="Total Cases" />
@@ -1496,7 +1508,7 @@ Describe the formulas to describe the growth process of an investment over time 
 <div class="footnotes">
 <hr />
 <ol start="12">
-<li id="fn12"><p>The example is taken from <span class="citation">Morse, Babcock, &amp; Murthy (<a href="references.html#ref-Morse2014Managing">2014, p. 134f</a>)</span>.<a href="decision-making-theory.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>The example is taken from <span class="citation">Morse et al. (<a href="references.html#ref-Morse2014Managing">2014, p. 134f</a>)</span>.<a href="decision-making-theory.html#fnref12" class="footnote-back">↩︎</a></p></li>
 <li id="fn13"><p>Picture is taken from <a href="http://www-history.mcs.st-and.ac.uk/history/PictDisplay/Lagrange.html" class="uri">http://www-history.mcs.st-and.ac.uk/history/PictDisplay/Lagrange.html</a><a href="decision-making-theory.html#fnref13" class="footnote-back">↩︎</a></p></li>
 <li id="fn14"><p>This is a snapshot of a YouTube clip, see: <a href="https://youtu.be/8mjcnxGMwFo" class="uri">https://youtu.be/8mjcnxGMwFo</a><a href="decision-making-theory.html#fnref14" class="footnote-back">↩︎</a></p></li>
 <li id="fn15"><p>Also see: <a href="http://www.sfu.ca/~wainwrig/5701/notes-lagrange.pdf" class="uri">http://www.sfu.ca/~wainwrig/5701/notes-lagrange.pdf</a><a href="decision-making-theory.html#fnref15" class="footnote-back">↩︎</a></p></li>
