@@ -84,7 +84,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./10_swirl.html" rel="next">
+<link href="./08_error.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -248,32 +248,38 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./08_error.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pitfalls</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./10_swirl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An interactive introduction using swirl</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">An interactive introduction using swirl</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./22_script.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_manage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Manage data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Manage data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_graph.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Visualizing data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Visualizing data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./80_exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Collection of exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Collection of exercises</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -299,26 +305,20 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./951_troubleshooting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Troubleshooting</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./952_operators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Operators</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Operators</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./953_popfunctions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Popular functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Popular functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./957_shortcuts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Helpful shortcuts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Helpful shortcuts</span></span></a>
   </div>
 </li>
       </ul>
@@ -386,7 +386,7 @@ Content of this chapter
 </div>
 <section id="sec:whyR" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="sec:whyR"><span class="header-section-number">1.1</span> Why R?</h2>
-<p>R is a free and open-source programming language that provides a wide range of advanced statistics capabilities, state-of-the-art graphics, and powerful data manipulation capabilities. It supports larger data sets, reads any type of data, and runs on multiple platforms. R makes it easier to automate tasks, organize projects, ensure reproducibility, and find and fix errors, and anyone can contribute packages to improve its functionality. Moreover, the following points are worth to emphasize:</p>
+<p>R is an open-source programming language that allows to analyse and manipulate data, create state-of-the-art graphics, and many more. It supports larger data sets, reads any type of data, and runs on multiple platforms (Windows, Mac, Linux) and CPU architectures (x86_64, arm64). R makes it easier to automate tasks, organize projects, ensure reproducibility, and find and fix errors, and anyone can contribute packages to improve its functionality. Moreover, the following points are worth to emphasize:</p>
 <ul>
 <li><strong>R is an artist!</strong> Check out:
 <ul>
@@ -415,7 +415,7 @@ R has weaknesses
 </section>
 <section id="howtolearnr" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="howtolearnr"><span class="header-section-number">1.2</span> How to learn R</h2>
-<p>There are many different approaches to learning R. It pretty much depends on your preferences, needs, goals, prerequisites and limitations. It is up to you to search and find a suitable way to achieve your learning goals. While I hope you find my notes helpful, I additionally provide in section <a href="#sec-Rlearninglit" class="quarto-xref"><span>Section 1.3</span></a> a list of other resources that are worth considering. To start with, I recommend my swirl courses that provide an interactive learning environment, see <a href="10_swirl.html" class="quarto-xref"><span>Chapter 2</span></a>.</p>
+<p>There are many different approaches to learning R. It pretty much depends on your preferences, needs, goals, prerequisites and limitations. It is up to you to search and find a suitable way to achieve your learning goals. While I hope you find my notes helpful, I additionally provide in section <a href="#sec-Rlearninglit" class="quarto-xref"><span>Section 1.3</span></a> a list of other resources that are worth considering. To start with, I recommend my swirl courses that provide an interactive learning environment, see <a href="10_swirl.html" class="quarto-xref"><span>Chapter 3</span></a>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Make your hands dirty!">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -469,7 +469,7 @@ Make your hands dirty!
 Figure&nbsp;1.1: Analogy of difference between R and RStudio
 </figcaption>
 <div aria-describedby="fig-R_vs_RStudio_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/R_vs_RStudio_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="fig/R_vs_RStudio_1.png" class="img-fluid figure-img"></a>
+<a href="fig/R_vs_RStudio_1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="fig/R_vs_RStudio_1.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
 </div>
@@ -481,7 +481,7 @@ Figure&nbsp;1.1: Analogy of difference between R and RStudio
 Figure&nbsp;1.2: Icons of R versus RStudio on your computer
 </figcaption>
 <div aria-describedby="fig-R_vs_RStudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/R_vs_RStudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="fig/R_vs_RStudio.png" class="img-fluid figure-img"></a>
+<a href="fig/R_vs_RStudio.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="fig/R_vs_RStudio.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
 </div>
@@ -492,7 +492,7 @@ Figure&nbsp;1.2: Icons of R versus RStudio on your computer
 Figure&nbsp;1.3: RStudio interface to R
 </figcaption>
 <div aria-describedby="fig-rstudio2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/rstudio2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="fig/rstudio2.png" class="img-fluid figure-img"></a>
+<a href="fig/rstudio2.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="fig/rstudio2.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
 </div>
@@ -574,7 +574,7 @@ Figure&nbsp;1.3: RStudio interface to R
 Figure&nbsp;1.4: The R Documentation of <code>q()</code>
 </figcaption>
 <div aria-describedby="fig-help-q-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/help-q.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="fig/help-q.png" class="img-fluid figure-img" style="width:70.0%"></a>
+<a href="fig/help-q.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><img src="fig/help-q.png" class="img-fluid figure-img" style="width:70.0%"></a>
 </div>
 </figure>
 </div>
@@ -690,7 +690,7 @@ How to speed up the installation of packages
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_unload</span>(all)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>to avoid conflicts of functions (see <a href="22_script.html#sec-generics" class="quarto-xref"><span>Section 3.5</span></a>).</p>
+<p>to avoid conflicts of functions (see <a href="22_script.html#sec-generics" class="quarto-xref"><span>Section 4.5</span></a>).</p>
 </section>
 </section>
 <section id="base-r-and-the-tidyverse-universe" class="level2" data-number="1.10">
@@ -702,12 +702,12 @@ How to speed up the installation of packages
 Figure&nbsp;1.5: The tidyverse universe
 </figcaption>
 <div aria-describedby="fig-tidyverse-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/tidyverse-logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="fig/tidyverse-logo.png" class="img-fluid figure-img" style="width:30.0%"></a>
+<a href="fig/tidyverse-logo.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5"><img src="fig/tidyverse-logo.png" class="img-fluid figure-img" style="width:30.0%"></a>
 </div>
 </figure>
 </div>
 <p>The R package <code>tidyverse</code> (see <a href="#fig-tidyverse-logo" class="quarto-xref">Figure&nbsp;<span>1.5</span></a>) is a comprehensive collection of R packages including popular packages such are <code>ggplot2</code>, <code>dplyr</code>, <code>tidyr</code>, <code>readr</code>, <code>purrr</code>, <code>tibble</code>, <code>stringr</code>, and <code>forcats</code>, which together offer extensive capabilities for data modeling, transformation, and visualization.</p>
-<p>How to do data science with tidyverse is the subject of multiple books and tutorials. In particular, the popular book <em>R for Data Science</em> by <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span> is all about the tidyverse universe. Thus, I highly recommend reading sections <a href="https://r4ds.hadley.nz/workflow-basics.html">Workflow: basics</a>), <a href="https://r4ds.hadley.nz/data-transform.html">Data transformation</a>, and <a href="https://r4ds.hadley.nz/data-tidy">Data tidying</a>. Additionally, explore www.tidyverse.org for more resources, and consider completing the <em>tidyverse</em> module in my <code>swirl</code> package, <em>swirl-it</em>, as detailed in section <a href="10_swirl.html" class="quarto-xref"><span>Chapter 2</span></a>.</p>
+<p>How to do data science with tidyverse is the subject of multiple books and tutorials. In particular, the popular book <em>R for Data Science</em> by <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span> is all about the tidyverse universe. Thus, I highly recommend reading sections <a href="https://r4ds.hadley.nz/workflow-basics.html">Workflow: basics</a>), <a href="https://r4ds.hadley.nz/data-transform.html">Data transformation</a>, and <a href="https://r4ds.hadley.nz/data-tidy">Data tidying</a>. Additionally, explore www.tidyverse.org for more resources, and consider completing the <em>tidyverse</em> module in my <code>swirl</code> package, <em>swirl-it</em>, as detailed in section <a href="10_swirl.html" class="quarto-xref"><span>Chapter 3</span></a>.</p>
 <p>To install and load <code>tidyverse</code> run the following lines of code:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
@@ -1334,13 +1334,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./10_swirl.html" class="pagination-link" aria-label="An interactive introduction using swirl">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An interactive introduction using swirl</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./08_error.html" class="pagination-link" aria-label="Pitfalls">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pitfalls</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","openEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

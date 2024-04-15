@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How to Use R for Data Science - Appendix B — Troubleshooting</title>
+<title>How to Use R for Data Science - 2&nbsp; Pitfalls</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -64,8 +84,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./952_operators.html" rel="next">
-<link href="./95_filesys.html" rel="prev">
+<link href="./10_swirl.html" rel="next">
+<link href="./01_install.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -77,6 +97,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -117,7 +140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./95_filesys.html">Appendices</a></li><li class="breadcrumb-item"><a href="./951_troubleshooting.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Troubleshooting</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08_error.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pitfalls</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -127,10 +150,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./95_filesys.html">Appendices</a></li><li class="breadcrumb-item"><a href="./951_troubleshooting.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Troubleshooting</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Appendix B — Troubleshooting</h1>
+      <h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pitfalls</span></h1>
                       </div>
   </div>
     
@@ -196,32 +219,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./08_error.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Pitfalls</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./10_swirl.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">An interactive introduction using swirl</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">An interactive introduction using swirl</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./22_script.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_manage.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Manage data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Manage data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_graph.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Visualizing data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Visualizing data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./80_exercises.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Collection of exercises</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Collection of exercises</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -247,26 +276,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./951_troubleshooting.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Troubleshooting</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./952_operators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Operators</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Operators</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./953_popfunctions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Popular functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Popular functions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./957_shortcuts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Helpful shortcuts</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Helpful shortcuts</span></span></a>
   </div>
 </li>
       </ul>
@@ -277,7 +300,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#no-clue-about-the-working-directory" id="toc-no-clue-about-the-working-directory" class="nav-link active" data-scroll-target="#no-clue-about-the-working-directory"><span class="header-section-number">2.1</span> No clue about the “working directory”</a></li>
+  <li><a href="#no-consistent-directory-structure" id="toc-no-consistent-directory-structure" class="nav-link" data-scroll-target="#no-consistent-directory-structure"><span class="header-section-number">2.2</span> No consistent directory structure</a></li>
+  <li><a href="#working-manually-outside-r" id="toc-working-manually-outside-r" class="nav-link" data-scroll-target="#working-manually-outside-r"><span class="header-section-number">2.3</span> Working manually outside R</a></li>
+  <li><a href="#no-active-r-packages-management" id="toc-no-active-r-packages-management" class="nav-link" data-scroll-target="#no-active-r-packages-management"><span class="header-section-number">2.4</span> No active R Packages management</a></li>
+  <li><a href="#confusion-between-console-and-script" id="toc-confusion-between-console-and-script" class="nav-link" data-scroll-target="#confusion-between-console-and-script"><span class="header-section-number">2.5</span> Confusion between console and script</a></li>
+  <li><a href="#misunderstanding-data-types-and-formats" id="toc-misunderstanding-data-types-and-formats" class="nav-link" data-scroll-target="#misunderstanding-data-types-and-formats"><span class="header-section-number">2.6</span> Misunderstanding data types and formats</a></li>
+  <li><a href="#lack-of-knowledge-about-data-identification" id="toc-lack-of-knowledge-about-data-identification" class="nav-link" data-scroll-target="#lack-of-knowledge-about-data-identification"><span class="header-section-number">2.7</span> Lack of knowledge about data identification</a></li>
+  <li><a href="#ignoring-missings-and-flaws-in-data" id="toc-ignoring-missings-and-flaws-in-data" class="nav-link" data-scroll-target="#ignoring-missings-and-flaws-in-data"><span class="header-section-number">2.8</span> Ignoring missings and flaws in data</a></li>
+  <li><a href="#losing-track-of-data-due-to-excessive-overwriting" id="toc-losing-track-of-data-due-to-excessive-overwriting" class="nav-link" data-scroll-target="#losing-track-of-data-due-to-excessive-overwriting"><span class="header-section-number">2.9</span> Losing track of data due to excessive overwriting</a></li>
+  <li><a href="#poor-documentation" id="toc-poor-documentation" class="nav-link" data-scroll-target="#poor-documentation"><span class="header-section-number">2.10</span> Poor documentation</a></li>
+  <li><a href="#ignoring-error-messages" id="toc-ignoring-error-messages" class="nav-link" data-scroll-target="#ignoring-error-messages"><span class="header-section-number">2.11</span> Ignoring error messages</a></li>
+  <li><a href="#no-attempt-to-identify-the-problem-and-troubleshoot" id="toc-no-attempt-to-identify-the-problem-and-troubleshoot" class="nav-link" data-scroll-target="#no-attempt-to-identify-the-problem-and-troubleshoot"><span class="header-section-number">2.12</span> No attempt to identify the problem and troubleshoot</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -286,18 +326,108 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<p>Troubleshooting is perhaps the most important skill for a data scientist. To tackle problems effectively, you need to understand them, replicate them, and then work to solve them. To help you with this process, here are some guidelines:</p>
-<p>When seeking help, be sure to provide information about your machine, including the operating system, the version of R, and the packages you have loaded. You can use the sessionInfo() function to gather this information. Here’s an example from my machine:</p>
+<p>Beginners often make the same errors that can lead to confusion, frustration, and inefficiencies. In this section, I will outline common pitfalls I have observed repeatedly as an R lecturer and offer practical solutions to address them.</p>
+<section id="no-clue-about-the-working-directory" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="no-clue-about-the-working-directory"><span class="header-section-number">2.1</span> No clue about the “working directory”</h2>
+<p><strong>Problem:</strong> Students start their R sessions unaware of their current working directory, leading to difficulties in reading and writing files.</p>
+<p><strong>Solution:</strong> At the beginning of your R script set a working directory using <code>setwd()</code>. Or use R projects. For more information, see <a href="95_filesys.html" class="quarto-xref"><span>Appendix A</span></a>: <em>Navigating the file system</em> and <a href="https://r4ds.hadley.nz/workflow-scripts.html"><em>Workflow: scripts and projects</em></a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
+</section>
+<section id="no-consistent-directory-structure" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="no-consistent-directory-structure"><span class="header-section-number">2.2</span> No consistent directory structure</h2>
+<p><strong>Problem:</strong> I see that students often save files almost randomly across different directories. This disorganization frequently causes problems: code breaks and scripts or data get lost.</p>
+<p>For example, you download the data manually using your browser. In your script, you download the data with reference to your <em>Downloads</em> directory. If you delete the files of your <em>Downloads</em> directory for any reason, your code will break as the data cannot be found.</p>
+<p><strong>Solution:</strong> Organize your project into a clear directory structure from the beginning. Use folders like <code>fig/</code> for figures, <code>scr/</code> for scripts, <code>lit/</code> for literature, <code>source/</code> for raw data, <code>tab/</code> for tables, <code>tmp/</code> for temporary files, and <code>report/</code> for your reports. This structure will save time and headaches when navigating projects.</p>
+</section>
+<section id="working-manually-outside-r" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="working-manually-outside-r"><span class="header-section-number">2.3</span> Working manually outside R</h2>
+<p><strong>Problem:</strong> Students work quick and dirty, which leads them to rely on manual processes for their data work. This approach can lead to serious problems when it comes to the reproducibility of their data work.</p>
+<p>For example, consider a three-step process for loading data:</p>
+<ol type="1">
+<li>download data</li>
+<li>unzip and save data</li>
+<li>import data into R</li>
+</ol>
+<p>All three steps can be done using code, and each time you run the code, the process is repeated. However, if students use an alternative application to manually unzip and save the compressed data set, the unzipped data will not be automatically updated each time the script is run. Even if a new version has been downloaded, the old version of the unzipped data is not automatically replaced.</p>
+<p><strong>Solution:</strong> Do everything in the script. Or, if it is not possible, describe what you do explicitly.</p>
+</section>
+<section id="no-active-r-packages-management" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="no-active-r-packages-management"><span class="header-section-number">2.4</span> No active R Packages management</h2>
+<p><strong>Problem:</strong> Students often forget to install necessary packages or load them at the beginning of a script. In addition, some students repeatedly install packages when running a script. All of this can lead to errors and interruptions.</p>
+<p><strong>Solution:</strong> Use the <code>pacman</code> package which provides the <code>p_load()</code> function to install and load packages simultaneously and the <code>p_unload(all)</code> function to unload all packages. At the beginning of each script, make sure that all required packages are loaded correctly.</p>
+</section>
+<section id="confusion-between-console-and-script" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="confusion-between-console-and-script"><span class="header-section-number">2.5</span> Confusion between console and script</h2>
+<p><strong>Problem:</strong> Alternating between running code in the console and from the script without a systematic approach can lead to untracked changes and confusion about the current state of objects in the workspace. Additionally, students often borrow code snippets from others and run only the sections that seem immediately relevant. This practice can lead to errors or unexpected results, as such code often relies on previous commands or setups.</p>
+<p><strong>Solution:</strong> Develop the habit of testing small blocks of code in the console but run the complete script regularly to ensure everything works in sequence. Use shortcuts like <code>Ctrl + Alt + R</code> to source the entire script or <code>Ctrl + Alt + B/E</code> to execute it up to a specific point.</p>
+</section>
+<section id="misunderstanding-data-types-and-formats" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="misunderstanding-data-types-and-formats"><span class="header-section-number">2.6</span> Misunderstanding data types and formats</h2>
+<p><strong>Problem:</strong> Misusing or misunderstanding R’s data types and structures can lead to errors in data manipulation and analysis. Many functions require certain types of data.</p>
+<p>For example, the <code>tidyverse</code> packages required data to be <code>tidy</code>. See [Data tidying(https://r4ds.hadley.nz/data-tidy) of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span> for more information.</p>
+<p><strong>Solution:</strong> Familiarize yourself with basic data types and structures like vectors, lists, data frames/tibbles, and factors.</p>
+</section>
+<section id="lack-of-knowledge-about-data-identification" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="lack-of-knowledge-about-data-identification"><span class="header-section-number">2.7</span> Lack of knowledge about data identification</h2>
+<p><strong>Problem:</strong> Students often handle data without understanding which variables uniquely identify the information contained in other variables. It is crucial to recognize these identifying variables and verify their uniqueness to ensure data integrity.</p>
+<p><strong>Solution:</strong> Perform checks for uniqueness at the beginning of their data analysis process. See exercise <em>Names and duplicates</em> (<a href="80_exercises.html#sec-exe_duplicates" class="quarto-xref"><span>Section 7.15</span></a>).</p>
+</section>
+<section id="ignoring-missings-and-flaws-in-data" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="ignoring-missings-and-flaws-in-data"><span class="header-section-number">2.8</span> Ignoring missings and flaws in data</h2>
+<p><strong>Problem:</strong> Data often comes with errors and/or missings (<code>NA</code>). Beginners overlook data cleaning and considering missings.</p>
+<p><strong>Solution:</strong> Spend adequate time on data cleaning and preprocessing. Techniques such as handling missing values, normalizing data, and correcting data types are critical. For more information, see <a href="https://r4ds.hadley.nz/missing-values.html">Missing values</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
+</section>
+<section id="losing-track-of-data-due-to-excessive-overwriting" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="losing-track-of-data-due-to-excessive-overwriting"><span class="header-section-number">2.9</span> Losing track of data due to excessive overwriting</h2>
+<p><strong>Problem:</strong> Students often manipulate their data by repeatedly overwriting the same object. This can lead to confusion about the data`s current state and the transformations applied.</p>
+<p><strong>Solution:</strong> Minimize the number of assignments to a single object. Instead, create a new object with a descriptive and concise name each time you alter the data. This practice helps maintain clarity about each stage of data manipulation.</p>
+<p>For example, if you’re initially cleaning data, you might start with <code>data_cleaned</code>, then after filtering for specific criteria, you could use <code>data_filtered</code>, and finally, if you aggregate the data, name it <code>data_aggregated</code>. This naming convention makes it clear what each dataset represents and the transformations it has undergone.</p>
+</section>
+<section id="poor-documentation" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="poor-documentation"><span class="header-section-number">2.10</span> Poor documentation</h2>
+<p><strong>Problem:</strong> Failing to comment and document code can make it hard to remember the purpose of various code blocks and share work with others.</p>
+<p><strong>Solution:</strong> Regularly comment your code, explaining why something is done, not just what is done. Use clear, concise comments to improve readability and maintainability.</p>
+</section>
+<section id="ignoring-error-messages" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="ignoring-error-messages"><span class="header-section-number">2.11</span> Ignoring error messages</h2>
+<p><strong>Problem:</strong> Students often come to me and say that the code doesn’t work. The first thing I ask is, “What is the error message?” Often the message contains a solution to the problem. Students don’t seem to read this message or don’t have the confidence to implement the suggested solution. For example, the error message often suggests that students install the <code>tinytex</code> package or the <code>RTools</code> compiler for Windows. Unfortunately, the most common problem is that the students have not installed or loaded the package from which they want to use a function. The error message <code>could not find function</code> is a clear indication that the function is either misspelled or that the package containing the function has not been loaded.</p>
+<p><strong>Solution:</strong> Read and follow error messages. Don’t be afraid. Your computer will not explode or disappear. Just make sure you have a backup of your data.</p>
+</section>
+<section id="no-attempt-to-identify-the-problem-and-troubleshoot" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="no-attempt-to-identify-the-problem-and-troubleshoot"><span class="header-section-number">2.12</span> No attempt to identify the problem and troubleshoot</h2>
+<p><strong>Problem:</strong> Students often do not fully understand the problems they encounter, which can lead to difficulties in seeking solutions. It’s common for students to feel overwhelmed and seek help without attempting to find the source of the problem and without attempting to work out possible solutions first.</p>
+<iframe src="https://giphy.com/embed/0saxF4eNE7x2fEqrN6" width="480">
+</iframe>
+<p><strong>Solution:</strong> When you encounter an issue in your R code, it’s crucial to methodically dissect the problem. Here’s how you can effectively <em>troubleshoot</em>, that is, a problem-solving skill that is essential for becoming proficient in programming:</p>
+<ul>
+<li><strong>Identify the problem</strong>: Attempt to identify the issue to better understand its nature. Once you know which line of code is causing some trouble, you are often close to a solution. Commenting out parts of your script or going back until there is no error can help here.</li>
+<li><strong>Active solution search:</strong> Once you’ve identified the problem, actively look for solutions. This can include consulting the R documentation, searching for similar issues online, or asking others for help.</li>
+<li><strong>Trial and error process:</strong> Don’t hesitate to experiment with different solutions to see what works best.</li>
+<li><strong>Seek Help:</strong> If you’re stuck, ask for help from more experienced R users or communities.</li>
+<li><strong>Minimal Reproducible Example (MRE):</strong> When asking for help, explain your problem precisely and provide a MRE. That is the simplest version of the code that still produces the error, including only essential data and code. This practice not only aids in self-troubleshooting but also makes it easier for others to help by providing a clear, concise context.</li>
+<li><strong>Additional information</strong>: Sometime the interplay of your the packages loaded, your operating system, the version of R, and/or the RStudio version may play a role in your problem. Thus, when seeking help, be sure to provide information about your machine, including the operating system, the version of R, and the packages you have loaded. You can use the <code>sessionInfo()</code> function to gather this information.</li>
+</ul>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Here's an example from my machine:">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Here’s an example from my machine:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.2.2 Patched (2022-11-10 r83330)
+<pre><code>R version 4.3.3 (2024-02-29)
 Platform: x86_64-pc-linux-gnu (64-bit)
 Running under: Debian GNU/Linux 12 (bookworm)
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
-LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
+LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so;  LAPACK version 3.11.0
 
 locale:
  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -307,18 +437,79 @@ locale:
  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
 [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
+time zone: Europe/Berlin
+tzcode source: system (glibc)
+
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
- [1] htmlwidgets_1.6.4 compiler_4.2.2    fastmap_1.1.1     cli_3.6.2        
- [5] tools_4.2.2       htmltools_0.5.7   rstudioapi_0.15.0 rmarkdown_2.25   
- [9] knitr_1.45        jsonlite_1.8.8    xfun_0.41         digest_0.6.33    
-[13] rlang_1.1.2       evaluate_0.23    </code></pre>
+ [1] htmlwidgets_1.6.4 compiler_4.3.3    fastmap_1.1.1     cli_3.6.2        
+ [5] tools_4.3.3       htmltools_0.5.8.1 rstudioapi_0.16.0 rmarkdown_2.26   
+ [9] knitr_1.46        jsonlite_1.8.8    xfun_0.43         digest_0.6.35    
+[13] rlang_1.1.3       evaluate_0.23    </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>For more information, see <a href="https://r4ds.hadley.nz/workflow-help">Workflow: getting help</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example of a minimal reproducible example">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example of a minimal reproducible example
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For example, the following script is a MRE:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">3.4</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="08_error_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="08_error_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error:
+! Cannot use `+` with a single argument.
+ℹ Did you accidentally put `+` on a new line?</code></pre>
+</div>
+</div>
+<p>Everybody who copies these few lines of code can reproduce the shown error message and hence can work on a solution. Obviously, the <code>+</code> was set falsly. It must be placed in the line of <code>ggplot</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">3.4</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="08_error_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="08_error_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-Wickham2023R" class="csl-entry" role="listitem">
+Wickham, H., &amp; Grolemund, G. (2023). <em>R for data science (2e)</em>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -876,17 +1067,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./95_filesys.html" class="pagination-link" aria-label="Navigating the file system">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Navigating the file system</span></span>
+      <a href="./01_install.html" class="pagination-link" aria-label="Getting started with R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started with R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./952_operators.html" class="pagination-link" aria-label="Operators">
-        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Operators</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./10_swirl.html" class="pagination-link" aria-label="An interactive introduction using swirl">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">An interactive introduction using swirl</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false,"openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 
