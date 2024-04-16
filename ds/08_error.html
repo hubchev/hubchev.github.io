@@ -92,11 +92,11 @@ div.csl-indent {
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -131,7 +131,7 @@ div.csl-indent {
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -168,7 +168,7 @@ div.csl-indent {
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="./index.html" class="sidebar-logo-link">
       <img src="./fig/cover_transparent.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
@@ -311,11 +311,10 @@ div.csl-indent {
   <li><a href="#confusion-between-console-and-script" id="toc-confusion-between-console-and-script" class="nav-link" data-scroll-target="#confusion-between-console-and-script"><span class="header-section-number">2.5</span> Confusion between console and script</a></li>
   <li><a href="#misunderstanding-data-types-and-formats" id="toc-misunderstanding-data-types-and-formats" class="nav-link" data-scroll-target="#misunderstanding-data-types-and-formats"><span class="header-section-number">2.6</span> Misunderstanding data types and formats</a></li>
   <li><a href="#lack-of-knowledge-about-data-identification" id="toc-lack-of-knowledge-about-data-identification" class="nav-link" data-scroll-target="#lack-of-knowledge-about-data-identification"><span class="header-section-number">2.7</span> Lack of knowledge about data identification</a></li>
-  <li><a href="#ignoring-missings-and-flaws-in-data" id="toc-ignoring-missings-and-flaws-in-data" class="nav-link" data-scroll-target="#ignoring-missings-and-flaws-in-data"><span class="header-section-number">2.8</span> Ignoring missings and flaws in data</a></li>
-  <li><a href="#losing-track-of-data-due-to-excessive-overwriting" id="toc-losing-track-of-data-due-to-excessive-overwriting" class="nav-link" data-scroll-target="#losing-track-of-data-due-to-excessive-overwriting"><span class="header-section-number">2.9</span> Losing track of data due to excessive overwriting</a></li>
-  <li><a href="#poor-documentation" id="toc-poor-documentation" class="nav-link" data-scroll-target="#poor-documentation"><span class="header-section-number">2.10</span> Poor documentation</a></li>
-  <li><a href="#ignoring-error-messages" id="toc-ignoring-error-messages" class="nav-link" data-scroll-target="#ignoring-error-messages"><span class="header-section-number">2.11</span> Ignoring error messages</a></li>
-  <li><a href="#no-attempt-to-identify-the-problem-and-troubleshoot" id="toc-no-attempt-to-identify-the-problem-and-troubleshoot" class="nav-link" data-scroll-target="#no-attempt-to-identify-the-problem-and-troubleshoot"><span class="header-section-number">2.12</span> No attempt to identify the problem and troubleshoot</a></li>
+  <li><a href="#losing-track-of-data-due-to-excessive-overwriting" id="toc-losing-track-of-data-due-to-excessive-overwriting" class="nav-link" data-scroll-target="#losing-track-of-data-due-to-excessive-overwriting"><span class="header-section-number">2.8</span> Losing track of data due to excessive overwriting</a></li>
+  <li><a href="#no-documentation" id="toc-no-documentation" class="nav-link" data-scroll-target="#no-documentation"><span class="header-section-number">2.9</span> No documentation</a></li>
+  <li><a href="#ignoring-error-messages" id="toc-ignoring-error-messages" class="nav-link" data-scroll-target="#ignoring-error-messages"><span class="header-section-number">2.10</span> Ignoring error messages</a></li>
+  <li><a href="#no-attempt-to-identify-the-problem-and-troubleshoot" id="toc-no-attempt-to-identify-the-problem-and-troubleshoot" class="nav-link" data-scroll-target="#no-attempt-to-identify-the-problem-and-troubleshoot"><span class="header-section-number">2.11</span> No attempt to identify the problem and troubleshoot</a></li>
   </ul>
 </nav>
     </div>
@@ -326,34 +325,98 @@ div.csl-indent {
 
 
 
-<p>Beginners often make the same errors that can lead to confusion, frustration, and inefficiencies. In this section, I will outline common pitfalls I have observed repeatedly as an R lecturer and offer practical solutions to address them.</p>
+<p>R newbies often make the same small mistakes that can lead to major confusion, frustration and inefficiency. Some of them can be easily avoided. In this section, I will outline common pitfalls that I have repeatedly observed as an R instructor and offer practical solutions to avoid them.</p>
 <section id="no-clue-about-the-working-directory" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="no-clue-about-the-working-directory"><span class="header-section-number">2.1</span> No clue about the “working directory”</h2>
-<p><strong>Problem:</strong> Students start their R sessions unaware of their current working directory, leading to difficulties in reading and writing files.</p>
+<p><strong>Problem:</strong> Students start their R sessions unaware of their current working directory. This can lead to difficulties when reading and writing files.</p>
 <p><strong>Solution:</strong> At the beginning of your R script set a working directory using <code>setwd()</code>. Or use R projects. For more information, see <a href="95_filesys.html" class="quarto-xref"><span>Appendix A</span></a>: <em>Navigating the file system</em> and <a href="https://r4ds.hadley.nz/workflow-scripts.html"><em>Workflow: scripts and projects</em></a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
 </section>
 <section id="no-consistent-directory-structure" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="no-consistent-directory-structure"><span class="header-section-number">2.2</span> No consistent directory structure</h2>
-<p><strong>Problem:</strong> I see that students often save files almost randomly across different directories. This disorganization frequently causes problems: code breaks and scripts or data get lost.</p>
-<p>For example, you download the data manually using your browser. In your script, you download the data with reference to your <em>Downloads</em> directory. If you delete the files of your <em>Downloads</em> directory for any reason, your code will break as the data cannot be found.</p>
-<p><strong>Solution:</strong> Organize your project into a clear directory structure from the beginning. Use folders like <code>fig/</code> for figures, <code>scr/</code> for scripts, <code>lit/</code> for literature, <code>source/</code> for raw data, <code>tab/</code> for tables, <code>tmp/</code> for temporary files, and <code>report/</code> for your reports. This structure will save time and headaches when navigating projects.</p>
+<p><strong>Problem:</strong> Students save files in different directories without a clear scheme. This disorganization often leads to problems: Scripts and data gets lost and code breaks.</p>
+<p><strong>Solution:</strong> Organize your project into a clear directory structure from the beginning. Here is my suggestion for a folder structure but feel free to come up with your own:</p>
+<div id="tbl-dirtree" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dirtree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.1: Typical folder structure
+</figcaption>
+<div aria-describedby="tbl-dirtree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<thead>
+<tr class="header">
+<th>Directory</th>
+<th>What to save here</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>dta/</code></td>
+<td>processed data</td>
+</tr>
+<tr class="even">
+<td><code>fig/</code></td>
+<td>figures</td>
+</tr>
+<tr class="odd">
+<td><code>lit/</code></td>
+<td>literature and pdfs</td>
+</tr>
+<tr class="even">
+<td><code>ori/</code></td>
+<td>original raw data that you should never change</td>
+</tr>
+<tr class="odd">
+<td><code>qmd/</code></td>
+<td>reports</td>
+</tr>
+<tr class="even">
+<td><code>scr/</code></td>
+<td>R scripts</td>
+</tr>
+<tr class="odd">
+<td><code>tab/</code></td>
+<td>tables</td>
+</tr>
+<tr class="even">
+<td><code>tmp/</code></td>
+<td>temporary files</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>This structure will save time and headaches when navigating projects.</p>
+<div id="tip-nodtasave" class="callout callout-style-default callout-tip callout-titled" title="Do not save processed data unless necessary">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip&nbsp;2.1: Do not save processed data unless necessary
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It may seem reasonable to save data after editing, but this often isn’t necessary if you’re using scripts to create your data. These scripts can be rerun whenever needed, regenerating the dataset each time. To avoid wasting disk space and maintain an organized project folder, it’s advisable to save processed datasets only when the preprocessing steps are time-consuming. This way, you can keep your project folder more organized and ensure that your data analyses are always reproducible with the latest updates to your code.</p>
+</div>
+</div>
 </section>
 <section id="working-manually-outside-r" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="working-manually-outside-r"><span class="header-section-number">2.3</span> Working manually outside R</h2>
-<p><strong>Problem:</strong> Students work quick and dirty, which leads them to rely on manual processes for their data work. This approach can lead to serious problems when it comes to the reproducibility of their data work.</p>
+<p><strong>Problem:</strong> Students want to get their work done quickly. This sometimes leads to them relying on manual processes that they have already mastered for their data work. This approach can lead to serious problems when it comes to the reproducibility of their data work.</p>
 <p>For example, consider a three-step process for loading data:</p>
 <ol type="1">
 <li>download data</li>
 <li>unzip and save data</li>
 <li>import data into R</li>
 </ol>
-<p>All three steps can be done using code, and each time you run the code, the process is repeated. However, if students use an alternative application to manually unzip and save the compressed data set, the unzipped data will not be automatically updated each time the script is run. Even if a new version has been downloaded, the old version of the unzipped data is not automatically replaced.</p>
-<p><strong>Solution:</strong> Do everything in the script. Or, if it is not possible, describe what you do explicitly.</p>
+<p>code and each time the code is run, the process is repeated. However, if students use an alternative application outside of their R script to manually unzip and save the compressed data set, the unzipped data will not be automatically updated each time the script is run. Even if a new version has been downloaded, the old version of the unzipped data will not be automatically replaced.</p>
+<p><strong>Solution:</strong> Do as much as possible in the script. Invest some time to find out how to download and manipulate the data within R. If it is not possible or if alternatives are superior, describe what you do outside of R explicitly and write a warning note at the top of your script.</p>
 </section>
 <section id="no-active-r-packages-management" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="no-active-r-packages-management"><span class="header-section-number">2.4</span> No active R Packages management</h2>
-<p><strong>Problem:</strong> Students often forget to install necessary packages or load them at the beginning of a script. In addition, some students repeatedly install packages when running a script. All of this can lead to errors and interruptions.</p>
-<p><strong>Solution:</strong> Use the <code>pacman</code> package which provides the <code>p_load()</code> function to install and load packages simultaneously and the <code>p_unload(all)</code> function to unload all packages. At the beginning of each script, make sure that all required packages are loaded correctly.</p>
+<p><strong>Problem:</strong> Students often forget to install and/or load the packages correctly at the beginning of a script. Some unnecessarily install packages repeatedly when running a script. All this can lead to errors and interruptions.</p>
+<p><strong>Solution:</strong> Use the <code>pacman</code> package, which provides the <code>p_load()</code> function to load and, if necessary, install packages and the <code>p_unload(all)</code> function to unload all packages. At the beginning of each script, make sure that all required packages are loaded correctly.</p>
 </section>
 <section id="confusion-between-console-and-script" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="confusion-between-console-and-script"><span class="header-section-number">2.5</span> Confusion between console and script</h2>
@@ -362,38 +425,93 @@ div.csl-indent {
 </section>
 <section id="misunderstanding-data-types-and-formats" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="misunderstanding-data-types-and-formats"><span class="header-section-number">2.6</span> Misunderstanding data types and formats</h2>
-<p><strong>Problem:</strong> Misusing or misunderstanding R’s data types and structures can lead to errors in data manipulation and analysis. Many functions require certain types of data.</p>
-<p>For example, the <code>tidyverse</code> packages required data to be <code>tidy</code>. See [Data tidying(https://r4ds.hadley.nz/data-tidy) of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span> for more information.</p>
-<p><strong>Solution:</strong> Familiarize yourself with basic data types and structures like vectors, lists, data frames/tibbles, and factors.</p>
+<p><strong>Problem:</strong> Misusing or misunderstanding R’s data types and structures can lead to errors in data manipulation and analysis. Many functions require certain types of data. For example, the <code>tidyverse</code> packages required data to be “tidy”. Moreover, data often comes with errors and/or missings (<code>NA</code>). Beginners overlook data cleaning and considering missings.</p>
+<p><strong>Solution:</strong> Familiarize yourself with basic data types and structures like vectors, lists, data frames/tibbles, and factors. For more information, see <a href="40_manage.html#sec-tidy" class="quarto-xref"><span>Section 5.2</span></a> and <a href="https://r4ds.hadley.nz/data-tidy">Data tidying</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. Moreover, spend adequate time on data cleaning and preprocessing. Techniques such as handling missing values, normalizing data, and correcting data types are critical. For more information, see <a href="https://r4ds.hadley.nz/missing-values.html">Missing values</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
 </section>
 <section id="lack-of-knowledge-about-data-identification" class="level2" data-number="2.7">
 <h2 data-number="2.7" class="anchored" data-anchor-id="lack-of-knowledge-about-data-identification"><span class="header-section-number">2.7</span> Lack of knowledge about data identification</h2>
 <p><strong>Problem:</strong> Students often handle data without understanding which variables uniquely identify the information contained in other variables. It is crucial to recognize these identifying variables and verify their uniqueness to ensure data integrity.</p>
-<p><strong>Solution:</strong> Perform checks for uniqueness at the beginning of their data analysis process. See exercise <em>Names and duplicates</em> (<a href="80_exercises.html#sec-exe_duplicates" class="quarto-xref"><span>Section 7.15</span></a>).</p>
+<p><strong>Solution:</strong> Perform checks for uniqueness at the beginning of their data analysis process. See exercise <em>Names and duplicates</em> in <a href="80_exercises.html#sec-exe_duplicates" class="quarto-xref"><span>Section 7.15</span></a>.</p>
 </section>
-<section id="ignoring-missings-and-flaws-in-data" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="ignoring-missings-and-flaws-in-data"><span class="header-section-number">2.8</span> Ignoring missings and flaws in data</h2>
-<p><strong>Problem:</strong> Data often comes with errors and/or missings (<code>NA</code>). Beginners overlook data cleaning and considering missings.</p>
-<p><strong>Solution:</strong> Spend adequate time on data cleaning and preprocessing. Techniques such as handling missing values, normalizing data, and correcting data types are critical. For more information, see <a href="https://r4ds.hadley.nz/missing-values.html">Missing values</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
-</section>
-<section id="losing-track-of-data-due-to-excessive-overwriting" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="losing-track-of-data-due-to-excessive-overwriting"><span class="header-section-number">2.9</span> Losing track of data due to excessive overwriting</h2>
+<section id="losing-track-of-data-due-to-excessive-overwriting" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="losing-track-of-data-due-to-excessive-overwriting"><span class="header-section-number">2.8</span> Losing track of data due to excessive overwriting</h2>
 <p><strong>Problem:</strong> Students often manipulate their data by repeatedly overwriting the same object. This can lead to confusion about the data`s current state and the transformations applied.</p>
 <p><strong>Solution:</strong> Minimize the number of assignments to a single object. Instead, create a new object with a descriptive and concise name each time you alter the data. This practice helps maintain clarity about each stage of data manipulation.</p>
-<p>For example, if you’re initially cleaning data, you might start with <code>data_cleaned</code>, then after filtering for specific criteria, you could use <code>data_filtered</code>, and finally, if you aggregate the data, name it <code>data_aggregated</code>. This naming convention makes it clear what each dataset represents and the transformations it has undergone.</p>
+<p>For example, if you’re working with data <code>df</code>, you might store the cleanded data as <code>df_cln</code>, then after filtering for specific criteria, you could use <code>df_cln_flt</code>, and finally, if you aggregate the data, name it <code>df_cln_flt_agg</code>. Having some clear naming convention makes it clear what each dataset represents and the transformations it has undergone.</p>
 </section>
-<section id="poor-documentation" class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="poor-documentation"><span class="header-section-number">2.10</span> Poor documentation</h2>
-<p><strong>Problem:</strong> Failing to comment and document code can make it hard to remember the purpose of various code blocks and share work with others.</p>
+<section id="no-documentation" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="no-documentation"><span class="header-section-number">2.9</span> No documentation</h2>
+<p><strong>Problem:</strong> Students do not comment code. This makes it hard to remember the purpose of various lines of code and difficult for other people to read and understand the code.</p>
 <p><strong>Solution:</strong> Regularly comment your code, explaining why something is done, not just what is done. Use clear, concise comments to improve readability and maintainability.</p>
 </section>
-<section id="ignoring-error-messages" class="level2" data-number="2.11">
-<h2 data-number="2.11" class="anchored" data-anchor-id="ignoring-error-messages"><span class="header-section-number">2.11</span> Ignoring error messages</h2>
-<p><strong>Problem:</strong> Students often come to me and say that the code doesn’t work. The first thing I ask is, “What is the error message?” Often the message contains a solution to the problem. Students don’t seem to read this message or don’t have the confidence to implement the suggested solution. For example, the error message often suggests that students install the <code>tinytex</code> package or the <code>RTools</code> compiler for Windows. Unfortunately, the most common problem is that the students have not installed or loaded the package from which they want to use a function. The error message <code>could not find function</code> is a clear indication that the function is either misspelled or that the package containing the function has not been loaded.</p>
-<p><strong>Solution:</strong> Read and follow error messages. Don’t be afraid. Your computer will not explode or disappear. Just make sure you have a backup of your data.</p>
+<section id="ignoring-error-messages" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="ignoring-error-messages"><span class="header-section-number">2.10</span> Ignoring error messages</h2>
+<p><strong>Problem:</strong> Students see that their code doesn’t work but do not read the error message which often contains hints for solving the problem.</p>
+<p><strong>Solution:</strong> Read and follow error messages. Study what the error message might mean. Use online ressources such as Google and ChatGPT. Finally, have the confidence to implement the suggested solution. Don’t be frustrated if the first attempt does not work: Try again and play around.</p>
+<div id="tip-mosterror" class="callout callout-style-default callout-tip callout-titled" title="Common error messages">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip&nbsp;2.2: Common error messages
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Students often come to me with error messages suggesting that they install the <code>tinytex</code> package or the <code>RTools</code> compiler for Windows. Since they are not familiar with these R and software packages, they wonder if it is safe to proceed with the installation. My answer here is: yes, it is recommendable to install it.</p>
+<p>Based the <a href="https://github.com/noamross/zero-dependency-problems/blob/master/misc/stack-overflow-common-r-errors.md">report of Noam Ross</a> who examine roughly 10,000 R error messages, the most frequently encountered error messages of R are shown in <a href="#tbl-mosterrors" class="quarto-xref">Table&nbsp;<span>2.2</span></a> with some ideas of mine what to do.</p>
+<div id="tbl-mosterrors" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mosterrors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.2: Most frequent errors
+</figcaption>
+<div aria-describedby="tbl-mosterrors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Error Type</th>
+<th>Some suggestions on what to do</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Could not find function</code></td>
+<td>Check spelling of the function and whether the respective packages are loaded properly.</td>
+</tr>
+<tr class="even">
+<td><code>Error in if</code></td>
+<td>This suggests an issue with non-logical or missing values in a conditional statement. Check syntax and spelling. Maybe use ChatGPT to debug the code.</td>
+</tr>
+<tr class="odd">
+<td><code>Error in eval</code></td>
+<td>Points to references to non-existent objects.</td>
+</tr>
+<tr class="even">
+<td><code>Cannot open</code></td>
+<td>Check if the files exist at the place you try to call them.</td>
+</tr>
+<tr class="odd">
+<td><code>No applicable method</code></td>
+<td>Check your data type and whether it fits to the requirements of the functions you’re trying to use.</td>
+</tr>
+<tr class="even">
+<td><code>Package errors</code></td>
+<td>This can stem from issues with installing, compiling, or loading a package. Maybe you try to re-install the package and their dependencies, or update the packages.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="no-attempt-to-identify-the-problem-and-troubleshoot" class="level2" data-number="2.12">
-<h2 data-number="2.12" class="anchored" data-anchor-id="no-attempt-to-identify-the-problem-and-troubleshoot"><span class="header-section-number">2.12</span> No attempt to identify the problem and troubleshoot</h2>
+<section id="no-attempt-to-identify-the-problem-and-troubleshoot" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="no-attempt-to-identify-the-problem-and-troubleshoot"><span class="header-section-number">2.11</span> No attempt to identify the problem and troubleshoot</h2>
 <p><strong>Problem:</strong> Students often do not fully understand the problems they encounter, which can lead to difficulties in seeking solutions. It’s common for students to feel overwhelmed and seek help without attempting to find the source of the problem and without attempting to work out possible solutions first.</p>
 <iframe src="https://giphy.com/embed/0saxF4eNE7x2fEqrN6" width="480">
 </iframe>
@@ -407,7 +525,7 @@ div.csl-indent {
 <li><strong>Additional information</strong>: Sometime the interplay of your the packages loaded, your operating system, the version of R, and/or the RStudio version may play a role in your problem. Thus, when seeking help, be sure to provide information about your machine, including the operating system, the version of R, and the packages you have loaded. You can use the <code>sessionInfo()</code> function to gather this information.</li>
 </ul>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Here's an example from my machine:">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -416,7 +534,7 @@ Here’s an example from my machine:
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -455,7 +573,7 @@ loaded via a namespace (and not attached):
 </div>
 <p>For more information, see <a href="https://r4ds.hadley.nz/workflow-help">Workflow: getting help</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example of a minimal reproducible example">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -464,13 +582,13 @@ Example of a minimal reproducible example
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For example, the following script is a MRE:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">3.4</span>))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -478,7 +596,7 @@ Example of a minimal reproducible example
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error:
 ! Cannot use `+` with a single argument.
@@ -489,7 +607,7 @@ Example of a minimal reproducible example
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">3.4</span>))</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
@@ -648,7 +766,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  const darkModeDefault = false;
+  const darkModeDefault = true;
   let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
@@ -1078,7 +1196,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
