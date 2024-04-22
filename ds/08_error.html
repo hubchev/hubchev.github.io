@@ -153,7 +153,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Pitfalls</span></h1>
+      <h1 class="title"><span id="sec-pitfalls" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Pitfalls</span></span></h1>
                       </div>
   </div>
     
@@ -319,8 +319,9 @@ div.csl-indent {
   <li><a href="#lack-of-knowledge-about-data-identification" id="toc-lack-of-knowledge-about-data-identification" class="nav-link" data-scroll-target="#lack-of-knowledge-about-data-identification"><span class="header-section-number">3.7</span> Lack of knowledge about data identification</a></li>
   <li><a href="#losing-track-of-data-due-to-excessive-overwriting" id="toc-losing-track-of-data-due-to-excessive-overwriting" class="nav-link" data-scroll-target="#losing-track-of-data-due-to-excessive-overwriting"><span class="header-section-number">3.8</span> Losing track of data due to excessive overwriting</a></li>
   <li><a href="#no-documentation" id="toc-no-documentation" class="nav-link" data-scroll-target="#no-documentation"><span class="header-section-number">3.9</span> No documentation</a></li>
-  <li><a href="#ignoring-error-messages" id="toc-ignoring-error-messages" class="nav-link" data-scroll-target="#ignoring-error-messages"><span class="header-section-number">3.10</span> Ignoring error messages</a></li>
+  <li><a href="#ignoring-error-messages-and-warnings" id="toc-ignoring-error-messages-and-warnings" class="nav-link" data-scroll-target="#ignoring-error-messages-and-warnings"><span class="header-section-number">3.10</span> Ignoring error messages and warnings</a></li>
   <li><a href="#no-attempt-to-identify-the-problem-and-troubleshoot" id="toc-no-attempt-to-identify-the-problem-and-troubleshoot" class="nav-link" data-scroll-target="#no-attempt-to-identify-the-problem-and-troubleshoot"><span class="header-section-number">3.11</span> No attempt to identify the problem and troubleshoot</a></li>
+  <li><a href="#no-style-in-writing-code" id="toc-no-style-in-writing-code" class="nav-link" data-scroll-target="#no-style-in-writing-code"><span class="header-section-number">3.12</span> No style in writing code</a></li>
   </ul>
 </nav>
     </div>
@@ -335,7 +336,7 @@ div.csl-indent {
 <section id="no-clue-about-the-working-directory" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="no-clue-about-the-working-directory"><span class="header-section-number">3.1</span> No clue about the “working directory”</h2>
 <p><strong>Problem:</strong> Students start their R sessions unaware of their current working directory. This can lead to difficulties when reading and writing files.</p>
-<p><strong>Solution:</strong> At the beginning of your R script set a working directory using <code>setwd()</code>. Or use R projects. For more information, see <a href="95_filesys.html" class="quarto-xref"><span>Appendix A</span></a>: <em>Navigating the file system</em> and <a href="https://r4ds.hadley.nz/workflow-scripts.html"><em>Workflow: scripts and projects</em></a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
+<p><strong>Solution:</strong> At the beginning of your R script set a working directory using <code>setwd()</code>. Consider using R Studio projects, see <a href="95_filesys.html#sec-rstudioprojects" class="quarto-xref"><span>Section A.4</span></a>. For more information, see <a href="95_filesys.html" class="quarto-xref"><span>Appendix A</span></a>: <em>Navigating the file system</em> and <a href="https://r4ds.hadley.nz/workflow-scripts.html"><em>Workflow: scripts and projects</em></a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
 </section>
 <section id="no-consistent-directory-structure" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="no-consistent-directory-structure"><span class="header-section-number">3.2</span> No consistent directory structure</h2>
@@ -444,23 +445,47 @@ Tip&nbsp;3.1: Do not save processed data unless necessary
 <p><strong>Problem:</strong> Students often manipulate their data by repeatedly overwriting the same object. This can lead to confusion about the data`s current state and the transformations applied.</p>
 <p><strong>Solution:</strong> Minimize the number of assignments to a single object. Instead, create a new object with a descriptive and concise name each time you alter the data. This practice helps maintain clarity about each stage of data manipulation.</p>
 <p>For example, if you’re working with data <code>df</code>, you might store the cleanded data as <code>df_cln</code>, then after filtering for specific criteria, you could use <code>df_cln_flt</code>, and finally, if you aggregate the data, name it <code>df_cln_flt_agg</code>. Having some clear naming convention makes it clear what each dataset represents and the transformations it has undergone.</p>
+<div id="tip-rmlist" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip&nbsp;3.2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do clear the environment at the beginning of a script: <code>rm(list = ls())</code></p>
+</div>
+</div>
 </section>
 <section id="no-documentation" class="level2" data-number="3.9">
 <h2 data-number="3.9" class="anchored" data-anchor-id="no-documentation"><span class="header-section-number">3.9</span> No documentation</h2>
 <p><strong>Problem:</strong> Students do not comment code. This makes it hard to remember the purpose of various lines of code and difficult for other people to read and understand the code.</p>
 <p><strong>Solution:</strong> Regularly comment your code, explaining why something is done, not just what is done. Use clear, concise comments to improve readability and maintainability.</p>
 </section>
-<section id="ignoring-error-messages" class="level2" data-number="3.10">
-<h2 data-number="3.10" class="anchored" data-anchor-id="ignoring-error-messages"><span class="header-section-number">3.10</span> Ignoring error messages</h2>
+<section id="ignoring-error-messages-and-warnings" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="ignoring-error-messages-and-warnings"><span class="header-section-number">3.10</span> Ignoring error messages and warnings</h2>
 <p><strong>Problem:</strong> Students see that their code doesn’t work but do not read the error message which often contains hints for solving the problem.</p>
-<p><strong>Solution:</strong> Read and follow error messages. Study what the error message might mean. Use online ressources such as Google and ChatGPT. Finally, have the confidence to implement the suggested solution. Don’t be frustrated if the first attempt does not work: Try again and play around.</p>
+<p><strong>Solution:</strong> Read and follow error messages. Do not ignore warnings or errors unless you know what they mean. Study what the error message might mean. Use online resources such as Google and ChatGPT, see <span class="quarto-unresolved-ref">?fig-googleit</span>. Finally, have the confidence to implement the suggested solution. Don’t be frustrated if the first attempt does not work: Try again and play around.</p>
+<div id="fig-googleit." class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-googleit.-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Google is your friend
+</figcaption>
+<div aria-describedby="fig-googleit.-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="fig/googlingtheerrormessage-big.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="fig/googlingtheerrormessage-big.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p><em>Source: <a href="https://github.com/thepracticaldev/orly-full-res">DEV Community on GitHub</a></em></p>
+</div>
+</figure>
+</div>
 <div id="tip-mosterror" class="callout callout-style-default callout-tip callout-titled" title="Common error messages">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;3.2: Common error messages
+Tip&nbsp;3.3: Common error messages
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -531,7 +556,7 @@ Table&nbsp;3.2: Most frequent errors
 <li><strong>Additional information</strong>: Sometime the interplay of your the packages loaded, your operating system, the version of R, and/or the RStudio version may play a role in your problem. Thus, when seeking help, be sure to provide information about your machine, including the operating system, the version of R, and the packages you have loaded. You can use the <code>sessionInfo()</code> function to gather this information.</li>
 </ul>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Here's an example from my machine:">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -540,7 +565,7 @@ Here’s an example from my machine:
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -579,7 +604,7 @@ loaded via a namespace (and not attached):
 </div>
 <p>For more information, see <a href="https://r4ds.hadley.nz/workflow-help">Workflow: getting help</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example of a minimal reproducible example">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -588,7 +613,7 @@ Example of a minimal reproducible example
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For example, the following script is a MRE:</p>
 <div class="cell">
@@ -598,7 +623,7 @@ Example of a minimal reproducible example
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="08_error_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="08_error_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="08_error_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="08_error_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -618,7 +643,7 @@ Example of a minimal reproducible example
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="08_error_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="08_error_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="08_error_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="08_error_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -626,9 +651,43 @@ Example of a minimal reproducible example
 </div>
 </div>
 </div>
+</section>
+<section id="no-style-in-writing-code" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="no-style-in-writing-code"><span class="header-section-number">3.12</span> No style in writing code</h2>
+<p>To avoid issues while programming in R, it’s essential to understand and adhere to various conventions, rules, and best practices specific to the language. Following these conventions makes your code more readable and simplifies your own experience with R. Below, you will find a non-exhaustive list of these guidelines.</p>
+<ol type="1">
+<li>Do remember that R programming language is case sensitive.</li>
+<li>Do start names of objects such as vectors, numbers, variables, and data frames with a letter, not a number.</li>
+<li>Do avoid using dots in names of objects.</li>
+<li>Do avoid using certain keywords in naming objects, such as if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, and NA.</li>
+<li>Do use front slash <code>/</code> instead of backslash <code>\</code> for navigating the file system (see <a href="95_filesys.html" class="quarto-xref"><span>Appendix A</span></a>).</li>
+<li>Do not use whitespace and indentation for naming files, directories, or objects.</li>
+<li>Do define objects to represent hard-coded values instead of using them directly in code.</li>
+<li>Do remember to (install and) load packages that contain functions you want to use.</li>
+<li>Do use <code>&lt;-</code> instead of <code>=</code> for assignment.</li>
+</ol>
+<div id="tip-styler" class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip&nbsp;3.4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are two packages, <a href="https://styler.r-lib.org/"><code>styler</code></a> and <a href="https://github.com/r-lib/lintr"><code>lintr</code></a>, that support you writing code according to the <a href="https://style.tidyverse.org/"><em>The tidyverse style guide</em></a> of <span class="citation" data-cites="Wickham2024tidyverse">Wickham (<a href="references.html#ref-Wickham2024tidyverse" role="doc-biblioref">2024</a>)</span>.</p>
+</div>
+</div>
 
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;3.1: Google is your friend</span>
+</div>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-Wickham2024tidyverse" class="csl-entry" role="listitem">
+Wickham, H. (2024). <em>The tidyverse style guide</em>. <a href="https://style.tidyverse.org/">https://style.tidyverse.org/</a>
+</div>
 <div id="ref-Wickham2023R" class="csl-entry" role="listitem">
 Wickham, H., &amp; Grolemund, G. (2023). <em>R for data science (2e)</em>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>
 </div>
@@ -1202,7 +1261,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
