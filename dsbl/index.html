@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Dr.&nbsp;Stephan Huber">
-<meta name="dcterms.date" content="2024-04-19">
+<meta name="dcterms.date" content="2024-04-22">
 
 <title>Data Science for Business Leaders</title>
 <style>
@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -44,6 +64,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -75,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -124,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">April 19, 2024</p>
+        <p class="date">April 22, 2024</p>
       </div>
     </div>
     
@@ -183,29 +206,36 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">(Extended) Syllabus</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Writing and publishing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./htur4ds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">How to use R for data science</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./55_pullrequest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Collaborating with Git and GitHub</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./54_quarto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Markdown and Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Markdown and Quarto</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./50_rmarkdown.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Write with R Markdown</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./website.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Create and host a website</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Create and host a website</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -217,15 +247,7 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -233,11 +255,97 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This is going to grow soon…</p>
+<section id="preface" class="level1 unlisted unnumbered">
+<h1 class="unlisted unnumbered">Preface</h1>
+<section id="about-r" class="level4 unlisted unnumbered">
+<h4 class="unlisted unnumbered anchored" data-anchor-id="about-r">About R</h4>
+</section>
+<section id="about-the-cover-of-the-notes" class="level4 unlisted unnumbered">
+<h4 class="unlisted unnumbered anchored" data-anchor-id="about-the-cover-of-the-notes">About the cover of the notes</h4>
+<p>I’ve heard that having a logo is beneficial, so I quickly created one using ChatGPT. I hope you like it!</p>
+</section>
+<section id="about-the-notes" class="level4 unlisted unnumbered">
+<h4 class="unlisted unnumbered anchored" data-anchor-id="about-the-notes">About the notes</h4>
+<div class="callout callout-style-default callout-tip callout-titled" title="A PDF version of these notes is available">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+A PDF version of these notes is available
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/dsbl/Data-Science-for-Business-Leaders.pdf">here.</a>. Please note that while the PDF contains the same content, it has not been optimized for PDF format. Therefore, some parts may not appear as intended.</p>
+</div>
+</div>
+<ul>
+<li>These notes aims to support my lecture at the HS Fresenius but are incomplete and no substitute for taking actively part in class.</li>
+<li>I hope you find this book helpful. Any feedback is both welcome and appreciated.</li>
+<li>This is work in progress so please check for updates regularly.</li>
+<li>These notes offer a curated collection of explanations, exercises, and tips to facilitate learning R without causing unnecessary frustration. However, these notes don’t aim to rival comprehensive textbooks.</li>
+<li>These notes are published under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>. This means it can be reused, remixed, retained, revised and redistributed as long as appropriate credit is given to the authors. If you remix, or modify the original version of this open textbook, you must redistribute all versions of this open textbook under the same license. <img src="fig/CC.png" class="img-fluid"></li>
+<li>I host the notes in a <a href="https://github.com/hubchev/hubchev.github.io/tree/main/dsbl">GitHub repo</a>.</li>
+</ul>
+</section>
+<section id="structure-of-these-notes" class="level4">
+<h4 class="anchored" data-anchor-id="structure-of-these-notes">Structure of these notes</h4>
+</section>
+<section id="about-the-author" class="level4 unlisted unnumbered">
+<h4 class="unlisted unnumbered anchored" data-anchor-id="about-the-author">About the author</h4>
+<div class="callout callout-style-default callout-note callout-titled" title="Contact:">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Contact:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Prof.&nbsp;Dr.&nbsp;Stephan Huber<br>
+Hochschule Fresenius für Wirtschaft &amp; Medien GmbH<br>
+Im MediaPark 4c<br>
+50670 Cologne</p>
+<p>Office: 4e OG-3<br>
+Telefon: +49 221 973199-523<br>
+Mail: stephan.huber@hs-fresenius.de<br>
+Private homepage: <a href="www.hubchev.github.io">www.hubchev.github.io</a><br>
+Github: <a href="https://github.com/hubchev">https://github.com/hubchev</a></p>
+</div>
+</div>
+</div>
+<div id="fig-huber2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-huber2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Prof.&nbsp;Dr.&nbsp;Stephan Huber
+</figcaption>
+<div aria-describedby="fig-huber2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/huber2.jpeg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="fig/huber2.jpeg" class="img-fluid figure-img" style="width:25.0%"></a>
+</div>
+</figure>
+</div>
+<p>I am a Professor of <em>International Economics and Data Science</em> at HS Fresenius, holding a Diploma in Economics from the University of Regensburg and a Doctoral Degree (summa cum laude) from the University of Trier. I completed postgraduate studies at the Interdisciplinary Graduate Center of Excellence at the Institute for Labor Law and Industrial Relations in the European Union (IAAEU) in Trier. Prior to my current position, I worked as a research assistant to Prof.&nbsp;Dr.&nbsp;Dr.&nbsp;h.c. Joachim Möller at the University of Regensburg, a post-doc at the Leibniz Institute for East and Southeast European Studies (IOS) in Regensburg, and a freelancer at Charles University in Prague.</p>
+<p>Throughout my career, I have also worked as a lecturer at various institutions, including the TU Munich, the University of Regensburg, Saarland University, and the Universities of Applied Sciences in Frankfurt and Augsburg. Additionally, I have had the opportunity to teach abroad for the University of Cordoba in Spain, the University of Perugia in Italy, and the Petra Christian University in Surabaya, Indonesia. My published work can be found in international journals such as the Canadian Journal of Economics and the Stata Journal. For more information on my work, please visit my private homepage at <a href="https://hubchev.github.io/">hubchev.github.io</a>.</p>
+<p>I was always fascinated by data and statistics. For example, in 1992 I could name all soccer players in Germany’s first division including how many goals they scored. Later, in 2003 I joined the introductory statistics course of <a href="https://scholar.google.com/citations?user=geLs3JUAAAAJ&amp;hl=en">Daniel Rösch</a>. I learned among others that probabilities often play a role when analyzing data. I continued my data science journey with <a href="https://scholar.google.ca/citations?user=tHNB7wIAAAAJ&amp;hl=en">Harry Haupt’s</a> <em>Introductory Econometrics</em> course, where I studied the infamous Jeffrey M. <span class="citation" data-cites="Wooldridge2002Introductory">Wooldridge (<a href="references.html#ref-Wooldridge2002Introductory" role="doc-biblioref">2002</a>)</span> textbook. It got me hooked and so I took all the courses <a href="https://www.uni-regensburg.de/business-economics-and-management-information-systems/economics-tschernig/team/rolf-tschernig/index.html">Rolf Tschernig</a> offered at his chair of Econometrics, where I became a tutor at the University of Regensburg and a research assistant of <a href="https://iab.de/en/employee/m%C3%B6ller-joachim/">Joachim Möller</a>. Despite everything we did had to do with how to make sense out of data, we never actually used the term <em>data science</em> which is also absent in the more 850 pages long textbook by <span class="citation" data-cites="Wooldridge2002Introductory">Wooldridge (<a href="references.html#ref-Wooldridge2002Introductory" role="doc-biblioref">2002</a>)</span>. The book also remains silent about <em>machine learning</em> or <em>artificial intelligence</em>. These terms became popular only after I graduated. The <em>Harvard Business Review</em> article by <span class="citation" data-cites="Davenport2012Data">Davenport &amp; Patil (<a href="references.html#ref-Davenport2012Data" role="doc-biblioref">2012</a>)</span> who claimed that data scientist is “The Sexiest Job of the 21st Century” may have boosted the popularity.</p>
+<p>The term “data scientist” has become remarkably popular, and many people are eager to adopt this title. Although I am a professor of <em>data science</em>, my professional identity is more like that of an applied, empirically-oriented international economist. My hesitation to adopt the title “data scientist” also stems from the deep respect I have developed through my interactions with econometricians and statisticians. Considering their in-depth expertise, I feel like a passionate amateur.</p>
+<p>Ultimately, I poke around in data to find something interesting. Much like my ten-year-old younger self who analyzed soccer statistics to gain a deeper understanding of the sport. The only thing that has changed since then is that I know more promising methods and can efficiently use tools for data processing and data analysis.</p>
 
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: Prof.&nbsp;Dr.&nbsp;Stephan Huber</span>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-Davenport2012Data" class="csl-entry" role="listitem">
+Davenport, T. H., &amp; Patil, D. (2012). Data scientist: The sexiest job of the 21st century. <em>Harvard Business Review</em>, <em>90</em>(5), 70–76.
+</div>
+<div id="ref-Wooldridge2002Introductory" class="csl-entry" role="listitem">
+Wooldridge, J. M. (2002). Introductory econometrics: A modern approach. In <em>Delhi: Cengage Learnng</em> (2nd ed.). South-Western.
+</div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -804,6 +912,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 
