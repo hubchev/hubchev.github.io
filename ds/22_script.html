@@ -247,7 +247,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_graph.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Visualizing data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Visualize data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -310,7 +310,6 @@ div.csl-indent {
   <li><a href="#the-limitations-of-no-code-applications" id="toc-the-limitations-of-no-code-applications" class="nav-link active" data-scroll-target="#the-limitations-of-no-code-applications"><span class="header-section-number">5.1</span> The limitations of no-code applications</a></li>
   <li><a href="#r-scripts-why-they-are-useful" id="toc-r-scripts-why-they-are-useful" class="nav-link" data-scroll-target="#r-scripts-why-they-are-useful"><span class="header-section-number">5.2</span> R Scripts: Why they are useful</a></li>
   <li><a href="#generate-write-and-run-r-scripts" id="toc-generate-write-and-run-r-scripts" class="nav-link" data-scroll-target="#generate-write-and-run-r-scripts"><span class="header-section-number">5.3</span> Generate, write, and run R scripts</a></li>
-  <li><a href="#doing-calculation-in-scripts" id="toc-doing-calculation-in-scripts" class="nav-link" data-scroll-target="#doing-calculation-in-scripts"><span class="header-section-number">5.4</span> Doing calculation in scripts</a></li>
   </ul>
 </nav>
     </div>
@@ -415,79 +414,6 @@ A hypothetical but realistic example with Excel
 </div>
 <p>Just note that the dot, <code>.</code>, means the current folder. Instead of using the <code>source</code> function, you can click on the <code>source</code> button in Rstudio.</p>
 <p>With the character <code>#</code> you can write a comment in a script and R will simply ignore everything that follows in that line onwards.</p>
-</section>
-<section id="doing-calculation-in-scripts" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="doing-calculation-in-scripts"><span class="header-section-number">5.4</span> Doing calculation in scripts</h2>
-<p>R can do any kind of arithmetic calculation with the arithmetic operators given in the table below. Using the assignment operator, R functions, and the features of a R script is easy and gives an idea how R works and how you should embrace the power of the programming language.</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">operation</th>
-<th style="text-align: center;">operator</th>
-<th style="text-align: center;">example input</th>
-<th style="text-align: center;">example output</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">addition</td>
-<td style="text-align: center;">+</td>
-<td style="text-align: center;">10+2</td>
-<td style="text-align: center;">12</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">subtraction</td>
-<td style="text-align: center;">-</td>
-<td style="text-align: center;">9-3</td>
-<td style="text-align: center;">6</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">multiplication</td>
-<td style="text-align: center;">*</td>
-<td style="text-align: center;">5*5</td>
-<td style="text-align: center;">25</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">division</td>
-<td style="text-align: center;">/</td>
-<td style="text-align: center;">10/3</td>
-<td style="text-align: center;">3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">power</td>
-<td style="text-align: center;"><code>^</code></td>
-<td style="text-align: center;">5^2</td>
-<td style="text-align: center;">25</td>
-</tr>
-</tbody>
-</table>
-<p>So please copy and past the following lines of code into a R script of yours, try to run it on your PC, and try to understand it. Of course, you have to tweak the script a bit to make it run on your PC. For example, I doubt you have the same working directory that I decided to use.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set working directory</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/Dropbox/hsf/23-ss/ds"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a vector that contains the sales data</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sales_by_month <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">50</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>sales_by_month</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>sales_by_month[<span class="dv">2</span>]</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>sales_by_month[<span class="dv">4</span>]</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>february_sales <span class="ot">&lt;-</span> sales_by_month[<span class="dv">2</span>]</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>february_sales</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>sales_by_month[<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="dv">25</span> <span class="co"># added May sales data</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>sales_by_month</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Do I have 12 month?</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>( <span class="at">x =</span> sales_by_month )</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume each unit costs 7 Euro, then the revenue is</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>price <span class="ot">&lt;-</span> <span class="dv">7</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>revenue <span class="ot">&lt;-</span> sales_by_month<span class="sc">*</span>price</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>revenue</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># To get statistics for daily revenue we define the number of days:</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>days_per_month <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">31</span>, <span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>)</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the daily revenue</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>revenue_per_day <span class="ot">&lt;-</span> revenue<span class="sc">/</span>days_per_month</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>revenue_per_day </span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co"># round number </span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(revenue_per_day) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <div class="callout callout-style-simple callout-important no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -495,7 +421,32 @@ A hypothetical but realistic example with Excel
 </div>
 <div class="callout-body-container">
 <div id="exr-round" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.1</strong></span> Round numbers (<a href="#sol-round" class="quarto-xref">Solution&nbsp;<span>5.1</span></a>)</p>
+<p><span class="theorem-title"><strong>Exercise 5.1</strong></span> Run a script and round numbers (<a href="#sol-round" class="quarto-xref">Solution&nbsp;<span>5.1</span></a>)</p>
+<p>Please copy and paste the following lines of code into an R script, run it on your computer, and try to understand how it works.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a vector that contains the sales data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sales_by_month <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">50</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sales_by_month</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sales_by_month[<span class="dv">2</span>]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>sales_by_month[<span class="dv">4</span>]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>february_sales <span class="ot">&lt;-</span> sales_by_month[<span class="dv">2</span>]</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>february_sales</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>sales_by_month[<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="dv">25</span> <span class="co"># added May sales data</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>sales_by_month</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Do I have 12 month?</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>( <span class="at">x =</span> sales_by_month )</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume each unit costs 7 Euro, then the revenue is</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>price <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>revenue <span class="ot">&lt;-</span> sales_by_month<span class="sc">*</span>price</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>revenue</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># To get statistics for daily revenue we define the number of days:</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>days_per_month <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">31</span>, <span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the daily revenue</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>revenue_per_day <span class="ot">&lt;-</span> revenue<span class="sc">/</span>days_per_month</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>revenue_per_day </span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># round number </span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(revenue_per_day) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Use the “<code>?</code>” to search for the documentation of all functions used. In particular, do you understand how the function <code>round()</code> works? What arguments does the function contain? How can you manipulate the pre-defined arguments. For example, can you calculate the rounded revenue per day with two or four digits? Try it out!</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>?<span class="fu">round</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

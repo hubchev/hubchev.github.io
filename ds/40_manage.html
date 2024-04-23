@@ -279,7 +279,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_graph.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Visualizing data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Visualize data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -357,10 +357,11 @@ window.Quarto = {
   </ul></li>
   <li><a href="#operators" id="toc-operators" class="nav-link" data-scroll-target="#operators"><span class="header-section-number">6.3</span> Operators</a>
   <ul class="collapse">
-  <li><a href="#sec-pipeoperator" id="toc-sec-pipeoperator" class="nav-link" data-scroll-target="#sec-pipeoperator"><span class="header-section-number">6.3.1</span> The pipe operator: <code>|&gt;</code></a></li>
-  <li><a href="#the-in-operator" id="toc-the-in-operator" class="nav-link" data-scroll-target="#the-in-operator"><span class="header-section-number">6.3.2</span> The <code>%in%</code> operator</a></li>
-  <li><a href="#extract-operators" id="toc-extract-operators" class="nav-link" data-scroll-target="#extract-operators"><span class="header-section-number">6.3.3</span> Extract operators</a></li>
-  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators"><span class="header-section-number">6.3.4</span> Logical operators</a></li>
+  <li><a href="#algebraic-operators" id="toc-algebraic-operators" class="nav-link" data-scroll-target="#algebraic-operators"><span class="header-section-number">6.3.1</span> Algebraic operators</a></li>
+  <li><a href="#sec-pipeoperator" id="toc-sec-pipeoperator" class="nav-link" data-scroll-target="#sec-pipeoperator"><span class="header-section-number">6.3.2</span> The pipe operator: <code>|&gt;</code></a></li>
+  <li><a href="#the-in-operator" id="toc-the-in-operator" class="nav-link" data-scroll-target="#the-in-operator"><span class="header-section-number">6.3.3</span> The <code>%in%</code> operator</a></li>
+  <li><a href="#extract-operators" id="toc-extract-operators" class="nav-link" data-scroll-target="#extract-operators"><span class="header-section-number">6.3.4</span> Extract operators</a></li>
+  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators"><span class="header-section-number">6.3.5</span> Logical operators</a></li>
   </ul></li>
   <li><a href="#data-manipulation" id="toc-data-manipulation" class="nav-link" data-scroll-target="#data-manipulation"><span class="header-section-number">6.4</span> Data manipulation</a>
   <ul class="collapse">
@@ -565,7 +566,7 @@ $ country     &lt;chr&gt; "Africa Eastern and Southern", "Africa Eastern and Sou
 Figure&nbsp;6.1: The logo of the packages readr, haven, and readxl
 </figcaption>
 <div aria-describedby="fig-import-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/import-logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="fig/import-logo.png" class="img-fluid figure-img" style="width:40.0%"></a>
+<a href="fig/import-logo.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="fig/import-logo.png" class="img-fluid figure-img" style="width:40.0%"></a>
 </div>
 </figure>
 </div>
@@ -600,7 +601,7 @@ Figure&nbsp;6.1: The logo of the packages readr, haven, and readxl
 Figure&nbsp;6.2: The logos of the tidyr and tibble packages
 </figcaption>
 <div aria-describedby="fig-tidyr-tibble-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/tidyr-tibble-logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="fig/tidyr-tibble-logo.png" class="img-fluid figure-img" style="width:30.0%"></a>
+<a href="fig/tidyr-tibble-logo.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="fig/tidyr-tibble-logo.png" class="img-fluid figure-img" style="width:30.0%"></a>
 </div>
 </figure>
 </div>
@@ -624,7 +625,7 @@ Figure&nbsp;6.2: The logos of the tidyr and tibble packages
 Figure&nbsp;6.3: Features of a tidy dataset: variables are columns, observations are rows, and values are cells
 </figcaption>
 <div aria-describedby="fig-tidy-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="fig/tidy-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="fig/tidy-1.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<p><a href="fig/tidy-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="fig/tidy-1.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
 <p><em>Source: <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. </em></p>
 </div>
 </figure>
@@ -729,8 +730,64 @@ Figure&nbsp;6.3: Features of a tidy dataset: variables are columns, observations
 </section>
 <section id="operators" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="operators"><span class="header-section-number">6.3</span> Operators</h2>
-<section id="sec-pipeoperator" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="sec-pipeoperator"><span class="header-section-number">6.3.1</span> The pipe operator: <code>|&gt;</code></h3>
+<p>An overview of the most important operators of R is proided in <a href="952_operators.html" class="quarto-xref"><span>Appendix B</span></a>.</p>
+<section id="algebraic-operators" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="algebraic-operators"><span class="header-section-number">6.3.1</span> Algebraic operators</h3>
+<p>R can perform any kind of arithmetic calculation using the operators listed in <a href="#tbl-algebraopteratora" class="quarto-xref">Table&nbsp;<span>6.1</span></a>.</p>
+<div id="tbl-algebraopteratora" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-algebraopteratora-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6.1: Basic algebraic operators
+</figcaption>
+<div aria-describedby="tbl-algebraopteratora-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operation</th>
+<th style="text-align: center;">Operator</th>
+<th style="text-align: center;">Example input</th>
+<th style="text-align: center;">Example output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">addition</td>
+<td style="text-align: center;"><code>+</code></td>
+<td style="text-align: center;">10+2</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">subtraction</td>
+<td style="text-align: center;"><code>-</code></td>
+<td style="text-align: center;">9-3</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">multiplication</td>
+<td style="text-align: center;"><code>*</code></td>
+<td style="text-align: center;">5*5</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">division</td>
+<td style="text-align: center;"><code>/</code></td>
+<td style="text-align: center;">10/3</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">power</td>
+<td style="text-align: center;"><code>^</code></td>
+<td style="text-align: center;">5^2</td>
+<td style="text-align: center;">25</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="sec-pipeoperator" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="sec-pipeoperator"><span class="header-section-number">6.3.2</span> The pipe operator: <code>|&gt;</code></h3>
 <p>The pipe operator, <code>%\&gt;%</code>, comes from the <em>magrittr</em> package, which is also part of the tidyverse package. The pipe operator, <code>|&gt;</code>, has been part of base R since version 4.1.0. For most cases, these two operators are identical. The pipe operator is designed to help you write code in a way that is easier to read and understand. As R is a functional language, code often contains a lot of parentheses, ( and ). Nesting these parentheses together can be complex and make your R code hard to read and understand, which is where <code>|&gt;</code> comes to the rescue! It allows you to use the output of a function as the input of the next function. Consider the following example of code to explain the usage of the pipe operator:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create some data `x`</span></span>
@@ -805,8 +862,8 @@ Exercise
 </div>
 </div>
 </section>
-<section id="the-in-operator" class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="the-in-operator"><span class="header-section-number">6.3.2</span> The <code>%in%</code> operator</h3>
+<section id="the-in-operator" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="the-in-operator"><span class="header-section-number">6.3.3</span> The <code>%in%</code> operator</h3>
 <p><code>%in%</code> is used to subset a vector by comparison. Here’s an example:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
@@ -841,8 +898,8 @@ Exercise
 </div>
 </div>
 </section>
-<section id="extract-operators" class="level3" data-number="6.3.3">
-<h3 data-number="6.3.3" class="anchored" data-anchor-id="extract-operators"><span class="header-section-number">6.3.3</span> Extract operators</h3>
+<section id="extract-operators" class="level3" data-number="6.3.4">
+<h3 data-number="6.3.4" class="anchored" data-anchor-id="extract-operators"><span class="header-section-number">6.3.4</span> Extract operators</h3>
 <p>The <em>extract operators</em> are used to retrieve data from objects in R. The operator may take four forms, including <code>[]</code>, <code>[[]]</code>, and <code>$</code>.</p>
 <p><code>[]</code> allows to extract content from vector, lists, or data frames. For example,</p>
 <div class="cell">
@@ -887,13 +944,13 @@ Datsun 710 22.8   4  108 93 3.85 2.32 18.61  1  1    4    1</code></pre>
 </div>
 <p>will return the values of the variable <code>cyl</code> from the data frame <code>mtcars</code>. Thus, <code>x$y</code> is actually just a short form for <code>x[[“y”]]</code>.</p>
 </section>
-<section id="logical-operators" class="level3" data-number="6.3.4">
-<h3 data-number="6.3.4" class="anchored" data-anchor-id="logical-operators"><span class="header-section-number">6.3.4</span> Logical operators</h3>
-<p>The extract operators can be combined with the <em>logical operators</em> (more precisely, I should call these <em>binary relational operators</em>) that are shown in <a href="#tbl-logoper" class="quarto-xref">Table&nbsp;<span>6.1</span></a>.</p>
+<section id="logical-operators" class="level3" data-number="6.3.5">
+<h3 data-number="6.3.5" class="anchored" data-anchor-id="logical-operators"><span class="header-section-number">6.3.5</span> Logical operators</h3>
+<p>The extract operators can be combined with the <em>logical operators</em> (more precisely, I should call these <em>binary relational operators</em>) that are shown in <a href="#tbl-logoper" class="quarto-xref">Table&nbsp;<span>6.2</span></a>.</p>
 <div id="tbl-logoper" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-logoper-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;6.1: Logical operators
+Table&nbsp;6.2: Logical operators
 </figcaption>
 <div aria-describedby="tbl-logoper-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
@@ -1102,7 +1159,7 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 Figure&nbsp;6.4: The logo of the <code>dplyr</code> package
 </figcaption>
 <div aria-describedby="fig-dplyr-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/dplyr-logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="fig/dplyr-logo.png" class="img-fluid figure-img" style="width:20.0%"></a>
+<a href="fig/dplyr-logo.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><img src="fig/dplyr-logo.png" class="img-fluid figure-img" style="width:20.0%"></a>
 </div>
 </figure>
 </div>
@@ -2363,13 +2420,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./50_graph.html" class="pagination-link" aria-label="Visualizing data">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Visualizing data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./50_graph.html" class="pagination-link" aria-label="Visualize data">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Visualize data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
