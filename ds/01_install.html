@@ -345,13 +345,13 @@ window.Quarto = {
   <li><a href="#what-is-a-function-in-r" id="toc-what-is-a-function-in-r" class="nav-link" data-scroll-target="#what-is-a-function-in-r"><span class="header-section-number">1.4</span> What is a function in R?</a></li>
   <li><a href="#sec-objects" id="toc-sec-objects" class="nav-link" data-scroll-target="#sec-objects"><span class="header-section-number">1.5</span> What are objects in R?</a></li>
   <li><a href="#sec-r-rstudio" id="toc-sec-r-rstudio" class="nav-link" data-scroll-target="#sec-r-rstudio"><span class="header-section-number">1.6</span> What are R and RStudio?</a></li>
-  <li><a href="#how-to-write-and-run-code-in-r-and-rstudio" id="toc-how-to-write-and-run-code-in-r-and-rstudio" class="nav-link" data-scroll-target="#how-to-write-and-run-code-in-r-and-rstudio"><span class="header-section-number">1.7</span> How to write and run code in R and RStudio</a></li>
-  <li><a href="#installing" id="toc-installing" class="nav-link" data-scroll-target="#installing"><span class="header-section-number">1.8</span> How to install R, RStudio, and R packages</a></li>
+  <li><a href="#sec-writeandrun" id="toc-sec-writeandrun" class="nav-link" data-scroll-target="#sec-writeandrun"><span class="header-section-number">1.7</span> How to write and run code in R and RStudio</a></li>
+  <li><a href="#sec-installing" id="toc-sec-installing" class="nav-link" data-scroll-target="#sec-installing"><span class="header-section-number">1.8</span> How to install R, RStudio, and R packages</a></li>
   <li><a href="#sec-packages" id="toc-sec-packages" class="nav-link" data-scroll-target="#sec-packages"><span class="header-section-number">1.9</span> What are R packages?</a>
   <ul class="collapse">
   <li><a href="#sec-package-installation" id="toc-sec-package-installation" class="nav-link" data-scroll-target="#sec-package-installation"><span class="header-section-number">1.9.1</span> Package installation</a></li>
   <li><a href="#sec-package-loading" id="toc-sec-package-loading" class="nav-link" data-scroll-target="#sec-package-loading"><span class="header-section-number">1.9.2</span> Package loading</a></li>
-  <li><a href="#package-management" id="toc-package-management" class="nav-link" data-scroll-target="#package-management"><span class="header-section-number">1.9.3</span> Simplified package management with <code>p_load</code></a></li>
+  <li><a href="#sec-package-management" id="toc-sec-package-management" class="nav-link" data-scroll-target="#sec-package-management"><span class="header-section-number">1.9.3</span> Simplified package management with <code>p_load</code></a></li>
   </ul></li>
   <li><a href="#base-r-and-the-tidyverse-universe" id="toc-base-r-and-the-tidyverse-universe" class="nav-link" data-scroll-target="#base-r-and-the-tidyverse-universe"><span class="header-section-number">1.10</span> Base R and the tidyverse universe</a></li>
   </ul>
@@ -460,7 +460,7 @@ Make your hands dirty!
 Figure&nbsp;1.1: Play around with code
 </figcaption>
 <div aria-describedby="fig-catsee-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="fig/changinstuff-big.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="fig/changinstuff-big.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p><a href="fig/changinstuff-big.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="fig/changinstuff-big.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
 <p><em>Source: <a href="https://github.com/thepracticaldev/orly-full-res">DEV Community on GitHub</a></em></p>
 </div>
 </figure>
@@ -489,7 +489,7 @@ Computers take you literally
 <blockquote class="blockquote">
 <p>“Let’s eat, grandpa.”</p>
 </blockquote>
-<p>The comma makes all the difference in clarifying that you’re speaking to your grandpa, not about eating him!</p>
+<p>The comma makes all the difference in clarifying that you’re speaking to your grandpa, not about eating him! Similarly, in programming, an incorrectly placed comma can break your code or change the meaning of your code.</p>
 </div>
 </div>
 </div>
@@ -514,18 +514,18 @@ Figure&nbsp;1.2: A collection of textbooks
 <div aria-describedby="fig-forexplayer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="fig/r4ds-cover.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="fig/r4ds-cover.jpg" class="img-fluid figure-img" style="width:90.0%"></a></p>
+<p><a href="fig/r4ds-cover.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="fig/r4ds-cover.jpg" class="img-fluid figure-img" style="width:90.0%"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="fig/healy-cover.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="fig/healy-cover.jpg" class="img-fluid figure-img" style="width:90.0%"></a></p>
+<p><a href="fig/healy-cover.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="fig/healy-cover.jpg" class="img-fluid figure-img" style="width:90.0%"></a></p>
 </div>
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="fig/irizarrybook.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="fig/irizarrybook.png" class="img-fluid figure-img" style="width:95.0%"></a></p>
+<p><a href="fig/irizarrybook.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><img src="fig/irizarrybook.png" class="img-fluid figure-img" style="width:95.0%"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="fig/Kabacoff2024Modern.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="fig/Kabacoff2024Modern.png" class="img-fluid figure-img" style="width:90.0%"></a></p>
+<p><a href="fig/Kabacoff2024Modern.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5"><img src="fig/Kabacoff2024Modern.png" class="img-fluid figure-img" style="width:90.0%"></a></p>
 </div>
 </div>
 </div>
@@ -576,7 +576,7 @@ Figure&nbsp;1.2: A collection of textbooks
 Figure&nbsp;1.3: The R Documentation of <code>q()</code>
 </figcaption>
 <div aria-describedby="fig-help-q-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/help-q.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="fig/help-q.png" class="img-fluid figure-img" style="width:70.0%"></a>
+<a href="fig/help-q.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6"><img src="fig/help-q.png" class="img-fluid figure-img" style="width:70.0%"></a>
 </div>
 </figure>
 </div>
@@ -599,7 +599,7 @@ Figure&nbsp;1.3: The R Documentation of <code>q()</code>
 Figure&nbsp;1.4: Analogy of difference between R and RStudio
 </figcaption>
 <div aria-describedby="fig-R_vs_RStudio_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/R_vs_RStudio_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="fig/R_vs_RStudio_1.png" class="img-fluid figure-img"></a>
+<a href="fig/R_vs_RStudio_1.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7"><img src="fig/R_vs_RStudio_1.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
 </div>
@@ -611,7 +611,7 @@ Figure&nbsp;1.4: Analogy of difference between R and RStudio
 Figure&nbsp;1.5: Icons of R versus RStudio on your computer
 </figcaption>
 <div aria-describedby="fig-R_vs_RStudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/R_vs_RStudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="fig/R_vs_RStudio.png" class="img-fluid figure-img"></a>
+<a href="fig/R_vs_RStudio.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="quarto-lightbox-gallery-8"><img src="fig/R_vs_RStudio.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
 </div>
@@ -623,7 +623,7 @@ Figure&nbsp;1.6: A sketch of RStudio interface to R
 </figcaption>
 <div aria-describedby="fig-rstudio2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <!-- ![](fig/rstudio4.png) -->
-<p><a href="fig/rstudio4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><img src="fig/rstudio4.png" class="img-fluid figure-img"></a></p>
+<p><a href="fig/rstudio4.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="quarto-lightbox-gallery-9"><img src="fig/rstudio4.png" class="img-fluid figure-img"></a></p>
 </div>
 </figure>
 </div>
@@ -679,8 +679,8 @@ If you don’t have panel number 4,
 <p>You can resize the panels as you like, either by clicking and dragging their borders or using the minimise/maximise buttons in the upper right corner of each panel. Clicking <em>Ctrl++</em> and <em>Ctrl+-</em> allows to make the fonts larger or smaller.</p>
 <!-- When you exit RStudio, you will be asked if you wish to *save your workspace*, meaning that the data that you've worked with will be stored so that it is available the next time you run R. That might sound like a good idea, but in general, I recommend that you don't save your workspace, as that often turns out to cause problems down the line. It is almost invariably a much better idea to simply rerun the code you worked with in your next R session. -->
 </section>
-<section id="how-to-write-and-run-code-in-r-and-rstudio" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="how-to-write-and-run-code-in-r-and-rstudio"><span class="header-section-number">1.7</span> How to write and run code in R and RStudio</h2>
+<section id="sec-writeandrun" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="sec-writeandrun"><span class="header-section-number">1.7</span> How to write and run code in R and RStudio</h2>
 <p>In the Console you can type in code and push Enter to run the line of code. For example, you can calculate:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -696,13 +696,13 @@ If you don’t have panel number 4,
 Figure&nbsp;1.7: One plus four in a R script
 </figcaption>
 <div aria-describedby="fig-oneplusfour-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/oneplusfour.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><img src="fig/oneplusfour.png" class="img-fluid figure-img" style="width:75.0%"></a>
+<a href="fig/oneplusfour.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="quarto-lightbox-gallery-10"><img src="fig/oneplusfour.png" class="img-fluid figure-img" style="width:75.0%"></a>
 </div>
 </figure>
 </div>
 </section>
-<section id="installing" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="installing"><span class="header-section-number">1.8</span> How to install R, RStudio, and R packages</h2>
+<section id="sec-installing" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="sec-installing"><span class="header-section-number">1.8</span> How to install R, RStudio, and R packages</h2>
 <div id="fig-3steps" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-3steps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -710,7 +710,7 @@ Figure&nbsp;1.8: Set up R in three steps
 </figcaption>
 <div aria-describedby="fig-3steps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <!-- ![](fig/rstudiolay.png) -->
-<p><a href="fig/3steps.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><img src="fig/3steps.png" class="img-fluid figure-img" style="width:75.0%"></a></p>
+<p><a href="fig/3steps.png" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="quarto-lightbox-gallery-11"><img src="fig/3steps.png" class="img-fluid figure-img" style="width:75.0%"></a></p>
 </div>
 </figure>
 </div>
@@ -809,8 +809,8 @@ How to speed up the installation of packages
 </div>
 <p>R is informing you that you are attempting to use a function from a package that has not yet been loaded. Forgetting to load packages is a common mistake made by new users, and it can be a bit frustrating to get used to at first. However, with practice, it will become second nature for you. Unloading packages can be done with <code>detach(package:ggplot2, unload=TRUE)</code>.</p>
 </section>
-<section id="package-management" class="level3" data-number="1.9.3">
-<h3 data-number="1.9.3" class="anchored" data-anchor-id="package-management"><span class="header-section-number">1.9.3</span> Simplified package management with <code>p_load</code></h3>
+<section id="sec-package-management" class="level3" data-number="1.9.3">
+<h3 data-number="1.9.3" class="anchored" data-anchor-id="sec-package-management"><span class="header-section-number">1.9.3</span> Simplified package management with <code>p_load</code></h3>
 <p>There is a convenient way to handle both package installation and loading without the need for manual checks. The <code>p_load()</code> function does this seamlessly by verifying if a package is installed; if not, it installs the package. I highly recommend this function and in all my scripts I will use it.</p>
 <p>For example, instead of the traditional approach:</p>
 <div class="cell">
@@ -848,7 +848,7 @@ How to speed up the installation of packages
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_unload</span>(all)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>to avoid conflicts of functions (see <a href="22_script.html#sec-generics" class="quarto-xref"><span>Section 5.5</span></a>).</p>
+<p>to avoid conflicts of functions (see <a href="40_manage.html#sec-generics" class="quarto-xref"><span>Section 6.6</span></a>).</p>
 </section>
 </section>
 <section id="base-r-and-the-tidyverse-universe" class="level2" data-number="1.10">
@@ -860,7 +860,7 @@ How to speed up the installation of packages
 Figure&nbsp;1.9: The tidyverse universe
 </figcaption>
 <div aria-describedby="fig-tidyverse-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/tidyverse-logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" data-glightbox="description: .lightbox-desc-12"><img src="fig/tidyverse-logo.png" class="img-fluid figure-img" style="width:30.0%"></a>
+<a href="fig/tidyverse-logo.png" class="lightbox" data-glightbox="description: .lightbox-desc-12" data-gallery="quarto-lightbox-gallery-12"><img src="fig/tidyverse-logo.png" class="img-fluid figure-img" style="width:30.0%"></a>
 </div>
 </figure>
 </div>
@@ -1498,7 +1498,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","loop":false,"closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
