@@ -309,7 +309,12 @@ div.csl-indent {
   <ul>
   <li><a href="#the-limitations-of-no-code-applications" id="toc-the-limitations-of-no-code-applications" class="nav-link active" data-scroll-target="#the-limitations-of-no-code-applications"><span class="header-section-number">5.1</span> The limitations of no-code applications</a></li>
   <li><a href="#r-scripts-why-they-are-useful" id="toc-r-scripts-why-they-are-useful" class="nav-link" data-scroll-target="#r-scripts-why-they-are-useful"><span class="header-section-number">5.2</span> R Scripts: Why they are useful</a></li>
-  <li><a href="#generate-write-and-run-r-scripts" id="toc-generate-write-and-run-r-scripts" class="nav-link" data-scroll-target="#generate-write-and-run-r-scripts"><span class="header-section-number">5.3</span> Generate, write, and run R scripts</a></li>
+  <li><a href="#create-write-and-run-r-scripts" id="toc-create-write-and-run-r-scripts" class="nav-link" data-scroll-target="#create-write-and-run-r-scripts"><span class="header-section-number">5.3</span> Create, write, and run R scripts</a>
+  <ul class="collapse">
+  <li><a href="#create" id="toc-create" class="nav-link" data-scroll-target="#create"><span class="header-section-number">5.3.1</span> Create</a></li>
+  <li><a href="#write" id="toc-write" class="nav-link" data-scroll-target="#write"><span class="header-section-number">5.3.2</span> Write</a></li>
+  <li><a href="#run" id="toc-run" class="nav-link" data-scroll-target="#run"><span class="header-section-number">5.3.3</span> Run</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -322,7 +327,18 @@ div.csl-indent {
 
 <section id="the-limitations-of-no-code-applications" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="the-limitations-of-no-code-applications"><span class="header-section-number">5.1</span> The limitations of no-code applications</h2>
-<p>No-Code Applications (NCA) such as <a href="https://www.microsoft.com/en-us/microsoft-365/excel">Microsoft Excel</a>, <a href="https://altair.com/altair-rapidminer">RapidMiner</a>, <a href="https://www.knime.com/">KNIME</a>, <a href="https://www.datarobot.com/">DataRobot</a>, <a href="https://www.tableau.com/">Tableau</a>, <a href="https://www.microsoft.com/en-us/power-platform/products/power-bi">Microsoft Power BI</a>, and <a href="https://cloud.google.com/automl">Google AutoML</a> are popular as tools for good reasons. They enable the application of advanced empirical methods with no or minimal programming effort. Their intuitive graphical user interfaces comes with pre-built templates and drag-and-drop functionality and makes it easy to get things done quickly without the necessity to study the documentation for hours. Despite their apparent ease of use and efficiency, these platforms come with several disadvantages compared to traditional scripting and coding. Understanding these weaknesses helps to see why professional researchers, especially those actively publishing in academic journals, tend to rely on scripting languages like R and Python. These programming languages offer full control, are customizeable, offer extensive opportunities for automation and reproducibility, and are often better suited for demanding data science tasks.</p>
+<!-- ![](fig/nocodeornot.webp){width=25%} -->
+<p>No-Code Applications (NCA) such as <a href="https://www.microsoft.com/en-us/microsoft-365/excel">Microsoft Excel</a>, <a href="https://altair.com/altair-rapidminer">RapidMiner</a>, <a href="https://www.knime.com/">KNIME</a>, <a href="https://www.datarobot.com/">DataRobot</a>, <a href="https://www.tableau.com/">Tableau</a>, <a href="https://www.microsoft.com/en-us/power-platform/products/power-bi">Microsoft Power BI</a>, and <a href="https://cloud.google.com/automl">Google AutoML</a> are popular for good reasons. They enable the application of advanced empirical methods with no or minimal programming effort. Their intuitive graphical user interfaces comes with pre-built templates and drag-and-drop functionality which helps to get things done quick, without having to study the programm documentation for hours. Despite their apparent ease of use and efficiency, these platforms come with several disadvantages compared to traditional ways of working with computer by scripting and coding. Understanding these weaknesses helps to see why professional researchers, especially those actively publishing in academic journals, tend to rely on scripting languages like R and Python. These programming languages offer full control, are customizeable and extendable, offer extensive opportunities for automation and reproducibility, and are often better suited for demanding data science tasks.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Disadvantages of No-Code Applications (NCA)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Disadvantages of No-Code Applications (NCA)
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
 <li>NCA lack flexibility and are limited in their adaptability.</li>
 <li>NCA often have problems scaling with increasing data volumes or user requirements.</li>
@@ -331,8 +347,10 @@ div.csl-indent {
 <li>NCA can obscure the underlying logic of how applications work, which can make troubleshooting more difficult.</li>
 <li>NCA abstracts the coding process and prevents users from understanding fundamental concepts that could be beneficial to their professional growth and ability to tackle more complex problems.</li>
 </ul>
-<p>In summary, while low-code and no-code platforms offer quick deployment and ease of use, they can lack the depth, flexibility, and control provided by traditional scripting. Businesses must carefully consider these trade-offs, especially when planning for long-term scalability, complex customizations, or in-depth integrations.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="A hypothetical but realistic example with Excel">
+</div>
+</div>
+<p>In summary, while low-code and no-code platforms offer quick deployment and ease of use, they can lack the depth, flexibility, and control provided by traditional scripting. Researchers and businesses must consider these trade-offs, especially when planning for long-term scalability, complex customizations, or in-depth integrations.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="A hypothetical but realistic example with Excel">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -379,32 +397,49 @@ A hypothetical but realistic example with Excel
 <li>… make it easy to share your work with others.</li>
 </ul>
 </section>
-<section id="generate-write-and-run-r-scripts" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="generate-write-and-run-r-scripts"><span class="header-section-number">5.3</span> Generate, write, and run R scripts</h2>
-<p>To <strong>generate a script</strong> you can</p>
+<section id="create-write-and-run-r-scripts" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="create-write-and-run-r-scripts"><span class="header-section-number">5.3</span> Create, write, and run R scripts</h2>
+<section id="create" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="create"><span class="header-section-number">5.3.1</span> Create</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="3 equivalent ways to create a script">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+3 equivalent ways to create a script
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
-<li>Go to the <em>File</em> menu, select <em>New File</em> and then choose <em>R Script</em> or</li>
-<li>Use the keyboard shortcut <em>Ctrl+Shift+N</em> (Windows) or <em>Cmd+Shift+N</em> (Mac) or</li>
-<li>Type the following command in the Console:</li>
+<li>Use the menu: <code>File &gt; New File &gt; R Script</code></li>
+<li>Use the keyboard shortcut: <code>Ctrl</code>+<code>Shift</code>+<code>N</code> (Windows/Linux) or <code>Cmd</code>+<code>Shift</code>+<code>N</code> (Mac) or</li>
+<li>Type the following in the console:</li>
 </ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file.create</span>(<span class="st">"hello.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In the first two ways, a new R script window will open which can be edited and should be saved either by clicking on the <em>File</em> menu and selecting <em>Save</em>, clicking the disk icon, or by using the shortcut <em>Ctrl+S</em> (Windows) or <em>Cmd+S</em> (Mac). If you go for the third way, you need to open it manually.</p>
-<p>Regardless of your preferred way of generating a script, we can now start <strong>writing</strong> our first script:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/home/sthu/Dropbox/hsf/23-ss/ds/"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"hello world"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then save the script using the menus (File &gt; Save) as hello.R.</p>
+</div>
+<p>In the first two ways, a new R script window will open which can be edited and should be saved either by clicking on the <code>File</code> menu and selecting <code>Save</code>, clicking the disk icon, or by using the shortcut <code>Ctrl</code>+<code>S</code> (Windows/Linux) or <code>Cmd</code>+<code>S</code> (Mac). If you go for the third way, you need to open it manually.</p>
+</section>
+<section id="write" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="write"><span class="header-section-number">5.3.2</span> Write</h3>
+<p>Regardless of your preferred way of generating a script, we can now start writing our first script:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"hello world"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then save the script using the menus (<code>File &gt; Save</code>) as <code>hello.R</code>.</p>
 <p>The above lines of code do the following:</p>
 <ul>
-<li><code>setwd()</code> allows to set the working directory. If you are not familiar with file systems, please read section <a href="95_filesys.html" class="quarto-xref"><span>Appendix A</span></a> in the appendix.</li>
-<li>With the assignment operator <code>&lt;-</code> we create an object that stores the words “hello world” in an object entitled <code>x</code>. In the next section <a href="40_manage.html#sec-assignmentoper" class="quarto-xref"><span>Section 6.1.1</span></a> the assignment operator is further explained.</li>
+<li>With the assignment operator <code>&lt;-</code> we create an object that stores the words “hello world” in an object entitled <code>x</code>. In <a href="40_manage.html#sec-assignmentoper" class="quarto-xref"><span>Section 6.1.1</span></a> the assignment operator is further explained.</li>
 <li>With the third input we print the content of the object <code>x</code>.</li>
 </ul>
-<p>So how do we <strong>run the script</strong>? Assuming that the <code>hello.R</code> file has been saved to your working directory, then you can run the script using the following command:</p>
+</section>
+<section id="run" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="run"><span class="header-section-number">5.3.3</span> Run</h3>
+<p>So how do we run the script? Assuming that the <code>hello.R</code> file has been saved to your working directory, then you can run the script using the following command:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>( <span class="st">"hello.R"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -421,7 +456,7 @@ A hypothetical but realistic example with Excel
 </div>
 <div class="callout-body-container">
 <div id="exr-round" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.1</strong></span> Run a script and round numbers (<a href="#sol-round" class="quarto-xref">Solution&nbsp;<span>5.1</span></a>)</p>
+<p><span class="theorem-title"><strong>Exercise 5.1</strong></span> Run a script and round numbers</p>
 <p>Please copy and paste the following lines of code into an R script, run it on your computer, and try to understand how it works.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a vector that contains the sales data</span></span>
@@ -452,19 +487,22 @@ A hypothetical but realistic example with Excel
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>?<span class="fu">round</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-body-container">
-<div id="sol-round" class="proof solution">
-<p><span class="proof-title"><em>Solution 5.1</em>. </span>Round numbers (<a href="#exr-round" class="quarto-xref">Exercise&nbsp;<span>5.1</span></a>)</p>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(revenue_per_day, <span class="at">digits =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -477,6 +515,7 @@ A hypothetical but realistic example with Excel
 Stephenson, P. (2023). <em>Data science practice</em>. Accessed January 30, 2023. <a href="https://datasciencepractice.study/">https://datasciencepractice.study/</a>
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->
