@@ -948,7 +948,7 @@ For example, A dice has 6 sides with 6 different numbers on it. In particular, t
 <div id="the-complement-of-an-event-neg-event" class="section level4 hasAnchor" number="3.4.1.3">
 <h4><span class="header-section-number">3.4.1.3</span> The complement of an event (<span class="math inline">\(\neg-Event\)</span>)<a href="decision-making-theory.html#the-complement-of-an-event-neg-event" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The complement of event <span class="math inline">\(A\)</span> is denoted with a <span class="math inline">\(\neg A\)</span> or sometimes with a superscript `c’ like <span class="math inline">\(A^c\)</span>.
-It consists of all outcomes that are <em>not</em> in <span class="math inline">\(A\)</span>. Thus, it should be clear that <span class="math inline">\(P(A) + P(\neg A) =! 1\)</span>.
+It consists of all outcomes that are <em>not</em> in <span class="math inline">\(A\)</span>. Thus, it should be clear that <span class="math inline">\(P(A) + P(\neg A) = 1\)</span>.
 For example, let the sample space be <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span> and let <span class="math inline">\(A = \{1, 2, 3, 4\}\)</span>.
 Then, <span class="math inline">\(\neg A = \{5, 6\}\)</span>; <span class="math inline">\(P(A) = \frac{4}{6}\)</span>; <span class="math inline">\(P(\neg A) = \frac{2}{6}\)</span>; and <span class="math inline">\(P(A) + P(\neg A) = \frac{4}{6}+\frac{2}{6} = 1\)</span>.</p>
 </div>
@@ -967,7 +967,7 @@ More formally, two events are independent if the following are true:
 where <span class="math inline">\(\cap\)</span> stands for `and’.
 For example, let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be <span class="math inline">\(\{1, 2, 3, 4, 5\}\)</span> and <span class="math inline">\(\{4, 5, 6, 7, 8\}\)</span>, respectively. Then <span class="math inline">\(A \cap B = \{4, 5\}\)</span>.</p>
 <p><strong>Example: Three dices</strong></p>
-<p>Suppose you have three dice. Calculate the probability of getting three 4$.}</p>
+<p>Suppose you have three dice. Calculate the probability of getting three times a 4.</p>
 <p><strong>Solutions:</strong>
 The probability of getting a <span class="math inline">\(4\)</span> on one dice is 1/6. The probability of getting three <span class="math inline">\(4\)</span> is:
 <span class="math display">\[
@@ -981,7 +981,7 @@ P(4 \cap 4 \cap 4) = \frac{1}{6}\cdot \frac{1}{6}\cdot \frac{1}{6}= \frac{1}{216
     P(A \cap B)&amp;=P(A)\cdot P(B|A),\\
     \Leftrightarrow P(B|A)&amp;=\frac{P(A \cap B)}{P(A)}\cdot
 \end{align*}\]</span>
-where <code>$|A$' stands for</code>after A has occurred’, or `given A has occurred’. In other words, <span class="math inline">\(P(B|A)\)</span> is the probability of <span class="math inline">\(B\)</span> given <span class="math inline">\(A\)</span>. This equation is also known as the <strong>Multiplication Rule</strong>.</p>
+where <span class="math inline">\(|A\)</span> stands for <code>after A has occurred', or</code>given A has occurred’. In other words, <span class="math inline">\(P(B|A)\)</span> is the probability of <span class="math inline">\(B\)</span> given <span class="math inline">\(A\)</span>. This equation is also known as the <strong>Multiplication Rule</strong>.</p>
 <p>The conditional probability of A given B is written <span class="math inline">\(P(A|B)\)</span>. <span class="math inline">\(P(A|B)\)</span> is the probability that event A will occur given that the event B has already occurred. A conditional reduces the sample space. We calculate the probability of A from the reduced sample space B. The formula to calculate <span class="math inline">\(P(A|B)\)</span> is <span class="math display">\[ P(A|B) = \frac{P\left(A\cap B\right)}{P\left(B\right)}\]</span> where <span class="math inline">\(P(B)\)</span> is greater than zero.
 This formula is also known as <strong>Bayes’ Theorem</strong>, which is a simple mathematical formula used for calculating conditional probabilities, states that
 <span class="math display">\[
@@ -990,9 +990,10 @@ P(A)P(B|A)=P(B)P(A|B)
 This is true since <span class="math inline">\(P(A \cap B)=P(B \cap A)\)</span> and due to the fact that <span class="math inline">\(P(A\cap B)=P(B\mid A)P(A)\)</span>, we can write Bayes’ Theorem as
 <span class="math display">\[P(A\mid B)={\frac {P(B\mid A)P(A)}{P(B)}}.\]</span>
 The box below summarizes the important facts w.r.t. Bayes’ Theorem.</p>
-<p>For example, suppose we toss a fair, six-sided die. The sample space <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span>. Let <span class="math inline">\(A\)</span> be face is 2 or 3 and let <span class="math inline">\(B\)</span> be face is even (2, 4, 6). To calculate <span class="math inline">\(P(A|B)\)</span>, we count the number of outcomes 2 or 3 in the sample space <span class="math inline">\(B = \{2, 4, 6\}\)</span>. Then we divide that by the number of outcomes <span class="math inline">\(B\)</span> (rather than <span class="math inline">\(\Omega\)</span>).</p>
+<p>For example, suppose we toss a fair, six-sided die. The sample space is
+<span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span>. Let <span class="math inline">\(A\)</span> be 2 and 3 and let <span class="math inline">\(B\)</span> be even (2, 4, 6). To calculate <span class="math inline">\(P(A|B)\)</span>, we count the number of outcomes 2 or 3 in the sample space <span class="math inline">\(B = \{2, 4, 6\}\)</span>. Then we divide that by the number of outcomes <span class="math inline">\(B\)</span> (rather than <span class="math inline">\(\Omega\)</span>).</p>
 <p>We get the same result by using the formula. Remember that <span class="math inline">\(\Omega\)</span> has six outcomes.
-<span class="math display">\[P(A\mid B)=\frac{P(B\cap A)}{P(B)} = \frac{\frac{\text{number of outcomes that are 2 or 3 and even}}{6}}{\frac{\text{number of outcomes that are even}}{6}}=\frac{\frac{1}{6}}{\frac{3}{6}}=\frac{1}{3} \]</span></p>
+<span class="math display">\[P(A\mid B)=\frac{P(B\cap A)}{P(B)} = \frac{\frac{\text{number of outcomes that are 2 or 3 AND even}}{6}}{\frac{\text{number of outcomes that are even}}{6}}=\frac{\frac{1}{6}}{\frac{3}{6}}=\frac{1}{3} \]</span></p>
 </div>
 </div>
 <div id="bayes-theorem" class="section level3 hasAnchor" number="3.4.2">
@@ -1018,7 +1019,7 @@ P(\text{€} 5 | \text{€} 5)=\frac{3}{11}
 \]</span>
 and
 <span class="math display">\[
-P(\text{€} 5 \cap \text{€} 5) = P(\text{€} 5) \cdot P(\text{€}) 5 | \text{€} 5) = \frac{4}{12} \cdot \frac{3}{11}=\frac{1}{11}.
+P(\text{€} 5 \cap \text{€} 5) = P(\text{€} 5) \cdot P(\text{€} 5 | \text{€} 5) = \frac{4}{12} \cdot \frac{3}{11}=\frac{1}{11}.
 \]</span>
 The probability of drawing a € 5 bill and then another € 5 bill is <span class="math inline">\(\frac{1}{11}\)</span>.</p>
 <p>For a deeper understanding of Bayes theorem, I recommd watching the following videos:</p>
