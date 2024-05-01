@@ -321,7 +321,7 @@ div.csl-indent {
   <li><a href="#no-documentation" id="toc-no-documentation" class="nav-link" data-scroll-target="#no-documentation"><span class="header-section-number">3.9</span> No documentation</a></li>
   <li><a href="#ignoring-error-messages-and-warnings" id="toc-ignoring-error-messages-and-warnings" class="nav-link" data-scroll-target="#ignoring-error-messages-and-warnings"><span class="header-section-number">3.10</span> Ignoring error messages and warnings</a></li>
   <li><a href="#no-attempt-to-identify-the-problem-and-troubleshoot" id="toc-no-attempt-to-identify-the-problem-and-troubleshoot" class="nav-link" data-scroll-target="#no-attempt-to-identify-the-problem-and-troubleshoot"><span class="header-section-number">3.11</span> No attempt to identify the problem and troubleshoot</a></li>
-  <li><a href="#no-style-in-writing-code" id="toc-no-style-in-writing-code" class="nav-link" data-scroll-target="#no-style-in-writing-code"><span class="header-section-number">3.12</span> No style in writing code</a></li>
+  <li><a href="#unstylish-code" id="toc-unstylish-code" class="nav-link" data-scroll-target="#unstylish-code"><span class="header-section-number">3.12</span> Unstylish code</a></li>
   </ul>
 </nav>
     </div>
@@ -341,7 +341,7 @@ div.csl-indent {
 <section id="no-consistent-directory-structure" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="no-consistent-directory-structure"><span class="header-section-number">3.2</span> No consistent directory structure</h2>
 <p><strong>Problem:</strong> Students save files in different directories without a clear scheme. This disorganization often leads to problems: Scripts and data gets lost and code breaks.</p>
-<p><strong>Solution:</strong> Organize your project into a clear directory structure from the beginning. Here is my suggestion for a folder structure but feel free to come up with your own:</p>
+<p><strong>Solution:</strong> Organize your project into a clear directory structure from the beginning. Here is my suggestion for a directory structure but feel free to come up with your own:</p>
 <div id="tbl-dirtree" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dirtree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -351,40 +351,44 @@ Table&nbsp;3.1: Typical folder structure
 <table class="table">
 <thead>
 <tr class="header">
-<th>Directory</th>
+<th>Sub-Directory</th>
 <th>What to save here</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td><code>doc/</code></td>
+<td>documentation</td>
+</tr>
+<tr class="even">
 <td><code>dta/</code></td>
 <td>processed data</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>fig/</code></td>
 <td>figures</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>lit/</code></td>
 <td>literature and pdfs</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>ori/</code></td>
 <td>original raw data that you should never change</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>qmd/</code></td>
 <td>reports</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>scr/</code></td>
 <td>R scripts</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>tab/</code></td>
 <td>tables</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>tmp/</code></td>
 <td>temporary files</td>
 </tr>
@@ -411,19 +415,32 @@ Tip&nbsp;3.1: Do not save processed data unless necessary
 <section id="working-manually-outside-r" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="working-manually-outside-r"><span class="header-section-number">3.3</span> Working manually outside R</h2>
 <p><strong>Problem:</strong> Students want to get their work done quickly. This sometimes leads to them relying on manual processes that they have already mastered for their data work. This approach can lead to serious problems when it comes to the reproducibility of their data work.</p>
-<p>For example, consider a three-step process for loading data:</p>
-<ol type="1">
-<li>download data</li>
-<li>unzip and save data</li>
-<li>import data into R</li>
-</ol>
-<p>code and each time the code is run, the process is repeated. However, if students use an alternative application outside of their R script to manually unzip and save the compressed data set, the unzipped data will not be automatically updated each time the script is run. Even if a new version has been downloaded, the old version of the unzipped data will not be automatically replaced.</p>
+<p>Consider a typical three-step process for loading data: (1) downloading the data, (2) unpacking the data, and finally (3) importing the data into R. Many students often take a manual approach by using their Internet browser to download the data, then using their operating system’s unpacking application, and finally importing the data into an R script. While this method is not inherently wrong, there is a risk that students will forget to unpack the downloaded data, resulting in them accidentally working with outdated data. In the kickstart example provided by <a href="05_workflow.html#sec-wbexample" class="quarto-xref"><span>Section 2.2</span></a>, I show that all three steps can be performed seamlessly in R. This way you ensure that you are always working with the most up-to-date data.</p>
 <p><strong>Solution:</strong> Do as much as possible in the script. Invest some time to find out how to download and manipulate the data within R. If it is not possible or if alternatives are superior, describe what you do outside of R explicitly and write a warning note at the top of your script.</p>
 </section>
 <section id="no-active-r-packages-management" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="no-active-r-packages-management"><span class="header-section-number">3.4</span> No active R Packages management</h2>
 <p><strong>Problem:</strong> Students often forget to install and/or load the packages correctly at the beginning of a script. Some unnecessarily install packages repeatedly when running a script. All this can lead to errors and interruptions.</p>
-<p><strong>Solution:</strong> Use the <code>pacman</code> package, which provides the <code>p_load()</code> function to load and, if necessary, install packages and the <code>p_unload(all)</code> function to unload all packages. At the beginning of each script, make sure that all required packages are loaded correctly.</p>
+<p><strong>Solution:</strong> At the beginning of each script, make sure that all required packages are loaded correctly. Use the <code>pacman</code> package, which provides the <code>p_load()</code> function to load and, if necessary, install packages and the <code>p_unload(all)</code> function to unload all packages.</p>
+<div id="tip-fivescript" class="callout callout-style-default callout-tip callout-titled" title="Start your script with">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip&nbsp;3.2: Start your script with
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_unload</span>(all)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, janitor)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/your-directory/"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="confusion-between-console-and-script" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="confusion-between-console-and-script"><span class="header-section-number">3.5</span> Confusion between console and script</h2>
@@ -438,24 +455,43 @@ Tip&nbsp;3.1: Do not save processed data unless necessary
 <section id="lack-of-knowledge-about-data-identification" class="level2" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="lack-of-knowledge-about-data-identification"><span class="header-section-number">3.7</span> Lack of knowledge about data identification</h2>
 <p><strong>Problem:</strong> Students often handle data without understanding which variables uniquely identify the information contained in other variables. It is crucial to recognize these identifying variables and verify their uniqueness to ensure data integrity.</p>
-<p><strong>Solution:</strong> Perform checks for uniqueness at the beginning of their data analysis process. See exercise <em>Names and duplicates</em> in <a href="80_exercises.html#sec-exe_duplicates" class="quarto-xref"><span>Section 8.15</span></a>.</p>
+<p><strong>Solution:</strong> Perform checks for uniqueness at the beginning of their data analysis process. See exercise <em>Names and duplicates</em> in <a href="80_exercises.html#sec-exe_duplicates" class="quarto-xref"><span>Section 8.15</span></a> and the <code>get_dupes</code> fuction introduced in <a href="40_manage.html#sec-get_dupes" class="quarto-xref"><span>Section 6.4.3.2</span></a>.</p>
+<div id="tip-get_dupes" class="callout callout-style-default callout-tip callout-titled" title="Always check your data with get_dupes">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip&nbsp;3.3: Always check your data with get_dupes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For example, you expect that your dataframe <code>df</code> is a panel dataset. With</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_dupes</span>(df, country, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>you can check whether the two variables <code>country</code> and <code>year</code> indeed identify each row uniquely.</p>
+</div>
+</div>
 </section>
 <section id="losing-track-of-data-due-to-excessive-overwriting" class="level2" data-number="3.8">
 <h2 data-number="3.8" class="anchored" data-anchor-id="losing-track-of-data-due-to-excessive-overwriting"><span class="header-section-number">3.8</span> Losing track of data due to excessive overwriting</h2>
 <p><strong>Problem:</strong> Students often manipulate their data by repeatedly overwriting the same object. This can lead to confusion about the data`s current state and the transformations applied.</p>
 <p><strong>Solution:</strong> Minimize the number of assignments to a single object. Instead, create a new object with a descriptive and concise name each time you alter the data. This practice helps maintain clarity about each stage of data manipulation.</p>
 <p>For example, if you’re working with data <code>df</code>, you might store the cleanded data as <code>df_cln</code>, then after filtering for specific criteria, you could use <code>df_cln_flt</code>, and finally, if you aggregate the data, name it <code>df_cln_flt_agg</code>. Having some clear naming convention makes it clear what each dataset represents and the transformations it has undergone.</p>
-<div id="tip-rmlist" class="callout callout-style-default callout-tip callout-titled">
+<div id="tip-rmlist" class="callout callout-style-default callout-tip callout-titled" title="Do clear the environment at the beginning of a script with">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;3.2
+Tip&nbsp;3.4: Do clear the environment at the beginning of a script with
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Do clear the environment at the beginning of a script with <code>rm(list = ls())</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -474,7 +510,7 @@ Tip&nbsp;3.2
 Figure&nbsp;3.1: Googlling the error message
 </figcaption>
 <div aria-describedby="fig-googleit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="fig/googlingtheerrormessage-big.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="fig/googlingtheerrormessage-big.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p><a href="fig/googlingtheerrormessage-big.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="fig/googlingtheerrormessage-big.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
 <p><em>Source: <a href="https://github.com/thepracticaldev/orly-full-res">DEV Community on GitHub</a></em></p>
 </div>
 </figure>
@@ -485,7 +521,7 @@ Figure&nbsp;3.1: Googlling the error message
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;3.3: Common error messages
+Tip&nbsp;3.5: Common error messages
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -556,7 +592,7 @@ Table&nbsp;3.2: Most frequent errors
 <li><strong>Additional information</strong>: Sometime the interplay of your the packages loaded, your operating system, the version of R, and/or the RStudio version may play a role in your problem. Thus, when seeking help, be sure to provide information about your machine, including the operating system, the version of R, and the packages you have loaded. You can use the <code>sessionInfo()</code> function to gather this information.</li>
 </ul>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Here's an example from my machine:">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -565,18 +601,18 @@ Here’s an example from my machine:
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.3.3 (2024-02-29)
+<pre><code>R version 4.2.2 Patched (2022-11-10 r83330)
 Platform: x86_64-pc-linux-gnu (64-bit)
 Running under: Debian GNU/Linux 12 (bookworm)
 
 Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
-LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so;  LAPACK version 3.11.0
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3
+LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.21.so
 
 locale:
  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
@@ -586,17 +622,14 @@ locale:
  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
 [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
 
-time zone: Europe/Berlin
-tzcode source: system (glibc)
-
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 loaded via a namespace (and not attached):
- [1] htmlwidgets_1.6.4 compiler_4.3.3    fastmap_1.1.1     cli_3.6.2        
- [5] tools_4.3.3       htmltools_0.5.8.1 rstudioapi_0.16.0 rmarkdown_2.26   
- [9] knitr_1.46        jsonlite_1.8.8    xfun_0.43         digest_0.6.35    
-[13] rlang_1.1.3       evaluate_0.23    </code></pre>
+ [1] htmlwidgets_1.6.4 compiler_4.2.2    fastmap_1.1.1     cli_3.6.2        
+ [5] tools_4.2.2       htmltools_0.5.7   rstudioapi_0.15.0 rmarkdown_2.25   
+ [9] knitr_1.45        jsonlite_1.8.8    xfun_0.41         digest_0.6.33    
+[13] rlang_1.1.2       evaluate_0.23    </code></pre>
 </div>
 </div>
 </div>
@@ -604,7 +637,7 @@ loaded via a namespace (and not attached):
 </div>
 <p>For more information, see <a href="https://r4ds.hadley.nz/workflow-help">Workflow: getting help</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example of a minimal reproducible example">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -613,21 +646,21 @@ Example of a minimal reproducible example
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For example, the following script is a MRE:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">3.4</span>))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">3.4</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="08_error_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="08_error_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="08_error_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="08_error_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span><span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error:
 ! Cannot use `+` with a single argument.
@@ -636,14 +669,14 @@ Example of a minimal reproducible example
 </div>
 <p>Everybody who copies these few lines of code can reproduce the shown error message and hence can work on a solution. Obviously, the <code>+</code> was set falsly. It must be placed in the line of <code>ggplot</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">3.4</span>))</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="fl">3.4</span>))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="08_error_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="08_error_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="08_error_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="08_error_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -652,8 +685,8 @@ Example of a minimal reproducible example
 </div>
 </div>
 </section>
-<section id="no-style-in-writing-code" class="level2" data-number="3.12">
-<h2 data-number="3.12" class="anchored" data-anchor-id="no-style-in-writing-code"><span class="header-section-number">3.12</span> No style in writing code</h2>
+<section id="unstylish-code" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="unstylish-code"><span class="header-section-number">3.12</span> Unstylish code</h2>
 <p>To avoid issues while programming in R, it’s essential to understand and adhere to various conventions, rules, and best practices specific to the language. Following these conventions makes your code more readable and simplifies your own experience with R. Below, you will find a non-exhaustive list of these guidelines.</p>
 <ol type="1">
 <li>Do remember that R programming language is case sensitive.</li>
@@ -672,7 +705,7 @@ Example of a minimal reproducible example
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;3.4
+Tip&nbsp;3.6
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1261,7 +1294,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
