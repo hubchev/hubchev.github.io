@@ -517,8 +517,8 @@ Solution
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  0.6952222  1.2831556 -0.2763406  1.1732664 -0.8119626 -1.6036169
- [7]  0.6277602 -0.7064211  0.4156115  0.3986602</code></pre>
+<pre><code> [1]  0.67803721  1.25404824 -0.67755433 -0.09153546  0.96396217  0.30411988
+ [7]  1.50692161 -2.12515021 -0.11542292 -1.74216036</code></pre>
 </div>
 </div>
 <p>Here rnorm is the function and the 10 is an argument specifying how many random numbers you want - in this case 10 numbers (typing <code>n=10</code> instead of just 10 would also work). The result is 10 random numbers organised in a vector with length 10.</p>
@@ -526,8 +526,8 @@ Solution
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="fl">1.2</span>, <span class="at">sd =</span> <span class="fl">3.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  1.3383578  1.8545506 -1.7415230  0.2641574  0.2346520  4.8421796
- [7]  4.7645567  0.4677956  3.6802786  1.6222945</code></pre>
+<pre><code> [1]  2.276905  3.332581 -0.375857  1.720281  5.830205 -1.690883  0.836772
+ [8] -5.698294  8.839051 -7.628879</code></pre>
 </div>
 </div>
 <p>This shows that the same function (<code>rnorm()</code>) may have different interfaces and that R has so called named arguments (in this case <code>mean</code> and <code>sd</code>).</p>
@@ -1358,7 +1358,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -6,8 +6,7 @@ output:
     allow_skip: true
 runtime: shiny_prerendered
 description: >
-  Learn how to set up R and RStudio on your machine. We will also demonstrate
-  how to install R packages from CRAN, and install the tidyverse package.
+  Learn how to set up R and RStudio on your machine. We will also demonstrate how to install R packages from CRAN, and install the tidyverse package.
 ---
 
 ```{r setup, include=FALSE}
@@ -16,14 +15,14 @@ tutorial_options(exercise.timelimit = 60)
 ```
 
 
-
 ## Outline
 
-This interactive tutorial will help you set up your computer to use R. It is for you if you need to:
+This interactive tutorial will help you set up your computer to use R. 
+It is for you if you need to:
 
 * Install R on your computer
-* Install the RStudio IDE
-* Install R package
+* Install the RStudio
+* Install R packages
 
 You can skip this tutorial if you've already done these things.
 
@@ -38,7 +37,7 @@ question("Check all that you have NOT done:",
   answer("installed the R packages for the lecture notes _How to Use R for Data Science_", message = "* Install Packages"),
   answer("None of the above. I've done them all.", correct = TRUE, message = "You can skip this tutorial!"),
   type = "multiple",
-  incorrect = "This tutorial is here to help! To get set up read:"
+  incorrect = "This tutorial is here to help!"
 )
 ```
 
@@ -73,7 +72,6 @@ question("In R, everything that exists is considered an object. Which of the fol
   answer("Variables holding data values are objects.", correct = TRUE),
   answer("Functions, even the user-defined ones, are objects.", correct = TRUE),
   answer("Only complex data structures like lists and data frames are objects.", correct = FALSE),
-  answer("Environments used for managing scopes are not considered objects.", correct = FALSE),
   allow_retry = TRUE
 )
 )
@@ -114,42 +112,33 @@ quiz(caption = "Quiz - Install RStudio",
 
 ## Install Packages
 
-Upon successfully installing R, you gain access to functions that are part of _Base R_. This includes standard packages automatically installed and loaded with each R session, such as `stats`, `utils`, and `graphics`, providing a broad spectrum of functionalities for statistical analysis and graphical capabilities. However, the syntax in _Base R_ can become complex and less intuitive for users. Consequently, many individuals, including Hadley Wickham, the Chief Data Scientist at _Posit_ (formerly RStudio), and his team, have developed an alternative suite of packages known as the `tidyverse`. These packages share a common philosophy and syntax, emphasizing readability and ease of use. We will heavily utilize the `tidyverse` in the following sections.
+Upon successfully installing R, you gain access to functions that are part of _Base R_. This includes standard packages automatically installed and loaded with each R session, such as `stats`, `utils`, and `graphics`, providing a broad spectrum of functionalities for statistical analysis and graphical capabilities. However, the syntax in _Base R_ can become complex and less intuitive for users. Consequently, many individuals, spearheaded by Hadley Wickham, the Chief Data Scientist at _Posit_ (formerly RStudio), and his team, have developed an alternative suite of packages known as the `tidyverse`. These packages share a common philosophy and syntax, emphasizing readability and ease of use. We will heavily utilize the `tidyverse` in the following sections.
 
 ### How to install R packages
 
-To install an R package you can use the GUI of R Studio or the command line. In R Studio you can click on the *Packages* tab, then on the *Install* button, then you must search for a package and click *Install*. An alternative way to install a package is by typing
-
-```{r, eval=FALSE}
-install.packages("package_name")
-```
-
-in the console pane of RStudio and pressing Return/Enter on your keyboard. Note you must include the quotation marks around the name of the package.
+To install an R package you can use the GUI of R Studio or the command line and the `install.packages("package_name")` function. In R Studio you can click on the *Packages* tab, then on the *Install* button, then you must search for a package and click *Install*. 
 
 ![](https://vimeo.com/203516241)
 
-Now, install frequently used packages by running the following lines of code in the Console:
+However, I recommend to install and load packages using the `p_load()` function of the `pacman` package. It is superior because
 
-```{r, eval=FALSE}
-install.packages(
-  c("arrow", "babynames", "curl", "duckdb", "gapminder", "ggrepel", "ggridges",
-    "ggthemes", "hexbin", "janitor", "Lahman", "leaflet", "learnr", "maps",
-    "nycflights13", "openxlsx", "palmerpenguins", "repurrrsive", "tidyverse",
-    "tidymodels", "usethis", "WDI", "wbstats", "writexl")
-  )
-```
+- it only installs a package if it is has not been installed yet, 
+- it loads the package, and
+- does not require quotes nor the `c()`function.
 
-You can streamline the process using the `p_load` function as follows:
+Now, install frequently used packages by running the following lines of code in the Console. This takes more than 5 minutes depending on your PC and your internet connection. However, after installing all these packages you have all packages that are used in my exercises, the lecture notes [_How to Use R for Data Science_](https://hubchev.github.io/ds/), and the book [_R for Data Science (2e)_](https://r4ds.hadley.nz/):
 
 ```{r, echo=T, eval=FALSE}
-# Install and load the required packages using p_load
 if (!require(pacman)) install.packages("pacman")
-
 pacman::p_load(
-  arrow, babynames, curl, duckdb, funcuse, gapminder, ggrepel,
-  ggridges, ggthemes, hexbin, janitor, Lahman, leaflet, maps,
-  nycflights13, openxlsx, palmerpenguins, repurrrsive, tidyverse,
-  tidymodels, usethis, WDI, wbstats, writexl
+      arrow, babynames, car, curl, devtools, dplyr, duckdb, 
+      expss, gapminder, ggplot2, ggrepel, ggridges, ggpubr, 
+      ggstats, ggthemes, haven, HH, janitor, kableExtra, knitr, 
+      Lahman, labelled, likert, magick, maps, MASS, 
+      nycflights13, openxlsx, palmerpenguins, papaja, plm, 
+      psych, rempsyc, repurrrsive, rstatix, skimr, sjlabelled, 
+      sjmisc, sjPlot, stargazer, texreg, tidymodels, tidyr, 
+      tidyverse, tinylabels, usethis, WDI, wbstats, writexl
 )
 ```
 
@@ -158,9 +147,9 @@ pacman::p_load(
 ```{r names, echo = FALSE}
 quiz(caption = "Quiz - Working with Packages",
   question("What commands can you use to install packages?",
-    answer("`library()`", message = "We will see what `library()` does later."),
+    answer("`library()`", message = "No, `library()` allows you to load a installed package."),
     answer("`install.packages()`", correct = TRUE),
-    answer("`install_packages()`"),
+    answer("`install_packages()`", message = "No, the underscore is wrong."),
     answer("`pacman::p_load()`", correct = TRUE),    
     answer("There is no command. You must visit [cran.r-project.org](http://cran.r-project.org) and download packages manually.", message = "R makes it easy to download packages. You connect to the internet and then run one of the commands above."),
     allow_retry = TRUE
