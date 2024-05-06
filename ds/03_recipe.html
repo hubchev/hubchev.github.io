@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How to Use R for Data Science - 6&nbsp; Work with R scripts</title>
+<title>How to Use R for Data Science - 2&nbsp; Soft launch</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,27 +54,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -84,8 +64,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./40_manage.html" rel="next">
-<link href="./10_swirl.html" rel="prev">
+<link href="./05_workflow.html" rel="next">
+<link href="./01_install.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -137,7 +117,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./22_script.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Work with R scripts</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_recipe.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Soft launch</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -200,7 +180,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_recipe.html" class="sidebar-item-text sidebar-link">
+  <a href="./03_recipe.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Soft launch</span></span></a>
   </div>
 </li>
@@ -224,7 +204,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_script.html" class="sidebar-item-text sidebar-link active">
+  <a href="./22_script.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span></a>
   </div>
 </li>
@@ -297,14 +277,11 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-limitations-of-no-code-applications" id="toc-the-limitations-of-no-code-applications" class="nav-link active" data-scroll-target="#the-limitations-of-no-code-applications"><span class="header-section-number">6.1</span> The limitations of no-code applications</a></li>
-  <li><a href="#r-scripts-why-they-are-useful" id="toc-r-scripts-why-they-are-useful" class="nav-link" data-scroll-target="#r-scripts-why-they-are-useful"><span class="header-section-number">6.2</span> R Scripts: Why they are useful</a></li>
-  <li><a href="#create-write-and-run-r-scripts" id="toc-create-write-and-run-r-scripts" class="nav-link" data-scroll-target="#create-write-and-run-r-scripts"><span class="header-section-number">6.3</span> Create, write, and run R scripts</a>
-  <ul class="collapse">
-  <li><a href="#create" id="toc-create" class="nav-link" data-scroll-target="#create"><span class="header-section-number">6.3.1</span> Create</a></li>
-  <li><a href="#write" id="toc-write" class="nav-link" data-scroll-target="#write"><span class="header-section-number">6.3.2</span> Write</a></li>
-  <li><a href="#run" id="toc-run" class="nav-link" data-scroll-target="#run"><span class="header-section-number">6.3.3</span> Run</a></li>
-  </ul></li>
+  <li><a href="#bake-a-cake" id="toc-bake-a-cake" class="nav-link active" data-scroll-target="#bake-a-cake"><span class="header-section-number">2.1</span> Bake a cake</a></li>
+  <li><a href="#elegant-code" id="toc-elegant-code" class="nav-link" data-scroll-target="#elegant-code"><span class="header-section-number">2.2</span> Elegant code</a></li>
+  <li><a href="#bake-a-cheese-cake" id="toc-bake-a-cheese-cake" class="nav-link" data-scroll-target="#bake-a-cheese-cake"><span class="header-section-number">2.3</span> Bake a cheese cake</a></li>
+  <li><a href="#comment-what-you-do" id="toc-comment-what-you-do" class="nav-link" data-scroll-target="#comment-what-you-do"><span class="header-section-number">2.4</span> Comment what you do</a></li>
+  <li><a href="#make-10-cakes" id="toc-make-10-cakes" class="nav-link" data-scroll-target="#make-10-cakes"><span class="header-section-number">2.5</span> Make 10 cakes</a></li>
   </ul>
 </nav>
     </div>
@@ -313,7 +290,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-scripts" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Soft launch</span></h1>
 </div>
 
 
@@ -330,197 +307,244 @@ div.csl-indent {
 </header>
 
 
-<section id="the-limitations-of-no-code-applications" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="the-limitations-of-no-code-applications"><span class="header-section-number">6.1</span> The limitations of no-code applications</h2>
-<!-- ![](fig/nocodeornot.webp){width=90%} -->
-<p>No-Code Applications (NCA) such as <a href="https://www.microsoft.com/en-us/microsoft-365/excel">Microsoft Excel</a>, <a href="https://altair.com/altair-rapidminer">RapidMiner</a>, <a href="https://www.knime.com/">KNIME</a>, <a href="https://www.datarobot.com/">DataRobot</a>, <a href="https://www.tableau.com/">Tableau</a>, <a href="https://www.microsoft.com/en-us/power-platform/products/power-bi">Microsoft Power BI</a>, and <a href="https://cloud.google.com/automl">Google AutoML</a> are popular for good reasons. They enable the application of advanced empirical methods with no or minimal programming effort. Their intuitive graphical user interfaces comes with pre-built templates and drag-and-drop functionality which helps to get things done quick, without having to study the programm documentation for hours. Despite their apparent ease of use and efficiency, these platforms come with several disadvantages compared to traditional ways of working with computer by scripting and coding. Understanding these weaknesses helps to see why professional researchers, especially those actively publishing in academic journals, tend to rely on scripting languages like R and Python. These programming languages offer full control, are customizeable and extendable, offer extensive opportunities for automation and reproducibility, and are often better suited for demanding data science tasks.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Disadvantages of No-Code Applications (NCA)">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Disadvantages of No-Code Applications (NCA)
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>NCA lack flexibility and are limited in their adaptability.</li>
-<li>NCA often have problems scaling with increasing data volumes or user requirements.</li>
-<li>NCA are often closed systems that make it difficult to integrate other systems or applications.</li>
-<li>NCA often bind a company to a specific ecosystem. This can lead to dependencies and vendor lock-in.</li>
-<li>NCA can obscure the underlying logic of how applications work, which can make troubleshooting more difficult.</li>
-<li>NCA abstracts the coding process and prevents users from understanding fundamental concepts that could be beneficial to their professional growth and ability to tackle more complex problems.</li>
-</ul>
-</div>
-</div>
-<p>In summary, while low-code and no-code platforms offer quick deployment and ease of use, they can lack the depth, flexibility, and control provided by traditional scripting. Researchers and businesses must consider these trade-offs, especially when planning for long-term scalability, complex customizations, or in-depth integrations.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="A hypothetical but realistic example with Excel">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-A hypothetical but realistic example with Excel
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Suppose you work with a spreadsheet software like Excel. You import a CSV file using the implemented import tool, you save the converted file. You notice that Excel has messed up the dates during the import, so you spend a few minutes cleanig that manually. Then, you visualize the data and you save the visualisations in various tabs. Maybe, you can spot some outliers and you document in footnote that these outliers are the result of some issues with the raw data. As these errors cannot be solved, you delete the observations and variables that contain a significant amount of errors. Finally, you use filters to calculate some summary statistics. All your results are written in a new tab. You’re convinced that you’ve done a great job. However, you send the file to your supervisor and you ask him for her opinion.</p>
-<ul>
-<li>She probably asks you what you have done to the data. How can you efficiently and completely communicate that?</li>
-<li>She comes back to you some time later and asks you to do the same analysis with an updated version of the data. How can you exactly redo the analysis and how long do you think it will take you to complete the job?</li>
-<li>She finds an error in your work or she has an idea to improve your analysis by making a few adjustments. Can you implement the adjustments easily, or do you have to redo everything from scratch?</li>
-<li>She sends you back the file with the comment that she has worked out some things in the file and now everything should be fine. How do you know what she has done to the data?</li>
-</ul>
-<p>To say it in the words of <span class="citation" data-cites="Stephenson2023Data">Stephenson (<a href="references.html#ref-Stephenson2023Data" role="doc-biblioref">2023, sec. 5.1</a>)</span>:</p>
-<blockquote class="blockquote">
-<p>“<em>Spreadsheets are a nightmare for quality control and reproducibility, and you should always think twice before using one. Spreadsheets will always be a handy way to manipulate tabular datasets, and you’ll probably find them useful for data collection and quick back-of-the-envelope calculations, but they’re often more trouble than they’re worth.</em>”</p>
-</blockquote>
-</div>
-</div>
-</section>
-<section id="r-scripts-why-they-are-useful" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="r-scripts-why-they-are-useful"><span class="header-section-number">6.2</span> R Scripts: Why they are useful</h2>
-<p>I have already discussed in <a href="01_install.html#sec-writeandrun" class="quarto-xref"><span>Section 1.7</span></a> that you can run code either directly by typing your code into the console of R or by writing a script and then sending the code with <code>Ctrl+Enter</code> or with the <code>Run</code> button to the console of R. Typing functions into the console to run code may seem simple, but this interactive style has limitations:</p>
-<ul>
-<li>Typing commands one at a time can be cumbersome and time-consuming.</li>
-<li>It’s hard to save your work effectively.</li>
-<li>Going back to the beginning when you make a mistake is annoying.</li>
-<li>You can’t leave notes for yourself.</li>
-<li>Reusing and adapting analyses can be difficult.</li>
-<li>It’s hard to do anything except the basics.</li>
-<li>Sharing your work with others can be challenging.</li>
-</ul>
-<p>That’s where having a transcript of all the code, which can be re-run and edited at any time, becomes useful. An R script is just plain text that is interpreted as code or as a comment if the text follows a hastag <code>#</code>. A script comes with important advantages.</p>
-<p>Scripts…</p>
-<ul>
-<li>… provide a record of everything you did during your data analysis.</li>
-<li>… can easily be edited and re-run.</li>
-<li>… allow you to leave notes for yourself.</li>
-<li>… make it easy to reuse and adapt analyses.</li>
-<li>… allow you to do more complex analyses.</li>
-<li>… make it easy to share your work with others.</li>
-</ul>
-</section>
-<section id="create-write-and-run-r-scripts" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="create-write-and-run-r-scripts"><span class="header-section-number">6.3</span> Create, write, and run R scripts</h2>
-<section id="create" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="create"><span class="header-section-number">6.3.1</span> Create</h3>
-<div class="callout callout-style-default callout-note callout-titled" title="3 equivalent ways to create a script">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-3 equivalent ways to create a script
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Use the menu: <code>File &gt; New File &gt; R Script</code></li>
-<li>Use the keyboard shortcut: <code>Ctrl</code>+<code>Shift</code>+<code>N</code> (Windows/Linux) or <code>Cmd</code>+<code>Shift</code>+<code>N</code> (Mac) or</li>
-<li>Type the following in the console:</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file.create</span>(<span class="st">"hello.R"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<p>In the first two ways, a new R script window will open which can be edited and should be saved either by clicking on the <code>File</code> menu and selecting <code>Save</code>, clicking the disk icon, or by using the shortcut <code>Ctrl</code>+<code>S</code> (Windows/Linux) or <code>Cmd</code>+<code>S</code> (Mac). If you go for the third way, you need to open it manually.</p>
-</section>
-<section id="write" class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="write"><span class="header-section-number">6.3.2</span> Write</h3>
-<p>Regardless of your preferred way of generating a script, we can now start writing our first script:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"hello world"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Then save the script using the menus (<code>File &gt; Save</code>) as <code>hello.R</code>.</p>
-<p>The above lines of code do the following:</p>
-<ul>
-<li>With the assignment operator <code>&lt;-</code> we create an object that stores the words “hello world” in an object entitled <code>x</code>. In <a href="40_manage.html#sec-assignmentoper" class="quarto-xref"><span>Section 6.1.1</span></a> the assignment operator is further explained.</li>
-<li>With the third input we print the content of the object <code>x</code>.</li>
-</ul>
-</section>
-<section id="run" class="level3" data-number="6.3.3">
-<h3 data-number="6.3.3" class="anchored" data-anchor-id="run"><span class="header-section-number">6.3.3</span> Run</h3>
-<p>So how do we run the script? Assuming that the <code>hello.R</code> file has been saved to your working directory, then you can run the script using the following command:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>( <span class="st">"hello.R"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Suppose you saved the script in a sub-folder called <em>scripts</em> of your working directory, then you need to run the script using the following command:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"./scripts/hello.R"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Just note that the dot, <code>.</code>, means the current folder. Instead of using the <code>source</code> function, you can click on the <code>source</code> button in Rstudio.</p>
-<p>With the character <code>#</code> you can write a comment in a script and R will simply ignore everything that follows in that line onwards.</p>
-<div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-round" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6.1</strong></span> Run a script and round numbers</p>
-<p>Please copy and paste the following lines of code into an R script, run it on your computer, and try to understand how it works.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a vector that contains the sales data</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sales_by_month <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">50</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>sales_by_month</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sales_by_month[<span class="dv">2</span>]</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>sales_by_month[<span class="dv">4</span>]</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>february_sales <span class="ot">&lt;-</span> sales_by_month[<span class="dv">2</span>]</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>february_sales</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>sales_by_month[<span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="dv">25</span> <span class="co"># added May sales data</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>sales_by_month</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Do I have 12 month?</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>( <span class="at">x =</span> sales_by_month )</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Assume each unit costs 7 Euro, then the revenue is</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>price <span class="ot">&lt;-</span> <span class="dv">7</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>revenue <span class="ot">&lt;-</span> sales_by_month<span class="sc">*</span>price</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>revenue</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># To get statistics for daily revenue we define the number of days:</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>days_per_month <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">31</span>, <span class="dv">28</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>, <span class="dv">30</span>, <span class="dv">31</span>)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the daily revenue</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>revenue_per_day <span class="ot">&lt;-</span> revenue<span class="sc">/</span>days_per_month</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>revenue_per_day </span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># round number </span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(revenue_per_day) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Use the “<code>?</code>” to search for the documentation of all functions used. In particular, do you understand how the function <code>round()</code> works? What arguments does the function contain? How can you manipulate the pre-defined arguments. For example, can you calculate the rounded revenue per day with two or four digits? Try it out!</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>?<span class="fu">round</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<p>When you talk to a computer, you use a programming language. Computers can handle certain tasks for you, like doing math or creating graphs. They don’t complain and work fast. They just need clear instructions. Giving clear instructions to a machine, however, isn’t easy. A computer doesn’t have a gut feeling and cannot consider the specific situation under which your instructions were given. Check out <a href="https://youtu.be/cDA3_5982h8">this video</a>. It’ll show you that good communication isn’t about explaining things perfectly, but about using your gut feeling and common sense effectively.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cDA3_5982h8?si=VnFzUb0Ia87H5MGW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<section id="bake-a-cake" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="bake-a-cake"><span class="header-section-number">2.1</span> Bake a cake</h2>
+<p>As a teacher, I often contemplate how I can teach students to communicate with a computer. In this section, I will attempt to translate a cake baking recipe into a programming language, using R. I hope you find this both amusing and insightful. Let’s start by examining a simplified cake recipe:</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Instructions to bake a cake:">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+Instructions to bake a cake:
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
+<ol type="1">
+<li>Buy an oven.</li>
+<li>Buy ingredients (flour, sugar, butter, eggs, soda).</li>
+<li>Buy tools.</li>
+<li>Clean everything..<br>
+</li>
+<li>Heat up the oven.</li>
+<li>Prepare the tools (springform, bowl, mixer).</li>
+<li>Weight all ingredients.</li>
+<li>Take a bow and all the weighted ingredients and put everything in a bowl.</li>
+<li>Take the mixer and mix all ingredients in the bowl for 3 minutes.</li>
+<li>Put all the mixed ingredients in a springform pan.</li>
+<li>Take the springform pan with the mixed ingredients and put it in the oven.</li>
+<li>Bake for 30 minutes, take the springform pan it out of the oven, and turn off the oven.</li>
+<li>Clean the kitchen and the tools.</li>
+</ol>
+</div>
+</div>
+</div>
+<p>Although this recipe is simplified, it illustrates a process you might be familiar with. Now, let’s assume a computer is tasked with baking a cake. How would we explain the necessary steps to the computer using the R programming language?</p>
+<p>In R, a functional programming language, we understand that everything that happens is a function call, and every entity is an object. Therefore, we must translate all actions into functions and all items into objects.</p>
+<p>Here’s what the translated recipe could look like in R:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(revenue_per_day, <span class="at">digits =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">buy</span>(oven, springform, bowl, mixer, flour, sugar, butter, eggs, soda)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">clean</span>(oven, springform, bowl, mixer)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">turn_on</span>(oven)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">prepare</span>(springform, bowl, mixer)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">weigh</span>(flour, sugar, butter, eggs, soda)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>dough <span class="ot">&lt;-</span> bowl <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(flour, sugar, butter, eggs, soda) <span class="sc">|&gt;</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">action</span>(<span class="at">tool =</span> mixer, <span class="at">time =</span> <span class="dv">3</span>) </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>dough_springform <span class="ot">&lt;-</span> springform <span class="sc">|&gt;</span> </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(dough) <span class="sc">|&gt;</span> </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>dough_oven <span class="ot">&lt;-</span> oven <span class="sc">|&gt;</span> </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(dough_springform) <span class="sc">|&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">action</span>(<span class="at">tool =</span> oven, <span class="at">time =</span> <span class="dv">30</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">turn_of</span>(oven)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">clean</span>(oven, springform, bowl, mixer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Understanding the translation of a recipe into code becomes clearer when we familiarize ourselves with two key programming operators:</p>
+<ol type="1">
+<li>The “<code>&lt;-</code>” is known as the <em>assignment operator</em>. It saves or stores data into a new object. It might be helpful to think of it as saying, “I create the object <em><code>&lt;name of object&gt;</code></em> and store therein”</li>
+<li>The “<code>|&gt;</code>” is known as the <em>pipe operator</em>. It passes the output of one action to serve as the input for the next. Think of it as saying “and then.”</li>
+</ol>
+<p>For example, the following lines:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dough <span class="ot">&lt;-</span> bowl <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(flour, sugar, butter, eggs, soda) <span class="sc">|&gt;</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">action</span>(<span class="at">tool =</span> mixer, <span class="at">time =</span> <span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>can be interpreted as:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>I create the object `dough` and I store therein the bowl, and then </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  I put flour, sugar, butter, eggs, and soda to it, and then</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  I take action with the mixer for 3 minutes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Even though R is no good as a cook and the recipe is missing some steps, this analogy helps to illustrate how programming languages work: they allow us to instruct the computer in a sequential way. Next, I will showcase why coding is appealing.</p>
+</section>
+<section id="elegant-code" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="elegant-code"><span class="header-section-number">2.2</span> Elegant code</h2>
+<p>et’s make our code more “elegant”. Elegant code is easy to read, understand, and modify. For example, it is equivalent to write</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dough <span class="ot">&lt;-</span> bowl <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(flour, sugar, butter, eggs, soda) <span class="sc">|&gt;</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">action</span>(<span class="at">tool =</span> mixer, <span class="at">time =</span> <span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>or</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dough <span class="ot">&lt;-</span> bowl <span class="sc">|&gt;</span> <span class="fu">put</span>(flour, sugar, butter, eggs, soda) <span class="sc">|&gt;</span> <span class="fu">action</span>(<span class="at">tool =</span> mixer, <span class="at">time =</span> <span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>However, the first version is easier for the human eye to read. By using the assignment operator, we can create two objects: <code>ingredients</code> and <code>tools</code>. These objects are used multiple times throughout the process.</p>
+<p>Here is an improved version of the script:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ingredients <span class="ot">&lt;-</span> <span class="fu">c</span>(flour, sugar, butter, eggs, soda)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>tools <span class="ot">&lt;-</span> <span class="fu">c</span>(oven, springform, bowl, mixer)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">buy</span>(tools, ingredients)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">clean</span>(tools)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">turn_on</span>(oven)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">prepare</span>(tools)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">weight</span>(ingredients)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>dough <span class="ot">&lt;-</span> bowl <span class="sc">|&gt;</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(ingredients) <span class="sc">|&gt;</span> </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">action</span>(<span class="at">tool =</span> mixer, <span class="at">time =</span> <span class="dv">3</span>) </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>dough_springform <span class="ot">&lt;-</span> springform <span class="sc">|&gt;</span> </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(dough) </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>dough_oven <span class="ot">&lt;-</span> oven <span class="sc">|&gt;</span> </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(dough_springform) <span class="sc">|&gt;</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">action</span>(<span class="at">tool =</span> oven, <span class="at">time =</span> <span class="dv">30</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="fu">turn_of</span>(oven)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="fu">clean</span>(, tools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-
-
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
-<div id="ref-Stephenson2023Data" class="csl-entry" role="listitem">
-Stephenson, P. (2023). <em>Data science practice</em>. Accessed January 30, 2023. <a href="https://datasciencepractice.study/">https://datasciencepractice.study/</a>
-</div>
+<p>This version refines the process, making the code more streamlined and easier to follow.</p>
+</section>
+<section id="bake-a-cheese-cake" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="bake-a-cheese-cake"><span class="header-section-number">2.3</span> Bake a cheese cake</h2>
+<p>Now, let’s assume you want to bake another cake, this time with chocolate and banana, but without eggs. Moreover, you need to bake it for 45 minutes. We can easily adapt the code snippet from above to accommodate the ingredients for this new recipe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ingredients <span class="ot">&lt;-</span> <span class="fu">c</span>(flour, sugar, butter, soda, banana, chocolate)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>tools <span class="ot">&lt;-</span> <span class="fu">c</span>(oven, springform, bowl, mixer)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">buy</span>(tools, ingredients)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">clean</span>(tools)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">turn_on</span>(oven)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">prepare</span>(tools)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">weight</span>(ingredients)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>dough <span class="ot">&lt;-</span> bowl <span class="sc">|&gt;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(ingredients) <span class="sc">|&gt;</span> </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">action</span>(<span class="at">tool =</span> mixer, <span class="at">time =</span> <span class="dv">3</span>) </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>dough_springform <span class="ot">&lt;-</span> springform <span class="sc">|&gt;</span> </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(dough) </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>dough_oven <span class="ot">&lt;-</span> oven <span class="sc">|&gt;</span> </span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(dough_springform) <span class="sc">|&gt;</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">action</span>(<span class="at">tool =</span> oven, <span class="at">time =</span> <span class="dv">45</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="fu">turn_of</span>(oven)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="fu">clean</span>(kitchen, tools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section id="comment-what-you-do" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="comment-what-you-do"><span class="header-section-number">2.4</span> Comment what you do</h2>
+<p>Sometimes code can be difficult to understand for humans. It is therefore helpful to add comments to clarify what the individual code sections are supposed to do. In R, comments can be added with a leading hashtag, <code>#</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Decide on tools and ingredients </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ingredients <span class="ot">&lt;-</span> <span class="fu">c</span>(flour, sugar, butter, soda, banana, chocolate)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>tools <span class="ot">&lt;-</span> <span class="fu">c</span>(oven, springform, bowl, mixer)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Go shopping</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">buy</span>(tools, ingredients)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare the kitchen, tools, and ingredients</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">clean</span>(tools)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">turn_on</span>(oven)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">prepare</span>(tools)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">weight</span>(ingredients)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the dough</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>dough <span class="ot">&lt;-</span> bowl <span class="sc">|&gt;</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(ingredients) <span class="sc">|&gt;</span> </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">action</span>(<span class="at">tool =</span> mixer, <span class="at">time =</span> <span class="dv">3</span>) </span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>dough_springform <span class="ot">&lt;-</span> springform <span class="sc">|&gt;</span> </span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(dough) <span class="sc">|&gt;</span> </span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># bake the cake</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>dough_oven <span class="ot">&lt;-</span> oven <span class="sc">|&gt;</span> </span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(dough_springform) <span class="sc">|&gt;</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">action</span>(<span class="at">tool =</span> oven, <span class="at">time =</span> <span class="dv">45</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean up</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="fu">turn_of</span>(oven)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="fu">clean</span>(kitchen, tools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="make-10-cakes" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="make-10-cakes"><span class="header-section-number">2.5</span> Make 10 cakes</h2>
+<p>As a computer can reproduce a cake within seconds (I mean, not really, just in my little fun exercise here), we now have the opportunity to experiment with several versions of the cake by varying the baking time from 35 to 45 minutes. Here’s how the corresponding code might look:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ingredients <span class="ot">&lt;-</span> <span class="fu">c</span>(flour, sugar, butter, soda, banana, chocolate)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>tools <span class="ot">&lt;-</span> <span class="fu">c</span>(springform, bowl, mixer)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">buy</span>(tools, ingredients)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">clean</span>(tools)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">turn_on</span>(oven)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">prepare</span>(tools)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">weight</span>(ingredients)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>dough <span class="ot">&lt;-</span> bowl <span class="sc">|&gt;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(ingredients) <span class="sc">|&gt;</span> </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">action</span>(<span class="at">tool =</span> mixer, <span class="at">time =</span> <span class="dv">3</span>) </span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>dough_springform <span class="ot">&lt;-</span> springform <span class="sc">|&gt;</span> </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">put</span>(dough) </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (timing <span class="cf">in</span> <span class="dv">35</span><span class="sc">:</span><span class="dv">44</span>) {</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  dough_oven <span class="ot">&lt;-</span> oven <span class="sc">|&gt;</span> </span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">put</span>(dough_springform) <span class="sc">|&gt;</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">action</span>(<span class="at">tool =</span> oven, <span class="at">time =</span> timing) <span class="sc">|&gt;</span> </span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>()</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>(<span class="fu">paste</span>(<span class="st">"dough_oven_min_"</span>, timing, <span class="at">sep =</span> <span class="st">""</span>), dough_oven)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="fu">turn_of</span>(oven)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="fu">clean</span>(tools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can see a loop with some new and tweaked lines:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (timing <span class="cf">in</span> <span class="dv">35</span><span class="sc">:</span><span class="dv">44</span>) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  dough_oven <span class="ot">&lt;-</span> oven <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">put</span>(dough_springform) <span class="sc">|&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">action</span>(<span class="at">tool =</span> oven, <span class="at">time =</span> timing) <span class="sc">|&gt;</span> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>()</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>(<span class="fu">paste</span>(<span class="st">"dough_oven_min_"</span>, timing, <span class="at">sep =</span> <span class="st">""</span>), dough_oven)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These lines sequentially execute the following actions:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Let the object timing be 35, make a cake, and save it in the object `dough_oven_min_35` then start again and</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>let the object timing be 36, make a cake, and save it in the object `dough_oven_min_36` then start again and</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>let the object timing be 37, make a cake, and save it in the object `dough_oven_min_37` then start again and</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>let the object timing be 38, make a cake, and save it in the object `dough_oven_min_38` then start again and</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>let the object timing be 39, make a cake, and save it in the object `dough_oven_min_39` then start again and</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>let the object timing be 40, make a cake, and save it in the object `dough_oven_min_40` then start again and</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>let the object timing be 41, make a cake, and save it in the object `dough_oven_min_41` then start again and</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>let the object timing be 42, make a cake, and save it in the object `dough_oven_min_42` then start again and</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>let the object timing be 43, make a cake, and save it in the object `dough_oven_min_43` then start again and</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>let the object timing be 44, make a cake, and save it in the object `dough_oven_min_44` then start again </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After all, we have ten cakes. This shows how we can harness the processing power of a computer. Computers are excellent at performing everyday, repetitive tasks so that we can automate processes and perform procedures effortlessly over and over again.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1079,13 +1103,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./10_swirl.html" class="pagination-link" aria-label="An interactive introduction using swirl">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">An interactive introduction using swirl</span></span>
+      <a href="./01_install.html" class="pagination-link" aria-label="Getting started with R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started with R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./40_manage.html" class="pagination-link" aria-label="Manage data">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manage data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./05_workflow.html" class="pagination-link" aria-label="Kickstart">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Kickstart</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
