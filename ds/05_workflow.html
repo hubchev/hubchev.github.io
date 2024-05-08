@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How to Use R for Data Science - 3&nbsp; Kickstart</title>
+<title>How to Use R for Data Science - 5&nbsp; Kickstart</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./10_swirl.html" rel="next">
-<link href="./03_recipe.html" rel="prev">
+<link href="./08_error.html" rel="next">
+<link href="./10_swirl.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_recipe.html">LEARN TO CODE</a></li><li class="breadcrumb-item"><a href="./05_workflow.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Kickstart</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_swirl.html">Basics of coding</a></li><li class="breadcrumb-item"><a href="./05_workflow.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kickstart</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -158,16 +158,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01_install.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started with R</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">LEARN TO CODE</span></a>
+ <span class="menu-text">Getting started…</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -175,16 +169,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_recipe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Soft launch</span></span></a>
+  <a href="./01_install.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">…with R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_workflow.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Kickstart</span></span></a>
+  <a href="./03_recipe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">…writing code</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22_script.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">…writing R scripts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Basics of coding</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10_swirl.html" class="sidebar-item-text sidebar-link">
@@ -193,36 +204,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_error.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitfalls</span></span></a>
+  <a href="./05_workflow.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kickstart</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_script.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span></a>
+  <a href="./08_error.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitfalls</span></span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Do stuff</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_manage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manage data</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_graph.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Visualize data</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./80_exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Collection of exercises</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -231,13 +253,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./95_filesys.html" class="sidebar-item-text sidebar-link">
@@ -274,17 +296,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#analysing-the-association-of-weight-and-the-price-of-cars" id="toc-analysing-the-association-of-weight-and-the-price-of-cars" class="nav-link active" data-scroll-target="#analysing-the-association-of-weight-and-the-price-of-cars"><span class="header-section-number">3.1</span> Analysing the association of weight and the price of cars</a></li>
-  <li><a href="#sec-wbexample" id="toc-sec-wbexample" class="nav-link" data-scroll-target="#sec-wbexample"><span class="header-section-number">3.2</span> Accessing World Bank’s <em>World Development Indicators</em></a></li>
+  <li><a href="#analysing-the-association-of-weight-and-the-price-of-cars" id="toc-analysing-the-association-of-weight-and-the-price-of-cars" class="nav-link active" data-scroll-target="#analysing-the-association-of-weight-and-the-price-of-cars"><span class="header-section-number">5.1</span> Analysing the association of weight and the price of cars</a></li>
+  <li><a href="#sec-wbexample" id="toc-sec-wbexample" class="nav-link" data-scroll-target="#sec-wbexample"><span class="header-section-number">5.2</span> Accessing World Bank’s <em>World Development Indicators</em></a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_recipe.html">LEARN TO CODE</a></li><li class="breadcrumb-item"><a href="./05_workflow.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Kickstart</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_swirl.html">Basics of coding</a></li><li class="breadcrumb-item"><a href="./05_workflow.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kickstart</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Kickstart</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kickstart</span></h1>
 </div>
 
 
@@ -313,8 +335,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- ) -->
 <!-- ``` -->
 <!-- ::: -->
-<section id="analysing-the-association-of-weight-and-the-price-of-cars" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="analysing-the-association-of-weight-and-the-price-of-cars"><span class="header-section-number">3.1</span> Analysing the association of weight and the price of cars</h2>
+<section id="analysing-the-association-of-weight-and-the-price-of-cars" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="analysing-the-association-of-weight-and-the-price-of-cars"><span class="header-section-number">5.1</span> Analysing the association of weight and the price of cars</h2>
 <p>Before we start, we need to ensure that all necessary libraries are installed and loaded. We use the pacman package for convenient package management.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load required libraries</span></span>
@@ -598,8 +620,8 @@ F-statistic: 29.42 on 1 and 72 DF,  p-value: 7.416e-07</code></pre>
 </div>
 </div>
 </section>
-<section id="sec-wbexample" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="sec-wbexample"><span class="header-section-number">3.2</span> Accessing World Bank’s <em>World Development Indicators</em></h2>
+<section id="sec-wbexample" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="sec-wbexample"><span class="header-section-number">5.2</span> Accessing World Bank’s <em>World Development Indicators</em></h2>
 <p>The World Wide Web is a treasure trove of data, and most major databases offer researchers direct download options. Numerous user-supplied packages are available for seamless access to such data. In this section, I present two popular packages that facilitate the downloading of data from the World Bank’s <em>World Development Indicators</em>:</p>
 <p><strong>WDI (World Development Indicators) Package</strong> - Official CRAN package documentation: <a href="https://cran.r-project.org/web/packages/WDI/WDI.pdf">WDI on CRAN</a> - Source code on GitHub: <a href="https://github.com/vincentarelbundock/WDI">WDI GitHub Repository</a></p>
 <p><strong>wbstats (World Bank Statistics) Package</strong> - Official CRAN package documentation: <a href="https://cran.r-project.org/web/packages/wbstats/wbstats.pdf">wbstats on CRAN</a> - Source code on GitHub: <a href="https://github.com/gshs-ornl/wbstats">wbstats GitHub Repository</a></p>
@@ -1919,18 +1941,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./03_recipe.html" class="pagination-link" aria-label="Soft launch">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Soft launch</span></span>
+      <a href="./10_swirl.html" class="pagination-link" aria-label="Interactive introduction with swirl">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Interactive introduction with swirl</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./10_swirl.html" class="pagination-link" aria-label="Interactive introduction with swirl">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Interactive introduction with swirl</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./08_error.html" class="pagination-link" aria-label="Pitfalls">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitfalls</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"descPosition":"bottom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

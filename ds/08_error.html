@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How to Use R for Data Science - 5&nbsp; Pitfalls</title>
+<title>How to Use R for Data Science - 6&nbsp; Pitfalls</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,8 +84,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./22_script.html" rel="next">
-<link href="./10_swirl.html" rel="prev">
+<link href="./40_manage.html" rel="next">
+<link href="./05_workflow.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -140,7 +140,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_recipe.html">LEARN TO CODE</a></li><li class="breadcrumb-item"><a href="./08_error.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitfalls</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_swirl.html">Basics of coding</a></li><li class="breadcrumb-item"><a href="./08_error.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitfalls</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -178,16 +178,10 @@ div.csl-indent {
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01_install.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started with R</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">LEARN TO CODE</span></a>
+ <span class="menu-text">Getting started…</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -195,16 +189,33 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_recipe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Soft launch</span></span></a>
+  <a href="./01_install.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">…with R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_workflow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Kickstart</span></span></a>
+  <a href="./03_recipe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">…writing code</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22_script.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">…writing R scripts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Basics of coding</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10_swirl.html" class="sidebar-item-text sidebar-link">
@@ -213,36 +224,47 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_error.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitfalls</span></span></a>
+  <a href="./05_workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kickstart</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_script.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span></a>
+  <a href="./08_error.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitfalls</span></span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Do stuff</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_manage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manage data</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_graph.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Visualize data</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./80_exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Collection of exercises</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -251,13 +273,13 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./95_filesys.html" class="sidebar-item-text sidebar-link">
@@ -294,27 +316,27 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#no-clue-about-the-working-directory" id="toc-no-clue-about-the-working-directory" class="nav-link active" data-scroll-target="#no-clue-about-the-working-directory"><span class="header-section-number">5.1</span> No clue about the “working directory”</a></li>
-  <li><a href="#no-consistent-directory-structure" id="toc-no-consistent-directory-structure" class="nav-link" data-scroll-target="#no-consistent-directory-structure"><span class="header-section-number">5.2</span> No consistent directory structure</a></li>
-  <li><a href="#working-manually-outside-r" id="toc-working-manually-outside-r" class="nav-link" data-scroll-target="#working-manually-outside-r"><span class="header-section-number">5.3</span> Working manually outside R</a></li>
-  <li><a href="#no-active-r-packages-management" id="toc-no-active-r-packages-management" class="nav-link" data-scroll-target="#no-active-r-packages-management"><span class="header-section-number">5.4</span> No active R Packages management</a></li>
-  <li><a href="#confusion-between-console-and-script" id="toc-confusion-between-console-and-script" class="nav-link" data-scroll-target="#confusion-between-console-and-script"><span class="header-section-number">5.5</span> Confusion between console and script</a></li>
-  <li><a href="#misunderstanding-data-types-and-formats" id="toc-misunderstanding-data-types-and-formats" class="nav-link" data-scroll-target="#misunderstanding-data-types-and-formats"><span class="header-section-number">5.6</span> Misunderstanding data types and formats</a></li>
-  <li><a href="#lack-of-knowledge-about-data-identification" id="toc-lack-of-knowledge-about-data-identification" class="nav-link" data-scroll-target="#lack-of-knowledge-about-data-identification"><span class="header-section-number">5.7</span> Lack of knowledge about data identification</a></li>
-  <li><a href="#losing-track-of-data-due-to-excessive-overwriting" id="toc-losing-track-of-data-due-to-excessive-overwriting" class="nav-link" data-scroll-target="#losing-track-of-data-due-to-excessive-overwriting"><span class="header-section-number">5.8</span> Losing track of data due to excessive overwriting</a></li>
-  <li><a href="#no-documentation" id="toc-no-documentation" class="nav-link" data-scroll-target="#no-documentation"><span class="header-section-number">5.9</span> No documentation</a></li>
-  <li><a href="#ignoring-error-messages-and-warnings" id="toc-ignoring-error-messages-and-warnings" class="nav-link" data-scroll-target="#ignoring-error-messages-and-warnings"><span class="header-section-number">5.10</span> Ignoring error messages and warnings</a></li>
-  <li><a href="#no-attempt-to-identify-the-problem-and-troubleshoot" id="toc-no-attempt-to-identify-the-problem-and-troubleshoot" class="nav-link" data-scroll-target="#no-attempt-to-identify-the-problem-and-troubleshoot"><span class="header-section-number">5.11</span> No attempt to identify the problem and troubleshoot</a></li>
-  <li><a href="#unstylish-code" id="toc-unstylish-code" class="nav-link" data-scroll-target="#unstylish-code"><span class="header-section-number">5.12</span> Unstylish code</a></li>
+  <li><a href="#no-clue-about-the-working-directory" id="toc-no-clue-about-the-working-directory" class="nav-link active" data-scroll-target="#no-clue-about-the-working-directory"><span class="header-section-number">6.1</span> No clue about the “working directory”</a></li>
+  <li><a href="#no-consistent-directory-structure" id="toc-no-consistent-directory-structure" class="nav-link" data-scroll-target="#no-consistent-directory-structure"><span class="header-section-number">6.2</span> No consistent directory structure</a></li>
+  <li><a href="#working-manually-outside-r" id="toc-working-manually-outside-r" class="nav-link" data-scroll-target="#working-manually-outside-r"><span class="header-section-number">6.3</span> Working manually outside R</a></li>
+  <li><a href="#no-active-r-packages-management" id="toc-no-active-r-packages-management" class="nav-link" data-scroll-target="#no-active-r-packages-management"><span class="header-section-number">6.4</span> No active R Packages management</a></li>
+  <li><a href="#confusion-between-console-and-script" id="toc-confusion-between-console-and-script" class="nav-link" data-scroll-target="#confusion-between-console-and-script"><span class="header-section-number">6.5</span> Confusion between console and script</a></li>
+  <li><a href="#misunderstanding-data-types-and-formats" id="toc-misunderstanding-data-types-and-formats" class="nav-link" data-scroll-target="#misunderstanding-data-types-and-formats"><span class="header-section-number">6.6</span> Misunderstanding data types and formats</a></li>
+  <li><a href="#lack-of-knowledge-about-data-identification" id="toc-lack-of-knowledge-about-data-identification" class="nav-link" data-scroll-target="#lack-of-knowledge-about-data-identification"><span class="header-section-number">6.7</span> Lack of knowledge about data identification</a></li>
+  <li><a href="#losing-track-of-data-due-to-excessive-overwriting" id="toc-losing-track-of-data-due-to-excessive-overwriting" class="nav-link" data-scroll-target="#losing-track-of-data-due-to-excessive-overwriting"><span class="header-section-number">6.8</span> Losing track of data due to excessive overwriting</a></li>
+  <li><a href="#no-documentation" id="toc-no-documentation" class="nav-link" data-scroll-target="#no-documentation"><span class="header-section-number">6.9</span> No documentation</a></li>
+  <li><a href="#ignoring-error-messages-and-warnings" id="toc-ignoring-error-messages-and-warnings" class="nav-link" data-scroll-target="#ignoring-error-messages-and-warnings"><span class="header-section-number">6.10</span> Ignoring error messages and warnings</a></li>
+  <li><a href="#no-attempt-to-identify-the-problem-and-troubleshoot" id="toc-no-attempt-to-identify-the-problem-and-troubleshoot" class="nav-link" data-scroll-target="#no-attempt-to-identify-the-problem-and-troubleshoot"><span class="header-section-number">6.11</span> No attempt to identify the problem and troubleshoot</a></li>
+  <li><a href="#unstylish-code" id="toc-unstylish-code" class="nav-link" data-scroll-target="#unstylish-code"><span class="header-section-number">6.12</span> Unstylish code</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_recipe.html">LEARN TO CODE</a></li><li class="breadcrumb-item"><a href="./08_error.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitfalls</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_swirl.html">Basics of coding</a></li><li class="breadcrumb-item"><a href="./08_error.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitfalls</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-pitfalls" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitfalls</span></span></h1>
+<h1 class="title"><span id="sec-pitfalls" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitfalls</span></span></h1>
 </div>
 
 
@@ -332,19 +354,19 @@ div.csl-indent {
 
 
 <p>R newbies often make the same small mistakes that can lead to major confusion, frustration and inefficiency. Some of them can be easily avoided. In this section, I will outline common pitfalls that I have repeatedly observed as an R instructor and offer practical solutions to avoid them.</p>
-<section id="no-clue-about-the-working-directory" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="no-clue-about-the-working-directory"><span class="header-section-number">5.1</span> No clue about the “working directory”</h2>
+<section id="no-clue-about-the-working-directory" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="no-clue-about-the-working-directory"><span class="header-section-number">6.1</span> No clue about the “working directory”</h2>
 <p><strong>Problem:</strong> Students start their R sessions unaware of their current working directory. This can lead to difficulties when reading and writing files.</p>
 <p><strong>Solution:</strong> At the beginning of your R script set a working directory using <code>setwd()</code>. Consider using R Studio projects, see <a href="95_filesys.html#sec-rstudioprojects" class="quarto-xref"><span>Section A.4</span></a>. For more information, see <a href="95_filesys.html" class="quarto-xref"><span>Appendix A</span></a>: <em>Navigating the file system</em> and <a href="https://r4ds.hadley.nz/workflow-scripts.html"><em>Workflow: scripts and projects</em></a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
 </section>
-<section id="no-consistent-directory-structure" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="no-consistent-directory-structure"><span class="header-section-number">5.2</span> No consistent directory structure</h2>
+<section id="no-consistent-directory-structure" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="no-consistent-directory-structure"><span class="header-section-number">6.2</span> No consistent directory structure</h2>
 <p><strong>Problem:</strong> Students save files in different directories without a clear scheme. This disorganization often leads to problems: Scripts and data gets lost and code breaks.</p>
 <p><strong>Solution:</strong> Organize your project into a clear directory structure from the beginning. Here is my suggestion for a directory structure but feel free to come up with your own:</p>
 <div id="tbl-dirtree" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dirtree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;5.1: Typical folder structure
+Table&nbsp;6.1: Typical folder structure
 </figcaption>
 <div aria-describedby="tbl-dirtree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
@@ -403,7 +425,7 @@ Table&nbsp;5.1: Typical folder structure
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;5.1: Do not save processed data unless necessary
+Tip&nbsp;6.1: Do not save processed data unless necessary
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -411,14 +433,14 @@ Tip&nbsp;5.1: Do not save processed data unless necessary
 </div>
 </div>
 </section>
-<section id="working-manually-outside-r" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="working-manually-outside-r"><span class="header-section-number">5.3</span> Working manually outside R</h2>
+<section id="working-manually-outside-r" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="working-manually-outside-r"><span class="header-section-number">6.3</span> Working manually outside R</h2>
 <p><strong>Problem:</strong> Students want to get their work done quickly. This sometimes leads to them relying on manual processes that they have already mastered for their data work. This approach can lead to serious problems when it comes to the reproducibility of their data work.</p>
-<p>Consider a typical three-step process for loading data: (1) downloading the data, (2) unpacking the data, and finally (3) importing the data into R. Many students often take a manual approach by using their Internet browser to download the data, then using their operating system’s unpacking application, and finally importing the data into an R script. While this method is not inherently wrong, there is a risk that students will forget to unpack the downloaded data, resulting in them accidentally working with outdated data. In the kickstart example provided by <a href="05_workflow.html#sec-wbexample" class="quarto-xref"><span>Section 3.2</span></a>, I show that all three steps can be performed seamlessly in R. This way you ensure that you are always working with the most up-to-date data.</p>
+<p>Consider a typical three-step process for loading data: (1) downloading the data, (2) unpacking the data, and finally (3) importing the data into R. Many students often take a manual approach by using their Internet browser to download the data, then using their operating system’s unpacking application, and finally importing the data into an R script. While this method is not inherently wrong, there is a risk that students will forget to unpack the downloaded data, resulting in them accidentally working with outdated data. In the kickstart example provided by <a href="05_workflow.html#sec-wbexample" class="quarto-xref"><span>Section 5.2</span></a>, I show that all three steps can be performed seamlessly in R. This way you ensure that you are always working with the most up-to-date data.</p>
 <p><strong>Solution:</strong> Do as much as possible in the script. Invest some time to find out how to download and manipulate the data within R. If it is not possible or if alternatives are superior, describe what you do outside of R explicitly and write a warning note at the top of your script.</p>
 </section>
-<section id="no-active-r-packages-management" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="no-active-r-packages-management"><span class="header-section-number">5.4</span> No active R Packages management</h2>
+<section id="no-active-r-packages-management" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="no-active-r-packages-management"><span class="header-section-number">6.4</span> No active R Packages management</h2>
 <p><strong>Problem:</strong> Students often forget to install and/or load the packages correctly at the beginning of a script. Some unnecessarily install packages repeatedly when running a script. All this can lead to errors and interruptions.</p>
 <p><strong>Solution:</strong> At the beginning of each script, make sure that all required packages are loaded correctly. Use the <code>pacman</code> package, which provides the <code>p_load()</code> function to load and, if necessary, install packages and the <code>p_unload(all)</code> function to unload all packages.</p>
 <div id="tip-fivescript" class="callout callout-style-default callout-tip callout-titled" title="Start your script with">
@@ -427,7 +449,7 @@ Tip&nbsp;5.1: Do not save processed data unless necessary
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;5.2: Start your script with
+Tip&nbsp;6.2: Start your script with
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -441,18 +463,18 @@ Tip&nbsp;5.2: Start your script with
 </div>
 </div>
 </section>
-<section id="confusion-between-console-and-script" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="confusion-between-console-and-script"><span class="header-section-number">5.5</span> Confusion between console and script</h2>
+<section id="confusion-between-console-and-script" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="confusion-between-console-and-script"><span class="header-section-number">6.5</span> Confusion between console and script</h2>
 <p><strong>Problem:</strong> Alternating between running code in the console and from the script without a systematic approach can lead to untracked changes and confusion about the current state of objects in the workspace. Additionally, students often borrow code snippets from others and run only the sections that seem immediately relevant. This practice can lead to errors or unexpected results, as such code often relies on previous commands or setups.</p>
 <p><strong>Solution:</strong> Develop the habit of testing small blocks of code in the console but run the complete script regularly to ensure everything works in sequence. Use shortcuts like <code>Ctrl + Alt + R</code> to source the entire script or <code>Ctrl + Alt + B/E</code> to execute it up to a specific point.</p>
 </section>
-<section id="misunderstanding-data-types-and-formats" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="misunderstanding-data-types-and-formats"><span class="header-section-number">5.6</span> Misunderstanding data types and formats</h2>
+<section id="misunderstanding-data-types-and-formats" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="misunderstanding-data-types-and-formats"><span class="header-section-number">6.6</span> Misunderstanding data types and formats</h2>
 <p><strong>Problem:</strong> Misusing or misunderstanding R’s data types and structures can lead to errors in data manipulation and analysis. Many functions require certain types of data. For example, the <code>tidyverse</code> packages required data to be “tidy”. Moreover, data often comes with errors and/or missings (<code>NA</code>). Beginners overlook data cleaning and considering missings.</p>
 <p><strong>Solution:</strong> Familiarize yourself with basic data types and structures like vectors, lists, data frames/tibbles, and factors. For more information, see <a href="40_manage.html#sec-tidy" class="quarto-xref"><span>Section 7.2</span></a> and <a href="https://r4ds.hadley.nz/data-tidy">Data tidying</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. Moreover, spend adequate time on data cleaning and preprocessing. Techniques such as handling missing values, normalizing data, and correcting data types are critical. For more information, see <a href="https://r4ds.hadley.nz/missing-values.html">Missing values</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
 </section>
-<section id="lack-of-knowledge-about-data-identification" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="lack-of-knowledge-about-data-identification"><span class="header-section-number">5.7</span> Lack of knowledge about data identification</h2>
+<section id="lack-of-knowledge-about-data-identification" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="lack-of-knowledge-about-data-identification"><span class="header-section-number">6.7</span> Lack of knowledge about data identification</h2>
 <p><strong>Problem:</strong> Students often handle data without understanding which variables uniquely identify the information contained in other variables. It is crucial to recognize these identifying variables and verify their uniqueness to ensure data integrity.</p>
 <p><strong>Solution:</strong> Perform checks for uniqueness at the beginning of their data analysis process. See exercise <em>Names and duplicates</em> in <a href="80_exercises.html#sec-exe_duplicates" class="quarto-xref"><span>Section 9.15</span></a> and the <code>get_dupes</code> fuction introduced in <a href="40_manage.html#sec-get_dupes" class="quarto-xref"><span>Section 7.4.3.2</span></a>.</p>
 <div id="tip-get_dupes" class="callout callout-style-default callout-tip callout-titled" title="Always check your data with get_dupes">
@@ -461,7 +483,7 @@ Tip&nbsp;5.2: Start your script with
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;5.3: Always check your data with get_dupes
+Tip&nbsp;6.3: Always check your data with get_dupes
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -473,8 +495,8 @@ Tip&nbsp;5.3: Always check your data with get_dupes
 </div>
 </div>
 </section>
-<section id="losing-track-of-data-due-to-excessive-overwriting" class="level2" data-number="5.8">
-<h2 data-number="5.8" class="anchored" data-anchor-id="losing-track-of-data-due-to-excessive-overwriting"><span class="header-section-number">5.8</span> Losing track of data due to excessive overwriting</h2>
+<section id="losing-track-of-data-due-to-excessive-overwriting" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="losing-track-of-data-due-to-excessive-overwriting"><span class="header-section-number">6.8</span> Losing track of data due to excessive overwriting</h2>
 <p><strong>Problem:</strong> Students often manipulate their data by repeatedly overwriting the same object. This can lead to confusion about the data`s current state and the transformations applied.</p>
 <p><strong>Solution:</strong> Minimize the number of assignments to a single object. Instead, create a new object with a descriptive and concise name each time you alter the data. This practice helps maintain clarity about each stage of data manipulation.</p>
 <p>For example, if you’re working with data <code>df</code>, you might store the cleanded data as <code>df_cln</code>, then after filtering for specific criteria, you could use <code>df_cln_flt</code>, and finally, if you aggregate the data, name it <code>df_cln_flt_agg</code>. Having some clear naming convention makes it clear what each dataset represents and the transformations it has undergone.</p>
@@ -484,7 +506,7 @@ Tip&nbsp;5.3: Always check your data with get_dupes
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;5.4: Do clear the environment at the beginning of a script with
+Tip&nbsp;6.4: Do clear the environment at the beginning of a script with
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -494,19 +516,19 @@ Tip&nbsp;5.4: Do clear the environment at the beginning of a script with
 </div>
 </div>
 </section>
-<section id="no-documentation" class="level2" data-number="5.9">
-<h2 data-number="5.9" class="anchored" data-anchor-id="no-documentation"><span class="header-section-number">5.9</span> No documentation</h2>
+<section id="no-documentation" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="no-documentation"><span class="header-section-number">6.9</span> No documentation</h2>
 <p><strong>Problem:</strong> Students do not comment code. This makes it hard to remember the purpose of various lines of code and difficult for other people to read and understand the code.</p>
 <p><strong>Solution:</strong> Regularly comment your code, explaining why something is done, not just what is done. Use clear, concise comments to improve readability and maintainability.</p>
 </section>
-<section id="ignoring-error-messages-and-warnings" class="level2" data-number="5.10">
-<h2 data-number="5.10" class="anchored" data-anchor-id="ignoring-error-messages-and-warnings"><span class="header-section-number">5.10</span> Ignoring error messages and warnings</h2>
+<section id="ignoring-error-messages-and-warnings" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="ignoring-error-messages-and-warnings"><span class="header-section-number">6.10</span> Ignoring error messages and warnings</h2>
 <p><strong>Problem:</strong> Students see that their code doesn’t work but do not read the error message which often contains hints for solving the problem.</p>
-<p><strong>Solution:</strong> Read and follow error messages. Do not ignore warnings or errors unless you know what they mean. Study what the error message might mean. Use online resources such as Google and ChatGPT, see <a href="#fig-googleit" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>. Finally, have the confidence to implement the suggested solution. Don’t be frustrated if the first attempt does not work: Try again and play around.</p>
+<p><strong>Solution:</strong> Read and follow error messages. Do not ignore warnings or errors unless you know what they mean. Study what the error message might mean. Use online resources such as Google and ChatGPT, see <a href="#fig-googleit" class="quarto-xref">Figure&nbsp;<span>6.1</span></a>. Finally, have the confidence to implement the suggested solution. Don’t be frustrated if the first attempt does not work: Try again and play around.</p>
 <div id="fig-googleit" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-googleit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.1: Googlling the error message
+Figure&nbsp;6.1: Googlling the error message
 </figcaption>
 <div aria-describedby="fig-googleit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <p><a href="fig/googlingtheerrormessage-big.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="fig/googlingtheerrormessage-big.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
@@ -520,16 +542,16 @@ Figure&nbsp;5.1: Googlling the error message
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;5.5: Common error messages
+Tip&nbsp;6.5: Common error messages
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Students often come to me with error messages suggesting that they install the <code>tinytex</code> package or the <code>RTools</code> compiler for Windows. Since they are not familiar with these R and software packages, they wonder if it is safe to proceed with the installation. My answer here is: yes, it is recommendable to install it.</p>
-<p>Based the <a href="https://github.com/noamross/zero-dependency-problems/blob/master/misc/stack-overflow-common-r-errors.md">report of Noam Ross</a> who examine roughly 10,000 R error messages, the most frequently encountered error messages of R are shown in <a href="#tbl-mosterrors" class="quarto-xref">Table&nbsp;<span>5.2</span></a> with some ideas of mine what to do.</p>
+<p>Based the <a href="https://github.com/noamross/zero-dependency-problems/blob/master/misc/stack-overflow-common-r-errors.md">report of Noam Ross</a> who examine roughly 10,000 R error messages, the most frequently encountered error messages of R are shown in <a href="#tbl-mosterrors" class="quarto-xref">Table&nbsp;<span>6.2</span></a> with some ideas of mine what to do.</p>
 <div id="tbl-mosterrors" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mosterrors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;5.2: Most frequent errors
+Table&nbsp;6.2: Most frequent errors
 </figcaption>
 <div aria-describedby="tbl-mosterrors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
@@ -576,8 +598,8 @@ Table&nbsp;5.2: Most frequent errors
 </div>
 </div>
 </section>
-<section id="no-attempt-to-identify-the-problem-and-troubleshoot" class="level2" data-number="5.11">
-<h2 data-number="5.11" class="anchored" data-anchor-id="no-attempt-to-identify-the-problem-and-troubleshoot"><span class="header-section-number">5.11</span> No attempt to identify the problem and troubleshoot</h2>
+<section id="no-attempt-to-identify-the-problem-and-troubleshoot" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="no-attempt-to-identify-the-problem-and-troubleshoot"><span class="header-section-number">6.11</span> No attempt to identify the problem and troubleshoot</h2>
 <p><strong>Problem:</strong> Students often do not fully understand the problems they encounter, which can lead to difficulties in seeking solutions. It’s common for students to feel overwhelmed and seek help without attempting to find the source of the problem and without attempting to work out possible solutions first.</p>
 <iframe src="https://giphy.com/embed/0saxF4eNE7x2fEqrN6" width="480">
 </iframe>
@@ -684,8 +706,8 @@ Example of a minimal reproducible example
 </div>
 </div>
 </section>
-<section id="unstylish-code" class="level2" data-number="5.12">
-<h2 data-number="5.12" class="anchored" data-anchor-id="unstylish-code"><span class="header-section-number">5.12</span> Unstylish code</h2>
+<section id="unstylish-code" class="level2" data-number="6.12">
+<h2 data-number="6.12" class="anchored" data-anchor-id="unstylish-code"><span class="header-section-number">6.12</span> Unstylish code</h2>
 <p>To avoid issues while programming in R, it’s essential to understand and adhere to various conventions, rules, and best practices specific to the language. Following these conventions makes your code more readable and simplifies your own experience with R. Below, you will find a non-exhaustive list of these guidelines.</p>
 <ol type="1">
 <li>Do remember that R programming language is case sensitive.</li>
@@ -704,7 +726,7 @@ Example of a minimal reproducible example
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;5.6
+Tip&nbsp;6.6
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -714,7 +736,7 @@ Tip&nbsp;5.6
 
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;5.1: Googlling the error message</span>
+<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;6.1: Googlling the error message</span>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
 <div id="ref-Wickham2024tidyverse" class="csl-entry" role="listitem">
@@ -1282,18 +1304,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./10_swirl.html" class="pagination-link" aria-label="Interactive introduction with swirl">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Interactive introduction with swirl</span></span>
+      <a href="./05_workflow.html" class="pagination-link" aria-label="Kickstart">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kickstart</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./22_script.html" class="pagination-link" aria-label="Work with R scripts">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./40_manage.html" class="pagination-link" aria-label="Manage data">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manage data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false,"openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

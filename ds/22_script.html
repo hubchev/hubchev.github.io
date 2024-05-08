@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How to Use R for Data Science - 6&nbsp; Work with R scripts</title>
+<title>How to Use R for Data Science - 3&nbsp; …writing R scripts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,8 +84,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./40_manage.html" rel="next">
-<link href="./08_error.html" rel="prev">
+<link href="./10_swirl.html" rel="next">
+<link href="./03_recipe.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -137,7 +137,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_recipe.html">LEARN TO CODE</a></li><li class="breadcrumb-item"><a href="./22_script.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Work with R scripts</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_install.html">Getting started…</a></li><li class="breadcrumb-item"><a href="./22_script.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">…writing R scripts</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -175,16 +175,10 @@ div.csl-indent {
  <span class="menu-text">Preface</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./01_install.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting started with R</span></span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">LEARN TO CODE</span></a>
+ <span class="menu-text">Getting started…</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -192,16 +186,33 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_recipe.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Soft launch</span></span></a>
+  <a href="./01_install.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">…with R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_workflow.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Kickstart</span></span></a>
+  <a href="./03_recipe.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">…writing code</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22_script.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">…writing R scripts</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Basics of coding</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10_swirl.html" class="sidebar-item-text sidebar-link">
@@ -210,36 +221,47 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_error.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitfalls</span></span></a>
+  <a href="./05_workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Kickstart</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_script.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span></a>
+  <a href="./08_error.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitfalls</span></span></a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Do stuff</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./40_manage.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manage data</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./50_graph.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Visualize data</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./80_exercises.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Collection of exercises</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -248,13 +270,13 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./95_filesys.html" class="sidebar-item-text sidebar-link">
@@ -291,13 +313,13 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-limitations-of-no-code-applications" id="toc-the-limitations-of-no-code-applications" class="nav-link active" data-scroll-target="#the-limitations-of-no-code-applications"><span class="header-section-number">6.1</span> The limitations of no-code applications</a></li>
-  <li><a href="#r-scripts-why-they-are-useful" id="toc-r-scripts-why-they-are-useful" class="nav-link" data-scroll-target="#r-scripts-why-they-are-useful"><span class="header-section-number">6.2</span> R Scripts: Why they are useful</a></li>
-  <li><a href="#create-write-and-run-r-scripts" id="toc-create-write-and-run-r-scripts" class="nav-link" data-scroll-target="#create-write-and-run-r-scripts"><span class="header-section-number">6.3</span> Create, write, and run R scripts</a>
+  <li><a href="#the-limitations-of-no-code-applications" id="toc-the-limitations-of-no-code-applications" class="nav-link active" data-scroll-target="#the-limitations-of-no-code-applications"><span class="header-section-number">3.1</span> The limitations of no-code applications</a></li>
+  <li><a href="#r-scripts-why-they-are-useful" id="toc-r-scripts-why-they-are-useful" class="nav-link" data-scroll-target="#r-scripts-why-they-are-useful"><span class="header-section-number">3.2</span> R Scripts: Why they are useful</a></li>
+  <li><a href="#create-write-and-run-r-scripts" id="toc-create-write-and-run-r-scripts" class="nav-link" data-scroll-target="#create-write-and-run-r-scripts"><span class="header-section-number">3.3</span> Create, write, and run R scripts</a>
   <ul class="collapse">
-  <li><a href="#create" id="toc-create" class="nav-link" data-scroll-target="#create"><span class="header-section-number">6.3.1</span> Create</a></li>
-  <li><a href="#write" id="toc-write" class="nav-link" data-scroll-target="#write"><span class="header-section-number">6.3.2</span> Write</a></li>
-  <li><a href="#run" id="toc-run" class="nav-link" data-scroll-target="#run"><span class="header-section-number">6.3.3</span> Run</a></li>
+  <li><a href="#create" id="toc-create" class="nav-link" data-scroll-target="#create"><span class="header-section-number">3.3.1</span> Create</a></li>
+  <li><a href="#write" id="toc-write" class="nav-link" data-scroll-target="#write"><span class="header-section-number">3.3.2</span> Write</a></li>
+  <li><a href="#run" id="toc-run" class="nav-link" data-scroll-target="#run"><span class="header-section-number">3.3.3</span> Run</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -305,9 +327,9 @@ div.csl-indent {
 <!-- main -->
 <main class="content column-body" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_recipe.html">LEARN TO CODE</a></li><li class="breadcrumb-item"><a href="./22_script.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Work with R scripts</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_install.html">Getting started…</a></li><li class="breadcrumb-item"><a href="./22_script.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">…writing R scripts</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-scripts" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Work with R scripts</span></span></h1>
+<h1 class="title"><span id="sec-scripts" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">…writing R scripts</span></span></h1>
 </div>
 
 
@@ -324,8 +346,8 @@ div.csl-indent {
 </header>
 
 
-<section id="the-limitations-of-no-code-applications" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="the-limitations-of-no-code-applications"><span class="header-section-number">6.1</span> The limitations of no-code applications</h2>
+<section id="the-limitations-of-no-code-applications" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="the-limitations-of-no-code-applications"><span class="header-section-number">3.1</span> The limitations of no-code applications</h2>
 <!-- ![](fig/nocodeornot.webp){width=90%} -->
 <p>No-Code Applications (NCA) such as <a href="https://www.microsoft.com/en-us/microsoft-365/excel">Microsoft Excel</a>, <a href="https://altair.com/altair-rapidminer">RapidMiner</a>, <a href="https://www.knime.com/">KNIME</a>, <a href="https://www.datarobot.com/">DataRobot</a>, <a href="https://www.tableau.com/">Tableau</a>, <a href="https://www.microsoft.com/en-us/power-platform/products/power-bi">Microsoft Power BI</a>, and <a href="https://cloud.google.com/automl">Google AutoML</a> are popular for good reasons. They enable the application of advanced empirical methods with no or minimal programming effort. Their intuitive graphical user interfaces comes with pre-built templates and drag-and-drop functionality which helps to get things done quick, without having to study the programm documentation for hours. Despite their apparent ease of use and efficiency, these platforms come with several disadvantages compared to traditional ways of working with computer by scripting and coding. Understanding these weaknesses helps to see why professional researchers, especially those actively publishing in academic journals, tend to rely on scripting languages like R and Python. These programming languages offer full control, are customizeable and extendable, offer extensive opportunities for automation and reproducibility, and are often better suited for demanding data science tasks.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Disadvantages of No-Code Applications (NCA)">
@@ -373,8 +395,8 @@ A hypothetical but realistic example with Excel
 </div>
 </div>
 </section>
-<section id="r-scripts-why-they-are-useful" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="r-scripts-why-they-are-useful"><span class="header-section-number">6.2</span> R Scripts: Why they are useful</h2>
+<section id="r-scripts-why-they-are-useful" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="r-scripts-why-they-are-useful"><span class="header-section-number">3.2</span> R Scripts: Why they are useful</h2>
 <p>I have already discussed in <a href="01_install.html#sec-writeandrun" class="quarto-xref"><span>Section 1.7</span></a> that you can run code either directly by typing your code into the console of R or by writing a script and then sending the code with <code>Ctrl+Enter</code> or with the <code>Run</code> button to the console of R. Typing functions into the console to run code may seem simple, but this interactive style has limitations:</p>
 <ul>
 <li>Typing commands one at a time can be cumbersome and time-consuming.</li>
@@ -396,10 +418,10 @@ A hypothetical but realistic example with Excel
 <li>… make it easy to share your work with others.</li>
 </ul>
 </section>
-<section id="create-write-and-run-r-scripts" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="create-write-and-run-r-scripts"><span class="header-section-number">6.3</span> Create, write, and run R scripts</h2>
-<section id="create" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="create"><span class="header-section-number">6.3.1</span> Create</h3>
+<section id="create-write-and-run-r-scripts" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="create-write-and-run-r-scripts"><span class="header-section-number">3.3</span> Create, write, and run R scripts</h2>
+<section id="create" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="create"><span class="header-section-number">3.3.1</span> Create</h3>
 <div class="callout callout-style-default callout-note callout-titled" title="3 equivalent ways to create a script">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -422,8 +444,8 @@ A hypothetical but realistic example with Excel
 </div>
 <p>In the first two ways, a new R script window will open which can be edited and should be saved either by clicking on the <code>File</code> menu and selecting <code>Save</code>, clicking the disk icon, or by using the shortcut <code>Ctrl</code>+<code>S</code> (Windows/Linux) or <code>Cmd</code>+<code>S</code> (Mac). If you go for the third way, you need to open it manually.</p>
 </section>
-<section id="write" class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="write"><span class="header-section-number">6.3.2</span> Write</h3>
+<section id="write" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="write"><span class="header-section-number">3.3.2</span> Write</h3>
 <p>Regardless of your preferred way of generating a script, we can now start writing our first script:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"hello world"</span></span>
@@ -436,8 +458,8 @@ A hypothetical but realistic example with Excel
 <li>With the third input we print the content of the object <code>x</code>.</li>
 </ul>
 </section>
-<section id="run" class="level3" data-number="6.3.3">
-<h3 data-number="6.3.3" class="anchored" data-anchor-id="run"><span class="header-section-number">6.3.3</span> Run</h3>
+<section id="run" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="run"><span class="header-section-number">3.3.3</span> Run</h3>
 <p>So how do we run the script? Assuming that the <code>hello.R</code> file has been saved to your working directory, then you can run the script using the following command:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>( <span class="st">"hello.R"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -455,7 +477,7 @@ A hypothetical but realistic example with Excel
 </div>
 <div class="callout-body-container">
 <div id="exr-round" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6.1</strong></span> Run a script and round numbers</p>
+<p><span class="theorem-title"><strong>Exercise 3.1</strong></span> Run a script and round numbers</p>
 <p>Please copy and paste the following lines of code into an R script, run it on your computer, and try to understand how it works.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a vector that contains the sales data</span></span>
@@ -1073,13 +1095,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./08_error.html" class="pagination-link" aria-label="Pitfalls">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pitfalls</span></span>
+      <a href="./03_recipe.html" class="pagination-link" aria-label="...writing code">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">…writing code</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./40_manage.html" class="pagination-link" aria-label="Manage data">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manage data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./10_swirl.html" class="pagination-link" aria-label="Interactive introduction with swirl">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Interactive introduction with swirl</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
