@@ -210,7 +210,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Getting started…</span></a>
+ <span class="menu-text">Getting started with…</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -219,7 +219,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01_install.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">…with R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">…R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1239,125 +1239,136 @@ Read the vignette of <code>dplyr</code> that you find <a href="https://cran.r-pr
 <span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a><span class="co"># filter only cars with four gears </span></span>
 <span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a>mtcars_gear_4 <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span> </span>
-<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(carb <span class="sc">==</span> <span class="dv">4</span>)</span>
+<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(gear <span class="sc">==</span> <span class="dv">4</span>)</span>
 <span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb86-10"><a href="#cb86-10" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange rows by mpg in descending order</span></span>
 <span id="cb86-11"><a href="#cb86-11" aria-hidden="true" tabindex="-1"></a>mtcars_gear_4 <span class="sc">|&gt;</span></span>
 <span id="cb86-12"><a href="#cb86-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mpg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
-Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
-Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
-Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
-Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
-Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
-Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
-Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
-Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
-Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
-Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4</code></pre>
+<pre><code>                mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+Mazda RX4      21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+Merc 280       19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+Merc 280C      17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change the order of the variables</span></span>
 <span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mtcars_gear_4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 10
+<pre><code>Rows: 12
 Columns: 11
-$ mpg  &lt;dbl&gt; 21.0, 21.0, 14.3, 19.2, 17.8, 10.4, 10.4, 14.7, 13.3, 15.8
-$ cyl  &lt;dbl&gt; 6, 6, 8, 6, 6, 8, 8, 8, 8, 8
-$ disp &lt;dbl&gt; 160.0, 160.0, 360.0, 167.6, 167.6, 472.0, 460.0, 440.0, 350.0, 35…
-$ hp   &lt;dbl&gt; 110, 110, 245, 123, 123, 205, 215, 230, 245, 264
-$ drat &lt;dbl&gt; 3.90, 3.90, 3.21, 3.92, 3.92, 2.93, 3.00, 3.23, 3.73, 4.22
-$ wt   &lt;dbl&gt; 2.620, 2.875, 3.570, 3.440, 3.440, 5.250, 5.424, 5.345, 3.840, 3.…
-$ qsec &lt;dbl&gt; 16.46, 17.02, 15.84, 18.30, 18.90, 17.98, 17.82, 17.42, 15.41, 14…
-$ vs   &lt;dbl&gt; 0, 0, 0, 1, 1, 0, 0, 0, 0, 0
-$ am   &lt;dbl&gt; 1, 1, 0, 0, 0, 0, 0, 0, 0, 1
-$ gear &lt;dbl&gt; 4, 4, 3, 4, 4, 3, 3, 3, 3, 5
-$ carb &lt;dbl&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4</code></pre>
+$ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 24.4, 22.8, 19.2, 17.8, 32.4, 30.4, 33.9, 27.3,…
+$ cyl  &lt;dbl&gt; 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 4, 4
+$ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 146.7, 140.8, 167.6, 167.6, 78.7, 75.7, 71.1…
+$ hp   &lt;dbl&gt; 110, 110, 93, 62, 95, 123, 123, 66, 52, 65, 66, 109
+$ drat &lt;dbl&gt; 3.90, 3.90, 3.85, 3.69, 3.92, 3.92, 3.92, 4.08, 4.93, 4.22, 4.08,…
+$ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.190, 3.150, 3.440, 3.440, 2.200, 1.615, 1.…
+$ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 20.00, 22.90, 18.30, 18.90, 19.47, 18.52, 19…
+$ vs   &lt;dbl&gt; 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ am   &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1
+$ gear &lt;dbl&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4
+$ carb &lt;dbl&gt; 4, 4, 1, 2, 2, 4, 4, 1, 2, 1, 1, 2</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>mtcars_gear_4 <span class="sc">|&gt;</span> </span>
 <span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(cyl, disp, carb) <span class="sc">|&gt;</span> </span>
 <span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 10
+<pre><code>Rows: 12
 Columns: 11
-$ cyl  &lt;dbl&gt; 6, 6, 8, 6, 6, 8, 8, 8, 8, 8
-$ disp &lt;dbl&gt; 160.0, 160.0, 360.0, 167.6, 167.6, 472.0, 460.0, 440.0, 350.0, 35…
-$ carb &lt;dbl&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4
-$ mpg  &lt;dbl&gt; 21.0, 21.0, 14.3, 19.2, 17.8, 10.4, 10.4, 14.7, 13.3, 15.8
-$ hp   &lt;dbl&gt; 110, 110, 245, 123, 123, 205, 215, 230, 245, 264
-$ drat &lt;dbl&gt; 3.90, 3.90, 3.21, 3.92, 3.92, 2.93, 3.00, 3.23, 3.73, 4.22
-$ wt   &lt;dbl&gt; 2.620, 2.875, 3.570, 3.440, 3.440, 5.250, 5.424, 5.345, 3.840, 3.…
-$ qsec &lt;dbl&gt; 16.46, 17.02, 15.84, 18.30, 18.90, 17.98, 17.82, 17.42, 15.41, 14…
-$ vs   &lt;dbl&gt; 0, 0, 0, 1, 1, 0, 0, 0, 0, 0
-$ am   &lt;dbl&gt; 1, 1, 0, 0, 0, 0, 0, 0, 0, 1
-$ gear &lt;dbl&gt; 4, 4, 3, 4, 4, 3, 3, 3, 3, 5</code></pre>
+$ cyl  &lt;dbl&gt; 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 4, 4
+$ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 146.7, 140.8, 167.6, 167.6, 78.7, 75.7, 71.1…
+$ carb &lt;dbl&gt; 4, 4, 1, 2, 2, 4, 4, 1, 2, 1, 1, 2
+$ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 24.4, 22.8, 19.2, 17.8, 32.4, 30.4, 33.9, 27.3,…
+$ hp   &lt;dbl&gt; 110, 110, 93, 62, 95, 123, 123, 66, 52, 65, 66, 109
+$ drat &lt;dbl&gt; 3.90, 3.90, 3.85, 3.69, 3.92, 3.92, 3.92, 4.08, 4.93, 4.22, 4.08,…
+$ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.190, 3.150, 3.440, 3.440, 2.200, 1.615, 1.…
+$ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 20.00, 22.90, 18.30, 18.90, 19.47, 18.52, 19…
+$ vs   &lt;dbl&gt; 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ am   &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1
+$ gear &lt;dbl&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>mtcars_gear_4 <span class="sc">|&gt;</span>  </span>
 <span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(<span class="fu">sort</span>(<span class="fu">names</span>(mtcars_gear_4))) <span class="sc">|&gt;</span> </span>
 <span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 10
+<pre><code>Rows: 12
 Columns: 11
-$ am   &lt;dbl&gt; 1, 1, 0, 0, 0, 0, 0, 0, 0, 1
-$ carb &lt;dbl&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4
-$ cyl  &lt;dbl&gt; 6, 6, 8, 6, 6, 8, 8, 8, 8, 8
-$ disp &lt;dbl&gt; 160.0, 160.0, 360.0, 167.6, 167.6, 472.0, 460.0, 440.0, 350.0, 35…
-$ drat &lt;dbl&gt; 3.90, 3.90, 3.21, 3.92, 3.92, 2.93, 3.00, 3.23, 3.73, 4.22
-$ gear &lt;dbl&gt; 4, 4, 3, 4, 4, 3, 3, 3, 3, 5
-$ hp   &lt;dbl&gt; 110, 110, 245, 123, 123, 205, 215, 230, 245, 264
-$ mpg  &lt;dbl&gt; 21.0, 21.0, 14.3, 19.2, 17.8, 10.4, 10.4, 14.7, 13.3, 15.8
-$ qsec &lt;dbl&gt; 16.46, 17.02, 15.84, 18.30, 18.90, 17.98, 17.82, 17.42, 15.41, 14…
-$ vs   &lt;dbl&gt; 0, 0, 0, 1, 1, 0, 0, 0, 0, 0
-$ wt   &lt;dbl&gt; 2.620, 2.875, 3.570, 3.440, 3.440, 5.250, 5.424, 5.345, 3.840, 3.…</code></pre>
+$ am   &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1
+$ carb &lt;dbl&gt; 4, 4, 1, 2, 2, 4, 4, 1, 2, 1, 1, 2
+$ cyl  &lt;dbl&gt; 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 4, 4
+$ disp &lt;dbl&gt; 160.0, 160.0, 108.0, 146.7, 140.8, 167.6, 167.6, 78.7, 75.7, 71.1…
+$ drat &lt;dbl&gt; 3.90, 3.90, 3.85, 3.69, 3.92, 3.92, 3.92, 4.08, 4.93, 4.22, 4.08,…
+$ gear &lt;dbl&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4
+$ hp   &lt;dbl&gt; 110, 110, 93, 62, 95, 123, 123, 66, 52, 65, 66, 109
+$ mpg  &lt;dbl&gt; 21.0, 21.0, 22.8, 24.4, 22.8, 19.2, 17.8, 32.4, 30.4, 33.9, 27.3,…
+$ qsec &lt;dbl&gt; 16.46, 17.02, 18.61, 20.00, 22.90, 18.30, 18.90, 19.47, 18.52, 19…
+$ vs   &lt;dbl&gt; 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ wt   &lt;dbl&gt; 2.620, 2.875, 2.320, 3.190, 3.150, 3.440, 3.440, 2.200, 1.615, 1.…</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter rows where cyl = 4</span></span>
 <span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>mtcars_gear_4 <span class="sc">|&gt;</span></span>
 <span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(cyl <span class="sc">==</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] mpg  cyl  disp hp   drat wt   qsec vs   am   gear carb
-&lt;0 rows&gt; (or 0-length row.names)</code></pre>
+<pre><code>                mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns mpg, cyl, and hp</span></span>
 <span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>mtcars_gear_4 <span class="sc">|&gt;</span></span>
 <span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg, cyl, hp) <span class="sc">|&gt;</span></span>
 <span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                    mpg cyl  hp
-Mazda RX4          21.0   6 110
-Mazda RX4 Wag      21.0   6 110
-Duster 360         14.3   8 245
-Merc 280           19.2   6 123
-Merc 280C          17.8   6 123
-Cadillac Fleetwood 10.4   8 205</code></pre>
+<pre><code>               mpg cyl  hp
+Mazda RX4     21.0   6 110
+Mazda RX4 Wag 21.0   6 110
+Datsun 710    22.8   4  93
+Merc 240D     24.4   4  62
+Merc 230      22.8   4  95
+Merc 280      19.2   6 123</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select columns all variables except wt and hp</span></span>
 <span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>mtcars_gear_4 <span class="sc">|&gt;</span></span>
 <span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>wt, <span class="sc">-</span>hp) <span class="sc">|&gt;</span></span>
 <span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                    mpg cyl  disp drat  qsec vs am gear carb
-Mazda RX4          21.0   6 160.0 3.90 16.46  0  1    4    4
-Mazda RX4 Wag      21.0   6 160.0 3.90 17.02  0  1    4    4
-Duster 360         14.3   8 360.0 3.21 15.84  0  0    3    4
-Merc 280           19.2   6 167.6 3.92 18.30  1  0    4    4
-Merc 280C          17.8   6 167.6 3.92 18.90  1  0    4    4
-Cadillac Fleetwood 10.4   8 472.0 2.93 17.98  0  0    3    4</code></pre>
+<pre><code>               mpg cyl  disp drat  qsec vs am gear carb
+Mazda RX4     21.0   6 160.0 3.90 16.46  0  1    4    4
+Mazda RX4 Wag 21.0   6 160.0 3.90 17.02  0  1    4    4
+Datsun 710    22.8   4 108.0 3.85 18.61  1  1    4    1
+Merc 240D     24.4   4 146.7 3.69 20.00  1  0    4    2
+Merc 230      22.8   4 140.8 3.92 22.90  1  0    4    2
+Merc 280      19.2   6 167.6 3.92 18.30  1  0    4    4</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select only variables starting with `c`</span></span>
 <span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>mtcars_gear_4 <span class="sc">|&gt;</span></span>
 <span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"c"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                    cyl carb
-Mazda RX4             6    4
-Mazda RX4 Wag         6    4
-Duster 360            8    4
-Merc 280              6    4
-Merc 280C             6    4
-Cadillac Fleetwood    8    4
-Lincoln Continental   8    4
-Chrysler Imperial     8    4
-Camaro Z28            8    4
-Ford Pantera L        8    4</code></pre>
+<pre><code>               cyl carb
+Mazda RX4        6    4
+Mazda RX4 Wag    6    4
+Datsun 710       4    1
+Merc 240D        4    2
+Merc 230         4    2
+Merc 280         6    4
+Merc 280C        6    4
+Fiat 128         4    1
+Honda Civic      4    2
+Toyota Corolla   4    1
+Fiat X1-9        4    1
+Volvo 142E       4    2</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># summarize avg mpg by number of cylinders</span></span>
 <span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>mtcars_gear_4 <span class="sc">|&gt;</span></span>
@@ -1367,8 +1378,8 @@ Ford Pantera L        8    4</code></pre>
 <pre><code># A tibble: 2 × 2
     cyl avg_mpg
   &lt;dbl&gt;   &lt;dbl&gt;
-1     6    19.8
-2     8    13.2</code></pre>
+1     4    26.9
+2     6    19.8</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create new column wt_kg, which is wt in kg</span></span>
 <span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a>mtcars_gear_4 <span class="sc">|&gt;</span></span>
@@ -1376,13 +1387,13 @@ Ford Pantera L        8    4</code></pre>
 <span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wt_kg =</span> wt <span class="sc">/</span> <span class="fl">2.205</span>) <span class="sc">|&gt;</span></span>
 <span id="cb104-5"><a href="#cb104-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                      wt    wt_kg
-Mazda RX4          2.620 1.188209
-Mazda RX4 Wag      2.875 1.303855
-Duster 360         3.570 1.619048
-Merc 280           3.440 1.560091
-Merc 280C          3.440 1.560091
-Cadillac Fleetwood 5.250 2.380952</code></pre>
+<pre><code>                 wt    wt_kg
+Mazda RX4     2.620 1.188209
+Mazda RX4 Wag 2.875 1.303855
+Datsun 710    2.320 1.052154
+Merc 240D     3.190 1.446712
+Merc 230      3.150 1.428571
+Merc 280      3.440 1.560091</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new variable by calculating hp divided by wt</span></span>
 <span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>mtcars_new <span class="ot">&lt;-</span> mtcars <span class="sc">|&gt;</span></span>
@@ -1406,19 +1417,19 @@ Valiant           3.460 105 30.34682</code></pre>
 <span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">horsepower =</span> hp) <span class="sc">|&gt;</span></span>
 <span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 10
+<pre><code>Rows: 12
 Columns: 11
-$ mpg        &lt;dbl&gt; 21.0, 21.0, 14.3, 19.2, 17.8, 10.4, 10.4, 14.7, 13.3, 15.8
-$ cyl        &lt;dbl&gt; 6, 6, 8, 6, 6, 8, 8, 8, 8, 8
-$ disp       &lt;dbl&gt; 160.0, 160.0, 360.0, 167.6, 167.6, 472.0, 460.0, 440.0, 350…
-$ horsepower &lt;dbl&gt; 110, 110, 245, 123, 123, 205, 215, 230, 245, 264
-$ drat       &lt;dbl&gt; 3.90, 3.90, 3.21, 3.92, 3.92, 2.93, 3.00, 3.23, 3.73, 4.22
-$ wt         &lt;dbl&gt; 2.620, 2.875, 3.570, 3.440, 3.440, 5.250, 5.424, 5.345, 3.8…
-$ qsec       &lt;dbl&gt; 16.46, 17.02, 15.84, 18.30, 18.90, 17.98, 17.82, 17.42, 15.…
-$ vs         &lt;dbl&gt; 0, 0, 0, 1, 1, 0, 0, 0, 0, 0
-$ am         &lt;dbl&gt; 1, 1, 0, 0, 0, 0, 0, 0, 0, 1
-$ gear       &lt;dbl&gt; 4, 4, 3, 4, 4, 3, 3, 3, 3, 5
-$ carb       &lt;dbl&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4</code></pre>
+$ mpg        &lt;dbl&gt; 21.0, 21.0, 22.8, 24.4, 22.8, 19.2, 17.8, 32.4, 30.4, 33.9,…
+$ cyl        &lt;dbl&gt; 6, 6, 4, 4, 4, 6, 6, 4, 4, 4, 4, 4
+$ disp       &lt;dbl&gt; 160.0, 160.0, 108.0, 146.7, 140.8, 167.6, 167.6, 78.7, 75.7…
+$ horsepower &lt;dbl&gt; 110, 110, 93, 62, 95, 123, 123, 66, 52, 65, 66, 109
+$ drat       &lt;dbl&gt; 3.90, 3.90, 3.85, 3.69, 3.92, 3.92, 3.92, 4.08, 4.93, 4.22,…
+$ wt         &lt;dbl&gt; 2.620, 2.875, 2.320, 3.190, 3.150, 3.440, 3.440, 2.200, 1.6…
+$ qsec       &lt;dbl&gt; 16.46, 17.02, 18.61, 20.00, 22.90, 18.30, 18.90, 19.47, 18.…
+$ vs         &lt;dbl&gt; 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+$ am         &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1
+$ gear       &lt;dbl&gt; 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4
+$ carb       &lt;dbl&gt; 4, 4, 1, 2, 2, 4, 4, 1, 2, 1, 1, 2</code></pre>
 </div>
 </div>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Exercise">
@@ -2538,7 +2549,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
