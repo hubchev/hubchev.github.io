@@ -243,6 +243,29 @@ window.Quarto = {
  <span class="menu-text">References</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exams.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Past exams</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./example_questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Exam(ple) questions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -263,8 +286,14 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#simpsons-paradox" id="toc-simpsons-paradox" class="nav-link" data-scroll-target="#simpsons-paradox"><span class="header-section-number">5.2.1</span> Simpson’s paradox</a></li>
   <li><a href="#gauss-markov-and-the-best-linear-unbiased-estimator" id="toc-gauss-markov-and-the-best-linear-unbiased-estimator" class="nav-link" data-scroll-target="#gauss-markov-and-the-best-linear-unbiased-estimator"><span class="header-section-number">5.2.2</span> Gauss-Markov and the best linear unbiased estimator</a></li>
-  <li><a href="#confounding-and-control-variables" id="toc-confounding-and-control-variables" class="nav-link" data-scroll-target="#confounding-and-control-variables"><span class="header-section-number">5.2.3</span> Confounding and control variables</a></li>
-  <li><a href="#omitted-variable-bias-and-ceteris-paribus" id="toc-omitted-variable-bias-and-ceteris-paribus" class="nav-link" data-scroll-target="#omitted-variable-bias-and-ceteris-paribus"><span class="header-section-number">5.2.4</span> Omitted variable bias and ceteris paribus</a></li>
+  </ul></li>
+  <li><a href="#how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis" id="toc-how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis" class="nav-link" data-scroll-target="#how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis"><span class="header-section-number">5.3</span> How to identify statistically significant estimated coefficients in a regression analysis</a>
+  <ul class="collapse">
+  <li><a href="#p-values" id="toc-p-values" class="nav-link" data-scroll-target="#p-values"><span class="header-section-number">5.3.1</span> P-values</a></li>
+  <li><a href="#t-values" id="toc-t-values" class="nav-link" data-scroll-target="#t-values"><span class="header-section-number">5.3.2</span> t-values</a></li>
+  <li><a href="#standard-error" id="toc-standard-error" class="nav-link" data-scroll-target="#standard-error"><span class="header-section-number">5.3.3</span> Standard Error</a></li>
+  <li><a href="#confounding-and-control-variables" id="toc-confounding-and-control-variables" class="nav-link" data-scroll-target="#confounding-and-control-variables"><span class="header-section-number">5.3.4</span> Confounding and control variables</a></li>
+  <li><a href="#omitted-variable-bias-and-ceteris-paribus" id="toc-omitted-variable-bias-and-ceteris-paribus" class="nav-link" data-scroll-target="#omitted-variable-bias-and-ceteris-paribus"><span class="header-section-number">5.3.5</span> Omitted variable bias and ceteris paribus</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -337,7 +366,7 @@ Figure&nbsp;5.1: The fitted line and the residuals
    \Leftrightarrow &amp; \hat{\beta_{1}} =\frac{\sum_{i=1}(y_i -\bar{y})(x_i-\bar{x})}{\sum_{i=1} (\bar{x} -  x_i)^2 }\\
    \Leftrightarrow &amp; \hat{\beta_{1}} ={\frac {\sigma_{x,y}}{\sigma^2_{x}}}
 \end{align*}\]</span> The estimated regression coefficient <span class="math inline">\(\hat{\beta_{1}}\)</span> equals the covariance between <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> divided by the variance of <span class="math inline">\(x\)</span>.</p>
-<p>The formulas presented above may not be very intuitive at first glance. The online version of the book <span class="citation" data-cites="Hanck2020Introduction">Hanck et al. (<a href="references.html#ref-Hanck2020Introduction" role="doc-biblioref">2020</a>)</span> offers a nice interactive application in the box <a href="https://www.econometrics-with-r.org/4-2-estimating-the-coefficients-of-the-linear-regression-model.html">The OLS Estimator, Predicted Values, and Residuals</a> that helps to understand the mechanics of OLS. You can add observations by clicking into the coordinate system where the data are represented by points. Once two or more observations are available, the application computes a regression line using OLS and some statistics which are displayed in the right panel. The results are updated as you add further observations to the left panel. A double-click resets the application, that means, all data are removed.</p>
+<p>The formulas presented above may not be very intuitive at first glance. The online version of the book <span class="citation" data-cites="Hanck2020Introduction">Hanck et al. (<a href="references.html#ref-Hanck2020Introduction" role="doc-biblioref">2020</a>)</span> offers a nice interactive application in the box <a href="https://www.econometrics-with-r.org/4.2-estimating-the-coefficients-of-the-linear-regression-model.html">The OLS Estimator, Predicted Values, and Residuals</a> that helps to understand the mechanics of OLS. You can add observations by clicking into the coordinate system where the data are represented by points. Once two or more observations are available, the application computes a regression line using OLS and some statistics which are displayed in the right panel. The results are updated as you add further observations to the left panel. A double-click resets the application, that means, all data are removed.</p>
 </section>
 <section id="the-least-squares-assumptions" class="level3" data-number="5.1.2">
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="the-least-squares-assumptions"><span class="header-section-number">5.1.2</span> The least squares assumptions</h3>
@@ -433,8 +462,283 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \dots + \beta
 </ol>
 <p>These assumptions collectively ensure that the OLS estimators are unbiased, efficient, and have minimum variance among all linear unbiased estimators. Violations of these assumptions can lead to biased and inefficient estimators, invalid hypothesis tests, and unreliable predictions. Therefore, it is important to check these assumptions when using the OLS method and consider alternative estimation techniques if the assumptions are violated.</p>
 </section>
-<section id="confounding-and-control-variables" class="level3" data-number="5.2.3">
-<h3 data-number="5.2.3" class="anchored" data-anchor-id="confounding-and-control-variables"><span class="header-section-number">5.2.3</span> Confounding and control variables</h3>
+</section>
+<section id="how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis"><span class="header-section-number">5.3</span> How to identify statistically significant estimated coefficients in a regression analysis</h2>
+<section id="p-values" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="p-values"><span class="header-section-number">5.3.1</span> P-values</h3>
+<p>When you perform regression analysis, the results are often presented in a table that includes p-values. Understanding these p-values is essential to determine whether the relationships between your variables are statistically significant.</p>
+<p>The p-value tells us the probability that the coefficient (effect) we observe is due to random chance rather than a real relationship. Thus, it ranges theoretically from 0 to 1.</p>
+<ol type="1">
+<li><strong>Threshold for Significance</strong><br>
+Commonly used thresholds (also called significance levels) are:
+<ul>
+<li>0.05 (5% significance level)</li>
+<li>0.01 (1% significance level)</li>
+<li>0.001 (0.1% significance level)</li>
+</ul></li>
+<li><strong>Decision Rule for a 5% significance level:</strong>
+<ul>
+<li><strong>P-Value &lt; 0.05:</strong> The result is considered statistically significant. There is strong evidence that the coefficient (relationship) is not due to random chance.</li>
+<li><strong>P-Value ≥ 0.05:</strong> The result is not considered statistically significant. There is not enough evidence to say that the coefficient is different from zero (no relationship).</li>
+</ul></li>
+</ol>
+<p>Here is an example of a stylized regression table:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Coefficient</th>
+<th>P-Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Intercept</td>
+<td>2.5</td>
+<td>0.0001</td>
+</tr>
+<tr class="even">
+<td>Study Hours</td>
+<td>0.8</td>
+<td>0.0005</td>
+</tr>
+<tr class="odd">
+<td>Sleep Hours</td>
+<td>0.1</td>
+<td>0.0450</td>
+</tr>
+<tr class="even">
+<td>TV Watching</td>
+<td>-0.3</td>
+<td>0.0600</td>
+</tr>
+</tbody>
+</table>
+<p>How can we interpret the p-values:</p>
+<ul>
+<li><p><strong>Intercept (P-Value: 0.0001):</strong> The p-value is much less than 0.05, indicating the intercept is statistically significant. This means the starting value (when all other variables are zero) is not due to chance.</p></li>
+<li><p><strong>Study Hours (P-Value: 0.0005):</strong> The p-value is less than 0.05, so the coefficient for Study Hours is statistically significant. This means there is strong evidence that more study hours are associated with higher scores, and this relationship is unlikely to be due to chance.</p></li>
+<li><p><strong>Sleep Hours (P-Value: 0.0450):</strong> The p-value is slightly less than 0.05, indicating that the coefficient for Sleep Hours is statistically significant. There is some evidence that more sleep hours are associated with higher scores.</p></li>
+<li><p><strong>TV Watching (P-Value: 0.0600):</strong> The p-value is greater than 0.05, meaning the coefficient for TV Watching is not statistically significant. There isn’t strong enough evidence to conclude that TV Watching affects scores.</p></li>
+</ul>
+<p><strong>Summary:</strong></p>
+<ul>
+<li>P-values help you determine the significance of your results.</li>
+<li>A p-value less than 0.05 typically indicates a significant result, meaning the variable likely has an effect.</li>
+<li>A p-value greater than 0.05 suggests the variable’s effect is not statistically significant, and any observed relationship might be due to chance.</li>
+</ul>
+</section>
+<section id="t-values" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="t-values"><span class="header-section-number">5.3.2</span> t-values</h3>
+<p>Understanding t-values helps to determine whether the relationships between your variables are statistically significant.</p>
+<p>The t-value measures how many standard deviations the estimated coefficient is away from zero. It helps us understand if the coefficient is significantly different from zero (no effect).</p>
+<ol type="1">
+<li><strong>Threshold for Significance:</strong>
+<ul>
+<li>The significance of a t-value depends on the chosen significance level (e.g., 0.05) and the degrees of freedom in the regression model.</li>
+<li>In regression analysis, “degrees of freedom” refer to the number of independent values that can vary in the calculation of a statistic, typically calculated as the number of observations minus the number of estimated parameters (including the intercept). This concept helps adjust the precision of the estimates and the validity of the statistical tests used in the analysis.</li>
+<li>A common rule of thumb is that a t-value greater than approximately 2 (or less than -2) indicates statistical significance at the 0.05 level.</li>
+<li>A little bit more precise is the value 1.96. It is often called the “magic number” as it is crucial in statistics because it marks the cutoff for a 95% confidence interval in a standard normal distribution, meaning 95% of data lies within 1.96 standard deviations of the mean. This makes it a key threshold for determining statistical significance in hypothesis testing at the 5% significance level.</li>
+</ul></li>
+<li><strong>Decision Rule:</strong>
+<ul>
+<li><strong>|t-Value| &gt; 1.96:</strong> The result is considered statistically significant. There is strong evidence that the coefficient (relationship) is not zero.</li>
+<li><strong>|t-Value| ≤ 1.96:</strong> The result is not considered statistically significant. There is not enough evidence to say that the coefficient is different from zero (no relationship).</li>
+</ul></li>
+</ol>
+<p>Here is an example of a stylized regression table:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Coefficient</th>
+<th>T-Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Intercept</td>
+<td>2.5</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td>Study Hours</td>
+<td>0.8</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td>Sleep Hours</td>
+<td>0.1</td>
+<td>1.89</td>
+</tr>
+<tr class="even">
+<td>TV Watching</td>
+<td>-0.3</td>
+<td>-2.1</td>
+</tr>
+</tbody>
+</table>
+<p>How can we interpret the t-values:</p>
+<ul>
+<li><p><strong>Intercept (T-Value: 5.0):</strong> The t-value is much greater than 2, indicating the intercept is statistically significant. This means the starting value (when all other variables are zero) is not due to chance.</p></li>
+<li><p><strong>Study Hours (T-Value: 4.0):</strong> The t-value is greater than 2, so the coefficient for Study Hours is statistically significant. This means there is strong evidence that more study hours are associated with higher scores, and this relationship is unlikely to be due to chance.</p></li>
+<li><p><strong>Sleep Hours (T-Value: 1.89):</strong> The t-value is less than 2 in absolute values. This indicates that the coefficient for Sleep Hours may be statistically insignificant, suggesting no evidence that more sleep hours are associated with higher scores.</p></li>
+<li><p><strong>TV Watching (T-Value: -2.1):</strong> The t-value is -2.1, which is more than 2 in absolute values. This suggests that there might be some evidence that more TV watching is associated with lower scores.</p></li>
+</ul>
+<p><strong>Summary:</strong></p>
+<ul>
+<li>T-values help you determine the significance of your estimated coefficients.</li>
+<li>A t-value greater than 2 (or less than -2) typically indicates a significant result, meaning the variable likely has an effect.</li>
+<li>A t-value between -2 and 2 suggests the variable’s effect is not statistically significant, and any observed relationship might be due to chance.</li>
+</ul>
+</section>
+<section id="standard-error" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="standard-error"><span class="header-section-number">5.3.3</span> Standard Error</h3>
+<p>Understanding the standard error also helps to assess regression estimates. It measures the average distance that the observed values fall from the regression line. It provides an estimate of the variability of the coefficient.</p>
+<p>The standard error (SE) of a coefficient quantifies the precision of the coefficient estimate. Smaller standard errors indicate more precise estimates.</p>
+<p><strong>Interpreting SE:</strong></p>
+<ul>
+<li><strong>Small SE:</strong> Indicates that the estimated coefficient is precise and likely to be close to the true population value.</li>
+<li><strong>Large SE:</strong> Suggests more variability in the estimate, making it less reliable and potentially due to random chance.</li>
+</ul>
+<p>Here is an example of stylized regression table might look like, including standard errors:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Coefficient</th>
+<th>Standard error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Intercept</td>
+<td>2.5</td>
+<td>0.5</td>
+</tr>
+<tr class="even">
+<td>Study Hours</td>
+<td>0.8</td>
+<td>0.2</td>
+</tr>
+<tr class="odd">
+<td>Party Hours</td>
+<td>-0.5</td>
+<td>0.05</td>
+</tr>
+<tr class="even">
+<td>TV Watching</td>
+<td>-0.3</td>
+<td>0.15</td>
+</tr>
+</tbody>
+</table>
+<p>Unfortunately, the standard error itself does not allow to judge on an estimate. However, knowing the estimate and the SE allows us to calculate the t-values as follows:</p>
+<p>Let <span class="math inline">\(\hat{\alpha }\)</span> be an estimator of parameter <span class="math inline">\(\alpha\)</span> in some statistical model. Then a t-statistic for this parameter is any quantity of the form<br>
+<span class="math display">\[
+t_{\hat {\alpha }}={\frac {{\hat {\alpha }}-\alpha _{0}}{s.e. ({\hat{\alpha }})}}
+\left(=\frac{\text{estimated value - hypothesized value}}{\text{standard error of the estimator}}\right)
+\]</span></p>
+<p><strong>Calculating t-values</strong></p>
+<p>We can calculate the t-values for each coefficient using the formula:</p>
+<p><span class="math display">\[
+t_{\hat{\alpha}} = \frac{\hat{\alpha}}{s.e.(\hat{\alpha})}
+\]</span></p>
+<p>Given the regression table:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Coefficient</th>
+<th>Standard Error</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Intercept</td>
+<td>2.5</td>
+<td>0.5</td>
+</tr>
+<tr class="even">
+<td>Study Hours</td>
+<td>0.8</td>
+<td>0.2</td>
+</tr>
+<tr class="odd">
+<td>Party Hours</td>
+<td>-0.5</td>
+<td>0.05</td>
+</tr>
+<tr class="even">
+<td>TV Watching</td>
+<td>-0.3</td>
+<td>0.15</td>
+</tr>
+</tbody>
+</table>
+<p>We calculate the t-values as follows:</p>
+<ol type="1">
+<li><p><strong>Intercept:</strong> <span class="math display">\[
+t_{\text{Intercept}} = \frac{2.5}{0.5} = 5.0
+\]</span></p></li>
+<li><p><strong>Study Hours:</strong> <span class="math display">\[
+t_{\text{Study Hours}} = \frac{0.8}{0.2} = 4.0
+\]</span></p></li>
+<li><p><strong>Party Hours:</strong> <span class="math display">\[
+t_{\text{Party Hours}} = \frac{-0.5}{0.05} = -10.0
+\]</span></p></li>
+<li><p><strong>TV Watching:</strong> <span class="math display">\[
+t_{\text{TV Watching}} = \frac{-0.3}{0.15} = -2.0
+\]</span></p></li>
+</ol>
+<p>Here’s the updated table with the t-values:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Coefficient</th>
+<th>Standard Error</th>
+<th>T-Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Intercept</td>
+<td>2.5</td>
+<td>0.5</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td>Study Hours</td>
+<td>0.8</td>
+<td>0.2</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td>Party Hours</td>
+<td>-0.5</td>
+<td>0.05</td>
+<td>-10.0</td>
+</tr>
+<tr class="even">
+<td>TV Watching</td>
+<td>-0.3</td>
+<td>0.15</td>
+<td>-2.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Explanation of the T-Values:</strong></p>
+<ul>
+<li><strong>Intercept (t-value: 5.0):</strong> The t-value of 5.0 indicates that the intercept is highly significant.</li>
+<li><strong>Study Hours (t-value: 4.0):</strong> The t-value of 4.0 suggests that the coefficient for Study Hours is statistically significant.</li>
+<li><strong>Party Hours (t-value: -10.0):</strong> The t-value of -10.0 shows a highly significant negative effect of Party Hours on the dependent variable.</li>
+<li><strong>TV Watching (t-value: -2.0):</strong> The t-value of -2.0 indicates that the coefficient for TV Watching is significant, but less so compared to the other variables.</li>
+</ul>
+</section>
+<section id="confounding-and-control-variables" class="level3" data-number="5.3.4">
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="confounding-and-control-variables"><span class="header-section-number">5.3.4</span> Confounding and control variables</h3>
 <div id="tip-nicani" class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -468,8 +772,8 @@ Tip&nbsp;5.2
 </div>
 </div>
 </section>
-<section id="omitted-variable-bias-and-ceteris-paribus" class="level3" data-number="5.2.4">
-<h3 data-number="5.2.4" class="anchored" data-anchor-id="omitted-variable-bias-and-ceteris-paribus"><span class="header-section-number">5.2.4</span> Omitted variable bias and ceteris paribus</h3>
+<section id="omitted-variable-bias-and-ceteris-paribus" class="level3" data-number="5.3.5">
+<h3 data-number="5.3.5" class="anchored" data-anchor-id="omitted-variable-bias-and-ceteris-paribus"><span class="header-section-number">5.3.5</span> Omitted variable bias and ceteris paribus</h3>
 <p>From the Gauss-Markov theorem we know that if the OLS assumptions are fulfilled, the OLS estimator is (in the sense of smallest variance) the best linear conditionally unbiased estimator (BLUE). However, OLS estimates can suffer from omitted variable bias when any regressor, X, is correlated with any omitted variable that matters for variable Y.</p>
 <p>For omitted variable bias to occur, two conditions must be fulfilled:</p>
 <ol type="1">
