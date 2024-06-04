@@ -116,7 +116,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 26 April, 2024}
+\date{Last compiled on 03 June, 2024}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -3094,8 +3094,11 @@ One of the key factors utilized in price discrimination is the willingness to pa
 
 In the real world, price discrimination is a common phenomenon, but achieving perfect price discrimination is highly challenging. This is primarily because no firm possesses complete knowledge of every buyer's willingness to pay (WTP), and buyers typically do not disclose this information to sellers. Consequently, firms often divide customers into groups based on observables that are likely correlated with their WTP.
 
+\hypertarget{regional-economics}{%
+\section{Regional Economics}\label{regional-economics}}
+
 \hypertarget{von-thuxfcnen-model-of-land-use}{%
-\section{Von Thünen model of land use}\label{von-thuxfcnen-model-of-land-use}}
+\subsection{Von Thünen model of land use}\label{von-thuxfcnen-model-of-land-use}}
 
 The classical model of spatial organization of the economy stems Heinrich von Thünen (1783-1850). The model focuses on agriculture as this was the dominant use of land at the time. However, the fundamental ideas of the model can be applied to various industries.
 The model can be described as follows: Assume a focal point of demand for agricultural goods (e.g., the marketplace of a large city). Differences in soil quality in the agricultural periphery of the considered city are neglected. The demand is differentiated. That means, various goods such as grains, dairy products, meat, timber, vegetables are required to satisfy the needs of the people. The goods differ in terms of
@@ -4448,6 +4451,52 @@ See: chapter \emph{15.2 Profit Maximization for Monopolists} of \citet{Emerson20
   \[\pi_{t=2}=1200 \cdot 40-10 \cdot 40^2-4000+30 \cdot 800 = 4000\]
   \[\pi_{t=3}=1200 \cdot 75-10 \cdot 75^2-4000+30 \cdot 450 = 16250\]
 \end{enumerate}
+
+\hypertarget{sol:thuenen1}{%
+\subsection*{Solution to exercise \ref{exr:thuenen1}: Agricultural land use}\label{sol:thuenen1}}
+
+The maximum rent a farmer of a respective production method can offer is the rate where zero profit is made. The market rent curve of the landlord is the upper envelope: \(r(x) = \max(r_i(x))\), where the profit \(\pi\) and the rent \(r\) for firm \(i\) are given as follows:
+
+\[
+\pi_i = q_i(p_i - c_i - \theta_i x) - r_i(x)
+\]
+\[
+r_i(x) = q_i(p_i - c_i - \theta_i x)
+\]
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1286}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1857}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1857}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Bid rent curve
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\frac{\partial r_i}{\partial x}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Intercept
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Nullstelle
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(r_1 = 10(5 - 1 - 0.4x) = 40 - 4x\) & -4 & 40 & 10 \\
+\(r_2 = 5(5 - 2 - 0.1x) = 15 - 0.5x\) & -0.5 & 15 & 30 \\
+\(r_3 = 30(2 - 1 - 0.15x) = 30 - 4.5x\) & -4.5 & 30 & 6.67 \\
+\(r_4 = 20(6 - 5 - 0.05x) = 20 - x\) & -1 & 20 & 20 \\
+\end{longtable}
+
+When plotting the corresponding market rent curve, it becomes apparent that regions 1, 4, and 2 dominate the market from the center. The market boundary points are determined as follows:
+\[
+40 - 4x_{14} = 20 - x_{14} \Longleftrightarrow x_{14} = \frac{20}{3}
+\]
+\[
+15 - 0.5x_{42} = 20 - x_{42} \Longleftrightarrow x_{42} = 10
+\]
+This means that in the range \(x \in [0, \frac{20}{3}]\), land use form 1 prevails; in the range \(x \in [\frac{20}{3}, 10]\), land use form 4 prevails; and in the range \(x \in [10, 30]\), land use form 2 prevails.
 
 \hypertarget{sol:Uproduction}{%
 \subsection*{Solution to exercise \ref{exr:Uproduction}: Understanding production}\label{sol:Uproduction}}

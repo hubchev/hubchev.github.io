@@ -188,19 +188,25 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Regression analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Regression</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./experiments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Hands on experiments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./observational.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Observational data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./publish.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Publish</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Publish</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -209,6 +215,23 @@ window.Quarto = {
  <span class="menu-text">References</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exams.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Past exams</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -234,8 +257,8 @@ window.Quarto = {
   <li><a href="#simpsons-paradox" id="toc-simpsons-paradox" class="nav-link" data-scroll-target="#simpsons-paradox"><span class="header-section-number">3.2.3</span> Simpsons Paradox</a></li>
   <li><a href="#rubin-causal-model" id="toc-rubin-causal-model" class="nav-link" data-scroll-target="#rubin-causal-model"><span class="header-section-number">3.2.4</span> Rubin causal model</a></li>
   <li><a href="#sec-overfunda" id="toc-sec-overfunda" class="nav-link" data-scroll-target="#sec-overfunda"><span class="header-section-number">3.2.5</span> Its difficult to overcome the fundamental problem</a></li>
-  <li><a href="#sec-scrcj" id="toc-sec-scrcj" class="nav-link" data-scroll-target="#sec-scrcj"><span class="header-section-number">3.2.6</span> Statistical control requires causal justification</a></li>
   </ul></li>
+  <li><a href="#sec-scrcj" id="toc-sec-scrcj" class="nav-link" data-scroll-target="#sec-scrcj"><span class="header-section-number">3.3</span> Statistical control requires causal justification</a></li>
   </ul>
 </nav>
     </div>
@@ -647,9 +670,11 @@ ATE\triangleq \mathbb{E}[Y(1)-Y(0)] = \mathbb{E} [\underbrace{Y_i(1)-Y_i(0)}_{IT
 <blockquote class="blockquote">
 <p><em>“what makes it valid to calculate the ATE by taking the average of the Y(0) column, ignoring the question marks, and subtracting that from the average of the Y(1) column, ignoring the question marks?” This ignoring of the question marks (missing data) is known as ignorability. Assuming ignorability is like ignoring how people ended up selecting the treatment they selected and just assuming they were randomly assigned their treatment”</em> <span class="citation" data-cites="Neal2020Introduction">(<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">Neal, 2020, p. 9</a>)</span></p>
 </blockquote>
-<p>Randomized controlled trials (RCTs) are characterized by randomly assigning individuals to different treatment groups and comparing the outcomes of those groups. Thus, they are build on the assumption of <em>ignorability</em> <span class="math display">\[
-(Y(1), Y(0)) \perp T
-\]</span> which allows to write the ATE as follows: <span class="math display">\[\begin{align}
+<p>Ignorability means that the way individuals are assigned to treatment and control groups is irrelevant for the data analysis. Thus, when we aim to explain a certain outcome, we can ignore how an individual made it into the treated or control group. It has also been called <em>unconfoundedness</em> or no <em>omitted variable bias</em>. We will come back to these two terms in <a href="#sec-scrcj" class="quarto-xref"><span>Section 3.3</span></a> and in <a href="regression.html" class="quarto-xref"><span>Chapter 5</span></a>.</p>
+<p>Randomized controlled trials (RCTs) are characterized by randomly assigning individuals to different treatment groups and comparing the outcomes of those groups. Thus, they are essentially build on the assumption of <em>ignorability</em> which can be written formally like <span class="math display">\[
+(Y(1), Y(0)) \perp T.
+\]</span> In words, this means the potential outcome of an individual, <span class="math inline">\(Y\)</span>, do not depend on whether they have really been treated or not. The symbol <span class="math inline">\(\perp\)</span> is called the perpendicular symbol and simply says that the outcomes <span class="math inline">\(Y(1)\)</span> and <span class="math inline">\(Y(0)\)</span> are orthogonal to the treatment.</p>
+<p>The assumption of ignorability allows to write the ATE as follows: <span class="math display">\[\begin{align}
 \mathbb{E}[Y(1)]-\mathbb{E}[Y(0)] &amp; =\mathbb{E}[Y(1) \mid T=1]-\mathbb{E}[Y(0) \mid T=0] \\
 &amp; =\mathbb{E}[Y \mid T=1]-\mathbb{E}[Y \mid T=0].
 \end{align}\]</span></p>
@@ -680,8 +705,9 @@ ATE\triangleq \mathbb{E}[Y(1)-Y(0)] = \mathbb{E} [\underbrace{Y_i(1)-Y_i(0)}_{IT
 </div>
 </section>
 </section>
-<section id="sec-scrcj" class="level3" data-number="3.2.6">
-<h3 data-number="3.2.6" class="anchored" data-anchor-id="sec-scrcj"><span class="header-section-number">3.2.6</span> Statistical control requires causal justification</h3>
+</section>
+<section id="sec-scrcj" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-scrcj"><span class="header-section-number">3.3</span> Statistical control requires causal justification</h2>
 <div id="tip-wysocki" class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -692,11 +718,10 @@ Tip&nbsp;3.3
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Read <span class="citation" data-cites="Wysocki2022Statistical">Wysocki et al. (<a href="references.html#ref-Wysocki2022Statistical" role="doc-biblioref">2022</a>)</span> which is freely available <a href="https://doi.org/10.1177/25152459221095823">here</a>.</p>
+<p>Read <span class="citation" data-cites="Wysocki2022Statistical">Wysocki et al. (<a href="references.html#ref-Wysocki2022Statistical" role="doc-biblioref">2022</a>)</span> which is freely available <a href="https://doi.org/10.1177/25152459221095823">here</a>. <a href="https://osf.io/38mxq">Here</a> you find a good summary of the paper.</p>
 </div>
 </div>
 <p>Scientific research revolves around challenging our own views and findings. A good researcher does not merely present their results; instead, they engage in discussions about potential limitations and pitfalls to draw valid conclusions. Engaging in polemics goes against the essence of good research. We should not conceal potential weaknesses in our scientific strategy or empirical approach; rather, we should emphasize their existence. Even if this disappoints individuals seeking easy answers, it is crucial to acknowledge these limitations. The <a href="https://catalogofbias.org/biases/">Catalogue of Bias</a> is an excellent resource that provides insight into various potential pitfalls and challenges encountered during research, which may sometimes be difficult to completely rule out.</p>
-</section>
 </section>
 <section id="solutions-to-the-exercises" class="level2 unlisted unnumbered">
 <h2 class="unlisted unnumbered anchored" data-anchor-id="solutions-to-the-exercises">Solutions to the exercises</h2>
@@ -729,8 +754,9 @@ Tip&nbsp;3.3
 <li><p><strong>Classical empirical studies</strong> Typically have three steps: It starts by a theory, which is developed into an operational model. Then it presents the data set, and finally it runs regressions. The significance levels of the t-ratios on the coefficient estimated assume that the regression is the first meeting of the estimation model and the data. In practice, we all know that this is rarely the case. The classical method is often just a presentation technique. The great virtue of the method is that it can be applied to real problems outside academia. The relevance comes with a price: The method is quite flexible as many choices have to be made, and they often give different results. Preferences and interests, may affect these choices.</p></li>
 <li><p><strong>Newer techniques</strong> Partly as a reaction to the problems of classical empirical methods, the last 3–4 decades have seen a whole set of newer empirical techniques. They include different types of vector autoregression (VAR)<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>, Bayesian techniques, causality and co-integration tests, Kalman filters, hazard functions, etc. The main reason for the lack of success for the new empirics is that it is quite bulky to report a careful set of co-integration tests or VARs, for example, and they often show results that are far from useful in the sense that they are unclear and difficult to interpret.</p></li>
 </ol>
-<section id="b-read-the-following-statements-and-discuss-whether-they-are-true-or-not-and-if-the-latter-correct-them" class="level4 unlisted unnumbered">
-<h4 class="unlisted unnumbered anchored" data-anchor-id="b-read-the-following-statements-and-discuss-whether-they-are-true-or-not-and-if-the-latter-correct-them">b) Read the following statements and discuss whether they are true or not, and if the latter, correct them:</h4>
+<ol start="2" type="a">
+<li>Read the following statements and discuss whether they are true or not, and if the latter, correct them: {.unlisted .unnumbered}</li>
+</ol>
 <p>Statements i) and vi) are false, all others are correct.</p>
 <ol type="i">
 <li><p><em>The numbers are wrong:</em> The annual production of research papers in economics in the year 2017 has now reached about <strong>1,000</strong> papers in top journals, and about <strong>14,000</strong> papers in the group of good journals. The production has grown with 3.3% per year, and thus it has doubled the last twenty years.</p></li>
@@ -742,7 +768,6 @@ Tip&nbsp;3.3
 <li><p>“Theory fatigue” is a term used to describe the decreasing attractiveness of theoretical research among journals, researchers and political decision-makers. This trend goes hand in hand with the increasing importance of empirical research. Policy makers are finding it increasingly difficult to engage with variations of existing theoretical models, and researchers often struggle to systematically summarize the findings of theoretical work, making it difficult to draw definitive conclusions on specific topics. In addition, theoretical work can be unconvincing to a wider audience that must rely on the reasonableness of complex and sometimes unrealistic assumptions. The credibility of theoretical research often depends on how realistic the initial assumptions are and how plausible the conclusions are. If neither aspect is grounded in reality, there is a danger that the research becomes an abstract exercise that provides new insights into the real world, but which are difficult to communicate to the layperson.</p></li>
 <li><p>A research paper that policymakers find appealing typically offers estimates of a crucial effect that decision-makers outside of academia are keen to understand. Papers that target policymakers should put an emphasis on distilling the core findings into a short executive summary tailored for decision-makers, facilitating their understanding and application of the research insights.</p></li>
 </ol>
-</section>
 </div>
 </div>
 </div>
