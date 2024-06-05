@@ -218,9 +218,10 @@ div.csl-indent {
    
   <ul>
   <li><a href="#wysiwyg-anwendungen" id="toc-wysiwyg-anwendungen" class="nav-link active" data-scroll-target="#wysiwyg-anwendungen"><span class="header-section-number">2.1</span> WYSIWYG Anwendungen</a></li>
-  <li><a href="#vorteile-von-code-basierten-anwendungen" id="toc-vorteile-von-code-basierten-anwendungen" class="nav-link" data-scroll-target="#vorteile-von-code-basierten-anwendungen"><span class="header-section-number">2.2</span> Vorteile von Code basierten Anwendungen</a></li>
+  <li><a href="#vorteile-von-codebasierten-anwendungen" id="toc-vorteile-von-codebasierten-anwendungen" class="nav-link" data-scroll-target="#vorteile-von-codebasierten-anwendungen"><span class="header-section-number">2.2</span> Vorteile von codebasierten Anwendungen</a></li>
   <li><a href="#einführung-in-quarto" id="toc-einführung-in-quarto" class="nav-link" data-scroll-target="#einführung-in-quarto"><span class="header-section-number">2.3</span> Einführung in Quarto</a></li>
-  <li><a href="#apa-konformes-manuscript-ersllen-mit-quarto" id="toc-apa-konformes-manuscript-ersllen-mit-quarto" class="nav-link" data-scroll-target="#apa-konformes-manuscript-ersllen-mit-quarto"><span class="header-section-number">2.4</span> APA konformes Manuscript ersllen mit Quarto</a></li>
+  <li><a href="#erste-schritte-mit-quarto" id="toc-erste-schritte-mit-quarto" class="nav-link" data-scroll-target="#erste-schritte-mit-quarto"><span class="header-section-number">2.4</span> Erste Schritte mit Quarto</a></li>
+  <li><a href="#apa-konformes-manuscript-erstellen-mit-quarto" id="toc-apa-konformes-manuscript-erstellen-mit-quarto" class="nav-link" data-scroll-target="#apa-konformes-manuscript-erstellen-mit-quarto"><span class="header-section-number">2.5</span> APA konformes Manuscript erstellen mit Quarto</a></li>
   </ul>
 </nav>
     </div>
@@ -246,26 +247,28 @@ div.csl-indent {
 </header>
 
 
-<p>Studierende die einen wissenschaftlichen Text verfassen müssen, verwenden zumeist Textverarbeitungsprogrammen wie <em>Microsoft Word</em> oder Apple’s <em>Pages</em>. Diese sind bekannt und für Viele erscheinen diese Programme alternativlos. Das ist aber mitnichten so: Es gibt viele alternative Textsatz-Systeme wie LaTeX, Markdown, R Markdown und Quarto. Es gibt gute Gründe warum in der Wissenschaft eine Vielzahl an Doktorarbeiten und Aufsätzen mit LaTeX verfasst werden und fast alle Herausgeber mit Code basierten Alternativen arbeiten.</p>
-<p>Bei Office-Programmen wie MS Word und Pages wird das Dokumentlayout während des Schreibens angezeigt. Das wird auch das “What you see is what you get (WYSIWYG)” Prinzip genannt. Bei den genannten Alternativen hingegen, werden die Angaben für das Layout am Anfang vom Text oder direkt in den Fließtext geschrieben. Das fertige Dokument wird erst nach dem Umwandeln in ein Dokumentenformat wie PDF sichtbar. Das mag zunächst gewöhnungsbedürftig sein und ist sicherlich weniger intuitiv als die WYSIWYG Programme. Die intuitivste Lösung ist aber oft nicht die beste und einfachste Lösung. Die vielen Studienarbeiten die ich begleiten durfte, zeigen mir klar, dass die intuitiven Features von MS Word und Pages sich mittel- und langfristig oft als zeitaufwändig erweisen und die Anwender nur schlecht dabei unterstützen Fehler beim Verfassen von wissenschaftlichen Arbeiten zu vermeiden. Studierende die sich gegen eine “What you see is what you get (WYSIWYG)” Office Anwendung entschieden haben, sind meist glücklicher und erfolgreicher. Zumindest gilt das in den vom mir begleiten Arbeiten. Code basierte Anwendungen helfen den Schreibenden, sich auf die Textarbeit zu konzentrieren. Die Ausgestaltung der Formatierung oder die Einhaltung von Zitationsregeln wird größtenteils von der Software übernommen. Die notwendige Anfangsinvestition, um bspw. Quarto zu lernen, amortisiert sich schnell und die Qualität der Aufsätze verbessert sich spürbar.</p>
-<p>In den folgenden Unterabschnitten werde ich zunächst die typische Verwendung von WYSIWYG Anwendungen skizzieren. Danach werde ich die Vorteile von des Code basierten Verfassen von Texten am Beispiel von Quarto thematisieren, um sodann anzuleiten wie das Verfassen von Texten mit Quarto gelingen kann.</p>
+<p>Studierende verwenden zum Verfassen wissenschaftlicher Texte gerne Microsoft Word, Apples Pages oder LibreOffice. Diese Textverarbeitungsprogramme zeigen das Dokumentenlayout bereits während des Schreibens an. Dies wird auch als “What you see is what you get” (WYSIWYG) Prinzip bezeichnet. Dieses Prinzip und die entsprechenden Anwendungen sind weit verbreitet und erscheinen vielen als alternativlos. Dies trifft jedoch keineswegs zu: Es gibt eine Vielzahl alternativer Textsatz-Systeme wie LaTeX, Markdown, R Markdown und Quarto, die beachtenswerte Vorteile bieten. Nicht ohne Grund nutzen viele professionell arbeitende Wissenschaftler und Publizisten diese Alternativen. Eine große Anzahl von Doktorarbeiten und wissenschaftlichen Aufsätzen wird mit LaTeX verfasst, und nahezu alle Herausgeber und Verlage arbeiten mit codebasierten Alternativen, die nicht dem WYSIWYG-Prinzip folgen.</p>
+<p>Bei codebasierten Alternativen werden die Angaben zum Layout entweder an den Anfang des Textes oder direkt in den Fließtext eingefügt. Das endgültige Dokument wird erst nach der Umwandlung (auch Kompilieren oder Rendern genannt) in ein Dokumentformat wie PDF sichtbar. Dies mag zunächst gewöhnungsbedürftig sein und sicherlich weniger intuitiv als eine WYSIWYG-Benutzeroberfläche. Doch die intuitivste Lösung ist nicht zwangsläufig die beste oder einfachste. Die vielen Studienarbeiten, die ich betreuen durfte, zeigen deutlich, dass die intuitiven Features von MS Word und Pages sich mittel- und langfristig oft als zeitaufwändig erweisen und Nutzer nur unzureichend dabei unterstützen, Fehler beim Verfassen von wissenschaftlichen Arbeiten zu vermeiden. Studierende, die sich gegen eine WYSIWYG-Office-Anwendung entscheiden, sind in der Regel weniger frustriert und erfolgreicher – zumindest trifft dies auf die von mir betreuten Arbeiten zu.</p>
+<p>Codebasierte Anwendungen ermöglichen es den Schreibenden, sich auf die eigentliche Textarbeit zu konzentrieren. Die Feinheiten des Formats und die Einhaltung von Zitationsregeln werden größtenteils automatisch von der Software übernommen. Die notwendige Anfangsinvestition, sich etwa mit Quarto vertraut zu machen, macht sich schnell bezahlt, und die Qualität der wissenschaftlichen Texte verbessert sich spürbar.</p>
+<p>In den folgenden Unterabschnitten werde ich zunächst die typische Nutzung von WYSIWYG-Anwendungen umreißen. Anschließend werde ich die Vorteile des codebasierten Verfassens von Texten am Beispiel von Quarto beleuchten, um dann zu erläutern, wie das Verfassen von Texten mit Quarto gelingen kann.</p>
 <section id="wysiwyg-anwendungen" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="wysiwyg-anwendungen"><span class="header-section-number">2.1</span> WYSIWYG Anwendungen</h2>
-<p>Die Verwendung von klassischen Textverarbeitungsprogrammen wie Microsoft Word oder Apple Pages zum Verfassen wissenschaftlicher Texte ist gängige Praxis in der studentischen Welt. Trotz ihrer Benutzerfreundlichkeit für alltägliche Schreibprojekte, verursachen diese Programme jedoch erheblichen Mehraufwand, um den wissenschaftlichen Ansprüchen gerecht zu werden.</p>
-<p>Eines der ersten Probleme, auf das Studenten stoßen, ist das Einbinden von Literatur. Die korrekte Formatierung gemäß verschiedenen Zitierrichtlinien ist oft nicht intuitiv und Fehler schleichen sich leicht ein. Insbesondere wenn die von der Software zur Verfügung gestellten Zitat- und Bibliographiefunktionen nicht oder nicht ordentlich benutzt werden. Anstatt einen externen Zitationsmanagern zu verwenden und sich einzuarbeiten, wie die Zitationen in der jeweiligen Software einzuarbeiten sind, schreiben die Studierenden gerne die Zitationen und die Literaturliste händisch. Erfahrungsgemäß machen hier Studierende viele kleinere und manch größere Fehler. Allesamt sind diese Unregelmäßigkeiten unnötig.</p>
-<p>Ein weiterer großer Schwachpunkt ist die Einhaltung spezifischer Formatierungsrichtlinien. Akademische Institutionen und Zeitschriften verlangen oft strenge Einhaltung von Formatierungsanweisungen, einschließlich Titelseite, Kopf- und Fußzeilen, Seitenränder und Überschriftenhierarchien. Word und Pages bieten zwar Vorlagen und Stile, diese müssen aber für jedes Dokument angepasst und oft während des Schreibens aufgrund kleiner Veränderungen im Text überarbeitet werden. Muss die Formatierung geändert werden, ist dies oft nur mit erheblichen Aufwand zu erledigen.</p>
-<p>Das Einbetten von empirischen Ergebnissen wie statistischen Daten und Grafiken ist eine weitere Hürde. In Word und Pages ist der Prozess oft manuell: Forschungsergebnisse müssen aus Statistiksoftware exportiert, als Bilder gespeichert und dann in das Dokument eingefügt werden. Jede Änderung in den Daten erfordert eine Wiederholung dieses umständlichen Prozesses, was zu einer erheblichen Steigerung des Arbeitsaufwands und potenziellen Fehlern führen kann.</p>
+<p>Die Nutzung klassischer Textverarbeitungsprogramme wie Microsoft Word oder Apple Pages zum Verfassen wissenschaftlicher Texte ist in der studentischen Welt weit verbreitet. Obwohl diese Programme für alltägliche Schreibprojekte benutzerfreundlich sind, erzeugen sie erheblichen Mehraufwand, um den Ansprüchen wissenschaftlicher Arbeit gerecht zu werden.</p>
+<p>Ein erstes Problem ist die Einbindung von Literatur. Die korrekte Formatierung nach verschiedenen Zitierrichtlinien ist oft alles andere als intuitiv und Fehler treten leicht auf. Dies gilt insbesondere, wenn die von der Software bereitgestellten Zitat- und Bibliografiefunktionen nicht oder nicht richtig genutzt werden. Anstelle externer Zitationsmanager zu nutzen und sich in deren Gebrauch einzuarbeiten, verfassen viele Studierende Zitate und Literaturlisten manuell. Dies führt erfahrungsgemäß zu zahlreichen kleinen und manchmal größeren Fehlern, die vermeidbar wären.</p>
+<p>Ein weiterer Schwachpunkt von studentischen Arbeiten ist die Einhaltung spezifischer Formatierungsvorgaben. Akademische Institutionen und Journale fordern oft eine strenge Beachtung von Formatierungsrichtlinien, inklusive der Gestaltung von Titelseiten, Kopf- und Fußzeilen, Seitenrändern und Überschriftenhierarchien. Zwar bieten Word und Pages Vorlagen und Stile an, diese müssen jedoch für jedes Dokument individuell angepasst und oft aufgrund geringfügiger Änderungen im Text modifiziert werden. Wenn eine Formatanpassung erforderlich wird, ist dies meistens nur mit großem Aufwand möglich.</p>
+<p>Das Einfügen empirischer Ergebnisse wie statistischer Daten und Grafiken stellt eine zusätzliche Hürde dar. In Word und Pages gestaltet sich der Vorgang häufig manuell: Forschungsdaten müssen aus Statistiksoftware exportiert, als Bilder abgespeichert und anschließend in das Dokument eingebunden werden. Ändert sich etwas an den Daten, so muss dieser mühsame Prozess wiederholt werden, was den Arbeitsaufwand signifikant erhöht und die Fehleranfälligkeit steigert.</p>
 </section>
-<section id="vorteile-von-code-basierten-anwendungen" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="vorteile-von-code-basierten-anwendungen"><span class="header-section-number">2.2</span> Vorteile von Code basierten Anwendungen</h2>
-<p>Insgesamt kann der traditionelle Ansatz zum Verfassen wissenschaftlicher Aufsätze mit MS Word oder Pages für Studierende zu einer zeitaufwändigen und fehleranfälligen Angelegenheit werden. Im Folgenden Abschnitt werde ich Quarto (bzw. R Markdown) vorstellen. Das ist eine moderne Alternative die folgende Vorteile aufweist:</p>
+<section id="vorteile-von-codebasierten-anwendungen" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="vorteile-von-codebasierten-anwendungen"><span class="header-section-number">2.2</span> Vorteile von codebasierten Anwendungen</h2>
+<p>Der traditionelle Ansatz zum Verfassen wissenschaftlicher Texte mittels MS Word oder Pages kann für Studierende zeitaufwendig und fehleranfällig sein. Im folgenden Abschnitt möchte ich Quarto (bzw. R Markdown) vorstellen, eine moderne Alternative, die folgende Vorteile bietet:</p>
 <ul>
-<li>Mit Quarto können mühelos verschiedene Output Formate erstellt werden. Beispielsweise kann der Text als Website, Manuscript und Buch dargestellt werden.</li>
-<li>Mit Quarto kann die Formatierung einfach verändert werden.</li>
-<li>Literatur kann einfach eingebunden werden und das Einhalten von Zitierregeln übernimmt die Software. Quarto’s Integration mit Zitationsverwaltungssystemen erlaubt es, Literaturverweise und Bibliographien effizienter und konsistenter zu verwalten als bspw. in Word.</li>
-<li>Querverweise auf Abschnitte, Tabellen und Abbildungen, sind leicht zu erstellen.</li>
-<li>Die Datenanalyse und das Erstellen von Datenoutput geschieht integriert in Quarto. Daher sind die dargestellten Grafiken und Tabellen immer auf dem aktuellen Stand und eine händische Nachbearbeitung entfällt. Das Gebot der Reproduzierbarkeit der Ergebnisse ist erfüllt. Verfasser können ihre Datenvisualisierungen direkt in den Text einbetten, ohne dass manuelle Schritte wie die Erstellung von Grafiken, deren Export und das anschließende Einfügen in ein Word-Dokument nötig sind. Darüber hinaus erleichtert die Verwendung von Quarto in Kombination mit Versionskontrollsystemen wie Git die Zusammenarbeit an wissenschaftlichen Dokumenten, da Änderungen nachverfolgt, überprüft und integriert werden können, ohne sich auf komplexe Vergleichstools verlassen zu müssen, die in Word oft zu Konflikten führen.</li>
-<li>Mit ein und demselben Quarto-Dokument können eine Vielzahl von Formaten ausgeben werden, darunter PDF, HTML, Word und sogar Präsentationsfolien. Diese Vielseitigkeit bedeutet, dass man sich weniger um das Format und mehr um den Inhalt kümmern kann.</li>
+<li>Mit Quarto lassen sich mühelos verschiedene Ausgabeformate generieren. So kann derselbe Text beispielsweise als Website (HTML), Manuskript (PDF, DOCX), Buch (EPUB, PDF) oder in Form von Präsentationsfolien (PDF). Diese Flexibilität erlaubt es, sich eher auf den Inhalt als auf das Format zu konzentrieren.</li>
+<li>Die Formatierung kann in Quarto einfach geändert werden indem bestimmte Vorlagen verwendet werden.</li>
+<li>Literaturreferenzen lassen sich unkompliziert einbinden, während die Einhaltung von Zitierregeln von der Software übernommen wird. Quartos Integration mit Zitationsverwaltungssystemen ermöglicht es, Literaturverweise und Bibliografien effizienter und konsistenter zu handhaben als beispielsweise in Word.</li>
+<li>Querverweise auf Abschnitte, Tabellen und Abbildungen lassen sich leicht erstellen.</li>
+<li>Die Datenanalyse und das Erstellen von Datenoutputs erfolgen direkt in Quarto. Dadurch sind dargestellte Grafiken und Tabellen stets aktuell und manuelles Nachbearbeiten entfällt, wodurch die Reproduzierbarkeit der Ergebnisse gewährleistet ist.</li>
+<li>Forschende können ihre Datenvisualisierungen ohne manuelle Zwischenschritte direkt in den Text einbetten.</li>
+<li>Versionskontrollsysteme wie Git erleichtern die Zusammenarbeit an wissenschaftlichen Dokumenten, da Änderungen nachverfolgbar sind und integriert werden können, ohne auf komplexe und konfliktträchtige Vergleichstools angewiesen zu sein.</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled" title="Lesetipp">
 <div class="callout-header d-flex align-content-center">
@@ -277,37 +280,37 @@ Lesetipp
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Für interessierte empfehle ich den Online Kurs <a href="https://ucsbcarpentry.github.io/Reproducible-Publications-with-RStudio-Quarto"><em>Introduction to Reproducible Publications with RStudio</em></a>. Hier wird explizit erklärt, wie man empirisch nachvollziehbar arbeitet. Eine etwas kompaktere Einführung bietet <span class="citation" data-cites="Bauer2023Writing">Bauer &amp; Landesvatter (<a href="references.html#ref-Bauer2023Writing" role="doc-biblioref">2023</a>)</span> und die Referenz zum Thema ist <span class="citation" data-cites="Gandrud2020Reproducible">Gandrud (<a href="references.html#ref-Gandrud2020Reproducible" role="doc-biblioref">2020</a>)</span></p>
+<p>Für Interessierte empfehle ich den Onlinekurs <a href="https://ucsbcarpentry.github.io/Reproducible-Publications-with-RStudio-Quarto"><em>Introduction to Reproducible Publications with RStudio</em></a>, der explizit erläutert, wie man empirisch nachvollziehbar arbeitet. Eine etwas kompaktere Einführung bietet <span class="citation" data-cites="Bauer2023Writing">Bauer &amp; Landesvatter (<a href="references.html#ref-Bauer2023Writing" role="doc-biblioref">2023</a>)</span> und das Standardwerk zum Thema stammt von <span class="citation" data-cites="Gandrud2020Reproducible">Gandrud (<a href="references.html#ref-Gandrud2020Reproducible" role="doc-biblioref">2020</a>)</span>.</p>
 </div>
 </div>
 </section>
 <section id="einführung-in-quarto" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="einführung-in-quarto"><span class="header-section-number">2.3</span> Einführung in Quarto</h2>
-<p>In R Studio kann Quarto verwendet werden, um (APA konforme) Texte zu verfassen. Hierzu bitte ich wie folgt vorzugehen:</p>
+<p>Quarto kann in RStudio genutzt werden, um APA-konforme Texte zu erstellen. Gehen Sie dazu bitte wie folgt vor:</p>
 <ul>
 <li>Installieren Sie R und R Studio.</li>
-<li>Installieren Sie Quarto mit</li>
+<li>Installieren Sie Quarto folgendermaßen:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quarto"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>Installieren Sie tinytex, um pdf Dateien zu erzeugen:</li>
+<li>Installieren Sie das Paket <code>tinytex</code>, um PDF-Dateien zu generieren:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tinytex"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>Zusätzlich empfiehlt es sich, weitere Pakete zu installieren. Diese werden unter Umständen später noch benötigt:</li>
+<li>Es ist zudem ratsam, weitere Pakete zu installieren, die später benötigt werden könnten:</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(knitr, rmarkdown, papaja)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><p>Lernen Sie Markdown. Markdown ist eine leichtgewichtige Auszeichnungssprache mit einer Syntax zur Formatierung von Klartext. Es ist eine wesentliche Fähigkeit, um Quarto effektiv zu nutzen. Beginnen Sie damit, genügend Markdown zu lernen, um Ihre Arbeit zu strukturieren, einschließlich Überschriften, Listen, Links und Codeblöcke. Sie können Markdown in wenigen Minuten erlernen. Hierzu empfehle ich <a href="https://www.markdowntutorial.com">www.markdowntutorial.com</a>. Hier arbeiten Sie sich durch die interaktiven Lektionen sowie den Abschnitt <a href="https://quarto.org/docs/authoring/markdown-basics.html"><em>Markdown Basics</em></a> von <code>quarto.org</code>.</p></li>
-<li><p>Lernen Sie Quarto kennen. Lesen Sie hierzu <span class="citation" data-cites="Telford2023Markdown">Telford (<a href="references.html#ref-Telford2023Markdown" role="doc-biblioref">2023</a>)</span>: <a href="https://biostats-r.github.io/biostats/quarto/">Enough Markdown to Write a Thesis</a>. Er behandelt praktisch alles was für das akademische Schreiben nützlich sein kann. Alternativ können Sie direkt auf der <a href="https://quarto.org/">quarto.org</a> Website umfangreiche Informationen zur Arbeit mit Quarto finden, siehe <a href="https://quarto.org/docs/guide/">quarto.org/docs/guide</a>.</p></li>
+<li><p>Eignen Sie sich Kenntnisse in Markdown an. Markdown ist eine leichtgewichtige Markup-Language zur Formatierung von Klartext. Sie ist eine essenzielle Fähigkeit für die effektive Nutzung von Quarto. Beginnen Sie damit, ausreichend Markdown für die Strukturierung Ihrer Arbeit zu erlernen, einschließlich Überschriften, Listen, Links und Codeblöcken. Markdown ist schnell zu erlernen; ich empfehle dazu den Besuch von <a href="https://www.markdowntutorial.com">www.markdowntutorial.com</a> und das Durcharbeiten der interaktiven Lektionen sowie des Abschnitts <a href="https://quarto.org/docs/authoring/markdown-basics.html"><em>Markdown Basics</em></a> auf quarto.org.</p></li>
+<li><p>Machen Sie sich vertraut mit Quarto. Als Lektüre dient <span class="citation" data-cites="Telford2023Markdown">Telford (<a href="references.html#ref-Telford2023Markdown" role="doc-biblioref">2023</a>)</span>: Enough Markdown to Write a Thesis, welcher fast alles abdeckt, was für das akademische Schreiben hilfreich ist. Alternativ finden Sie umfassende Informationen zur Arbeit mit Quarto direkt auf der Webseite <a href="https://quarto.org/docs/guide/">quarto.org/docs/guide</a>.</p></li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="Quarto und R markdown">
 <div class="callout-header d-flex align-content-center">
@@ -319,12 +322,35 @@ Quarto und R markdown
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Quarto ist ein relativ neues Werkzeug. Es kann als der Nachfolger von R Markdown angesehen werden. Fast alle R Markdown-Dokumente sind mit Quarto kompatibel. Quarto enthält jedoch einige Verbesserungen gegenüber R Markdown, die seine Benutzerfreundlichkeit erhöhen. Eine detaillierte Beschreibung aller Unterschiede und Gemeinsamkeiten zwischen den beiden Programmen finden Sie in [diesem Artikel] (https://quarto.org/docs/faq/rmarkdown.html).</p>
+<p>Quarto ist ein relativ neues Werkzeug und kann als Nachfolger von R Markdown betrachtet werden. Die meisten R Markdown-Dokumente sind mit Quarto kompatibel. Allerdings bietet Quarto einige verbesserte Funktionen gegenüber R Markdown, die die Benutzerfreundlichkeit steigern. Einen detaillierten Überblick über die Unterschiede und Gemeinsamkeiten zwischen den beiden Plattformen finden Sie in [diesem Artikel] (https://quarto.org/docs/faq/rmarkdown.html).</p>
 </div>
 </div>
 </section>
-<section id="apa-konformes-manuscript-ersllen-mit-quarto" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="apa-konformes-manuscript-ersllen-mit-quarto"><span class="header-section-number">2.4</span> APA konformes Manuscript ersllen mit Quarto</h2>
+<section id="erste-schritte-mit-quarto" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="erste-schritte-mit-quarto"><span class="header-section-number">2.4</span> Erste Schritte mit Quarto</h2>
+<ul>
+<li>Öffnen Sie RStudio.</li>
+<li>Wählen Sie “File” -&gt; “New File” -&gt; “Quarto Document” und dann “Create”.</li>
+<li>Speichern Sie die neue Datei in einem leeren Ordner und definieren Sie diesen Ordner als Ihr Arbeitsverzeichnis.</li>
+<li>Klicken Sie auf “Render”.</li>
+<li>Besuchen Sie die Webseite <a href="https://quarto.org/docs/authoring/markdown-basics.html"><em>Markdown Basics</em></a>, fügen Sie etwas Markdown in Ihr Dokument ein und klicken Sie erneut auf “Render”.</li>
+<li>Klicken Sie auf den Pfeil neben dem “Render”-Knopf. Hier können Sie andere Dateiformate auswählen und diese generieren. Probieren Sie es aus.</li>
+<li>Konsultieren Sie die Webseite PDF Basics und ergänzen Sie Ihren Header mit den dort gefundenen Informationen.</li>
+<li>Versuchen Sie das Paper von <span class="citation" data-cites="Huber2016Calculate">Huber &amp; Rust (<a href="references.html#ref-Huber2016Calculate" role="doc-biblioref">2016</a>)</span>, das Sie hier finden, in Ihrem Dokument zu zitieren.
+<ul>
+<li>Klicken Sie dazu auf “Visual”,</li>
+<li>gehen Sie an die Stelle im Text, an der Sie das Paper zitieren möchten, und wählen Sie “Insert” -&gt; “Citation”.</li>
+<li>Suchen Sie im Kontextmenü mithilfe der entsprechenden DOI nach dem Papier und fügen Sie es ein.</li>
+</ul></li>
+<li>Um mit dem APA Version 7-Stil zu zitieren, schreiben Sie folgendes in den YAML-Header:</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>csl: "https://www.zotero.org/styles/apa"</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Wählen Sie einen anderen Zitierstil von www.zotero.org/styles. Rendern Sie dann das Dokument erneut und beobachten Sie die Unterschiede.</li>
+</ul>
+</section>
+<section id="apa-konformes-manuscript-erstellen-mit-quarto" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="apa-konformes-manuscript-erstellen-mit-quarto"><span class="header-section-number">2.5</span> APA konformes Manuscript erstellen mit Quarto</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
@@ -333,6 +359,9 @@ Bauer, P. C., &amp; Landesvatter, C. (2023). <em>Writing a reproducible paper wi
 </div>
 <div id="ref-Gandrud2020Reproducible" class="csl-entry" role="listitem">
 Gandrud, C. (2020). <em>Reproducible research with R and R studio</em> (3. Aufl.). Chapman; Hall/CRC.
+</div>
+<div id="ref-Huber2016Calculate" class="csl-entry" role="listitem">
+Huber, S., &amp; Rust, C. (2016). Calculate travel time and distance with OpenStreetMap data using the Open Source Routing Machine (OSRM). <em>The Stata Journal</em>, <em>16</em>(2), 416–423.
 </div>
 <div id="ref-Telford2023Markdown" class="csl-entry" role="listitem">
 Telford, R. J. (2023). <em>Enough Markdown to Write a Thesis</em>. <a href="https://biostats-r.github.io/biostats/quarto/">https://biostats-r.github.io/biostats/quarto/</a>
