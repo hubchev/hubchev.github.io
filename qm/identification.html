@@ -188,7 +188,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Regression analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -199,14 +199,8 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./observational.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Observational data</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./publish.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Publish</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Publish</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -228,6 +222,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./exams.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Past exams</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./example_questions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Exam(ple) questions</span></span></a>
   </div>
 </li>
       </ul>
@@ -670,7 +670,7 @@ ATE\triangleq \mathbb{E}[Y(1)-Y(0)] = \mathbb{E} [\underbrace{Y_i(1)-Y_i(0)}_{IT
 <blockquote class="blockquote">
 <p><em>“what makes it valid to calculate the ATE by taking the average of the Y(0) column, ignoring the question marks, and subtracting that from the average of the Y(1) column, ignoring the question marks?” This ignoring of the question marks (missing data) is known as ignorability. Assuming ignorability is like ignoring how people ended up selecting the treatment they selected and just assuming they were randomly assigned their treatment”</em> <span class="citation" data-cites="Neal2020Introduction">(<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">Neal, 2020, p. 9</a>)</span></p>
 </blockquote>
-<p>Ignorability means that the way individuals are assigned to treatment and control groups is irrelevant for the data analysis. Thus, when we aim to explain a certain outcome, we can ignore how an individual made it into the treated or control group. It has also been called <em>unconfoundedness</em> or no <em>omitted variable bias</em>. We will come back to these two terms in <a href="#sec-scrcj" class="quarto-xref"><span>Section 3.3</span></a> and in <a href="regression.html" class="quarto-xref"><span>Chapter 5</span></a>.</p>
+<p>Ignorability means that the way individuals are assigned to treatment and control groups is irrelevant for the data analysis. Thus, when we aim to explain a certain outcome, we can ignore how an individual made it into the treated or control group. It has also been called <em>unconfoundedness</em> or no <em>omitted variable bias</em>. We will come back to these two terms in <a href="#sec-scrcj" class="quarto-xref"><span>Section 3.3</span></a> and in <span class="quarto-unresolved-ref">?sec-regression</span>.</p>
 <p>Randomized controlled trials (RCTs) are characterized by randomly assigning individuals to different treatment groups and comparing the outcomes of those groups. Thus, they are essentially build on the assumption of <em>ignorability</em> which can be written formally like <span class="math display">\[
 (Y(1), Y(0)) \perp T.
 \]</span> In words, this means the potential outcome of an individual, <span class="math inline">\(Y\)</span>, do not depend on whether they have really been treated or not. The symbol <span class="math inline">\(\perp\)</span> is called the perpendicular symbol and simply says that the outcomes <span class="math inline">\(Y(1)\)</span> and <span class="math inline">\(Y(0)\)</span> are orthogonal to the treatment.</p>

@@ -663,32 +663,19 @@ F-statistic: 29.42 on 1 and 72 DF,  p-value: 7.416e-07</code></pre>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve GDP per capita data for specified countries and years using the wbstats package</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df_wb <span class="ot">&lt;-</span> <span class="fu">wb</span>(</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df_wb <span class="ot">&lt;-</span> <span class="fu">wb_data</span>(</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicator =</span> <span class="st">"NY.GDP.PCAP.KD"</span>,</span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"MX"</span>, <span class="st">"CA"</span>, <span class="st">"US"</span>),</span>
 <span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="dv">1960</span>,</span>
 <span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">end =</span> <span class="dv">2012</span>,</span>
 <span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">return_wide =</span> <span class="cn">TRUE</span></span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: `wb()` was deprecated in wbstats 1.0.0.
-ℹ Please use `wb_data()` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: `spread_()` was deprecated in tidyr 1.2.0.
-ℹ Please use `spread()` instead.
-ℹ The deprecated feature was likely used in the wbstats package.
-  Please report the issue at &lt;https://github.com/nset-ornl/wbstats/issues&gt;.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_wb, <span class="fu">aes</span>(date, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita (constant 2010 US$)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_line()`: Each group consists of only one observation.
-ℹ Do you need to adjust the group aesthetic?</code></pre>
-</div>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_wb, <span class="fu">aes</span>(date, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita (constant 2010 US$)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -699,8 +686,8 @@ F-statistic: 29.42 on 1 and 72 DF,  p-value: 7.416e-07</code></pre>
 </div>
 <p>The latter graph appears empty. Why? Let’s take a closer look at the data to identify any discrepancies that might explain this issue:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the data types year and date are different:</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_WDI)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the data types year and date are different:</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_WDI)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 159
 Columns: 5
@@ -710,29 +697,33 @@ $ iso3c          &lt;chr&gt; "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "C
 $ year           &lt;int&gt; 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2…
 $ NY.GDP.PCAP.KD &lt;dbl&gt; 42319.63, 42043.51, 41165.57, 40377.82, 42067.80, 42106…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 159
-Columns: 5
-$ iso3c          &lt;chr&gt; "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "CAN",…
-$ date           &lt;chr&gt; "1960", "1961", "1962", "1963", "1964", "1965", "1966",…
+Columns: 9
 $ iso2c          &lt;chr&gt; "CA", "CA", "CA", "CA", "CA", "CA", "CA", "CA", "CA", "…
+$ iso3c          &lt;chr&gt; "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "CAN",…
 $ country        &lt;chr&gt; "Canada", "Canada", "Canada", "Canada", "Canada", "Cana…
-$ NY.GDP.PCAP.KD &lt;dbl&gt; 14229.83, 14389.40, 15173.02, 15689.70, 16419.39, 17143…</code></pre>
+$ date           &lt;dbl&gt; 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1…
+$ NY.GDP.PCAP.KD &lt;dbl&gt; 14229.83, 14389.40, 15173.02, 15689.70, 16419.39, 17143…
+$ unit           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ obs_status     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ footnote       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ last_updated   &lt;date&gt; 2024-05-30, 2024-05-30, 2024-05-30, 2024-05-30, 2024-0…</code></pre>
 </div>
 </div>
 <p>The answer is: A lineplot with a character variable (<code>date</code> is <code>&lt;chr&gt;</code>) on the x-axis does not work!</p>
 <p>Now, let us manipulate the <code>df_wb</code> data so that the two dataset are equal:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df_wb_cln <span class="ot">&lt;-</span> df_wb <span class="sc">|&gt;</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert 'date' in df_wb from character to integer</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(date)) <span class="sc">|&gt;</span></span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Since 'year' has been created, remove the original 'date' column</span></span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>date) <span class="sc">|&gt;</span></span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Relocate columns to organize the data frame</span></span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(country, iso2c, iso3c, year, NY.GDP.PCAP.KD)</span>
-<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_WDI)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df_wb_cln <span class="ot">&lt;-</span> df_wb <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert 'date' in df_wb from character to integer</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(date)) <span class="sc">|&gt;</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Since 'year' has been created, remove the original 'date' column</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>date) <span class="sc">|&gt;</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Relocate columns to organize the data frame</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(country, iso2c, iso3c, year, NY.GDP.PCAP.KD)</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_WDI)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 159
 Columns: 5
@@ -742,24 +733,28 @@ $ iso3c          &lt;chr&gt; "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "C
 $ year           &lt;int&gt; 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2…
 $ NY.GDP.PCAP.KD &lt;dbl&gt; 42319.63, 42043.51, 41165.57, 40377.82, 42067.80, 42106…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wb_cln)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wb_cln)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 159
-Columns: 5
+Columns: 9
 $ country        &lt;chr&gt; "Canada", "Canada", "Canada", "Canada", "Canada", "Cana…
 $ iso2c          &lt;chr&gt; "CA", "CA", "CA", "CA", "CA", "CA", "CA", "CA", "CA", "…
 $ iso3c          &lt;chr&gt; "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "CAN",…
 $ year           &lt;int&gt; 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1…
-$ NY.GDP.PCAP.KD &lt;dbl&gt; 14229.83, 14389.40, 15173.02, 15689.70, 16419.39, 17143…</code></pre>
+$ NY.GDP.PCAP.KD &lt;dbl&gt; 14229.83, 14389.40, 15173.02, 15689.70, 16419.39, 17143…
+$ unit           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ obs_status     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ footnote       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ last_updated   &lt;date&gt; 2024-05-30, 2024-05-30, 2024-05-30, 2024-05-30, 2024-0…</code></pre>
 </div>
 </div>
 <p>Now it works:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_wb_cln, <span class="fu">aes</span>(year, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita (constant 2010 US$)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_wb_cln, <span class="fu">aes</span>(year, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita (constant 2010 US$)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -768,8 +763,6 @@ $ NY.GDP.PCAP.KD &lt;dbl&gt; 14229.83, 14389.40, 15173.02, 15689.70, 16419.39, 1
 </div>
 </div>
 </div>
-<pre><code>Loading required package: funcuse</code></pre>
-<pre><code>Loading required package: pacman</code></pre>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -793,151 +786,151 @@ R script
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This script demonstrates a typical data analysis workflow in R</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load required libraries</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Installs 'pacman' if not already available, which is used for package management</span></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Unload all previously loaded packages to start fresh</span></span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(pacman<span class="sc">::</span><span class="fu">p_unload</span>(all))</span>
-<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary packages for data manipulation, cleaning, and visualization</span></span>
-<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
-<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>  tidyverse, <span class="co"># A suite of packages designed for data science that includes tools for data manipulation, plotting, and more.</span></span>
-<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>  haven, <span class="co"># Used for importing and exporting data with SPSS, Stata, and SAS formats.</span></span>
-<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>  janitor, <span class="co"># Provides functions for examining and cleaning data, such as `clean_names()` and `tabyl()`.</span></span>
-<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>  WDI, <span class="co"># Facilitates downloading data from the World Bank's World Development Indicators database.</span></span>
-<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>  wbstats <span class="co"># Provides an interface to the World Bank's APIs for a comprehensive range of data sets.</span></span>
-<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the working directory to a project-specific folder</span></span>
-<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/Dropbox/hsf/courses/dsr"</span>)</span>
-<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Clear the current environment of any objects</span></span>
-<span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb51-25"><a href="#cb51-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-26"><a href="#cb51-26" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------</span></span>
-<span id="cb51-27"><a href="#cb51-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-28"><a href="#cb51-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data from a Stata file available online</span></span>
-<span id="cb51-29"><a href="#cb51-29" aria-hidden="true" tabindex="-1"></a>auto <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"http://www.stata-press.com/data/r8/auto.dta"</span>)</span>
-<span id="cb51-30"><a href="#cb51-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 'auto': Dataset contains information about different car models</span></span>
-<span id="cb51-31"><a href="#cb51-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-32"><a href="#cb51-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Display basic information about the dataset</span></span>
-<span id="cb51-33"><a href="#cb51-33" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(auto) <span class="co"># Number of columns</span></span>
-<span id="cb51-34"><a href="#cb51-34" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(auto) <span class="co"># Number of rows</span></span>
-<span id="cb51-35"><a href="#cb51-35" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(auto) <span class="co"># Dimensions of the dataset</span></span>
-<span id="cb51-36"><a href="#cb51-36" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(auto) <span class="co"># Names of variables</span></span>
-<span id="cb51-37"><a href="#cb51-37" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(auto) <span class="co"># First few rows</span></span>
-<span id="cb51-38"><a href="#cb51-38" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(auto) <span class="co"># Last few rows</span></span>
-<span id="cb51-39"><a href="#cb51-39" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(auto) <span class="co"># Summary statistics for each column</span></span>
-<span id="cb51-40"><a href="#cb51-40" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(auto) <span class="co"># Compact display of the structure of the dataset</span></span>
-<span id="cb51-41"><a href="#cb51-41" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(auto, <span class="at">n =</span> <span class="cn">Inf</span>) <span class="co"># Print all rows of the dataset</span></span>
-<span id="cb51-42"><a href="#cb51-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-43"><a href="#cb51-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for duplicate entries based on the 'make' variable</span></span>
-<span id="cb51-44"><a href="#cb51-44" aria-hidden="true" tabindex="-1"></a>auto <span class="sc">|&gt;</span></span>
-<span id="cb51-45"><a href="#cb51-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_dupes</span>(make)</span>
-<span id="cb51-46"><a href="#cb51-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-47"><a href="#cb51-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and display a scatter plot of car price versus weight</span></span>
-<span id="cb51-48"><a href="#cb51-48" aria-hidden="true" tabindex="-1"></a>plot_weight_price <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(auto, <span class="fu">aes</span>(<span class="at">x =</span> weight, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb51-49"><a href="#cb51-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb51-50"><a href="#cb51-50" aria-hidden="true" tabindex="-1"></a>plot_weight_price</span>
-<span id="cb51-51"><a href="#cb51-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-52"><a href="#cb51-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot to a file</span></span>
-<span id="cb51-53"><a href="#cb51-53" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"fig/plot_weight_price.png"</span>, <span class="at">plot =</span> plot_weight_price, <span class="at">dpi =</span> <span class="dv">300</span>)</span>
-<span id="cb51-54"><a href="#cb51-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-55"><a href="#cb51-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a scatter plot with a linear regression line of price vs weight</span></span>
-<span id="cb51-56"><a href="#cb51-56" aria-hidden="true" tabindex="-1"></a>plot_weight_price_fit <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(auto, <span class="fu">aes</span>(<span class="at">x =</span> weight, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb51-57"><a href="#cb51-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb51-58"><a href="#cb51-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="co"># 'lm' denotes linear model, 'se' is standard error</span></span>
-<span id="cb51-59"><a href="#cb51-59" aria-hidden="true" tabindex="-1"></a>plot_weight_price_fit</span>
-<span id="cb51-60"><a href="#cb51-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-61"><a href="#cb51-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot to a file</span></span>
-<span id="cb51-62"><a href="#cb51-62" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"fig/plot_weight_price_fit.png"</span>, <span class="at">plot =</span> plot_weight_price_fit, <span class="at">dpi =</span> <span class="dv">300</span>)</span>
-<span id="cb51-63"><a href="#cb51-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-64"><a href="#cb51-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform a linear regression to analyze the relationship between weight and price</span></span>
-<span id="cb51-65"><a href="#cb51-65" aria-hidden="true" tabindex="-1"></a>reg_result <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> weight, <span class="at">data =</span> auto)</span>
-<span id="cb51-66"><a href="#cb51-66" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg_result) <span class="co"># Display the regression results</span></span>
-<span id="cb51-67"><a href="#cb51-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-68"><a href="#cb51-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Load and demonstrate usage of World Development Indicators (WDI) data</span></span>
-<span id="cb51-69"><a href="#cb51-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Two different packages can help here:</span></span>
-<span id="cb51-70"><a href="#cb51-70" aria-hidden="true" tabindex="-1"></a><span class="co"># WDI:</span></span>
-<span id="cb51-71"><a href="#cb51-71" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://cran.r-project.org/web/packages/WDI/WDI.pdf</span></span>
-<span id="cb51-72"><a href="#cb51-72" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://github.com/vincentarelbundock/WDI</span></span>
-<span id="cb51-73"><a href="#cb51-73" aria-hidden="true" tabindex="-1"></a><span class="co"># wbstats:</span></span>
-<span id="cb51-74"><a href="#cb51-74" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://cran.r-project.org/web/packages/wbstats/wbstats.pdf</span></span>
-<span id="cb51-75"><a href="#cb51-75" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://github.com/gshs-ornl/wbstats</span></span>
-<span id="cb51-76"><a href="#cb51-76" aria-hidden="true" tabindex="-1"></a><span class="co"># ?WDI  # Access documentation for the WDI package</span></span>
-<span id="cb51-77"><a href="#cb51-77" aria-hidden="true" tabindex="-1"></a><span class="co"># ?wbstats # # Access documentation for the wbstats package</span></span>
-<span id="cb51-78"><a href="#cb51-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-79"><a href="#cb51-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for GDP indicators and display the first 10</span></span>
-<span id="cb51-80"><a href="#cb51-80" aria-hidden="true" tabindex="-1"></a><span class="fu">WDIsearch</span>(<span class="st">"gdp"</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, ]</span>
-<span id="cb51-81"><a href="#cb51-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-82"><a href="#cb51-82" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve GDP per capita data for specified countries and years</span></span>
-<span id="cb51-83"><a href="#cb51-83" aria-hidden="true" tabindex="-1"></a>df_WDI <span class="ot">&lt;-</span> <span class="fu">WDI</span>(</span>
-<span id="cb51-84"><a href="#cb51-84" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicator =</span> <span class="st">"NY.GDP.PCAP.KD"</span>,</span>
-<span id="cb51-85"><a href="#cb51-85" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"MX"</span>, <span class="st">"CA"</span>, <span class="st">"US"</span>),</span>
-<span id="cb51-86"><a href="#cb51-86" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="dv">1960</span>,</span>
-<span id="cb51-87"><a href="#cb51-87" aria-hidden="true" tabindex="-1"></a>  <span class="at">end =</span> <span class="dv">2012</span></span>
-<span id="cb51-88"><a href="#cb51-88" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb51-89"><a href="#cb51-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-90"><a href="#cb51-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
-<span id="cb51-91"><a href="#cb51-91" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_WDI, <span class="fu">aes</span>(year, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
-<span id="cb51-92"><a href="#cb51-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb51-93"><a href="#cb51-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
-<span id="cb51-94"><a href="#cb51-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita"</span>)</span>
-<span id="cb51-95"><a href="#cb51-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-96"><a href="#cb51-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve GDP per capita data for specified countries and years using the wbstats package</span></span>
-<span id="cb51-97"><a href="#cb51-97" aria-hidden="true" tabindex="-1"></a>df_wb <span class="ot">&lt;-</span> <span class="fu">wb</span>(</span>
-<span id="cb51-98"><a href="#cb51-98" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicator =</span> <span class="st">"NY.GDP.PCAP.KD"</span>,</span>
-<span id="cb51-99"><a href="#cb51-99" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"MX"</span>, <span class="st">"CA"</span>, <span class="st">"US"</span>),</span>
-<span id="cb51-100"><a href="#cb51-100" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="dv">1960</span>,</span>
-<span id="cb51-101"><a href="#cb51-101" aria-hidden="true" tabindex="-1"></a>  <span class="at">end =</span> <span class="dv">2012</span>,</span>
-<span id="cb51-102"><a href="#cb51-102" aria-hidden="true" tabindex="-1"></a>  <span class="at">return_wide =</span> <span class="cn">TRUE</span></span>
-<span id="cb51-103"><a href="#cb51-103" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb51-104"><a href="#cb51-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-105"><a href="#cb51-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
-<span id="cb51-106"><a href="#cb51-106" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_wb, <span class="fu">aes</span>(date, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
-<span id="cb51-107"><a href="#cb51-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb51-108"><a href="#cb51-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
-<span id="cb51-109"><a href="#cb51-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita (constant 2010 US$)"</span>)</span>
-<span id="cb51-110"><a href="#cb51-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-111"><a href="#cb51-111" aria-hidden="true" tabindex="-1"></a><span class="co"># !!! This does not work !!!</span></span>
-<span id="cb51-112"><a href="#cb51-112" aria-hidden="true" tabindex="-1"></a><span class="co"># Why?</span></span>
-<span id="cb51-113"><a href="#cb51-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-114"><a href="#cb51-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the data types year and date are different:</span></span>
-<span id="cb51-115"><a href="#cb51-115" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_WDI)</span>
-<span id="cb51-116"><a href="#cb51-116" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wb)</span>
-<span id="cb51-117"><a href="#cb51-117" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-118"><a href="#cb51-118" aria-hidden="true" tabindex="-1"></a><span class="co"># Answer: A lineplot with a character variable on the x-axis does not work!</span></span>
-<span id="cb51-119"><a href="#cb51-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-120"><a href="#cb51-120" aria-hidden="true" tabindex="-1"></a><span class="co"># make the two dataframe equal:</span></span>
-<span id="cb51-121"><a href="#cb51-121" aria-hidden="true" tabindex="-1"></a>df_wb_cln <span class="ot">&lt;-</span> df_wb <span class="sc">|&gt;</span></span>
-<span id="cb51-122"><a href="#cb51-122" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert 'date' in df_wb from character to integer</span></span>
-<span id="cb51-123"><a href="#cb51-123" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(date)) <span class="sc">|&gt;</span></span>
-<span id="cb51-124"><a href="#cb51-124" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Since 'year' has been created, remove the original 'date' column</span></span>
-<span id="cb51-125"><a href="#cb51-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>date) <span class="sc">|&gt;</span></span>
-<span id="cb51-126"><a href="#cb51-126" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Relocate columns to organize the data frame</span></span>
-<span id="cb51-127"><a href="#cb51-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(country, iso2c, iso3c, year, NY.GDP.PCAP.KD)</span>
-<span id="cb51-128"><a href="#cb51-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-129"><a href="#cb51-129" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_WDI)</span>
-<span id="cb51-130"><a href="#cb51-130" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wb_cln)</span>
-<span id="cb51-131"><a href="#cb51-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-132"><a href="#cb51-132" aria-hidden="true" tabindex="-1"></a><span class="co"># Now it works:</span></span>
-<span id="cb51-133"><a href="#cb51-133" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
-<span id="cb51-134"><a href="#cb51-134" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_wb_cln, <span class="fu">aes</span>(year, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
-<span id="cb51-135"><a href="#cb51-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb51-136"><a href="#cb51-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
-<span id="cb51-137"><a href="#cb51-137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita (constant 2010 US$)"</span>)</span>
-<span id="cb51-138"><a href="#cb51-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-139"><a href="#cb51-139" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(pacman<span class="sc">::</span><span class="fu">p_unload</span>(</span>
-<span id="cb51-140"><a href="#cb51-140" aria-hidden="true" tabindex="-1"></a>  tidyverse, <span class="co"># A suite of packages designed for data science that includes tools for data manipulation, plotting, and more.</span></span>
-<span id="cb51-141"><a href="#cb51-141" aria-hidden="true" tabindex="-1"></a>  haven, <span class="co"># Used for importing and exporting data with SPSS, Stata, and SAS formats.</span></span>
-<span id="cb51-142"><a href="#cb51-142" aria-hidden="true" tabindex="-1"></a>  janitor, <span class="co"># Provides functions for examining and cleaning data, such as `clean_names()` and `tabyl()`.</span></span>
-<span id="cb51-143"><a href="#cb51-143" aria-hidden="true" tabindex="-1"></a>  WDI, <span class="co"># Facilitates downloading data from the World Bank's World Development Indicators database.</span></span>
-<span id="cb51-144"><a href="#cb51-144" aria-hidden="true" tabindex="-1"></a>  wbstats <span class="co"># Provides an interface to the World Bank's APIs for a comprehensive range of data sets.</span></span>
-<span id="cb51-145"><a href="#cb51-145" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This script demonstrates a typical data analysis workflow in R</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load required libraries</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Installs 'pacman' if not already available, which is used for package management</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Unload all previously loaded packages to start fresh</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(pacman<span class="sc">::</span><span class="fu">p_unload</span>(all))</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary packages for data manipulation, cleaning, and visualization</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>  tidyverse, <span class="co"># A suite of packages designed for data science that includes tools for data manipulation, plotting, and more.</span></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>  haven, <span class="co"># Used for importing and exporting data with SPSS, Stata, and SAS formats.</span></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>  janitor, <span class="co"># Provides functions for examining and cleaning data, such as `clean_names()` and `tabyl()`.</span></span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>  WDI, <span class="co"># Facilitates downloading data from the World Bank's World Development Indicators database.</span></span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>  wbstats <span class="co"># Provides an interface to the World Bank's APIs for a comprehensive range of data sets.</span></span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the working directory to a project-specific folder</span></span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/Dropbox/hsf/courses/dsr"</span>)</span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Clear the current environment of any objects</span></span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------</span></span>
+<span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-28"><a href="#cb45-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data from a Stata file available online</span></span>
+<span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a>auto <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"http://www.stata-press.com/data/r8/auto.dta"</span>)</span>
+<span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 'auto': Dataset contains information about different car models</span></span>
+<span id="cb45-31"><a href="#cb45-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-32"><a href="#cb45-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Display basic information about the dataset</span></span>
+<span id="cb45-33"><a href="#cb45-33" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(auto) <span class="co"># Number of columns</span></span>
+<span id="cb45-34"><a href="#cb45-34" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(auto) <span class="co"># Number of rows</span></span>
+<span id="cb45-35"><a href="#cb45-35" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(auto) <span class="co"># Dimensions of the dataset</span></span>
+<span id="cb45-36"><a href="#cb45-36" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(auto) <span class="co"># Names of variables</span></span>
+<span id="cb45-37"><a href="#cb45-37" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(auto) <span class="co"># First few rows</span></span>
+<span id="cb45-38"><a href="#cb45-38" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(auto) <span class="co"># Last few rows</span></span>
+<span id="cb45-39"><a href="#cb45-39" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(auto) <span class="co"># Summary statistics for each column</span></span>
+<span id="cb45-40"><a href="#cb45-40" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(auto) <span class="co"># Compact display of the structure of the dataset</span></span>
+<span id="cb45-41"><a href="#cb45-41" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(auto, <span class="at">n =</span> <span class="cn">Inf</span>) <span class="co"># Print all rows of the dataset</span></span>
+<span id="cb45-42"><a href="#cb45-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-43"><a href="#cb45-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for duplicate entries based on the 'make' variable</span></span>
+<span id="cb45-44"><a href="#cb45-44" aria-hidden="true" tabindex="-1"></a>auto <span class="sc">|&gt;</span></span>
+<span id="cb45-45"><a href="#cb45-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_dupes</span>(make)</span>
+<span id="cb45-46"><a href="#cb45-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-47"><a href="#cb45-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and display a scatter plot of car price versus weight</span></span>
+<span id="cb45-48"><a href="#cb45-48" aria-hidden="true" tabindex="-1"></a>plot_weight_price <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(auto, <span class="fu">aes</span>(<span class="at">x =</span> weight, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb45-49"><a href="#cb45-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb45-50"><a href="#cb45-50" aria-hidden="true" tabindex="-1"></a>plot_weight_price</span>
+<span id="cb45-51"><a href="#cb45-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-52"><a href="#cb45-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot to a file</span></span>
+<span id="cb45-53"><a href="#cb45-53" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"fig/plot_weight_price.png"</span>, <span class="at">plot =</span> plot_weight_price, <span class="at">dpi =</span> <span class="dv">300</span>)</span>
+<span id="cb45-54"><a href="#cb45-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-55"><a href="#cb45-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a scatter plot with a linear regression line of price vs weight</span></span>
+<span id="cb45-56"><a href="#cb45-56" aria-hidden="true" tabindex="-1"></a>plot_weight_price_fit <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(auto, <span class="fu">aes</span>(<span class="at">x =</span> weight, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb45-57"><a href="#cb45-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb45-58"><a href="#cb45-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="co"># 'lm' denotes linear model, 'se' is standard error</span></span>
+<span id="cb45-59"><a href="#cb45-59" aria-hidden="true" tabindex="-1"></a>plot_weight_price_fit</span>
+<span id="cb45-60"><a href="#cb45-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-61"><a href="#cb45-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot to a file</span></span>
+<span id="cb45-62"><a href="#cb45-62" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"fig/plot_weight_price_fit.png"</span>, <span class="at">plot =</span> plot_weight_price_fit, <span class="at">dpi =</span> <span class="dv">300</span>)</span>
+<span id="cb45-63"><a href="#cb45-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-64"><a href="#cb45-64" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform a linear regression to analyze the relationship between weight and price</span></span>
+<span id="cb45-65"><a href="#cb45-65" aria-hidden="true" tabindex="-1"></a>reg_result <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> weight, <span class="at">data =</span> auto)</span>
+<span id="cb45-66"><a href="#cb45-66" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg_result) <span class="co"># Display the regression results</span></span>
+<span id="cb45-67"><a href="#cb45-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-68"><a href="#cb45-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Load and demonstrate usage of World Development Indicators (WDI) data</span></span>
+<span id="cb45-69"><a href="#cb45-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Two different packages can help here:</span></span>
+<span id="cb45-70"><a href="#cb45-70" aria-hidden="true" tabindex="-1"></a><span class="co"># WDI:</span></span>
+<span id="cb45-71"><a href="#cb45-71" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://cran.r-project.org/web/packages/WDI/WDI.pdf</span></span>
+<span id="cb45-72"><a href="#cb45-72" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://github.com/vincentarelbundock/WDI</span></span>
+<span id="cb45-73"><a href="#cb45-73" aria-hidden="true" tabindex="-1"></a><span class="co"># wbstats:</span></span>
+<span id="cb45-74"><a href="#cb45-74" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://cran.r-project.org/web/packages/wbstats/wbstats.pdf</span></span>
+<span id="cb45-75"><a href="#cb45-75" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://github.com/gshs-ornl/wbstats</span></span>
+<span id="cb45-76"><a href="#cb45-76" aria-hidden="true" tabindex="-1"></a><span class="co"># ?WDI  # Access documentation for the WDI package</span></span>
+<span id="cb45-77"><a href="#cb45-77" aria-hidden="true" tabindex="-1"></a><span class="co"># ?wbstats # # Access documentation for the wbstats package</span></span>
+<span id="cb45-78"><a href="#cb45-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-79"><a href="#cb45-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for GDP indicators and display the first 10</span></span>
+<span id="cb45-80"><a href="#cb45-80" aria-hidden="true" tabindex="-1"></a><span class="fu">WDIsearch</span>(<span class="st">"gdp"</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, ]</span>
+<span id="cb45-81"><a href="#cb45-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-82"><a href="#cb45-82" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve GDP per capita data for specified countries and years</span></span>
+<span id="cb45-83"><a href="#cb45-83" aria-hidden="true" tabindex="-1"></a>df_WDI <span class="ot">&lt;-</span> <span class="fu">WDI</span>(</span>
+<span id="cb45-84"><a href="#cb45-84" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicator =</span> <span class="st">"NY.GDP.PCAP.KD"</span>,</span>
+<span id="cb45-85"><a href="#cb45-85" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"MX"</span>, <span class="st">"CA"</span>, <span class="st">"US"</span>),</span>
+<span id="cb45-86"><a href="#cb45-86" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="dv">1960</span>,</span>
+<span id="cb45-87"><a href="#cb45-87" aria-hidden="true" tabindex="-1"></a>  <span class="at">end =</span> <span class="dv">2012</span></span>
+<span id="cb45-88"><a href="#cb45-88" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb45-89"><a href="#cb45-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-90"><a href="#cb45-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
+<span id="cb45-91"><a href="#cb45-91" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_WDI, <span class="fu">aes</span>(year, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
+<span id="cb45-92"><a href="#cb45-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb45-93"><a href="#cb45-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb45-94"><a href="#cb45-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita"</span>)</span>
+<span id="cb45-95"><a href="#cb45-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-96"><a href="#cb45-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve GDP per capita data for specified countries and years using the wbstats package</span></span>
+<span id="cb45-97"><a href="#cb45-97" aria-hidden="true" tabindex="-1"></a>df_wb <span class="ot">&lt;-</span> <span class="fu">wb</span>(</span>
+<span id="cb45-98"><a href="#cb45-98" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicator =</span> <span class="st">"NY.GDP.PCAP.KD"</span>,</span>
+<span id="cb45-99"><a href="#cb45-99" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"MX"</span>, <span class="st">"CA"</span>, <span class="st">"US"</span>),</span>
+<span id="cb45-100"><a href="#cb45-100" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="dv">1960</span>,</span>
+<span id="cb45-101"><a href="#cb45-101" aria-hidden="true" tabindex="-1"></a>  <span class="at">end =</span> <span class="dv">2012</span>,</span>
+<span id="cb45-102"><a href="#cb45-102" aria-hidden="true" tabindex="-1"></a>  <span class="at">return_wide =</span> <span class="cn">TRUE</span></span>
+<span id="cb45-103"><a href="#cb45-103" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb45-104"><a href="#cb45-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-105"><a href="#cb45-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
+<span id="cb45-106"><a href="#cb45-106" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_wb, <span class="fu">aes</span>(date, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
+<span id="cb45-107"><a href="#cb45-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb45-108"><a href="#cb45-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb45-109"><a href="#cb45-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita (constant 2010 US$)"</span>)</span>
+<span id="cb45-110"><a href="#cb45-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-111"><a href="#cb45-111" aria-hidden="true" tabindex="-1"></a><span class="co"># !!! This does not work !!!</span></span>
+<span id="cb45-112"><a href="#cb45-112" aria-hidden="true" tabindex="-1"></a><span class="co"># Why?</span></span>
+<span id="cb45-113"><a href="#cb45-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-114"><a href="#cb45-114" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the data types year and date are different:</span></span>
+<span id="cb45-115"><a href="#cb45-115" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_WDI)</span>
+<span id="cb45-116"><a href="#cb45-116" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wb)</span>
+<span id="cb45-117"><a href="#cb45-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-118"><a href="#cb45-118" aria-hidden="true" tabindex="-1"></a><span class="co"># Answer: A lineplot with a character variable on the x-axis does not work!</span></span>
+<span id="cb45-119"><a href="#cb45-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-120"><a href="#cb45-120" aria-hidden="true" tabindex="-1"></a><span class="co"># make the two dataframe equal:</span></span>
+<span id="cb45-121"><a href="#cb45-121" aria-hidden="true" tabindex="-1"></a>df_wb_cln <span class="ot">&lt;-</span> df_wb <span class="sc">|&gt;</span></span>
+<span id="cb45-122"><a href="#cb45-122" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert 'date' in df_wb from character to integer</span></span>
+<span id="cb45-123"><a href="#cb45-123" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(date)) <span class="sc">|&gt;</span></span>
+<span id="cb45-124"><a href="#cb45-124" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Since 'year' has been created, remove the original 'date' column</span></span>
+<span id="cb45-125"><a href="#cb45-125" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>date) <span class="sc">|&gt;</span></span>
+<span id="cb45-126"><a href="#cb45-126" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Relocate columns to organize the data frame</span></span>
+<span id="cb45-127"><a href="#cb45-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(country, iso2c, iso3c, year, NY.GDP.PCAP.KD)</span>
+<span id="cb45-128"><a href="#cb45-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-129"><a href="#cb45-129" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_WDI)</span>
+<span id="cb45-130"><a href="#cb45-130" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wb_cln)</span>
+<span id="cb45-131"><a href="#cb45-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-132"><a href="#cb45-132" aria-hidden="true" tabindex="-1"></a><span class="co"># Now it works:</span></span>
+<span id="cb45-133"><a href="#cb45-133" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
+<span id="cb45-134"><a href="#cb45-134" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_wb_cln, <span class="fu">aes</span>(year, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
+<span id="cb45-135"><a href="#cb45-135" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb45-136"><a href="#cb45-136" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb45-137"><a href="#cb45-137" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita (constant 2010 US$)"</span>)</span>
+<span id="cb45-138"><a href="#cb45-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-139"><a href="#cb45-139" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(pacman<span class="sc">::</span><span class="fu">p_unload</span>(</span>
+<span id="cb45-140"><a href="#cb45-140" aria-hidden="true" tabindex="-1"></a>  tidyverse, <span class="co"># A suite of packages designed for data science that includes tools for data manipulation, plotting, and more.</span></span>
+<span id="cb45-141"><a href="#cb45-141" aria-hidden="true" tabindex="-1"></a>  haven, <span class="co"># Used for importing and exporting data with SPSS, Stata, and SAS formats.</span></span>
+<span id="cb45-142"><a href="#cb45-142" aria-hidden="true" tabindex="-1"></a>  janitor, <span class="co"># Provides functions for examining and cleaning data, such as `clean_names()` and `tabyl()`.</span></span>
+<span id="cb45-143"><a href="#cb45-143" aria-hidden="true" tabindex="-1"></a>  WDI, <span class="co"># Facilitates downloading data from the World Bank's World Development Indicators database.</span></span>
+<span id="cb45-144"><a href="#cb45-144" aria-hidden="true" tabindex="-1"></a>  wbstats <span class="co"># Provides an interface to the World Bank's APIs for a comprehensive range of data sets.</span></span>
+<span id="cb45-145"><a href="#cb45-145" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -954,57 +947,57 @@ Output of the R script
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This script demonstrates a typical data analysis workflow in R</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------</span></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load required libraries</span></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Installs 'pacman' if not already available, which is used for package management</span></span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Unload all previously loaded packages to start fresh</span></span>
-<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(pacman<span class="sc">::</span><span class="fu">p_unload</span>(all))</span>
-<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary packages for data manipulation, cleaning, and visualization</span></span>
-<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
-<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>  tidyverse, <span class="co"># A suite of packages designed for data science that includes tools for data manipulation, plotting, and more.</span></span>
-<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>  haven, <span class="co"># Used for importing and exporting data with SPSS, Stata, and SAS formats.</span></span>
-<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>  janitor, <span class="co"># Provides functions for examining and cleaning data, such as `clean_names()` and `tabyl()`.</span></span>
-<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a>  WDI, <span class="co"># Facilitates downloading data from the World Bank's World Development Indicators database.</span></span>
-<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a>  wbstats <span class="co"># Provides an interface to the World Bank's APIs for a comprehensive range of data sets.</span></span>
-<span id="cb52-18"><a href="#cb52-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb52-19"><a href="#cb52-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-20"><a href="#cb52-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the working directory to a project-specific folder</span></span>
-<span id="cb52-21"><a href="#cb52-21" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/Dropbox/hsf/courses/dsr"</span>)</span>
-<span id="cb52-22"><a href="#cb52-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-23"><a href="#cb52-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Clear the current environment of any objects</span></span>
-<span id="cb52-24"><a href="#cb52-24" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb52-25"><a href="#cb52-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-26"><a href="#cb52-26" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------</span></span>
-<span id="cb52-27"><a href="#cb52-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-28"><a href="#cb52-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data from a Stata file available online</span></span>
-<span id="cb52-29"><a href="#cb52-29" aria-hidden="true" tabindex="-1"></a>auto <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"http://www.stata-press.com/data/r8/auto.dta"</span>)</span>
-<span id="cb52-30"><a href="#cb52-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 'auto': Dataset contains information about different car models</span></span>
-<span id="cb52-31"><a href="#cb52-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-32"><a href="#cb52-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Display basic information about the dataset</span></span>
-<span id="cb52-33"><a href="#cb52-33" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(auto) <span class="co"># Number of columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This script demonstrates a typical data analysis workflow in R</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load required libraries</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Installs 'pacman' if not already available, which is used for package management</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Unload all previously loaded packages to start fresh</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(pacman<span class="sc">::</span><span class="fu">p_unload</span>(all))</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary packages for data manipulation, cleaning, and visualization</span></span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>  tidyverse, <span class="co"># A suite of packages designed for data science that includes tools for data manipulation, plotting, and more.</span></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a>  haven, <span class="co"># Used for importing and exporting data with SPSS, Stata, and SAS formats.</span></span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>  janitor, <span class="co"># Provides functions for examining and cleaning data, such as `clean_names()` and `tabyl()`.</span></span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>  WDI, <span class="co"># Facilitates downloading data from the World Bank's World Development Indicators database.</span></span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>  wbstats <span class="co"># Provides an interface to the World Bank's APIs for a comprehensive range of data sets.</span></span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the working directory to a project-specific folder</span></span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/Dropbox/hsf/courses/dsr"</span>)</span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Clear the current environment of any objects</span></span>
+<span id="cb46-24"><a href="#cb46-24" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb46-25"><a href="#cb46-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-26"><a href="#cb46-26" aria-hidden="true" tabindex="-1"></a><span class="co"># ---------------------------------------------------------------</span></span>
+<span id="cb46-27"><a href="#cb46-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-28"><a href="#cb46-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data from a Stata file available online</span></span>
+<span id="cb46-29"><a href="#cb46-29" aria-hidden="true" tabindex="-1"></a>auto <span class="ot">&lt;-</span> <span class="fu">read_dta</span>(<span class="st">"http://www.stata-press.com/data/r8/auto.dta"</span>)</span>
+<span id="cb46-30"><a href="#cb46-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 'auto': Dataset contains information about different car models</span></span>
+<span id="cb46-31"><a href="#cb46-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-32"><a href="#cb46-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Display basic information about the dataset</span></span>
+<span id="cb46-33"><a href="#cb46-33" aria-hidden="true" tabindex="-1"></a><span class="fu">ncol</span>(auto) <span class="co"># Number of columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 12</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(auto) <span class="co"># Number of rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(auto) <span class="co"># Number of rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 74</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(auto) <span class="co"># Dimensions of the dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(auto) <span class="co"># Dimensions of the dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 74 12</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(auto) <span class="co"># Names of variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(auto) <span class="co"># Names of variables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "make"         "price"        "mpg"          "rep78"        "headroom"    
  [6] "trunk"        "weight"       "length"       "turn"         "displacement"
 [11] "gear_ratio"   "foreign"     </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(auto) <span class="co"># First few rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(auto) <span class="co"># First few rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 12
   make         price   mpg rep78 headroom trunk weight length  turn displacement
@@ -1017,7 +1010,7 @@ Output of the R script
 6 Buick LeSab…  5788    18     3      4      21   3670    218    43          231
 # ℹ 2 more variables: gear_ratio &lt;dbl&gt;, foreign &lt;dbl+lbl&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(auto) <span class="co"># Last few rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(auto) <span class="co"># Last few rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 12
   make         price   mpg rep78 headroom trunk weight length  turn displacement
@@ -1030,7 +1023,7 @@ Output of the R script
 6 Volvo 260    11995    17     5      2.5    14   3170    193    37          163
 # ℹ 2 more variables: gear_ratio &lt;dbl&gt;, foreign &lt;dbl+lbl&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(auto) <span class="co"># Summary statistics for each column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(auto) <span class="co"># Summary statistics for each column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     make               price            mpg            rep78      
  Length:74          Min.   : 3291   Min.   :12.00   Min.   :1.000  
@@ -1057,7 +1050,7 @@ Output of the R script
  Max.   :425.0   Max.   :3.890   Max.   :1.0000  
                                                  </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(auto) <span class="co"># Compact display of the structure of the dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(auto) <span class="co"># Compact display of the structure of the dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 74
 Columns: 12
@@ -1074,7 +1067,7 @@ $ displacement &lt;dbl&gt; 121, 258, 121, 196, 350, 231, 304, 196, 231, 231, 425
 $ gear_ratio   &lt;dbl&gt; 3.58, 2.53, 3.08, 2.93, 2.41, 2.73, 2.87, 2.93, 2.93, 3.0…
 $ foreign      &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(auto, <span class="at">n =</span> <span class="cn">Inf</span>) <span class="co"># Print all rows of the dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(auto, <span class="at">n =</span> <span class="cn">Inf</span>) <span class="co"># Print all rows of the dataset</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 74 × 12
    make        price   mpg rep78 headroom trunk weight length  turn displacement
@@ -1155,9 +1148,9 @@ $ foreign      &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 74 Volvo 260   11995    17     5      2.5    14   3170    193    37          163
 # ℹ 2 more variables: gear_ratio &lt;dbl&gt;, foreign &lt;dbl+lbl&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for duplicate entries based on the 'make' variable</span></span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>auto <span class="sc">|&gt;</span></span>
-<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_dupes</span>(make)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check for duplicate entries based on the 'make' variable</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>auto <span class="sc">|&gt;</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_dupes</span>(make)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>No duplicate combinations found of: make</code></pre>
 </div>
@@ -1167,10 +1160,10 @@ $ foreign      &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 #   rep78 &lt;dbl&gt;, headroom &lt;dbl&gt;, trunk &lt;dbl&gt;, weight &lt;dbl&gt;, length &lt;dbl&gt;,
 #   turn &lt;dbl&gt;, displacement &lt;dbl&gt;, gear_ratio &lt;dbl&gt;, foreign &lt;dbl+lbl&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and display a scatter plot of car price versus weight</span></span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>plot_weight_price <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(auto, <span class="fu">aes</span>(<span class="at">x =</span> weight, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>plot_weight_price</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and display a scatter plot of car price versus weight</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>plot_weight_price <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(auto, <span class="fu">aes</span>(<span class="at">x =</span> weight, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>plot_weight_price</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1178,16 +1171,16 @@ $ foreign      &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot to a file</span></span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"fig/plot_weight_price.png"</span>, <span class="at">plot =</span> plot_weight_price, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot to a file</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"fig/plot_weight_price.png"</span>, <span class="at">plot =</span> plot_weight_price, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Saving 7 x 5 in image</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a scatter plot with a linear regression line of price vs weight</span></span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>plot_weight_price_fit <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(auto, <span class="fu">aes</span>(<span class="at">x =</span> weight, <span class="at">y =</span> price)) <span class="sc">+</span></span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="co"># 'lm' denotes linear model, 'se' is standard error</span></span>
-<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>plot_weight_price_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a scatter plot with a linear regression line of price vs weight</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>plot_weight_price_fit <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(auto, <span class="fu">aes</span>(<span class="at">x =</span> weight, <span class="at">y =</span> price)) <span class="sc">+</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="co"># 'lm' denotes linear model, 'se' is standard error</span></span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>plot_weight_price_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -1198,17 +1191,17 @@ $ foreign      &lt;dbl+lbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot to a file</span></span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"fig/plot_weight_price_fit.png"</span>, <span class="at">plot =</span> plot_weight_price_fit, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot to a file</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"fig/plot_weight_price_fit.png"</span>, <span class="at">plot =</span> plot_weight_price_fit, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Saving 7 x 5 in image</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform a linear regression to analyze the relationship between weight and price</span></span>
-<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>reg_result <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> weight, <span class="at">data =</span> auto)</span>
-<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg_result) <span class="co"># Display the regression results</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform a linear regression to analyze the relationship between weight and price</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>reg_result <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> weight, <span class="at">data =</span> auto)</span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg_result) <span class="co"># Display the regression results</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -1229,19 +1222,19 @@ Residual standard error: 2502 on 72 degrees of freedom
 Multiple R-squared:  0.2901,    Adjusted R-squared:  0.2802 
 F-statistic: 29.42 on 1 and 72 DF,  p-value: 7.416e-07</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load and demonstrate usage of World Development Indicators (WDI) data</span></span>
-<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Two different packages can help here:</span></span>
-<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="co"># WDI:</span></span>
-<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://cran.r-project.org/web/packages/WDI/WDI.pdf</span></span>
-<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://github.com/vincentarelbundock/WDI</span></span>
-<span id="cb83-6"><a href="#cb83-6" aria-hidden="true" tabindex="-1"></a><span class="co"># wbstats:</span></span>
-<span id="cb83-7"><a href="#cb83-7" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://cran.r-project.org/web/packages/wbstats/wbstats.pdf</span></span>
-<span id="cb83-8"><a href="#cb83-8" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://github.com/gshs-ornl/wbstats</span></span>
-<span id="cb83-9"><a href="#cb83-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ?WDI  # Access documentation for the WDI package</span></span>
-<span id="cb83-10"><a href="#cb83-10" aria-hidden="true" tabindex="-1"></a><span class="co"># ?wbstats # # Access documentation for the wbstats package</span></span>
-<span id="cb83-11"><a href="#cb83-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb83-12"><a href="#cb83-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for GDP indicators and display the first 10</span></span>
-<span id="cb83-13"><a href="#cb83-13" aria-hidden="true" tabindex="-1"></a><span class="fu">WDIsearch</span>(<span class="st">"gdp"</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load and demonstrate usage of World Development Indicators (WDI) data</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Two different packages can help here:</span></span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="co"># WDI:</span></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://cran.r-project.org/web/packages/WDI/WDI.pdf</span></span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://github.com/vincentarelbundock/WDI</span></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="co"># wbstats:</span></span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://cran.r-project.org/web/packages/wbstats/wbstats.pdf</span></span>
+<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a><span class="co"># --- https://github.com/gshs-ornl/wbstats</span></span>
+<span id="cb77-9"><a href="#cb77-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ?WDI  # Access documentation for the WDI package</span></span>
+<span id="cb77-10"><a href="#cb77-10" aria-hidden="true" tabindex="-1"></a><span class="co"># ?wbstats # # Access documentation for the wbstats package</span></span>
+<span id="cb77-11"><a href="#cb77-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-12"><a href="#cb77-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Search for GDP indicators and display the first 10</span></span>
+<span id="cb77-13"><a href="#cb77-13" aria-hidden="true" tabindex="-1"></a><span class="fu">WDIsearch</span>(<span class="st">"gdp"</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                indicator                                                 name
 712        5.51.01.10.gdp                                Per capita GDP growth
@@ -1255,19 +1248,19 @@ F-statistic: 29.42 on 1 and 72 DF,  p-value: 7.416e-07</code></pre>
 1560 BG.KLT.DINV.GD.PP.ZS      Gross foreign direct investment (% of GDP, PPP)
 1561    BG.KLT.DINV.GD.ZS           Gross foreign direct investment (% of GDP)</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve GDP per capita data for specified countries and years</span></span>
-<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>df_WDI <span class="ot">&lt;-</span> <span class="fu">WDI</span>(</span>
-<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicator =</span> <span class="st">"NY.GDP.PCAP.KD"</span>,</span>
-<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"MX"</span>, <span class="st">"CA"</span>, <span class="st">"US"</span>),</span>
-<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="dv">1960</span>,</span>
-<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">end =</span> <span class="dv">2012</span></span>
-<span id="cb85-7"><a href="#cb85-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb85-8"><a href="#cb85-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb85-9"><a href="#cb85-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
-<span id="cb85-10"><a href="#cb85-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_WDI, <span class="fu">aes</span>(year, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
-<span id="cb85-11"><a href="#cb85-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb85-12"><a href="#cb85-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
-<span id="cb85-13"><a href="#cb85-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve GDP per capita data for specified countries and years</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>df_WDI <span class="ot">&lt;-</span> <span class="fu">WDI</span>(</span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicator =</span> <span class="st">"NY.GDP.PCAP.KD"</span>,</span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"MX"</span>, <span class="st">"CA"</span>, <span class="st">"US"</span>),</span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="dv">1960</span>,</span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">end =</span> <span class="dv">2012</span></span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
+<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_WDI, <span class="fu">aes</span>(year, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
+<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb79-13"><a href="#cb79-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1275,20 +1268,29 @@ F-statistic: 29.42 on 1 and 72 DF,  p-value: 7.416e-07</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve GDP per capita data for specified countries and years using the wbstats package</span></span>
-<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>df_wb <span class="ot">&lt;-</span> <span class="fu">wb</span>(</span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicator =</span> <span class="st">"NY.GDP.PCAP.KD"</span>,</span>
-<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"MX"</span>, <span class="st">"CA"</span>, <span class="st">"US"</span>),</span>
-<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="dv">1960</span>,</span>
-<span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">end =</span> <span class="dv">2012</span>,</span>
-<span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">return_wide =</span> <span class="cn">TRUE</span></span>
-<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb86-10"><a href="#cb86-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
-<span id="cb86-11"><a href="#cb86-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_wb, <span class="fu">aes</span>(date, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
-<span id="cb86-12"><a href="#cb86-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb86-13"><a href="#cb86-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
-<span id="cb86-14"><a href="#cb86-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita (constant 2010 US$)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve GDP per capita data for specified countries and years using the wbstats package</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>df_wb <span class="ot">&lt;-</span> <span class="fu">wb</span>(</span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicator =</span> <span class="st">"NY.GDP.PCAP.KD"</span>,</span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"MX"</span>, <span class="st">"CA"</span>, <span class="st">"US"</span>),</span>
+<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="dv">1960</span>,</span>
+<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">end =</span> <span class="dv">2012</span>,</span>
+<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">return_wide =</span> <span class="cn">TRUE</span></span>
+<span id="cb80-8"><a href="#cb80-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: `wb()` was deprecated in wbstats 1.0.0.
+ℹ Please use `wb_data()` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: `spread_()` was deprecated in tidyr 1.2.0.
+ℹ Please use `spread()` instead.
+ℹ The deprecated feature was likely used in the wbstats package.
+  Please report the issue at &lt;https://github.com/nset-ornl/wbstats/issues&gt;.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_wb, <span class="fu">aes</span>(date, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita (constant 2010 US$)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_line()`: Each group consists of only one observation.
 ℹ Do you need to adjust the group aesthetic?</code></pre>
@@ -1300,11 +1302,11 @@ F-statistic: 29.42 on 1 and 72 DF,  p-value: 7.416e-07</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="co"># !!! This does not work !!!</span></span>
-<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Why?</span></span>
-<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the data types year and date are different:</span></span>
-<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_WDI)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># !!! This does not work !!!</span></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Why?</span></span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the data types year and date are different:</span></span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_WDI)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 159
 Columns: 5
@@ -1314,7 +1316,7 @@ $ iso3c          &lt;chr&gt; "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "C
 $ year           &lt;int&gt; 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2…
 $ NY.GDP.PCAP.KD &lt;dbl&gt; 42319.63, 42043.51, 41165.57, 40377.82, 42067.80, 42106…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 159
 Columns: 5
@@ -1324,18 +1326,18 @@ $ iso2c          &lt;chr&gt; "CA", "CA", "CA", "CA", "CA", "CA", "CA", "CA", "CA
 $ country        &lt;chr&gt; "Canada", "Canada", "Canada", "Canada", "Canada", "Cana…
 $ NY.GDP.PCAP.KD &lt;dbl&gt; 14229.83, 14389.40, 15173.02, 15689.70, 16419.39, 17143…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Answer: A lineplot with a character variable on the x-axis does not work!</span></span>
-<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="co"># make the two dataframe equal:</span></span>
-<span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a>df_wb_cln <span class="ot">&lt;-</span> df_wb <span class="sc">|&gt;</span></span>
-<span id="cb92-5"><a href="#cb92-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert 'date' in df_wb from character to integer</span></span>
-<span id="cb92-6"><a href="#cb92-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(date)) <span class="sc">|&gt;</span></span>
-<span id="cb92-7"><a href="#cb92-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Since 'year' has been created, remove the original 'date' column</span></span>
-<span id="cb92-8"><a href="#cb92-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>date) <span class="sc">|&gt;</span></span>
-<span id="cb92-9"><a href="#cb92-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Relocate columns to organize the data frame</span></span>
-<span id="cb92-10"><a href="#cb92-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(country, iso2c, iso3c, year, NY.GDP.PCAP.KD)</span>
-<span id="cb92-11"><a href="#cb92-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb92-12"><a href="#cb92-12" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_WDI)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Answer: A lineplot with a character variable on the x-axis does not work!</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="co"># make the two dataframe equal:</span></span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>df_wb_cln <span class="ot">&lt;-</span> df_wb <span class="sc">|&gt;</span></span>
+<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert 'date' in df_wb from character to integer</span></span>
+<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(date)) <span class="sc">|&gt;</span></span>
+<span id="cb89-7"><a href="#cb89-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Since 'year' has been created, remove the original 'date' column</span></span>
+<span id="cb89-8"><a href="#cb89-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>date) <span class="sc">|&gt;</span></span>
+<span id="cb89-9"><a href="#cb89-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Relocate columns to organize the data frame</span></span>
+<span id="cb89-10"><a href="#cb89-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(country, iso2c, iso3c, year, NY.GDP.PCAP.KD)</span>
+<span id="cb89-11"><a href="#cb89-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-12"><a href="#cb89-12" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_WDI)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 159
 Columns: 5
@@ -1345,7 +1347,7 @@ $ iso3c          &lt;chr&gt; "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "C
 $ year           &lt;int&gt; 2012, 2011, 2010, 2009, 2008, 2007, 2006, 2005, 2004, 2…
 $ NY.GDP.PCAP.KD &lt;dbl&gt; 42319.63, 42043.51, 41165.57, 40377.82, 42067.80, 42106…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wb_cln)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_wb_cln)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 159
 Columns: 5
@@ -1355,12 +1357,12 @@ $ iso3c          &lt;chr&gt; "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "CAN", "C
 $ year           &lt;int&gt; 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1…
 $ NY.GDP.PCAP.KD &lt;dbl&gt; 14229.83, 14389.40, 15173.02, 15689.70, 16419.39, 17143…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now it works:</span></span>
-<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
-<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_wb_cln, <span class="fu">aes</span>(year, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
-<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
-<span id="cb96-6"><a href="#cb96-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita (constant 2010 US$)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now it works:</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot GDP per capita over time for the specified countries</span></span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_wb_cln, <span class="fu">aes</span>(year, NY.GDP.PCAP.KD, <span class="at">color =</span> country)) <span class="sc">+</span></span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"GDP per capita (constant 2010 US$)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1368,13 +1370,13 @@ $ NY.GDP.PCAP.KD &lt;dbl&gt; 14229.83, 14389.40, 15173.02, 15689.70, 16419.39, 1
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(pacman<span class="sc">::</span><span class="fu">p_unload</span>(</span>
-<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  tidyverse, <span class="co"># A suite of packages designed for data science that includes tools for data manipulation, plotting, and more.</span></span>
-<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>  haven, <span class="co"># Used for importing and exporting data with SPSS, Stata, and SAS formats.</span></span>
-<span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a>  janitor, <span class="co"># Provides functions for examining and cleaning data, such as `clean_names()` and `tabyl()`.</span></span>
-<span id="cb97-5"><a href="#cb97-5" aria-hidden="true" tabindex="-1"></a>  WDI, <span class="co"># Facilitates downloading data from the World Bank's World Development Indicators database.</span></span>
-<span id="cb97-6"><a href="#cb97-6" aria-hidden="true" tabindex="-1"></a>  wbstats <span class="co"># Provides an interface to the World Bank's APIs for a comprehensive range of data sets.</span></span>
-<span id="cb97-7"><a href="#cb97-7" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(pacman<span class="sc">::</span><span class="fu">p_unload</span>(</span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>  tidyverse, <span class="co"># A suite of packages designed for data science that includes tools for data manipulation, plotting, and more.</span></span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>  haven, <span class="co"># Used for importing and exporting data with SPSS, Stata, and SAS formats.</span></span>
+<span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>  janitor, <span class="co"># Provides functions for examining and cleaning data, such as `clean_names()` and `tabyl()`.</span></span>
+<span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>  WDI, <span class="co"># Facilitates downloading data from the World Bank's World Development Indicators database.</span></span>
+<span id="cb94-6"><a href="#cb94-6" aria-hidden="true" tabindex="-1"></a>  wbstats <span class="co"># Provides an interface to the World Bank's APIs for a comprehensive range of data sets.</span></span>
+<span id="cb94-7"><a href="#cb94-7" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1952,7 +1954,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","selector":".lightbox"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

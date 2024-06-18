@@ -550,7 +550,7 @@ Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(df_gdp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 13,198
+<pre><code>Rows: 13,178
 Columns: 7
 $ iso3c       &lt;chr&gt; "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "AFE", "A…
 $ date        &lt;chr&gt; "2022", "2021", "2020", "2019", "2018", "2017", "2016", "2…
@@ -563,14 +563,14 @@ $ country     &lt;chr&gt; "Africa Eastern and Southern", "Africa Eastern and Sou
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df_gdp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    iso3c               date               value           indicatorID       
- Length:13198       Length:13198       Min.   :8.825e+06   Length:13198      
- Class :character   Class :character   1st Qu.:2.435e+09   Class :character  
- Mode  :character   Mode  :character   Median :1.786e+10   Mode  :character  
-                                       Mean   :1.224e+12                     
-                                       3rd Qu.:2.264e+11                     
+ Length:13178       Length:13178       Min.   :8.825e+06   Length:13178      
+ Class :character   Class :character   1st Qu.:2.429e+09   Class :character  
+ Mode  :character   Mode  :character   Median :1.779e+10   Mode  :character  
+                                       Mean   :1.225e+12                     
+                                       3rd Qu.:2.281e+11                     
                                        Max.   :1.009e+14                     
   indicator            iso2c             country         
- Length:13198       Length:13198       Length:13198      
+ Length:13178       Length:13178       Length:13178      
  Class :character   Class :character   Class :character  
  Mode  :character   Mode  :character   Mode  :character  
                                                          
@@ -1757,7 +1757,7 @@ attr(,"tsp")
 <div class="sourceCode cell-code" id="cb153"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check if the package is installed</span></span>
 <span id="cb153-2"><a href="#cb153-2" aria-hidden="true" tabindex="-1"></a><span class="fu">find.package</span>(<span class="st">"dplyr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "/home/sthu/R/x86_64-pc-linux-gnu-library/4.2/dplyr"</code></pre>
+<pre><code>[1] "/usr/local/lib/R/site-library/dplyr"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb155"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I already installed the package so I can just load it</span></span>
 <span id="cb155-2"><a href="#cb155-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("dplyr")</span></span>
@@ -2549,7 +2549,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","loop":false,"selector":".lightbox","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Prof.&nbsp;Dr.&nbsp;Stephan Huber">
-<meta name="dcterms.date" content="2024-05-22">
+<meta name="dcterms.date" content="2024-06-18">
 
 <title>How to Use R for Data Science</title>
 <style>
@@ -285,7 +285,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">How to Use R for Data Science</h1>
-<p class="subtitle lead">Lecture Notes (currently under revision)</p>
+<p class="subtitle lead">Lecture Notes</p>
 </div>
 
 
@@ -311,7 +311,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 22, 2024</p>
+      <p class="date">June 18, 2024</p>
     </div>
   </div>
   
@@ -357,6 +357,19 @@ A PDF version of these notes is available <a href="https://raw.githubusercontent
 <li>These notes are published under the <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>. This means it can be reused, remixed, retained, revised and redistributed as long as appropriate credit is given to the authors. If you remix, or modify the original version of this open textbook, you must redistribute all versions of this open textbook under the same license. This script draws from the work of <span class="citation" data-cites="Navarro2020Learning">Navarro (<a href="references.html#ref-Navarro2020Learning" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="Muschelli2022Introduction">Muschelli &amp; Jaffe (<a href="references.html#ref-Muschelli2022Introduction" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="Thulin2021Modern">Thulin (<a href="references.html#ref-Thulin2021Modern" role="doc-biblioref">2021</a>)</span>, and <span class="citation" data-cites="Ismay2022Statistical">Ismay &amp; Kim (<a href="references.html#ref-Ismay2022Statistical" role="doc-biblioref">2022</a>)</span> which is also published under the same license. <img src="fig/CC.png" class="img-fluid"></li>
 <li>I host the notes in a <a href="https://github.com/hubchev/hubchev.github.io/tree/main/ds">GitHub repo</a>.</li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="To reap the best benefits from studying,">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+To reap the best benefits from studying,
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I recommend to copy all the code that is shown in the book into a R script and try to run it on your PC. That is the best way to learn, understand, and create your own notes that may guide you later on. Whenever you see interesting code somewhere, try to run it on your PC. Moreover, I recommend the exercises of the book, they are challenging sometimes but to really understand code you need to run code yourself.</p>
+</div>
+</div>
 </section>
 <section id="structure-of-these-notes" class="level4">
 <h4 class="anchored" data-anchor-id="structure-of-these-notes">Structure of these notes</h4>
@@ -381,11 +394,11 @@ A PDF version of these notes is available <a href="https://raw.githubusercontent
 <td>Learn the basics of writing code.</td>
 </tr>
 <tr class="odd">
-<td>Working with R scripts</td>
+<td>writing R scripts</td>
 <td>Learn how to use R scripts and their benefits.</td>
 </tr>
 <tr class="even">
-<td>An interactive introduction using Swirl</td>
+<td>Interactive introduction using swirl</td>
 <td>A hands-on tutorial on how to use the swirl package. This section is optional.</td>
 </tr>
 <tr class="odd">
@@ -397,11 +410,11 @@ A PDF version of these notes is available <a href="https://raw.githubusercontent
 <td>Discover common mistakes beginners often make and how to avoid them to save time on troubleshooting.</td>
 </tr>
 <tr class="odd">
-<td>Managing data</td>
+<td>Manage data</td>
 <td>Learn how to manipulate data in R.</td>
 </tr>
 <tr class="even">
-<td>Visualizing data</td>
+<td>Visualize data</td>
 <td>A quick guide on where to find resources to learn about creating graphical visualizations in R.</td>
 </tr>
 <tr class="odd">
@@ -410,7 +423,7 @@ A PDF version of these notes is available <a href="https://raw.githubusercontent
 </tr>
 <tr class="even">
 <td>Appendix</td>
-<td>A set of useful stuff that will help you to navigate through your file system, find the reight operator and function, or to learn some usefull shortcuts.</td>
+<td>A set of useful stuff that will help you to navigate through your file system, find the right operator and function, or to learn some useful shortcuts.</td>
 </tr>
 </tbody>
 </table>
@@ -418,7 +431,7 @@ A PDF version of these notes is available <a href="https://raw.githubusercontent
 <section id="about-the-author" class="level4 unlisted unnumbered">
 <h4 class="unlisted unnumbered anchored" data-anchor-id="about-the-author">About the author</h4>
 <div class="callout callout-style-default callout-note callout-titled" title="Contact:">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -427,7 +440,7 @@ Contact:
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Prof.&nbsp;Dr.&nbsp;Stephan Huber<br>
 Hochschule Fresenius für Wirtschaft &amp; Medien GmbH<br>
@@ -1054,7 +1067,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false});
+<script>var lightboxQuarto = GLightbox({"loop":false,"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -321,6 +321,7 @@ div.csl-indent {
   <li><a href="#write" id="toc-write" class="nav-link" data-scroll-target="#write"><span class="header-section-number">3.3.2</span> Write</a></li>
   <li><a href="#run" id="toc-run" class="nav-link" data-scroll-target="#run"><span class="header-section-number">3.3.3</span> Run</a></li>
   </ul></li>
+  <li><a href="#what-to-do-at-the-header-of-each-script" id="toc-what-to-do-at-the-header-of-each-script" class="nav-link" data-scroll-target="#what-to-do-at-the-header-of-each-script"><span class="header-section-number">3.4</span> What to do at the header of each script</a></li>
   </ul>
 </nav>
     </div>
@@ -529,6 +530,30 @@ Solution
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="what-to-do-at-the-header-of-each-script" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="what-to-do-at-the-header-of-each-script"><span class="header-section-number">3.4</span> What to do at the header of each script</h2>
+<p>At the beginning of each script, ensure that all required packages are loaded correctly. Use the <code>pacman</code> package, which provides the <code>p_load()</code> function to load and, if necessary, install packages, and the <code>p_unload(all)</code> function to unload all packages. Additionally, set your working directory with <code>setwd()</code> and clear all objects from the environment with <code>rm(list = ls())</code>. This ensures that everything in the environment after sourcing the script originates from the script itself. Below is the code that I use at the beginning of all my scripts. I recommend you do the same.</p>
+<div id="tip-fivescript" class="callout callout-style-default callout-tip callout-titled" title="Start your script with">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip&nbsp;3.1: Start your script with
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_unload</span>(all)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, janitor)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/your-directory/"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
@@ -536,7 +561,6 @@ Solution
 Stephenson, P. (2023). <em>Data science practice</em>. Accessed January 30, 2023. <a href="https://datasciencepractice.study/">https://datasciencepractice.study/</a>
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->
