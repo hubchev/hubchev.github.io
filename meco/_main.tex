@@ -61,7 +61,12 @@
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-\usepackage{soul}
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+\fi
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -94,7 +99,7 @@
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{plainnat}
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\usepackage{bookmark}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
@@ -116,7 +121,7 @@
 \makeatother
 \subtitle{Lecture Notes}
 \author{© Prof.~Dr.~Stephan Huber (\href{mailto:Stephan.Huber@hs-fresenius.de}{\nolinkurl{Stephan.Huber@hs-fresenius.de}})}
-\date{Last compiled on 21 June, 2024}
+\date{Last compiled on 25 June, 2024}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -143,8 +148,7 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\hypertarget{preface}{%
-\chapter*{Preface}\label{preface}}
+\chapter*{Preface}\label{preface}
 \addcontentsline{toc}{chapter}{Preface}
 
 \begin{itemize}
@@ -162,8 +166,7 @@
   The lecture notes are available online or you can download it as a \href{https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/me/_main.pdf}{pdf file here}
 \end{itemize}
 
-\hypertarget{about-the-author}{%
-\section*{About the author}\label{about-the-author}}
+\section*{About the author}\label{about-the-author}
 
 \begin{figure}
 \centering
@@ -190,8 +193,7 @@ Throughout my career, I have also worked as a lecturer at various institutions, 
    Github: https://hubchev.github.io/
 \end{verbatim}
 
-\hypertarget{about-this-course}{%
-\section*{About this course}\label{about-this-course}}
+\section*{About this course}\label{about-this-course}
 
 \textbf{Workload:}
 125 h = 42 h (in-class) + 21 h (guided private study hours) - 62 h (private self-study).
@@ -234,8 +236,7 @@ I am convinced that reading the lecture notes, preparing for class, taking activ
 
 \textbf{Content:}
 
-\hypertarget{price-theory}{%
-\paragraph*{Price theory}\label{price-theory}}
+\paragraph*{Price theory}\label{price-theory}
 \addcontentsline{toc}{paragraph}{Price theory}
 
 \begin{itemize}
@@ -250,8 +251,7 @@ I am convinced that reading the lecture notes, preparing for class, taking activ
   regional market power and price setting
 \end{itemize}
 
-\hypertarget{production-and-cost-theory}{%
-\paragraph*{Production and cost theory}\label{production-and-cost-theory}}
+\paragraph*{Production and cost theory}\label{production-and-cost-theory}
 \addcontentsline{toc}{paragraph}{Production and cost theory}
 
 \begin{itemize}
@@ -264,8 +264,7 @@ I am convinced that reading the lecture notes, preparing for class, taking activ
   cost--volume--profit analysis
 \end{itemize}
 
-\hypertarget{location-theory}{%
-\paragraph*{Location theory}\label{location-theory}}
+\paragraph*{Location theory}\label{location-theory}
 \addcontentsline{toc}{paragraph}{Location theory}
 
 \begin{itemize}
@@ -278,8 +277,7 @@ I am convinced that reading the lecture notes, preparing for class, taking activ
   location fundamentals and agglomeration forces (sharing, matching, learning)
 \end{itemize}
 
-\hypertarget{strategic-behaviour-of-firms}{%
-\paragraph*{Strategic behaviour of firms}\label{strategic-behaviour-of-firms}}
+\paragraph*{Strategic behaviour of firms}\label{strategic-behaviour-of-firms}
 \addcontentsline{toc}{paragraph}{Strategic behaviour of firms}
 
 \begin{itemize}
@@ -292,8 +290,7 @@ I am convinced that reading the lecture notes, preparing for class, taking activ
   limitations
 \end{itemize}
 
-\hypertarget{investment-decisions}{%
-\paragraph*{Investment decisions}\label{investment-decisions}}
+\paragraph*{Investment decisions}\label{investment-decisions}
 \addcontentsline{toc}{paragraph}{Investment decisions}
 
 \begin{itemize}
@@ -310,8 +307,7 @@ I am convinced that reading the lecture notes, preparing for class, taking activ
   common pitfalls in investment decisions
 \end{itemize}
 
-\hypertarget{about-how-to-learn-and-prepare-for-the-exam}{%
-\subsection*{About how to learn (and prepare for the exam)}\label{about-how-to-learn-and-prepare-for-the-exam}}
+\subsection*{About how to learn (and prepare for the exam)}\label{about-how-to-learn-and-prepare-for-the-exam}
 
 \begin{figure}
 \centering
@@ -346,8 +342,7 @@ Stephan Huber:
   If you have difficulties with some exercises and the solutions shown do not solve your problem, ask a classmate or contact me. I will do my best to help.
 \end{itemize}
 
-\hypertarget{what-is-managerial-economics}{%
-\chapter{What is managerial economics?}\label{what-is-managerial-economics}}
+\chapter{What is managerial economics?}\label{what-is-managerial-economics}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -369,8 +364,7 @@ Well, that's a question that can't be answered definitively. It is whatever you 
 
 More recent, many people start using ChatGPT for good reasons. \citet{Korinek2023Language} discusses the use of it for academic research. Lets see what ChatGPT and Wikipedia say about managerial economics.
 
-\hypertarget{what-is-managerial-economics-for-chatgpt}{%
-\section{What is managerial economics for ChatGPT?}\label{what-is-managerial-economics-for-chatgpt}}
+\section{What is managerial economics for ChatGPT?}\label{what-is-managerial-economics-for-chatgpt}
 
 \textbf{Define managerial economics.}
 
@@ -394,18 +388,15 @@ More recent, many people start using ChatGPT for good reasons. \citet{Korinek202
 
 \emph{In summary, while managerial economics draws from both microeconomics and macroeconomics, it focuses on the specific issues facing firms and their decision-making behavior, making it distinct from these other two branches of economics.}
 
-\hypertarget{what-is-managerial-economics-for-wikipedia}{%
-\section{What is managerial economics for Wikipedia?}\label{what-is-managerial-economics-for-wikipedia}}
+\section{What is managerial economics for Wikipedia?}\label{what-is-managerial-economics-for-wikipedia}
 
 Read \url{https://en.wikipedia.org/wiki/Managerial_economics}
 
-\hypertarget{simple-definition-of-managerial-economics}{%
-\section{Simple definition of managerial economics}\label{simple-definition-of-managerial-economics}}
+\section{Simple definition of managerial economics}\label{simple-definition-of-managerial-economics}
 
 To me managerial economics is economics for managers. That means, any sort of method, information, and knowledge from economic research that can help managers somehow in making good decisions and achieve their goals can be considered to be part of managerial economics. So, now we can discuss what \emph{economics} is all about and what therein can be helpful to managers.
 
-\hypertarget{what-is-economics}{%
-\section{What is economics?}\label{what-is-economics}}
+\section{What is economics?}\label{what-is-economics}
 
 All economic questions arise because we want more than we can get. Our inability to satisfy all our wants is called scarcity and because of scarcity, we must make choices that depend on the incentives we face. An incentive is a reward that encourages or a penalty that discourages an action.
 
@@ -465,8 +456,7 @@ lack of agreement on a clear-cut definition of economics does not really matter 
 \textbf{The important questions of economics:}
 How do choices end up determining what, where, how, and for whom goods and services get produced? And: When do choices made in the pursuit of self-interest also promote the social interest?
 
-\hypertarget{decision-making-basics}{%
-\chapter{Decision making basics}\label{decision-making-basics}}
+\chapter{Decision making basics}\label{decision-making-basics}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -492,8 +482,7 @@ After successful completion of the module, students are able to:
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-\hypertarget{exercises-to-reflect-on-how-we-make-decisions}{%
-\section{Exercises to reflect on how we make decisions}\label{exercises-to-reflect-on-how-we-make-decisions}}
+\section{Exercises to reflect on how we make decisions}\label{exercises-to-reflect-on-how-we-make-decisions}
 
 \begin{exercise}
 \protect\hypertarget{exr:brain-color}{}\label{exr:brain-color}Brain
@@ -565,14 +554,13 @@ Answer the question here:
 \url{https://pingo.coactum.de/}
 Code: 666528
 
-Please find solution to the exercise \protect\hyperlink{sol:santa}{in the appendix}
+Please find solution to the exercise \hyperref[sol:santa]{in the appendix}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \end{exercise}
 
-\hypertarget{what-defines-a-decision}{%
-\section{What defines a decision?}\label{what-defines-a-decision}}
+\section{What defines a decision?}\label{what-defines-a-decision}
 
 The statement of \citet{Eilon1969What} still holds true:
 
@@ -607,8 +595,7 @@ A decision is the point at which a choice is made between alternative---and usua
 \end{figure}
 \footnotetext{Picture is taken from \url{https://pixabay.com/de/illustrations/entscheidung-auswahl-pfad-stra\%C3\%9Fe-1697537/}}
 
-\hypertarget{types-of-decisions}{%
-\section{Types of decisions}\label{types-of-decisions}}
+\section{Types of decisions}\label{types-of-decisions}
 
 Decision making is a process of investing time and effort to make a decision that will lead to (good) results. In the following, we discuss some types of decisions that can help to design an appropriate decision making process.
 
@@ -638,8 +625,7 @@ Some decisions are more important than others because the potential impact of a 
 
 However, it is not entirely clear how to validate the scope. It depends heavily on the perspective of the decision-maker. For a small company, for example, an investment of 10,000 euros may be a big decision, while for a multinational cooperation it is a drop in the bucket. So the scope for decisions is relative, not absolute. It depends entirely on the context in which the decision is made and on the characteristics of the person(s) making it.
 
-\hypertarget{three-conditions-of-decision-making}{%
-\section{Three conditions of decision making}\label{three-conditions-of-decision-making}}
+\section{Three conditions of decision making}\label{three-conditions-of-decision-making}
 
 \begin{figure}
 \centering
@@ -659,8 +645,7 @@ A condition under which taking a decision involves reasonable degree of certaint
 \textbf{Uncertainty:}
 A condition in which decision maker does not know all the choices, as well as risks associated with each of them and possible consequences.
 
-\hypertarget{decision-making-strategies}{%
-\section{Decision making strategies}\label{decision-making-strategies}}
+\section{Decision making strategies}\label{decision-making-strategies}
 
 \begin{exercise}
 \protect\hypertarget{exr:decisionstrategy}{}\label{exr:decisionstrategy}
@@ -672,7 +657,7 @@ Different schemes of a decision making process
 \item
   Google for \emph{``decision making strategies''} and look at the images that Google suggests you.
 \item
-  Read \citet{IET202312} and discuss the twelve decision making strategies. The article can be found \href{https://www.indeed.com/career-advice/career-development/decision-making-strategies?utm_campaign=earnedsocial\%3Acareerguide\%3Asharedirectshare\%3AUS\&utm_content=12\%20Decision-Making\%20Strategies\&utm_medium=social\&utm_source=directshare}{here}.
+  Read \citet{IET202312} and discuss the twelve decision making strategies. The article can be found \href{https://www.indeed.com/career-advice/career-development/decision-making-strategies?utm_campaign=earnedsocial\%3Acareerguide\%3Asharedirectshare\%3AUS&utm_content=12\%20Decision-Making\%20Strategies&utm_medium=social&utm_source=directshare}{here}.
 \item
   Compare these strategies to the scheme shown in figure \ref{fig:decision}.
 \end{enumerate}
@@ -720,8 +705,7 @@ Define the cost and benefits of both persons. Who do you think has a better life
 Who is acting rationally here? In other words, who is maximizing utility here? The fishermen or the businessmen? Both? None?
 \end{exercise}
 
-\hypertarget{the-rational-model}{%
-\section{The rational model}\label{the-rational-model}}
+\section{The rational model}\label{the-rational-model}
 
 Economists view the choices that people make as \emph{rational}. A rational choice is one that compares costs and benefits and achieves the greatest benefit over cost for the person making the choice. Whatever the benefits and the costs maybe, a decision maker have to consider all and make a decision. Of course, in reality it is often difficult if not impossinle to sum up benefits and costs as the nature of both may be totally different. To get rid of these problems economists use a theoretical concept that measures both in \emph{utility}. That is a general and abstract measure to model worth or value. Its usage has evolved significantly over time. The term was introduced initially as a measure of pleasure or happiness within the theory of utilitarianism. It represents the satisfaction or pleasure that people receive for consuming a bundle of goods and services, for example.
 
@@ -761,8 +745,7 @@ While these rational models may be helpful, they can also be criticized in a num
 
 The \textbf{rational model can be considered normative} because it prescribes a strict logical sequence of steps to be followed in any decision-making situation. The rational models are based on the assumption that human behavior is logical and therefore predictable under certain circumstances. This is not necessarily what actually happens in the real world. Consider, for example, the findings in the field of behavioral economics, which clearly show that homo economicus is a (useful) concept that is weak in several aspects.
 
-\hypertarget{bounded-rationality}{%
-\section{Bounded rationality}\label{bounded-rationality}}
+\section{Bounded rationality}\label{bounded-rationality}
 
 \begin{figure}
 \centering
@@ -819,7 +802,7 @@ Using the images \ref{fig:picA} to \ref{fig:picD}, explain the idea of bounded r
 \caption{\label{fig:picD} Picture D}
 \end{figure}
 
-Please find solution to the exercise \protect\hyperlink{sol:opti-sati}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:opti-sati]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -838,8 +821,7 @@ Since the rationality of individuals is bounded and it is obvious that individua
 
 \end{exercise}
 
-\hypertarget{homo-economicus}{%
-\section{Homo economicus}\label{homo-economicus}}
+\section{Homo economicus}\label{homo-economicus}
 
 The so-called \emph{homo economicus} is often modeled by the assumption of perfect rationality. Actors are assumed to always act in a way that maximizes their utility (as consumers) and profit (as producers), and to this end they are capable of arbitrarily complex reasoning. That is, it is assumed that they are always capable of thinking through all possible outcomes and choosing the course of action that leads to the best possible outcome.
 
@@ -852,13 +834,11 @@ A heuristic is a mental shortcut or rule of thumb to make decisions and solve pr
 
 While heuristics can be helpful in many situations, they can also lead to errors and biases, particularly when they are overused or misapplied. We will discuss some of these biases in section \ref{cognitive-biases} in greater detail.
 
-\hypertarget{decision-trees}{%
-\section{Decision trees}\label{decision-trees}}
+\section{Decision trees}\label{decision-trees}
 
 When we decide under certain conditions, decision trees can be a helpful tool, as explained in \citep{Finne1998three}. If you want to know more about the use of decision trees I recommend reading \citet[ch.~4]{Bonanno2017Decision}.
 
-\hypertarget{payoff-table}{%
-\section{Payoff table}\label{payoff-table}}
+\section{Payoff table}\label{payoff-table}
 
 A payoff table, also known as a decision matrix, can be a helpful tool for decision making, as shown in the table below. It presents the available alternatives denoted by \(A_i\), along with the possible future states of nature or goals denoted by \(N_j\).
 
@@ -891,8 +871,7 @@ Alternative (\(A_i\)) & & & & & & \\
 
 If we assume that all objectives are independent from each other and that we are certain about the state of nature, the decision is rather trivial: just go for the alternative with the best outcome for each state of nature. However, most real-world scenarios are not that simple because most states of nature are more complex and needs further to be considered.
 
-\hypertarget{review}{%
-\section{Review}\label{review}}
+\section{Review}\label{review}
 
 \begin{itemize}
 \tightlist
@@ -940,17 +919,15 @@ Think about the question and put your answer here:
 
 \url{https://pingo.coactum.de/} Code: 666528
 
-Please find solution to the exercise \protect\hyperlink{sol:lisapregnant}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:lisapregnant]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \end{exercise}
 
-\hypertarget{decision-making-theory}{%
-\chapter{Decision making theory}\label{decision-making-theory}}
+\chapter{Decision making theory}\label{decision-making-theory}
 
-\hypertarget{decision-making-under-certainty}{%
-\section{Decision making under certainty}\label{decision-making-under-certainty}}
+\section{Decision making under certainty}\label{decision-making-under-certainty}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -976,8 +953,7 @@ After successful completion of the module, students are able to:
 
 Decision making under certainty means that we assume that we are certain about the future state of nature, i.e., we have complete information about the alternative actions and their consequences. Making decisions under certainty may seem like a trivial exercise. However, many problems are so complex that sophisticated mathematical techniques are sometimes needed to find the best solution.
 
-\hypertarget{decision-making-with-complex-state-of-natures}{%
-\subsection{Decision making with complex state of natures}\label{decision-making-with-complex-state-of-natures}}
+\subsection{Decision making with complex state of natures}\label{decision-making-with-complex-state-of-natures}
 
 Suppose you have to decide between four different restaurants where you want to go out to eat (\(a_1\), \(a_2\), \(a_3\), \(a_4\)). The restaurants have different characteristics such as the quality of the food k1, the quality of the music played \(k_2\), the price \(k_3\), the quality of the service \(k_4\), and the environment \(k_5\). The corresponding payoff table is given below. High numbers represent good quality. In other words, \(a_i\) refer to competing alternatives where to eat for dinner, and \(k_i\) are certain characteristics of the respective restaurant, and the numbers given in the table indicate the output.
 
@@ -999,8 +975,7 @@ Suppose you have to decide between four different restaurants where you want to 
 \(a_4\) & 5 & 1 & 2 & 3 & 1 \\
 \end{longtable}
 
-\hypertarget{domination}{%
-\subsection*{Domination}\label{domination}}
+\subsection*{Domination}\label{domination}
 
 Some alternative can be excluded because they are \textbf{dominated} by other alternatives. In the scheme above you can see that alternative 2 is always superior to alternative 3, i.e., alternative 3 is dominated by alternative 2. Thus, it does not make sense to think about alternative 3:
 
@@ -1022,8 +997,7 @@ Some alternative can be excluded because they are \textbf{dominated} by other al
 \(a_4\) & 5 & 1 & 2 & 3 & 1 \\
 \end{longtable}
 
-\hypertarget{weighting}{%
-\subsection*{Weighting}\label{weighting}}
+\subsection*{Weighting}\label{weighting}
 
 As the objectives \(k_j\) of the scheme above do not represent different states of nature but represent characteristics and its corresponding utility (whatever that number may mean in particular) of one particular characteristics if we choose a respective alternative. For example, think of that you can choose one out of four restaurants, \(a_1,\dots,a_4\), in order to eat a five-course menu, \(k_1,\dots,k_5\), and the outcome represents your utility of each course, \(j\), for each restaurant, \(i\). We already know from the domination principle that restaurant \(a_3\) is a bad choice.
 
@@ -1062,13 +1036,11 @@ The results are as follows:
 
 Thus, \(a_1\succ a_2 \succ a_4 \succ a_3\), i.e., you prefer alternative \(a_1\).
 
-\hypertarget{preferences-and-decision-criteria}{%
-\subsection*{Preferences and decision criteria}\label{preferences-and-decision-criteria}}
+\subsection*{Preferences and decision criteria}\label{preferences-and-decision-criteria}
 
 Maybe not all courses play the same role for you so you can take your decision based on your preference scheme. For example, assume some courses are more important to you than others such as \(k_1 \succ k_3 \succ k_2 \succ k_4 \succ k_5\). Now, if you decide based on your most important course you should choose restaurant 4 because this gives you the highest utility in that dish. If you further assume that you are not that hungry and you only like to have two dishes, then you should probably better go for restaurant 1 because the aggregated utility in the two preferred courses is 10 utility units and restaurants 2, 3 and 4 can only offer 8, 7 and 7 utility units in your two preferred courses.
 
-\hypertarget{kuxf6rths-maximin-rule}{%
-\subsection*{Körth's Maximin-Rule}\label{kuxf6rths-maximin-rule}}
+\subsection*{Körth's Maximin-Rule}\label{kuxf6rths-maximin-rule}
 
 According to this rule, we compare alternatives by the worst possible outcome under each alternative, and we should choose the one which maximizes the utility of the worst outcome. More concrete, the procedure consists of 4 steps:
 
@@ -1085,8 +1057,7 @@ According to this rule, we compare alternatives by the worst possible outcome un
   Set preferences by maximizing \(\Phi(a_i)\).
 \end{enumerate}
 
-\hypertarget{linear-programming}{%
-\subsection{Linear programming}\label{linear-programming}}
+\subsection{Linear programming}\label{linear-programming}
 
 Linear Programming is a common technique for decision making under certainty. It allows to express a desired benefit (such as profit) as a mathematical function of several variables. The solution is the set of values for the independent variables (decision variables) that serves to maximize the benefit or to minimize the negative outcome under consideration of certain limits, a.k.a. constraints. The method usually follows a four step procedure:
 
@@ -1194,14 +1165,13 @@ For the following payoff-matrix, calculate the order of preferences based on the
 \(a_4\) & 5 & 1 & 3 & 3 & 1 \\
 \end{longtable}
 
-Please find solution to the exercise \protect\hyperlink{sol:koerth-example}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:koerth-example]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \end{exercise}
 
-\hypertarget{lagrange-multiplier-method}{%
-\subsection{Lagrange multiplier method}\label{lagrange-multiplier-method}}
+\subsection{Lagrange multiplier method}\label{lagrange-multiplier-method}
 
 The method outlined below requires an understanding of how to take derivatives of functions and solve systems of equations. If readers feel they need a refresher on these topics, I recommend consulting the lecture notes \href{https://raw.githubusercontent.com/hubchev/courses/main/pdfs/cla_A4.pdf}{\emph{Calculus and Linear Algebra}} from \citet{Huber2023Mathematics}.
 
@@ -1312,7 +1282,7 @@ Suppose you are in a fast food restaurant and you want to buy burgers and some d
   Assume that you want to spend all your money and that both products can be bought on a metric scale where one burger weights 200 grams and a drink is 200 ml. How much of both goods would you consume now? Hint: Use the Lagrangian multiplier method.\footnote{Also see: \url{http://www.sfu.ca/~wainwrig/5701/notes-lagrange.pdf}}
 \end{enumerate}
 
-Please find solution to the exercise \protect\hyperlink{sol:burgerutility1}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:burgerutility1]{in the appendix.}
 \end{exercise}
 
 \begin{exercise}
@@ -1346,7 +1316,7 @@ What is the optimal amount of workers and machines to employ for the given month
   \(p_K = 8\)
 \end{itemize}
 
-Please find solution to the exercise \protect\hyperlink{sol:lama}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:lama]{in the appendix.}
 \end{exercise}
 
 \begin{exercise}
@@ -1359,7 +1329,7 @@ stems from consuming the two goods.
 Calculate how much of both goods to buy and consume, respectively, when your utility function
 is given as \[U(A,B)=A^{0.8}B^{0.2}\]
 
-Please find solution to the exercise \protect\hyperlink{sol:cchoice}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:cchoice]{in the appendix.}
 \end{exercise}
 
 \begin{exercise}
@@ -1374,7 +1344,7 @@ Using two input factors \(r_1\) and \(r_2\), a firm wants to produces a fixed qu
     \]
 calculate the cost-minimizing combination of factors (\(r_1, r_2\)).
 
-Please find solution to the exercise \protect\hyperlink{sol:costmin}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:costmin]{in the appendix.}
 \end{exercise}
 
 \begin{exercise}
@@ -1391,35 +1361,29 @@ Minimize \(f(\mathbf{x})\) subject to:
 where \(n\) denotes the number of constraints.
 \end{exercise}
 
-Please find solution to the exercise \protect\hyperlink{sol:lagrcons}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:lagrcons]{in the appendix.}
 
-\hypertarget{decision-making-under-uncertainty}{%
-\section{Decision making under uncertainty}\label{decision-making-under-uncertainty}}
+\section{Decision making under uncertainty}\label{decision-making-under-uncertainty}
 
 When it comes to decision-making under uncertainty you need to have a criterion that helps you to come to a \emph{rational} decision. The choice of criteria is a matter of taste and should at best fit with overall (business) strategy.
 
-\hypertarget{laplace-criterion}{%
-\subsection*{Laplace criterion}\label{laplace-criterion}}
+\subsection*{Laplace criterion}\label{laplace-criterion}
 
 In case of different possible states of nature and no information on their probability of occurrences, the Laplace criterion simply assigns equal probabilities to the possible pay offs for each action and then selecting that alternative which corresponds to the maximum \emph{expected} pay off. An example is given in \citet{Finne1998three}.
 
-\hypertarget{maximax-criterion-go-for-cup}{%
-\subsection*{Maximax criterion (go for cup)}\label{maximax-criterion-go-for-cup}}
+\subsection*{Maximax criterion (go for cup)}\label{maximax-criterion-go-for-cup}
 
 If you like to \emph{go for cup}, i.e., like to have the best out of the best possible outcome without taking into consideration the fact that this may potentially also result in the worst possible scenario, then, you can choose the alternative that gives the maximum possible output.
 
-\hypertarget{minimax-criterion-best-of-the-worst}{%
-\subsection*{Minimax criterion (best of the worst)}\label{minimax-criterion-best-of-the-worst}}
+\subsection*{Minimax criterion (best of the worst)}\label{minimax-criterion-best-of-the-worst}
 
 The Minimax (or maximin) criterion is a conservative criterion because it is based on making the best out of the worst possible conditions. Again, examples on how to calculate it are given in \citet{Finne1998three}..
 
-\hypertarget{savage-minimax-criterion}{%
-\subsection*{Savage Minimax criterion}\label{savage-minimax-criterion}}
+\subsection*{Savage Minimax criterion}\label{savage-minimax-criterion}
 
 This criterion aims to minimize the worst-case regret to perform as closely as possible to the optimal course. Since the minimax criterion applied here is to the regret (difference or ratio of the payoffs) rather than to the payoff itself, it is not as pessimistic as the ordinary minimax approach. For more details, please read \citet{Finne1998three}.
 
-\hypertarget{hurwicz-criterion}{%
-\subsection*{Hurwicz criterion}\label{hurwicz-criterion}}
+\subsection*{Hurwicz criterion}\label{hurwicz-criterion}
 
 The Hurwicz criterion allows the decision maker to calculates a weighted average between the best and worst possible payoff for each decision alternative. Then, the alternative with the maximum weighted average is chosen.
 
@@ -1463,18 +1427,15 @@ Read \citet{Finne1998three} and answer the following questions:
 
 \end{exercise}
 
-\hypertarget{decision-making-under-risk}{%
-\section{Decision making under risk}\label{decision-making-under-risk}}
+\section{Decision making under risk}\label{decision-making-under-risk}
 
 When some information is given about the probability of occurrence of states of nature, we speak of \emph{decision-making under risk}. The most straight forward technique to make a decision here is to maximize the expected outcome for each alternative given the probability of occurrence, \(p_j\).
 
 However, the expected utility hypothesis states that the subjective value associated with an individual's gamble is the statistical expectation of that individual's valuations of the outcomes of that gamble, where these valuations may differ from the Euro value of those outcomes. Thus, you should better look on the utility of a respective outcome rather than on the outcome itself because the utility and outcome do not have to be linked in a linear way. The St.~Petersburg Paradox by Daniel Bernoulli in 1738 is considered the beginnings of the hypothesis.
 
-\hypertarget{st.-petersburg-paradox}{%
-\subsection{St.~Petersburg Paradox}\label{st.-petersburg-paradox}}
+\subsection{St.~Petersburg Paradox}\label{st.-petersburg-paradox}
 
-\hypertarget{ininite-st.-petersburg-lotteries}{%
-\subsubsection{Ininite St.~Petersburg lotteries}\label{ininite-st.-petersburg-lotteries}}
+\subsubsection{Ininite St.~Petersburg lotteries}\label{ininite-st.-petersburg-lotteries}
 
 Suppose a casino offers a game of chance for a single player, where a fair coin is tossed at each stage. The first time head appears the player gets \$1. From then onwards, every time a head appears, the stake is doubled. The game continues until the first tails appears, at which point the player receives \(\$ 2^{k-1}\), where k is the number of tosses (number of heads) plus one (for the final tails).
 For instance, if tails appears on the first toss, the player wins \$0. If tails appears on the second toss, the player wins \$2. If tails appears on the third toss, the player wins \$4, and so on. The extensive form of the game is given in figure \ref{fig:spextensiveform}.
@@ -1500,8 +1461,7 @@ The willingness to pay of most people who have given the opportunity to play the
 
 In the context of the St.~Petersburg Paradox, it becomes evident that relying solely on expected values is inadequate for certain games and for making well-informed decisions. Expected utility, on the other hand, has been the prevailing concept used to reconcile actual behavior with the notion of rationality thus far.
 
-\hypertarget{finite-st.-petersburg-lotteries}{%
-\subsubsection*{Finite St.~Petersburg lotteries}\label{finite-st.-petersburg-lotteries}}
+\subsubsection*{Finite St.~Petersburg lotteries}\label{finite-st.-petersburg-lotteries}
 \addcontentsline{toc}{subsubsection}{Finite St.~Petersburg lotteries}
 
 Let us assume that at the beginning, the casino and the player agrees upon how many times the coin will be tossed. So we have a finite number I of lotteries with \(1 \leq I \leq \infty\).
@@ -1527,8 +1487,7 @@ In the real world, we understand that money is limited and the casino offering t
 Let's assume, for example, that the casino's maximum budget is \$20,000,000. As a result, the game must conclude after 25 coin tosses because \(2^{25} = 33,554,432\) would exceed the casino's financial capacity. Consequently, the expected value of the game in this scenario would be significantly reduced to just \$12.50.
 Interestingly, if you were to ask people, most would still be willing to pay less than \$12.50 to participate. How can we explain this? Well, it is not the expected outcome that matters but the utility that stems from the outcome.
 
-\hypertarget{the-impact-of-output-on-utility-matters}{%
-\subsubsection{The impact of output on utility matters}\label{the-impact-of-output-on-utility-matters}}
+\subsubsection{The impact of output on utility matters}\label{the-impact-of-output-on-utility-matters}
 
 \emph{Daniel Bernoulli} (1700 - 1782) worked on the paradox while being a professor in St.~Petersburg. His solution builds on the conceptual separation of the expected payoff and its utility. He describes the basis of the paradox as follows:
 
@@ -1616,8 +1575,7 @@ Lottery 4 & 100 Euro if a blue or green ball is drawn or 0 Euro else & \(p=\frac
 
 \end{exercise}
 
-\hypertarget{decision-making-with-conditional-probabilities-bayes-theorem}{%
-\section{Decision making with conditional probabilities (Bayes' theorem)}\label{decision-making-with-conditional-probabilities-bayes-theorem}}
+\section{Decision making with conditional probabilities (Bayes' theorem)}\label{decision-making-with-conditional-probabilities-bayes-theorem}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -1659,8 +1617,7 @@ After successful completion of the module, students are able to:
 \caption{\label{fig:cfig} Relative complement: \(\neg A \cup B\)}
 \end{figure}
 
-\hypertarget{school-stuff}{%
-\subsubsection*{School Stuff}\label{school-stuff}}
+\subsubsection*{School Stuff}\label{school-stuff}
 
 The next chapter will deal with stochastics. In Germany, stochastics is taught in the Gymnasium. If you are not from Germany, it was probably also part of your school experience. When I moved to Cologne in 2020, I found the following page shown in figure \ref{fig:inschool} that I had received from my high school math teacher. It was September 1993 and I was a desperate fifth grader in my fourth week. Perhaps you'd like to share your experiences with stochastics?
 
@@ -1670,11 +1627,9 @@ The next chapter will deal with stochastics. In Germany, stochastics is taught i
 \caption{\label{fig:inschool} Relative complement: \(\neg A \cup B\)}
 \end{figure}
 
-\hypertarget{terminology-pa-pab-omega-cap-neg}{%
-\subsection{\texorpdfstring{Terminology: \(P(A)\), \(P(A|B)\), \(\Omega\), \(\cap\), \(\neg\), \ldots{}}{Terminology: P(A), P(A\textbar B), \textbackslash Omega, \textbackslash cap, \textbackslash neg, \ldots{}}}\label{terminology-pa-pab-omega-cap-neg}}
+\subsection{\texorpdfstring{Terminology: \(P(A)\), \(P(A|B)\), \(\Omega\), \(\cap\), \(\neg\), \ldots{}}{Terminology: P(A), P(A\textbar B), \textbackslash Omega, \textbackslash cap, \textbackslash neg, \ldots{}}}\label{terminology-pa-pab-omega-cap-neg}
 
-\hypertarget{sample-space}{%
-\subsubsection{Sample space}\label{sample-space}}
+\subsubsection{Sample space}\label{sample-space}
 
 A result of an \emph{experiment} is called an \emph{outcome}. An experiment is a planned operation carried out under controlled conditions. Flipping a fair coin twice is an example of an experiment.
 The \emph{sample space} of an experiment is the set of all possible outcomes.
@@ -1707,7 +1662,9 @@ Find the sample space for the following experiments:
   \(\Omega = \{(head, head), (tail, tail),(head, tail),(tail, head)\}\)
 \item
   Overall, 36 different outcomes:
-  \(\{  (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),\dots,(6,6)  \}\)
+  \(\{
+       (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),\dots,(6,6)
+       \}\)
 \item
   \(\Omega = \{(B,B), (B,R), (R,B), (R,R)\}\).
 \end{enumerate}
@@ -1737,8 +1694,7 @@ Overall, there are three ways to represent a sample space:
 \caption{\label{fig:venndiagramm} Venn diagramm}
 \end{figure}
 
-\hypertarget{probability}{%
-\subsubsection{Probability}\label{probability}}
+\subsubsection{Probability}\label{probability}
 
 Probability is a measure that is associated with how certain we are of outcomes of a particular experiment or activity. The probability of an event \(A\), written \(P(A)\), is defined as
 \[
@@ -1778,16 +1734,14 @@ When a fair dice is thrown, what is the probability of getting
   Let D be the event of getting a number less than 7, \(D=\{1,2,3,4,5,6\}\). Then, \(P=1\) as the event will always occur.
 \end{enumerate}
 
-\hypertarget{the-complement-of-an-event-neg-event}{%
-\subsubsection{\texorpdfstring{The complement of an event (\(\neg-Event\))}{The complement of an event (\textbackslash neg-Event)}}\label{the-complement-of-an-event-neg-event}}
+\subsubsection{\texorpdfstring{The complement of an event (\(\neg-Event\))}{The complement of an event (\textbackslash neg-Event)}}\label{the-complement-of-an-event-neg-event}
 
 The complement of event \(A\) is denoted with a \(\neg A\) or sometimes with a superscript `c' like \(A^c\).
 It consists of all outcomes that are \emph{not} in \(A\). Thus, it should be clear that \(P(A) + P(\neg A) = 1\).
 For example, let the sample space be \(\Omega = \{1, 2, 3, 4, 5, 6\}\) and let \(A = \{1, 2, 3, 4\}\).
 Then, \(\neg A = \{5, 6\}\); \(P(A) = \frac{4}{6}\); \(P(\neg A) = \frac{2}{6}\); and \(P(A) + P(\neg A) = \frac{4}{6}+\frac{2}{6} = 1\).
 
-\hypertarget{independent-events-and-events}{%
-\subsubsection{Independent events (AND-events)}\label{independent-events-and-events}}
+\subsubsection{Independent events (AND-events)}\label{independent-events-and-events}
 
 Two events are independent when the outcome of the first event does not influence the outcome of the second event.
 For example, if you throw a dice and a coin, the number on the dice does not affect whether the result you get on the coin.
@@ -1813,8 +1767,7 @@ The probability of getting a \(4\) on one dice is 1/6. The probability of gettin
 P(4 \cap 4 \cap 4) = \frac{1}{6}\cdot \frac{1}{6}\cdot \frac{1}{6}= \frac{1}{216}
 \]
 
-\hypertarget{dependent-events--events}{%
-\subsubsection{\texorpdfstring{Dependent events (\(|\)-Events)}{Dependent events (\textbar-Events)}}\label{dependent-events--events}}
+\subsubsection{\texorpdfstring{Dependent events (\(|\)-Events)}{Dependent events (\textbar-Events)}}\label{dependent-events--events}
 
 Events are dependent when one event affects the outcome of the other. If \(A\) and \(B\) are dependent events then the probability of both occurring is the product of the probability of \(A\) and the probability of \(A\) \emph{after} \(B\) has occurred:
 \begin{align*}
@@ -1838,8 +1791,7 @@ For example, suppose we toss a fair, six-sided die. The sample space is
 We get the same result by using the formula. Remember that \(\Omega\) has six outcomes.
 \[P(A\mid B)=\frac{P(B\cap A)}{P(B)} = \frac{\frac{\text{number of outcomes that are 2 or 3 AND even}}{6}}{\frac{\text{number of outcomes that are even}}{6}}=\frac{\frac{1}{6}}{\frac{3}{6}}=\frac{1}{3} \]
 
-\hypertarget{bayes-theorem}{%
-\subsection{Bayes' Theorem}\label{bayes-theorem}}
+\subsection{Bayes' Theorem}\label{bayes-theorem}
 
 The theorem states that
 \[P(A\mid B)={\frac {P(B\mid A)P(A)}{P(B)}} \]
@@ -1904,7 +1856,7 @@ The \emph{Tree Diagram} in figure \ref{fig:diesurvive} shows probabililties of p
   Calculate the probability that a person that has died was vaccinated, \(P(V|D)\).
 \end{enumerate}
 
-Please find solution to the exercise \protect\hyperlink{sol:tobevacornot}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:tobevacornot]{in the appendix.}
 
 \begin{quote}
 Disclaimer: The case presented here is fictitious. The data given here are purely fictitious and serve only to practice the method.
@@ -1942,7 +1894,7 @@ In particular, \(D\) denotes the event of \emph{die} and \(\neg D\) denotes \emp
 Disclaimer: The case presented here is fictitious. The data given here are purely fictitious and serve only to practice the method.
 \end{quote}
 
-Please find solution to the exercise \protect\hyperlink{sol:todieornot}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:todieornot]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -1976,29 +1928,25 @@ As you don`t like to go into quarantine, you are interested in the probability o
 Disclaimer: The case presented here is fictitious. The data given here are purely fictitious and serve only to practice the method.
 \end{quote}
 
-Please find solution to the exercise \protect\hyperlink{sol:falspos}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:falspos]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \end{exercise}
 
-\hypertarget{cognitive-biases}{%
-\section{Cognitive biases in decision making}\label{cognitive-biases}}
+\section{Cognitive biases in decision making}\label{cognitive-biases}
 
 In section \ref{bounded-rationality}, we discussed how human beings have limited cognitive abilities to arrive at optimal solutions. Behavioral economics, pioneered by Amos Tversky (1937-1996) and 2002 Nobel Prize winner Daniel Kahnemann (*1934), has identified several biases that explain why and when people fail to act perfectly rationally. In the following sections, we will explore some of the most prominent biases that arise from humans relying on heuristics in decision-making. Specifically, we will describe biases result from the use of availability, representative, and confirmation heuristics and can lead to flawed decision-making and negative outcomes for individuals and organizations. By recognizing and accounting for these biases, we can make better decisions.
 
-\hypertarget{availability-heuristic}{%
-\subsection{Availability heuristic}\label{availability-heuristic}}
+\subsection{Availability heuristic}\label{availability-heuristic}
 
 The \textbf{availability heuristic} refers to our tendency to make judgments or decisions based on information that is easily retrievable from memory. For example, if someone hears a lot of news about a particular stock or investment, they may be more likely to invest in it, even if there are other better investment options available. This bias can also lead individuals to overestimate the frequency of certain events, such as the likelihood of a market crash, based on recent media coverage.
 
-\hypertarget{representative-heuristic}{%
-\subsection{Representative heuristic}\label{representative-heuristic}}
+\subsection{Representative heuristic}\label{representative-heuristic}
 
 The \textbf{representative heuristic} refers to our tendency to make judgments based on how similar something is to a stereotype or preconceived notion. For example, an investor might assume that a company with a flashy website and marketing materials is more successful than a company with a more low-key image, even if the latter is actually more profitable. This bias can also lead to assumptions about the performance of certain investment strategies based on their resemblance to other successful strategies.
 
-\hypertarget{confirmation-heuristic}{%
-\subsection{Confirmation heuristic}\label{confirmation-heuristic}}
+\subsection{Confirmation heuristic}\label{confirmation-heuristic}
 
 The \textbf{confirmation heuristic} refers to our tendency to seek out information that confirms our existing beliefs and ignore information that contradicts them. For example, an investor who strongly believes in the potential of a particular investment might only read news and analysis that supports their belief and ignore any information that suggests otherwise. This can lead to a failure to consider potential risks and downsides of an investment.
 
@@ -2009,17 +1957,15 @@ Twelve cognitive biases
 
 In the textbook of \citet{Bazerman2017Judgement} twelve cognitive biases that are described. Read chapter 2 of the book and summarize the twelve biases in a sentence.
 
-Please find solution to the exercise \protect\hyperlink{sol:bazermanbias}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:bazermanbias]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \end{exercise}
 
-\hypertarget{decision-making-and-money}{%
-\section{Decision making and money}\label{decision-making-and-money}}
+\section{Decision making and money}\label{decision-making-and-money}
 
-\hypertarget{financial-literacy}{%
-\subsection{Financial literacy}\label{financial-literacy}}
+\subsection{Financial literacy}\label{financial-literacy}
 
 You are financially literate if you understand and manage personal finances effectively. It involves having a basic understanding of financial concepts, such as budgeting, saving, investing, and managing debt. Financial literacy also includes knowledge of financial products and services, such as bank accounts, credit cards, loans, and insurance.
 Being financially literate means having the skills and knowledge to make informed financial decisions, and being able to assess risks and opportunities when it comes to managing money. It is an important life skill that can help individuals achieve their financial goals, build wealth, and avoid financial pitfalls.
@@ -2127,7 +2073,7 @@ These questions cover four fields of financial literacy, i.e., risk diversificat
 
 Try to answer these quesions and compare your performance with the results shown in \citet{Klapper2020Financial}.
 
-Please find solution to the exercise \protect\hyperlink{sol:flmeasure}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:flmeasure]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -2219,14 +2165,13 @@ New Zealand & 27 & 4 \\
 Russia & 3 & 28 \\
 \end{longtable}
 
-Please find solution to the exercise \protect\hyperlink{sol:bigthreeiq}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:bigthreeiq]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \end{exercise}
 
-\hypertarget{common-investment-mistakes}{%
-\subsection{Common investment mistakes}\label{common-investment-mistakes}}
+\subsection{Common investment mistakes}\label{common-investment-mistakes}
 
 Investing can be a daunting task, but avoiding some common investment mistakes can help set you on the right path to financial success.
 The following list list shows according to \citet{Stammers2016Tips} the \emph{Top 20 common investment mistakes} without the explanations provided in the paper:
@@ -2282,19 +2227,17 @@ Common investment mistakes
 
 Read the paper and summarize the 20 mistakes.
 
-Please find solution to the exercise \protect\hyperlink{sol:commistakes}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:commistakes]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \end{exercise}
 
-\hypertarget{simple-financial-mathematics}{%
-\subsection{Simple financial mathematics}\label{simple-financial-mathematics}}
+\subsection{Simple financial mathematics}\label{simple-financial-mathematics}
 
 I discuss financial mathematics in the following chapter just briefly. If you want to gather a deeper understanding, I recommend the open textbook of \citet{Dahlquist2022Principles} or the respective chapters of \citet{Wilkinson2022Managerial}.
 
-\hypertarget{simple-interest}{%
-\subsubsection{Simple Interest}\label{simple-interest}}
+\subsubsection{Simple Interest}\label{simple-interest}
 
 Suppose \(r\) denotes annual interest rates, \(P\) denotes the initial deposit which earns the interest, \(A\) denotes the value of the deposit at the end of an investment. Then, the relationship of these for a single year is
 
@@ -2310,8 +2253,7 @@ A=P(1+rt)
 
 which is the simple interest formula. It gives the amount due when the annual interests does not become part of the deposit \(P\).
 
-\hypertarget{compound-interest}{%
-\subsubsection{Compound interest}\label{compound-interest}}
+\subsubsection{Compound interest}\label{compound-interest}
 
 If the annual interest, \(P(1+r)\), is added to \(P\), we need a formula that takes this into account, and for two periods this is
 
@@ -2331,8 +2273,7 @@ Compound interest is the addition of interest to the principal sum of a loan or 
 A=P\left(1+\frac{r}{n}\right)^{nt}
 \]
 
-\hypertarget{example}{%
-\paragraph*{Example}\label{example}}
+\paragraph*{Example}\label{example}
 \addcontentsline{toc}{paragraph}{Example}
 
 Suppose a principal amount of \$1,500 is deposited in a bank paying an annual interest rate of 4.3\%, compounded quarterly. Then the balance after 6 years is found by using the formula above, with \(P = 1500\), \(r = 0.043\) (4.3\%), \(n = 4\), and \(t = 6\):
@@ -2345,8 +2286,7 @@ So the amount \(A\) after 6 years is approximately \$1,938.84.
 
 Subtracting the original principal from this amount gives the amount of interest received: \(1938.84-1500=438.84\)
 
-\hypertarget{continuously-compounded-interest}{%
-\subsubsection{Continuously compounded interest}\label{continuously-compounded-interest}}
+\subsubsection{Continuously compounded interest}\label{continuously-compounded-interest}
 
 As \(n\), the number of compounding periods per year, increases without limit, the case is known as continuous compounding, in which case the effective annual rate approaches an upper limit of \(e^r- 1\), where \(e\) is a mathematical constant that is the base of the natural logarithm.
 
@@ -2356,8 +2296,7 @@ Continuous compounding can be thought of as making the compounding period infini
 A=Pe^{rt}
 \]
 
-\hypertarget{present-value}{%
-\subsubsection{Present value}\label{present-value}}
+\subsubsection{Present value}\label{present-value}
 
 The present is the value of an expected income stream determined as of the date of valuation. The present value is usually less than the future value because money has interest-earning potential, a characteristic referred to as the time value of money, except during times of zero- or negative interest rates, when the present value will be equal or more than the future value. Time value can be described with the simplified phrase, ``A dollar today is worth more than a dollar tomorrow'`. Here, 'worth more' means that its value is greater than tomorrow. A dollar today is worth more than a dollar tomorrow because the dollar can be invested and earn a day's worth of interest, making the total accumulate to a value more than a dollar by tomorrow.
 
@@ -2365,8 +2304,7 @@ The present is the value of an expected income stream determined as of the date 
 P=Ae^{-rt}
 \]
 
-\hypertarget{net-present-value-and-internal-rate-of-return}{%
-\subsection{Net present value and internal rate of return}\label{net-present-value-and-internal-rate-of-return}}
+\subsection{Net present value and internal rate of return}\label{net-present-value-and-internal-rate-of-return}
 
 When making decisions about financial products such as investments or loans, it is important to consider their long-term impact on your finances. \emph{Net Present Value} (NPV) and \emph{Internal Rate of Return} (IRR) are two key indicators that can help guide decision making and determine whether a financial product is a good investment.
 
@@ -2397,7 +2335,7 @@ Investment case
 
 You deposit 1,000 euros today into a savings account with an annual interest rate of 5\% for 2 years. What is the balance after 2 years with annual, semi-annual (4 interest payments per year), and continuous compounding?
 
-Please find solution to the exercise \protect\hyperlink{sol:invcase}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:invcase]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -2410,7 +2348,7 @@ Present value
 
 You want to have 100,000 in 10 years, and you can save money with an interest rate of 5\% p.a. How much do you need to invest today for annual, semi-annual (4 interest periods), and continuous compounding to achieve your goal?
 
-Please find solution to the exercise \protect\hyperlink{sol:presentvalueC}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:presentvalueC]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -2429,7 +2367,7 @@ You are considering investing in project A or B.
 
 Calculate the value of your invest after five years. Which investment is the better one?
 
-Please find solution to the exercise \protect\hyperlink{sol:invaorb}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:invaorb]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -2448,7 +2386,7 @@ You are considering investing in project A or B.
 
 Calculate the net present value of both projects and decide where to invest.
 
-Please find solution to the exercise \protect\hyperlink{sol:netpresentvalue}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:netpresentvalue]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -2467,7 +2405,7 @@ You are considering investing in project A or B.
 
 Calculate the internal rate of return of both projects with the help of a software package such as \emph{Excel} or \emph{Libre Calc} and decide where to invest.
 
-Please find solution to the exercise \protect\hyperlink{sol:irr}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:irr]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -2480,14 +2418,13 @@ Rule of 70
 
 The \emph{Rule of 70} is often used to approximate the time required for a growing series to double. To understand this rule calculate how many periods it takes to double your money when it growth at a constant rate of 1\% each period.
 
-Please find solution to the exercise \protect\hyperlink{sol:rule70}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:rule70]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \end{exercise}
 
-\hypertarget{a-note-on-growth-rates-and-the-logarithm}{%
-\subsection{A note on growth rates and the logarithm}\label{a-note-on-growth-rates-and-the-logarithm}}
+\subsection{A note on growth rates and the logarithm}\label{a-note-on-growth-rates-and-the-logarithm}
 
 Most data are recorded for discrete periods of time (e.g., quarters, years). Consequently, it is often useful to model economic dynamics in discrete periods of time. A good linear approximation to a growth rate from time \(t=0\) to \(t=1\) in \(x\) is \(\ln x_0 - \ln x_1\):
 
@@ -2547,8 +2484,7 @@ g \approx \frac{\ln (Y_{1989}) - \ln (Y_{1950})}{39}
 
 In other words, log growth rates are good approximations for percentage growth rates. Calculating log growth rates for the data above, we get \(g \approx 0.0194\) for the US and \(g \approx 0.0582\) for Japan. The approximation is close for both.
 
-\hypertarget{plotting-growth-using-the-logarithm}{%
-\subsubsection*{Plotting growth using the logarithm}\label{plotting-growth-using-the-logarithm}}
+\subsubsection*{Plotting growth using the logarithm}\label{plotting-growth-using-the-logarithm}
 \addcontentsline{toc}{subsubsection}{Plotting growth using the logarithm}
 
 Recall that, with a constant growth rate \(g\) and starting from time 0, output in time \(t\) is:
@@ -2583,7 +2519,7 @@ In figure \ref{fig:logplot} and \ref{fig:loginscale} you see a semi-logarithmic 
 Investments over time
 Describe the formulas to describe the growth process of an investment over time when time is discrete and when time is continuous.
 
-Please find solution to the exercise \protect\hyperlink{sol:invovertime}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:invovertime]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -2608,7 +2544,7 @@ Sketch a timeline for each of the following series:
   \(\ln b_t\)
 \end{itemize}
 
-Please find solution to the exercise \protect\hyperlink{sol:expovertime}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:expovertime]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -2661,11 +2597,9 @@ I downloaded the complete \textbf{Our World in Data COVID-19} dataset from \href
 
 \end{exercise}
 
-\hypertarget{managerial-microeconomics}{%
-\chapter{Managerial microeconomics}\label{managerial-microeconomics}}
+\chapter{Managerial microeconomics}\label{managerial-microeconomics}
 
-\hypertarget{consumption-and-production-choices}{%
-\section{Consumption and production choices}\label{consumption-and-production-choices}}
+\section{Consumption and production choices}\label{consumption-and-production-choices}
 
 In microeconomics, utility maximization (in its simplest form when having just two goods) involves selecting a combination of two goods that satisfies two essential conditions, see figure \ref{fig:optimalconsumption}:
 
@@ -2690,8 +2624,7 @@ By analyzing production possibilities and individual preferences, economists gai
 
 If you are not familiar with the basic principles of the production possibility frontier curve, indifference curves, and budget constraints, I recommend referring to section \ref{micro-pre} of the appendix for a comprehensive overview. This section provides a detailed explanation and exploration of these concepts.
 
-\hypertarget{the-role-of-income-and-budget}{%
-\subsection{The role of income and budget}\label{the-role-of-income-and-budget}}
+\subsection{The role of income and budget}\label{the-role-of-income-and-budget}
 
 If income increases the budget constraint curve shifts outwards (to the right) as shown in figure \ref{fig:incomechange}.
 
@@ -2703,8 +2636,7 @@ If income increases the budget constraint curve shifts outwards (to the right) a
 
 The utility-maximizing choice on the original budget constraint is M. The dashed horizontal and vertical lines extending through point M allow you to see at a glance whether the quantity consumed of goods on the new budget constraint is higher or lower than on the original budget constraint. On the new budget constraint, a choice like N will be made if both goods are \emph{normal goods}. If good \(x\) is an \emph{inferior good}, a choice like P will be made. If good \(y\) is an \emph{inferior good}, a choice like Q will be made.
 
-\hypertarget{the-role-of-prices}{%
-\subsection{The role of prices}\label{the-role-of-prices}}
+\subsection{The role of prices}\label{the-role-of-prices}
 
 If price of one good increases then the budget constraint curve. When the price rises, the budget constraint shifts in to the left for that good.
 
@@ -2716,8 +2648,7 @@ If price of one good increases then the budget constraint curve. When the price 
 
 The dashed lines make it possible to see at a glance whether the new consumption choice involves less of both goods, or less of one good and more of the other. The new possible choices would be good \(x\)'s and more good \(y\)'s, like point H, or less of both goods, as at point J. Choice K would mean that the higher price of good \(x\) led to exactly the same quantity of good \(x\) being consumed, but fewer of good \(y\). Choices like L are theoretically possible (if good \(x\) are giffen goods) but highly unlikely in the real world, because they would mean that a higher price for goods \(x\) means a greater quantity consumed of good \(x\).
 
-\hypertarget{substitution-and-income-effect}{%
-\subsection{Substitution and income effect}\label{substitution-and-income-effect}}
+\subsection{Substitution and income effect}\label{substitution-and-income-effect}
 
 When prices increase, individuals typically respond by reducing their consumption of the product with the higher price. This reaction is driven by two factors, both of which can occur simultaneously.
 
@@ -2756,7 +2687,7 @@ and \(P_{y}\) are the budget and prices, which are given. Solve the following ch
 
 Maximize \(U=x y\) s.t. \(B=P_{x} x+P_{y} y\).
 
-Please find solution to the exercise \protect\hyperlink{sol:derofdemand}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:derofdemand]{in the appendix.}
 \end{exercise}
 
 \begin{exercise}
@@ -2775,10 +2706,9 @@ Solve the problem:
 \end{array}
 \]
 
-Please find solution to the exercise \protect\hyperlink{sol:cdanddemand}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:cdanddemand]{in the appendix.}
 
-\hypertarget{consumption-production-and-terms-of-trade}{%
-\subsection{Consumption, production, and terms of trade}\label{consumption-production-and-terms-of-trade}}
+\subsection{Consumption, production, and terms of trade}\label{consumption-production-and-terms-of-trade}
 
 Market prices in a closed economy:
 The price relation of two goods, the so-called terms of trade, is determined by the slope of the Production Possibility Frontier (PPF) at the point where it is tangent to the indifference curve. This relationship highlights the trade-off between the two goods and their relative scarcity within a closed economy.
@@ -2806,7 +2736,7 @@ The production point that maximizes utility is where the PPF is tangent to the p
   Suppose you have a fixed income \(I=10\) that you can spend on consuming two goods \(x, y\) at certain prices \(p_x=1, p_y=1\). Draw the budget line consisting of all possible combinations of two goods that a consumer can buy at certain market prices by allocating his income. Using indifference curves, sketch what each consumer should consume to maximize utility.
 \end{enumerate}
 
-Please find solution to the exercise \protect\hyperlink{sol:Uic}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:Uic]{in the appendix.}
 \end{exercise}
 
 \begin{exercise}
@@ -2836,8 +2766,7 @@ Figure \ref{fig:utilmax} stems from \citet[ch.~4]{Emerson2020Intermediate}. Use 
 Please find solutions to the exercise in \citet[ch.~4]{Emerson2020Intermediate}.
 \end{exercise}
 
-\hypertarget{markets-under-perfect-competition}{%
-\section{Markets under perfect competition}\label{markets-under-perfect-competition}}
+\section{Markets under perfect competition}\label{markets-under-perfect-competition}
 
 Perfect competition is never found in the real world. However, it is a useful theoretical model that serves as a reference point for analyzing real-world markets. It provides valuable insights into market functioning and informs policymakers on how to address instances of market failure, where at least one assumption of perfect markets is not met.
 
@@ -2865,8 +2794,7 @@ These assumptions collectively define perfect competition and form the foundatio
 
 Theory would predict that if firms in an industry would make some profits, new firms will enter the market or existing firms would produce more which both yields an increase in supply. That, in turn, will drive down market prices until all firms earn zero profits and no more firms would have an incentive to enter the market. In the equilibrium, total revenue equals total cost. Thus, firms do not make profits. Firms can only make profits if they have some sort of competitive advantage and hence are not price takers which would be against assumption 1. The most extreme form of competitive advantage is a monopoly. It describes that one firm is the only provider of a certain good or service. This firm can set prices and the supply of the good and service completely. We will discuss that extreme case in the next section.
 
-\hypertarget{monopoly}{%
-\section{Monopoly}\label{monopoly}}
+\section{Monopoly}\label{monopoly}
 
 A monopolist is a firm that is the only provider of a good or service. There is no close substitute to it.
 The ability of a monopolist to raise its price above the competitive level by reducing output is known as \emph{market power}. This implies a loss of total welfare.
@@ -2875,8 +2803,7 @@ price as given), a monopolist faces the market demand. As a consequence, a monop
 competitive firm as a \emph{price taker}, a monopolist is price decision-maker or \emph{price setter}.
 Firms that have to face fierce competition are more like price takers as they cannot set the price above the market price. If firms in perfect competition would set the price higher, all consumers would simply stop buying from that particular firm. That is not the case for a firm with market power, that is, a firm that has a product with unique features no other competitor has to offer.
 
-\hypertarget{revenue-function}{%
-\subsubsection*{Revenue function}\label{revenue-function}}
+\subsubsection*{Revenue function}\label{revenue-function}
 \addcontentsline{toc}{subsubsection}{Revenue function}
 
 There are two types of constraints that restrict the behavior of a monopolist (and any other firm):
@@ -2907,8 +2834,7 @@ Thus, we can write the revenue (or profit) function of the monopolist in two alt
 
 The demand, \(x(p)\), and the inverse demand, \(p(x)\), represent the same relationship between price and demanded quantity from different points of view. The demand function is a complete description of the demanded quantity at each price, whereas the inverse demand gives us the maximum price at which a given output \(x\) may be sold in the market.
 
-\hypertarget{revenue-and-price-relationship}{%
-\subsubsection*{Revenue and price relationship}\label{revenue-and-price-relationship}}
+\subsubsection*{Revenue and price relationship}\label{revenue-and-price-relationship}
 \addcontentsline{toc}{subsubsection}{Revenue and price relationship}
 
 Thus, an increase in production by a monopolist has two opposing effects on revenue:
@@ -2934,8 +2860,7 @@ The two effects are shown in figure \ref{fig:revenue-mono}: At price \(p_1\), th
 MR = \frac{\Delta TR}{\Delta Q} = \underbrace{p}_{\text{quantity effect}} + \underbrace{Q \frac{\Delta p}{\Delta Q}}_{\text{price effect}}
 \]
 
-\hypertarget{profit-maximizing-level-of-output}{%
-\subsubsection*{Profit-maximizing level of output}\label{profit-maximizing-level-of-output}}
+\subsubsection*{Profit-maximizing level of output}\label{profit-maximizing-level-of-output}
 \addcontentsline{toc}{subsubsection}{Profit-maximizing level of output}
 
 To find the profit-maximizing price and quantity, respectively, we should look at the first-order conditions:
@@ -2969,14 +2894,12 @@ Thus, we can determine a monopoly firm's profit-maximizing price and output by f
   Determine from the demand curve the price at which that output can be sold.
 \end{enumerate}
 
-\hypertarget{price-effect-of-a-monopoly}{%
-\subsubsection*{Price effect of a monopoly}\label{price-effect-of-a-monopoly}}
+\subsubsection*{Price effect of a monopoly}\label{price-effect-of-a-monopoly}
 \addcontentsline{toc}{subsubsection}{Price effect of a monopoly}
 
 Due to the price effect of an increase in output, the marginal revenue curve of a firm with market power always lies below its demand curve. So, a profit-maximizing monopolist chooses the output level at which marginal cost is equal to marginal revenue---not equal to price. As a result, the monopolist \textbf{produces less and sells its output at a higher price than a perfectly competitive industry would}. It earns a profit in the short run and the long run.
 
-\hypertarget{welfare}{%
-\subsubsection*{Welfare}\label{welfare}}
+\subsubsection*{Welfare}\label{welfare}
 \addcontentsline{toc}{subsubsection}{Welfare}
 
 As illustrated in Figure \ref{fig:mono2}, the price-setting behavior of a monopolist typically leads to a reduction in overall welfare: The shaded green area represents the \emph{monopoly profit}, and the blue area denotes the \emph{consumer surplus}, the sum of both constitute the total welfare. The yellow triangle represents the deadweight loss, indicating the welfare that is lost due to the monopolist producing fewer goods at a higher price than in a competitive market. The horizontal line at \(p=100\) represents the marginal costs (MC).
@@ -2987,8 +2910,7 @@ As illustrated in Figure \ref{fig:mono2}, the price-setting behavior of a monopo
 \caption{\label{fig:mono2} Price setting of a monopolist}
 \end{figure}
 
-\hypertarget{price-elasticity-and-market-power}{%
-\subsubsection*{Price elasticity and market power}\label{price-elasticity-and-market-power}}
+\subsubsection*{Price elasticity and market power}\label{price-elasticity-and-market-power}
 \addcontentsline{toc}{subsubsection}{Price elasticity and market power}
 
 We know that the demand elasticity of price can be measured with:
@@ -3005,8 +2927,7 @@ This can also be expressed as:
 
 Thus, if \(PPD = 0\), the price does not change if a single firm increases its quantity sold on the market. That means the firms are price takers, and their quantity sold has no impact on the price. If firms, however, have market power, \(PPD < 0\), which means that if a firm increases the quantity on the market, the price must fall. \textbf{The PPD can hence be interpreted as an indicator of the market power of firms.}
 
-\hypertarget{marginal-revenue-and-price-elasticity}{%
-\subsubsection*{Marginal revenue and price elasticity}\label{marginal-revenue-and-price-elasticity}}
+\subsubsection*{Marginal revenue and price elasticity}\label{marginal-revenue-and-price-elasticity}
 \addcontentsline{toc}{subsubsection}{Marginal revenue and price elasticity}
 
 Now, plugging the PPD into the MR function, we can show that MR is equal to zero when we have a unit demand elasticity, PPD, of \(-1\):
@@ -3024,8 +2945,7 @@ Also see figure \ref{fig:ppd}. In the monopoly output, marginal revenue and marg
 \end{figure}
 \footnotetext{Graph stems from \citet[p.~344]{Anonymous2020Principles}}
 
-\hypertarget{lerner-index}{%
-\subsubsection*{Lerner index}\label{lerner-index}}
+\subsubsection*{Lerner index}\label{lerner-index}
 \addcontentsline{toc}{subsubsection}{Lerner index}
 
 The Lerner index is a measure of monopoly power, which equals the markup over marginal cost as a percentage of price. To obtain the Lerner index of monopoly power (or market power), let us rearrange \(MC = p(x) \cdot \left(1 + PPD\right)\) as follows:
@@ -3041,7 +2961,7 @@ If a firm does not have market power (\(PPD = 0\)), its price equals the margina
 
 Show the relationship between a linear demand curve and the marginal revenue curve in one panel and the relationship of the quantity sold and the total revenue in another panel. What characterizes the price of a profit maximizing monopolist?
 
-Please find solution to the exercise \protect\hyperlink{sol:marrevtotrev}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:marrevtotrev]{in the appendix.}
 \end{exercise}
 
 \begin{exercise}
@@ -3070,11 +2990,10 @@ A company sold a quantity of 750 goods (\(Q_{t=1}=750\)) in January (\(t=1\)), a
   Calculate the amount of profit in January, February, and what the company can expect by setting the prices profit-maximizing.
 \end{enumerate}
 
-Please find solution to the exercise \protect\hyperlink{sol:howtomaxprofit}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:howtomaxprofit]{in the appendix.}
 \end{exercise}
 
-\hypertarget{monopoly-and-price-discrimination}{%
-\subsection{Monopoly and price discrimination}\label{monopoly-and-price-discrimination}}
+\subsection{Monopoly and price discrimination}\label{monopoly-and-price-discrimination}
 
 Discrimination is the practice of treating people differently based on some (irrelevant) characteristic, such as race or gender. It is important to actively fight discrimination whenever it is observed. However, the concept of discrimination takes a different form when it comes to \emph{price discrimination}, which is a business practice involving the sale of the same goods at different prices to different buyers. This practice can be commonly seen in special offers tailored for students or retired individuals.
 
@@ -3094,11 +3013,9 @@ One of the key factors utilized in price discrimination is the willingness to pa
 
 In the real world, price discrimination is a common phenomenon, but achieving perfect price discrimination is highly challenging. This is primarily because no firm possesses complete knowledge of every buyer's willingness to pay (WTP), and buyers typically do not disclose this information to sellers. Consequently, firms often divide customers into groups based on observables that are likely correlated with their WTP.
 
-\hypertarget{regional-economics}{%
-\section{Regional Economics}\label{regional-economics}}
+\section{Regional Economics}\label{regional-economics}
 
-\hypertarget{von-thuxfcnen-model-of-land-use}{%
-\subsection{Von Thünen model of land use}\label{von-thuxfcnen-model-of-land-use}}
+\subsection{Von Thünen model of land use}\label{von-thuxfcnen-model-of-land-use}
 
 The classical model of spatial organization of the economy stems Heinrich von Thünen (1783-1850). The model focuses on agriculture as this was the dominant use of land at the time. However, the fundamental ideas of the model can be applied to various industries.
 The model can be described as follows: Assume a focal point of demand for agricultural goods (e.g., the marketplace of a large city). Differences in soil quality in the agricultural periphery of the considered city are neglected. The demand is differentiated. That means, various goods such as grains, dairy products, meat, timber, vegetables are required to satisfy the needs of the people. The goods differ in terms of
@@ -3142,7 +3059,7 @@ Formally, the land rent for land use for production of good \(i\), depending on 
 r_i(x) = q_i(p_i - c_i - \theta_i \cdot x)
 \]
 
-The land rent increases with the quantity demanded \((q)\) and the price of the good, and it decreases with the marginal production costs \((c)\), the specific transportation costs \((\theta)\), and the distance \((x)\) from the marketplace. The typical shape of a rent curve, with \(r\) on the y-axis and \(x\) on the x-axis, is a linearly decreasing curve. Its slope is determined by the expression \(-q_i \theta_i\). Therefore, the steeper the specific transportation costs, the steeper the curve.
+The land rent increases with the quantity demanded \((q)\) and the price of the good, and it decreases with the marginal production costs \((c)\), the specific transportation costs \((\theta)\), and the distance \((x)\) from the marketplace. The typical shape of a rent curve, with \(r\) on the y-axis and \(x\) on the x-axis, is a linearly decreasing curve. Its slope is determined by the expression \(-q_i  \theta_i\). Therefore, the steeper the specific transportation costs, the steeper the curve.
 
 Suppose, different land uses are allowed. By varying the price, revenue, and cost parameters in the equation above, different rent curves with varying locations and slopes emerge for different land uses. The interesting question now is: \emph{How high will the market rent be?}
 
@@ -3214,8 +3131,7 @@ The Thünenian approach is intended to be applied to a business location model. 
 The probability of sale per square meter for business type \(i\) is denoted by \(\lambda_i\). The business types also differ in terms of profit margin and fixed costs. Describe the market rent curve and show which business type will dominate in each location. What effects does an increase in the parameter \(a\) have? What about an increase in \(A_0\)? Interpret the changes in parameters and the results from an economic perspective.
 \end{exercise}
 
-\hypertarget{launhardthotelling-location-model}{%
-\subsection{Launhardt/Hotelling location model}\label{launhardthotelling-location-model}}
+\subsection{Launhardt/Hotelling location model}\label{launhardthotelling-location-model}
 
 Consider a scenario where two firms, i.e., \(i={F1;F2}\), have the option to establish their locations along a linear market, such as a street or a beach. These firms can relocate without incurring any costs and sell an identical product at the same price. Consequently, the only means of competition available to them is by strategically selecting their respective locations.
 Moreover, assume that customers are uniformly distributed throughout the market, and each customer is willing to purchase one unit of the product up to a certain price, denoted as \(\bar{p}\). The cost of transportation is the same for both firms and is proportional to the distance between the firm and the customer.
@@ -3260,11 +3176,13 @@ If we assume that the transport costs are the same for both firms and that the m
 \caption{\label{fig:lau4} Scenario 4}
 \end{figure}
 
-\hypertarget{appendix}{%
-\chapter{Appendix}\label{appendix}}
+\chapter{Game theory}\label{game-theory}
 
-\hypertarget{micro-pre}{%
-\section{Microeconomic preliminaries}\label{micro-pre}}
+For the game theory section, I refer to the game theory chapter that you find in my \href{https://raw.githubusercontent.com/hubchev/courses/main/pdfs/econ_a4.pdf}{economics lecture notes}.
+
+\chapter{Appendix}\label{appendix}
+
+\section{Microeconomic preliminaries}\label{micro-pre}
 
 In this appendix, I will cover several microeconomic preliminaries that are crucial for your understanding. These include:
 
@@ -3283,8 +3201,7 @@ In this appendix, I will cover several microeconomic preliminaries that are cruc
   Competitive market prices: I will explain how prices on competitive markets are determined through the interaction of producers and consumers.
 \end{enumerate}
 
-\hypertarget{production-possibility-frontier-curve}{%
-\subsection{Production possibility frontier curve}\label{production-possibility-frontier-curve}}
+\subsection{Production possibility frontier curve}\label{production-possibility-frontier-curve}
 
 \begin{figure}
 \centering
@@ -3349,10 +3266,9 @@ The PPF is an invaluable tool for illustrating the implications of scarcity, as 
 \caption{\label{fig:ppf3} Extreme production possibility frontier curve}
 \end{figure}
 
-Please find solution to the exercise \protect\hyperlink{sol:Uproduction}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:Uproduction]{in the appendix.}
 
-\hypertarget{indifference-curves-and-isoquants}{%
-\subsection{Indifference curves and Isoquants}\label{indifference-curves-and-isoquants}}
+\subsection{Indifference curves and Isoquants}\label{indifference-curves-and-isoquants}
 
 \begin{figure}
 \centering
@@ -3395,11 +3311,10 @@ Similar to the concept of indifference curves, an \textbf{isoquant} shows the co
   Discuss the features of a Cobb-Douglas PF with respect to returns to scale and marginal product of production for both inputs. Sketch the total output curve in an output-\(K\) and an output-\(L\) quadrant. Sketch the isoquants for different levels of production.
 \end{enumerate}
 
-Please find solution to the exercise \protect\hyperlink{sol:isoquants}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:isoquants]{in the appendix.}
 \end{exercise}
 
-\hypertarget{budget-constraint}{%
-\subsection{Budget constraint}\label{budget-constraint}}
+\subsection{Budget constraint}\label{budget-constraint}
 
 In microeconomics, the concept of a budget constraint plays a vital role in understanding consumer decision-making and helps to analyze consumer choices and trade-offs. The budget constraint represents the limitations faced by consumers in allocating their limited income across different goods and services. The budget constraint indicates that the total expenditure on goods and services, calculated by multiplying the prices of each item by its corresponding quantity, must be less than or equal to the consumer's income.
 Mathematically, the budget constraint can be expressed as:
@@ -3418,8 +3333,7 @@ By studying the budget constraint, economists can gain insights into consumer be
 \caption{\label{fig:pointofconsumption} Indifference curve}
 \end{figure}
 
-\hypertarget{logarithmic-and-exponential-function}{%
-\section{Logarithmic and exponential function}\label{logarithmic-and-exponential-function}}
+\section{Logarithmic and exponential function}\label{logarithmic-and-exponential-function}
 
 \begin{figure}
 \centering
@@ -3433,8 +3347,7 @@ By studying the budget constraint, economists can gain insights into consumer be
 \caption{\label{fig:logexp2} Logarithmic and exponential function zoomed in}
 \end{figure}
 
-\hypertarget{logarithmic-function}{%
-\subsection{Logarithmic function}\label{logarithmic-function}}
+\subsection{Logarithmic function}\label{logarithmic-function}
 
 Maybe you have heard about the logarithm, and I'm quite sure you know the `log' button on your calculator. If you wonder what it actually is and why it is so important for calculating with growth rates, this section is for you.
 
@@ -3488,17 +3401,15 @@ Calculate a logarithmic function without a calculator. Hint: The result is an in
   \(\log_2 \left(\frac{1}{8}\right)\)
 \end{itemize}
 
-Please find solution to the exercise \protect\hyperlink{sol:calcwlog}{in the appendix.}
+Please find solution to the exercise \hyperref[sol:calcwlog]{in the appendix.}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \end{exercise}
 
-\hypertarget{exponential-function}{%
-\subsection{Exponential function}\label{exponential-function}}
+\subsection{Exponential function}\label{exponential-function}
 
-\hypertarget{definition}{%
-\subsubsection{Definition}\label{definition}}
+\subsubsection{Definition}\label{definition}
 
 Let us consider the function \(f(x) = 2^{x}\) in table Table 1 and figure \ref{fig:IntroExpLogs-1}.
 
@@ -3541,8 +3452,7 @@ A function of the form \(f(x) = b^{x}\) where \(b\) is a fixed real number, \(b 
   For \(0 < b < 1\), the function \(f(x)\) is strictly decreasing.
 \end{itemize}
 
-\hypertarget{the-number-e}{%
-\subsubsection{\texorpdfstring{The number \(e\)}{The number e}}\label{the-number-e}}
+\subsubsection{\texorpdfstring{The number \(e\)}{The number e}}\label{the-number-e}
 
 The most important base for exponential functions is the irrational number
 
@@ -3574,11 +3484,9 @@ Watch the YouTube clips \href{https://youtu.be/_-x90wGBD8U}{Logarithms - What is
 \caption{\label{fig:euler} What's so special about Euler's number e?}
 \end{figure}
 
-\hypertarget{solutions-to-exercises}{%
-\section{Solutions to exercises}\label{solutions-to-exercises}}
+\section{Solutions to exercises}\label{solutions-to-exercises}
 
-\hypertarget{sol:santa}{%
-\subsection*{Solution to exercise \ref{exr:santa}: What is the house of Santa Claus?}\label{sol:santa}}
+\subsection*{Solution to exercise \ref{exr:santa}: What is the house of Santa Claus?}\label{sol:santa}
 
 \begin{figure}
 \centering
@@ -3604,8 +3512,7 @@ There are 44 solutions and only 10 different ways to fail. Thus, the probability
 
 Nobody came close to the correct probability.
 
-\hypertarget{sol:opti-sati}{%
-\subsection*{Solution to exercise \ref{exr:opti-sati}: Optimal vs.~satisfactory solution}\label{sol:opti-sati}}
+\subsection*{Solution to exercise \ref{exr:opti-sati}: Optimal vs.~satisfactory solution}\label{sol:opti-sati}
 
 \begin{enumerate}
 \def\labelenumi{\Alph{enumi})}
@@ -3620,8 +3527,7 @@ Nobody came close to the correct probability.
   Consumers are often confronted with many variants of a product. The differences are negligible and therefore it is not worthwhile for consumers to analyze the situation in detail. Thus, they make a decision that may not be optimal, but they are satisfied with it.
 \end{enumerate}
 
-\hypertarget{sol:lisapregnant}{%
-\subsection*{Solution to exercise \ref{exr:lisapregnant}: Lisa is pregnant}\label{sol:lisapregnant}}
+\subsection*{Solution to exercise \ref{exr:lisapregnant}: Lisa is pregnant}\label{sol:lisapregnant}
 
 At the beginning of the \emph{Inferential Statistics} course at summer 2020, I also asked student this question. Here are the results of the 16 students who participated:
 
@@ -3654,8 +3560,7 @@ Let \(A\) be the event of the Baby has a Down syndrom and \(B\) the test is posi
     P(A\mid B)&={\frac {P(B\mid A)P(A)}{P(B)}}=\frac{0.86 \cdot 0.001}{0.05081}=0.016925802
 \end{align*}
 
-\hypertarget{sol:koerth-example}{%
-\subsection*{Solution to exercise \ref{exr:koerth-example}: Körth: example}\label{sol:koerth-example}}
+\subsection*{Solution to exercise \ref{exr:koerth-example}: Körth: example}\label{sol:koerth-example}
 
 \(\overline{O}_1=5; \overline{O}_2=1; \overline{O}_3=7; \overline{O}_4=3; \overline{O}_5=4\)
 
@@ -3674,8 +3579,7 @@ Let \(A\) be the event of the Baby has a Down syndrom and \(B\) the test is posi
 
 \(a_4\succ a_1 \sim a_2 \succ a_3\)
 
-\hypertarget{sol:finne}{%
-\subsection*{Solution to exercise \ref{exr:finne}: Optimal vs.~satisfactory solution}\label{sol:finne}}
+\subsection*{Solution to exercise \ref{exr:finne}: Optimal vs.~satisfactory solution}\label{sol:finne}
 
 The example that is shown in Figure 7 of \citet[p.~401]{Finne1998three} contains some errors. Here is the \emph{correct table} including the Hurwicz-values (we assume \(\alpha=.5\)):
 
@@ -3694,8 +3598,7 @@ The example that is shown in Figure 7 of \citet[p.~401]{Finne1998three} contains
 
 Thus, the order of preference is \(a_4\succ a_3 \succ a_1 \succ a_2\).
 
-\hypertarget{sol:burgerutility1}{%
-\subsection*{Solution to exercise \ref{exr:burgerutility1}: Burgers and drinks}\label{sol:burgerutility1}}
+\subsection*{Solution to exercise \ref{exr:burgerutility1}: Burgers and drinks}\label{sol:burgerutility1}
 
 In figure \ref{fig:burgerutility2}, I marked all 19 possible bundles of burger and drinks of consumption. The budget constraint is shown by the solid line.
 
@@ -3738,8 +3641,7 @@ which we can plug into the first FOC to obtain:
 
 \[B^*=2.4 \quad \text{and} \quad D^*=2.4\]
 
-\hypertarget{sol:cchoice}{%
-\subsection*{Solution to exercise \ref{exr:cchoice}: Consumption choice}\label{sol:cchoice}}
+\subsection*{Solution to exercise \ref{exr:cchoice}: Consumption choice}\label{sol:cchoice}
 
 \begin{align*}
 \mathcal{L}&=A^{0.8}B^{0.2}+\lambda(6A+4B-30)\\
@@ -3782,8 +3684,7 @@ The easiest way is to solve (\textbf{) and (}*) for \(\lambda\) and substitute i
 
 Thus, we'd consume 4 units of good A and 1.5 of good B.
 
-\hypertarget{sol:costmin}{%
-\subsection*{Solution to exercise \ref{exr:lagrcons}: Cost-minimizing combination of factors}\label{sol:costmin}}
+\subsection*{Solution to exercise \ref{exr:lagrcons}: Cost-minimizing combination of factors}\label{sol:costmin}
 
 \[
 \mathcal{L}=r_1+4r_2+\lambda\left(\frac{5}{4}r_1^{\frac{1}{2}}r_2^{\frac{1}{2}}-20\right)
@@ -3793,8 +3694,7 @@ Taking the FOC we get
 
 Also see \url{https://t1p.de/huber-lagr1} which uses this tool: \url{https://www.emathhelp.net/calculators/calculus-3/lagrange-multipliers-calculator/}
 
-\hypertarget{sol:lagrcons}{%
-\subsection*{Solution to exercise \ref{exr:lagrcons}: Lagrange with n-constraints}\label{sol:lagrcons}}
+\subsection*{Solution to exercise \ref{exr:lagrcons}: Lagrange with n-constraints}\label{sol:lagrcons}
 
 \[
 \mathcal{L}(x_1, \dots, x_m, \lambda_i, \dots, \lambda_n)=f(\mathbf{x})+\lambda_1 g_1(\mathbf{x})+\lambda_2 g_2(\mathbf{x})+\ldots+\lambda_n g_n(\mathbf{x})
@@ -3805,8 +3705,7 @@ The points of local minimum would be the solution of the following equations:
     g_i(\mathbf{x}) &=0 \quad \forall i=1\dots n
 \end{align*}
 
-\hypertarget{sol:tobevacornot}{%
-\subsection*{Solution to exercise \ref{exr:tobevacornot}: To be vaccinated or not to be}\label{sol:tobevacornot}}
+\subsection*{Solution to exercise \ref{exr:tobevacornot}: To be vaccinated or not to be}\label{sol:tobevacornot}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -3823,8 +3722,7 @@ The points of local minimum would be the solution of the following equations:
   \end{align*}
 \end{enumerate}
 
-\hypertarget{sol:todieornot}{%
-\subsection*{Solution to exercise \ref{exr:todieornot}: To die or not to die}\label{sol:todieornot}}
+\subsection*{Solution to exercise \ref{exr:todieornot}: To die or not to die}\label{sol:todieornot}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -3838,8 +3736,7 @@ The points of local minimum would be the solution of the following equations:
   \ldots{}
 \end{enumerate}
 
-\hypertarget{sol:falspos}{%
-\subsection*{Solution to exercise \ref{exr:falspos}: Corona false positive}\label{sol:falspos}}
+\subsection*{Solution to exercise \ref{exr:falspos}: Corona false positive}\label{sol:falspos}
 
 In order to come to an answer, lets draw a table of the probabilities that may be of interest:
 
@@ -3861,7 +3758,7 @@ A
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-B & \(P(A\cap B)\) & \(P(\neg A \cap B)\) & \(P(B)\) \\
+B & \(P(A\cap  B)\) & \(P(\neg A \cap B)\) & \(P(B)\) \\
 \(\neg B\) & \(P(A \cap \neg B)\) & \(P(\neg A \cap \neg B)\) & \(P(\neg B)\) \\
 :--- & :---: & :---: & :---: \\
 & \(P(A)\) & \(P(\neg A)\) & 1 \\
@@ -3916,8 +3813,7 @@ B & .00099 & .01998 & .02097 \\
 --- & .001 & .999 & 1 \\
 \end{longtable}
 
-\hypertarget{sol:bazermanbias}{%
-\subsection*{Solution to exercise \ref{exr:bazermanbias}: Twelve cognitive biases}\label{sol:bazermanbias}}
+\subsection*{Solution to exercise \ref{exr:bazermanbias}: Twelve cognitive biases}\label{sol:bazermanbias}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -3947,13 +3843,13 @@ B & .00099 & .01998 & .02097 \\
   \textbf{Hindsight and the Curse of Knowledge:} After learning the outcome of an event, individuals tend to overestimate their ability to have predicted that outcome. Additionally, individuals often fail to consider the perspective of others when making predictions.
 \end{enumerate}
 
-\hypertarget{sol:flmeasure}{%
-\subsection*{Solution to exercise \ref{exr:flmeasure}: How to measure financial literacy}\label{sol:flmeasure}}
+\subsection*{Solution to exercise \ref{exr:flmeasure}: How to measure financial literacy}\label{sol:flmeasure}
 
 Correct answers are:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   \begin{enumerate}
   \def\labelenumii{\alph{enumii})}
@@ -3989,13 +3885,13 @@ Correct answers are:
   \end{enumerate}
 \end{enumerate}
 
-\hypertarget{sol:bigthreeiq}{%
-\subsection*{\texorpdfstring{Solution to exercise \ref{exr:bigthreeiq}: The \emph{big three} questions}{Solution to exercise \ref{exr:bigthreeiq}: The big three questions}}\label{sol:bigthreeiq}}
+\subsection*{\texorpdfstring{Solution to exercise \ref{exr:bigthreeiq}: The \emph{big three} questions}{Solution to exercise \ref{exr:bigthreeiq}: The big three questions}}\label{sol:bigthreeiq}
 
 Correct answers are:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   \begin{enumerate}
   \def\labelenumii{\alph{enumii})}
@@ -4018,8 +3914,7 @@ Correct answers are:
   \end{enumerate}
 \end{enumerate}
 
-\hypertarget{sol:commistakes}{%
-\subsection*{Solution to exercise \ref{exr:commistakes}: Common investment mistakes}\label{sol:commistakes}}
+\subsection*{Solution to exercise \ref{exr:commistakes}: Common investment mistakes}\label{sol:commistakes}
 
 \begin{itemize}
 \tightlist
@@ -4075,8 +3970,7 @@ Correct answers are:
   While you can't control what the market will bear, you can control how much money you save. Continually investing capital over time can have as much influence on wealth accumulation as the return on investment and increase the probability of reaching your financial goals.
 \end{itemize}
 
-\hypertarget{sol:invcase}{%
-\subsection*{Solution to exercise \ref{exr:invcase}: Investment case}\label{sol:invcase}}
+\subsection*{Solution to exercise \ref{exr:invcase}: Investment case}\label{sol:invcase}
 
 \begin{itemize}
 \tightlist
@@ -4097,8 +3991,7 @@ Correct answers are:
 
 \[1,000 \text{€} \cdot e^{0.05 \cdot 2} = 1,105.17 \text{€}\]
 
-\hypertarget{sol:presentvalueC}{%
-\subsection*{Solution to exercise \ref{exr:presentvalueC}: Present value}\label{sol:presentvalueC}}
+\subsection*{Solution to exercise \ref{exr:presentvalueC}: Present value}\label{sol:presentvalueC}
 
 \begin{itemize}
 \tightlist
@@ -4155,8 +4048,7 @@ V_{\text{present}}  = \frac{V_{\text{future}}}{e^{i\cdot t}}
 V_{\text{present}} = \frac{100,000}{e^{0.05 \cdot 10}} \approx 60,653
 \]
 
-\hypertarget{sol:invaorb}{%
-\subsection*{Solution to exercise \ref{exr:invaorb}: Invest in A or B}\label{sol:invaorb}}
+\subsection*{Solution to exercise \ref{exr:invaorb}: Invest in A or B}\label{sol:invaorb}
 
 \[
 V_{A}^{t=5}\approx 117,332
@@ -4167,8 +4059,7 @@ V_{B}^{t=5}= 100,000
 
 Thus, we should prefer project A.
 
-\hypertarget{sol:netpresentvalue}{%
-\subsection*{Solution to exercise \ref{exr:netpresentvalue}: Net present value}\label{sol:netpresentvalue}}
+\subsection*{Solution to exercise \ref{exr:netpresentvalue}: Net present value}\label{sol:netpresentvalue}
 
 Assuming that the cash flows occur at the end of each year, we can use the following formula to calculate the NPV of the project:
 
@@ -4193,8 +4084,7 @@ NPV_B = -50,000 + \frac{100,000 }{ (1 + 0.08)^5} = -50,000+68058,31\approx 18058
 \]
 Since the \(NPV_A>NPV_B\), we should invest in project A.
 
-\hypertarget{sol:irr}{%
-\subsection*{Solution to exercise \ref{exr:irr}: Internal rate of return}\label{sol:irr}}
+\subsection*{Solution to exercise \ref{exr:irr}: Internal rate of return}\label{sol:irr}
 
 Assuming that the cash flows occur at the end of each year, we can use the following formula to calculate the IRR of the project:
 \[ 0 = \sum_{n=0}^{N} \frac{C_n}{(1+IRR)^n}  \]
@@ -4211,8 +4101,7 @@ Solving for \(IRR\) is not that easy. Using a spreadsheet program, we get \(IRR_
 \) and \(IRR_B\approx 14.87%
 \). Thus, project A seems to be better.
 
-\hypertarget{sol:rule70}{%
-\subsection*{Solution to exercise \ref{exr:rule70}: Rule of 70}\label{sol:rule70}}
+\subsection*{Solution to exercise \ref{exr:rule70}: Rule of 70}\label{sol:rule70}
 
 What is the time required for a growing variable to double?
 
@@ -4262,8 +4151,7 @@ t &= \frac{\ln 2}{r} \\
 t &\approx \frac{0.693147}{r}
 \end{align*}
 
-\hypertarget{sol:invovertime}{%
-\subsection*{Solution to exercise \ref{exr:invovertime}: Investments over time}\label{sol:invovertime}}
+\subsection*{Solution to exercise \ref{exr:invovertime}: Investments over time}\label{sol:invovertime}
 
 The formula under discrete time is:
 \[
@@ -4274,8 +4162,7 @@ The formula under continuous time is:
 Y_t=Y_0\cdot e^{gt}
 \]
 
-\hypertarget{sol:expovertime}{%
-\subsection*{Solution to exercise \ref{exr:expovertime}: Exponential growth}\label{sol:expovertime}}
+\subsection*{Solution to exercise \ref{exr:expovertime}: Exponential growth}\label{sol:expovertime}
 
 Figure @ref(fig:expgrowth\_graphs) provides the solution.
 
@@ -4285,8 +4172,7 @@ Figure @ref(fig:expgrowth\_graphs) provides the solution.
 \caption{(\#fig:expgrowth\_graphs) Various growth functions}
 \end{figure}
 
-\hypertarget{sol:derofdemand}{%
-\subsection*{Solution to exercise \ref{exr:derofdemand}: Derivation of demand function using the Lagrangian multiplier}\label{sol:derofdemand}}
+\subsection*{Solution to exercise \ref{exr:derofdemand}: Derivation of demand function using the Lagrangian multiplier}\label{sol:derofdemand}
 
 The Lagrangian for this problem is
 \[
@@ -4308,8 +4194,7 @@ Solving the first order conditions yield the following solutions
 \]
 where \(x^{M}\) and \(y^{M}\) are the consumer's demand functions.
 
-\hypertarget{sol:cdanddemand}{%
-\subsection*{Solution to exercise \ref{exr:cdanddemand}: Cobb-Douglas and demand}\label{sol:cdanddemand}}
+\subsection*{Solution to exercise \ref{exr:cdanddemand}: Cobb-Douglas and demand}\label{sol:cdanddemand}
 
 The Lagrangian is
 \[
@@ -4362,8 +4247,7 @@ and therefore the \textit{demand function}
 y=\frac{\beta}{\alpha+\beta}  \frac{I}{q}
 \]
 
-\hypertarget{sol:Uic}{%
-\subsection*{Solution to exercise \ref{exr:Uic}: Understanding indifference curves and budget constraints}\label{sol:Uic}}
+\subsection*{Solution to exercise \ref{exr:Uic}: Understanding indifference curves and budget constraints}\label{sol:Uic}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -4378,13 +4262,11 @@ y=\frac{\beta}{\alpha+\beta}  \frac{I}{q}
   The budget line can be sketched into a y-x plot by solving \(p_xx+p_yy=I\) for y: \[y=\frac{I}{p_y}-\frac{p_x}{p_y}x\]
 \end{enumerate}
 
-\hypertarget{sol:isoquants}{%
-\subsection*{Solution to exercise \ref{exr:isoquants}: Isoquants}\label{sol:isoquants}}
+\subsection*{Solution to exercise \ref{exr:isoquants}: Isoquants}\label{sol:isoquants}
 
 Graph (1) shows perfect complements and graph (2) perfect substitutes. The isoquants for Cobb-Douglas production functions is convex and in between the two extremes and it shifts outward with more production.
 
-\hypertarget{sol:lama}{%
-\subsection*{Solution to exercise \ref{exr:lama}: Labor and machines}\label{sol:lama}}
+\subsection*{Solution to exercise \ref{exr:lama}: Labor and machines}\label{sol:lama}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -4412,13 +4294,11 @@ Graph (1) shows perfect complements and graph (2) perfect substitutes. The isoqu
 
 Thus, the optimal combination of inputs is \(L = 64\frac{4}{5}\) and \(K = 10\frac{4}{5}\).
 
-\hypertarget{sol:marrevtotrev}{%
-\subsection*{Solution to exercise \ref{exr:marrevtotrev}: Marginal revenue and total revenue}\label{sol:marrevtotrev}}
+\subsection*{Solution to exercise \ref{exr:marrevtotrev}: Marginal revenue and total revenue}\label{sol:marrevtotrev}
 
 See: chapter \emph{15.2 Profit Maximization for Monopolists} of \citet{Emerson2020Intermediate}, see: \href{https://open.oregonstate.education/intermediatemicroeconomics/}{here}.
 
-\hypertarget{sol:howtomaxprofit}{%
-\subsection*{Solution to exercise \ref{exr:howtomaxprofit}: How to maximize profits}\label{sol:howtomaxprofit}}
+\subsection*{Solution to exercise \ref{exr:howtomaxprofit}: How to maximize profits}\label{sol:howtomaxprofit}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -4452,8 +4332,7 @@ See: chapter \emph{15.2 Profit Maximization for Monopolists} of \citet{Emerson20
   \[\pi_{t=3}=1200 \cdot 75-10 \cdot 75^2-4000+30 \cdot 450 = 16250\]
 \end{enumerate}
 
-\hypertarget{sol:thuenen1}{%
-\subsection*{Solution to exercise \ref{exr:thuenen1}: Agricultural land use}\label{sol:thuenen1}}
+\subsection*{Solution to exercise \ref{exr:thuenen1}: Agricultural land use}\label{sol:thuenen1}
 
 The maximum rent a farmer of a respective production method can offer is the rate where zero profit is made. The market rent curve of the landlord is the upper envelope: \(r(x) = \max(r_i(x))\), where the profit \(\pi\) and the rent \(r\) for firm \(i\) are given as follows:
 
@@ -4498,8 +4377,7 @@ When plotting the corresponding market rent curve, it becomes apparent that regi
 \]
 This means that in the range \(x \in [0, \frac{20}{3}]\), land use form 1 prevails; in the range \(x \in [\frac{20}{3}, 10]\), land use form 4 prevails; and in the range \(x \in [10, 30]\), land use form 2 prevails.
 
-\hypertarget{sol:Uproduction}{%
-\subsection*{Solution to exercise \ref{exr:Uproduction}: Understanding production}\label{sol:Uproduction}}
+\subsection*{Solution to exercise \ref{exr:Uproduction}: Understanding production}\label{sol:Uproduction}
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi})}
@@ -4534,8 +4412,7 @@ This means that in the range \(x \in [0, \frac{20}{3}]\), land use form 1 prevai
 \caption{\label{fig:ppf4} Shrinking production possibilities in good A}
 \end{figure}
 
-\hypertarget{sol:calcwlog}{%
-\subsection*{Solution to exercise \ref{exr:calcwlog}: Calculate with log}\label{sol:calcwlog}}
+\subsection*{Solution to exercise \ref{exr:calcwlog}: Calculate with log}\label{sol:calcwlog}
 
 \begin{itemize}
 \tightlist
@@ -4551,10 +4428,9 @@ This means that in the range \(x \in [0, \frac{20}{3}]\), land use form 1 prevai
   \(\log_2 \left(\frac{1}{8}\right)=-3\) because \(2^{-3}=\frac{1}{8}\)
 \end{itemize}
 
-\hypertarget{pastexams}{%
-\section{Past exams}\label{pastexams}}
+\section{Past exams}\label{pastexams}
 
-Please feel free to download a collection of past exams \href{https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/meco/pdfs/pexam_me.pdf}{here}.
+Please feel free to download a collection of past exams \href{https://raw.githubusercontent.com/hubchev/hubchev.github.io/meco/main/pexam_me.pdf}{here}.
 
   \bibliography{book.bib}
 
