@@ -160,7 +160,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -256,12 +256,24 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Literatur</span></a>
+  <a href="./regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./desc_NRW.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Descriptive Statistics of the NRW80+ Dataset</span></span></a>
   </div>
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Literatur</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -293,7 +305,7 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./einlesen.html">Anwendungen</a></li><li class="breadcrumb-item"><a href="./festuca.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Zwei-Wege-ANOVA-Modellen</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -315,7 +327,7 @@ window.Quarto = {
 
 
 <p>Dies ist eine Übung, bei der Datenmanagement mit den <code>dplyr</code>-Funktionen <code>pivot_longer</code>, <code>rename</code> und <code>bind_rows</code> geübt wird. Außerdem zeige ich, wie eine ANOVA-Analyse mit R durchgeführt und in Quarto veranschaulicht werden kann. Dabei beziehe ich mich auf den Inhalt von <span class="citation" data-cites="Childs2021APS">Childs et al. (<a href="references.html#ref-Childs2021APS" role="doc-biblioref">2021, Kapitel 27</a>)</span>.</p>
-<p>Unser Ziel ist es, zu lernen, wie man mit Zwei-Wege-ANOVA-Modellen in R arbeitet, anhand eines Beispiels aus einem Pflanzenwettbewerbsexperiment. Der Arbeitsablauf ist sehr ähnlich wie bei der Einweg-ANOVA in R. Wir beginnen mit dem Problem und den Daten und arbeiten dann durch die Modellanpassung, die Bewertung der Annahmen, den Signifikanztest und schließlich die Darstellung der Ergebnisse.</p>
+<div class="no-row-height column-margin column-container"></div><p>Unser Ziel ist es, zu lernen, wie man mit Zwei-Wege-ANOVA-Modellen in R arbeitet, anhand eines Beispiels aus einem Pflanzenwettbewerbsexperiment. Der Arbeitsablauf ist sehr ähnlich wie bei der Einweg-ANOVA in R. Wir beginnen mit dem Problem und den Daten und arbeiten dann durch die Modellanpassung, die Bewertung der Annahmen, den Signifikanztest und schließlich die Darstellung der Ergebnisse.</p>
 <section id="r-sitzung-einrichten" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="r-sitzung-einrichten"><span class="header-section-number">4.1</span> R-Sitzung einrichten</h2>
 <div class="cell">
@@ -326,7 +338,7 @@ window.Quarto = {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>               knitr, kableExtra, ggstatsplot, papaja, janitor, apa)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="daten-einlesen" class="level2" data-number="4.2">
+<section id="daten-einlesen" class="level2 page-columns page-full" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="daten-einlesen"><span class="header-section-number">4.2</span> Daten einlesen</h2>
 <p>Pflanzen haben einen optimalen Boden-pH-Wert für ihr Wachstum, und dieser variiert zwischen den Arten. Folglich würden wir erwarten, dass wenn wir zwei Pflanzen im Wettbewerb zueinander unter verschiedenen pH-Werten anbauen, der Effekt des Wettbewerbs je nach Boden-pH-Wert unterschiedlich ausfallen könnte. In einer aktuellen Studie wurde das Wachstum des Grases Festuca ovina (Schaf-Schwingel) im Wettbewerb mit der Besenheide Calluna vulgaris (Heidekraut) in Böden mit unterschiedlichen pH-Werten untersucht. Calluna ist gut angepasst, auf sehr sauren Böden wie dem Millstone Grit und den Hochmoorflächen um Sheffield zu wachsen. Festuca wächst auf Böden mit einem viel breiteren pH-Bereich. Wir könnten die Hypothese aufstellen, dass Calluna in sehr sauren Böden ein besserer Konkurrent von Festuca sein wird als in mäßig sauren Böden. Hier sind die Daten: Die Spalten <code>pH 3.5</code> und <code>pH 5.5</code> enthalten das Gewicht, die Spalte <code>Condition</code> enthält die Anwesenheit oder Abwesenheit von Calluna.</p>
 <p>Dies ist ein vollständig faktorielles Zwei-Wege-Design. Die Gesamtanzahl der unterschiedlichen Behandlungsgruppen beträgt <span class="math inline">\(2 \times 2 = 4\)</span>. Für jede der Behandlungen gab es 5 Messwerte bzw. Pflanzen, was insgesamt <span class="math inline">\(2 \times 2 \times 5 = 20\)</span> Beobachtungen ergibt. Hier sind die vorliegenden Daten:</p>
@@ -381,7 +393,9 @@ window.Quarto = {
 </div>
 </div>
 <p>Um diesen Datensatz nun im sogenannten <em>Long-Format</em> darzustellen, verwende ich die Funktion <code>pivot_longer</code>. Dieses Format hat bei der Verwendung einiger Befehle vorteile. Wie zwischen dem <em>Long-Format</em> und den <em>Wide-Format</em> gewechselt werden kann, bitte ich <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>: <a href="https://r4ds.hadley.nz/data-tidy#sec-pivoting">5.3 Lengthening data</a> zu entnehmen.</p>
-<div class="cell">
+<div class="no-row-height column-margin column-container"><div id="ref-Wickham2023R" class="csl-entry" role="listitem">
+Wickham, H., &amp; Grolemund, G. (2023). <em>R for Data Science (2e)</em>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>
+</div></div><div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>festuca <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"pH"</span>), <span class="at">names_to =</span> <span class="st">"ph"</span>, <span class="at">values_to =</span> <span class="st">"weight"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">calluna =</span> Condition) <span class="sc">|&gt;</span> </span>
@@ -690,30 +704,21 @@ sample estimates:
                         4.887                         3.458 </code></pre>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> festuca <span class="sc">|&gt;</span> </span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(calluna, ph) <span class="sc">|&gt;</span> </span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">t_test =</span> <span class="fu">list</span>(<span class="fu">t.test</span>(weight)<span class="sc">$</span>p.value)) <span class="sc">|&gt;</span> </span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>results</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 3
-  calluna         ph     t_test   
-  &lt;fct&gt;           &lt;fct&gt;  &lt;list&gt;   
-1 Calluna Absent  ph_3_5 &lt;dbl [1]&gt;
-2 Calluna Absent  ph_5_5 &lt;dbl [1]&gt;
-3 Calluna Present ph_3_5 &lt;dbl [1]&gt;
-4 Calluna Present ph_5_5 &lt;dbl [1]&gt;</code></pre>
-</div>
-</div>
+<!-- ```{r, echo=TRUE, warning=FALSE, message=FALSE} -->
+<!-- results <- festuca |>  -->
+<!--   group_by(calluna, ph) |>  -->
+<!--   summarise(t_test = t.test(weight)$p.value) |>  -->
+<!--   ungroup() -->
+<!-- results -->
+<!-- ``` -->
 </section>
 </section>
 <section id="anova" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="anova"><span class="header-section-number">4.5</span> ANOVA</h2>
 <p>Verwenden Sie dieses Modell, um die ANOVA zu berechnen: <code>weight ~ ph + calluna + ph:calluna</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>festuca_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(weight <span class="sc">~</span> ph <span class="sc">+</span> calluna <span class="sc">+</span> ph<span class="sc">:</span>calluna, <span class="at">data =</span> festuca)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(festuca_model)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>festuca_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(weight <span class="sc">~</span> ph <span class="sc">+</span> calluna <span class="sc">+</span> ph<span class="sc">:</span>calluna, <span class="at">data =</span> festuca)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(festuca_model)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Variance Table
 
@@ -728,13 +733,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 </div>
 <p>Diese Ergebnis können publikationswürdig mit den Funktionen <code>apa_print</code> aus dem Paket <code>papaja</code> und <code>kable</code> dargestellt werden, siehe <a href="#tbl-festuca_model" class="quarto-xref">Tabelle&nbsp;<span>4.2</span></a>:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: tbl-festuca_model</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| tbl-cap: "ANOVA Ergebnisse"</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="in">apa_anova &lt;- apa_print(festuca_model)</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable( apa_anova$table, booktabs=T) </span></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: tbl-festuca_model</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| tbl-cap: "ANOVA Ergebnisse"</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="in">apa_anova &lt;- apa_print(festuca_model)</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable( apa_anova$table, booktabs=T) </span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-festuca_model" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-festuca_model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -752,47 +757,49 @@ Tabelle&nbsp;4.2: ANOVA Ergebnisse
 </figure>
 </div>
 </section>
-<section id="diagnostics" class="level2" data-number="4.6">
+<section id="diagnostics" class="level2 page-columns page-full" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="diagnostics"><span class="header-section-number">4.6</span> Diagnostics</h2>
 <p>Lesen Sie <span class="citation" data-cites="Childs2021APS">Childs et al. (<a href="references.html#ref-Childs2021APS" role="doc-biblioref">2021</a>)</span>: <a href="https://dzchilds.github.io/stats-for-bio/two-way-anova-in-r.html#diagnostics">27.5 Diagnostics</a>. Außerdem ist <a href="https://www.datanovia.com/en/lessons/anova-in-r/">diese Seite</a> einen Blick wert. Dort finden Sie einige für die ANOVA-Diagnostik hilfreiche R-Funktionen.</p>
-</section>
-<section id="interaktions-diagramm" class="level2" data-number="4.7">
+<div class="no-row-height column-margin column-container"></div></section>
+<section id="interaktions-diagramm" class="level2 page-columns page-full" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="interaktions-diagramm"><span class="header-section-number">4.7</span> Interaktions Diagramm</h2>
 <p>Ein Interaktionsdiagramm illustriert, wie zwei oder mehr unabhängige Variablen gemeinsam die abhängige Variable beeinflussen. Es hilft dabei, Wechselwirkungen zwischen Faktoren visuell darzustellen und besser zu verstehen, ob der Effekt einer unabhängigen Variablen von der Ausprägung einer anderen abhängt. Dies ist besonders wichtig, um mögliche Interaktionen identifizieren und interpretieren zu können, die in einer ANOVA-Analyse auftreten.</p>
 <p>So ein Diagramm kann mit der Funktion <code>interaction.plot</code> erstellt werden:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(festuca<span class="sc">$</span>ph, festuca<span class="sc">$</span>calluna, <span class="at">response =</span> festuca<span class="sc">$</span>weight)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interaction.plot</span>(festuca<span class="sc">$</span>ph, festuca<span class="sc">$</span>calluna, <span class="at">response =</span> festuca<span class="sc">$</span>weight)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="festuca_files/figure-html/unnamed-chunk-17-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="festuca_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="festuca_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="festuca_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Hier ist eine viel ansprechendere und flexiblere Methode, um Interaktionsdiagramme mithilfe der tidyverse-Funktionen zu erstellen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 1. calculate means for each treatment combination</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>festuca_means <span class="ot">&lt;-</span> </span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  festuca <span class="sc">|&gt;</span>  </span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(calluna, ph) <span class="sc">|&gt;</span>  <span class="co"># &lt;- remember to group by *both* factors</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Means =</span> <span class="fu">mean</span>(weight))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 1. calculate means for each treatment combination</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>festuca_means <span class="ot">&lt;-</span> </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  festuca <span class="sc">|&gt;</span>  </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(calluna, ph) <span class="sc">|&gt;</span>  <span class="co"># &lt;- remember to group by *both* factors</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Means =</span> <span class="fu">mean</span>(weight))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 2. plot these as an interaction plot</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(festuca_means, </span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> ph, <span class="at">y =</span> Means, <span class="at">colour =</span> calluna, <span class="at">group =</span> calluna)) <span class="sc">+</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 2. plot these as an interaction plot</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(festuca_means, </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> ph, <span class="at">y =</span> Means, <span class="at">colour =</span> calluna, <span class="at">group =</span> calluna)) <span class="sc">+</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="festuca_files/figure-html/unnamed-chunk-19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="festuca_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="festuca_files/figure-html/unnamed-chunk-18-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="festuca_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Bitte lesen Sie <span class="citation" data-cites="Childs2021APS">Childs et al. (<a href="references.html#ref-Childs2021APS" role="doc-biblioref">2021</a>)</span>: <a href="https://dzchilds.github.io/stats-for-bio/two-way-anova-in-r.html#understanding-the-model-grapHically">27.6.1</a> und berücksichtigen Sie <a href="#fig-pressure" class="quarto-xref">Abbildung&nbsp;<span>4.3</span></a>.</p>
-<div class="cell">
+<div class="no-row-height column-margin column-container"><div id="ref-Childs2021APS" class="csl-entry" role="listitem">
+Childs, D. Z., Hindle, B. J., &amp; Warren, P. H. (2021). <em>APS 240: Data Analysis and Statistics with R</em>. online. <a href="https://dzchilds.github.io/stats-for-bio">https://dzchilds.github.io/stats-for-bio</a>
+</div></div><div class="cell">
 <div class="cell-output-display">
 <div id="fig-pressure" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -811,7 +818,7 @@ Abbildung&nbsp;4.3: Grafische Veranschaulichung des Models
 <h2 data-number="4.8" class="anchored" data-anchor-id="multiple-vergleichs-test"><span class="header-section-number">4.8</span> Multiple-Vergleichs-Test</h2>
 <p>Ein Multiple-Vergleichs-Test, wie der TukeyHSD-Test, wird verwendet, um nach einer ANOVA-Analyse die Unterschiede zwischen den Gruppenpaaren genauer zu untersuchen. Er hilft dabei, festzustellen, welche spezifischen Gruppen sich signifikant voneinander unterscheiden, indem er alle möglichen Paarvergleiche berücksichtigt. Dies ist besonders nützlich, um nach signifikanten Ergebnissen aus der ANOVA detailliertere Erkenntnisse zu gewinnen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(festuca_model, <span class="at">which =</span> <span class="st">'ph:calluna'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(festuca_model, <span class="at">which =</span> <span class="st">'ph:calluna'</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Tukey multiple comparisons of means
     95% family-wise confidence level
@@ -836,7 +843,7 @@ ph_5_5:Calluna Present-ph_3_5:Calluna Present 0.3079685</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">HSD.test</span>(festuca_model, <span class="at">trt =</span> <span class="fu">c</span>(<span class="st">"ph"</span>, <span class="st">"calluna"</span>), <span class="at">console =</span> <span class="cn">TRUE</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">HSD.test</span>(festuca_model, <span class="at">trt =</span> <span class="fu">c</span>(<span class="st">"ph"</span>, <span class="st">"calluna"</span>), <span class="at">console =</span> <span class="cn">TRUE</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Study: festuca_model ~ c("ph", "calluna")
@@ -872,83 +879,83 @@ ph_3_5:Calluna Present  2.978      b</code></pre>
 <h2 data-number="4.9" class="anchored" data-anchor-id="schlussfolgerungen-ziehen-und-ergebnisse-präsentieren"><span class="header-section-number">4.9</span> Schlussfolgerungen ziehen und Ergebnisse präsentieren</h2>
 <p>Hier sind einige Code-Beispiele, wie die oben gezeigten Diagramme viel schöner gestaltet werden könnten.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 1. calculate means for each treatment combination</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>festuca_stats <span class="ot">&lt;-</span> </span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  festuca <span class="sc">|&gt;</span> </span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(calluna, ph) <span class="sc">%&gt;%</span> <span class="co"># &lt;- remember to group by the two factors</span></span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(weight), <span class="at">SEs =</span> <span class="fu">sd</span>(weight)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>()))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 1. calculate means for each treatment combination</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>festuca_stats <span class="ot">&lt;-</span> </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  festuca <span class="sc">|&gt;</span> </span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(calluna, ph) <span class="sc">%&gt;%</span> <span class="co"># &lt;- remember to group by the two factors</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(weight), <span class="at">SEs =</span> <span class="fu">sd</span>(weight)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>()))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'calluna'. You can override using the
 `.groups` argument.</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 1. calculate means for each treatment combination</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>festuca_stats <span class="ot">&lt;-</span> </span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  festuca <span class="sc">|&gt;</span> </span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(calluna, ph) <span class="sc">%&gt;%</span> <span class="co"># &lt;- remember to group by the two factors</span></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(weight), <span class="at">ses =</span> <span class="fu">sd</span>(weight)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>()))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 1. calculate means for each treatment combination</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>festuca_stats <span class="ot">&lt;-</span> </span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  festuca <span class="sc">|&gt;</span> </span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(calluna, ph) <span class="sc">%&gt;%</span> <span class="co"># &lt;- remember to group by the two factors</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">means =</span> <span class="fu">mean</span>(weight), <span class="at">ses =</span> <span class="fu">sd</span>(weight)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>()))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 2. plot these as an interaction plot</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(festuca_stats, </span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> calluna, <span class="at">y =</span> means, <span class="at">colour =</span> ph,</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">ymin =</span> means <span class="sc">-</span> ses, <span class="at">ymax =</span> means <span class="sc">+</span> ses)) <span class="sc">+</span></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the mean</span></span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the error bars</span></span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># controlling the appearance</span></span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">7</span>)) <span class="sc">+</span> </span>
-<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Calluna"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Festuca yield (g dry weight)"</span>) <span class="sc">+</span> </span>
-<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use a more professional theme</span></span>
-<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 2. plot these as an interaction plot</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(festuca_stats, </span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> calluna, <span class="at">y =</span> means, <span class="at">colour =</span> ph,</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">ymin =</span> means <span class="sc">-</span> ses, <span class="at">ymax =</span> means <span class="sc">+</span> ses)) <span class="sc">+</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the mean</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the error bars</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># controlling the appearance</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">7</span>)) <span class="sc">+</span> </span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Calluna"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Festuca yield (g dry weight)"</span>) <span class="sc">+</span> </span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use a more professional theme</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="festuca_files/figure-html/unnamed-chunk-25-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="festuca_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="festuca_files/figure-html/unnamed-chunk-24-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="festuca_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define a position adjustment </span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>pos <span class="ot">&lt;-</span> <span class="fu">position_dodge</span>(<span class="fl">0.15</span>)</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co"># make the plot</span></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(festuca_stats, </span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> calluna, <span class="at">y =</span> means, <span class="at">colour =</span> ph,</span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">ymin =</span> means <span class="sc">-</span> ses, <span class="at">ymax =</span> means <span class="sc">+</span> ses)) <span class="sc">+</span></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the mean (shift positions with 'position =')</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">position =</span> pos) <span class="sc">+</span></span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the error bars (shift positions with 'position =')</span></span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">position =</span> pos) <span class="sc">+</span></span>
-<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># controlling the appearance</span></span>
-<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">7</span>)) <span class="sc">+</span> </span>
-<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Calluna"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Festuca yield (g dry weight)"</span>) <span class="sc">+</span> </span>
-<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use a more professional theme</span></span>
-<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># define a position adjustment </span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>pos <span class="ot">&lt;-</span> <span class="fu">position_dodge</span>(<span class="fl">0.15</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co"># make the plot</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(festuca_stats, </span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> calluna, <span class="at">y =</span> means, <span class="at">colour =</span> ph,</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">ymin =</span> means <span class="sc">-</span> ses, <span class="at">ymax =</span> means <span class="sc">+</span> ses)) <span class="sc">+</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the mean (shift positions with 'position =')</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">position =</span> pos) <span class="sc">+</span></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the error bars (shift positions with 'position =')</span></span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">position =</span> pos) <span class="sc">+</span></span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># controlling the appearance</span></span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">7</span>)) <span class="sc">+</span> </span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Calluna"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Festuca yield (g dry weight)"</span>) <span class="sc">+</span> </span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use a more professional theme</span></span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="festuca_files/figure-html/unnamed-chunk-26-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="festuca_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="festuca_files/figure-html/unnamed-chunk-25-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="festuca_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(festuca_stats, </span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> calluna, <span class="at">y =</span> means, <span class="at">fill =</span> ph,</span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">ymin =</span> means <span class="sc">-</span> ses, <span class="at">ymax =</span> means <span class="sc">+</span> ses)) <span class="sc">+</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the mean</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>()) <span class="sc">+</span></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the error bars</span></span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.9</span>), <span class="at">width=</span>.<span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># controlling the appearance</span></span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Calluna"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Festuca yield (g dry weight)"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(festuca_stats, </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> calluna, <span class="at">y =</span> means, <span class="at">fill =</span> ph,</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">ymin =</span> means <span class="sc">-</span> ses, <span class="at">ymax =</span> means <span class="sc">+</span> ses)) <span class="sc">+</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the mean</span></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>()) <span class="sc">+</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the error bars</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.9</span>), <span class="at">width=</span>.<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># controlling the appearance</span></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Calluna"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Festuca yield (g dry weight)"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="festuca_files/figure-html/unnamed-chunk-27-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="festuca_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="festuca_files/figure-html/unnamed-chunk-26-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="festuca_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -960,14 +967,7 @@ ph_3_5:Calluna Present  2.978      b</code></pre>
 <span class="glightbox-desc lightbox-desc-2">Abbildung&nbsp;4.2: Boxplots mit <code>ggbetweenstats</code></span>
 <span class="glightbox-desc lightbox-desc-5">Abbildung&nbsp;4.3: Grafische Veranschaulichung des Models</span>
 </div>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
-<div id="ref-Childs2021APS" class="csl-entry" role="listitem">
-Childs, D. Z., Hindle, B. J., &amp; Warren, P. H. (2021). <em>APS 240: Data Analysis and Statistics with R</em>. online. <a href="https://dzchilds.github.io/stats-for-bio">https://dzchilds.github.io/stats-for-bio</a>
-</div>
-<div id="ref-Wickham2023R" class="csl-entry" role="listitem">
-Wickham, H., &amp; Grolemund, G. (2023). <em>R for Data Science (2e)</em>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>
-</div>
-</div>
+
 </section>
 
 </main> <!-- /main -->
@@ -1537,7 +1537,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

@@ -1,0 +1,2441 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Empirisch-Wissenschaftliches Arbeiten - 7&nbsp; Descriptive Statistics of the NRW80+ Dataset</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./regression.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./einlesen.html">Anwendungen</a></li><li class="breadcrumb-item"><a href="./desc_NRW.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Descriptive Statistics of the NRW80+ Dataset</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Empirisch-Wissenschaftliches Arbeiten</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Empirisch-Wissenschaftliches-Arbeiten.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Dunkelmodus umschalten"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Vorwort</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Einleitung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Die Programmiersprache R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Wissenschaftliche Texte schreiben</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Anwendungen</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./einlesen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Daten einlesen und aufbereiten</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./festuca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Zwei-Wege-ANOVA-Modellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./calluna.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ANOVA Ergebnisse und Quarto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./desc_NRW.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Descriptive Statistics of the NRW80+ Dataset</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Literatur</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#technical-note" id="toc-technical-note" class="nav-link active" data-scroll-target="#technical-note"><span class="header-section-number">7.1</span> Technical Note</a></li>
+  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data"><span class="header-section-number">7.2</span> Import Data</a></li>
+  <li><a href="#how-to-use-the-nrw80-data" id="toc-how-to-use-the-nrw80-data" class="nav-link" data-scroll-target="#how-to-use-the-nrw80-data"><span class="header-section-number">7.3</span> How to Use the NRW80+ Data</a>
+  <ul class="collapse">
+  <li><a href="#sec-load" id="toc-sec-load" class="nav-link" data-scroll-target="#sec-load"><span class="header-section-number">7.3.1</span> Load and Subset Data</a></li>
+  <li><a href="#get-an-overview-by-counting" id="toc-get-an-overview-by-counting" class="nav-link" data-scroll-target="#get-an-overview-by-counting"><span class="header-section-number">7.3.2</span> Get an Overview by Counting</a></li>
+  <li><a href="#first-summary-statistics" id="toc-first-summary-statistics" class="nav-link" data-scroll-target="#first-summary-statistics"><span class="header-section-number">7.3.3</span> First Summary Statistics</a></li>
+  <li><a href="#make-tables-using-tt" id="toc-make-tables-using-tt" class="nav-link" data-scroll-target="#make-tables-using-tt"><span class="header-section-number">7.3.4</span> Make Tables using <code>tt()</code></a></li>
+  <li><a href="#use-the-likert-scale-using-gglikert" id="toc-use-the-likert-scale-using-gglikert" class="nav-link" data-scroll-target="#use-the-likert-scale-using-gglikert"><span class="header-section-number">7.3.5</span> Use the Likert Scale using <code>gglikert()</code></a></li>
+  </ul></li>
+  <li><a href="#cross-referencing-in-r-markdown" id="toc-cross-referencing-in-r-markdown" class="nav-link" data-scroll-target="#cross-referencing-in-r-markdown"><span class="header-section-number">7.4</span> Cross-Referencing in R Markdown</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">7.5</span> Exercises</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./einlesen.html">Anwendungen</a></li><li class="breadcrumb-item"><a href="./desc_NRW.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Descriptive Statistics of the NRW80+ Dataset</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Descriptive Statistics of the NRW80+ Dataset</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In this chapter, I illustrate the process of importing NRW80+ data <span class="citation" data-cites="Zank2022Quality">(see <a href="references.html#ref-Zank2022Quality" role="doc-biblioref">Zank et al., 2022</a>)</span> into R. Additionally, I present descriptive statistics and graphical visualizations to gain insights into Likert-scaled surveys. The paper adheres to the APA style, implementing the R template provided by the ‘papaja’ package <span class="citation" data-cites="R-papaja">(<a href="references.html#ref-R-papaja" role="doc-biblioref">Aust &amp; Barth, 2023</a>)</span>.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Zank2022Quality" class="csl-entry" role="listitem">
+Zank, S., Woopen, C., Wagner, M., Rietz, C., &amp; Kaspar, R. (2022). <em>Quality of Life and Well-being of Very Old People in NRW (Representative Survey NRW80+) - Cross-Section Wave 1</em>. GESIS, Cologne. ZA7558 Data file Version 2.0.0. <a href="https://doi.org/10.4232/1.13978">https://doi.org/10.4232/1.13978</a>
+</div><div id="ref-R-papaja" class="csl-entry" role="listitem">
+Aust, F., &amp; Barth, M. (2023). <em><span>papaja</span>: <span>Prepare</span> reproducible <span>APA</span> journal articles with <span>R Markdown</span></em>. <a href="https://github.com/crsh/papaja">https://github.com/crsh/papaja</a>
+</div></div><section id="technical-note" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="technical-note"><span class="header-section-number">7.1</span> Technical Note</h2>
+<p>In the following, I load (and install) packages that I use later on and I show information about my R session with <code>sessionInfo()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># (Install and) load pacman package </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages that are already installed and install packages that are not </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># installed yet and then load them:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tinylabels, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>               papaja,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>               haven, </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>               labelled, </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>               janitor,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>               skimr, </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>               rstatix, </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>               HH, </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>               likert, </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>               expss,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>               tidyr, </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>               ggstats,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>               psych,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>               sjlabelled,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>               sjmisc,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>               tidyverse, </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>               MASS,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>               dplyr,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>               magick,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>               tinytable)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># sessionInfo()</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="import-data" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="import-data"><span class="header-section-number">7.2</span> Import Data</h2>
+<p>I host a R script on my GitHub account (see <a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/readin_GESIS.R" class="uri">https://raw.githubusercontent.com/hubchev/courses/main/scr/readin_GESIS.R</a>) that explains how to import the NRW80+ data. I have manually saved the data, <code>gesis.RData</code>, in a subfolder named <code>data</code>.</p>
+</section>
+<section id="how-to-use-the-nrw80-data" class="level2 page-columns page-full" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="how-to-use-the-nrw80-data"><span class="header-section-number">7.3</span> How to Use the NRW80+ Data</h2>
+<section id="sec-load" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="sec-load"><span class="header-section-number">7.3.1</span> Load and Subset Data</h3>
+<p>I load the data and select some variables that are of particular interest to me.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/home/sthu/Dropbox/hsf/courses/ewa"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"/home/sthu/Dropbox/hsf/23-ws/ewa/data/gesis.RData"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> dfdta <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"alter"</span>), </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>         ALT_agegroup, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>         ALT_sex, </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>         famst1, famst7, </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>         demtectcorr, </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>         kogstat, </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>         final, </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>         geschlecht)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the common prefix from all variables</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(<span class="sc">~</span> <span class="fu">set_label</span>(., <span class="fu">gsub</span>(<span class="st">"^Alternserleben: "</span>, <span class="st">""</span>, <span class="fu">get_label</span>(.))))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For simplification, let us focus on the questions that refer to the “Experience of Ageing” and create a new dataset <code>df_alterl</code> that contains only those questions:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df_alterl <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(alterl1, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>         alterl2, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>         alterl3, </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>         alterl4, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>         alterl5, </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>         alterl6, </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>         alterl7, </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>         alterl8, </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>         alterl9, </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>         alterl10) <span class="sc">|&gt;</span> </span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_unused_labels</span>() </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># to remove unused labels you can use drop_unused_labels():</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>df_alterl_un <span class="ot">&lt;-</span> df_alterl <span class="sc">|&gt;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_unused_labels</span>()</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df_alterl)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    alterl1          alterl2          alterl3          alterl4      
+ Min.   :-2.000   Min.   :-2.000   Min.   :-2.000   Min.   :-2.000  
+ 1st Qu.: 1.000   1st Qu.: 2.000   1st Qu.: 1.000   1st Qu.: 2.000  
+ Median : 3.000   Median : 4.000   Median : 2.000   Median : 3.000  
+ Mean   : 2.656   Mean   : 3.282   Mean   : 2.349   Mean   : 2.763  
+ 3rd Qu.: 4.000   3rd Qu.: 4.000   3rd Qu.: 3.000   3rd Qu.: 4.000  
+ Max.   : 5.000   Max.   : 5.000   Max.   : 5.000   Max.   : 5.000  
+    alterl5         alterl6          alterl7          alterl8      
+ Min.   :-2.00   Min.   :-2.000   Min.   :-2.000   Min.   :-2.000  
+ 1st Qu.: 2.00   1st Qu.: 2.000   1st Qu.: 2.000   1st Qu.: 1.000  
+ Median : 3.00   Median : 4.000   Median : 3.000   Median : 3.000  
+ Mean   : 2.99   Mean   : 3.405   Mean   : 3.237   Mean   : 2.712  
+ 3rd Qu.: 4.00   3rd Qu.: 5.000   3rd Qu.: 4.000   3rd Qu.: 4.000  
+ Max.   : 5.00   Max.   : 5.000   Max.   : 5.000   Max.   : 5.000  
+    alterl9          alterl10     
+ Min.   :-2.000   Min.   :-2.000  
+ 1st Qu.: 2.000   1st Qu.: 1.000  
+ Median : 3.000   Median : 2.000  
+ Mean   : 2.969   Mean   : 2.305  
+ 3rd Qu.: 4.000   3rd Qu.: 3.000  
+ Max.   : 5.000   Max.   : 5.000  </code></pre>
+</div>
+</div>
+</section>
+<section id="get-an-overview-by-counting" class="level3 page-columns page-full" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="get-an-overview-by-counting"><span class="header-section-number">7.3.2</span> Get an Overview by Counting</h3>
+<section id="table-of-r-base" class="level4 page-columns page-full" data-number="7.3.2.1">
+<h4 data-number="7.3.2.1" class="anchored" data-anchor-id="table-of-r-base"><span class="header-section-number">7.3.2.1</span> <code>table()</code> of R base</h4>
+<p>With the <code>table()</code> function, you can count how many observations of each unique value a variable contains:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df_alterl<span class="sc">$</span>alterl1)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Weiß nicht Verweigert  Gar nicht  Ein wenig      Mäßig      Stark Sehr stark 
+        80          6        390        266        451        511        159 </code></pre>
+</div>
+</div>
+<p>To do that for each variable of a dataset is easy using <code>~</code>, the pipe operator, and <code>map()</code> of the package <code>purrr</code> <span class="citation" data-cites="Wickham2023purrr">(<a href="references.html#ref-Wickham2023purrr" role="doc-biblioref">Wickham &amp; Henry, 2023</a>)</span>:</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Wickham2023purrr" class="csl-entry" role="listitem">
+Wickham, H., &amp; Henry, L. (2023). <em>purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>
+</div></div><div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df_alterl <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span> <span class="fu">table</span>(.))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$alterl1
+.
+Weiß nicht Verweigert  Gar nicht  Ein wenig      Mäßig      Stark Sehr stark 
+        80          6        390        266        451        511        159 
+
+$alterl2
+.
+Weiß nicht Verweigert  Gar nicht  Ein wenig      Mäßig      Stark Sehr stark 
+        36          4        196        245        379        648        355 
+
+$alterl3
+.
+Weiß nicht Verweigert  Gar nicht  Ein wenig      Mäßig      Stark Sehr stark 
+        20          3        500        577        403        244        116 
+
+$alterl4
+.
+Weiß nicht Verweigert  Gar nicht  Ein wenig      Mäßig      Stark Sehr stark 
+       122          8        222        260        527        543        181 
+
+$alterl5
+.
+Weiß nicht Verweigert  Gar nicht  Ein wenig      Mäßig      Stark Sehr stark 
+       101          4        199        211        452        680        216 
+
+$alterl6
+.
+Weiß nicht Verweigert  Gar nicht  Ein wenig      Mäßig      Stark Sehr stark 
+        19          3        149        324        358        537        473 
+
+$alterl7
+.
+Weiß nicht Verweigert  Gar nicht  Ein wenig      Mäßig      Stark Sehr stark 
+        20          2        145        362        471        525        338 
+
+$alterl8
+.
+Weiß nicht Verweigert  Gar nicht  Ein wenig      Mäßig      Stark Sehr stark 
+        20          3        516        350        325        340        309 
+
+$alterl9
+.
+Weiß nicht Verweigert  Gar nicht  Ein wenig      Mäßig      Stark Sehr stark 
+        83         10        261        228        425        564        292 
+
+$alterl10
+.
+Weiß nicht Verweigert  Gar nicht  Ein wenig      Mäßig      Stark Sehr stark 
+        44          7        537        433        486        251        105 </code></pre>
+</div>
+</div>
+<p>Using <code>proportions()</code> returns the conditional proportions:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df_alterl <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span> <span class="fu">proportions</span>(<span class="fu">table</span>(.)))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$alterl1
+.
+ Weiß nicht  Verweigert   Gar nicht   Ein wenig       Mäßig       Stark 
+0.042941492 0.003220612 0.209339775 0.142780462 0.242082662 0.274288782 
+ Sehr stark 
+0.085346216 
+
+$alterl2
+.
+ Weiß nicht  Verweigert   Gar nicht   Ein wenig       Mäßig       Stark 
+0.019323671 0.002147075 0.105206656 0.131508320 0.203435319 0.347826087 
+ Sehr stark 
+0.190552872 
+
+$alterl3
+.
+ Weiß nicht  Verweigert   Gar nicht   Ein wenig       Mäßig       Stark 
+0.010735373 0.001610306 0.268384326 0.309715513 0.216317767 0.130971551 
+ Sehr stark 
+0.062265164 
+
+$alterl4
+.
+ Weiß nicht  Verweigert   Gar nicht   Ein wenig       Mäßig       Stark 
+0.065485776 0.004294149 0.119162641 0.139559850 0.282877080 0.291465378 
+ Sehr stark 
+0.097155126 
+
+$alterl5
+.
+ Weiß nicht  Verweigert   Gar nicht   Ein wenig       Mäßig       Stark 
+0.054213634 0.002147075 0.106816962 0.113258186 0.242619431 0.365002684 
+ Sehr stark 
+0.115942029 
+
+$alterl6
+.
+ Weiß nicht  Verweigert   Gar nicht   Ein wenig       Mäßig       Stark 
+0.010198604 0.001610306 0.079978529 0.173913043 0.192163178 0.288244767 
+ Sehr stark 
+0.253891573 
+
+$alterl7
+.
+ Weiß nicht  Verweigert   Gar nicht   Ein wenig       Mäßig       Stark 
+0.010735373 0.001073537 0.077831455 0.194310252 0.252818035 0.281803543 
+ Sehr stark 
+0.181427805 
+
+$alterl8
+.
+ Weiß nicht  Verweigert   Gar nicht   Ein wenig       Mäßig       Stark 
+0.010735373 0.001610306 0.276972625 0.187869028 0.174449812 0.182501342 
+ Sehr stark 
+0.165861514 
+
+$alterl9
+.
+ Weiß nicht  Verweigert   Gar nicht   Ein wenig       Mäßig       Stark 
+0.044551798 0.005367687 0.140096618 0.122383253 0.228126677 0.302737520 
+ Sehr stark 
+0.156736447 
+
+$alterl10
+.
+ Weiß nicht  Verweigert   Gar nicht   Ein wenig       Mäßig       Stark 
+0.023617821 0.003757381 0.288244767 0.232420827 0.260869565 0.134728932 
+ Sehr stark 
+0.056360709 </code></pre>
+</div>
+</div>
+</section>
+<section id="tabyl-of-janitor" class="level4 page-columns page-full" data-number="7.3.2.2">
+<h4 data-number="7.3.2.2" class="anchored" data-anchor-id="tabyl-of-janitor"><span class="header-section-number">7.3.2.2</span> <code>tabyl()</code> of <code>janitor</code></h4>
+<p>With <code>tabyl()</code> which is part of <code>janitor</code> <span class="citation" data-cites="Firke2023janitor">(<a href="references.html#ref-Firke2023janitor" role="doc-biblioref">Firke, 2023</a>)</span>, we can get both nicely:</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Firke2023janitor" class="csl-entry" role="listitem">
+Firke, S. (2023). <em>janitor: Simple Tools for Examining and Cleaning Dirty Data</em>. <a href="https://CRAN.R-project.org/package=janitor">https://CRAN.R-project.org/package=janitor</a>
+</div></div><div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_alterl <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(alterl1) </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> alterl1   n     percent
+      -2  80 0.042941492
+      -1   6 0.003220612
+       1 390 0.209339775
+       2 266 0.142780462
+       3 451 0.242082662
+       4 511 0.274288782
+       5 159 0.085346216</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_alterl <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span> <span class="fu">tabyl</span>(.))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$alterl1
+  .   n     percent
+ -2  80 0.042941492
+ -1   6 0.003220612
+  1 390 0.209339775
+  2 266 0.142780462
+  3 451 0.242082662
+  4 511 0.274288782
+  5 159 0.085346216
+
+$alterl2
+  .   n     percent
+ -2  36 0.019323671
+ -1   4 0.002147075
+  1 196 0.105206656
+  2 245 0.131508320
+  3 379 0.203435319
+  4 648 0.347826087
+  5 355 0.190552872
+
+$alterl3
+  .   n     percent
+ -2  20 0.010735373
+ -1   3 0.001610306
+  1 500 0.268384326
+  2 577 0.309715513
+  3 403 0.216317767
+  4 244 0.130971551
+  5 116 0.062265164
+
+$alterl4
+  .   n     percent
+ -2 122 0.065485776
+ -1   8 0.004294149
+  1 222 0.119162641
+  2 260 0.139559850
+  3 527 0.282877080
+  4 543 0.291465378
+  5 181 0.097155126
+
+$alterl5
+  .   n     percent
+ -2 101 0.054213634
+ -1   4 0.002147075
+  1 199 0.106816962
+  2 211 0.113258186
+  3 452 0.242619431
+  4 680 0.365002684
+  5 216 0.115942029
+
+$alterl6
+  .   n     percent
+ -2  19 0.010198604
+ -1   3 0.001610306
+  1 149 0.079978529
+  2 324 0.173913043
+  3 358 0.192163178
+  4 537 0.288244767
+  5 473 0.253891573
+
+$alterl7
+  .   n     percent
+ -2  20 0.010735373
+ -1   2 0.001073537
+  1 145 0.077831455
+  2 362 0.194310252
+  3 471 0.252818035
+  4 525 0.281803543
+  5 338 0.181427805
+
+$alterl8
+  .   n     percent
+ -2  20 0.010735373
+ -1   3 0.001610306
+  1 516 0.276972625
+  2 350 0.187869028
+  3 325 0.174449812
+  4 340 0.182501342
+  5 309 0.165861514
+
+$alterl9
+  .   n     percent
+ -2  83 0.044551798
+ -1  10 0.005367687
+  1 261 0.140096618
+  2 228 0.122383253
+  3 425 0.228126677
+  4 564 0.302737520
+  5 292 0.156736447
+
+$alterl10
+  .   n     percent
+ -2  44 0.023617821
+ -1   7 0.003757381
+  1 537 0.288244767
+  2 433 0.232420827
+  3 486 0.260869565
+  4 251 0.134728932
+  5 105 0.056360709</code></pre>
+</div>
+</div>
+</section>
+<section id="frq-of-sjmisc" class="level4 page-columns page-full" data-number="7.3.2.3">
+<h4 data-number="7.3.2.3" class="anchored" data-anchor-id="frq-of-sjmisc"><span class="header-section-number">7.3.2.3</span> <code>frq()</code> of <code>sjmisc</code></h4>
+<p>As the variables <code>df_alterl1</code> are factors. Thus, we can use the <code>sjmisc</code> package, see <span class="citation" data-cites="Luedecke2018sjmisc">Lüdecke (<a href="references.html#ref-Luedecke2018sjmisc" role="doc-biblioref">2018</a>)</span> and the cheatsheet of <code>sjmisc</code> <a href="http://strengejacke.de/sjmisc-cheatsheet.pdf" class="uri">http://strengejacke.de/sjmisc-cheatsheet.pdf</a>. Also worth a reading is <code>browseVignettes("sjmisc")</code>.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Luedecke2018sjmisc" class="csl-entry" role="listitem">
+Lüdecke, D. (2018). sjmisc: Data and Variable Transformation Functions. <em>Journal of Open Source Software</em>, <em>3</em>(26), 754. <a href="https://doi.org/10.21105/joss.00754">https://doi.org/10.21105/joss.00754</a>
+</div></div><p>For example, we can use <code>frq()</code> for nice frequency tables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df_alterl <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span> <span class="fu">frq</span>(. , <span class="at">show.na =</span> T))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$alterl1
+Beziehungen und andere Menschen mehr schätzen (x) &lt;numeric&gt; 
+# total N=1863 valid N=1863 mean=2.66 sd=1.61
+
+Value |      Label |   N | Raw % | Valid % | Cum. %
+---------------------------------------------------
+   -2 | Weiß nicht |   0 |  0.00 |    0.00 |   0.00
+   -1 | Verweigert |   0 |  0.00 |    0.00 |   0.00
+    1 |  Gar nicht |  80 |  4.29 |    4.29 |   4.29
+    2 |  Ein wenig |   6 |  0.32 |    0.32 |   4.62
+    3 |      Mäßig | 390 | 20.93 |   20.93 |  25.55
+    4 |      Stark | 266 | 14.28 |   14.28 |  39.83
+    5 | Sehr stark | 451 | 24.21 |   24.21 |  64.04
+    6 |       &lt;NA&gt; | 511 | 27.43 |   27.43 |  91.47
+    7 |       &lt;NA&gt; | 159 |  8.53 |    8.53 | 100.00
+ &lt;NA&gt; |       &lt;NA&gt; |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+
+$alterl2
+Gesundheit mehr Aufmerksamkeit widmen (x) &lt;numeric&gt; 
+# total N=1863 valid N=1863 mean=3.28 sd=1.45
+
+Value |      Label |   N | Raw % | Valid % | Cum. %
+---------------------------------------------------
+   -2 | Weiß nicht |   0 |  0.00 |    0.00 |   0.00
+   -1 | Verweigert |   0 |  0.00 |    0.00 |   0.00
+    1 |  Gar nicht |  36 |  1.93 |    1.93 |   1.93
+    2 |  Ein wenig |   4 |  0.21 |    0.21 |   2.15
+    3 |      Mäßig | 196 | 10.52 |   10.52 |  12.67
+    4 |      Stark | 245 | 13.15 |   13.15 |  25.82
+    5 | Sehr stark | 379 | 20.34 |   20.34 |  46.16
+    6 |       &lt;NA&gt; | 648 | 34.78 |   34.78 |  80.94
+    7 |       &lt;NA&gt; | 355 | 19.06 |   19.06 | 100.00
+ &lt;NA&gt; |       &lt;NA&gt; |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+
+$alterl3
+geistige Leistungsfähigkeit nimmt ab (x) &lt;numeric&gt; 
+# total N=1863 valid N=1863 mean=2.35 sd=1.28
+
+Value |      Label |   N | Raw % | Valid % | Cum. %
+---------------------------------------------------
+   -2 | Weiß nicht |   0 |  0.00 |    0.00 |   0.00
+   -1 | Verweigert |   0 |  0.00 |    0.00 |   0.00
+    1 |  Gar nicht |  20 |  1.07 |    1.07 |   1.07
+    2 |  Ein wenig |   3 |  0.16 |    0.16 |   1.23
+    3 |      Mäßig | 500 | 26.84 |   26.84 |  28.07
+    4 |      Stark | 577 | 30.97 |   30.97 |  59.04
+    5 | Sehr stark | 403 | 21.63 |   21.63 |  80.68
+    6 |       &lt;NA&gt; | 244 | 13.10 |   13.10 |  93.77
+    7 |       &lt;NA&gt; | 116 |  6.23 |    6.23 | 100.00
+ &lt;NA&gt; |       &lt;NA&gt; |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+
+$alterl4
+mehr Erfahrung, um Dinge und Menschen einzuschätzen (x) &lt;numeric&gt; 
+# total N=1863 valid N=1863 mean=2.76 sd=1.72
+
+Value |      Label |   N | Raw % | Valid % | Cum. %
+---------------------------------------------------
+   -2 | Weiß nicht |   0 |  0.00 |    0.00 |   0.00
+   -1 | Verweigert |   0 |  0.00 |    0.00 |   0.00
+    1 |  Gar nicht | 122 |  6.55 |    6.55 |   6.55
+    2 |  Ein wenig |   8 |  0.43 |    0.43 |   6.98
+    3 |      Mäßig | 222 | 11.92 |   11.92 |  18.89
+    4 |      Stark | 260 | 13.96 |   13.96 |  32.85
+    5 | Sehr stark | 527 | 28.29 |   28.29 |  61.14
+    6 |       &lt;NA&gt; | 543 | 29.15 |   29.15 |  90.28
+    7 |       &lt;NA&gt; | 181 |  9.72 |    9.72 | 100.00
+ &lt;NA&gt; |       &lt;NA&gt; |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+
+$alterl5
+besseres Gespür, was wichtig ist (x) &lt;numeric&gt; 
+# total N=1863 valid N=1863 mean=2.99 sd=1.66
+
+Value |      Label |   N | Raw % | Valid % | Cum. %
+---------------------------------------------------
+   -2 | Weiß nicht |   0 |  0.00 |    0.00 |   0.00
+   -1 | Verweigert |   0 |  0.00 |    0.00 |   0.00
+    1 |  Gar nicht | 101 |  5.42 |    5.42 |   5.42
+    2 |  Ein wenig |   4 |  0.21 |    0.21 |   5.64
+    3 |      Mäßig | 199 | 10.68 |   10.68 |  16.32
+    4 |      Stark | 211 | 11.33 |   11.33 |  27.64
+    5 | Sehr stark | 452 | 24.26 |   24.26 |  51.91
+    6 |       &lt;NA&gt; | 680 | 36.50 |   36.50 |  88.41
+    7 |       &lt;NA&gt; | 216 | 11.59 |   11.59 | 100.00
+ &lt;NA&gt; |       &lt;NA&gt; |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+
+$alterl6
+Einschränkung der Aktivitäten (x) &lt;numeric&gt; 
+# total N=1863 valid N=1863 mean=3.40 sd=1.38
+
+Value |      Label |   N | Raw % | Valid % | Cum. %
+---------------------------------------------------
+   -2 | Weiß nicht |   0 |  0.00 |    0.00 |   0.00
+   -1 | Verweigert |   0 |  0.00 |    0.00 |   0.00
+    1 |  Gar nicht |  19 |  1.02 |    1.02 |   1.02
+    2 |  Ein wenig |   3 |  0.16 |    0.16 |   1.18
+    3 |      Mäßig | 149 |  8.00 |    8.00 |   9.18
+    4 |      Stark | 324 | 17.39 |   17.39 |  26.57
+    5 | Sehr stark | 358 | 19.22 |   19.22 |  45.79
+    6 |       &lt;NA&gt; | 537 | 28.82 |   28.82 |  74.61
+    7 |       &lt;NA&gt; | 473 | 25.39 |   25.39 | 100.00
+ &lt;NA&gt; |       &lt;NA&gt; |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+
+$alterl7
+weniger Energie (x) &lt;numeric&gt; 
+# total N=1863 valid N=1863 mean=3.24 sd=1.32
+
+Value |      Label |   N | Raw % | Valid % | Cum. %
+---------------------------------------------------
+   -2 | Weiß nicht |   0 |  0.00 |    0.00 |   0.00
+   -1 | Verweigert |   0 |  0.00 |    0.00 |   0.00
+    1 |  Gar nicht |  20 |  1.07 |    1.07 |   1.07
+    2 |  Ein wenig |   2 |  0.11 |    0.11 |   1.18
+    3 |      Mäßig | 145 |  7.78 |    7.78 |   8.96
+    4 |      Stark | 362 | 19.43 |   19.43 |  28.40
+    5 | Sehr stark | 471 | 25.28 |   25.28 |  53.68
+    6 |       &lt;NA&gt; | 525 | 28.18 |   28.18 |  81.86
+    7 |       &lt;NA&gt; | 338 | 18.14 |   18.14 | 100.00
+ &lt;NA&gt; |       &lt;NA&gt; |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+
+$alterl8
+Abhängigkeit von der Hilfe Anderer (x) &lt;numeric&gt; 
+# total N=1863 valid N=1863 mean=2.71 sd=1.53
+
+Value |      Label |   N | Raw % | Valid % | Cum. %
+---------------------------------------------------
+   -2 | Weiß nicht |   0 |  0.00 |    0.00 |   0.00
+   -1 | Verweigert |   0 |  0.00 |    0.00 |   0.00
+    1 |  Gar nicht |  20 |  1.07 |    1.07 |   1.07
+    2 |  Ein wenig |   3 |  0.16 |    0.16 |   1.23
+    3 |      Mäßig | 516 | 27.70 |   27.70 |  28.93
+    4 |      Stark | 350 | 18.79 |   18.79 |  47.72
+    5 | Sehr stark | 325 | 17.44 |   17.44 |  65.16
+    6 |       &lt;NA&gt; | 340 | 18.25 |   18.25 |  83.41
+    7 |       &lt;NA&gt; | 309 | 16.59 |   16.59 | 100.00
+ &lt;NA&gt; |       &lt;NA&gt; |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+
+$alterl9
+Freiheit, Tage nach eigenem Willen zu verleben (x) &lt;numeric&gt; 
+# total N=1863 valid N=1863 mean=2.97 sd=1.68
+
+Value |      Label |   N | Raw % | Valid % | Cum. %
+---------------------------------------------------
+   -2 | Weiß nicht |   0 |  0.00 |    0.00 |   0.00
+   -1 | Verweigert |   0 |  0.00 |    0.00 |   0.00
+    1 |  Gar nicht |  83 |  4.46 |    4.46 |   4.46
+    2 |  Ein wenig |  10 |  0.54 |    0.54 |   4.99
+    3 |      Mäßig | 261 | 14.01 |   14.01 |  19.00
+    4 |      Stark | 228 | 12.24 |   12.24 |  31.24
+    5 | Sehr stark | 425 | 22.81 |   22.81 |  54.05
+    6 |       &lt;NA&gt; | 564 | 30.27 |   30.27 |  84.33
+    7 |       &lt;NA&gt; | 292 | 15.67 |   15.67 | 100.00
+ &lt;NA&gt; |       &lt;NA&gt; |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;
+
+$alterl10
+Motivation fällt schwerer (x) &lt;numeric&gt; 
+# total N=1863 valid N=1863 mean=2.31 sd=1.38
+
+Value |      Label |   N | Raw % | Valid % | Cum. %
+---------------------------------------------------
+   -2 | Weiß nicht |   0 |  0.00 |    0.00 |   0.00
+   -1 | Verweigert |   0 |  0.00 |    0.00 |   0.00
+    1 |  Gar nicht |  44 |  2.36 |    2.36 |   2.36
+    2 |  Ein wenig |   7 |  0.38 |    0.38 |   2.74
+    3 |      Mäßig | 537 | 28.82 |   28.82 |  31.56
+    4 |      Stark | 433 | 23.24 |   23.24 |  54.80
+    5 | Sehr stark | 486 | 26.09 |   26.09 |  80.89
+    6 |       &lt;NA&gt; | 251 | 13.47 |   13.47 |  94.36
+    7 |       &lt;NA&gt; | 105 |  5.64 |    5.64 | 100.00
+ &lt;NA&gt; |       &lt;NA&gt; |   0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="first-summary-statistics" class="level3 page-columns page-full" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="first-summary-statistics"><span class="header-section-number">7.3.3</span> First Summary Statistics</h3>
+<section id="using-summary-and-get_summary_stats" class="level4" data-number="7.3.3.1">
+<h4 data-number="7.3.3.1" class="anchored" data-anchor-id="using-summary-and-get_summary_stats"><span class="header-section-number">7.3.3.1</span> Using <code>summary()</code> and <code>get_summary_stats()</code></h4>
+<p>First, I am interested in the class of the data and some very basic summary statistics.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    alterl1          alterl2          alterl3          alterl4      
+ Min.   :-2.000   Min.   :-2.000   Min.   :-2.000   Min.   :-2.000  
+ 1st Qu.: 1.000   1st Qu.: 2.000   1st Qu.: 1.000   1st Qu.: 2.000  
+ Median : 3.000   Median : 4.000   Median : 2.000   Median : 3.000  
+ Mean   : 2.656   Mean   : 3.282   Mean   : 2.349   Mean   : 2.763  
+ 3rd Qu.: 4.000   3rd Qu.: 4.000   3rd Qu.: 3.000   3rd Qu.: 4.000  
+ Max.   : 5.000   Max.   : 5.000   Max.   : 5.000   Max.   : 5.000  
+                                                                    
+    alterl5         alterl6          alterl7          alterl8      
+ Min.   :-2.00   Min.   :-2.000   Min.   :-2.000   Min.   :-2.000  
+ 1st Qu.: 2.00   1st Qu.: 2.000   1st Qu.: 2.000   1st Qu.: 1.000  
+ Median : 3.00   Median : 4.000   Median : 3.000   Median : 3.000  
+ Mean   : 2.99   Mean   : 3.405   Mean   : 3.237   Mean   : 2.712  
+ 3rd Qu.: 4.00   3rd Qu.: 5.000   3rd Qu.: 4.000   3rd Qu.: 4.000  
+ Max.   : 5.00   Max.   : 5.000   Max.   : 5.000   Max.   : 5.000  
+                                                                   
+    alterl9          alterl10        alter_int        alter_cont    
+ Min.   :-2.000   Min.   :-2.000   Min.   : 80.00   Min.   : 80.11  
+ 1st Qu.: 2.000   1st Qu.: 1.000   1st Qu.: 82.00   1st Qu.: 82.99  
+ Median : 3.000   Median : 2.000   Median : 86.00   Median : 86.59  
+ Mean   : 2.969   Mean   : 2.305   Mean   : 86.48   Mean   : 86.98  
+ 3rd Qu.: 4.000   3rd Qu.: 3.000   3rd Qu.: 90.00   3rd Qu.: 90.56  
+ Max.   : 5.000   Max.   : 5.000   Max.   :102.00   Max.   :102.92  
+                                   NA's   :6        NA's   :6       
+   alterl_m1       alterl_m2         alterp        ALT_agegroup  
+ Min.   :1.000   Min.   :1.000   Min.   :-4.000   Min.   :1.000  
+ 1st Qu.:2.600   1st Qu.:2.200   1st Qu.:-4.000   1st Qu.:1.000  
+ Median :3.200   Median :2.800   Median :-4.000   Median :2.000  
+ Mean   :3.168   Mean   :2.877   Mean   : 2.632   Mean   :1.883  
+ 3rd Qu.:3.800   3rd Qu.:3.600   3rd Qu.:-4.000   3rd Qu.:3.000  
+ Max.   :5.000   Max.   :5.000   Max.   :99.000   Max.   :3.000  
+ NA's   :16      NA's   :14                                      
+    ALT_sex          famst1           famst7        demtectcorr     
+ Min.   :1.000   Min.   :-1.000   Min.   :-3.000   Min.   :-11.000  
+ 1st Qu.:1.000   1st Qu.: 1.000   1st Qu.:-3.000   1st Qu.: -1.000  
+ Median :2.000   Median : 4.000   Median : 0.000   Median :  0.000  
+ Mean   :1.502   Mean   : 2.765   Mean   :-1.179   Mean   : -1.742  
+ 3rd Qu.:2.000   3rd Qu.: 4.000   3rd Qu.: 0.000   3rd Qu.:  0.000  
+ Max.   :2.000   Max.   : 5.000   Max.   : 1.000   Max.   :  2.000  
+                                                                    
+    kogstat          final         geschlecht   
+ Min.   :-4.00   Min.   :81.00   Min.   :1.000  
+ 1st Qu.:-4.00   1st Qu.:81.00   1st Qu.:1.000  
+ Median :-4.00   Median :81.00   Median :2.000  
+ Mean   :-3.21   Mean   :81.09   Mean   :1.502  
+ 3rd Qu.:-4.00   3rd Qu.:81.00   3rd Qu.:2.000  
+ Max.   : 7.00   Max.   :82.00   Max.   :2.000  
+                                                </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sumstat_alter <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_summary_stats</span>(</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    alterl1, </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    alterl2, </span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    alterl3, </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    alterl4, </span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    alterl5, </span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    alterl6, </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    alterl7, </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    alterl8, </span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    alterl9, </span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    alterl10,  </span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"five_number"</span>)  </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: attributes are not identical across measure variables; they will be
+dropped</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sumstat_alter</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 7
+   variable     n   min   max    q1 median    q3
+   &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1 alterl1   1863    -2     5     1      3     4
+ 2 alterl2   1863    -2     5     2      4     4
+ 3 alterl3   1863    -2     5     1      2     3
+ 4 alterl4   1863    -2     5     2      3     4
+ 5 alterl5   1863    -2     5     2      3     4
+ 6 alterl6   1863    -2     5     2      4     5
+ 7 alterl7   1863    -2     5     2      3     4
+ 8 alterl8   1863    -2     5     1      3     4
+ 9 alterl9   1863    -2     5     2      3     4
+10 alterl10  1863    -2     5     1      2     3</code></pre>
+</div>
+</div>
+</section>
+<section id="using-psychdescribe" class="level4 page-columns page-full" data-number="7.3.3.2">
+<h4 data-number="7.3.3.2" class="anchored" data-anchor-id="using-psychdescribe"><span class="header-section-number">7.3.3.2</span> Using <code>psych::describe()</code></h4>
+<p>A powerful alternative for descriptive summary statistics is provided by the function <code>describe()</code> of the <code>psych</code> package <span class="citation" data-cites="WilliamRevelle2023psych">(<a href="references.html#ref-WilliamRevelle2023psych" role="doc-biblioref">William Revelle, 2023</a>)</span>.</p>
+<div class="no-row-height column-margin column-container"></div><div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>sumstat_alter_psych <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"alterl"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">ends_with</span>(<span class="st">"m1"</span>), <span class="sc">-</span><span class="fu">ends_with</span>(<span class="st">"m2"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">describe</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>(<span class="at">rownames=</span><span class="st">"Question"</span>)  <span class="sc">|&gt;</span> </span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>skew, <span class="sc">-</span>kurtosis, <span class="sc">-</span>range, <span class="sc">-</span>vars) </span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>sumstat_alter_psych</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 10
+   Question     n  mean    sd median trimmed   mad   min   max     se
+   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+ 1 alterl1   1863  2.66  1.61      3    2.76  1.48    -2     5 0.0374
+ 2 alterl2   1863  3.28  1.45      4    3.43  1.48    -2     5 0.0336
+ 3 alterl3   1863  2.35  1.28      2    2.28  1.48    -2     5 0.0296
+ 4 alterl4   1863  2.76  1.72      3    2.96  1.48    -2     5 0.0398
+ 5 alterl5   1863  2.99  1.66      3    3.20  1.48    -2     5 0.0385
+ 6 alterl6   1863  3.40  1.38      4    3.54  1.48    -2     5 0.0321
+ 7 alterl7   1863  3.24  1.32      3    3.33  1.48    -2     5 0.0306
+ 8 alterl8   1863  2.71  1.53      3    2.68  1.48    -2     5 0.0355
+ 9 alterl9   1863  2.97  1.68      3    3.14  1.48    -2     5 0.0389
+10 alterl10  1863  2.31  1.38      2    2.28  1.48    -2     5 0.0321</code></pre>
+</div>
+</div>
+</section>
+<section id="using-summarize-and-the-tidyverse" class="level4" data-number="7.3.3.3">
+<h4 data-number="7.3.3.3" class="anchored" data-anchor-id="using-summarize-and-the-tidyverse"><span class="header-section-number">7.3.3.3</span> Using <code>summarize()</code> and the <code>tidyverse</code></h4>
+<p>As you may be aware, the <code>tidyverse</code> package provides powerful and flexible functions such as <code>filter</code>, <code>select</code>, <code>group_by</code>, and <code>summarize</code>. Here is an example demonstrating how these functions can be utilized to create descriptive statistic tables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>descriptives <span class="ot">&lt;-</span> dfdta <span class="sc">|&gt;</span>  </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># filter(alterl1 &gt; 0) |&gt; </span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(geschlecht)  <span class="sc">|&gt;</span> </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean =</span> <span class="fu">mean</span>(alterl1)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    , <span class="at">Count =</span> <span class="fu">n</span>()</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    , <span class="at">SD =</span> <span class="fu">sd</span>(alterl1)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    , <span class="at">Min =</span> <span class="fu">min</span>(alterl1)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    , <span class="at">Max =</span> <span class="fu">max</span>(alterl1)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>descriptives</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 6
+  geschlecht    Mean Count    SD Min             Max           
+  &lt;dbl+lbl&gt;    &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl+lbl&gt;       &lt;dbl+lbl&gt;     
+1 1 [Männlich]  2.71   927  1.50 -2 [Weiß nicht] 5 [Sehr stark]
+2 2 [Weiblich]  2.60   936  1.72 -2 [Weiß nicht] 5 [Sehr stark]</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="make-tables-using-tt" class="level3 page-columns page-full" data-number="7.3.4">
+<h3 data-number="7.3.4" class="anchored" data-anchor-id="make-tables-using-tt"><span class="header-section-number">7.3.4</span> Make Tables using <code>tt()</code></h3>
+<div class="sourceCode" id="cb29"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: tbl-tabrstatix</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| tbl-cap: "Summary Statistics: Experience of Ageing."</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="in">tt(sumstat_alter,  output = "markdown", </span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="in">   note = "Note: This table contains all variables of `alterl*`.")</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div id="tbl-tabrstatix" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tabrstatix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;7.1: Summary Statistics: Experience of Ageing.
+</figcaption>
+<div aria-describedby="tbl-tabrstatix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script>
+      function styleCell_tinytable_512k194wz8sbj8ysfr4r(tableId, cellCoordinates, cssClass) {
+            var table = document.getElementById("tinytable_0cd48fpwsovgd5fuxtv5");
+            cellCoordinates.forEach(([i, j]) => {
+                table.rows[i].cells[j].classList.add(cssClass);
+            });
+        }
+
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_0cd48fpwsovgd5fuxtv5');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_tinytable_512k194wz8sbj8ysfr4r(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_0cd48fpwsovgd5fuxtv5");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+
+     window.addEventListener('load', function () {
+         const cellStyles = [
+             {coords: [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6]], class: 'tinytable_css_lu5jexmbp01nxordx1uv'},
+         ];
+         cellStyles.forEach(({coords, class: cssClass}) => {
+             styleCell_tinytable_512k194wz8sbj8ysfr4r('tinytable_szxl8eb7ubljmabuxmyx', coords, cssClass);
+         });
+     });
+    </script>
+
+    <style>
+.table td.tinytable_css_lu5jexmbp01nxordx1uv, .table th.tinytable_css_lu5jexmbp01nxordx1uv {    border-bottom: solid 0.1em #d3d8dc; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_0cd48fpwsovgd5fuxtv5" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+        
+              <tr>
+                <th scope="col">variable</th>
+                <th scope="col">n</th>
+                <th scope="col">min</th>
+                <th scope="col">max</th>
+                <th scope="col">q1</th>
+                <th scope="col">median</th>
+                <th scope="col">q3</th>
+              </tr>
+        </thead>
+        <tfoot><tr><td colspan="7">Note: This table contains all variables of `alterl*`.</td></tr></tfoot>
+        <tbody>
+                <tr>
+                  <td>alterl1 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>alterl2 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>alterl3 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>alterl4 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>alterl5 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>alterl6 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>alterl7 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>alterl8 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>alterl9 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>alterl10</td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: tbl-tabsumstatalterpsych</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| tbl-cap: "Summary Statistics: Experience of Ageing (psych)"</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="in">tt(sumstat_alter,  output = "markdown",</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="in">   note = "Note: This table contains all variables of `alterl*`.")</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div id="tbl-tabsumstatalterpsych" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tabsumstatalterpsych-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;7.2: Summary Statistics: Experience of Ageing (psych)
+</figcaption>
+<div aria-describedby="tbl-tabsumstatalterpsych-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script>
+      function styleCell_tinytable_mpairkzlotkk59n6db9o(tableId, cellCoordinates, cssClass) {
+            var table = document.getElementById("tinytable_64uvhct1r2wsj896rho9");
+            cellCoordinates.forEach(([i, j]) => {
+                table.rows[i].cells[j].classList.add(cssClass);
+            });
+        }
+
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_64uvhct1r2wsj896rho9');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_tinytable_mpairkzlotkk59n6db9o(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_64uvhct1r2wsj896rho9");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+
+     window.addEventListener('load', function () {
+         const cellStyles = [
+             {coords: [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6]], class: 'tinytable_css_8ie2ljxmghigt99x3opw'},
+         ];
+         cellStyles.forEach(({coords, class: cssClass}) => {
+             styleCell_tinytable_mpairkzlotkk59n6db9o('tinytable_szxl8eb7ubljmabuxmyx', coords, cssClass);
+         });
+     });
+    </script>
+
+    <style>
+.table td.tinytable_css_8ie2ljxmghigt99x3opw, .table th.tinytable_css_8ie2ljxmghigt99x3opw {    border-bottom: solid 0.1em #d3d8dc; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_64uvhct1r2wsj896rho9" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+        
+              <tr>
+                <th scope="col">variable</th>
+                <th scope="col">n</th>
+                <th scope="col">min</th>
+                <th scope="col">max</th>
+                <th scope="col">q1</th>
+                <th scope="col">median</th>
+                <th scope="col">q3</th>
+              </tr>
+        </thead>
+        <tfoot><tr><td colspan="7">Note: This table contains all variables of `alterl*`.</td></tr></tfoot>
+        <tbody>
+                <tr>
+                  <td>alterl1 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>alterl2 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>alterl3 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>alterl4 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>alterl5 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>alterl6 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>alterl7 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>alterl8 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>alterl9 </td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+                <tr>
+                  <td>alterl10</td>
+                  <td>1863</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: tbl-tabsumstatalterpsychbal</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| tbl-cap: "Summary Statistics: Experience of Ageing (psych)"</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="in">tt(sumstat_alter_psych, output = "markdown",</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="in">  note = "This table contains all variables of `alterl*` and only observations where all questions had been answered.")</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div id="tbl-tabsumstatalterpsychbal" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tabsumstatalterpsychbal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;7.3: Summary Statistics: Experience of Ageing (psych)
+</figcaption>
+<div aria-describedby="tbl-tabsumstatalterpsychbal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script>
+      function styleCell_tinytable_styxkpw5mhkwad1yrff7(tableId, cellCoordinates, cssClass) {
+            var table = document.getElementById("tinytable_achk4ujh27i9ebyvx0c6");
+            cellCoordinates.forEach(([i, j]) => {
+                table.rows[i].cells[j].classList.add(cssClass);
+            });
+        }
+
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_achk4ujh27i9ebyvx0c6');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_tinytable_styxkpw5mhkwad1yrff7(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_achk4ujh27i9ebyvx0c6");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+
+     window.addEventListener('load', function () {
+         const cellStyles = [
+             {coords: [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [0, 7], [0, 8], [0, 9]], class: 'tinytable_css_aacxedprhgxbtyjpo7jr'},
+         ];
+         cellStyles.forEach(({coords, class: cssClass}) => {
+             styleCell_tinytable_styxkpw5mhkwad1yrff7('tinytable_szxl8eb7ubljmabuxmyx', coords, cssClass);
+         });
+     });
+    </script>
+
+    <style>
+.table td.tinytable_css_aacxedprhgxbtyjpo7jr, .table th.tinytable_css_aacxedprhgxbtyjpo7jr {    border-bottom: solid 0.1em #d3d8dc; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_achk4ujh27i9ebyvx0c6" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+        
+              <tr>
+                <th scope="col">Question</th>
+                <th scope="col">n</th>
+                <th scope="col">mean</th>
+                <th scope="col">sd</th>
+                <th scope="col">median</th>
+                <th scope="col">trimmed</th>
+                <th scope="col">mad</th>
+                <th scope="col">min</th>
+                <th scope="col">max</th>
+                <th scope="col">se</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td>alterl1 </td>
+                  <td>1863</td>
+                  <td>2.655931</td>
+                  <td>1.613659</td>
+                  <td>3</td>
+                  <td>2.757210</td>
+                  <td>1.4826</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>0.03738568</td>
+                </tr>
+                <tr>
+                  <td>alterl2 </td>
+                  <td>1863</td>
+                  <td>3.281804</td>
+                  <td>1.449666</td>
+                  <td>4</td>
+                  <td>3.429913</td>
+                  <td>1.4826</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>0.03358626</td>
+                </tr>
+                <tr>
+                  <td>alterl3 </td>
+                  <td>1863</td>
+                  <td>2.348900</td>
+                  <td>1.278429</td>
+                  <td>2</td>
+                  <td>2.277666</td>
+                  <td>1.4826</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>0.02961898</td>
+                </tr>
+                <tr>
+                  <td>alterl4 </td>
+                  <td>1863</td>
+                  <td>2.763285</td>
+                  <td>1.716885</td>
+                  <td>3</td>
+                  <td>2.963783</td>
+                  <td>1.4826</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>0.03977726</td>
+                </tr>
+                <tr>
+                  <td>alterl5 </td>
+                  <td>1863</td>
+                  <td>2.990338</td>
+                  <td>1.661439</td>
+                  <td>3</td>
+                  <td>3.196512</td>
+                  <td>1.4826</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>0.03849266</td>
+                </tr>
+                <tr>
+                  <td>alterl6 </td>
+                  <td>1863</td>
+                  <td>3.404724</td>
+                  <td>1.384050</td>
+                  <td>4</td>
+                  <td>3.537894</td>
+                  <td>1.4826</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>0.03206605</td>
+                </tr>
+                <tr>
+                  <td>alterl7 </td>
+                  <td>1863</td>
+                  <td>3.236715</td>
+                  <td>1.320460</td>
+                  <td>3</td>
+                  <td>3.325956</td>
+                  <td>1.4826</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>0.03059276</td>
+                </tr>
+                <tr>
+                  <td>alterl8 </td>
+                  <td>1863</td>
+                  <td>2.712292</td>
+                  <td>1.534387</td>
+                  <td>3</td>
+                  <td>2.684775</td>
+                  <td>1.4826</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>0.03554909</td>
+                </tr>
+                <tr>
+                  <td>alterl9 </td>
+                  <td>1863</td>
+                  <td>2.969404</td>
+                  <td>1.677112</td>
+                  <td>3</td>
+                  <td>3.142186</td>
+                  <td>1.4826</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>0.03885578</td>
+                </tr>
+                <tr>
+                  <td>alterl10</td>
+                  <td>1863</td>
+                  <td>2.305421</td>
+                  <td>1.383735</td>
+                  <td>2</td>
+                  <td>2.284373</td>
+                  <td>1.4826</td>
+                  <td>-2</td>
+                  <td>5</td>
+                  <td>0.03205875</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: tbl-tabdescriptives</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| tbl-cap: "Experience of Ageing: Valuing Relationships and Other People More (By Gender)"</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="in">tt(descriptives, output = "markdown")</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div id="tbl-tabdescriptives" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tabdescriptives-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;7.4: Experience of Ageing: Valuing Relationships and Other People More (By Gender)
+</figcaption>
+<div aria-describedby="tbl-tabdescriptives-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<!-- preamble start -->
+
+    <script>
+      function styleCell_tinytable_un5la8hiwawx0th3e6d9(tableId, cellCoordinates, cssClass) {
+            var table = document.getElementById("tinytable_lt9w6on1z7dggfvo2d88");
+            cellCoordinates.forEach(([i, j]) => {
+                table.rows[i].cells[j].classList.add(cssClass);
+            });
+        }
+
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_lt9w6on1z7dggfvo2d88');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_tinytable_un5la8hiwawx0th3e6d9(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_lt9w6on1z7dggfvo2d88");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+
+     window.addEventListener('load', function () {
+         const cellStyles = [
+             {coords: [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4], [0, 5]], class: 'tinytable_css_n2zywl3sq7b8n22p6qmv'},
+         ];
+         cellStyles.forEach(({coords, class: cssClass}) => {
+             styleCell_tinytable_un5la8hiwawx0th3e6d9('tinytable_szxl8eb7ubljmabuxmyx', coords, cssClass);
+         });
+     });
+    </script>
+
+    <style>
+.table td.tinytable_css_n2zywl3sq7b8n22p6qmv, .table th.tinytable_css_n2zywl3sq7b8n22p6qmv {    border-bottom: solid 0.1em #d3d8dc; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_lt9w6on1z7dggfvo2d88" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+        
+              <tr>
+                <th scope="col">geschlecht</th>
+                <th scope="col">Mean</th>
+                <th scope="col">Count</th>
+                <th scope="col">SD</th>
+                <th scope="col">Min</th>
+                <th scope="col">Max</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>2.713053</td>
+                  <td>927</td>
+                  <td>1.500062</td>
+                  <td>-2</td>
+                  <td>5</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>2.599359</td>
+                  <td>936</td>
+                  <td>1.717715</td>
+                  <td>-2</td>
+                  <td>5</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Table <a href="#tbl-tabrstatix" class="quarto-xref">Tabelle&nbsp;<span>7.1</span></a> was created with the function <code>get_summary_stats()</code> of the <code>rstatix</code> package <span class="citation" data-cites="Kassambara2023rstatix">(<a href="references.html#ref-Kassambara2023rstatix" role="doc-biblioref">Kassambara, 2023</a>)</span>, Tables <a href="#tbl-tabsumstatalterpsych" class="quarto-xref">Tabelle&nbsp;<span>7.2</span></a> and <a href="#tbl-tabsumstatalterpsychbal" class="quarto-xref">Tabelle&nbsp;<span>7.3</span></a> were created with the function <code>describe()</code> of the <code>psych</code> package <span class="citation" data-cites="WilliamRevelle2023psych">(<a href="references.html#ref-WilliamRevelle2023psych" role="doc-biblioref">William Revelle, 2023</a>)</span>, and Table <a href="#tbl-tabdescriptives" class="quarto-xref">Tabelle&nbsp;<span>7.4</span></a> was created with the function <code>summarize()</code> of the <code>dplyr</code> package <span class="citation" data-cites="Wickham2023dplyr">(<a href="references.html#ref-Wickham2023dplyr" role="doc-biblioref">Wickham et al., 2023</a>)</span>.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Kassambara2023rstatix" class="csl-entry" role="listitem">
+Kassambara, A. (2023). <em>rstatix: Pipe-Friendly Framework for Basic Statistical Tests</em>. <a href="https://CRAN.R-project.org/package=rstatix">https://CRAN.R-project.org/package=rstatix</a>
+</div><div id="ref-WilliamRevelle2023psych" class="csl-entry" role="listitem">
+William Revelle. (2023). <em>psych: Procedures for Psychological, Psychometric, and Personality Research</em>. Northwestern University. <a href="https://CRAN.R-project.org/package=psych">https://CRAN.R-project.org/package=psych</a>
+</div><div id="ref-Wickham2023dplyr" class="csl-entry" role="listitem">
+Wickham, H., François, R., Henry, L., Müller, K., &amp; Vaughan, D. (2023). <em>dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>
+</div></div></section>
+<section id="use-the-likert-scale-using-gglikert" class="level3 page-columns page-full" data-number="7.3.5">
+<h3 data-number="7.3.5" class="anchored" data-anchor-id="use-the-likert-scale-using-gglikert"><span class="header-section-number">7.3.5</span> Use the Likert Scale using <code>gglikert()</code></h3>
+<p>We have seen that the data contain not only the five different (Likert scaled) answers. Thus, let us remove all values that have, in one or multiple questions, no answer of the Likert scale. The cleaned dataset is named <code>df_alterl_balance</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df_alterl_balance <span class="ot">&lt;-</span> df_alterl <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">has_negative =</span> <span class="fu">ifelse</span>(<span class="fu">any</span>(<span class="fu">c</span>(<span class="fu">across</span>(alterl1<span class="sc">:</span>alterl10)) <span class="sc">&lt;</span> <span class="dv">0</span>), <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(has_negative <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"alter"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Using the <code>gglikert()</code> of the <code>ggstats</code> package <span class="citation" data-cites="Larmarange2023ggstats">(<a href="references.html#ref-Larmarange2023ggstats" role="doc-biblioref">Larmarange, 2023</a>)</span> allows us to draw nice graphs. I highly recommend reading the vignette of the package in the R documentation which you get with <code>vignette("gglikert")</code>.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Larmarange2023ggstats" class="csl-entry" role="listitem">
+Larmarange, J. (2023). <em>ggstats: Extension to ’ggplot2’ for Plotting Stats</em>. <a href="https://CRAN.R-project.org/package=ggstats">https://CRAN.R-project.org/package=ggstats</a>
+</div></div><p>Figures <a href="#fig-likertalterl1" class="quarto-xref">Abbildung&nbsp;<span>7.1</span></a> and <a href="#fig-likertalterl3" class="quarto-xref">Abbildung&nbsp;<span>7.3</span></a> shows the proportions of answers using <code>df_alterl</code> data and Figures <a href="#fig-likertalterl2" class="quarto-xref">Abbildung&nbsp;<span>7.2</span></a> and <a href="#fig-likertalterl4" class="quarto-xref">Abbildung&nbsp;<span>7.4</span></a> does so using the <code>df_alterl_balance</code> data whereby the latter to show the proportions stacked. Do you see any difference and can you explain the differences?</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-likertalterl1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-likertalterl1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;7.1: Experience of Ageing: Proportions of Answers (df_alterl)
+</figcaption>
+<div aria-describedby="fig-likertalterl1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="desc_NRW_files/figure-html/fig-likertalterl1-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="desc_NRW_files/figure-html/fig-likertalterl1-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-likertalterl2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-likertalterl2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;7.2: Experience of Ageing: Proportions of Answers (df_alterl_balance)
+</figcaption>
+<div aria-describedby="fig-likertalterl2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="desc_NRW_files/figure-html/fig-likertalterl2-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="desc_NRW_files/figure-html/fig-likertalterl2-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-likertalterl3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-likertalterl3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;7.3: Experience of Ageing: Proportions of Answers - Stacked (df_alter)
+</figcaption>
+<div aria-describedby="fig-likertalterl3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="desc_NRW_files/figure-html/fig-likertalterl3-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="desc_NRW_files/figure-html/fig-likertalterl3-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-likertalterl4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-likertalterl4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;7.4: Experience of Ageing: Proportions of Answers - Stacked (df_alterl_balance)
+</figcaption>
+<div aria-describedby="fig-likertalterl4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="desc_NRW_files/figure-html/fig-likertalterl4-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><img src="desc_NRW_files/figure-html/fig-likertalterl4-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>As we are interested in the differences of the two samples, it makes sense to look as the summary statistics for the <code>df_alter_balance</code> sample. This is shown in Table <a href="#tbl-tabsumstatalterpsychbal" class="quarto-xref">Tabelle&nbsp;<span>7.3</span></a>.</p>
+</section>
+</section>
+<section id="cross-referencing-in-r-markdown" class="level2 page-columns page-full" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="cross-referencing-in-r-markdown"><span class="header-section-number">7.4</span> Cross-Referencing in R Markdown</h2>
+<p>In adherence to the APA style guidelines <span class="citation" data-cites="Association2022Publication">(<a href="references.html#ref-Association2022Publication" role="doc-biblioref">Association et al., 2022</a>)</span>, it is imperative to reference all figures and tables by their respective numbers within the text. Avoid using generic phrases like “the table above” or “the figure below.” Additionally, refrain from hard-coding the numbers for a more dynamic and standardized approach. <span class="citation" data-cites="Xie2023R">Xie et al. (<a href="references.html#ref-Xie2023R" role="doc-biblioref">2023</a>)</span> explains concisely how to do that with R Markdown, see: <a href="https://bookdown.org/yihui/rmarkdown-cookbook/cross-ref.html">https://bookdown.org/yihui/rmarkdown-cookbook/cross-ref.html</a>.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Association2022Publication" class="csl-entry" role="listitem">
+Association, A. P. et al. (2022). <em>Publication manual of the American psychological association</em>. : American Psychological Association.
+</div><div id="ref-Xie2023R" class="csl-entry" role="listitem">
+Xie, Y., Dervieux, C., &amp; Riederer, E. (2023). <em>R Markdown Cookbook</em>. online. <a href="https://bookdown.org/yihui/rmarkdown-cookbook/">https://bookdown.org/yihui/rmarkdown-cookbook/</a>
+</div></div><p>For example, I can refer to Table <a href="#tbl-tabrstatix" class="quarto-xref">Tabelle&nbsp;<span>7.1</span></a> with <code>@tbl-tabrstatix</code> because I have specified the corresponding label in the R code-chunk, see:</p>
+</section>
+<section id="exercises" class="level2 page-columns page-full" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">7.5</span> Exercises</h2>
+<ol type="1">
+<li><p>With <code>knitr::purl("desc_NRW80.Rmd")</code> you can extract the whole R code from the R Markdown file and write it into the R script <code>desc_NRW80.R</code>. Try it.</p></li>
+<li><p>The dataset <code>gesis.RData</code> comes with two different tibbles: <code>dfsav</code> and <code>dfdta</code>. Is there a difference between these two when it comes to the statistics that are shown in this paper? To check that, rename the pdf file <code>desc_NRW80.pdf</code>, change the code in Section @ref(sec-load) so that you are using the other data (<code>df &lt;- dfdta |&gt; ...</code> vs.&nbsp;<code>df &lt;- dfsav |&gt; ...</code>), knit the Rmd again, and compare the stats.</p></li>
+<li><p>Check possible differences in the <code>gglikert</code> plots when using <code>df_alterl_un</code> instead of <code>df_alterl</code>.</p></li>
+<li><p>The stats above show that dealing with missing or non-standard answers is a crucial thing. Please read chapter <em>Missing Values</em> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>, see: <a href="https://r4ds.hadley.nz/missing-values" class="uri">https://r4ds.hadley.nz/missing-values</a>.</p></li>
+<li><p>The labels of the variables <code>alterl1:alterl10</code> have “Alternserleben:” at the beginning. This is not necessary and overloads the graphs. Please change the labels for all graphs using the following code in the respective place in the rmd and then knit it again.</p></li>
+</ol>
+<div class="no-row-height column-margin column-container"><div id="ref-Wickham2023R" class="csl-entry" role="listitem">
+Wickham, H., &amp; Grolemund, G. (2023). <em>R for Data Science (2e)</em>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>
+</div></div><div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the common prefix from all variables</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span> </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(<span class="sc">~</span> <span class="fu">set_label</span>(., <span class="fu">gsub</span>(<span class="st">"^Alternserleben: "</span>, <span class="st">""</span>, <span class="fu">get_label</span>(.))))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Abbildung&nbsp;7.1: Experience of Ageing: Proportions of Answers (df_alterl)</span>
+<span class="glightbox-desc lightbox-desc-2">Abbildung&nbsp;7.2: Experience of Ageing: Proportions of Answers (df_alterl_balance)</span>
+<span class="glightbox-desc lightbox-desc-3">Abbildung&nbsp;7.3: Experience of Ageing: Proportions of Answers - Stacked (df_alter)</span>
+<span class="glightbox-desc lightbox-desc-4">Abbildung&nbsp;7.4: Experience of Ageing: Proportions of Answers - Stacked (df_alterl_balance)</span>
+</div>
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./regression.html" class="pagination-link" aria-label="Regression">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link" aria-label="Literatur">
+        <span class="nav-page-text">Literatur</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>
