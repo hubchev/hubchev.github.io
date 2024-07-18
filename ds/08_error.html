@@ -131,7 +131,7 @@ div.csl-indent {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -332,7 +332,7 @@ div.csl-indent {
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content page-columns page-full column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_swirl.html">Basics of coding</a></li><li class="breadcrumb-item"><a href="./08_error.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Pitfalls</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -354,11 +354,11 @@ div.csl-indent {
 
 
 <p>R newbies often make the same small mistakes that can lead to major confusion, frustration and inefficiency. Some of them can be easily avoided. In this section, I will outline common pitfalls that I have repeatedly observed as an R instructor and offer practical solutions to avoid them.</p>
-<section id="no-clue-about-the-working-directory" class="level2" data-number="6.1">
+<section id="no-clue-about-the-working-directory" class="level2 page-columns page-full" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="no-clue-about-the-working-directory"><span class="header-section-number">6.1</span> No clue about the “working directory”</h2>
 <p><strong>Problem:</strong> Students start their R sessions unaware of their current working directory. This can lead to difficulties when reading and writing files.</p>
-<p><strong>Solution:</strong> At the beginning of your R script set a working directory using <code>setwd()</code>. Consider using R Studio projects, see <a href="#sec-rstudioprojects" class="quarto-xref"><span class="quarto-unresolved-ref">sec-rstudioprojects</span></a>. For more information, see <a href="#sec-navigation" class="quarto-xref"><span class="quarto-unresolved-ref">sec-navigation</span></a>: <em>Navigating the file system</em> and <a href="https://r4ds.hadley.nz/workflow-scripts.html"><em>Workflow: scripts and projects</em></a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
-</section>
+<p><strong>Solution:</strong> At the beginning of your R script set a working directory using <code>setwd()</code>. Consider using R Studio projects, see <a href="95_filesys.html#sec-rstudioprojects" class="quarto-xref"><span>Section A.4</span></a>. For more information, see <a href="95_filesys.html" class="quarto-xref"><span>Appendix A</span></a>: <em>Navigating the file system</em> and <a href="https://r4ds.hadley.nz/workflow-scripts.html"><em>Workflow: scripts and projects</em></a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
+<div class="no-row-height column-margin column-container"></div></section>
 <section id="no-consistent-directory-structure" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="no-consistent-directory-structure"><span class="header-section-number">6.2</span> No consistent directory structure</h2>
 <p><strong>Problem:</strong> Students save files in different directories without a clear scheme. This disorganization often leads to problems: Scripts and data gets lost and code breaks.</p>
@@ -436,7 +436,7 @@ Tip&nbsp;6.1: Do not save processed data unless necessary
 <section id="working-manually-outside-r" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="working-manually-outside-r"><span class="header-section-number">6.3</span> Working manually outside R</h2>
 <p><strong>Problem:</strong> Students want to get their work done quickly. This sometimes leads to them relying on manual processes that they have already mastered for their data work. This approach can lead to serious problems when it comes to the reproducibility of their data work.</p>
-<p>Consider a typical three-step process for loading data: (1) downloading the data, (2) unpacking the data, and finally (3) importing the data into R. Many students often take a manual approach by using their Internet browser to download the data, then using their operating system’s unpacking application, and finally importing the data into an R script. While this method is not inherently wrong, there is a risk that students will forget to unpack the downloaded data, resulting in them accidentally working with outdated data. In the kickstart example provided by <a href="#sec-wbexample" class="quarto-xref"><span class="quarto-unresolved-ref">sec-wbexample</span></a>, I show that all three steps can be performed seamlessly in R. This way you ensure that you are always working with the most up-to-date data.</p>
+<p>Consider a typical three-step process for loading data: (1) downloading the data, (2) unpacking the data, and finally (3) importing the data into R. Many students often take a manual approach by using their Internet browser to download the data, then using their operating system’s unpacking application, and finally importing the data into an R script. While this method is not inherently wrong, there is a risk that students will forget to unpack the downloaded data, resulting in them accidentally working with outdated data. In the kickstart example provided by <a href="05_workflow.html#sec-wbexample" class="quarto-xref"><span>Section 5.2</span></a>, I show that all three steps can be performed seamlessly in R. This way you ensure that you are always working with the most up-to-date data.</p>
 <p><strong>Solution:</strong> Do as much as possible in the script. Invest some time to find out how to download and manipulate the data within R. If it is not possible or if alternatives are superior, describe what you do outside of R explicitly and write a warning note at the top of your script.</p>
 </section>
 <section id="no-active-r-packages-management" class="level2" data-number="6.4">
@@ -468,15 +468,15 @@ Tip&nbsp;6.2: Start your script with
 <p><strong>Problem:</strong> Alternating between running code in the console and from the script without a systematic approach can lead to untracked changes and confusion about the current state of objects in the workspace. Additionally, students often borrow code snippets from others and run only the sections that seem immediately relevant. This practice can lead to errors or unexpected results, as such code often relies on previous commands or setups.</p>
 <p><strong>Solution:</strong> Develop the habit of testing small blocks of code in the console but run the complete script regularly to ensure everything works in sequence. Use shortcuts like <code>Ctrl + Alt + R</code> to source the entire script or <code>Ctrl + Alt + B/E</code> to execute it up to a specific point.</p>
 </section>
-<section id="misunderstanding-data-types-and-formats" class="level2" data-number="6.6">
+<section id="misunderstanding-data-types-and-formats" class="level2 page-columns page-full" data-number="6.6">
 <h2 data-number="6.6" class="anchored" data-anchor-id="misunderstanding-data-types-and-formats"><span class="header-section-number">6.6</span> Misunderstanding data types and formats</h2>
 <p><strong>Problem:</strong> Misusing or misunderstanding R’s data types and structures can lead to errors in data manipulation and analysis. Many functions require certain types of data. For example, the <code>tidyverse</code> packages required data to be “tidy”. Moreover, data often comes with errors and/or missings (<code>NA</code>). Beginners overlook data cleaning and considering missings.</p>
-<p><strong>Solution:</strong> Familiarize yourself with basic data types and structures like vectors, lists, data frames/tibbles, and factors. For more information, see <a href="#sec-tidy" class="quarto-xref"><span class="quarto-unresolved-ref">sec-tidy</span></a> and <a href="https://r4ds.hadley.nz/data-tidy">Data tidying</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. Moreover, spend adequate time on data cleaning and preprocessing. Techniques such as handling missing values, normalizing data, and correcting data types are critical. For more information, see <a href="https://r4ds.hadley.nz/missing-values.html">Missing values</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
-</section>
+<p><strong>Solution:</strong> Familiarize yourself with basic data types and structures like vectors, lists, data frames/tibbles, and factors. For more information, see <a href="40_manage.html#sec-tidy" class="quarto-xref"><span>Section 7.2</span></a> and <a href="https://r4ds.hadley.nz/data-tidy">Data tidying</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. Moreover, spend adequate time on data cleaning and preprocessing. Techniques such as handling missing values, normalizing data, and correcting data types are critical. For more information, see <a href="https://r4ds.hadley.nz/missing-values.html">Missing values</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
+<div class="no-row-height column-margin column-container"></div></section>
 <section id="lack-of-knowledge-about-data-identification" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="lack-of-knowledge-about-data-identification"><span class="header-section-number">6.7</span> Lack of knowledge about data identification</h2>
 <p><strong>Problem:</strong> Students often handle data without understanding which variables uniquely identify the information contained in other variables. It is crucial to recognize these identifying variables and verify their uniqueness to ensure data integrity.</p>
-<p><strong>Solution:</strong> Perform checks for uniqueness at the beginning of their data analysis process. See exercise <em>Names and duplicates</em> in <a href="#sec-exe_duplicates" class="quarto-xref"><span class="quarto-unresolved-ref">sec-exe_duplicates</span></a> and the <code>get_dupes</code> fuction introduced in <a href="#sec-get_dupes" class="quarto-xref"><span class="quarto-unresolved-ref">sec-get_dupes</span></a>.</p>
+<p><strong>Solution:</strong> Perform checks for uniqueness at the beginning of their data analysis process. See exercise <em>Names and duplicates</em> in <a href="80_exercises.html#sec-exe_duplicates" class="quarto-xref"><span>Section 9.17</span></a> and the <code>get_dupes</code> fuction introduced in <a href="40_manage.html#sec-get_dupes" class="quarto-xref"><span>Section 7.4.3.2</span></a>.</p>
 <div id="tip-get_dupes" class="callout callout-style-default callout-tip callout-titled" title="Always check your data with get_dupes">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -524,7 +524,7 @@ Tip&nbsp;6.4: Do clear the environment at the beginning of a script with
 <section id="ignoring-error-messages-and-warnings" class="level2" data-number="6.10">
 <h2 data-number="6.10" class="anchored" data-anchor-id="ignoring-error-messages-and-warnings"><span class="header-section-number">6.10</span> Ignoring error messages and warnings</h2>
 <p><strong>Problem:</strong> Students see that their code doesn’t work but do not read the error message which often contains hints for solving the problem.</p>
-<p><strong>Solution:</strong> Read and follow error messages. Do not ignore warnings or errors unless you know what they mean. Study what the error message might mean. Use online resources such as Google and ChatGPT, see <a href="#fig-googleit" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-googleit</span></a>. Finally, have the confidence to implement the suggested solution. Don’t be frustrated if the first attempt does not work: Try again and play around.</p>
+<p><strong>Solution:</strong> Read and follow error messages. Do not ignore warnings or errors unless you know what they mean. Study what the error message might mean. Use online resources such as Google and ChatGPT, see <a href="#fig-googleit" class="quarto-xref">Figure&nbsp;<span>6.1</span></a>. Finally, have the confidence to implement the suggested solution. Don’t be frustrated if the first attempt does not work: Try again and play around.</p>
 <div id="fig-googleit" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-googleit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -547,7 +547,7 @@ Tip&nbsp;6.5: Common error messages
 </div>
 <div class="callout-body-container callout-body">
 <p>Students often come to me with error messages suggesting that they install the <code>tinytex</code> package or the <code>RTools</code> compiler for Windows. Since they are not familiar with these R and software packages, they wonder if it is safe to proceed with the installation. My answer here is: yes, it is recommendable to install it.</p>
-<p>Based the <a href="https://github.com/noamross/zero-dependency-problems/blob/master/misc/stack-overflow-common-r-errors.md">report of Noam Ross</a> who examine roughly 10,000 R error messages, the most frequently encountered error messages of R are shown in <a href="#tbl-mosterrors" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-mosterrors</span></a> with some ideas of mine what to do.</p>
+<p>Based the <a href="https://github.com/noamross/zero-dependency-problems/blob/master/misc/stack-overflow-common-r-errors.md">report of Noam Ross</a> who examine roughly 10,000 R error messages, the most frequently encountered error messages of R are shown in <a href="#tbl-mosterrors" class="quarto-xref">Table&nbsp;<span>6.2</span></a> with some ideas of mine what to do.</p>
 <div id="tbl-mosterrors" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-mosterrors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -598,7 +598,7 @@ Table&nbsp;6.2: Most frequent errors
 </div>
 </div>
 </section>
-<section id="no-attempt-to-identify-the-problem-and-troubleshoot" class="level2" data-number="6.11">
+<section id="no-attempt-to-identify-the-problem-and-troubleshoot" class="level2 page-columns page-full" data-number="6.11">
 <h2 data-number="6.11" class="anchored" data-anchor-id="no-attempt-to-identify-the-problem-and-troubleshoot"><span class="header-section-number">6.11</span> No attempt to identify the problem and troubleshoot</h2>
 <p><strong>Problem:</strong> Students often do not fully understand the problems they encounter, which can lead to difficulties in seeking solutions. It’s common for students to feel overwhelmed and seek help without attempting to find the source of the problem and without attempting to work out possible solutions first.</p>
 <iframe src="https://giphy.com/embed/0saxF4eNE7x2fEqrN6" width="480">
@@ -649,15 +649,17 @@ attached base packages:
 loaded via a namespace (and not attached):
  [1] htmlwidgets_1.6.4 compiler_4.2.2    fastmap_1.2.0     cli_3.6.3        
  [5] tools_4.2.2       htmltools_0.5.8.1 rstudioapi_0.16.0 rmarkdown_2.27   
- [9] knitr_1.47        jsonlite_1.8.8    xfun_0.45         digest_0.6.36    
+ [9] knitr_1.48        jsonlite_1.8.8    xfun_0.45         digest_0.6.36    
 [13] rlang_1.1.4       evaluate_0.24.0  </code></pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<p>For more information, see <a href="https://r4ds.hadley.nz/workflow-help">Workflow: getting help</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example of a minimal reproducible example">
+<p>For more information, see <a href="https://r4ds.hadley.nz/workflow-help">Workflow: getting help</a> of <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Wickham2023R" class="csl-entry" role="listitem">
+Wickham, H., &amp; Grolemund, G. (2023). <em>R for data science (2e)</em>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>
+</div></div><div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Example of a minimal reproducible example">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -706,7 +708,7 @@ Example of a minimal reproducible example
 </div>
 </div>
 </section>
-<section id="unstylish-code" class="level2" data-number="6.12">
+<section id="unstylish-code" class="level2 page-columns page-full" data-number="6.12">
 <h2 data-number="6.12" class="anchored" data-anchor-id="unstylish-code"><span class="header-section-number">6.12</span> Unstylish code</h2>
 <p>To avoid issues while programming in R, it’s essential to understand and adhere to various conventions, rules, and best practices specific to the language. Following these conventions makes your code more readable and simplifies your own experience with R. Below, you will find a non-exhaustive list of these guidelines.</p>
 <ol type="1">
@@ -714,7 +716,7 @@ Example of a minimal reproducible example
 <li>Do start names of objects such as vectors, numbers, variables, and data frames with a letter, not a number.</li>
 <li>Do avoid using dots in names of objects.</li>
 <li>Do avoid using certain keywords in naming objects, such as if, else, repeat, while, function, for, in, next, break, TRUE, FALSE, NULL, Inf, NaN, and NA.</li>
-<li>Do use front slash <code>/</code> instead of backslash <code>\</code> for navigating the file system (see <a href="#sec-navigation" class="quarto-xref"><span class="quarto-unresolved-ref">sec-navigation</span></a>).</li>
+<li>Do use front slash <code>/</code> instead of backslash <code>\</code> for navigating the file system (see <a href="95_filesys.html" class="quarto-xref"><span>Appendix A</span></a>).</li>
 <li>Do not use whitespace and indentation for naming files, directories, or objects.</li>
 <li>Do define objects to represent hard-coded values instead of using them directly in code.</li>
 <li>Do remember to (install and) load packages that contain functions you want to use.</li>
@@ -730,22 +732,17 @@ Tip&nbsp;6.6
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>There are two packages, <a href="https://styler.r-lib.org/"><code>styler</code></a> and <a href="https://github.com/r-lib/lintr"><code>lintr</code></a>, that support you writing code according to the <a href="https://style.tidyverse.org/"><em>The tidyverse style guide</em></a> of <span class="citation" data-cites="Wickham2024tidyverse">Wickham (<a href="#ref-Wickham2024tidyverse" role="doc-biblioref">2024</a>)</span>.</p>
+<p>There are two packages, <a href="https://styler.r-lib.org/"><code>styler</code></a> and <a href="https://github.com/r-lib/lintr"><code>lintr</code></a>, that support you writing code according to the <a href="https://style.tidyverse.org/"><em>The tidyverse style guide</em></a> of <span class="citation" data-cites="Wickham2024tidyverse">Wickham (<a href="references.html#ref-Wickham2024tidyverse" role="doc-biblioref">2024</a>)</span>.</p>
 </div>
 </div>
 
 
-<div class="hidden" aria-hidden="true">
+<div class="no-row-height column-margin column-container"><div id="ref-Wickham2024tidyverse" class="csl-entry" role="listitem">
+Wickham, H. (2024). <em>The tidyverse style guide</em>. <a href="https://style.tidyverse.org/">https://style.tidyverse.org/</a>
+</div></div><div class="hidden" aria-hidden="true">
 <span class="glightbox-desc lightbox-desc-1">Figure&nbsp;6.1: Googlling the error message</span>
 </div>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
-<div id="ref-Wickham2024tidyverse" class="csl-entry" role="listitem">
-Wickham, H. (2024). <em>The tidyverse style guide</em>. <a href="https://style.tidyverse.org/">https://style.tidyverse.org/</a>
-</div>
-<div id="ref-Wickham2023R" class="csl-entry" role="listitem">
-Wickham, H., &amp; Grolemund, G. (2023). <em>R for data science (2e)</em>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>
-</div>
-</div>
+
 </section>
 
 </main> <!-- /main -->
@@ -1315,7 +1312,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":false,"openEffect":"zoom","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

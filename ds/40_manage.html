@@ -160,7 +160,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -382,7 +382,7 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content page-columns page-full column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./40_manage.html">Do stuff</a></li><li class="breadcrumb-item"><a href="./40_manage.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Manage data</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -486,7 +486,7 @@ row_2     2    11
 row_3     3    12</code></pre>
 </div>
 </div>
-<p>The two most common formats to store and work with data in R are dataframe and tibble. Both formats store table-like structures of data in rows and columns. We will learn more on that in section <a href="#sec-tidy" class="quarto-xref"><span class="quarto-unresolved-ref">sec-tidy</span></a>.</p>
+<p>The two most common formats to store and work with data in R are dataframe and tibble. Both formats store table-like structures of data in rows and columns. We will learn more on that in section <a href="#sec-tidy" class="quarto-xref"><span>Section 7.2</span></a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert the matrix into dataframe</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df_ab <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(m_ab_label)</span>
@@ -502,7 +502,7 @@ Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>See exercise in <a href="#sec-exeimportdata" class="quarto-xref"><span class="quarto-unresolved-ref">sec-exeimportdata</span></a>: <em>Import data with <code>c()</code></em>.</p>
+<p>See exercise in <a href="80_exercises.html#sec-exeimportdata" class="quarto-xref"><span>Section 9.1</span></a>: <em>Import data with <code>c()</code></em>.</p>
 </div>
 </div>
 </section>
@@ -587,7 +587,7 @@ $ country     &lt;chr&gt; "Africa Eastern and Southern", "Africa Eastern and Sou
 Figure&nbsp;7.1: The logo of the packages readr, haven, and readxl
 </figcaption>
 <div aria-describedby="fig-import-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/import-logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="fig/import-logo.png" class="img-fluid figure-img" style="width:40.0%"></a>
+<a href="fig/import-logo.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="fig/import-logo.png" class="img-fluid figure-img" style="width:40.0%"></a>
 </div>
 </figure>
 </div>
@@ -612,7 +612,7 @@ Figure&nbsp;7.1: The logo of the packages readr, haven, and readxl
 </div>
 </section>
 </section>
-<section id="sec-tidy" class="level2" data-number="7.2">
+<section id="sec-tidy" class="level2 page-columns page-full" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="sec-tidy"><span class="header-section-number">7.2</span> Data</h2>
 <section id="data-frames-and-tibbles" class="level3" data-number="7.2.1">
 <h3 data-number="7.2.1" class="anchored" data-anchor-id="data-frames-and-tibbles"><span class="header-section-number">7.2.1</span> Data frames and tibbles</h3>
@@ -622,32 +622,36 @@ Figure&nbsp;7.1: The logo of the packages readr, haven, and readxl
 Figure&nbsp;7.2: The logos of the tidyr and tibble packages
 </figcaption>
 <div aria-describedby="fig-tidyr-tibble-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/tidyr-tibble-logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="fig/tidyr-tibble-logo.png" class="img-fluid figure-img" style="width:30.0%"></a>
+<a href="fig/tidyr-tibble-logo.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="fig/tidyr-tibble-logo.png" class="img-fluid figure-img" style="width:30.0%"></a>
 </div>
 </figure>
 </div>
 <p>Both <em>data frames</em> and <em>tibbles</em> are two of the most commonly used data structures in R for handling tabular data. A tibble actually is a data frame and you can use all functions that work with a data frame also with a tibble. However, a tibble has some additional features in printing and subsetting. Please note, data frames are provided by base R while tibbles are provided by the <code>tidyverse</code> package. This means that if you want to use tibbles you must load <code>tidyverse</code>. It turned out that it is helpful that a tibble has the folllowing features to simplify working with data: - Each vector is labeled by the variable name. - Variable names don’t have spaces and are not put in quotes. - All variables have the same length. - Each variable is of a single type (numeric, character, logical, or a categorical).</p>
 </section>
-<section id="tidy-data" class="level3" data-number="7.2.2">
+<section id="tidy-data" class="level3 page-columns page-full" data-number="7.2.2">
 <h3 data-number="7.2.2" class="anchored" data-anchor-id="tidy-data"><span class="header-section-number">7.2.2</span> Tidy data</h3>
 <p>A popular quote from Hadley Wickham is that</p>
-<blockquote class="blockquote">
-<p>“tidy datasets are all alike, but every messy dataset is messy in its own way” <span class="citation" data-cites="Hadley2014Tidy">(<a href="#ref-Hadley2014Tidy" role="doc-biblioref">Hadley, 2014, p. 2</a>)</span>.</p>
-</blockquote>
-<p>It paraphrases the fact that it is a good idea to set rules how a dataset should structure its information to make it easier to work with the data. The tidyverse requires the data to be structured like is illustrated in Figure <a href="#fig-tidy-1" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-tidy-1</span></a>. The rules are:</p>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p>“tidy datasets are all alike, but every messy dataset is messy in its own way” <span class="citation" data-cites="Hadley2014Tidy">(<a href="references.html#ref-Hadley2014Tidy" role="doc-biblioref">Hadley, 2014, p. 2</a>)</span>.</p>
+</blockquote><div class="no-row-height column-margin column-container"><div id="ref-Hadley2014Tidy" class="csl-entry" role="listitem">
+Hadley, W. (2014). Tidy data. <em>Journal of Statistical Software</em>, <em>59</em>(10), 1–23.
+</div></div></div>
+<p>It paraphrases the fact that it is a good idea to set rules how a dataset should structure its information to make it easier to work with the data. The tidyverse requires the data to be structured like is illustrated in Figure <a href="#fig-tidy-1" class="quarto-xref">Figure&nbsp;<span>7.3</span></a>. The rules are:</p>
 <ol type="1">
 <li>Each variable is a column and vice versa.</li>
 <li>Each observation is a row and vice verse.</li>
 <li>Each value is a cell.</li>
 </ol>
-<div id="fig-tidy-1" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
+<div id="fig-tidy-1" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-tidy-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7.3: Features of a tidy dataset: variables are columns, observations are rows, and values are cells
 </figcaption>
-<div aria-describedby="fig-tidy-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="fig/tidy-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="fig/tidy-1.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
-<p><em>Source: <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. </em></p>
+<div aria-describedby="fig-tidy-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<p><a href="fig/tidy-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="fig/tidy-1.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<div class="page-columns page-full"><p><em>Source: <span class="citation" data-cites="Wickham2023R">Wickham &amp; Grolemund (<a href="references.html#ref-Wickham2023R" role="doc-biblioref">2023</a>)</span>. </em></p><div class="no-row-height column-margin column-container"><div id="ref-Wickham2023R" class="csl-entry" role="listitem">
+Wickham, H., &amp; Grolemund, G. (2023). <em>R for data science (2e)</em>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>
+</div></div></div>
 </div>
 </figure>
 </div>
@@ -751,10 +755,10 @@ Figure&nbsp;7.3: Features of a tidy dataset: variables are columns, observations
 </section>
 <section id="operators" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="operators"><span class="header-section-number">7.3</span> Operators</h2>
-<p>An overview of the most important operators of R is proided in <a href="#sec-operatorsov" class="quarto-xref"><span class="quarto-unresolved-ref">sec-operatorsov</span></a>.</p>
+<p>An overview of the most important operators of R is proided in <a href="952_operators.html" class="quarto-xref"><span>Appendix B</span></a>.</p>
 <section id="algebraic-operators" class="level3" data-number="7.3.1">
 <h3 data-number="7.3.1" class="anchored" data-anchor-id="algebraic-operators"><span class="header-section-number">7.3.1</span> Algebraic operators</h3>
-<p>R can perform any kind of arithmetic calculation using the operators listed in <a href="#tbl-algebraopteratora" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-algebraopteratora</span></a>.</p>
+<p>R can perform any kind of arithmetic calculation using the operators listed in <a href="#tbl-algebraopteratora" class="quarto-xref">Table&nbsp;<span>7.1</span></a>.</p>
 <div id="tbl-algebraopteratora" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-algebraopteratora-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -893,7 +897,7 @@ Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>See exercise in <a href="#sec-baseinoperator" class="quarto-xref"><span class="quarto-unresolved-ref">sec-baseinoperator</span></a>: <em>Base R,<code>%in%</code> operator, and the pipe <code>|&gt;</code></em>.</p>
+<p>See exercise in <a href="80_exercises.html#sec-baseinoperator" class="quarto-xref"><span>Section 9.3</span></a>: <em>Base R,<code>%in%</code> operator, and the pipe <code>|&gt;</code></em>.</p>
 </div>
 </div>
 </section>
@@ -929,7 +933,7 @@ Exercise
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>See exercise in <a href="#sec-baseinoperator" class="quarto-xref"><span class="quarto-unresolved-ref">sec-baseinoperator</span></a>: <em>Base R,<code>%in%</code> operator, and the pipe <code>|&gt;</code></em>.</p>
+<p>See exercise in <a href="80_exercises.html#sec-baseinoperator" class="quarto-xref"><span>Section 9.3</span></a>: <em>Base R,<code>%in%</code> operator, and the pipe <code>|&gt;</code></em>.</p>
 </div>
 </div>
 </section>
@@ -981,7 +985,7 @@ Datsun 710 22.8   4  108 93 3.85 2.32 18.61  1  1    4    1</code></pre>
 </section>
 <section id="logical-operators" class="level3" data-number="7.3.5">
 <h3 data-number="7.3.5" class="anchored" data-anchor-id="logical-operators"><span class="header-section-number">7.3.5</span> Logical operators</h3>
-<p>The extract operators can be combined with the <em>logical operators</em> (more precisely, I should call these <em>binary relational operators</em>) that are shown in <a href="#tbl-logoper" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-logoper</span></a>.</p>
+<p>The extract operators can be combined with the <em>logical operators</em> (more precisely, I should call these <em>binary relational operators</em>) that are shown in <a href="#tbl-logoper" class="quarto-xref">Table&nbsp;<span>7.2</span></a>.</p>
 <div id="tbl-logoper" class="quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-logoper-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1194,7 +1198,7 @@ Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 Figure&nbsp;7.4: The logo of the <code>dplyr</code> package
 </figcaption>
 <div aria-describedby="fig-dplyr-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/dplyr-logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="fig/dplyr-logo.png" class="img-fluid figure-img" style="width:20.0%"></a>
+<a href="fig/dplyr-logo.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><img src="fig/dplyr-logo.png" class="img-fluid figure-img" style="width:20.0%"></a>
 </div>
 </figure>
 </div>
@@ -1444,8 +1448,8 @@ Exercise
 <div class="callout-body-container callout-body">
 <p>See exercise:</p>
 <ul>
-<li><a href="#sec-exe_genanddrop" class="quarto-xref"><span class="quarto-unresolved-ref">sec-exe_genanddrop</span></a>: <em>Generate and drop variables</em></li>
-<li><a href="#sec-exe_subset" class="quarto-xref"><span class="quarto-unresolved-ref">sec-exe_subset</span></a>: <em>Subsetting</em></li>
+<li><a href="80_exercises.html#sec-exe_genanddrop" class="quarto-xref"><span>Section 9.4</span></a>: <em>Generate and drop variables</em></li>
+<li><a href="80_exercises.html#sec-exe_subset" class="quarto-xref"><span>Section 9.5</span></a>: <em>Subsetting</em></li>
 </ul>
 </div>
 </div>
@@ -1501,7 +1505,7 @@ Exercise
 <span id="cb117-5"><a href="#cb117-5" aria-hidden="true" tabindex="-1"></a>    cyl <span class="sc">==</span> <span class="dv">8</span> <span class="sc">~</span> <span class="st">"eight"</span></span>
 <span id="cb117-6"><a href="#cb117-6" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The <code>mutate()</code> function is used to add the new variable, and <code>case_when()</code> is used to assign the values “four”, “six”, or “eight” to the new variable based on the number of cylinders in each car. Both functions are part of the <code>dplyr</code> package (see chapter <a href="#sec-dplyr" class="quarto-xref"><span class="quarto-unresolved-ref">sec-dplyr</span></a>).</p>
+<p>The <code>mutate()</code> function is used to add the new variable, and <code>case_when()</code> is used to assign the values “four”, “six”, or “eight” to the new variable based on the number of cylinders in each car. Both functions are part of the <code>dplyr</code> package (see chapter <a href="#sec-dplyr" class="quarto-xref"><span>Section 7.4.1</span></a>).</p>
 </section>
 <section id="examining-and-cleaning-data-with-the-janitor-package" class="level3" data-number="7.4.3">
 <h3 data-number="7.4.3" class="anchored" data-anchor-id="examining-and-cleaning-data-with-the-janitor-package"><span class="header-section-number">7.4.3</span> Examining and cleaning data with the <code>janitor</code> package</h3>
@@ -1972,14 +1976,7 @@ Levels: blue green red yellow</code></pre>
 <span class="glightbox-desc lightbox-desc-3">Figure&nbsp;7.3: Features of a tidy dataset: variables are columns, observations are rows, and values are cells</span>
 <span class="glightbox-desc lightbox-desc-4">Figure&nbsp;7.4: The logo of the <code>dplyr</code> package</span>
 </div>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
-<div id="ref-Hadley2014Tidy" class="csl-entry" role="listitem">
-Hadley, W. (2014). Tidy data. <em>Journal of Statistical Software</em>, <em>59</em>(10), 1–23.
-</div>
-<div id="ref-Wickham2023R" class="csl-entry" role="listitem">
-Wickham, H., &amp; Grolemund, G. (2023). <em>R for data science (2e)</em>. <a href="https://r4ds.hadley.nz/">https://r4ds.hadley.nz/</a>
-</div>
-</div>
+
 </section>
 
 </main> <!-- /main -->
@@ -2549,7 +2546,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false});
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":false,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

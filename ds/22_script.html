@@ -128,7 +128,7 @@ div.csl-indent {
 
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -326,7 +326,7 @@ div.csl-indent {
 </nav>
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
+<main class="content page-columns page-full column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_install.html">Getting started with…</a></li><li class="breadcrumb-item"><a href="./22_script.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">…writing R scripts</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -347,7 +347,7 @@ div.csl-indent {
 </header>
 
 
-<section id="the-limitations-of-no-code-applications" class="level2" data-number="3.1">
+<section id="the-limitations-of-no-code-applications" class="level2 page-columns page-full" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="the-limitations-of-no-code-applications"><span class="header-section-number">3.1</span> The limitations of no-code applications</h2>
 <!-- ![](fig/nocodeornot.webp){width=90%} -->
 <p>No-Code Applications (NCA) such as <a href="https://www.microsoft.com/en-us/microsoft-365/excel">Microsoft Excel</a>, <a href="https://altair.com/altair-rapidminer">RapidMiner</a>, <a href="https://www.knime.com/">KNIME</a>, <a href="https://www.datarobot.com/">DataRobot</a>, <a href="https://www.tableau.com/">Tableau</a>, <a href="https://www.microsoft.com/en-us/power-platform/products/power-bi">Microsoft Power BI</a>, and <a href="https://cloud.google.com/automl">Google AutoML</a> are popular for good reasons. They enable the application of advanced empirical methods with no or minimal programming effort. Their intuitive graphical user interfaces comes with pre-built templates and drag-and-drop functionality which helps to get things done quick, without having to study the programm documentation for hours. Despite their apparent ease of use and efficiency, these platforms come with several disadvantages compared to traditional ways of working with computer by scripting and coding. Understanding these weaknesses helps to see why professional researchers, especially those actively publishing in academic journals, tend to rely on scripting languages like R and Python. These programming languages offer full control, are customizeable and extendable, offer extensive opportunities for automation and reproducibility, and are often better suited for demanding data science tasks.</p>
@@ -389,16 +389,18 @@ A hypothetical but realistic example with Excel
 <li>She finds an error in your work or she has an idea to improve your analysis by making a few adjustments. Can you implement the adjustments easily, or do you have to redo everything from scratch?</li>
 <li>She sends you back the file with the comment that she has worked out some things in the file and now everything should be fine. How do you know what she has done to the data?</li>
 </ul>
-<p>To say it in the words of <span class="citation" data-cites="Stephenson2023Data">Stephenson (<a href="#ref-Stephenson2023Data" role="doc-biblioref">2023, sec. 5.1</a>)</span>:</p>
+<p>To say it in the words of <span class="citation" data-cites="Stephenson2023Data">Stephenson (<a href="references.html#ref-Stephenson2023Data" role="doc-biblioref">2023, sec. 5.1</a>)</span>:</p>
 <blockquote class="blockquote">
 <p>“<em>Spreadsheets are a nightmare for quality control and reproducibility, and you should always think twice before using one. Spreadsheets will always be a handy way to manipulate tabular datasets, and you’ll probably find them useful for data collection and quick back-of-the-envelope calculations, but they’re often more trouble than they’re worth.</em>”</p>
 </blockquote>
 </div>
 </div>
-</section>
+<div class="no-row-height column-margin column-container"><div id="ref-Stephenson2023Data" class="csl-entry" role="listitem">
+Stephenson, P. (2023). <em>Data science practice</em>. Accessed January 30, 2023. <a href="https://datasciencepractice.study/">https://datasciencepractice.study/</a>
+</div></div></section>
 <section id="r-scripts-why-they-are-useful" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="r-scripts-why-they-are-useful"><span class="header-section-number">3.2</span> R Scripts: Why they are useful</h2>
-<p>I have already discussed in <a href="#sec-writeandrun" class="quarto-xref"><span class="quarto-unresolved-ref">sec-writeandrun</span></a> that you can run code either directly by typing your code into the console of R or by writing a script and then sending the code with <code>Ctrl+Enter</code> or with the <code>Run</code> button to the console of R. Typing functions into the console to run code may seem simple, but this interactive style has limitations:</p>
+<p>I have already discussed in <a href="01_install.html#sec-writeandrun" class="quarto-xref"><span>Section 1.7</span></a> that you can run code either directly by typing your code into the console of R or by writing a script and then sending the code with <code>Ctrl+Enter</code> or with the <code>Run</code> button to the console of R. Typing functions into the console to run code may seem simple, but this interactive style has limitations:</p>
 <ul>
 <li>Typing commands one at a time can be cumbersome and time-consuming.</li>
 <li>It’s hard to save your work effectively.</li>
@@ -455,7 +457,7 @@ A hypothetical but realistic example with Excel
 <p>Then save the script using the menus (<code>File &gt; Save</code>) as <code>hello.R</code>.</p>
 <p>The above lines of code do the following:</p>
 <ul>
-<li>With the assignment operator <code>&lt;-</code> we create an object that stores the words “hello world” in an object entitled <code>x</code>. In <a href="#sec-assignmentoper" class="quarto-xref"><span class="quarto-unresolved-ref">sec-assignmentoper</span></a> the assignment operator is further explained.</li>
+<li>With the assignment operator <code>&lt;-</code> we create an object that stores the words “hello world” in an object entitled <code>x</code>. In <a href="40_manage.html#sec-assignmentoper" class="quarto-xref"><span>Section 7.1.1</span></a> the assignment operator is further explained.</li>
 <li>With the third input we print the content of the object <code>x</code>.</li>
 </ul>
 </section>
@@ -556,11 +558,7 @@ Tip&nbsp;3.1: Start your script with
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
-<div id="ref-Stephenson2023Data" class="csl-entry" role="listitem">
-Stephenson, P. (2023). <em>Data science practice</em>. Accessed January 30, 2023. <a href="https://datasciencepractice.study/">https://datasciencepractice.study/</a>
-</div>
-</div>
+
 </section>
 
 </main> <!-- /main -->
