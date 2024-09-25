@@ -892,13 +892,17 @@ Solution
 <blockquote class="blockquote">
 <p>Disclaimer: The case presented here is fictitious. The data given here are purely fictitious and serve only to practice the method.</p>
 </blockquote>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution to @exr-falspos">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+Solution to <a href="#exr-falspos" class="quarto-xref">Exercise&nbsp;<span>7.9</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -934,12 +938,6 @@ Solution
 <td style="text-align: center;"><span class="math inline">\(P(\neg B)\)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">:—</td>
-<td style="text-align: center;">:—:</td>
-<td style="text-align: center;">:—:</td>
-<td style="text-align: center;">:—:</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: center;"><span class="math inline">\(P(A)\)</span></td>
 <td style="text-align: center;"><span class="math inline">\(P(\neg A)\)</span></td>
@@ -949,13 +947,13 @@ Solution
 </table>
 <p>Please note, the symbol <span class="math inline">\(\neg\)</span> simply abbreviates “NOT” and the symbol <span class="math inline">\(\cap\)</span> stands for “AND”. The probability of you having both the disease and a positive test, <span class="math inline">\(P(A \cap B)\)</span>, is easy to calculate: <span class="math display">\[\underbrace{P(A \cap B)= P(B|A)P(A)}_{\text{a.k.a. multiplication rule}}=.99\cdot .001=.00099\]</span> Also, it is straight forward to calculate the probability of having both, no infection and a positive test: <span class="math display">\[
 P(\neg A \cap B)= P(B|\neg A)P(\neg A)=.02\cdot .999 = .01998
-\]</span> Knowing that, it is clear that the overall probability of being diagnosed with Corona is <span class="math display">\[P(B)=.00099+.0199=.02097\]</span> That means, out of 1000 people about 21 are on average diagnosed with Corona while only one person actually is infected with Corona. Thus, your probability of having Corona once your test came out to be positive, <span class="math inline">\(P(A|B)\)</span>, is approximately <span class="math display">\[P(A|B) \approx \frac{1}{21}=0,047619048\]</span></p>
-<p>and more precisely <span class="math display">\[
+\]</span> Knowing that, it is clear that the overall probability of being diagnosed with Corona is <span class="math display">\[P(B)=.00099+.0199=.02097\]</span> That means, out of 1000 people about 21 are on average diagnosed with Corona while only one person actually is infected with Corona. Thus, your probability of having Corona once your test came out to be positive, <span class="math inline">\(P(A|B)\)</span>, is approximately <span class="math display">\[P(A|B) \approx \frac{1}{21}=0,047619048\]</span> and more precisely <span class="math display">\[
 P(A|B)=\frac{P(A\cap B)}{P(B)}=\frac{.00099}{.02097}=0,0472103.
 \]</span></p>
 <p>In other words, with a probability of more than 95%, you may go into quarantine without infection: <span class="math display">\[
 P(\neg A|B)=\frac{P(\neg A\cap B)}{P(B)}=\frac{.01998}{.02097}=0,9527897\quad (=1-P(A|B))
-\]</span> Given the accuracy of the test, this number appears to be rather high to many people. The high test accuracy of 99% and the rather low number of 2% false positives, however, is misleading. This is sometimes called the . The source of the fact that many people think <span class="math inline">\(P(A|B)\)</span> is much lower is that they don’t consider the impact of the low probability of having the disease, <span class="math inline">\(P(A)\)</span>, on <span class="math inline">\(P(A|B)\)</span>, <span class="math inline">\(P(B|A)\)</span>, and <span class="math inline">\(P(B|\neg A)\)</span> respectively (also, see the ). Moreover, many people don’t understand the false positive rate correctly.</p>
+\]</span></p>
+<p>Given the accuracy of the test, this number appears to be rather high to many people. The high test accuracy of 99% and the rather low number of 2% false positives, however, is misleading. This is sometimes called the . The source of the fact that many people think <span class="math inline">\(P(A|B)\)</span> is much lower is that they don’t consider the impact of the low probability of having the disease, <span class="math inline">\(P(A)\)</span>, on <span class="math inline">\(P(A|B)\)</span>, <span class="math inline">\(P(B|A)\)</span>, and <span class="math inline">\(P(B|\neg A)\)</span> respectively (also, see the ). Moreover, many people don’t understand the false positive rate correctly.</p>
 <p>To summarize, we know</p>
 <table class="table">
 <thead>
@@ -1018,10 +1016,6 @@ P(\neg A|B)=\frac{P(\neg A\cap B)}{P(B)}=\frac{.01998}{.02097}=0,9527897\quad (=
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1607,7 +1601,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","loop":false,"openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
