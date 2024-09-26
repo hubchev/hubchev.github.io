@@ -157,7 +157,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -299,11 +299,11 @@ window.Quarto = {
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Regression analysis</span></h1>
+<h1 class="title"><span id="sec-regression" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Regression analysis</span></span></h1>
 </div>
 
 
@@ -320,7 +320,7 @@ window.Quarto = {
 </header>
 
 
-<section id="simple-linear-regression" class="level2" data-number="5.1">
+<section id="simple-linear-regression" class="level2 page-columns page-full" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="simple-linear-regression"><span class="header-section-number">5.1</span> Simple linear regression</h2>
 <p>The linear regression analysis is a widely used technique for predictive modeling. Its purpose is to establish a mathematical equation that relates a continuous response variable, denoted as <span class="math inline">\(y\)</span>, to one or more independent variables, represented by <span class="math inline">\(x\)</span>. The objective is to create a regression model that enables the prediction of the value of <span class="math inline">\(y\)</span> based on known values of <span class="math inline">\(x\)</span>.</p>
 <p>To ensure meaningful predictions, it is important to have an adequate number of observations, denoted as <span class="math inline">\(i\)</span>, available for the variables of interest.</p>
@@ -329,7 +329,7 @@ y_i = \beta_{0} + \beta_{1} x_i + \epsilon_i,
 \]</span> where the index <span class="math inline">\(i\)</span> denotes the individual observations, ranging from <span class="math inline">\(i = 1\)</span> to <span class="math inline">\(n\)</span>. The variable <span class="math inline">\(y_i\)</span> represents the dependent variable, also known as the regressand. The variable <span class="math inline">\(x_i\)</span> represents the independent variable, also referred to as the regressor. <span class="math inline">\(\beta_0\)</span> denotes the intercept of the population regression line, a.k.a. the constant. <span class="math inline">\(\beta_1\)</span> denotes the slope of the population regression line. Lastly, <span class="math inline">\(\epsilon_i\)</span> refers to the error term or the residual, which accounts for the deviation between the predicted and observed values of <span class="math inline">\(y_i\)</span>.</p>
 <p>By fitting a linear regression model, one aims to estimate the values of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> in order to obtain an equation that best captures the relationship between <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span>.</p>
 <p>While the correlation coefficient and the slope in simple linear regression are similar in many ways, it’s important to note that they are not identical. The correlation coefficient measures the strength and direction of the linear relationship between variables in a broader sense, while the slope in simple linear regression specifically quantifies the change in the dependent variable associated with a unit change in the independent variable.</p>
-<section id="estimating-the-coefficients-of-the-linear-regression-model" class="level3" data-number="5.1.1">
+<section id="estimating-the-coefficients-of-the-linear-regression-model" class="level3 page-columns page-full" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="estimating-the-coefficients-of-the-linear-regression-model"><span class="header-section-number">5.1.1</span> Estimating the coefficients of the linear regression model</h3>
 <p>In practice, the intercept and slope of the regression are unknown. Therefore, we must employ data to estimate the unknown parameters, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. The method we use is called the ordinary least squared (OLS) method. The idea is to minimize the sum of the squared differences of all <span class="math inline">\(y_i\)</span> and <span class="math inline">\(y_i^*\)</span> as sketched in figure <a href="#fig-regressionols" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>.</p>
 <div id="fig-regressionols" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -367,7 +367,9 @@ Figure&nbsp;5.1: The fitted line and the residuals
    \Leftrightarrow &amp; \hat{\beta_{1}} ={\frac {\sigma_{x,y}}{\sigma^2_{x}}}
 \end{align*}\]</span> The estimated regression coefficient <span class="math inline">\(\hat{\beta_{1}}\)</span> equals the covariance between <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> divided by the variance of <span class="math inline">\(x\)</span>.</p>
 <p>The formulas presented above may not be very intuitive at first glance. The online version of the book <span class="citation" data-cites="Hanck2020Introduction">Hanck et al. (<a href="references.html#ref-Hanck2020Introduction" role="doc-biblioref">2020</a>)</span> offers a nice interactive application in the box <a href="https://www.econometrics-with-r.org/4.2-estimating-the-coefficients-of-the-linear-regression-model.html">The OLS Estimator, Predicted Values, and Residuals</a> that helps to understand the mechanics of OLS. You can add observations by clicking into the coordinate system where the data are represented by points. Once two or more observations are available, the application computes a regression line using OLS and some statistics which are displayed in the right panel. The results are updated as you add further observations to the left panel. A double-click resets the application, that means, all data are removed.</p>
-</section>
+<div class="no-row-height column-margin column-container"><div id="ref-Hanck2020Introduction" class="csl-entry" role="listitem">
+Hanck, C., Arnold, M., Gerber, A., &amp; Schmelzer, M. (2020). <em>Introduction to econometrics with r</em> (Openbook). University of Duisburg-Essen.
+</div></div></section>
 <section id="the-least-squares-assumptions" class="level3" data-number="5.1.2">
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="the-least-squares-assumptions"><span class="header-section-number">5.1.2</span> The least squares assumptions</h3>
 <p>OLS performs well under a quite broad variety of different circumstances. However, there are some assumptions which need to be satisfied in order to ensure that the estimates are normally distributed in large samples.</p>
@@ -463,7 +465,7 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \dots + \beta
 <p>These assumptions collectively ensure that the OLS estimators are unbiased, efficient, and have minimum variance among all linear unbiased estimators. Violations of these assumptions can lead to biased and inefficient estimators, invalid hypothesis tests, and unreliable predictions. Therefore, it is important to check these assumptions when using the OLS method and consider alternative estimation techniques if the assumptions are violated.</p>
 </section>
 </section>
-<section id="how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis" class="level2" data-number="5.3">
+<section id="how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis" class="level2 page-columns page-full" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis"><span class="header-section-number">5.3</span> How to identify statistically significant estimated coefficients in a regression analysis</h2>
 <section id="p-values" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="p-values"><span class="header-section-number">5.3.1</span> P-values</h3>
@@ -746,7 +748,7 @@ Tip&nbsp;5.1: Statistical control requires causal justification
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Read <a href="identification.html#sec-scrcj" class="quarto-xref"><span>Section 3.3</span></a> (again).</p>
+<p>Read <a href="identification.html#sec-scrcj" class="quarto-xref"><span>Section 3.4</span></a> (again).</p>
 </div>
 </div>
 <p>A confounding variable is a factor that was not accounted for or controlled in a study but has the potential to influence the results. In other words, the true effects of the treatment or intervention can be obscured or muddled by the presence of this variable.</p>
@@ -769,7 +771,7 @@ Tip&nbsp;5.2
 </div>
 </div>
 </section>
-<section id="omitted-variable-bias-and-ceteris-paribus" class="level3" data-number="5.3.4">
+<section id="omitted-variable-bias-and-ceteris-paribus" class="level3 page-columns page-full" data-number="5.3.4">
 <h3 data-number="5.3.4" class="anchored" data-anchor-id="omitted-variable-bias-and-ceteris-paribus"><span class="header-section-number">5.3.4</span> Omitted variable bias and ceteris paribus</h3>
 <p>From the Gauss-Markov theorem we know that if the OLS assumptions are fulfilled, the OLS estimator is (in the sense of smallest variance) the best linear conditionally unbiased estimator (BLUE). However, OLS estimates can suffer from omitted variable bias when any regressor, X, is correlated with any omitted variable that matters for variable Y.</p>
 <p>For omitted variable bias to occur, two conditions must be fulfilled:</p>
@@ -1013,22 +1015,26 @@ weight_i=\beta_0+\beta_1 calories_i+ \epsilon_i
 </div>
 </div>
 </div>
+<div class="no-row-height column-margin column-container"><div id="ref-Huntington-Klein2022Effect" class="csl-entry" role="listitem">
+Huntington-Klein, N. (2022). <em>The effect: An introduction to research design and causality</em>. Accessed January 30, 2023; CRC Press. <a href="https://theeffectbook.net">https://theeffectbook.net</a>
+</div></div></section>
 </section>
-</section>
-<section id="difference-in-difference" class="level2" data-number="5.4">
+<section id="difference-in-difference" class="level2 page-columns page-full" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="difference-in-difference"><span class="header-section-number">5.4</span> Difference in difference</h2>
-<div id="fig-dcard" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
+<div id="fig-dcard" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-dcard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5.8: David Card (*1956)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
 </figcaption>
-<div aria-describedby="fig-dcard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Source: <a href="https://davidcard.berkeley.edu/">https://davidcard.berkeley.edu/</a>.</p></div></div><div aria-describedby="fig-dcard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/dcard1.jpg" class="img-fluid figure-img" style="width:25.0%">
 </div>
 </figure>
 </div>
 <p>David Card is one of the most influential labor economist of the 20th century and Nobel laureate of 2021. He is well-known for his research on the effects of the minimum wage on employment, which challenged the traditional view that increasing the minimum wage leads to a decrease in employment. In his article <em>Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania</em> <span class="citation" data-cites="Card1994Minimum">(<a href="references.html#ref-Card1994Minimum" role="doc-biblioref">Card &amp; Krueger, 1994</a>)</span> he and Alan Krueger (1960-2019) used a <em>natural experiment</em> to examine the effect of an increase in the minimum wage on employment. In particular, they identified a treatment group (restaurants in New Jersey) and a control group (restaurants in eastern Pennsylvania) to measure the effect of increasing the minimum wage that was increased in New Jersey but not in Pennsylvania. This increase did not lead to a decrease in employment, which contradicted the widely held view that increasing the minimum wage would lead to job loss. The empirical method that they used is called <em>difference in difference</em> and we discuss it in the following section.</p>
-<p>The difference in difference (DiD) method allows to estimate the causal effect of a treatment or intervention. In particular, it is popular to study the impact of policy changes and other interventions on a specific outcome of interest.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Card1994Minimum" class="csl-entry" role="listitem">
+Card, D., &amp; Krueger, A. B. (1994). Minimum wages and employment: A case study of the fast-food industry in new jersey and pennsylvania. <em>The American Economic Review</em>, <em>84</em>(4), 772–793.
+</div></div><p>The difference in difference (DiD) method allows to estimate the causal effect of a treatment or intervention. In particular, it is popular to study the impact of policy changes and other interventions on a specific outcome of interest.</p>
 <p>The basic idea behind the DiD method is to compare the change in an outcome variable between a treatment group and a control group over time. The treatment group is the group that is exposed to the intervention or treatment, while the control group is a group that is not exposed to the intervention. The difference in the change in the outcome variable between the two groups is then used to estimate the causal effect of the intervention.</p>
 <p>To use the DiD method, researchers typically collect data on the outcome variable of interest for both the treatment and control groups before and after the intervention. This data is then used to calculate the difference in the change in the outcome variable between the two groups.</p>
 <p>For example, if a study aims to examine the effect of a new policy on the employment rate, it should collect data on the employment rate for a group of individuals living in a region where the policy was implemented, and for a group living in a similar region where the policy was not implemented. The study can then compare the change in the employment rate for the two groups, before and after the implementation of the policy. The difference in the change in the employment rate between the two groups can be used to estimate of the causal effect of the policy on employment.</p>
@@ -1136,24 +1142,9 @@ Figure&nbsp;5.11: Josh Angrist (*1960): Nobel Prize winner of economics in 2021
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
-<div id="ref-Card1994Minimum" class="csl-entry" role="listitem">
-Card, D., &amp; Krueger, A. B. (1994). Minimum wages and employment: A case study of the fast-food industry in new jersey and pennsylvania. <em>The American Economic Review</em>, <em>84</em>(4), 772–793.
-</div>
-<div id="ref-Hanck2020Introduction" class="csl-entry" role="listitem">
-Hanck, C., Arnold, M., Gerber, A., &amp; Schmelzer, M. (2020). <em>Introduction to econometrics with r</em> (Openbook). University of Duisburg-Essen.
-</div>
-<div id="ref-Huntington-Klein2022Effect" class="csl-entry" role="listitem">
-Huntington-Klein, N. (2022). <em>The effect: An introduction to research design and causality</em>. Accessed January 30, 2023; CRC Press. <a href="https://theeffectbook.net">https://theeffectbook.net</a>
-</div>
-</div>
+
 </section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Source: <a href="https://davidcard.berkeley.edu/">https://davidcard.berkeley.edu/</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
