@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Managerial Economics - 10&nbsp; Under constraints</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./cognitive.html" rel="next">
+<link href="./finance.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dmtheory.html">Decision making theory</a></li><li class="breadcrumb-item"><a href="./constraints.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Under constraints</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Managerial Economics</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="./Managerial-Economics.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./whatisme.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is managerial economics?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dmbasics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Decision making basics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Decision making theory</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dmtheory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Payoff table</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./certainty.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Certainty</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./uncertainty.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uncertainty</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./risk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Risk</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dmbayes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Conditional events</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./game.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Games</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./finance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./constraints.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Under constraints</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Decision making practice</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cognitive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Cognitive biases</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./micro_prelim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Microeconomic preliminaries</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./math_prelim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Mathematical preliminaries</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exams.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Past exams</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#consumption-and-production-choices" id="toc-consumption-and-production-choices" class="nav-link active" data-scroll-target="#consumption-and-production-choices"><span class="header-section-number">10.1</span> Consumption and production choices</a>
+  <ul class="collapse">
+  <li><a href="#the-role-of-income-and-budget" id="toc-the-role-of-income-and-budget" class="nav-link" data-scroll-target="#the-role-of-income-and-budget"><span class="header-section-number">10.1.1</span> The role of income and budget</a></li>
+  <li><a href="#the-role-of-prices" id="toc-the-role-of-prices" class="nav-link" data-scroll-target="#the-role-of-prices"><span class="header-section-number">10.1.2</span> The role of prices</a></li>
+  <li><a href="#substitution-and-income-effect" id="toc-substitution-and-income-effect" class="nav-link" data-scroll-target="#substitution-and-income-effect"><span class="header-section-number">10.1.3</span> Substitution and income effect</a></li>
+  <li><a href="#consumption-production-and-terms-of-trade" id="toc-consumption-production-and-terms-of-trade" class="nav-link" data-scroll-target="#consumption-production-and-terms-of-trade"><span class="header-section-number">10.1.4</span> Consumption, production, and terms of trade</a></li>
+  </ul></li>
+  <li><a href="#linear-programming" id="toc-linear-programming" class="nav-link" data-scroll-target="#linear-programming"><span class="header-section-number">10.2</span> Linear programming</a></li>
+  <li><a href="#lagrange-multiplier-method" id="toc-lagrange-multiplier-method" class="nav-link" data-scroll-target="#lagrange-multiplier-method"><span class="header-section-number">10.3</span> Lagrange multiplier method</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">10.4</span> Exercises</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./dmtheory.html">Decision making theory</a></li><li class="breadcrumb-item"><a href="./constraints.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Under constraints</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-constraints" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Under constraints</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Subjects such as consumers and producers often face decisions with specific goals while dealing with various constraints. This process is referred to as decision-making and optimization under constraints. Specifically, we encounter problems related to maximization or minimization within these constraints.</p>
+<p>For example, consumers may have a fixed budget to allocate among various items, or consumers have identified a specific basket of items they wish to purchase and now they seek to minimize the costs for that basket. The first is represents a maximization problem and the latter a minimization problem. Similarly, producers typically aim to maximize their profits given a limited amount of production factors, or they seek to minimize costs for a certain level of production.</p>
+<p>This section will explore how to approach these optimization problems rationally. We will revisit the concept of utility before discussing two mathematical techniques that can provide solutions: the Lagrangian Multiplier method and Linear Programming.</p>
+<section id="consumption-and-production-choices" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="consumption-and-production-choices"><span class="header-section-number">10.1</span> Consumption and production choices</h2>
+<p>In microeconomics, utility maximization (in its simplest form when having just two goods) involves selecting a combination of two goods that satisfies two essential conditions, see <a href="#fig-optimalconsumption" class="quarto-xref">Figure&nbsp;<span>10.1</span></a>:</p>
+<ol type="1">
+<li>The chosen point of utility maximization must fall within the attainable region defined by the Production Possibility Frontier (PPF) or be affordable within the constraints of a given budget.</li>
+<li>The selected point of utility maximization must lie on the highest indifference curve that is consistent with the first condition.</li>
+</ol>
+<div id="fig-optimalconsumption" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-optimalconsumption-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.1: Optimal consumption
+</figcaption>
+<div aria-describedby="fig-optimalconsumption-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/optimalconsumption.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="fig/optimalconsumption.png" class="img-fluid figure-img" style="width:50.0%"></a>
+</div>
+</figure>
+</div>
+<p>These conditions ensure that the consumer selects the optimal bundle of goods that maximizes their utility while taking into account the constraints imposed by production capabilities or budget limitations.</p>
+<p>By analyzing production possibilities and individual preferences, economists gain insights into how consumers make choices, allocate resources, and achieve utility maximization. Understanding these concepts helps economists explore the trade-offs and decision-making processes that influence consumer behavior and shape market dynamics.</p>
+<p>If you are not familiar with the basic principles of the production possibility frontier curve, indifference curves, and budget constraints, I recommend referring to <a href="micro_prelim.html" class="quarto-xref"><span>Appendix A</span></a> for a comprehensive overview. This section provides a detailed explanation and exploration of these concepts.</p>
+<section id="the-role-of-income-and-budget" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="the-role-of-income-and-budget"><span class="header-section-number">10.1.1</span> The role of income and budget</h3>
+<p>If income increases the budget constraint curve shifts outwards (to the right) as shown in <a href="#fig-incomechange" class="quarto-xref">Figure&nbsp;<span>10.2</span></a>.</p>
+<div id="fig-incomechange" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-incomechange-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.2: Impact of income change on consumption
+</figcaption>
+<div aria-describedby="fig-incomechange-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/incomechange.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="fig/incomechange.png" class="img-fluid figure-img" style="width:50.0%"></a>
+</div>
+</figure>
+</div>
+<p>The utility-maximizing choice on the original budget constraint is M. The dashed horizontal and vertical lines extending through point M allow you to see at a glance whether the quantity consumed of goods on the new budget constraint is higher or lower than on the original budget constraint. On the new budget constraint, a choice like N will be made if both goods are <em>normal goods</em>. If good <span class="math inline">\(x\)</span> is an <em>inferior good</em>, a choice like P will be made. If good <span class="math inline">\(y\)</span> is an <em>inferior good</em>, a choice like Q will be made.</p>
+</section>
+<section id="the-role-of-prices" class="level3" data-number="10.1.2">
+<h3 data-number="10.1.2" class="anchored" data-anchor-id="the-role-of-prices"><span class="header-section-number">10.1.2</span> The role of prices</h3>
+<p>If price of one good increases then the budget constraint curve. When the price rises, the budget constraint shifts in to the left for that good.</p>
+<div id="fig-pricechange" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-pricechange-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.3: Impact of price change on consumption
+</figcaption>
+<div aria-describedby="fig-pricechange-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/pricechange.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="fig/pricechange.png" class="img-fluid figure-img" style="width:50.0%"></a>
+</div>
+</figure>
+</div>
+<p>The dashed lines make it possible to see at a glance whether the new consumption choice involves less of both goods, or less of one good and more of the other. The new possible choices would be good <span class="math inline">\(x\)</span>’s and more good <span class="math inline">\(y\)</span>’s, like point H, or less of both goods, as at point J. Choice K would mean that the higher price of good <span class="math inline">\(x\)</span> led to exactly the same quantity of good <span class="math inline">\(x\)</span> being consumed, but fewer of good <span class="math inline">\(y\)</span>. Choices like L are theoretically possible (if good <span class="math inline">\(x\)</span> are giffen goods) but highly unlikely in the real world, because they would mean that a higher price for goods <span class="math inline">\(x\)</span> means a greater quantity consumed of good <span class="math inline">\(x\)</span>.</p>
+</section>
+<section id="substitution-and-income-effect" class="level3" data-number="10.1.3">
+<h3 data-number="10.1.3" class="anchored" data-anchor-id="substitution-and-income-effect"><span class="header-section-number">10.1.3</span> Substitution and income effect</h3>
+<p>When prices increase, individuals typically respond by reducing their consumption of the product with the higher price. This reaction is driven by two factors, both of which can occur simultaneously.</p>
+<div id="fig-hicksdecomp" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-hicksdecomp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.4: Impact of income change on consumption
+</figcaption>
+<div aria-describedby="fig-hicksdecomp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/hicksdecomp.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="fig/hicksdecomp.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+</figure>
+</div>
+<p>The <em>substitution effect</em> occurs when a price change incentivizes consumers to consume less of a good with a relatively higher price and more of a good with a relatively lower price.</p>
+<p>The <em>income effect</em> stems from the fact that a higher price effectively reduces the purchasing power of income (even if actual income remains the same). This reduction in purchasing power leads to a decrease in the consumption of the good, particularly when the good is considered normal.</p>
+<p><a href="#fig-hicksdecomp" class="quarto-xref">Figure&nbsp;<span>10.4</span></a> illustrates the Hicksian decomposition for a price reduction of good <span class="math inline">\(A\)</span>, which affects the consumption of goods <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, shifting the consumption point from <span class="math inline">\(C\)</span> to <span class="math inline">\(D\)</span>. The point <span class="math inline">\(C'\)</span> represents the hypothetical consumption point resulting from a rotated budget constraint that reflects the new price relationship.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-twopointsofconsumption" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.1</strong></span> The graphical foundations of demand curves</p>
+<p>A shift in the budget constraint means that when individuals are seeking their highest utility, the quantity that is demanded of that good will change. In this way, the logical foundations of demand curves—which show a connection between prices and quantity demanded—are based on the underlying idea of individuals seeking utility.</p>
+<p>In <a href="#fig-tpoc" class="quarto-xref">Figure&nbsp;<span>10.5</span></a>, two points of consumption are displayed, illustrating the optimal choices made by customers when faced with prices <span class="math inline">\(p_x^1&gt;p_x^2\)</span>. The objective of this exercise is to graphically derive the demand function for good <span class="math inline">\(x\)</span>. To accomplish this, please provide a second two-dimensional plot below the existing graph, with the price of good <span class="math inline">\(x\)</span>, <span class="math inline">\(p_x\)</span>, represented on the y-axis.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="fig-tpoc" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-tpoc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.5: Graphical derivation of the demand function
+</figcaption>
+<div aria-describedby="fig-tpoc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/twopointsofconsumption.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="fig/twopointsofconsumption.png" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+</figure>
+</div>
+</section>
+<section id="consumption-production-and-terms-of-trade" class="level3" data-number="10.1.4">
+<h3 data-number="10.1.4" class="anchored" data-anchor-id="consumption-production-and-terms-of-trade"><span class="header-section-number">10.1.4</span> Consumption, production, and terms of trade</h3>
+<p>Market prices in a closed economy: The price relation of two goods, the so-called terms of trade, is determined by the slope of the Production Possibility Frontier (PPF) at the point where it is tangent to the indifference curve. This relationship highlights the trade-off between the two goods and their relative scarcity within a closed economy.</p>
+<p>Utility maximizing production: The production point that maximizes utility is where the PPF is tangent to the price relation, that is, the <em>terms of trade</em>. This principle applies not only in a closed economy (autarky) but also under free trade (open economy). It implies that producers should allocate resources in a way that balances the trade-off between producing more of one good at the expense of another, while considering consumer preferences. <a href="#fig-optimalconsumption" class="quarto-xref">Figure&nbsp;<span>10.1</span></a> depicts this.</p>
+</section>
+</section>
+<section id="linear-programming" class="level2 page-columns page-full" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="linear-programming"><span class="header-section-number">10.2</span> Linear programming</h2>
+<p>Linear Programming is a common technique for decision making under certainty. It allows to express a desired benefit (such as profit) as a mathematical function of several variables. The solution is the set of values for the independent variables (decision variables) that serves to maximize the benefit or to minimize the negative outcome under consideration of certain limits, a.k.a. constraints. The method usually follows a four step procedure:</p>
+<ol type="1">
+<li>state the problem;</li>
+<li>state the decision variables;</li>
+<li>set up an objective function;</li>
+<li>clarify the constraints.</li>
+</ol>
+<p><strong>Example:</strong> Consider a factory producing two products, product X and product Y. The problem is this: If you can realize $10.00 profit per unit of product X and $14.00 per unit of product Y, what is the production level of x units of product X and y units of product Y that maximizes the profit P each day? Your production, and therefore your profit, is subject to resource limitations, or constraints. Assume in this example that you employ five workers—three machinists and two assemblers—and that each works only 40 hours a week.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;The example is taken from <span class="citation" data-cites="Morse2014Managing">Morse et al. (<a href="references.html#ref-Morse2014Managing" role="doc-biblioref">2014, p. 134f</a>)</span>.</p><div id="ref-Morse2014Managing" class="csl-entry" role="listitem">
+Morse, L. C., Babcock, D. L., &amp; Murthy, M. (2014). <em>Managing engineering and technology</em> (Sixth Edition). Pearson.
+</div></div></div><ul>
+<li>Product X requires three hours of machining and one hour of assembly per unit.</li>
+<li>Product Y requires two hours of machining and two hours of assembly per unit.</li>
+</ul>
+<ol type="1">
+<li><em>State the problem:</em> How many of product X and product Y to produce to maximize profit?</li>
+<li><em>Decision variables:</em> Suppose x denotes the number of product X to produce per day and y denotes number of product Y to produce per day</li>
+<li><em>Objective function:</em> Maximize <span class="math display">\[P = 10x + 14y\]</span></li>
+<li><em>Constraints:</em></li>
+</ol>
+<ul>
+<li>machine time=120h</li>
+<li>assembling time=80h</li>
+<li>hours needed for production of one good:</li>
+</ul>
+<p><em>machine time:</em> <span class="math inline">\(x\rightarrow 3h\)</span> and <span class="math inline">\(y \rightarrow 2h\)</span></p>
+<p><em>assembling time:</em> <span class="math inline">\(x\rightarrow 1h\)</span> and <span class="math inline">\(y \rightarrow 2h\)</span></p>
+<p>Thus, we get: <span class="math display">\[3x + 2y \leq 120 \quad \Leftrightarrow y\leq 60-\frac{3}{2}x \quad \text{(hours of machining time)}\]</span> <span class="math display">\[x + 2y \leq 80 \quad \Leftrightarrow y \leq 40-\frac{1}{2}x \quad \text{(hours of assembly time)}\]</span> Since there are only two products, these limitations can be shown on a two-dimensional graph <a href="#fig-lpe2" class="quarto-xref">Figure&nbsp;<span>10.6</span></a>. Since all relationships are linear, the solution to our problem will fall at one of the corners.</p>
+<div id="fig-lpe2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-lpe2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.6: Linear program example: Constraints and solution
+</figcaption>
+<div aria-describedby="fig-lpe2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/lpe2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="fig/lpe2.jpg" class="img-fluid figure-img" style="width:75.0%"></a>
+</div>
+</figure>
+</div>
+<p>To draw the isoprofit function in a plot with the good <span class="math inline">\(y\)</span> on the y-axis and good <span class="math inline">\(x\)</span> on the x-axis, we can re-arrange the objective function to get <span class="math display">\[y=\frac{1}{14}P-\frac{10}{14}x\]</span> To illustrate the function let us consider some arbitrarily chosen levels of profit in <a href="#fig-lpe" class="quarto-xref">Figure&nbsp;<span>10.7</span></a>:</p>
+<ul>
+<li>$350 by selling 35 units of X or 25 units of Y</li>
+<li>$700 by selling 70 units of X or 50 units of Y</li>
+<li>$620 by selling 62 units of X or 44.3 units of Y.</li>
+</ul>
+<div id="fig-lpe" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-lpe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.7: Linear program example: Isoprofit lines
+</figcaption>
+<div aria-describedby="fig-lpe-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/lpe.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="fig/lpe.jpg" class="img-fluid figure-img" style="width:75.0%"></a>
+</div>
+</figure>
+</div>
+<p>To find the solution, begin at some feasible solution (satisfying the given constraints) such as <span class="math inline">\((x,y) = (0,0)\)</span>, and proceed in the direction of <em>steepest ascent</em> of the profit function (in this case, by increasing production of Y at $14.00 profit per unit) until some constraint is reached. Since assembly hours are limited to 80, no more than 80/2, or 40, units of Y can be made, earning <span class="math inline">\(40 \cdot \$14.00\)</span>, or $560 profit. Then proceed along the steepest allowable ascent from there (along the assembly constraint line) until another constraint (machining hours) is reached. At that point, (x,y) = (20,30) and profit P = (20 * +10.00) + (30 * +14.00), or $620. Since there is no remaining edge along which profit increases, this is the optimum solution.</p>
+</section>
+<section id="lagrange-multiplier-method" class="level2 page-columns page-full" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="lagrange-multiplier-method"><span class="header-section-number">10.3</span> Lagrange multiplier method</h2>
+<p>The method outlined below requires an understanding of how to take derivatives of functions and solve systems of equations. If readers feel they need a refresher on these topics, I recommend consulting the lecture notes <a href="https://raw.githubusercontent.com/hubchev/courses/main/pdfs/cla_A4.pdf"><em>Calculus and Linear Algebra</em></a> from <span class="citation" data-cites="Huber2023Mathematics">Huber (<a href="references.html#ref-Huber2023Mathematics" role="doc-biblioref">2023</a>)</span>.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Huber2023Mathematics" class="csl-entry" role="listitem">
+Huber, S. (2023). <em>Mathematics and statistics <span>I</span>: Calculus and linear algebra (lecture notes)</em>. online. <a href="https://raw.githubusercontent.com/hubchev/courses/main/pdfs/cla_A4.pdf">https://raw.githubusercontent.com/hubchev/courses/main/pdfs/cla_A4.pdf</a>
+</div></div><div id="fig-Lagrange" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-Lagrange-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.8: Joseph-Louis Lagrange (1736-1813)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+</figcaption>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Picture is taken from http://www-history.mcs.st-and.ac.uk/history/PictDisplay/Lagrange.html</p></div></div><div aria-describedby="fig-Lagrange-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/Lagrange.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="fig/Lagrange.jpg" class="img-fluid figure-img" style="width:30.0%"></a>
+</div>
+</figure>
+</div>
+<p>The decision-making process of consumers and producers lies at the core of microeconomic research and is of significant importance for managers. I will not go into detail here, but I will show some examples of how to come to a decision when certain information is given.</p>
+<p>For a deeper understanding of the microeconomic preliminaries related to this topic, please read section <a href="micro_prelim.html" class="quarto-xref"><span>Appendix A</span></a> of the appendix.</p>
+<div id="fig-lagr2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-lagr2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.9: Contours of the function and the constraint in red
+</figcaption>
+<div aria-describedby="fig-lagr2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/lagr2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><img src="fig/lagr2.png" class="img-fluid figure-img" style="width:70.0%"></a>
+</div>
+</figure>
+</div>
+<p>The Lagrange multiplier method, named after Joseph-Louis Lagrange (see <a href="#fig-Lagrange" class="quarto-xref">Figure&nbsp;<span>10.8</span></a>), is a strategy for finding the local maxima and minima of a function subject to constraints. The red curve in <a href="#fig-lagr2" class="quarto-xref">Figure&nbsp;<span>10.9</span></a> represents the constraint <span class="math inline">\(g(x, y) = c\)</span>, while the blue curves depict contours of <span class="math inline">\(f(x, y)\)</span>. The point where the red constraint tangentially intersects a blue contour represents the maximum of <span class="math inline">\(f(x, y)\)</span> along the constraint, as <span class="math inline">\(d1 &gt; d2\)</span>.</p>
+<p>For a detailed visual explanation of the method, you can watch Dr.&nbsp;Trefor Bazett’s YouTube video on <a href="https://youtu.be/8mjcnxGMwFo">Lagrange Multipliers | Geometric Meaning &amp; Full Example</a>, see <a href="#fig-lagrange-yt" class="quarto-xref">Figure&nbsp;<span>10.10</span></a>.</p>
+<div id="fig-lagrange-yt" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-lagrange-yt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.10: Lagrange Multiplier graphically explained<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
+</figcaption>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;This is a snapshot of a YouTube clip, see: https://youtu.be/8mjcnxGMwFo</p></div></div><div aria-describedby="fig-lagrange-yt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/lagrange-yt.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><img src="fig/lagrange-yt.png" class="img-fluid figure-img" style="width:40.0%"></a>
+</div>
+</figure>
+</div>
+<p>The Lagrange multiplier method, named after Joseph-Louis Lagrange, is a powerful technique for solving optimization problems with constraints. It allows us to find the local maxima and minima of a function subject to certain conditions. The method involves four key steps:</p>
+<p><strong>Step 1: Formulate the Problem</strong></p>
+<p>Define the problem you want to solve in mathematical terms. This includes specifying the objective function to be maximized or minimized and the constraints that need to be satisfied.</p>
+<p>The problem that we want to solve can be written in the following way, <span class="math display">\[
+\begin{array}{ll}
+    \max _{x, y} &amp; F(x, y) \\
+    \text{ s.t. } &amp; g(x, y)=0
+\end{array}
+\]</span> where <span class="math inline">\(F(x, y)\)</span> is the function to be maximized and <span class="math inline">\(g(x, y)=0\)</span> is the constraint to be respected. Notice that <span class="math inline">\(\max _{x, y}\)</span> means that we must solve (maximize) with respect to <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
+<p><strong>Step 2: Construct the Lagrangian</strong></p>
+<p>Create a new function called the Lagrangian by combining the objective function and the constraints using Lagrange multipliers. The Lagrangian introduces new variables, known as Lagrange multipliers, to account for the constraints. The Lagrangian, <span class="math inline">\(\mathcal{L}\)</span>, is a combination of the functions that explain the problem: The <span class="math inline">\(\lambda\)</span> is called the <em>Lagrange Multiplier</em>. <span class="math display">\[
+\mathcal{L}(x, y, \lambda)=F(x, y)-\lambda g(x, y)
+\]</span></p>
+<p><strong>Step 3: Determine the First-Order Conditions</strong></p>
+<p>Differentiate the Lagrangian with respect to the variables of the problem (e.g., x and y) and the Lagrange multipliers. Set the partial derivatives equal to zero to obtain the first-order conditions. These conditions represent the necessary conditions for optimality.</p>
+<p>Differentiate <span class="math inline">\(\mathcal{L}\)</span> w.r.t. <span class="math inline">\(x, y,\)</span> and <span class="math inline">\(\lambda\)</span> and equate the partial derivatives to 0: <span class="math display">\[\begin{align*}
+    \frac{\partial \mathcal{L}(x, y, \lambda)}{\partial x}=0 &amp; \Leftrightarrow \frac{\partial F(x, y)}{\partial x}-\lambda \frac{\partial g(x, y)}{\partial x}=0 \\
+    \frac{\partial \mathcal{L}(x, y, \lambda)}{\partial y}=0 &amp; \Leftrightarrow \frac{\partial F(x, y)}{\partial y}-\lambda \frac{\partial g(x, y)}{\partial y}=0 \\
+    \frac{\partial \mathcal{L}(x, y, \lambda)}{\partial \lambda}=0 &amp; \Leftrightarrow g(x, y)=0
+\end{align*}\]</span></p>
+<p><strong>Step 4: Solve the System of Equations</strong></p>
+<p>Solve the system of equations obtained from the first-order conditions to find the values of the variables and Lagrange multipliers that satisfy the optimality conditions. The solutions represent the optimal quantities that maximize or minimize the objective function subject to the given constraints.</p>
+<p>By following these four steps, you can effectively apply the Lagrange multiplier method to various optimization problems with constraints. It provides a systematic approach to finding the optimal solutions while incorporating the necessary trade-offs imposed by the constraints.</p>
+</section>
+<section id="exercises" class="level2 page-columns page-full" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">10.4</span> Exercises</h2>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-burgerutility1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.2</strong></span> Burgers and drinks</p>
+<p>Suppose you are in a fast food restaurant and you want to buy burgers and some drinks. You have €12 to spend, a burger costs €3 and a drink costs €2.</p>
+<ol type="a">
+<li>Assume that you want to spend all your money and that you can only buy complete units of each products. What are the possible choices of consumption?</li>
+<li>Given your utility function <span class="math inline">\(U(x,y)=B^{0.6}D^{0.4}\)</span> calculate for each possible consumption point your overall utility. How will you decide?</li>
+<li>Assume that you want to spend all your money and that both products can be bought on a metric scale where one burger weights 200 grams and a drink is 200 ml. How much of both goods would you consume now? Hint: Use the Lagrangian multiplier method.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In <a href="#fig-burgerutility2" class="quarto-xref">Figure&nbsp;<span>10.11</span></a>, I marked all 19 possible bundles of burger and drinks of consumption. The budget constraint is shown by the solid line.</p>
+<div id="fig-burgerutility2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-burgerutility2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.11: Possible consumption choices
+</figcaption>
+<div aria-describedby="fig-burgerutility2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/burgerutility.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><img src="fig/burgerutility.png" class="img-fluid figure-img" style="width:50.0%"></a>
+</div>
+</figure>
+</div>
+<ul>
+<li>We now should calculate the utility of all 19 points, but only the red dots denote choices that may yield an optimal utility. The best utility is achieved when we buy 2 burgers and 3 drinks:</li>
+</ul>
+<p><span class="math display">\[U=2^{0.6}3^{0.4}=2.35\]</span></p>
+<ul>
+<li>Solve:</li>
+</ul>
+<p><span class="math display">\[
+\mathcal{L}=B^{0.6}D^{0.4}+\lambda(3B+2D-12)
+\]</span></p>
+<p>FOC: <span class="math display">\[\begin{align*}
+3B+2D-12&amp;=0\\
+0.6B^{-0.4}D^{0.4}+3\lambda&amp;=0\\
+0.4B^{0.6}D^{-0.6}+2\lambda&amp;=0
+\end{align*}\]</span></p>
+<p>Solving the second and third FOC for <span class="math inline">\(\lambda\)</span> and substituting <span class="math inline">\(\lambda\)</span> gives:</p>
+<p><span class="math display">\[B=D\]</span></p>
+<p>which we can plug into the first FOC to obtain:</p>
+<p><span class="math display">\[B^*=2.4 \quad \text{and} \quad D^*=2.4\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Also see: http://www.sfu.ca/~wainwrig/5701/notes-lagrange.pdf</p></div></div><div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-lama" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.3</strong></span> Labor and machines</p>
+<p>Suppose you rent a factory for a month to produce as many masks as possible. After you have paid the rent, you need to decide how many machines to buy and how many workers to hire for the given month.</p>
+<p>What is the optimal amount of workers and machines to employ for the given month, if you assume the following:</p>
+<ul>
+<li><span class="math inline">\(L\)</span> denotes the number of workers</li>
+<li><span class="math inline">\(K\)</span> denotes the number of machines</li>
+<li><span class="math inline">\(Q\)</span> denotes the number of masks produced</li>
+<li><span class="math inline">\(p_L\)</span> denotes the price of a worker for a month</li>
+<li><span class="math inline">\(p_K\)</span> denotes the price of a machine for a month</li>
+<li><span class="math inline">\(B\)</span> denotes the money you can invest in the production of masks for the next month</li>
+<li><span class="math inline">\(B = 216\)</span></li>
+<li>The production of masks can be explained by the following Cobb-Douglas production function: <span class="math inline">\(Q = K^{0.4}L^{0.6}\)</span></li>
+<li><span class="math inline">\(p_L = 2\)</span></li>
+<li><span class="math inline">\(p_K = 8\)</span></li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Set up Lagrangian: <span class="math display">\[\mathcal{L} = K^{0.4}L^{0.6} - 216\lambda + 2\lambda L + 8\lambda K\]</span><br>
+</li>
+<li>FOC: <span class="math display">\[\begin{align*}
+   0 &amp;= 0.4K^{-0.6}L^{0.6} - 8\lambda \quad (*) \\
+   0 &amp;= 0.6K^{0.4}L^{-0.4} - 2\lambda \quad (**) \\
+   0 &amp;= 216 - 2L - 8K \quad (***) \\
+\end{align*}\]</span></li>
+<li>Solving (*) and (**) for <span class="math inline">\(\lambda\)</span> and substituting <span class="math inline">\(\lambda\)</span> gives us: <span class="math display">\[\frac{1}{6}L = K \quad (****)\]</span></li>
+<li>Plugging (****) into (***) yields: <span class="math display">\[0 = 216 - 2L - 8\cdot\left(\frac{1}{6}L\right) \Rightarrow L = 64\frac{4}{5}\]</span></li>
+<li>Using that result in (***) again, we get: <span class="math display">\[216 - 2\cdot 64\frac{4}{5} + 8K \Rightarrow K = 10\frac{4}{5}\]</span></li>
+</ol>
+<p>Thus, the optimal combination of inputs is <span class="math inline">\(L = 64\frac{4}{5}\)</span> and <span class="math inline">\(K = 10\frac{4}{5}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-cchoice" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.4</strong></span> Consumption choice</p>
+<p>Suppose you want to spend your complete budget of €30, <span class="math display">\[I=30,\]</span> on the consumption of two goods, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Further assume good <span class="math inline">\(A\)</span> costs €6, <span class="math display">\[p_A=6,\]</span> and good <span class="math inline">\(B\)</span> costs €4, <span class="math display">\[p_B=4\]</span> and that you want to maximize your utility that stems from consuming the two goods. Calculate how much of both goods to buy and consume, respectively, when your utility function is given as <span class="math display">\[U(A,B)=A^{0.8}B^{0.2}\]</span></p>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\begin{align*}
+\mathcal{L}&amp;=A^{0.8}B^{0.2}+\lambda(6A+4B-30)\\
+FOC: \frac{\partial \mathcal{L}}{\partial \lambda}&amp;=6A+4B-30=0 \qquad (*)\\
+\frac{\partial \mathcal{L}}{\partial A}&amp;=0.8A^{-0.2}B^{0.2}+6\lambda=0 \qquad (**)\\
+\frac{\partial \mathcal{L}}{\partial B}&amp;=0.2A^{0.8}B^{-0.8}+4\lambda=0 \qquad (***)
+\end{align*}\]</span> System of 3 equation with 3 unknowns can be solved in various ways. The easiest way is to solve (<strong>) and (</strong>*) for <span class="math inline">\(\lambda\)</span> and substitute it out:</p>
+<ul>
+<li>solve for <span class="math inline">\(\lambda\)</span> <span class="math display">\[\begin{align*}
+  -\frac{2}{15} A^{-0.2}B^{0.2}&amp;=\lambda \qquad (**')\\
+      -\frac{1}{20} A^{0.8}B^{-0.8}&amp;=\lambda \qquad (***')\\
+\end{align*}\]</span></li>
+<li>set both equations equal by substituting <span class="math inline">\(\lambda\)</span> and solve for <span class="math inline">\(B\)</span> <span class="math display">\[\begin{align*}
+  \frac{2}{15} A^{-0.2}B^{0.2}&amp;=  \frac{1}{20} A^{0.8}B^{-0.8}\\
+  B&amp;=0.375A \qquad (****) %\\
+\end{align*}\]</span></li>
+<li>Now, plug in <span class="math inline">\((****)\)</span> into <span class="math inline">\((*)\)</span> to get a number for <span class="math inline">\(A\)</span> <span class="math display">\[\begin{align*}
+  30&amp;=6A+4\cdot 0.375 A\\
+  \Leftrightarrow 30&amp;=7.5A\\
+  \Leftrightarrow A&amp;=4
+\end{align*}\]</span></li>
+<li>Use <span class="math inline">\(A=4\)</span> in <span class="math inline">\((*)\)</span> to get a number for <span class="math inline">\(B\)</span> <span class="math display">\[\begin{align*}
+  30&amp;=6\cdot 4+4 B\\
+  \Leftrightarrow 6&amp;=4B\\
+  B&amp;=\frac{6}{4}=1.5
+\end{align*}\]</span></li>
+</ul>
+<p>Thus, we’d consume 4 units of good A and 1.5 of good B.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-costmin" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.5</strong></span> Cost-minimizing combination of factors</p>
+<p>Using two input factors <span class="math inline">\(r_1\)</span> and <span class="math inline">\(r_2\)</span>, a firm wants to produces a fixed quantity of a product, that is <span class="math inline">\(x=20\)</span>. Given the production function <span class="math display">\[
+    x=\frac{5}{4} r_1^{\frac{1}{2}} r_2^{\frac{1}{2}}
+    \]</span> and the factor prices <span class="math display">\[
+    p_{r_1}=1 \quad \text{ and } p_{r_2}=4.
+    \]</span> calculate the cost-minimizing combination of factors (<span class="math inline">\(r_1, r_2\)</span>).</p>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\mathcal{L}=r_1+4r_2+\lambda\left(\frac{5}{4}r_1^{\frac{1}{2}}r_2^{\frac{1}{2}}-20\right)
+\]</span> Taking the FOC we get <span class="math display">\[r_1=4r_2\]</span> using that in the constraint, we get <span class="math inline">\(r_1=32\)</span> and <span class="math inline">\(r_2=8\)</span>.</p>
+<p>Also see which uses this tool: </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-lagrcons" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.6</strong></span> Lagrange with n-constraints</p>
+<p>Write down the Lagrangian multiplier for the following minimization problem:</p>
+<p>Minimize <span class="math inline">\(f(\mathbf{x})\)</span> subject to: <span class="math display">\[\begin{aligned}
+    g_1(\mathbf{x})&amp;=0 \\
+    g_2(\mathbf{x})&amp;=0\\
+    &amp;\vdots\\
+    g_n(\mathbf{x})&amp;=0,\end{aligned}\]</span> where <span class="math inline">\(n\)</span> denotes the number of constraints.</p>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\mathcal{L}(x_1, \dots, x_m, \lambda_i, \dots, \lambda_n)=f(\mathbf{x})+\lambda_1 g_1(\mathbf{x})+\lambda_2 g_2(\mathbf{x})+\ldots+\lambda_n g_n(\mathbf{x})
+\]</span> The points of local minimum would be the solution of the following equations: <span class="math display">\[\begin{align*}
+    \frac{\partial \mathcal{L}}{\partial x_{j}} &amp;=0 \quad \forall j=1 \dots m \\
+    g_i(\mathbf{x}) &amp;=0 \quad \forall i=1\dots n
+\end{align*}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-derofdemand" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.7</strong></span> Derivation of demand function using the Lagranian multiplier</p>
+<p>A representative consumer has on average the following utility function: <span class="math inline">\(U=x y,\)</span> and faces a budget constraint of <span class="math inline">\(B=P_{x} x+P_{y} y,\)</span> where <span class="math inline">\(B, P_{x}\)</span> and <span class="math inline">\(P_{y}\)</span> are the budget and prices, which are given. Solve the following choice problem:</p>
+<p>Maximize <span class="math inline">\(U=x y\)</span> s.t. <span class="math inline">\(B=P_{x} x+P_{y} y\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Lagrangian for this problem is <span class="math display">\[
+  Z=x y+\lambda\left(P_{x} x+P_{y} y-B\right)
+\]</span> The first order conditions are <span class="math display">\[
+\begin{array}{l}
+Z_{x}=y+\lambda P_{x}=0 \\
+Z_{y}=x+\lambda P_{y}=0 \\
+Z_{\lambda}=-B+P_{x} x+P_{y} y=0
+\end{array}
+\]</span></p>
+<p>Solving the first order conditions yield the following solutions</p>
+<p><span class="math display">\[
+  x^{M}=\frac{B}{2 P_{x}} \quad y^{M}=\frac{B}{2 P_{y}} \quad \lambda=\frac{B}{2 P_{x} P_{y}}
+\]</span> where <span class="math inline">\(x^{M}\)</span> and <span class="math inline">\(y^{M}\)</span> are the consumer’s demand functions.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-cdanddemand" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.8</strong></span> Cobb-Douglas and demand</p>
+<p>A consumer who has a Cobb-Douglas utility function <span class="math inline">\(u(x, y)=A x^{\alpha} y^{\beta}\)</span> faces the budget constraint <span class="math inline">\(p x+q y=I\)</span>, where <span class="math inline">\(A, \alpha, \beta, p,\)</span> and <span class="math inline">\(q\)</span> are positive constants. Solve the problem:</p>
+<p><span class="math display">\[
+\begin{array}{lll}
+\max A x^{\alpha} y^{\beta} &amp; \text { subject to } &amp; p x+q y=I
+\end{array}
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Lagrangian is <span class="math display">\[
+\mathcal{L}(x, y)=A x^{\alpha} y^{\beta}+\lambda(p x+q y-I)
+\]</span></p>
+<p>Therefore, the first-order conditions are <span class="math display">\[
+    \begin{aligned}
+        \mathcal{L}_{x}^{\prime}(x, y)=A \alpha x^{\alpha-1} y^{\beta}+\lambda p &amp;=0 \qquad (*)\\
+        \mathcal{L}_{y}^{\prime}(x, y)=A x^{\alpha} \beta y^{\beta-1}+\lambda q &amp;=0  \qquad (**)\\
+        p x+q y-I &amp;=0  \qquad (***)
+    \end{aligned}
+\]</span></p>
+<p>Solving <span class="math inline">\((*)\)</span> and <span class="math inline">\((**)\)</span> for <span class="math inline">\(\lambda\)</span> yields <span class="math display">\[
+\lambda=\frac{A \alpha x^{\alpha-1} y^{\beta-1} y}{p}=\frac{A x^{\alpha-1} x \beta y^{\beta-1}}{q}
+\]</span> Canceling the common factor <span class="math inline">\(A x^{\alpha-1} y^{\beta-1}\)</span> from the last two fractions gives <span class="math display">\[
+    \frac{\alpha y}{p}=\frac{x \beta}{q}
+\]</span> and therefore <span class="math display">\[
+q y=p x \frac{\beta}{\alpha}
+\]</span> Inserting this result in <span class="math inline">\((***)\)</span> yields <span class="math display">\[
+p x+p x \frac{\beta}{\alpha}=I
+\]</span> Rearranging gives <span class="math display">\[
+p x\left(\frac{\alpha+\beta}{\alpha}\right)=I
+\]</span> Solving for <span class="math inline">\(x\)</span> yields the following <em>demand function</em> <span class="math display">\[
+x=\frac{\alpha}{\alpha+\beta} \frac{I}{p}
+\]</span> Inserting <span class="math display">\[
+p x=q y \frac{\alpha}{\beta}
+\]</span> in <span class="math inline">\((***)\)</span> gives <span class="math display">\[
+q y \frac{\partial}{\beta}+q y=I
+\]</span> and therefore the _demand function} <span class="math display">\[
+y=\frac{\beta}{\alpha+\beta}  \frac{I}{q}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-Uic" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.9</strong></span> Understanding indifference curves and budget constraints</p>
+<ol type="a">
+<li>Which indifference curve in the figure on the right represents the highest utility level? Explain your decision.</li>
+<li>Suppose two goods are perfect substitutes. Two goods are substitutes if they can be used for the same purpose or provide the same utility to the consumer. Draw the indifference curves for perfect substitutes.</li>
+<li>Suppose two goods are perfect complements. Two goods are complements if they go well together and the demand for one good is related to the demand for another good. A perfect complement is a good that must be consumed together with another good. Draw the indifference curves for perfect complements.</li>
+<li>Suppose you have a fixed income <span class="math inline">\(I=10\)</span> that you can spend on consuming two goods <span class="math inline">\(x, y\)</span> at certain prices <span class="math inline">\(p_x=1, p_y=1\)</span>. Draw the budget line consisting of all possible combinations of two goods that a consumer can buy at certain market prices by allocating his income. Using indifference curves, sketch what each consumer should consume to maximize utility.</li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><span class="math inline">\(IC_3\)</span> represents the highest level of utility. <span class="math inline">\(IC_1\)</span> represents the lowest level of utility.<br>
+</li>
+<li>Task solved in class.</li>
+<li>Task solved in class.</li>
+<li>The budget line can be sketched into a y-x plot by solving <span class="math inline">\(p_xx+p_yy=I\)</span> for y: <span class="math display">\[y=\frac{I}{p_y}-\frac{p_x}{p_y}x\]</span></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-Umax" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 10.10</strong></span> Utility maximization</p>
+<div id="fig-utilmax" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-utilmax-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;10.12: Utility maximization
+</figcaption>
+<div aria-describedby="fig-utilmax-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="fig/utility-max.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-12" data-glightbox="description: .lightbox-desc-12"><img src="fig/utility-max.jpg" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p><em>Source: This graph is taken from <span class="citation" data-cites="Emerson2020Intermediate">Emerson (<a href="references.html#ref-Emerson2020Intermediate" role="doc-biblioref">2019</a>, ch.&nbsp;4)</span></em></p>
+</div>
+</figure>
+</div>
+<p><a href="#fig-utilmax" class="quarto-xref">Figure&nbsp;<span>10.12</span></a> stems from <span class="citation" data-cites="Emerson2020Intermediate">Emerson (<a href="references.html#ref-Emerson2020Intermediate" role="doc-biblioref">2019</a>, ch.&nbsp;4)</span>. Use the following sentences to describe the respective points in the figure.</p>
+<ul>
+<li>Optimal bundle.</li>
+<li>Can do better by trading some B for some A.</li>
+<li>Can do better by trading some B for some A.</li>
+<li>Unaffordable.</li>
+</ul>
+<p>Please find solutions to the exercise in <span class="citation" data-cites="Emerson2020Intermediate">Emerson (<a href="references.html#ref-Emerson2020Intermediate" role="doc-biblioref">2019</a>, ch.&nbsp;4)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="no-row-height column-margin column-container"><div id="ref-Emerson2020Intermediate" class="csl-entry" role="listitem">
+Emerson, P. M. (2019). <em>Intermediate microeconomics</em> (O. S. University, Ed.; 1st edition). Open Educational Resources. <a href="https://open.oregonstate.education/intermediatemicroeconomics">https://open.oregonstate.education/intermediatemicroeconomics</a>
+</div></div><div class="no-row-height column-margin column-container"></div><div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;Picture is taken from http://www-history.mcs.st-and.ac.uk/history/PictDisplay/Lagrange.html</p></div><div id="fn6"><p><sup>6</sup>&nbsp;This is a snapshot of a YouTube clip, see: https://youtu.be/8mjcnxGMwFo</p></div></div><div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;10.1: Optimal consumption</span>
+<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;10.2: Impact of income change on consumption</span>
+<span class="glightbox-desc lightbox-desc-3">Figure&nbsp;10.3: Impact of price change on consumption</span>
+<span class="glightbox-desc lightbox-desc-4">Figure&nbsp;10.4: Impact of income change on consumption</span>
+<span class="glightbox-desc lightbox-desc-5">Figure&nbsp;10.5: Graphical derivation of the demand function</span>
+<span class="glightbox-desc lightbox-desc-6">Figure&nbsp;10.6: Linear program example: Constraints and solution</span>
+<span class="glightbox-desc lightbox-desc-7">Figure&nbsp;10.7: Linear program example: Isoprofit lines</span>
+<span class="glightbox-desc lightbox-desc-8">Figure&nbsp;10.8: Joseph-Louis Lagrange (1736-1813)<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></span>
+<span class="glightbox-desc lightbox-desc-9">Figure&nbsp;10.9: Contours of the function and the constraint in red</span>
+<span class="glightbox-desc lightbox-desc-10">Figure&nbsp;10.10: Lagrange Multiplier graphically explained<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></span>
+<span class="glightbox-desc lightbox-desc-11">Figure&nbsp;10.11: Possible consumption choices</span>
+<span class="glightbox-desc lightbox-desc-12">Figure&nbsp;10.12: Utility maximization</span>
+</div>
+
+</section>
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./finance.html" class="pagination-link" aria-label="Finance">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Finance</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./cognitive.html" class="pagination-link" aria-label="Cognitive biases">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Cognitive biases</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>
