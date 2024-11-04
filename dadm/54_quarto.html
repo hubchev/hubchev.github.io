@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Analysis for Decision-Making - 6&nbsp; Markdown, Quarto, and R Markdown</title>
+<title>Data Analysis for Decision-Making - 8&nbsp; Markdown, Quarto, and R Markdown</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -140,7 +140,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./54_quarto.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Markdown, Quarto, and R Markdown</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./54_quarto.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Markdown, Quarto, and R Markdown</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -212,26 +212,38 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./quantitative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Quantitative research design</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./decision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Decision-making</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./htur4ds.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">How to use R for data science</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">How to use R for data science</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./git-github.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Collaborating with Git and GitHub</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Collaborating with Git and GitHub</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./54_quarto.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Markdown, Quarto, and R Markdown</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Markdown, Quarto, and R Markdown</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./website.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Create and host a website</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Create and host a website</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -267,19 +279,19 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-markdown-and-quarto" id="toc-why-markdown-and-quarto" class="nav-link active" data-scroll-target="#why-markdown-and-quarto"><span class="header-section-number">6.1</span> Why Markdown and Quarto?</a>
+  <li><a href="#why-markdown-and-quarto" id="toc-why-markdown-and-quarto" class="nav-link active" data-scroll-target="#why-markdown-and-quarto"><span class="header-section-number">8.1</span> Why Markdown and Quarto?</a>
   <ul class="collapse">
-  <li><a href="#no-code-vs.-code-based-writing-applications" id="toc-no-code-vs.-code-based-writing-applications" class="nav-link" data-scroll-target="#no-code-vs.-code-based-writing-applications"><span class="header-section-number">6.1.1</span> No-code vs.&nbsp;code-based writing applications</a></li>
-  <li><a href="#typical-misusage-of-wysiwyg-applications" id="toc-typical-misusage-of-wysiwyg-applications" class="nav-link" data-scroll-target="#typical-misusage-of-wysiwyg-applications"><span class="header-section-number">6.1.2</span> Typical (mis)usage of WYSIWYG applications</a></li>
-  <li><a href="#advantages-of-quarto-for-writing-text" id="toc-advantages-of-quarto-for-writing-text" class="nav-link" data-scroll-target="#advantages-of-quarto-for-writing-text"><span class="header-section-number">6.1.3</span> Advantages of Quarto for writing text</a></li>
+  <li><a href="#no-code-vs.-code-based-writing-applications" id="toc-no-code-vs.-code-based-writing-applications" class="nav-link" data-scroll-target="#no-code-vs.-code-based-writing-applications"><span class="header-section-number">8.1.1</span> No-code vs.&nbsp;code-based writing applications</a></li>
+  <li><a href="#typical-misusage-of-wysiwyg-applications" id="toc-typical-misusage-of-wysiwyg-applications" class="nav-link" data-scroll-target="#typical-misusage-of-wysiwyg-applications"><span class="header-section-number">8.1.2</span> Typical (mis)usage of WYSIWYG applications</a></li>
+  <li><a href="#advantages-of-quarto-for-writing-text" id="toc-advantages-of-quarto-for-writing-text" class="nav-link" data-scroll-target="#advantages-of-quarto-for-writing-text"><span class="header-section-number">8.1.3</span> Advantages of Quarto for writing text</a></li>
   </ul></li>
-  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown"><span class="header-section-number">6.2</span> Markdown</a></li>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto"><span class="header-section-number">6.3</span> Quarto</a>
+  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown"><span class="header-section-number">8.2</span> Markdown</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto"><span class="header-section-number">8.3</span> Quarto</a>
   <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">6.3.1</span> Introduction</a></li>
-  <li><a href="#create-an-apa-compliant-manuscript-using-quarto" id="toc-create-an-apa-compliant-manuscript-using-quarto" class="nav-link" data-scroll-target="#create-an-apa-compliant-manuscript-using-quarto"><span class="header-section-number">6.3.2</span> Create an APA compliant manuscript using Quarto</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">8.3.1</span> Introduction</a></li>
+  <li><a href="#create-an-apa-compliant-manuscript-using-quarto" id="toc-create-an-apa-compliant-manuscript-using-quarto" class="nav-link" data-scroll-target="#create-an-apa-compliant-manuscript-using-quarto"><span class="header-section-number">8.3.2</span> Create an APA compliant manuscript using Quarto</a></li>
   </ul></li>
-  <li><a href="#sec-rmdchapter" id="toc-sec-rmdchapter" class="nav-link" data-scroll-target="#sec-rmdchapter"><span class="header-section-number">6.4</span> R Markdown</a></li>
+  <li><a href="#sec-rmdchapter" id="toc-sec-rmdchapter" class="nav-link" data-scroll-target="#sec-rmdchapter"><span class="header-section-number">8.4</span> R Markdown</a></li>
   </ul>
 </nav>
     </div>
@@ -288,7 +300,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-quarto" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Markdown, Quarto, and R Markdown</span></span></h1>
+<h1 class="title"><span id="sec-quarto" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Markdown, Quarto, and R Markdown</span></span></h1>
 </div>
 
 
@@ -330,27 +342,27 @@ Quarto and R Markdown
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Quarto is a relatively new tool and can be considered as a successor to R Markdown. Most R Markdown documents are compatible with Quarto. However, Quarto offers some improved functionality over R Markdown, which enhances user-friendliness. A detailed overview of the differences and similarities between the two can be found in <a href="https://quarto.org/docs/faq/rmarkdown.html">this article</a>. For an introduction to R Markdown see <a href="#sec-rmdchapter" class="quarto-xref"><span>Section 6.4</span></a>.</p>
+<p>Quarto is a relatively new tool and can be considered as a successor to R Markdown. Most R Markdown documents are compatible with Quarto. However, Quarto offers some improved functionality over R Markdown, which enhances user-friendliness. A detailed overview of the differences and similarities between the two can be found in <a href="https://quarto.org/docs/faq/rmarkdown.html">this article</a>. For an introduction to R Markdown see <a href="#sec-rmdchapter" class="quarto-xref"><span>Section 8.4</span></a>.</p>
 </div>
 </div>
-<section id="why-markdown-and-quarto" class="level2 page-columns page-full" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="why-markdown-and-quarto"><span class="header-section-number">6.1</span> Why Markdown and Quarto?</h2>
-<section id="no-code-vs.-code-based-writing-applications" class="level3" data-number="6.1.1">
-<h3 data-number="6.1.1" class="anchored" data-anchor-id="no-code-vs.-code-based-writing-applications"><span class="header-section-number">6.1.1</span> No-code vs.&nbsp;code-based writing applications</h3>
+<section id="why-markdown-and-quarto" class="level2 page-columns page-full" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="why-markdown-and-quarto"><span class="header-section-number">8.1</span> Why Markdown and Quarto?</h2>
+<section id="no-code-vs.-code-based-writing-applications" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="no-code-vs.-code-based-writing-applications"><span class="header-section-number">8.1.1</span> No-code vs.&nbsp;code-based writing applications</h3>
 <p>Students often use Microsoft Word, Apple Pages, or LibreOffice to write scientific texts. These word processing programs operate on the “What You See Is What You Get” (WYSIWYG) principle, displaying the document layout as you type. While this principle and its corresponding applications are widespread and may seem indispensable to many, this is far from true. Alternatives such as LaTeX, Markdown, R Markdown, and Quarto offer significant advantages. Many professional scientists and publishers prefer these alternatives for good reason. A large number of doctoral theses and scientific papers are authored using LaTeX, and nearly all publishers and editors work with code-based solutions that do not follow the WYSIWYG principle.</p>
 <p>With code-based alternatives, layout specifications are either placed at the beginning of the text or embedded within the main text itself. The final document is only visible after converting (also called compiling or rendering) it into a format such as PDF. This may initially seem unusual and less intuitive than a WYSIWYG interface, but the most intuitive solution is not necessarily the best or simplest. My experience supervising numerous student papers has shown that the intuitive features of MS Word and Pages often become time-consuming over the medium to long term and fail to adequately support users in avoiding errors when writing scientific work. Students who choose code-based applications tend to experience less frustration and greater success—at least, this has been true for the papers I have supervised.</p>
 <p>Code-based applications allow writers to focus on the actual writing process, as formatting and adherence to citation rules are largely automated by the software. The necessary initial investment in learning a tool like Quarto quickly pays off, resulting in noticeable improvements in the quality of scientific texts.</p>
 <p>In the following subsections, I will first outline typical usage of WYSIWYG applications, then discuss the advantages of code-based text creation using Quarto as an example, and finally explain how to successfully write texts using Quarto.</p>
 </section>
-<section id="typical-misusage-of-wysiwyg-applications" class="level3" data-number="6.1.2">
-<h3 data-number="6.1.2" class="anchored" data-anchor-id="typical-misusage-of-wysiwyg-applications"><span class="header-section-number">6.1.2</span> Typical (mis)usage of WYSIWYG applications</h3>
+<section id="typical-misusage-of-wysiwyg-applications" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="typical-misusage-of-wysiwyg-applications"><span class="header-section-number">8.1.2</span> Typical (mis)usage of WYSIWYG applications</h3>
 <p>The use of traditional word processing software like Microsoft Word or Apple Pages for writing academic papers is pervasive among students. While these programs are user-friendly for everyday writing projects, they create a significant additional workload to meet the demands of academic work.</p>
 <p>One of the first problems is integrating literature. Correct formatting according to various citation guidelines is often counter-intuitive, and errors occur easily. This is particularly true if the citation and bibliography functions provided by the software are not used or are used incorrectly. Instead of utilizing external citation managers and investing time to learn how to use them, many students manually create citations and bibliographies, which typically leads to numerous small and sometimes larger errors that could be avoided.</p>
 <p>Another weak point in student work is adherence to specific formatting requirements. Academic institutions and journals often require strict adherence to formatting guidelines, including the design of title pages, headers and footers, page margins, and heading hierarchies. Although Word and Pages offer templates and styles, they must be individually adapted for each document and often modified due to minor text changes. Making a format adjustment can become a major effort.</p>
 <p>The inclusion of empirical results such as statistical data and graphics presents an additional hurdle. With Word and Pages, the process is frequently manual: research data must be exported from statistical software, saved as images, and then embedded in the document. If the data changes, this time-consuming process must be repeated, significantly increasing the workload and risk of errors.</p>
 </section>
-<section id="advantages-of-quarto-for-writing-text" class="level3 page-columns page-full" data-number="6.1.3">
-<h3 data-number="6.1.3" class="anchored" data-anchor-id="advantages-of-quarto-for-writing-text"><span class="header-section-number">6.1.3</span> Advantages of Quarto for writing text</h3>
+<section id="advantages-of-quarto-for-writing-text" class="level3 page-columns page-full" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="advantages-of-quarto-for-writing-text"><span class="header-section-number">8.1.3</span> Advantages of Quarto for writing text</h3>
 <p>Writing academic texts using traditional tools such as MS Word or Pages can be time-consuming and error-prone for students. In the following section, I introduce Quarto (or R Markdown), a modern alternative that offers several advantages:</p>
 <ul>
 <li><strong>Versatile output formats:</strong> Quarto makes it effortless to generate different output formats. The same text can be rendered as a website (HTML), manuscript (PDF, DOCX), book (EPUB, PDF), or slides (PDF). This flexibility allows you to focus more on the content than the format.</li>
@@ -380,13 +392,13 @@ Gandrud, C. (2020). <em>Reproducible research with r and r studio</em> (3rd ed.)
 Bauer, P. C., &amp; Landesvatter, C. (2023). <em>Writing a reproducible paper with RStudio and quarto</em>. <a href="https://doi.org/10.31219/osf.io/ur4xn">https://doi.org/10.31219/osf.io/ur4xn</a>
 </div></div></section>
 </section>
-<section id="markdown" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="markdown"><span class="header-section-number">6.2</span> Markdown</h2>
+<section id="markdown" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="markdown"><span class="header-section-number">8.2</span> Markdown</h2>
 <p>Markdown is a lightweight markup language with plain-text formatting syntax. It is very popular because it is easy to learn. It’s an essential skill for using Quarto effectively. Start by learning enough Markdown to structure your thesis, including headings, lists, links, and code blocks.</p>
 <p>You can learn Markdown (not R Markdown!) in 10 minutes. Just go to <a href="https://www.markdowntutorial.com">www.markdowntutorial.com</a> and work through the interactive lessons. I also recommend the introduction offered in the section <a href="https://quarto.org/docs/authoring/markdown-basics.html">Markdown Basics</a> on <a href="https://quarto.org/docs/authoring/markdown-basics.html">quarto.org</a>.</p>
 </section>
-<section id="quarto" class="level2 page-columns page-full" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="quarto"><span class="header-section-number">6.3</span> Quarto</h2>
+<section id="quarto" class="level2 page-columns page-full" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="quarto"><span class="header-section-number">8.3</span> Quarto</h2>
 <div class="callout callout-style-default callout-tip callout-titled" title="Recommended literature">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -403,8 +415,8 @@ Recommended literature
 </div>
 <div class="no-row-height column-margin column-container"><div id="ref-Telford2023Markdown" class="csl-entry" role="listitem">
 Telford, R. J. (2024). <em>Enough markdown to write a thesis</em>. <a href="https://biostats-r.github.io/biostats/quarto/">https://biostats-r.github.io/biostats/quarto/</a>
-</div></div><section id="introduction" class="level3 page-columns page-full" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">6.3.1</span> Introduction</h3>
+</div></div><section id="introduction" class="level3 page-columns page-full" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">8.3.1</span> Introduction</h3>
 <p>To set up Quarto on your machine do the following:</p>
 <ul>
 <li>Install R and R Studio.</li>
@@ -434,7 +446,7 @@ Telford, R. J. (2024). <em>Enough markdown to write a thesis</em>. <a href="http
 </div>
 <div class="callout-body-container">
 <div id="exr-quartofirststep" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6.1</strong></span> First Quarto document</p>
+<p><span class="theorem-title"><strong>Exercise 8.1</strong></span> First Quarto document</p>
 <ul>
 <li>Open RStudio.</li>
 <li>Select “File” -&gt; “New File” -&gt; “Quarto Document” and then “Create.”</li>
@@ -462,32 +474,32 @@ Telford, R. J. (2024). <em>Enough markdown to write a thesis</em>. <a href="http
 <div class="no-row-height column-margin column-container"><div id="ref-Huber2016Calculate" class="csl-entry" role="listitem">
 Huber, S., &amp; Rust, C. (2016). Calculate travel time and distance with OpenStreetMap data using the open source routing machine (OSRM). <em>The Stata Journal</em>, <em>16</em>(2), 416–423.
 </div></div></section>
-<section id="create-an-apa-compliant-manuscript-using-quarto" class="level3" data-number="6.3.2">
-<h3 data-number="6.3.2" class="anchored" data-anchor-id="create-an-apa-compliant-manuscript-using-quarto"><span class="header-section-number">6.3.2</span> Create an APA compliant manuscript using Quarto</h3>
+<section id="create-an-apa-compliant-manuscript-using-quarto" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="create-an-apa-compliant-manuscript-using-quarto"><span class="header-section-number">8.3.2</span> Create an APA compliant manuscript using Quarto</h3>
 <p>To create an APA compliant manuscript, it is recommended to use the <em>Quarto Extension</em> <code>apaquarto</code>. The extension that comes with nice templates is hosted on GitHub <a href="https://github.com/wjschne/apaquarto">here</a>. The installation and the usage is described in detail <a href="https://wjschne.github.io/apaquarto/">here</a>. Using the template ensures that all APA rules are automatically considered. As APA allows a lot of leeway and every reviewer has specific preferences, <code>apaquarto</code> allows for manipulation of a variety of settings. For example, <a href="https://wjschne.github.io/apaquarto/options.html#language-options">the language can be changed</a> and the <a href="https://wjschne.github.io/apaquarto/options.html#options-for-.pdf">general style of the document can be modified</a> in the Preamble (YAML header).</p>
 </section>
 </section>
-<section id="sec-rmdchapter" class="level2 page-columns page-full" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="sec-rmdchapter"><span class="header-section-number">6.4</span> R Markdown</h2>
+<section id="sec-rmdchapter" class="level2 page-columns page-full" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="sec-rmdchapter"><span class="header-section-number">8.4</span> R Markdown</h2>
 <div id="fig-examplermd" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-examplermd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.1: Example of an R Markdown file
+Figure&nbsp;8.1: Example of an R Markdown file
 </figcaption>
 <div aria-describedby="fig-examplermd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="fig/rmstudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="fig/rmstudio.png" class="img-fluid figure-img" style="width:70.0%"></a>
 </div>
 </figure>
 </div>
-<p>R Markdown provides an authoring framework for data science. You can use a single R Markdown file to transcript your work, run code, and generate high quality reports, books, websites, articles, theses, blogs, and many more (see <a href="#fig-examplermd" class="quarto-xref">Figure&nbsp;<span>6.1</span></a>).</p>
-<p>In contrast to Quarto (see <a href="#sec-quarto" class="quarto-xref"><span>Chapter 6</span></a>), which is the more recent format, R Markdown is around for some time and hence there are uncountable resources to learn it. For example:</p>
+<p>R Markdown provides an authoring framework for data science. You can use a single R Markdown file to transcript your work, run code, and generate high quality reports, books, websites, articles, theses, blogs, and many more (see <a href="#fig-examplermd" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>).</p>
+<p>In contrast to Quarto (see <a href="#sec-quarto" class="quarto-xref"><span>Chapter 8</span></a>), which is the more recent format, R Markdown is around for some time and hence there are uncountable resources to learn it. For example:</p>
 <ul>
-<li>The <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf">R Markdown Cheatsheet</a> (see <a href="#fig-rmdcheat" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>) from Posit offers an overview on the most important features of R Markdown.</li>
+<li>The <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf">R Markdown Cheatsheet</a> (see <a href="#fig-rmdcheat" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>) from Posit offers an overview on the most important features of R Markdown.</li>
 </ul>
 <div id="fig-rmdcheat" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-rmdcheat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.2: R Markdown Cheatsheet from Posit
+Figure&nbsp;8.2: R Markdown Cheatsheet from Posit
 </figcaption>
 <div aria-describedby="fig-rmdcheat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="fig/rmdcheat.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="fig/rmdcheat.png" class="img-fluid figure-img" style="width:25.0%"></a>
@@ -495,12 +507,12 @@ Figure&nbsp;6.2: R Markdown Cheatsheet from Posit
 </figure>
 </div>
 <ul>
-<li>The book <em>R Markdown Cookbook</em> by <span class="citation" data-cites="Xie2020R">Xie et al. (<a href="references.html#ref-Xie2020R" role="doc-biblioref">2020</a>)</span> (see <a href="#fig-rmarkdownbook" class="quarto-xref">Figure&nbsp;<span>6.3</span></a>) offers an introduction. The <a href="https://bookdown.org/yihui/rmarkdown-cookbook">online version of the book</a> is regularly updated and free of costs.</li>
+<li>The book <em>R Markdown Cookbook</em> by <span class="citation" data-cites="Xie2020R">Xie et al. (<a href="references.html#ref-Xie2020R" role="doc-biblioref">2020</a>)</span> (see <a href="#fig-rmarkdownbook" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>) offers an introduction. The <a href="https://bookdown.org/yihui/rmarkdown-cookbook">online version of the book</a> is regularly updated and free of costs.</li>
 </ul>
 <div class="no-row-height column-margin column-container"></div><div id="fig-rmarkdownbook" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-rmarkdownbook-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.3: <span class="citation" data-cites="Xie2020R">Xie et al. (<a href="references.html#ref-Xie2020R" role="doc-biblioref">2020</a>)</span>: R Markdown Cookbook
+Figure&nbsp;8.3: <span class="citation" data-cites="Xie2020R">Xie et al. (<a href="references.html#ref-Xie2020R" role="doc-biblioref">2020</a>)</span>: R Markdown Cookbook
 </figcaption>
 <div class="no-row-height column-margin column-container"></div><div aria-describedby="fig-rmarkdownbook-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="fig/rmarkdownbook.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="fig/rmarkdownbook.png" class="img-fluid figure-img" style="width:25.0%"></a>
@@ -513,7 +525,7 @@ Figure&nbsp;6.3: <span class="citation" data-cites="Xie2020R">Xie et al. (<a hre
 <div class="no-row-height column-margin column-container"></div><div id="fig-rmcb" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-rmcb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;6.4: <span class="citation" data-cites="Xie2018R">Xie et al. (<a href="references.html#ref-Xie2018R" role="doc-biblioref">2018</a>)</span>: R Markdown: The Definitive Guide
+Figure&nbsp;8.4: <span class="citation" data-cites="Xie2018R">Xie et al. (<a href="references.html#ref-Xie2018R" role="doc-biblioref">2018</a>)</span>: R Markdown: The Definitive Guide
 </figcaption>
 <div class="no-row-height column-margin column-container"></div><div aria-describedby="fig-rmcb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="fig/rmcb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="fig/rmcb.png" class="img-fluid figure-img" style="width:25.0%"></a>
@@ -543,7 +555,7 @@ Working directory in R Markdown
 </div>
 <div class="callout-body-container">
 <div id="exr-startrmd" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6.2</strong></span> Start Markdown and R Markdown</p>
+<p><span class="theorem-title"><strong>Exercise 8.2</strong></span> Start Markdown and R Markdown</p>
 <ol type="a">
 <li>You can learn Markdown (not R Markdown!) in 10 minutes. Just go to https://www.markdowntutorial.com and work throught the interactive lessons.</li>
 <li>Now create your first R Markdown file in 3 minutes by doing the following:
@@ -567,7 +579,7 @@ Working directory in R Markdown
 </div>
 <div class="callout-body-container">
 <div id="exr-rmdcitelit" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6.3</strong></span> R Markdown cite literature</p>
+<p><span class="theorem-title"><strong>Exercise 8.3</strong></span> R Markdown cite literature</p>
 <ol type="a">
 <li>Create a new R Markdown file (<em>File &gt; New File &gt; R Markdown</em>), save the file in an empty folder, and knit it.</li>
 <li></li>
@@ -616,7 +628,7 @@ Working directory in R Markdown
 </div>
 <div class="callout-body-container">
 <div id="exr-prepapa" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6.4</strong></span> Preparing APA journal articles (<code>papaja</code>)</p>
+<p><span class="theorem-title"><strong>Exercise 8.4</strong></span> Preparing APA journal articles (<code>papaja</code>)</p>
 <p>There is an easy way to write a manuscript that follows all the APA rules using the package <code>papaja</code> written by two psychologists from Cologne. Please read their <a href="https://frederikaust.com/papaja_man/introduction.html">manual</a> and consider their <a href="https://github.com/crsh/papaja">repository on GitHub</a>.</p>
 <p>Now, install and load the package:</p>
 <div class="cell">
@@ -636,7 +648,7 @@ Working directory in R Markdown
 </div>
 <div class="callout-body-container">
 <div id="exr-rmdtemplate" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6.5</strong></span> R Markdown template</p>
+<p><span class="theorem-title"><strong>Exercise 8.5</strong></span> R Markdown template</p>
 <p>Please follow the instructions below to access the file “23-09_ds-project-desc.Rmd” from my GitHub account:</p>
 <ol type="1">
 <li>Download the file from my GitHub account by clicking on the link provided here.</li>
@@ -651,10 +663,10 @@ Working directory in R Markdown
 
 
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;6.1: Example of an R Markdown file</span>
-<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;6.2: R Markdown Cheatsheet from Posit</span>
-<span class="glightbox-desc lightbox-desc-3">Figure&nbsp;6.3: <span class="citation" data-cites="Xie2020R">Xie et al. (<a href="references.html#ref-Xie2020R" role="doc-biblioref">2020</a>)</span>: R Markdown Cookbook</span>
-<span class="glightbox-desc lightbox-desc-4">Figure&nbsp;6.4: <span class="citation" data-cites="Xie2018R">Xie et al. (<a href="references.html#ref-Xie2018R" role="doc-biblioref">2018</a>)</span>: R Markdown: The Definitive Guide</span>
+<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;8.1: Example of an R Markdown file</span>
+<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;8.2: R Markdown Cheatsheet from Posit</span>
+<span class="glightbox-desc lightbox-desc-3">Figure&nbsp;8.3: <span class="citation" data-cites="Xie2020R">Xie et al. (<a href="references.html#ref-Xie2020R" role="doc-biblioref">2020</a>)</span>: R Markdown Cookbook</span>
+<span class="glightbox-desc lightbox-desc-4">Figure&nbsp;8.4: <span class="citation" data-cites="Xie2018R">Xie et al. (<a href="references.html#ref-Xie2018R" role="doc-biblioref">2018</a>)</span>: R Markdown: The Definitive Guide</span>
 </div>
 <div class="no-row-height column-margin column-container"><div id="ref-Xie2020R" class="csl-entry" role="listitem">
 Xie, Y., Dervieux, C., &amp; Riederer, E. (2020). <em>R markdown cookbook</em>. Chapman; Hall/CRC.
@@ -1220,17 +1232,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./git-github.html" class="pagination-link" aria-label="Collaborating with Git and GitHub">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Collaborating with Git and GitHub</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Collaborating with Git and GitHub</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./website.html" class="pagination-link" aria-label="Create and host a website">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Create and host a website</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Create and host a website</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","loop":false,"closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","loop":false,"closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
