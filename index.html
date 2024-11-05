@@ -43,6 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -159,7 +162,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><img src="fig/huber2.jpeg" class="img-fluid" style="width:25.0%"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="fig/Huber01_head_small_rev.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="fig/Huber01_head_small_rev.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%"></a></p>
+</figure>
+</div>
 <p>I am Stephan Huber, a father of four, and a Professor of International Economics and Data Science at the <a href="https://www.hs-fresenius.com/">Hochschule Fresenius in Cologne</a>. On this private homepage, I share files and links. My publication list can be found <a href="https://hubchev.github.io/publications.html">here</a> and <a href="https://raw.githubusercontent.com/hubchev/courses/main/cv/cv_Stephan_Huber.pdf">here is my CV</a>.</p>
 <p>If you encounter any bugs or have any feedback, please feel free to contact me: <a href="mailto:DrStephanHuber@yahoo.com"><i class="fa-solid fa-envelope" title="Email" aria-label="envelope"></i></a> <a href="https://www.researchgate.net/profile/Stephan-Huber-6"><i class="fa-brands fa-researchgate" title="ResearchGate" aria-label="researchgate"></i></a> <a href="https://www.linkedin.com/in/stephan-huber-04698a61/"><i class="fa-brands fa-linkedin" title="LindedIn" aria-label="linkedin"></i></a> <a href="https://twitter.com/ste_hub"><i class="fa-brands fa-x-twitter" title="Twitter" aria-label="x-twitter"></i></a> <a href="https://github.com/hubchev/"><i class="fa-brands fa-github" title="GitHub" aria-label="github"></i></a></p>
 <section id="teaching-material" class="level2">
@@ -176,6 +183,7 @@ Data Science
 <div class="callout-body-container callout-body">
 <ul>
 <li><a href="https://hubchev.github.io/ds/">How to Use R for Data Science</a></li>
+<li><a href="https://hubchev.github.io/dadm/">Data Analysis for Decision-Making</a></li>
 <li><a href="https://hubchev.github.io/dsbl/">Data Science for Business Leaders</a></li>
 <li><a href="https://hubchev.github.io/qm/">Quantitative Methods</a></li>
 <li><a href="https://raw.githubusercontent.com/hubchev/courses/main/pdfs/Stata_Skript.pdf">Einführung in die Datenanalyse mit Stata</a> <em>(in German)</em></li>
@@ -1038,6 +1046,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":false,"selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 

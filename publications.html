@@ -41,6 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -177,7 +180,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="monographs">Monographs</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="fig/pciie.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<p><a href="fig/pciie.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Product Characteristics in International Economics — Role and Impact on Economic Development. Contributions to Economics, Springer, Cham, Schweiz, ISBN 978-3-319-76093-3, 2018."><img src="fig/pciie.jpg" class="img-fluid figure-img" style="width:50.0%" alt="Product Characteristics in International Economics — Role and Impact on Economic Development. Contributions to Economics, Springer, Cham, Schweiz, ISBN 978-3-319-76093-3, 2018."></a></p>
 <figcaption><a href="https://link.springer.com/book/10.1007/978-3-319-76093-3"><em>Product Characteristics in International Economics — Role and Impact on Economic Development</em>. Contributions to Economics, Springer, Cham, Schweiz, ISBN 978-3-319-76093-3, 2018.</a></figcaption>
 </figure>
 </div>
@@ -249,6 +252,9 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 
 
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1"><a href="https://link.springer.com/book/10.1007/978-3-319-76093-3"><em>Product Characteristics in International Economics — Role and Impact on Economic Development</em>. Contributions to Economics, Springer, Cham, Schweiz, ISBN 978-3-319-76093-3, 2018.</a></span>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -806,6 +812,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 
