@@ -294,7 +294,6 @@ window.Quarto = {
   <li><a href="#standard-error" id="toc-standard-error" class="nav-link" data-scroll-target="#standard-error"><span class="header-section-number">5.3.3</span> Standard Error</a></li>
   <li><a href="#omitted-variable-bias-and-ceteris-paribus" id="toc-omitted-variable-bias-and-ceteris-paribus" class="nav-link" data-scroll-target="#omitted-variable-bias-and-ceteris-paribus"><span class="header-section-number">5.3.4</span> Omitted variable bias and ceteris paribus</a></li>
   </ul></li>
-  <li><a href="#difference-in-difference" id="toc-difference-in-difference" class="nav-link" data-scroll-target="#difference-in-difference"><span class="header-section-number">5.4</span> Difference in difference</a></li>
   </ul>
 </nav>
     </div>
@@ -331,7 +330,7 @@ y_i = \beta_{0} + \beta_{1} x_i + \epsilon_i,
 <p>While the correlation coefficient and the slope in simple linear regression are similar in many ways, it’s important to note that they are not identical. The correlation coefficient measures the strength and direction of the linear relationship between variables in a broader sense, while the slope in simple linear regression specifically quantifies the change in the dependent variable associated with a unit change in the independent variable.</p>
 <section id="estimating-the-coefficients-of-the-linear-regression-model" class="level3 page-columns page-full" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="estimating-the-coefficients-of-the-linear-regression-model"><span class="header-section-number">5.1.1</span> Estimating the coefficients of the linear regression model</h3>
-<p>In practice, the intercept and slope of the regression are unknown. Therefore, we must employ data to estimate the unknown parameters, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. The method we use is called the ordinary least squared (OLS) method. The idea is to minimize the sum of the squared differences of all <span class="math inline">\(y_i\)</span> and <span class="math inline">\(y_i^*\)</span> as sketched in figure <a href="#fig-regressionols" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>.</p>
+<p>In practice, the intercept and slope of the regression are unknown. Therefore, we must employ data to estimate the unknown parameters, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. The method we use is called the ordinary least squared (OLS) method. The idea is to minimize the sum of the squared differences of all <span class="math inline">\(y_i\)</span> and <span class="math inline">\(y_i^*\)</span> as sketched in figure <a href="#fig-regressionols" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-regressionols</span></a>.</p>
 <div id="fig-regressionols" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-regressionols-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -366,7 +365,7 @@ Figure&nbsp;5.1: The fitted line and the residuals
    \Leftrightarrow &amp; \hat{\beta_{1}} =\frac{\sum_{i=1}(y_i -\bar{y})(x_i-\bar{x})}{\sum_{i=1} (\bar{x} -  x_i)^2 }\\
    \Leftrightarrow &amp; \hat{\beta_{1}} ={\frac {\sigma_{x,y}}{\sigma^2_{x}}}
 \end{align*}\]</span> The estimated regression coefficient <span class="math inline">\(\hat{\beta_{1}}\)</span> equals the covariance between <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> divided by the variance of <span class="math inline">\(x\)</span>.</p>
-<p>The formulas presented above may not be very intuitive at first glance. The online version of the book <span class="citation" data-cites="Hanck2020Introduction">Hanck et al. (<a href="references.html#ref-Hanck2020Introduction" role="doc-biblioref">2020</a>)</span> offers a nice interactive application in the box <a href="https://www.econometrics-with-r.org/4.2-estimating-the-coefficients-of-the-linear-regression-model.html">The OLS Estimator, Predicted Values, and Residuals</a> that helps to understand the mechanics of OLS. You can add observations by clicking into the coordinate system where the data are represented by points. Once two or more observations are available, the application computes a regression line using OLS and some statistics which are displayed in the right panel. The results are updated as you add further observations to the left panel. A double-click resets the application, that means, all data are removed.</p>
+<p>The formulas presented above may not be very intuitive at first glance. The online version of the book <span class="citation" data-cites="Hanck2020Introduction">Hanck et al. (<a href="#ref-Hanck2020Introduction" role="doc-biblioref">2020</a>)</span> offers a nice interactive application in the box <a href="https://www.econometrics-with-r.org/4.2-estimating-the-coefficients-of-the-linear-regression-model.html">The OLS Estimator, Predicted Values, and Residuals</a> that helps to understand the mechanics of OLS. You can add observations by clicking into the coordinate system where the data are represented by points. Once two or more observations are available, the application computes a regression line using OLS and some statistics which are displayed in the right panel. The results are updated as you add further observations to the left panel. A double-click resets the application, that means, all data are removed.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-Hanck2020Introduction" class="csl-entry" role="listitem">
 Hanck, C., Arnold, M., Gerber, A., &amp; Schmelzer, M. (2020). <em>Introduction to econometrics with <span>R</span></em>. University of Duisburg-Essen. <a href="https://www.econometrics-with-r.org">www.econometrics-with-r.org</a>
 </div></div></section>
@@ -404,12 +403,12 @@ Figure&nbsp;5.2: Total sum of squares and sum of squared residuals
 </div>
 </figure>
 </div>
-<p><span class="math inline">\(R^2\)</span> lies between 0 and 1. It is easy to see that a perfect fit, i.e., no errors made when fitting the regression line, implies <span class="math inline">\(R2=1\)</span> since then we have <span class="math inline">\(SSR=0\)</span>. On the contrary, if our estimated regression line does not explain any variation in the <span class="math inline">\(Y_i\)</span>, we have <span class="math inline">\(ESS=0\)</span> and consequently <span class="math inline">\(R^2=0\)</span>. <a href="#fig-fitR" class="quarto-xref">Figure&nbsp;<span>5.2</span></a> represents the relationship of TTS and SSR.</p>
+<p><span class="math inline">\(R^2\)</span> lies between 0 and 1. It is easy to see that a perfect fit, i.e., no errors made when fitting the regression line, implies <span class="math inline">\(R2=1\)</span> since then we have <span class="math inline">\(SSR=0\)</span>. On the contrary, if our estimated regression line does not explain any variation in the <span class="math inline">\(Y_i\)</span>, we have <span class="math inline">\(ESS=0\)</span> and consequently <span class="math inline">\(R^2=0\)</span>. <a href="#fig-fitR" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fitR</span></a> represents the relationship of TTS and SSR.</p>
 </section>
 </section>
 <section id="multiple-linear-regression" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="multiple-linear-regression"><span class="header-section-number">5.2</span> Multiple linear regression</h2>
-<p>Having understood the simple linear regression model, it is important to broaden our scope beyond the relationship between just two variables: the dependent variable and a single regressor. Our goal is to causally interpret the measured association of two variables, which requires certain conditions as explained in <a href="identification.html" class="quarto-xref"><span>Chapter 3</span></a>.</p>
+<p>Having understood the simple linear regression model, it is important to broaden our scope beyond the relationship between just two variables: the dependent variable and a single regressor. Our goal is to causally interpret the measured association of two variables, which requires certain conditions as explained in <a href="#sec-identification" class="quarto-xref"><span class="quarto-unresolved-ref">sec-identification</span></a>.</p>
 <section id="simpsons-paradox" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="simpsons-paradox"><span class="header-section-number">5.2.1</span> Simpson’s paradox</h3>
 <p>To illustrate this concept, let’s revisit the phenomenon known as Simpson’s paradox. Simpson’s paradox occurs when the overall association between two categorical variables differs from the association observed when we consider the influence of one or more other variables, known as controlling variables. This paradox highlights three key points:</p>
@@ -748,7 +747,7 @@ Tip&nbsp;5.1: Statistical control requires causal justification
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Read <a href="identification.html#sec-scrcj" class="quarto-xref"><span>Section 3.4</span></a> (again).</p>
+<p>Read <a href="#sec-scrcj" class="quarto-xref"><span class="quarto-unresolved-ref">sec-scrcj</span></a> (again).</p>
 </div>
 </div>
 <p>A confounding variable is a factor that was not accounted for or controlled in a study but has the potential to influence the results. In other words, the true effects of the treatment or intervention can be obscured or muddled by the presence of this variable.</p>
@@ -772,7 +771,7 @@ Tip&nbsp;5.2
 </div>
 </section>
 <section id="omitted-variable-bias-and-ceteris-paribus" class="level3 page-columns page-full" data-number="5.3.4">
-<h3 data-number="5.3.4" class="anchored" data-anchor-id="omitted-variable-bias-and-ceteris-paribus"><span class="header-section-number">5.3.4</span> Omitted variable bias and ceteris paribus</h3>
+<h3 data-number="5.3.4" class="anchored"><span class="header-section-number">5.3.4</span> Omitted variable bias and ceteris paribus</h3>
 <p>From the Gauss-Markov theorem we know that if the OLS assumptions are fulfilled, the OLS estimator is (in the sense of smallest variance) the best linear conditionally unbiased estimator (BLUE). However, OLS estimates can suffer from omitted variable bias when any regressor, X, is correlated with any omitted variable that matters for variable Y.</p>
 <p>For omitted variable bias to occur, two conditions must be fulfilled:</p>
 <ol type="1">
@@ -800,7 +799,7 @@ Figure&nbsp;5.5: Regression output
 </div>
 </figure>
 </div>
-<p>In <a href="#fig-regstata2" class="quarto-xref">Figure&nbsp;<span>5.5</span></a> you see an excerpt of a regression output taken from a statistical program named <em>Stata</em>. Some t-values and p-values are missing.</p>
+<p>In <a href="#fig-regstata2" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-regstata2</span></a> you see an excerpt of a regression output taken from a statistical program named <em>Stata</em>. Some t-values and p-values are missing.</p>
 <ol type="a">
 <li>Calculate the t-value of the coefficient <code>mpg</code>. Is the coefficient at a level of <span class="math inline">\(\alpha=0.05\)</span> statistically significant?<br>
 </li>
@@ -820,7 +819,7 @@ Figure&nbsp;5.5: Regression output
 <div class="callout-body-container">
 <div id="exr-exrstataoutput" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 5.2</strong></span> Look at Stata Output</p>
-<p>In <a href="#fig-regstata3" class="quarto-xref">Figure&nbsp;<span>5.6</span></a> you find two regression outputs from Stata. Try to interpret the p-values and the confidence intervals. How are the t-values calculated. Can you use the <em>magic number</em> 1.96 to say if a corresponding estimated coefficient is statistically significant, or not? Which estimated model is <em>better</em>?</p>
+<p>In <a href="#fig-regstata3" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-regstata3</span></a> you find two regression outputs from Stata. Try to interpret the p-values and the confidence intervals. How are the t-values calculated. Can you use the <em>magic number</em> 1.96 to say if a corresponding estimated coefficient is statistically significant, or not? Which estimated model is <em>better</em>?</p>
 <div id="fig-regstata3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-regstata3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -997,14 +996,14 @@ weight_i=\beta_0+\beta_1 calories_i+ \epsilon_i
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
+<div class="callout callout-style-simple callout-important no-icon page-columns page-full">
+<div class="callout-body d-flex page-columns page-full">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-body-container">
-<div id="exr-explwestud" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.4</strong></span> Explain the weight of students</p>
+<div class="callout-body-container page-columns page-full">
+<div id="exr-explwestud" class="theorem exercise page-columns page-full">
+<p><span class="theorem-title"><strong>Exercise 5.6</strong></span> Explain the weight of students</p>
 <p>In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with corelations and a regression analysis the association. Load the data as follows:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"haven"</span>)</span>
@@ -1581,10 +1580,6 @@ F-statistic: 7.019 on 2 and 20 DF,  p-value: 0.004904</code></pre>
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
 <div class="callout callout-style-simple callout-important no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1592,8 +1587,8 @@ F-statistic: 7.019 on 2 and 20 DF,  p-value: 0.004904</code></pre>
 </div>
 <div class="callout-body-container">
 <div id="exr-causalgraphnhk" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.5</strong></span> Causal inference and animated plots</p>
-<p>Nick <span class="citation" data-cites="Huntington-Klein2022Effect">Huntington-Klein (<a href="references.html#ref-Huntington-Klein2022Effect" role="doc-biblioref">2022</a>)</span> has created wonderful animated graphs that give great and quick insights into how causal inference works. Please read his online chapter on <a href="https://www.nickchk.com/causalgraphs.html"><em>Causal Inference Animated Plots</em></a> and discuss</p>
+<p><span class="theorem-title"><strong>Exercise 5.4</strong></span> Causal inference and animated plots</p>
+<p>Nick <span class="citation" data-cites="Huntington-Klein2022Effect">Huntington-Klein (<a href="#ref-Huntington-Klein2022Effect" role="doc-biblioref">2022</a>)</span> has created wonderful animated graphs that give great and quick insights into how causal inference works. Please read his online chapter on <a href="https://www.nickchk.com/causalgraphs.html"><em>Causal Inference Animated Plots</em></a> and discuss</p>
 <ol type="a">
 <li>what he means when he speaks of <em>closing the back-door path</em> and <em>controlling for</em>,</li>
 <li>what methods exist to <em>close the back-door path</em>, and</li>
@@ -1605,24 +1600,20 @@ F-statistic: 7.019 on 2 and 20 DF,  p-value: 0.004904</code></pre>
 </div>
 <div class="no-row-height column-margin column-container"><div id="ref-Huntington-Klein2022Effect" class="csl-entry" role="listitem">
 Huntington-Klein, N. (2022). <em>The effect: An introduction to research design and causality</em>. Accessed January 30, 2023; CRC Press. <a href="https://theeffectbook.net">https://theeffectbook.net</a>
-</div></div></section>
-</section>
-<section id="difference-in-difference" class="level2 page-columns page-full" data-number="5.4">
+</div></div><section id="difference-in-difference" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="difference-in-difference"><span class="header-section-number">5.4</span> Difference in difference</h2>
-<div id="fig-dcard" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div id="fig-dcard" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-dcard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5.8: David Card (*1956)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
 </figcaption>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Source: <a href="https://davidcard.berkeley.edu/">https://davidcard.berkeley.edu/</a>.</p></div></div><div aria-describedby="fig-dcard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-dcard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/dcard1.jpg" class="img-fluid figure-img" style="width:25.0%">
 </div>
 </figure>
 </div>
-<p>David Card is one of the most influential labor economist of the 20th century and Nobel laureate of 2021. He is well-known for his research on the effects of the minimum wage on employment, which challenged the traditional view that increasing the minimum wage leads to a decrease in employment. In his article <em>Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania</em> <span class="citation" data-cites="Card1994Minimum">(<a href="references.html#ref-Card1994Minimum" role="doc-biblioref">Card &amp; Krueger, 1994</a>)</span> he and Alan Krueger (1960-2019) used a <em>natural experiment</em> to examine the effect of an increase in the minimum wage on employment. In particular, they identified a treatment group (restaurants in New Jersey) and a control group (restaurants in eastern Pennsylvania) to measure the effect of increasing the minimum wage that was increased in New Jersey but not in Pennsylvania. This increase did not lead to a decrease in employment, which contradicted the widely held view that increasing the minimum wage would lead to job loss. The empirical method that they used is called <em>difference in difference</em> and we discuss it in the following section.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-Card1994Minimum" class="csl-entry" role="listitem">
-Card, D., &amp; Krueger, A. B. (1994). Minimum wages and employment: A case study of the fast-food industry in new jersey and pennsylvania. <em>The American Economic Review</em>, <em>84</em>(4), 772–793.
-</div></div><p>The difference in difference (DiD) method allows to estimate the causal effect of a treatment or intervention. In particular, it is popular to study the impact of policy changes and other interventions on a specific outcome of interest.</p>
+<p>David Card is one of the most influential labor economist of the 20th century and Nobel laureate of 2021. He is well-known for his research on the effects of the minimum wage on employment, which challenged the traditional view that increasing the minimum wage leads to a decrease in employment. In his article <em>Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania</em> <span class="citation" data-cites="Card1994Minimum">(<a href="#ref-Card1994Minimum" role="doc-biblioref">Card &amp; Krueger, 1994</a>)</span> he and Alan Krueger (1960-2019) used a <em>natural experiment</em> to examine the effect of an increase in the minimum wage on employment. In particular, they identified a treatment group (restaurants in New Jersey) and a control group (restaurants in eastern Pennsylvania) to measure the effect of increasing the minimum wage that was increased in New Jersey but not in Pennsylvania. This increase did not lead to a decrease in employment, which contradicted the widely held view that increasing the minimum wage would lead to job loss. The empirical method that they used is called <em>difference in difference</em> and we discuss it in the following section.</p>
+<p>The difference in difference (DiD) method allows to estimate the causal effect of a treatment or intervention. In particular, it is popular to study the impact of policy changes and other interventions on a specific outcome of interest.</p>
 <p>The basic idea behind the DiD method is to compare the change in an outcome variable between a treatment group and a control group over time. The treatment group is the group that is exposed to the intervention or treatment, while the control group is a group that is not exposed to the intervention. The difference in the change in the outcome variable between the two groups is then used to estimate the causal effect of the intervention.</p>
 <p>To use the DiD method, researchers typically collect data on the outcome variable of interest for both the treatment and control groups before and after the intervention. This data is then used to calculate the difference in the change in the outcome variable between the two groups.</p>
 <p>For example, if a study aims to examine the effect of a new policy on the employment rate, it should collect data on the employment rate for a group of individuals living in a region where the policy was implemented, and for a group living in a similar region where the policy was not implemented. The study can then compare the change in the employment rate for the two groups, before and after the implementation of the policy. The difference in the change in the employment rate between the two groups can be used to estimate of the causal effect of the policy on employment.</p>
@@ -1659,7 +1650,7 @@ Figure&nbsp;5.10: Tolerate time-invariant unobserved confounding
 </div>
 </figure>
 </div>
-<p>Figures <a href="#fig-neal9" class="quarto-xref"><span>5.9</span></a> and <a href="#fig-neal9b" class="quarto-xref"><span>5.10</span></a> stem from a video of Brady Neal’s lecture on <a href="https://youtu.be/2nDgrNP7XSE"><em>Difference-in-Differences</em></a>. Please watch this video.</p>
+<p>Figures <a href="#fig-neal9" class="quarto-xref"><span class="quarto-unresolved-ref ref-noprefix">fig-neal9</span></a> and <a href="#fig-neal9b" class="quarto-xref"><span class="quarto-unresolved-ref ref-noprefix">fig-neal9b</span></a> stem from a video of Brady Neal’s lecture on <a href="https://youtu.be/2nDgrNP7XSE"><em>Difference-in-Differences</em></a>. Please watch this video.</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-important no-icon">
@@ -1669,7 +1660,7 @@ Figure&nbsp;5.10: Tolerate time-invariant unobserved confounding
 </div>
 <div class="callout-body-container">
 <div id="exr-DiD" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.6</strong></span> Mastering DiD with Joshua Angrist</p>
+<p><span class="theorem-title"><strong>Exercise 5.5</strong></span> Mastering DiD with Joshua Angrist</p>
 <div id="fig-angristdid" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-angristdid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1707,7 +1698,7 @@ Figure&nbsp;5.11: Josh Angrist (*1960): Nobel Prize winner of economics in 2021
 <li>None of the above.</li>
 </ol></li>
 </ol>
-<p>See <a href="#sol-DiD" class="quarto-xref">Solution&nbsp;<span>5.1</span></a></p>
+<p>See <a href="#sol-DiD" class="quarto-xref">Solution&nbsp;<span class="quarto-unresolved-ref">sol-DiD</span></a></p>
 </div>
 </div>
 </div>
@@ -1722,7 +1713,7 @@ Figure&nbsp;5.11: Josh Angrist (*1960): Nobel Prize winner of economics in 2021
 </div>
 <div class="callout-body-container">
 <div id="sol-DiD" class="proof solution">
-<p><span class="proof-title"><em>Solution 5.1</em>. </span>Solution to exercise <a href="#exr-DiD" class="quarto-xref">Exercise&nbsp;<span>5.6</span></a></p>
+<p><span class="proof-title"><em>Solution 5.1</em>. </span>Solution to exercise <a href="#exr-DiD" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref">exr-DiD</span></a></p>
 <p>Answers: 1. b), 2. a), 3. c)</p>
 </div>
 </div>
@@ -1730,7 +1721,15 @@ Figure&nbsp;5.11: Josh Angrist (*1960): Nobel Prize winner of economics in 2021
 </div>
 
 
-
+</section>
+</div>
+</div>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Card1994Minimum" class="csl-entry" role="listitem">
+Card, D., &amp; Krueger, A. B. (1994). Minimum wages and employment: A case study of the fast-food industry in new jersey and pennsylvania. <em>The American Economic Review</em>, <em>84</em>(4), 772–793.
+</div></div><div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Source: <a href="https://davidcard.berkeley.edu/">https://davidcard.berkeley.edu/</a>.</p></div></div>
+</section>
 </section>
 
 
