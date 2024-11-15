@@ -294,6 +294,7 @@ window.Quarto = {
   <li><a href="#standard-error" id="toc-standard-error" class="nav-link" data-scroll-target="#standard-error"><span class="header-section-number">5.3.3</span> Standard Error</a></li>
   <li><a href="#omitted-variable-bias-and-ceteris-paribus" id="toc-omitted-variable-bias-and-ceteris-paribus" class="nav-link" data-scroll-target="#omitted-variable-bias-and-ceteris-paribus"><span class="header-section-number">5.3.4</span> Omitted variable bias and ceteris paribus</a></li>
   </ul></li>
+  <li><a href="#difference-in-difference" id="toc-difference-in-difference" class="nav-link" data-scroll-target="#difference-in-difference"><span class="header-section-number">5.4</span> Difference in difference</a></li>
   </ul>
 </nav>
     </div>
@@ -330,7 +331,7 @@ y_i = \beta_{0} + \beta_{1} x_i + \epsilon_i,
 <p>While the correlation coefficient and the slope in simple linear regression are similar in many ways, it’s important to note that they are not identical. The correlation coefficient measures the strength and direction of the linear relationship between variables in a broader sense, while the slope in simple linear regression specifically quantifies the change in the dependent variable associated with a unit change in the independent variable.</p>
 <section id="estimating-the-coefficients-of-the-linear-regression-model" class="level3 page-columns page-full" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="estimating-the-coefficients-of-the-linear-regression-model"><span class="header-section-number">5.1.1</span> Estimating the coefficients of the linear regression model</h3>
-<p>In practice, the intercept and slope of the regression are unknown. Therefore, we must employ data to estimate the unknown parameters, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. The method we use is called the ordinary least squared (OLS) method. The idea is to minimize the sum of the squared differences of all <span class="math inline">\(y_i\)</span> and <span class="math inline">\(y_i^*\)</span> as sketched in figure <a href="#fig-regressionols" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-regressionols</span></a>.</p>
+<p>In practice, the intercept and slope of the regression are unknown. Therefore, we must employ data to estimate the unknown parameters, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. The method we use is called the ordinary least squared (OLS) method. The idea is to minimize the sum of the squared differences of all <span class="math inline">\(y_i\)</span> and <span class="math inline">\(y_i^*\)</span> as sketched in figure <a href="#fig-regressionols" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>.</p>
 <div id="fig-regressionols" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-regressionols-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -365,7 +366,7 @@ Figure&nbsp;5.1: The fitted line and the residuals
    \Leftrightarrow &amp; \hat{\beta_{1}} =\frac{\sum_{i=1}(y_i -\bar{y})(x_i-\bar{x})}{\sum_{i=1} (\bar{x} -  x_i)^2 }\\
    \Leftrightarrow &amp; \hat{\beta_{1}} ={\frac {\sigma_{x,y}}{\sigma^2_{x}}}
 \end{align*}\]</span> The estimated regression coefficient <span class="math inline">\(\hat{\beta_{1}}\)</span> equals the covariance between <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> divided by the variance of <span class="math inline">\(x\)</span>.</p>
-<p>The formulas presented above may not be very intuitive at first glance. The online version of the book <span class="citation" data-cites="Hanck2020Introduction">Hanck et al. (<a href="#ref-Hanck2020Introduction" role="doc-biblioref">2020</a>)</span> offers a nice interactive application in the box <a href="https://www.econometrics-with-r.org/4.2-estimating-the-coefficients-of-the-linear-regression-model.html">The OLS Estimator, Predicted Values, and Residuals</a> that helps to understand the mechanics of OLS. You can add observations by clicking into the coordinate system where the data are represented by points. Once two or more observations are available, the application computes a regression line using OLS and some statistics which are displayed in the right panel. The results are updated as you add further observations to the left panel. A double-click resets the application, that means, all data are removed.</p>
+<p>The formulas presented above may not be very intuitive at first glance. The online version of the book <span class="citation" data-cites="Hanck2020Introduction">Hanck et al. (<a href="references.html#ref-Hanck2020Introduction" role="doc-biblioref">2020</a>)</span> offers a nice interactive application in the box <a href="https://www.econometrics-with-r.org/4.2-estimating-the-coefficients-of-the-linear-regression-model.html">The OLS Estimator, Predicted Values, and Residuals</a> that helps to understand the mechanics of OLS. You can add observations by clicking into the coordinate system where the data are represented by points. Once two or more observations are available, the application computes a regression line using OLS and some statistics which are displayed in the right panel. The results are updated as you add further observations to the left panel. A double-click resets the application, that means, all data are removed.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-Hanck2020Introduction" class="csl-entry" role="listitem">
 Hanck, C., Arnold, M., Gerber, A., &amp; Schmelzer, M. (2020). <em>Introduction to econometrics with <span>R</span></em>. University of Duisburg-Essen. <a href="https://www.econometrics-with-r.org">www.econometrics-with-r.org</a>
 </div></div></section>
@@ -403,12 +404,12 @@ Figure&nbsp;5.2: Total sum of squares and sum of squared residuals
 </div>
 </figure>
 </div>
-<p><span class="math inline">\(R^2\)</span> lies between 0 and 1. It is easy to see that a perfect fit, i.e., no errors made when fitting the regression line, implies <span class="math inline">\(R2=1\)</span> since then we have <span class="math inline">\(SSR=0\)</span>. On the contrary, if our estimated regression line does not explain any variation in the <span class="math inline">\(Y_i\)</span>, we have <span class="math inline">\(ESS=0\)</span> and consequently <span class="math inline">\(R^2=0\)</span>. <a href="#fig-fitR" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-fitR</span></a> represents the relationship of TTS and SSR.</p>
+<p><span class="math inline">\(R^2\)</span> lies between 0 and 1. It is easy to see that a perfect fit, i.e., no errors made when fitting the regression line, implies <span class="math inline">\(R2=1\)</span> since then we have <span class="math inline">\(SSR=0\)</span>. On the contrary, if our estimated regression line does not explain any variation in the <span class="math inline">\(Y_i\)</span>, we have <span class="math inline">\(ESS=0\)</span> and consequently <span class="math inline">\(R^2=0\)</span>. <a href="#fig-fitR" class="quarto-xref">Figure&nbsp;<span>5.2</span></a> represents the relationship of TTS and SSR.</p>
 </section>
 </section>
 <section id="multiple-linear-regression" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="multiple-linear-regression"><span class="header-section-number">5.2</span> Multiple linear regression</h2>
-<p>Having understood the simple linear regression model, it is important to broaden our scope beyond the relationship between just two variables: the dependent variable and a single regressor. Our goal is to causally interpret the measured association of two variables, which requires certain conditions as explained in <a href="#sec-identification" class="quarto-xref"><span class="quarto-unresolved-ref">sec-identification</span></a>.</p>
+<p>Having understood the simple linear regression model, it is important to broaden our scope beyond the relationship between just two variables: the dependent variable and a single regressor. Our goal is to causally interpret the measured association of two variables, which requires certain conditions as explained in <a href="identification.html" class="quarto-xref"><span>Chapter 3</span></a>.</p>
 <section id="simpsons-paradox" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="simpsons-paradox"><span class="header-section-number">5.2.1</span> Simpson’s paradox</h3>
 <p>To illustrate this concept, let’s revisit the phenomenon known as Simpson’s paradox. Simpson’s paradox occurs when the overall association between two categorical variables differs from the association observed when we consider the influence of one or more other variables, known as controlling variables. This paradox highlights three key points:</p>
@@ -747,7 +748,7 @@ Tip&nbsp;5.1: Statistical control requires causal justification
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Read <a href="#sec-scrcj" class="quarto-xref"><span class="quarto-unresolved-ref">sec-scrcj</span></a> (again).</p>
+<p>Read <a href="identification.html#sec-scrcj" class="quarto-xref"><span>Section 3.4</span></a> (again).</p>
 </div>
 </div>
 <p>A confounding variable is a factor that was not accounted for or controlled in a study but has the potential to influence the results. In other words, the true effects of the treatment or intervention can be obscured or muddled by the presence of this variable.</p>
@@ -771,7 +772,7 @@ Tip&nbsp;5.2
 </div>
 </section>
 <section id="omitted-variable-bias-and-ceteris-paribus" class="level3 page-columns page-full" data-number="5.3.4">
-<h3 data-number="5.3.4" class="anchored"><span class="header-section-number">5.3.4</span> Omitted variable bias and ceteris paribus</h3>
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="omitted-variable-bias-and-ceteris-paribus"><span class="header-section-number">5.3.4</span> Omitted variable bias and ceteris paribus</h3>
 <p>From the Gauss-Markov theorem we know that if the OLS assumptions are fulfilled, the OLS estimator is (in the sense of smallest variance) the best linear conditionally unbiased estimator (BLUE). However, OLS estimates can suffer from omitted variable bias when any regressor, X, is correlated with any omitted variable that matters for variable Y.</p>
 <p>For omitted variable bias to occur, two conditions must be fulfilled:</p>
 <ol type="1">
@@ -799,7 +800,7 @@ Figure&nbsp;5.5: Regression output
 </div>
 </figure>
 </div>
-<p>In <a href="#fig-regstata2" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-regstata2</span></a> you see an excerpt of a regression output taken from a statistical program named <em>Stata</em>. Some t-values and p-values are missing.</p>
+<p>In <a href="#fig-regstata2" class="quarto-xref">Figure&nbsp;<span>5.5</span></a> you see an excerpt of a regression output taken from a statistical program named <em>Stata</em>. Some t-values and p-values are missing.</p>
 <ol type="a">
 <li>Calculate the t-value of the coefficient <code>mpg</code>. Is the coefficient at a level of <span class="math inline">\(\alpha=0.05\)</span> statistically significant?<br>
 </li>
@@ -819,7 +820,7 @@ Figure&nbsp;5.5: Regression output
 <div class="callout-body-container">
 <div id="exr-exrstataoutput" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 5.2</strong></span> Look at Stata Output</p>
-<p>In <a href="#fig-regstata3" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-regstata3</span></a> you find two regression outputs from Stata. Try to interpret the p-values and the confidence intervals. How are the t-values calculated. Can you use the <em>magic number</em> 1.96 to say if a corresponding estimated coefficient is statistically significant, or not? Which estimated model is <em>better</em>?</p>
+<p>In <a href="#fig-regstata3" class="quarto-xref">Figure&nbsp;<span>5.6</span></a> you find two regression outputs from Stata. Try to interpret the p-values and the confidence intervals. How are the t-values calculated. Can you use the <em>magic number</em> 1.96 to say if a corresponding estimated coefficient is statistically significant, or not? Which estimated model is <em>better</em>?</p>
 <div id="fig-regstata3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-regstata3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -996,590 +997,26 @@ weight_i=\beta_0+\beta_1 calories_i+ \epsilon_i
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-important no-icon page-columns page-full">
-<div class="callout-body d-flex page-columns page-full">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container page-columns page-full">
-<div id="exr-explwestud" class="theorem exercise page-columns page-full">
-<p><span class="theorem-title"><strong>Exercise 5.6</strong></span> Explain the weight of students</p>
-<p>In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with corelations and a regression analysis the association. Load the data as follows:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"haven"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>classdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<pre><code>Loading required package: pacman</code></pre>
-<div class="callout callout-style-simple callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The script uses the following functions: <code>aes</code>, <code>c</code>, <code>coef</code>, <code>fitted</code>, <code>geom_abline</code>, <code>geom_point</code>, <code>ggplot</code>, <code>head</code>, <code>lm</code>, <code>plot</code>, <code>read.csv</code>, <code>residuals</code>, <code>show</code>, <code>stat_smooth</code>, <code>subset</code>, <code>summary</code>, <code>tab_model</code>.</p>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="R script">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-R script
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo = TRUE--------------------------------------------------</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install and load packages</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, haven, ggplot2, sjPlot)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>classdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv"</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(classdata)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo = TRUE--------------------------------------------------</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(classdata)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="do">## ----pressure, echo=TRUE-------------------------------------------</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="dv">1</span>)</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="do">## baseline regression  model</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex, <span class="at">data =</span> classdata)</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(model)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>interm <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">1</span>]</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>slope <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">2</span>]</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>interw <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">1</span>] <span class="sc">+</span> model<span class="sc">$</span>coefficients[<span class="dv">3</span>]</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight, <span class="at">shape =</span> sex)) <span class="sc">+</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope, <span class="at">intercept =</span> interw, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope, <span class="at">intercept =</span> interm, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fu">coef</span>(model)[[<span class="dv">2</span>]], <span class="at">intercept =</span> <span class="fu">coef</span>(model)[[<span class="dv">1</span>]])</span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight, <span class="at">shape =</span> sex)) <span class="sc">+</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="dv">1</span></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight, <span class="at">shape =</span> sex)) <span class="sc">+</span></span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> siblings))</span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="do">## baseline model</span></span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex, <span class="at">data =</span> classdata)</span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight, <span class="at">shape =</span> sex)) <span class="sc">+</span></span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(</span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> y <span class="sc">~</span> x,</span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> T,</span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"red"</span>,</span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="dv">1</span></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE, results='hide'------------------------------------</span></span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height, <span class="at">data =</span> classdata)</span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex, <span class="at">data =</span> classdata)</span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex <span class="sc">+</span> height <span class="sc">*</span> sex, <span class="at">data =</span> classdata)</span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex <span class="sc">+</span> height <span class="sc">*</span> sex <span class="sc">+</span> siblings, <span class="at">data =</span> classdata)</span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>m5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex <span class="sc">+</span> height <span class="sc">*</span> sex, <span class="at">data =</span> <span class="fu">subset</span>(classdata, siblings <span class="sc">&lt;</span> <span class="dv">4</span>))</span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(m1, m2, m3, m4, m5,</span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.style =</span> <span class="st">"stars"</span>,</span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.threshold =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>),</span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.ci =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.se =</span> <span class="cn">FALSE</span></span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=FALSE---------------------------------------------------</span></span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(m1, m2, m3, m4,</span>
-<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.style =</span> <span class="st">"stars"</span>,</span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.threshold =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>),</span>
-<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.ci =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.se =</span> <span class="cn">FALSE</span></span>
-<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=FALSE---------------------------------------------------</span></span>
-<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(m3, m5,</span>
-<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.style =</span> <span class="st">"stars"</span>,</span>
-<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.threshold =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>),</span>
-<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.ci =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.se =</span> <span class="cn">FALSE</span></span>
-<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=T-------------------------------------------------------</span></span>
-<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">residuals</span>(m3), <span class="fu">fitted</span>(m3))</span>
-<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">residuals</span>(m3), classdata<span class="sc">$</span>siblings)</span>
-<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a><span class="co">#  unload packages</span></span>
-<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(pacman<span class="sc">::</span><span class="fu">p_unload</span>(tidyverse, haven, sjPlot))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Output of the R script">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Output of the R script
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo = TRUE--------------------------------------------------</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install and load packages</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(pacman)) <span class="fu">install.packages</span>(<span class="st">"pacman"</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse, haven, ggplot2, sjPlot)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>classdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv"</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(classdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  id sex weight height siblings row
-1  1   w     53    156        1   g
-2  2   w     73    170        1   g
-3  3   m     68    169        1   g
-4  4   w     67    166        1   g
-5  5   w     65    175        1   g
-6  6   w     48    161        0   g</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo = TRUE--------------------------------------------------</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(classdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       id           sex                weight          height     
- Min.   : 1.0   Length:23          Min.   :48.00   Min.   :156.0  
- 1st Qu.: 6.5   Class :character   1st Qu.:64.50   1st Qu.:168.0  
- Median :12.0   Mode  :character   Median :70.00   Median :175.0  
- Mean   :12.0                      Mean   :70.61   Mean   :173.7  
- 3rd Qu.:17.5                      3rd Qu.:81.00   3rd Qu.:180.0  
- Max.   :23.0                      Max.   :90.00   Max.   :194.0  
-    siblings         row           
- Min.   :0.000   Length:23         
- 1st Qu.:1.000   Class :character  
- Median :1.000   Mode  :character  
- Mean   :1.391                     
- 3rd Qu.:2.000                     
- Max.   :4.000                     </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ----pressure, echo=TRUE-------------------------------------------</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regression_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regression_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="do">## baseline regression  model</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex, <span class="at">data =</span> classdata)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = weight ~ height + sex, data = classdata)
-
-Coefficients:
-(Intercept)       height         sexw  
-   -29.5297       0.5923      -5.7894  </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>interm <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">1</span>]</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>slope <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">2</span>]</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>interw <span class="ot">&lt;-</span> model<span class="sc">$</span>coefficients[<span class="dv">1</span>] <span class="sc">+</span> model<span class="sc">$</span>coefficients[<span class="dv">3</span>]</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = weight ~ height + sex, data = classdata)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--17.086  -3.730   2.850   7.245  12.914 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)  
-(Intercept) -29.5297    47.6606  -0.620   0.5425  
-height        0.5923     0.2671   2.217   0.0383 *
-sexw         -5.7894     4.4773  -1.293   0.2107  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 8.942 on 20 degrees of freedom
-Multiple R-squared:  0.4124,    Adjusted R-squared:  0.3537 
-F-statistic: 7.019 on 2 and 20 DF,  p-value: 0.004904</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight, <span class="at">shape =</span> sex)) <span class="sc">+</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope, <span class="at">intercept =</span> interw, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope, <span class="at">intercept =</span> interm, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fu">coef</span>(model)[[<span class="dv">2</span>]], <span class="at">intercept =</span> <span class="fu">coef</span>(model)[[<span class="dv">1</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` instead.</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regression_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight, <span class="at">shape =</span> sex)) <span class="sc">+</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">colour =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="dv">1</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regression_files/figure-html/unnamed-chunk-7-4.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight, <span class="at">shape =</span> sex)) <span class="sc">+</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> siblings))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regression_files/figure-html/unnamed-chunk-7-5.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE----------------------------------------------------</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="do">## baseline model</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex, <span class="at">data =</span> classdata)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(classdata, <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight, <span class="at">shape =</span> sex)) <span class="sc">+</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> <span class="dv">2</span>)) <span class="sc">+</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">formula =</span> y <span class="sc">~</span> x,</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">se =</span> T,</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">colour =</span> <span class="st">"red"</span>,</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="dv">1</span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regression_files/figure-html/unnamed-chunk-7-6.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=TRUE, results='hide'------------------------------------</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height, <span class="at">data =</span> classdata)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex, <span class="at">data =</span> classdata)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>m3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex <span class="sc">+</span> height <span class="sc">*</span> sex, <span class="at">data =</span> classdata)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>m4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex <span class="sc">+</span> height <span class="sc">*</span> sex <span class="sc">+</span> siblings, <span class="at">data =</span> classdata)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>m5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(weight <span class="sc">~</span> height <span class="sc">+</span> sex <span class="sc">+</span> height <span class="sc">*</span> sex, <span class="at">data =</span> <span class="fu">subset</span>(classdata, siblings <span class="sc">&lt;</span> <span class="dv">4</span>))</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(m1, m2, m3, m4, m5,</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.style =</span> <span class="st">"stars"</span>,</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.threshold =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>),</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.ci =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.se =</span> <span class="cn">FALSE</span></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">&nbsp;</td>
-<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">weight</td>
-<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">weight</td>
-<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">weight</td>
-<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">weight</td>
-<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">weight</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Predictors</td>
-<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
-<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
-<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
-<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
-<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">(Intercept)</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-65.44 <sup>*</sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-29.53 <sup></sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">47.14 <sup></sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">50.27 <sup></sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">27.69 <sup></sup></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">height</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.78 <sup>***</sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.59 <sup>***</sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.16 <sup></sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.16 <sup></sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.28 <sup></sup></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">sex [w]</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-5.79 <sup></sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-153.96 <sup>**</sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-161.92 <sup>**</sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-134.51 <sup>*</sup></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">height × sex [w]</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.85 <sup>*</sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.89 <sup>*</sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.74 <sup>*</sup></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">siblings</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-1.16 <sup></sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">Observations</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">23</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">23</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">23</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">23</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">21</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">R<sup>2</sup> / R<sup>2</sup> adjusted</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.363 / 0.333</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.412 / 0.354</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.487 / 0.407</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.496 / 0.385</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.572 / 0.497</td>
-</tr>
-<tr class="even">
-<td colspan="6" style="text-align: right; font-style: italic; border-top: double black;">* p&lt;0.2&nbsp;&nbsp;&nbsp;** p&lt;0.1&nbsp;&nbsp;&nbsp;*** p&lt;0.05</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=FALSE---------------------------------------------------</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(m1, m2, m3, m4,</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.style =</span> <span class="st">"stars"</span>,</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.threshold =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>),</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.ci =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.se =</span> <span class="cn">FALSE</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">&nbsp;</td>
-<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">weight</td>
-<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">weight</td>
-<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">weight</td>
-<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">weight</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Predictors</td>
-<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
-<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
-<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
-<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">(Intercept)</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-65.44 <sup>*</sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-29.53 <sup></sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">47.14 <sup></sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">50.27 <sup></sup></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">height</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.78 <sup>***</sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.59 <sup>***</sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.16 <sup></sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.16 <sup></sup></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">sex [w]</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-5.79 <sup></sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-153.96 <sup>**</sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-161.92 <sup>**</sup></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">height × sex [w]</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.85 <sup>*</sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.89 <sup>*</sup></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">siblings</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;"></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-1.16 <sup></sup></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">Observations</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">23</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">23</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">23</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">23</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">R<sup>2</sup> / R<sup>2</sup> adjusted</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.363 / 0.333</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.412 / 0.354</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.487 / 0.407</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.496 / 0.385</td>
-</tr>
-<tr class="even">
-<td colspan="5" style="text-align: right; font-style: italic; border-top: double black;">* p&lt;0.2&nbsp;&nbsp;&nbsp;** p&lt;0.1&nbsp;&nbsp;&nbsp;*** p&lt;0.05</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=FALSE---------------------------------------------------</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tab_model</span>(m3, m5,</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.style =</span> <span class="st">"stars"</span>,</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">p.threshold =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>),</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.ci =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.se =</span> <span class="cn">FALSE</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">&nbsp;</td>
-<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">weight</td>
-<td data-quarto-table-cell-role="th" style="text-align: center; border-top: double; font-style: normal; font-weight: bold; padding: 0.2cm;">weight</td>
-</tr>
-<tr class="even">
-<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Predictors</td>
-<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
-<td style="text-align: center; border-bottom: 1px solid; font-style: italic; font-weight: normal;">Estimates</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">(Intercept)</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">47.14 <sup></sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">27.69 <sup></sup></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">height</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.16 <sup></sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.28 <sup></sup></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">sex [w]</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-153.96 <sup>**</sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">-134.51 <sup>*</sup></td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">height × sex [w]</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.85 <sup>*</sup></td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top;">0.74 <sup>*</sup></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">Observations</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">23</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm; border-top: 1px solid;">21</td>
-</tr>
-<tr class="even">
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">R<sup>2</sup> / R<sup>2</sup> adjusted</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.487 / 0.407</td>
-<td style="text-align: left; padding: 0.2cm; vertical-align: top; padding-top: 0.1cm; padding-bottom: 0.1cm;">0.572 / 0.497</td>
-</tr>
-<tr class="odd">
-<td colspan="3" style="text-align: right; font-style: italic; border-top: double black;">* p&lt;0.2&nbsp;&nbsp;&nbsp;** p&lt;0.1&nbsp;&nbsp;&nbsp;*** p&lt;0.05</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ---- echo=T-------------------------------------------------------</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">residuals</span>(m3), <span class="fu">fitted</span>(m3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regression_files/figure-html/unnamed-chunk-7-7.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">residuals</span>(m3), classdata<span class="sc">$</span>siblings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regression_files/figure-html/unnamed-chunk-7-8.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#  unload packages</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>(pacman<span class="sc">::</span><span class="fu">p_unload</span>(tidyverse, haven, sjPlot))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- ::: {.callout-important appearance="minimal"} -->
+<!-- ::: {#exr-explwestud} -->
+<!-- Explain the weight of students -->
+<!-- In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with correlations and a regression analysis the association. Load the data as follows: -->
+<!-- ```{r} -->
+<!-- library("haven") -->
+<!-- classdata <- read.csv("https://raw.githubusercontent.com/hubchev/courses/main/dta/classdata.csv") -->
+<!-- ``` -->
+<!-- ```{r echo=FALSE , results='asis', warning=FALSE} -->
+<!-- func_use("/home/sthu/Dropbox/hsf/github/courses/scr/exe_regress_lecture.R") -->
+<!-- ``` -->
+<!-- ```{r } -->
+<!-- #| echo: true -->
+<!-- #| eval: true -->
+<!-- #| file: /home/sthu/Dropbox/hsf/github/courses/scr/exe_regress_lecture.R -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: -->
 <div class="callout callout-style-simple callout-important no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -1588,7 +1025,7 @@ F-statistic: 7.019 on 2 and 20 DF,  p-value: 0.004904</code></pre>
 <div class="callout-body-container">
 <div id="exr-causalgraphnhk" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 5.4</strong></span> Causal inference and animated plots</p>
-<p>Nick <span class="citation" data-cites="Huntington-Klein2022Effect">Huntington-Klein (<a href="#ref-Huntington-Klein2022Effect" role="doc-biblioref">2022</a>)</span> has created wonderful animated graphs that give great and quick insights into how causal inference works. Please read his online chapter on <a href="https://www.nickchk.com/causalgraphs.html"><em>Causal Inference Animated Plots</em></a> and discuss</p>
+<p>Nick <span class="citation" data-cites="Huntington-Klein2022Effect">Huntington-Klein (<a href="references.html#ref-Huntington-Klein2022Effect" role="doc-biblioref">2022</a>)</span> has created wonderful animated graphs that give great and quick insights into how causal inference works. Please read his online chapter on <a href="https://www.nickchk.com/causalgraphs.html"><em>Causal Inference Animated Plots</em></a> and discuss</p>
 <ol type="a">
 <li>what he means when he speaks of <em>closing the back-door path</em> and <em>controlling for</em>,</li>
 <li>what methods exist to <em>close the back-door path</em>, and</li>
@@ -1600,20 +1037,33 @@ F-statistic: 7.019 on 2 and 20 DF,  p-value: 0.004904</code></pre>
 </div>
 <div class="no-row-height column-margin column-container"><div id="ref-Huntington-Klein2022Effect" class="csl-entry" role="listitem">
 Huntington-Klein, N. (2022). <em>The effect: An introduction to research design and causality</em>. Accessed January 30, 2023; CRC Press. <a href="https://theeffectbook.net">https://theeffectbook.net</a>
-</div></div><section id="difference-in-difference" class="level2" data-number="5.4">
+</div></div></section>
+</section>
+<section id="difference-in-difference" class="level2 page-columns page-full" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="difference-in-difference"><span class="header-section-number">5.4</span> Difference in difference</h2>
 <div id="fig-dcard" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-dcard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.8: David Card (*1956)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+Figure&nbsp;5.8: David Card (*1956)
 </figcaption>
 <div aria-describedby="fig-dcard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/dcard1.jpg" class="img-fluid figure-img" style="width:25.0%">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig/dcard1.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>Source: <a href="https://davidcard.berkeley.edu/">https://davidcard.berkeley.edu/</a>.</em></p>
 </div>
 </figure>
 </div>
-<p>David Card is one of the most influential labor economist of the 20th century and Nobel laureate of 2021. He is well-known for his research on the effects of the minimum wage on employment, which challenged the traditional view that increasing the minimum wage leads to a decrease in employment. In his article <em>Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania</em> <span class="citation" data-cites="Card1994Minimum">(<a href="#ref-Card1994Minimum" role="doc-biblioref">Card &amp; Krueger, 1994</a>)</span> he and Alan Krueger (1960-2019) used a <em>natural experiment</em> to examine the effect of an increase in the minimum wage on employment. In particular, they identified a treatment group (restaurants in New Jersey) and a control group (restaurants in eastern Pennsylvania) to measure the effect of increasing the minimum wage that was increased in New Jersey but not in Pennsylvania. This increase did not lead to a decrease in employment, which contradicted the widely held view that increasing the minimum wage would lead to job loss. The empirical method that they used is called <em>difference in difference</em> and we discuss it in the following section.</p>
-<p>The difference in difference (DiD) method allows to estimate the causal effect of a treatment or intervention. In particular, it is popular to study the impact of policy changes and other interventions on a specific outcome of interest.</p>
+<p>David Card is one of the most influential labor economist of the 20th century and Nobel laureate of 2021. He is well-known for his research on the effects of the minimum wage on employment, which challenged the traditional view that increasing the minimum wage leads to a decrease in employment. In his article <em>Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania</em> <span class="citation" data-cites="Card1994Minimum">(<a href="references.html#ref-Card1994Minimum" role="doc-biblioref">Card &amp; Krueger, 1994</a>)</span> he and Alan Krueger (1960-2019) used a <em>natural experiment</em> to examine the effect of an increase in the minimum wage on employment. In particular, they identified a treatment group (restaurants in New Jersey) and a control group (restaurants in eastern Pennsylvania) to measure the effect of increasing the minimum wage that was increased in New Jersey but not in Pennsylvania. This increase did not lead to a decrease in employment, which contradicted the widely held view that increasing the minimum wage would lead to job loss. The empirical method that they used is called <em>difference in difference</em> and we discuss it in the following section.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Card1994Minimum" class="csl-entry" role="listitem">
+Card, D., &amp; Krueger, A. B. (1994). Minimum wages and employment: A case study of the fast-food industry in new jersey and pennsylvania. <em>The American Economic Review</em>, <em>84</em>(4), 772–793.
+</div></div><p>The difference in difference (DiD) method allows to estimate the causal effect of a treatment or intervention. In particular, it is popular to study the impact of policy changes and other interventions on a specific outcome of interest.</p>
 <p>The basic idea behind the DiD method is to compare the change in an outcome variable between a treatment group and a control group over time. The treatment group is the group that is exposed to the intervention or treatment, while the control group is a group that is not exposed to the intervention. The difference in the change in the outcome variable between the two groups is then used to estimate the causal effect of the intervention.</p>
 <p>To use the DiD method, researchers typically collect data on the outcome variable of interest for both the treatment and control groups before and after the intervention. This data is then used to calculate the difference in the change in the outcome variable between the two groups.</p>
 <p>For example, if a study aims to examine the effect of a new policy on the employment rate, it should collect data on the employment rate for a group of individuals living in a region where the policy was implemented, and for a group living in a similar region where the policy was not implemented. The study can then compare the change in the employment rate for the two groups, before and after the implementation of the policy. The difference in the change in the employment rate between the two groups can be used to estimate of the causal effect of the policy on employment.</p>
@@ -1650,7 +1100,7 @@ Figure&nbsp;5.10: Tolerate time-invariant unobserved confounding
 </div>
 </figure>
 </div>
-<p>Figures <a href="#fig-neal9" class="quarto-xref"><span class="quarto-unresolved-ref ref-noprefix">fig-neal9</span></a> and <a href="#fig-neal9b" class="quarto-xref"><span class="quarto-unresolved-ref ref-noprefix">fig-neal9b</span></a> stem from a video of Brady Neal’s lecture on <a href="https://youtu.be/2nDgrNP7XSE"><em>Difference-in-Differences</em></a>. Please watch this video.</p>
+<p><a href="#fig-neal9" class="quarto-xref">Figure&nbsp;<span>5.9</span></a> and <a href="#fig-neal9b" class="quarto-xref">Figure&nbsp;<span>5.10</span></a> stem from a video of Brady Neal’s lecture on <a href="https://youtu.be/2nDgrNP7XSE"><em>Difference-in-Differences</em></a>. Please watch this video.</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-important no-icon">
@@ -1661,17 +1111,29 @@ Figure&nbsp;5.10: Tolerate time-invariant unobserved confounding
 <div class="callout-body-container">
 <div id="exr-DiD" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 5.5</strong></span> Mastering DiD with Joshua Angrist</p>
+<p>Watch the video <a href="https://youtu.be/eiffOVbYvNc"><em>Introduction to Differences-in-Differences</em></a>:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eiffOVbYvNc?si=QmcWw6jJnLsHoUzm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<p>The video is part of a course called <em>Mastering Econometrics with Joshua Angrist (MIT)</em> produced by Marginal Revolution University. In it, Josh Angrist (see <a href="#fig-angristdid" class="quarto-xref">Figure&nbsp;<span>5.11</span></a>) introduces differences within differences using one of the worst economic events in history: the Great Depression.</p>
 <div id="fig-angristdid" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-angristdid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5.11: Josh Angrist (*1960): Nobel Prize winner of economics in 2021
 </figcaption>
 <div aria-describedby="fig-angristdid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/angrist-did.png" class="img-fluid figure-img" style="width:50.0%">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig/angrist-did.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>Source: <a href="https://youtu.be/eiffOVbYvNc">Youtube</a>.</em></p>
 </div>
 </figure>
 </div>
-<p>Watch the video <a href="https://youtu.be/eiffOVbYvNc"><em>Introduction to Differences-in-Differences</em></a> and answer the following questions. The video is part of a course called <em>Mastering Econometrics with Joshua Angrist (MIT)</em> produced by Marginal Revolution University. In it, Josh Angrist introduces differences within differences using one of the worst economic events in history: the Great Depression.</p>
 <ol type="1">
 <li>In the video, the treatment being examined is:
 <ol type="a">
@@ -1698,7 +1160,7 @@ Figure&nbsp;5.11: Josh Angrist (*1960): Nobel Prize winner of economics in 2021
 <li>None of the above.</li>
 </ol></li>
 </ol>
-<p>See <a href="#sol-DiD" class="quarto-xref">Solution&nbsp;<span class="quarto-unresolved-ref">sol-DiD</span></a></p>
+<p>See <a href="#sol-DiD" class="quarto-xref">Solution&nbsp;<span>5.1</span></a></p>
 </div>
 </div>
 </div>
@@ -1713,7 +1175,7 @@ Figure&nbsp;5.11: Josh Angrist (*1960): Nobel Prize winner of economics in 2021
 </div>
 <div class="callout-body-container">
 <div id="sol-DiD" class="proof solution">
-<p><span class="proof-title"><em>Solution 5.1</em>. </span>Solution to exercise <a href="#exr-DiD" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref">exr-DiD</span></a></p>
+<p><span class="proof-title"><em>Solution 5.1</em>. </span>Solution to exercise <a href="#exr-DiD" class="quarto-xref">Exercise&nbsp;<span>5.5</span></a></p>
 <p>Answers: 1. b), 2. a), 3. c)</p>
 </div>
 </div>
@@ -1721,17 +1183,8 @@ Figure&nbsp;5.11: Josh Angrist (*1960): Nobel Prize winner of economics in 2021
 </div>
 
 
-</section>
-</div>
-</div>
-</div>
-</div>
-<div class="no-row-height column-margin column-container"><div id="ref-Card1994Minimum" class="csl-entry" role="listitem">
-Card, D., &amp; Krueger, A. B. (1994). Minimum wages and employment: A case study of the fast-food industry in new jersey and pennsylvania. <em>The American Economic Review</em>, <em>84</em>(4), 772–793.
-</div></div><div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Source: <a href="https://davidcard.berkeley.edu/">https://davidcard.berkeley.edu/</a>.</p></div></div>
-</section>
-</section>
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
