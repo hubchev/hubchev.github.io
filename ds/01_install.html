@@ -360,6 +360,12 @@ window.Quarto = {
   <li><a href="#sec-package-management" id="toc-sec-package-management" class="nav-link" data-scroll-target="#sec-package-management"><span class="header-section-number">1.9.3</span> Simplified package management with <code>p_load</code></a></li>
   </ul></li>
   <li><a href="#base-r-and-the-tidyverse-universe" id="toc-base-r-and-the-tidyverse-universe" class="nav-link" data-scroll-target="#base-r-and-the-tidyverse-universe"><span class="header-section-number">1.10</span> Base R and the tidyverse universe</a></li>
+  <li><a href="#sec-keyoperators" id="toc-sec-keyoperators" class="nav-link" data-scroll-target="#sec-keyoperators"><span class="header-section-number">1.11</span> Two key programming operators</a>
+  <ul class="collapse">
+  <li><a href="#assignment-operator--" id="toc-assignment-operator--" class="nav-link" data-scroll-target="#assignment-operator--"><span class="header-section-number">1.11.1</span> Assignment operator: “<code>&lt;-</code>”</a></li>
+  <li><a href="#pipe-operator" id="toc-pipe-operator" class="nav-link" data-scroll-target="#pipe-operator"><span class="header-section-number">1.11.2</span> Pipe operator: “<code>|&gt;</code>”</a></li>
+  </ul></li>
+  <li><a href="#write-your-own-function" id="toc-write-your-own-function" class="nav-link" data-scroll-target="#write-your-own-function"><span class="header-section-number">1.12</span> Write your own function</a></li>
   </ul>
 </nav>
     </div>
@@ -406,30 +412,18 @@ Learning Objectives
 </ul>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Content">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Content
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>Why R?</li>
-<li>How to learn R?</li>
-<li>Learning resources</li>
-<li>What is a function in R?</li>
-<li>What are objects in R?</li>
-<li>What are R and RStudio?</li>
-<li>How to install R and RStudio</li>
-<li>How to write and run code in R and RStudio</li>
-<li>What are R packages?</li>
-<li>Base R and the tidyverse universe</li>
-</ol>
-</div>
-</div>
+<!-- ::: {.callout-note appearance="minimal" title="Content"} -->
+<!-- 1. Why R? -->
+<!-- 2. How to learn R? -->
+<!-- 1. Learning resources -->
+<!-- 8. What is a function in R? -->
+<!-- 9. What are objects in R? -->
+<!-- 3. What are R and RStudio? -->
+<!-- 5. How to install R and RStudio -->
+<!-- 5. How to write and run code in R and RStudio -->
+<!-- 7. What are R packages? -->
+<!-- 10. Base R and the tidyverse universe -->
+<!-- ::: -->
 <section id="sec:whyR" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="sec:whyR"><span class="header-section-number">1.1</span> Why R?</h2>
 <p>R is an open-source programming language that allows to analyse and manipulate data, create state-of-the-art graphics, and many more. It supports larger data sets, reads any type of data, and runs on multiple platforms (Windows, Mac, Linux) and CPU architectures (x86_64, arm64). R makes it easier to automate tasks, organize projects, ensure reproducibility, and find and fix errors, and anyone can contribute packages to improve its functionality. Moreover, the following points are worth to emphasize:</p>
@@ -481,7 +475,7 @@ Make your hands dirty!
 Figure&nbsp;1.1: Play around with code
 </figcaption>
 <div aria-describedby="fig-catsee-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="fig/changinstuff-big.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="fig/changinstuff-big.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p><a href="fig/changinstuff-big.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="fig/changinstuff-big.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
 <p><em>Source: <a href="https://github.com/thepracticaldev/orly-full-res">DEV Community on GitHub</a></em></p>
 </div>
 </figure>
@@ -491,7 +485,7 @@ Figure&nbsp;1.1: Play around with code
 <li><strong>Computers need clear and precise instructions to work:</strong> They can’t handle mistakes or unclear directions. They are actually sort of stupid as they do not have an intuition. They just take you literally. Even small errors like a missing comma or an unclosed bracket can cause your code to not work. Computers do exactly what you tell them, no more and no less.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled" title="Computers take you literally">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -500,7 +494,7 @@ Computers take you literally
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>Let me illustrate what I mean: Suppose you send your grandfather the following message:</p>
 <blockquote class="blockquote">
@@ -535,18 +529,18 @@ Figure&nbsp;1.2: A collection of textbooks
 <div aria-describedby="fig-forexplayer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="fig/r4ds-cover.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="fig/r4ds-cover.jpg" class="img-fluid figure-img" style="width:90.0%"></a></p>
+<p><a href="fig/r4ds-cover.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="fig/r4ds-cover.jpg" class="img-fluid figure-img" style="width:90.0%"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="fig/healy-cover.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="fig/healy-cover.jpg" class="img-fluid figure-img" style="width:90.0%"></a></p>
+<p><a href="fig/healy-cover.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="fig/healy-cover.jpg" class="img-fluid figure-img" style="width:90.0%"></a></p>
 </div>
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="fig/irizarrybook.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="fig/irizarrybook.png" class="img-fluid figure-img" style="width:95.0%"></a></p>
+<p><a href="fig/irizarrybook.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><img src="fig/irizarrybook.png" class="img-fluid figure-img" style="width:95.0%"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="fig/Kabacoff2024Modern.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="fig/Kabacoff2024Modern.png" class="img-fluid figure-img" style="width:90.0%"></a></p>
+<p><a href="fig/Kabacoff2024Modern.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5"><img src="fig/Kabacoff2024Modern.png" class="img-fluid figure-img" style="width:90.0%"></a></p>
 </div>
 </div>
 </div>
@@ -605,7 +599,7 @@ Kabacoff, R. (2024). <em>Modern data visualization with <span>R</span></em>. Cha
 Figure&nbsp;1.3: The R Documentation of <code>q()</code>
 </figcaption>
 <div aria-describedby="fig-help-q-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/help-q.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="fig/help-q.png" class="img-fluid figure-img" style="width:70.0%"></a>
+<a href="fig/help-q.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6"><img src="fig/help-q.png" class="img-fluid figure-img" style="width:70.0%"></a>
 </div>
 </figure>
 </div>
@@ -630,7 +624,7 @@ Chambers, J. M. (2017). <em>Extending <span>R</span></em>. CRC Press.
 Figure&nbsp;1.4: Analogy of difference between R and RStudio
 </figcaption>
 <div aria-describedby="fig-R_vs_RStudio_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/R_vs_RStudio_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="fig/R_vs_RStudio_1.png" class="img-fluid figure-img"></a>
+<a href="fig/R_vs_RStudio_1.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7"><img src="fig/R_vs_RStudio_1.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
 </div>
@@ -642,7 +636,7 @@ Figure&nbsp;1.4: Analogy of difference between R and RStudio
 Figure&nbsp;1.5: Icons of R versus RStudio on your computer
 </figcaption>
 <div aria-describedby="fig-R_vs_RStudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/R_vs_RStudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="fig/R_vs_RStudio.png" class="img-fluid figure-img"></a>
+<a href="fig/R_vs_RStudio.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="quarto-lightbox-gallery-8"><img src="fig/R_vs_RStudio.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
 </div>
@@ -654,7 +648,7 @@ Figure&nbsp;1.6: A sketch of RStudio interface to R
 </figcaption>
 <div aria-describedby="fig-rstudio2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <!-- ![](fig/rstudio4.png) -->
-<p><a href="fig/rstudio4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><img src="fig/rstudio4.png" class="img-fluid figure-img"></a></p>
+<p><a href="fig/rstudio4.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="quarto-lightbox-gallery-9"><img src="fig/rstudio4.png" class="img-fluid figure-img"></a></p>
 </div>
 </figure>
 </div>
@@ -665,7 +659,7 @@ Figure&nbsp;1.6: A sketch of RStudio interface to R
 <li>The <em>Script</em> panel, used for writing code.</li>
 </ol>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled" title="If you don't have panel number 4,">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -674,7 +668,7 @@ If you don’t have panel number 4,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>open it by opening an existing R-script or creating a new one. You can create a new on by clicking <em>Ctrl+Shift+N</em> (alternatively, you can use the menu: File<span class="math inline">\(\rightarrow\)</span>New File<span class="math inline">\(\rightarrow\)</span>R Script).</p>
 </div>
@@ -727,7 +721,7 @@ If you don’t have panel number 4,
 Figure&nbsp;1.7: One plus four in a R script
 </figcaption>
 <div aria-describedby="fig-oneplusfour-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/oneplusfour.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10"><img src="fig/oneplusfour.png" class="img-fluid figure-img" style="width:75.0%"></a>
+<a href="fig/oneplusfour.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="quarto-lightbox-gallery-10"><img src="fig/oneplusfour.png" class="img-fluid figure-img" style="width:75.0%"></a>
 </div>
 </figure>
 </div>
@@ -741,7 +735,7 @@ Figure&nbsp;1.8: Set up R in three steps
 </figcaption>
 <div aria-describedby="fig-3steps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <!-- ![](fig/rstudiolay.png) -->
-<p><a href="fig/3steps-green.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11"><img src="fig/3steps-green.png" class="img-fluid figure-img" style="width:75.0%"></a></p>
+<p><a href="fig/3steps-green.png" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="quarto-lightbox-gallery-11"><img src="fig/3steps-green.png" class="img-fluid figure-img" style="width:75.0%"></a></p>
 </div>
 </figure>
 </div>
@@ -761,7 +755,7 @@ Figure&nbsp;1.8: Set up R in three steps
 <li><strong>Do this thirdly:</strong> Install R packages. This step is optionally as you can install R packages at any time. However, it may be a good idea to install frequently used packages in one take because the installation of some packages can be time consuming. Therefore, I recommend to read <a href="#sec-packages" class="quarto-xref"><span>Section 1.9</span></a> and follow the instructions therein.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled" title="How to use R and RStudio without installation">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -770,7 +764,7 @@ How to use R and RStudio without installation
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If you don’t want to install R on your PC or you don’t have admin rights to do so or if you want to run R on your tablet (IPad or Chromebook) or even your smartphone, you can use RStudio online doing <em>cloud computing</em> on <a href="https://posit.cloud">https://posit.cloud</a>. Posit Cloud (formerly RStudio Cloud) is a cloud-based solution that allows anyone to use RStudio online and navigate it through your web browser. It is free for individuals with some restrictions and limited capacities.</p>
 </div>
@@ -807,7 +801,7 @@ Package management
 <p>in the console pane of RStudio and pressing Return/Enter on your keyboard. Note you must include the quotation marks around the name of the package.</p>
 <p>If you want to update a previously installed package to a newer version, you need to re-install it by repeating the earlier steps or you use <code>update.packages()</code>. To uninstall packages you can use <code>remove.packages()</code>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="How to speed up the installation of packages">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -816,7 +810,7 @@ How to speed up the installation of packages
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The installation of packages can take some time. However, if your CPU has many cores, you can speed up the process a lot using the argument <code>Ncpus</code> like this <code>update.packages(ask = F, Ncpus = 4L)</code>. This option allows you to adjust the number of parallel processes R can use on your PC. So, if you have a CPU with many cores you can increase that number. A tutorial on how to set the number of cores used by R permanently can be found <a href="https://www.jumpingrivers.com/blog/speeding-up-package-installation/">here</a>.</p>
 </div>
@@ -911,7 +905,7 @@ Venables, W. N., Smith, D. M., &amp; R Core Team. (2022). <em>An introduction to
 Figure&nbsp;1.9: The tidyverse universe
 </figcaption>
 <div aria-describedby="fig-tidyverse-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/tidyverse-logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" data-glightbox="description: .lightbox-desc-12"><img src="fig/tidyverse-logo.png" class="img-fluid figure-img" style="width:30.0%"></a>
+<a href="fig/tidyverse-logo.png" class="lightbox" data-glightbox="description: .lightbox-desc-12" data-gallery="quarto-lightbox-gallery-12"><img src="fig/tidyverse-logo.png" class="img-fluid figure-img" style="width:30.0%"></a>
 </div>
 </figure>
 </div>
@@ -937,6 +931,93 @@ Wickham, H., &amp; Grolemund, G. (2023). <em>R for data science (2e)</em>. <a hr
 </div>
 </div>
 </div>
+</section>
+<section id="sec-keyoperators" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="sec-keyoperators"><span class="header-section-number">1.11</span> Two key programming operators</h2>
+<p>To instruct R to perform a task, we use function calls. When we want R to utilize data, we refer to that data within an object. This leads to two important questions:</p>
+<ol type="1">
+<li>How do we create objects?</li>
+<li>How can we instruct R to execute multiple steps in sequence?</li>
+</ol>
+<section id="assignment-operator--" class="level3" data-number="1.11.1">
+<h3 data-number="1.11.1" class="anchored" data-anchor-id="assignment-operator--"><span class="header-section-number">1.11.1</span> Assignment operator: “<code>&lt;-</code>”</h3>
+<p>The assignment operator “&lt;-” is used to store data in an object or overwrite an existing object. For example, we can calculate the square root of 5 using the <code>sqrt()</code> function and assign the result to an object named <code>square_root_of_five</code> as follows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>square_root_of_five <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, if you call the object, R will return the result:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>square_root_of_five </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.236068</code></pre>
+</div>
+</div>
+<p>The assignment operator is also explained in <a href="40_manage.html#sec-assignmentoper" class="quarto-xref"><span>Section 7.1.1</span></a>.</p>
+</section>
+<section id="pipe-operator" class="level3" data-number="1.11.2">
+<h3 data-number="1.11.2" class="anchored" data-anchor-id="pipe-operator"><span class="header-section-number">1.11.2</span> Pipe operator: “<code>|&gt;</code>”</h3>
+<p>There are different ways to chain function calls in R. The base R package allows you to nest one function within another. For example, to calculate the sum of the square root of 5 and the square root of 9 using the <code>sum()</code> function, you can write:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">sqrt</span>(<span class="dv">5</span>), <span class="fu">sqrt</span>(<span class="dv">9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.236068</code></pre>
+</div>
+</div>
+<p>In this case, we sum the square roots of 5 and 9, with the two functions nested as arguments within <code>sum()</code>. If you want to round the result to two decimal places, you can use the <code>round(x, digits = 2)</code> function like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">sum</span>(<span class="fu">sqrt</span>(<span class="dv">5</span>), <span class="fu">sqrt</span>(<span class="dv">9</span>)), <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.24</code></pre>
+</div>
+</div>
+<p>This is another example of function nesting.</p>
+<p>Alternatively, you can use the pipe operator, which can be represented as “<code>|&gt;</code>” in base R or as “<code>%&gt;%</code>” if you load the <code>magrittr</code> package. The pipe operator passes the output of one function to serve as the input for the next. Here’s how you can perform the same calculation using the pipe operator:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">9</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">2</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.24</code></pre>
+</div>
+</div>
+<p>This can be interpreted step by step as follows:</p>
+<ul>
+<li><strong><code>c(5, 9)</code></strong> : We combine the values 5 and 9 into a vector using the <code>c()</code> function …AND THEN…</li>
+<li><strong><code>sqrt()</code></strong>: We calculate the square root of each value in the vector …AND THEN…</li>
+<li><strong><code>sum()</code></strong>: We sum the square roots …AND THEN…</li>
+<li><strong><code>round(digits = 2)</code></strong>: We round the result to two decimal places.</li>
+</ul>
+<p>As you can see, the pipe operator allows us to read the code as “and then”. This method of sequentially executing tasks has several advantages: it mimics how humans typically approach problems and makes the code easier to read and understand. Consequently, we will frequently utilize this operator throughout the book. The pipe operator is also explained in <a href="40_manage.html#sec-pipeoperator" class="quarto-xref"><span>Section 7.3.2</span></a>.</p>
+</section>
+</section>
+<section id="write-your-own-function" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="write-your-own-function"><span class="header-section-number">1.12</span> Write your own function</h2>
+<p>Defining your own functions in R is straightforward. For example, if you frequently need to perform the calculation described in <a href="#sec-keyoperators" class="quarto-xref"><span>Section 1.11</span></a>, you can create a custom function like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>process_numbers <span class="ot">&lt;-</span> <span class="cf">function</span>(num1, num2) {</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(num1, num2) <span class="sc">|&gt;</span> </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sqrt</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sum</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">2</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    } </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The function <code>process_numbers()</code> has two arguments, that are two numbers, as input, performs the calculation, and returns the result. Now, you can use this function to process any two numbers with ease. For example, for the numbers 5 and 9, the function call is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">process_numbers</span>(<span class="dv">5</span>, <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.24</code></pre>
+</div>
+</div>
+<p>And for the numbers 4 and 9, it is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">process_numbers</span>(<span class="dv">4</span>, <span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+<p>This approach not only simplifies your code but also ensures consistency when performing the same operation multiple times.</p>
+<p>How to define user-defined function is explained in greater detail in <a href="40_manage.html#sec-generics" class="quarto-xref"><span>Section 7.5</span></a>.</p>
 
 
 <div class="hidden" aria-hidden="true">
@@ -1523,7 +1604,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","loop":false,"closeEffect":"zoom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":false});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
