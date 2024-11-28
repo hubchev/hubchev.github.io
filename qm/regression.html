@@ -292,9 +292,13 @@ window.Quarto = {
   <li><a href="#p-values" id="toc-p-values" class="nav-link" data-scroll-target="#p-values"><span class="header-section-number">5.3.1</span> P-values</a></li>
   <li><a href="#t-values" id="toc-t-values" class="nav-link" data-scroll-target="#t-values"><span class="header-section-number">5.3.2</span> t-values</a></li>
   <li><a href="#standard-error" id="toc-standard-error" class="nav-link" data-scroll-target="#standard-error"><span class="header-section-number">5.3.3</span> Standard Error</a></li>
-  <li><a href="#omitted-variable-bias-and-ceteris-paribus" id="toc-omitted-variable-bias-and-ceteris-paribus" class="nav-link" data-scroll-target="#omitted-variable-bias-and-ceteris-paribus"><span class="header-section-number">5.3.4</span> Omitted variable bias and ceteris paribus</a></li>
   </ul></li>
-  <li><a href="#difference-in-difference" id="toc-difference-in-difference" class="nav-link" data-scroll-target="#difference-in-difference"><span class="header-section-number">5.4</span> Difference in difference</a></li>
+  <li><a href="#sec-scrcj" id="toc-sec-scrcj" class="nav-link" data-scroll-target="#sec-scrcj"><span class="header-section-number">5.4</span> Statistical control requires causal justification</a>
+  <ul class="collapse">
+  <li><a href="#confounding-variables" id="toc-confounding-variables" class="nav-link" data-scroll-target="#confounding-variables"><span class="header-section-number">5.4.1</span> Confounding variables</a></li>
+  <li><a href="#sec_ovbcp" id="toc-sec_ovbcp" class="nav-link" data-scroll-target="#sec_ovbcp"><span class="header-section-number">5.4.2</span> Omitted variable bias and ceteris paribus</a></li>
+  </ul></li>
+  <li><a href="#difference-in-difference" id="toc-difference-in-difference" class="nav-link" data-scroll-target="#difference-in-difference"><span class="header-section-number">5.5</span> Difference in difference</a></li>
   </ul>
 </nav>
     </div>
@@ -465,7 +469,7 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \dots + \beta
 <p>These assumptions collectively ensure that the OLS estimators are unbiased, efficient, and have minimum variance among all linear unbiased estimators. Violations of these assumptions can lead to biased and inefficient estimators, invalid hypothesis tests, and unreliable predictions. Therefore, it is important to check these assumptions when using the OLS method and consider alternative estimation techniques if the assumptions are violated.</p>
 </section>
 </section>
-<section id="how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis" class="level2 page-columns page-full" data-number="5.3">
+<section id="how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis"><span class="header-section-number">5.3</span> How to identify statistically significant estimated coefficients in a regression analysis</h2>
 <section id="p-values" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="p-values"><span class="header-section-number">5.3.1</span> P-values</h3>
@@ -738,23 +742,46 @@ t_{\text{TV Watching}} = \frac{-0.3}{0.15} = -2.0
 <li><strong>Party Hours (t-value: -10.0):</strong> The t-value of -10.0 shows a highly significant negative effect of Party Hours on the dependent variable.</li>
 <li><strong>TV Watching (t-value: -2.0):</strong> The t-value of -2.0 indicates that the coefficient for TV Watching is significant, but less so compared to the other variables.</li>
 </ul>
-<div id="tip-nicani" class="callout callout-style-simple callout-tip callout-titled">
+</section>
+</section>
+<section id="sec-scrcj" class="level2 page-columns page-full" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="sec-scrcj"><span class="header-section-number">5.4</span> Statistical control requires causal justification</h2>
+<div id="tip-wysocki" class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;5.1: Statistical control requires causal justification
+Tip&nbsp;5.1
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Read <a href="identification.html#sec-scrcj" class="quarto-xref"><span>Section 3.4</span></a> (again).</p>
+<p>Read <span class="citation" data-cites="Wysocki2022Statistical">Wysocki et al. (<a href="references.html#ref-Wysocki2022Statistical" role="doc-biblioref">2022</a>)</span> which is freely available <a href="https://doi.org/10.1177/25152459221095823">here</a>. <a href="https://osf.io/38mxq">Here</a> you find a good summary of the paper.</p>
 </div>
 </div>
+<div class="no-row-height column-margin column-container"></div><p>Scientific research revolves around challenging our own views and findings. A good researcher does not merely present their results; instead, they engage in discussions about potential limitations and pitfalls to draw valid conclusions. Engaging in polemics goes against the essence of good research. We should not conceal potential weaknesses in our scientific strategy or empirical approach; rather, we should emphasize their existence. Even if this disappoints individuals seeking easy answers, it is crucial to acknowledge these limitations. The <a href="https://catalogofbias.org/biases/">Catalogue of Bias</a> is an excellent resource that provides insight into various potential pitfalls and challenges encountered during research, which may sometimes be difficult to completely rule out.</p>
+<section id="confounding-variables" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="confounding-variables"><span class="header-section-number">5.4.1</span> Confounding variables</h3>
 <p>A confounding variable is a factor that was not accounted for or controlled in a study but has the potential to influence the results. In other words, the true effects of the treatment or intervention can be obscured or muddled by the presence of this variable.</p>
-<p>For instance, let’s consider a scenario where two groups of individuals are observed: one group took vitamin C daily, while the other group did not. Over the course of a year, the number of colds experienced by each group is recorded. It might be observed that the group taking vitamin C had fewer colds compared to the group that did not. However, it would be incorrect to conclude that vitamin C directly reduces the occurrence of colds. Since this study is observational and not a true experiment, numerous confounding variables are at play. One potential confounding variable could be the individuals’ level of health consciousness. Those who take vitamins regularly might also engage in other health-conscious behaviors, such as frequent handwashing, which could independently contribute to a lower risk of catching colds.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Do not ignore confounders!">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Do not ignore confounders!
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A confounding variable is not inherently problematic in regression analysis. It only becomes an issue if the analysis fails to account for its confounding effect in both the identification strategy and the execution of the regression. When the confounding effect is neglected, we refer to this as <em>omitted variable bias</em>. This bias is further detailed in <span class="citation" data-cites="sec_ovbcp">(<a href="references.html#ref-sec_ovbcp" role="doc-biblioref"><strong>sec_ovbcp?</strong></a>)</span>.</p>
+</div>
+</div>
+</div>
+<p>For example, let’s consider a scenario where two groups of individuals are observed: one group took vitamin C daily, while the other group did not. Over the course of a year, the number of colds experienced by each group is recorded. It might be observed that the group taking vitamin C had fewer colds compared to the group that did not. However, it would be incorrect to conclude that vitamin C directly reduces the occurrence of colds. Since this study is observational and not a true experiment, numerous confounding variables are at play. One potential confounding variable could be the individuals’ level of health consciousness. Those who take vitamins regularly might also engage in other health-conscious behaviors, such as frequent handwashing, which could independently contribute to a lower risk of catching colds.</p>
 <p>To address confounding variables, researchers employ control measures. The idea is to create conditions where confounding variables are minimized or eliminated. In the aforementioned example, researchers could pair individuals who have similar levels of health consciousness and randomly assign one person from each pair to take vitamin C daily (while the other person receives a placebo). Any differences observed in the number of colds between the groups would be more likely attributable to the vitamin C, compared to the original observational study. Well-designed experiments are crucial as they actively control for potential confounding variables.</p>
-<p>Consider another scenario where a researcher claims that eating seaweed prolongs life. However, upon reading interviews with the study subjects, it becomes apparent that they were all over 100 years old, followed a very healthy diet, slept an average of 8 hours per day, drank ample water, and engaged in regular exercise. In this case, it is not possible to determine whether longevity was specifically caused by seaweed consumption due to the presence of numerous confounding variables. The healthy diet, sufficient sleep, hydration, and exercise could all independently contribute to longer life. These variables act as confounding factors.</p>
+<p>Consider another scenario where a researcher claims that eating seaweed prolongs life. However, upon reading interviews with the study subjects, it becomes apparent that they were all over 80 years old, followed a very healthy diet, slept an average of 8 hours per day, drank ample water, and engaged in regular exercise. In this case, it is not possible to determine whether longevity was specifically caused by seaweed consumption due to the presence of numerous confounding variables. The healthy diet, sufficient sleep, hydration, and exercise could all independently contribute to longer life. These variables act as confounding factors.</p>
 <p>A common error in research studies is to fail to control for confounding variables, leaving the results open to scrutiny. The best way to head off confounding variables is to do a well-designed experiment in a controlled setting. Observational studies are great for surveys and polls, but not for showing cause-and-effect relationships, because they don’t control for confounding variables.</p>
 <p><strong>Control variables</strong> are usually variables that you are not particularly interested in, but that are related to the dependent variable. You want to remove their effects from the equation. A control variable enters a regression in the same way as an independent variable – the method is the same.</p>
 <div id="tip-nicani" class="callout callout-style-simple callout-tip callout-titled">
@@ -771,8 +798,8 @@ Tip&nbsp;5.2
 </div>
 </div>
 </section>
-<section id="omitted-variable-bias-and-ceteris-paribus" class="level3 page-columns page-full" data-number="5.3.4">
-<h3 data-number="5.3.4" class="anchored" data-anchor-id="omitted-variable-bias-and-ceteris-paribus"><span class="header-section-number">5.3.4</span> Omitted variable bias and ceteris paribus</h3>
+<section id="sec_ovbcp" class="level3 page-columns page-full" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="sec_ovbcp"><span class="header-section-number">5.4.2</span> Omitted variable bias and ceteris paribus</h3>
 <p>From the Gauss-Markov theorem we know that if the OLS assumptions are fulfilled, the OLS estimator is (in the sense of smallest variance) the best linear conditionally unbiased estimator (BLUE). However, OLS estimates can suffer from omitted variable bias when any regressor, X, is correlated with any omitted variable that matters for variable Y.</p>
 <p>For omitted variable bias to occur, two conditions must be fulfilled:</p>
 <ol type="1">
@@ -1047,10 +1074,96 @@ Huber, S. (2024). <em>How to use <span>R</span> for data science: Lecture notes<
 </div>
 <div class="no-row-height column-margin column-container"><div id="ref-Huntington-Klein2022Effect" class="csl-entry" role="listitem">
 Huntington-Klein, N. (2022). <em>The effect: An introduction to research design and causality</em>. Accessed January 30, 2023; CRC Press. <a href="https://theeffectbook.net">https://theeffectbook.net</a>
+</div></div><div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-wysock" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.6</strong></span> Identification with observational data</p>
+<p><span class="citation" data-cites="Wysocki2022Statistical">Wysocki et al. (<a href="references.html#ref-Wysocki2022Statistical" role="doc-biblioref">2022</a>)</span> discuss how to identify effect using observational data using regression analysis. Using Directed Acyclic Graphs (DAGs), the paper discusses various types of variables associated with a variable of interest. Assume you are interested in the impact of a variable <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.</p>
+<p>For a regression analysis, how should you treat the following types of variables: (1) Confounder, (2) Mediator, (3) Collider, (4) Proxy, and (5) Independent.</p>
+<p>Please visualize these relationships using DAGs and discuss how each of these variable types should be incorporated into a regression analysis.</p>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regression_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A confounding variable is associated with both the independent variable (<span class="math inline">\(X\)</span>) and the dependent variable (<span class="math inline">\(Y\)</span>), potentially skewing the apparent relationship between them.</p>
+<p>Confounders should be included in the regression analysis as control variables. Failing to control for confounders can lead to biased estimates of the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> (omitted variable bias).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regression_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A mediator is a variable through which an independent variable influences a dependent variable. In this case, <span class="math inline">\(X\)</span> affects the mediator <span class="math inline">\(C\)</span>, which in turn affects <span class="math inline">\(Y\)</span>.</p>
+<p>When considering mediators, you should not include both <span class="math inline">\(X\)</span> and <span class="math inline">\(C\)</span> in the regression model to understand the overall impact of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regression_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A collider is a variable that is influenced by both <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Conditioning on a collider can create a spurious association.</p>
+<p>Avoid including colliders in the regression analysis. Including a collider can introduce bias and create a misleading relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regression_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A proxy variable serves as a substitute for the variable of interest, often because the actual variable is difficult to measure.</p>
+<p>Proxies can be included in the regression analysis as long as they are empirically valid representations of the variable they are intended to substitute. However, there is no need to include it as <span class="math inline">\(C\)</span> does not have and impact on <span class="math inline">\(Y\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regression_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>An independent is a variable that has no causal relation to either the outcome or predictor. Controlling for such a variable will have no systematic impact on the causal estimate.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Wysocki2022Statistical" class="csl-entry" role="listitem">
+Wysocki, A. C., Lawson, K. M., &amp; Rhemtulla, M. (2022). Statistical control requires causal justification. <em>Advances in Methods and Practices in Psychological Science</em>, <em>5</em>(2).
 </div></div></section>
 </section>
-<section id="difference-in-difference" class="level2 page-columns page-full" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="difference-in-difference"><span class="header-section-number">5.4</span> Difference in difference</h2>
+<section id="difference-in-difference" class="level2 page-columns page-full" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="difference-in-difference"><span class="header-section-number">5.5</span> Difference in difference</h2>
 <div id="fig-dcard" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-dcard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1066,7 +1179,7 @@ Figure&nbsp;5.8: David Card (*1956)
 </div>
 </div>
 </div>
-<p><em>Source: <a href="https://davidcard.berkeley.edu">https://davidcard.berkeley.edu</a>.</em></p>
+<p><em>Source: <a href="https://davidcard.berkeley.edu" class="uri">https://davidcard.berkeley.edu</a>.</em></p>
 </div>
 </figure>
 </div>
@@ -1120,7 +1233,7 @@ Figure&nbsp;5.10: Tolerate time-invariant unobserved confounding
 </div>
 <div class="callout-body-container">
 <div id="exr-DiD" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.6</strong></span> Mastering DiD with Joshua Angrist</p>
+<p><span class="theorem-title"><strong>Exercise 5.7</strong></span> Mastering DiD with Joshua Angrist</p>
 <p>Watch the video <a href="https://youtu.be/eiffOVbYvNc"><em>Introduction to Differences-in-Differences</em></a>:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eiffOVbYvNc?si=QmcWw6jJnLsHoUzm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
 </iframe>
@@ -1185,7 +1298,7 @@ Figure&nbsp;5.11: Josh Angrist (*1960): Nobel Prize winner of economics in 2021
 </div>
 <div class="callout-body-container">
 <div id="sol-DiD" class="proof solution">
-<p><span class="proof-title"><em>Solution 5.1</em>. </span>Solution to exercise <a href="#exr-DiD" class="quarto-xref">Exercise&nbsp;<span>5.6</span></a></p>
+<p><span class="proof-title"><em>Solution 5.1</em>. </span>Solution to exercise <a href="#exr-DiD" class="quarto-xref">Exercise&nbsp;<span>5.7</span></a></p>
 <p>Answers: 1. b), 2. a), 3. c)</p>
 </div>
 </div>

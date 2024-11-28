@@ -259,7 +259,6 @@ window.Quarto = {
   <li><a href="#rubin-causal-model" id="toc-rubin-causal-model" class="nav-link" data-scroll-target="#rubin-causal-model"><span class="header-section-number">3.3.4</span> Rubin causal model</a></li>
   <li><a href="#sec-overfunda" id="toc-sec-overfunda" class="nav-link" data-scroll-target="#sec-overfunda"><span class="header-section-number">3.3.5</span> Its difficult to overcome the fundamental problem</a></li>
   </ul></li>
-  <li><a href="#sec-scrcj" id="toc-sec-scrcj" class="nav-link" data-scroll-target="#sec-scrcj"><span class="header-section-number">3.4</span> Statistical control requires causal justification</a></li>
   </ul>
 </nav>
     </div>
@@ -658,7 +657,7 @@ Figure&nbsp;3.7: Discrimination<a href="#fn6" class="footnote-ref" id="fnref6" r
 Figure&nbsp;3.8: Proportion of applicants that are women plotted against proportion of applicants admitted<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>
 </figcaption>
 <div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Source: <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975, p. 403</a>)</span></p><div id="ref-Bickel1975Sex" class="csl-entry" role="listitem">
-Bickel, P. J., Hammel, E. A., &amp; O’Connell, J. W. (1975). Sex bias in graduate admissions: Data from <span>Berkeley</span>: Measuring bias is harder than is usually assumed, and the evidence is sometimes contrary to expectation. <em>Science</em>, <em>187</em>(4175), 398–404. <a href="https://doi.org/10.1126/science.187.4175.398">https://doi.org/10.1126/science.187.4175.398</a>
+Bickel, P. J., Hammel, E. A., &amp; O’Connell, J. W. (1975). Sex bias in graduate admissions: Data from <span>Berkeley</span>: Measuring bias is harder than is usually assumed, and the evidence is sometimes contrary to expectation. <em>Science</em>, <em>187</em>(4175), 398–404.
 </div></div></div><div aria-describedby="fig-berkley-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/berkley.png" class="img-fluid figure-img" style="width:70.0%">
 </div>
@@ -771,7 +770,7 @@ Figure&nbsp;3.9: Average treatment effect (ATE)
 <div class="no-row-height column-margin column-container"></div><div class="page-columns page-full"><blockquote class="blockquote">
 <p><em>“what makes it valid to calculate the ATE by taking the average of the Y(0) column, ignoring the question marks, and subtracting that from the average of the Y(1) column, ignoring the question marks?” This ignoring of the question marks (missing data) is known as ignorability. Assuming ignorability is like ignoring how people ended up selecting the treatment they selected and just assuming they were randomly assigned their treatment”</em> <span class="citation" data-cites="Neal2020Introduction">(<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">Neal, 2020, p. 9</a>)</span></p>
 </blockquote><div class="no-row-height column-margin column-container"></div></div>
-<p>Ignorability means that the way individuals are assigned to treatment and control groups is irrelevant for the data analysis. Thus, when we aim to explain a certain outcome, we can ignore how an individual made it into the treated or control group. It has also been called <em>unconfoundedness</em> or no <em>omitted variable bias</em>. We will come back to these two terms in <a href="#sec-scrcj" class="quarto-xref"><span>Section 3.4</span></a> and in <a href="regression.html" class="quarto-xref"><span>Chapter 5</span></a>.</p>
+<p>Ignorability means that the way individuals are assigned to treatment and control groups is irrelevant for the data analysis. Thus, when we aim to explain a certain outcome, we can ignore how an individual made it into the treated or control group. It has also been called <em>unconfoundedness</em> or no <em>omitted variable bias</em>. We will come back to these two terms in <a href="regression.html#sec-scrcj" class="quarto-xref"><span>Section 5.4</span></a> and in <a href="regression.html" class="quarto-xref"><span>Chapter 5</span></a>.</p>
 <p>Randomized controlled trials (RCTs) are characterized by randomly assigning individuals to different treatment groups and comparing the outcomes of those groups. Thus, RCTs are essentially build on the assumption of <em>ignorability</em> which can be written formally like <span class="math display">\[
 (Y(1), Y(0)) \perp T.
 \]</span></p>
@@ -790,7 +789,7 @@ Figure&nbsp;3.9: Average treatment effect (ATE)
 \mathbb{E}[Y(1)\mid X]-\mathbb{E}[Y(0)\mid X] &amp; =\mathbb{E}[Y(1) \mid T=1, X]-\mathbb{E}[Y(0) \mid T=0, X] \\
 &amp; =\mathbb{E}[Y \mid T=1, X]-\mathbb{E}[Y \mid T=0, X].
 \end{align}\]</span></p>
-<p>This means that we need to control for all factors (X) that influence both groups. We will revisit this topic in <a href="#sec-scrcj" class="quarto-xref"><span>Section 3.4</span></a>, where we will discuss the various functional impacts that must be considered to avoid causal bias.</p>
+<p>This means that we need to control for all factors (X) that influence both groups. We will revisit this topic in <a href="regression.html#sec-scrcj" class="quarto-xref"><span>Section 5.4</span></a>, where we will discuss the various functional impacts that must be considered to avoid causal bias.</p>
 <div class="callout callout-style-simple callout-important no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -815,25 +814,6 @@ Figure&nbsp;3.9: Average treatment effect (ATE)
 Neal, B. (2020). <em>Introduction to causal inference from a machine learning perspective: Course lecture notes</em>. Accessed January 30, 2023. <a href="https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf">https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf</a>
 </div></div></section>
 </section>
-</section>
-<section id="sec-scrcj" class="level2 page-columns page-full" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="sec-scrcj"><span class="header-section-number">3.4</span> Statistical control requires causal justification</h2>
-<div id="tip-wysocki" class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip&nbsp;3.3
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Read <span class="citation" data-cites="Wysocki2022Statistical">Wysocki et al. (<a href="references.html#ref-Wysocki2022Statistical" role="doc-biblioref">2022</a>)</span> which is freely available <a href="https://doi.org/10.1177/25152459221095823">here</a>. <a href="https://osf.io/38mxq">Here</a> you find a good summary of the paper.</p>
-</div>
-</div>
-<div class="no-row-height column-margin column-container"><div id="ref-Wysocki2022Statistical" class="csl-entry" role="listitem">
-Wysocki, A. C., Lawson, K. M., &amp; Rhemtulla, M. (2022). Statistical control requires causal justification. <em>Advances in Methods and Practices in Psychological Science</em>, <em>5</em>(2). <a href="https://doi.org/10.1177/25152459221095823">https://doi.org/10.1177/25152459221095823</a>
-</div></div><p>Scientific research revolves around challenging our own views and findings. A good researcher does not merely present their results; instead, they engage in discussions about potential limitations and pitfalls to draw valid conclusions. Engaging in polemics goes against the essence of good research. We should not conceal potential weaknesses in our scientific strategy or empirical approach; rather, we should emphasize their existence. Even if this disappoints individuals seeking easy answers, it is crucial to acknowledge these limitations. The <a href="https://catalogofbias.org/biases/">Catalogue of Bias</a> is an excellent resource that provides insight into various potential pitfalls and challenges encountered during research, which may sometimes be difficult to completely rule out.</p>
 </section>
 <section id="solutions-to-the-exercises" class="level2 unlisted unnumbered page-columns page-full">
 <h2 class="unlisted unnumbered anchored" data-anchor-id="solutions-to-the-exercises">Solutions to the exercises</h2>
