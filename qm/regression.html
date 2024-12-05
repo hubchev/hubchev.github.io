@@ -296,7 +296,8 @@ window.Quarto = {
   <li><a href="#sec-scrcj" id="toc-sec-scrcj" class="nav-link" data-scroll-target="#sec-scrcj"><span class="header-section-number">5.4</span> Statistical control requires causal justification</a>
   <ul class="collapse">
   <li><a href="#confounding-variables" id="toc-confounding-variables" class="nav-link" data-scroll-target="#confounding-variables"><span class="header-section-number">5.4.1</span> Confounding variables</a></li>
-  <li><a href="#sec_ovbcp" id="toc-sec_ovbcp" class="nav-link" data-scroll-target="#sec_ovbcp"><span class="header-section-number">5.4.2</span> Omitted variable bias and ceteris paribus</a></li>
+  <li><a href="#other-controls" id="toc-other-controls" class="nav-link" data-scroll-target="#other-controls"><span class="header-section-number">5.4.2</span> Other controls</a></li>
+  <li><a href="#sec-ovbcp" id="toc-sec-ovbcp" class="nav-link" data-scroll-target="#sec-ovbcp"><span class="header-section-number">5.4.3</span> Omitted variable bias and ceteris paribus</a></li>
   </ul></li>
   <li><a href="#difference-in-difference" id="toc-difference-in-difference" class="nav-link" data-scroll-target="#difference-in-difference"><span class="header-section-number">5.5</span> Difference in difference</a></li>
   </ul>
@@ -775,7 +776,7 @@ Do not ignore confounders!
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>A confounding variable is not inherently problematic in regression analysis. It only becomes an issue if the analysis fails to account for its confounding effect in both the identification strategy and the execution of the regression. When the confounding effect is neglected, we refer to this as <em>omitted variable bias</em>. This bias is further detailed in <span class="citation" data-cites="sec_ovbcp">(<a href="references.html#ref-sec_ovbcp" role="doc-biblioref"><strong>sec_ovbcp?</strong></a>)</span>.</p>
+<p>A confounding variable is not inherently problematic in regression analysis. It only becomes an issue if the analysis fails to account for its confounding effect in both the identification strategy and the execution of the regression. When the confounding effect is neglected, we refer to this as <em>omitted variable bias</em>. This bias is further detailed in <a href="#sec-ovbcp" class="quarto-xref"><span>Section 5.4.3</span></a>.</p>
 </div>
 </div>
 </div>
@@ -798,8 +799,103 @@ Tip&nbsp;5.2
 </div>
 </div>
 </section>
-<section id="sec_ovbcp" class="level3 page-columns page-full" data-number="5.4.2">
-<h3 data-number="5.4.2" class="anchored" data-anchor-id="sec_ovbcp"><span class="header-section-number">5.4.2</span> Omitted variable bias and ceteris paribus</h3>
+<section id="other-controls" class="level3 page-columns page-full" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="other-controls"><span class="header-section-number">5.4.2</span> Other controls</h3>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p><em>“Although it is possible to remove bias from an estimate of a causal path by controlling for a confounding variable, it is also easy to add bias to an estimate by controlling for a variable that is either not a confounder or does not block a confounding path”</em> <span class="citation" data-cites="Wysocki2022Statistical">(<a href="references.html#ref-Wysocki2022Statistical" role="doc-biblioref">Wysocki et al., 2022, p. 4</a>)</span></p>
+</blockquote><div class="no-row-height column-margin column-container"></div></div>
+<p>The impact of statistical control varies depending on the type of control variable used. <span class="citation" data-cites="Cinelli2022Crash">Cinelli et al. (<a href="references.html#ref-Cinelli2022Crash" role="doc-biblioref">2022</a>)</span> discuss various functional relationships and provides a comprehensive list of variables that researchers might consider controlling for. However, it is important to emphasize that incorporating more control variables does not always lead to less biased results.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Cinelli2022Crash" class="csl-entry" role="listitem">
+Cinelli, C., Forney, A., &amp; Pearl, J. (2022). A crash course in good and bad controls. <em>Sociological Methods &amp; Research</em>, <em>53</em>(3), 1071–1104. <a href="https://doi.org/10.1177/00491241221099552">https://doi.org/10.1177/00491241221099552</a>
+</div></div><div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-wysock" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.1</strong></span> Identification with observational data</p>
+<p><span class="citation" data-cites="Wysocki2022Statistical">Wysocki et al. (<a href="references.html#ref-Wysocki2022Statistical" role="doc-biblioref">2022</a>)</span> discuss how to identify effect using observational data using regression analysis. Using Directed Acyclic Graphs (DAGs), the paper discusses various types of variables associated with a variable of interest. Assume you are interested in the impact of a variable <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.</p>
+<p>For a regression analysis, how should you treat the following types of variables: (1) Confounder, (2) Mediator, (3) Collider, (4) Proxy, and (5) Independent.</p>
+<p>Please visualize these relationships using DAGs and discuss how each of these variable types should be incorporated into a regression analysis.</p>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regression_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A confounding variable is associated with both the independent variable (<span class="math inline">\(X\)</span>) and the dependent variable (<span class="math inline">\(Y\)</span>), potentially skewing the apparent relationship between them.</p>
+<p>Confounders should be included in the regression analysis as control variables. Failing to control for confounders can lead to biased estimates of the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> (omitted variable bias).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regression_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A mediator is a variable through which an independent variable influences a dependent variable. In this case, <span class="math inline">\(X\)</span> affects the mediator <span class="math inline">\(C\)</span>, which in turn affects <span class="math inline">\(Y\)</span>.</p>
+<p>When considering mediators, you should not include both <span class="math inline">\(X\)</span> and <span class="math inline">\(C\)</span> in the regression model to understand the overall impact of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regression_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A collider is a variable that is influenced by both <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Conditioning on a collider can create a spurious association.</p>
+<p>Avoid including colliders in the regression analysis. Including a collider can introduce bias and create a misleading relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regression_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>A proxy variable serves as a substitute for the variable of interest, often because the actual variable is difficult to measure.</p>
+<p>Proxies can be included in the regression analysis as long as they are empirically valid representations of the variable they are intended to substitute. However, there is no need to include it as <span class="math inline">\(C\)</span> does not have and impact on <span class="math inline">\(Y\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="regression_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="288"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>An independent is a variable that has no causal relation to either the outcome or predictor. Controlling for such a variable will have no systematic impact on the causal estimate.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Wysocki2022Statistical" class="csl-entry" role="listitem">
+Wysocki, A. C., Lawson, K. M., &amp; Rhemtulla, M. (2022). Statistical control requires causal justification. <em>Advances in Methods and Practices in Psychological Science</em>, <em>5</em>(2).
+</div></div></section>
+<section id="sec-ovbcp" class="level3 page-columns page-full" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="sec-ovbcp"><span class="header-section-number">5.4.3</span> Omitted variable bias and ceteris paribus</h3>
 <p>From the Gauss-Markov theorem we know that if the OLS assumptions are fulfilled, the OLS estimator is (in the sense of smallest variance) the best linear conditionally unbiased estimator (BLUE). However, OLS estimates can suffer from omitted variable bias when any regressor, X, is correlated with any omitted variable that matters for variable Y.</p>
 <p>For omitted variable bias to occur, two conditions must be fulfilled:</p>
 <ol type="1">
@@ -816,7 +912,7 @@ Tip&nbsp;5.2
 </div>
 <div class="callout-body-container">
 <div id="exr-lookatoutput" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.1</strong></span> Look at the Output</p>
+<p><span class="theorem-title"><strong>Exercise 5.2</strong></span> Look at the Output</p>
 <div id="fig-regstata2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-regstata2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -846,7 +942,7 @@ Figure&nbsp;5.5: Regression output
 </div>
 <div class="callout-body-container">
 <div id="exr-exrstataoutput" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.2</strong></span> Look at Stata Output</p>
+<p><span class="theorem-title"><strong>Exercise 5.3</strong></span> Look at Stata Output</p>
 <p>In <a href="#fig-regstata3" class="quarto-xref">Figure&nbsp;<span>5.6</span></a> you find two regression outputs from Stata. Try to interpret the p-values and the confidence intervals. How are the t-values calculated. Can you use the <em>magic number</em> 1.96 to say if a corresponding estimated coefficient is statistically significant, or not? Which estimated model is <em>better</em>?</p>
 <div id="fig-regstata3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -880,7 +976,7 @@ Figure&nbsp;5.6: Stata regression output
 </div>
 <div class="callout-body-container">
 <div id="exr-execal" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.3</strong></span> Explain the weight (<a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_calories.R">Solutions online</a>)</p>
+<p><span class="theorem-title"><strong>Exercise 5.4</strong></span> Explain the weight (<a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_calories.R">Solutions online</a>)</p>
 <p>In the following exercise you need to use the programming language R.</p>
 <ol type="a">
 <li>Write down your name, your matriculation number, and the date.<br>
@@ -1031,7 +1127,7 @@ weight_i=\beta_0+\beta_1 calories_i+ \epsilon_i
 </div>
 <div class="callout-body-container">
 <div id="exr-explwestud" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.4</strong></span> Explain the weight of students</p>
+<p><span class="theorem-title"><strong>Exercise 5.5</strong></span> Explain the weight of students</p>
 <p>Please consider the lecture notes <span class="citation" data-cites="Huber2024How">Huber (<a href="references.html#ref-Huber2024How" role="doc-biblioref">2024</a>)</span> and the exercise that you find <a href="https://hubchev.github.io/ds/80_exercises.html#explain-the-weight-of-students">here</a>.</p>
 <!-- In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with correlations and a regression analysis the association. Load the data as follows: -->
 <!-- ```{r} -->
@@ -1061,7 +1157,7 @@ Huber, S. (2024). <em>How to use <span>R</span> for data science: Lecture notes<
 </div>
 <div class="callout-body-container">
 <div id="exr-causalgraphnhk" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.5</strong></span> Causal inference and animated plots</p>
+<p><span class="theorem-title"><strong>Exercise 5.6</strong></span> Causal inference and animated plots</p>
 <p>Nick <span class="citation" data-cites="Huntington-Klein2022Effect">Huntington-Klein (<a href="references.html#ref-Huntington-Klein2022Effect" role="doc-biblioref">2022</a>)</span> has created wonderful animated graphs that give great and quick insights into how causal inference works. Please read his online chapter on <a href="https://www.nickchk.com/causalgraphs.html"><em>Causal Inference Animated Plots</em></a> and discuss</p>
 <ol type="a">
 <li>what he means when he speaks of <em>closing the back-door path</em> and <em>controlling for</em>,</li>
@@ -1074,92 +1170,6 @@ Huber, S. (2024). <em>How to use <span>R</span> for data science: Lecture notes<
 </div>
 <div class="no-row-height column-margin column-container"><div id="ref-Huntington-Klein2022Effect" class="csl-entry" role="listitem">
 Huntington-Klein, N. (2022). <em>The effect: An introduction to research design and causality</em>. Accessed January 30, 2023; CRC Press. <a href="https://theeffectbook.net">https://theeffectbook.net</a>
-</div></div><div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-wysock" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5.6</strong></span> Identification with observational data</p>
-<p><span class="citation" data-cites="Wysocki2022Statistical">Wysocki et al. (<a href="references.html#ref-Wysocki2022Statistical" role="doc-biblioref">2022</a>)</span> discuss how to identify effect using observational data using regression analysis. Using Directed Acyclic Graphs (DAGs), the paper discusses various types of variables associated with a variable of interest. Assume you are interested in the impact of a variable <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.</p>
-<p>For a regression analysis, how should you treat the following types of variables: (1) Confounder, (2) Mediator, (3) Collider, (4) Proxy, and (5) Independent.</p>
-<p>Please visualize these relationships using DAGs and discuss how each of these variable types should be incorporated into a regression analysis.</p>
-</div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regression_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="288"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>A confounding variable is associated with both the independent variable (<span class="math inline">\(X\)</span>) and the dependent variable (<span class="math inline">\(Y\)</span>), potentially skewing the apparent relationship between them.</p>
-<p>Confounders should be included in the regression analysis as control variables. Failing to control for confounders can lead to biased estimates of the effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span> (omitted variable bias).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regression_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="288"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>A mediator is a variable through which an independent variable influences a dependent variable. In this case, <span class="math inline">\(X\)</span> affects the mediator <span class="math inline">\(C\)</span>, which in turn affects <span class="math inline">\(Y\)</span>.</p>
-<p>When considering mediators, you should not include both <span class="math inline">\(X\)</span> and <span class="math inline">\(C\)</span> in the regression model to understand the overall impact of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regression_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="288"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>A collider is a variable that is influenced by both <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Conditioning on a collider can create a spurious association.</p>
-<p>Avoid including colliders in the regression analysis. Including a collider can introduce bias and create a misleading relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regression_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="288"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>A proxy variable serves as a substitute for the variable of interest, often because the actual variable is difficult to measure.</p>
-<p>Proxies can be included in the regression analysis as long as they are empirically valid representations of the variable they are intended to substitute. However, there is no need to include it as <span class="math inline">\(C\)</span> does not have and impact on <span class="math inline">\(Y\)</span>.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="regression_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="288"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>An independent is a variable that has no causal relation to either the outcome or predictor. Controlling for such a variable will have no systematic impact on the causal estimate.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="no-row-height column-margin column-container"><div id="ref-Wysocki2022Statistical" class="csl-entry" role="listitem">
-Wysocki, A. C., Lawson, K. M., &amp; Rhemtulla, M. (2022). Statistical control requires causal justification. <em>Advances in Methods and Practices in Psychological Science</em>, <em>5</em>(2).
 </div></div></section>
 </section>
 <section id="difference-in-difference" class="level2 page-columns page-full" data-number="5.5">
