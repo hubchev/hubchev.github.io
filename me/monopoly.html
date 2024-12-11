@@ -546,18 +546,18 @@ Solution
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
+<div class="callout callout-style-simple callout-important no-icon page-columns page-full">
+<div class="callout-body d-flex page-columns page-full">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-body-container page-columns page-full">
 <div id="exr-howtomaxprofit" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 14.2</strong></span> How to maximize profits</p>
-<p>A company sold a quantity of 750 goods (<span class="math inline">\(Q_{t=1}=750\)</span>) in January (<span class="math inline">\(t=1\)</span>), at a price of 45 € (<span class="math inline">\(P_{t=1}=45\)</span>). In February (<span class="math inline">\(t=2\)</span>), they reduced the price to 40 Euro (<span class="math inline">\(P_{t=2}=40\)</span>) and sold 800 goods (<span class="math inline">\(Q_{t=2}=800\)</span>). Now answer the following questions knowing that the total costs had been 26,500 € in January and 28,000 € in February.</p>
+<p>A company sold a quantity of 750 goods (<span class="math inline">\(Q_{t=1}=750\)</span>) in January (<span class="math inline">\(t=1\)</span>), at a price of 45 Euro (<span class="math inline">\(P_{t=1}=45\)</span>). In February (<span class="math inline">\(t=2\)</span>), they reduced the price to 40 Euro (<span class="math inline">\(P_{t=2}=40\)</span>) and sold 800 goods (<span class="math inline">\(Q_{t=2}=800\)</span>). Now answer the following questions knowing that the total costs had been 26,500 € in January and 28,000 € in February.</p>
+<!-- 1. Calculate the price elasticity of demand at the current prices. -->
 <ol type="1">
-<li>Calculate the price elasticity of demand at the current prices.</li>
-<li>Derive the demand function.</li>
+<li>Derive the (linear) demand function.</li>
 <li>Derive the cost function.</li>
 <li>Derive the revenue function.</li>
 <li>Derive the marginal revenue function.</li>
@@ -578,20 +578,23 @@ Solution
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
+<!-- 1. The price elasticity of demand (PED) is given by: $$PED=\frac{17}{31} \approx 0.5483$$ -->
 <ol type="1">
-<li>The price elasticity of demand (PED) is given by: <span class="math display">\[PED=\frac{17}{31} \approx 0.5483\]</span></li>
-<li>The demand function can be derived using the point-slope formula and one sales point: <span class="math display">\[P - 40 = -\frac{1}{10}(Q - 800) \Rightarrow P = 120 - \frac{1}{10}Q \Rightarrow Q = 1200 - 10P\]</span></li>
-<li>Total costs (TC) are given by: <span class="math display">\[TC = FC + VC = FC + MC \cdot Q.\]</span> Solving the system of equations: <span class="math display">\[26500 = FC + 750 \cdot MC\]</span> <span class="math display">\[28000 = FC + 800 \cdot MC\]</span> we find that (MC = 30) and (FC = 4000). The cost function is: <span class="math display">\[TC = 4000 + 30 \cdot Q.\]</span></li>
+<li>The demand function can be derived using the point-slope formula<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and one sales point: <span class="math display">\[\begin{align}
+P - 40 &amp;= -\frac{1}{10}(Q - 800)\\
+\Leftrightarrow P &amp;= 120 - \frac{1}{10}Q\\ \Leftrightarrow Q &amp;= 1200 - 10P
+\end{align}\]</span></li>
+<li>Total costs (<span class="math inline">\(TC\)</span>) are given by fixed costs (<span class="math inline">\(FC\)</span>) and variable costs (<span class="math inline">\(VC\)</span>): <span class="math display">\[TC = FC + \underbrace{VC}_{MC \cdot Q} = FC + MC \cdot Q.\]</span> <span class="math inline">\(MC\)</span> denotes marginal costs. Solving the system of equations: <span class="math display">\[26500 = FC + 750 \cdot MC\]</span> <span class="math display">\[28000 = FC + 800 \cdot MC\]</span> we find that (<span class="math inline">\(MC = 30\)</span>) and (<span class="math inline">\(FC = 4000\)</span>). The cost function is: <span class="math display">\[TC = 4000 + 30 \cdot Q.\]</span></li>
 <li>The revenue function is given by: <span class="math display">\[TR = P \cdot Q(P).\]</span> Plugging the demand function in gives: <span class="math display">\[TR(Q) = 120Q - \frac{1}{10}Q^2.\]</span></li>
 <li>The marginal revenue function is: <span class="math display">\[\frac{\partial TR(Q)}{\partial Q} = 120 - \frac{2}{10}Q.\]</span></li>
 <li>The marginal cost function is: <span class="math display">\[MC = 30\]</span> (as found in step 3).</li>
-<li>Setting (MC = MR), we find the optimal quantity: <span class="math display">\[30 = 120 - \frac{2}{10}Q \Rightarrow Q^* = 450.\]</span> Plugging (Q^) into the demand function, we find the optimal price: <span class="math display">\[P^ = 120 - \frac{1}{10} \cdot 450 = 75.\]</span></li>
+<li>Setting (<span class="math inline">\(MC = MR\)</span>), we find the optimal quantity: <span class="math display">\[30 = 120 - \frac{2}{10}Q \Rightarrow Q^* = 450.\]</span> Plugging (Q^) into the demand function, we find the optimal price: <span class="math display">\[P^ = 120 - \frac{1}{10} \cdot 450 = 75.\]</span></li>
 <li>Profit (<span class="math inline">\(\pi\)</span>) is given by <span class="math inline">\(\pi = TR - TC\)</span>: <span class="math display">\[\pi_{t=1} = 1200 \cdot 75 - 10 \cdot 75^2 - 4000 - 30 \cdot 750 = 7250\]</span> <span class="math display">\[\pi_{t=2} = 1200 \cdot 75 - 10 \cdot 75^2 - 4000 + 30 \cdot 800 = 4000\]</span> <span class="math display">\[\pi_{t=3} = 12\]</span></li>
 </ol>
 </div>
 </div>
 </div>
-</div>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;<span class="math inline">\(y_2-y_1=m(x_2-x_1)\)</span></p></div></div></div>
 </div>
 </div>
 </section>
