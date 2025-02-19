@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -96,8 +96,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Teaching Material</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html"> 
-<span class="menu-text">Publications</span></a>
+    <a class="nav-link" href="./cv.html"> 
+<span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
@@ -116,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
     <a href="https://www.instagram.com/profstephuber" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-instagram"></i></a>
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/hubchev/">
             My GitHub Account
@@ -145,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#postal-address" id="toc-postal-address" class="nav-link active" data-scroll-target="#postal-address">Postal address</a></li>
   <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
-  <li><a href="#book-me" id="toc-book-me" class="nav-link" data-scroll-target="#book-me">Book me</a></li>
+  <li><a href="#meet-me-online" id="toc-meet-me-online" class="nav-link" data-scroll-target="#meet-me-online">Meet me (online)</a></li>
   </ul>
 </nav>
     </div>
@@ -172,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>You can contact me using one of these platforms:</p>
-<p><a href="mailto:DrStephanHuber@yahoo.com"><i class="fa-solid fa-envelope" title="Email" aria-label="envelope"></i></a> <a href="https://www.researchgate.net/profile/Stephan-Huber-6"><i class="fa-brands fa-researchgate" title="ResearchGate" aria-label="researchgate"></i></a> <a href="https://www.linkedin.com/in/stephan-huber-04698a61/"><i class="fa-brands fa-linkedin" title="LindedIn" aria-label="linkedin"></i></a> <a href="https://twitter.com/ste_hub"><i class="fa-brands fa-x-twitter" title="Twitter" aria-label="x-twitter"></i></a> <a href="https://github.com/hubchev/"><i class="fa-brands fa-github" title="GitHub" aria-label="github"></i></a></p>
+<p><a href="mailto:DrStephanHuber@yahoo.com"><i class="fa-solid fa-envelope" title="Email" aria-label="envelope"></i></a> <a href="https://www.researchgate.net/profile/Stephan-Huber-6"><i class="fa-brands fa-researchgate" title="ResearchGate" aria-label="researchgate"></i></a> <a href="https://www.linkedin.com/in/stephan-huber-04698a61/"><i class="fa-brands fa-linkedin" title="LindedIn" aria-label="linkedin"></i></a> <a href="https://github.com/hubchev/"><i class="fa-brands fa-github" title="GitHub" aria-label="github"></i></a></p>
 <section id="postal-address" class="level2">
 <h2 class="anchored" data-anchor-id="postal-address">Postal address</h2>
 <pre><code>Prof. Dr. Stephan Huber
@@ -187,9 +187,9 @@ Telefon: +49 221 973199-523
 Mail: DrStephanHuber@yahoo.com
 Github: https://github.com/hubchev</code></pre>
 </section>
-<section id="book-me" class="level2">
-<h2 class="anchored" data-anchor-id="book-me">Book me</h2>
-<p>Schedule an online appointment with me using this <a href="https://outlook.office.com/bookwithme/user/14d08ecdf3564ba3ac8a4964df551648@hs-fresenius.de/meetingtype/eWn2NIs9nUqQZbLtLr38CA2?anonymous&amp;ep=mlink">booking tool</a>. The appointment will be set up on Microsoft Teams, and I’ll receive automatic notifications, including any cancellations. If that doesn’t work, or if you have something urgent, please write an <a href="mailto:DrStephanHuber@yahoo.com">email</a>.</p>
+<section id="meet-me-online" class="level2">
+<h2 class="anchored" data-anchor-id="meet-me-online">Meet me (online)</h2>
+<p>Schedule an online appointment with me using this <a href="https://outlook.office.com/bookwithme/user/14d08ecdf3564ba3ac8a4964df551648@hs-fresenius.de/meetingtype/dZbPkIyYsEOtvNsJZlsEoQ2?bookingcode=cb87154c-f3aa-4e96-b8c4-22d9831755fc&amp;anonymous&amp;ep=mlink">booking tool</a>. The appointment will be set up on Microsoft Teams, and I’ll receive automatic notifications, including any cancellations. If that doesn’t work, or if you have something urgent, please write an <a href="mailto:DrStephanHuber@yahoo.com">email</a>.</p>
 
 
 </section>
@@ -418,6 +418,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/github\.com\/hubchev\/hubchev\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -452,7 +470,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
