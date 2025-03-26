@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Quantitative Methods - 3&nbsp; Identification</title>
+<title>5&nbsp; Identification – Quantitative Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -50,19 +50,19 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./statistics.html" rel="next">
-<link href="./doing_research.html" rel="prev">
+<link href="./regression.html" rel="next">
+<link href="./statistics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-b5b3ac8de9399b31dd964e57a117f218.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-54e5820f389278bd971f82981cf6227a.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -91,7 +91,7 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -129,13 +129,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./identification.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Identification</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./identification.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Identification</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -164,43 +164,49 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./doing_research.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Doing research</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./identification.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Identification</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./statistics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Statistics</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Regression analysis</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./experiments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Experiments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Doing research</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./publish.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Good research</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Good research</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./getdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data acquisition</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./statistics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descriptive statistics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./identification.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Identification</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./experiments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Experiments</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -211,9 +217,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -248,22 +254,16 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#from-anecdote-to-insight" id="toc-from-anecdote-to-insight" class="nav-link active" data-scroll-target="#from-anecdote-to-insight"><span class="header-section-number">3.1</span> From anecdote to insight</a></li>
-  <li><a href="#sec-acquistion" id="toc-sec-acquistion" class="nav-link" data-scroll-target="#sec-acquistion"><span class="header-section-number">3.2</span> Data acquisition</a>
+  <li><a href="#sec-causalinfer" id="toc-sec-causalinfer" class="nav-link active" data-scroll-target="#sec-causalinfer"><span class="header-section-number">5.1</span> Causal inference</a></li>
+  <li><a href="#sec-fpci" id="toc-sec-fpci" class="nav-link" data-scroll-target="#sec-fpci"><span class="header-section-number">5.2</span> The fundamental problem of causal inference</a></li>
+  <li><a href="#sec-cornotcaus" id="toc-sec-cornotcaus" class="nav-link" data-scroll-target="#sec-cornotcaus"><span class="header-section-number">5.3</span> Correlation does not imply causation</a></li>
+  <li><a href="#simpsons-paradox" id="toc-simpsons-paradox" class="nav-link" data-scroll-target="#simpsons-paradox"><span class="header-section-number">5.4</span> Simpsons Paradox</a></li>
+  <li><a href="#rubin-causal-model" id="toc-rubin-causal-model" class="nav-link" data-scroll-target="#rubin-causal-model"><span class="header-section-number">5.5</span> Rubin causal model</a></li>
+  <li><a href="#sec-overfunda" id="toc-sec-overfunda" class="nav-link" data-scroll-target="#sec-overfunda"><span class="header-section-number">5.6</span> Its difficult to overcome the fundamental problem</a>
   <ul class="collapse">
-  <li><a href="#interviews" id="toc-interviews" class="nav-link" data-scroll-target="#interviews"><span class="header-section-number">3.2.1</span> Interviews</a></li>
-  <li><a href="#surveys" id="toc-surveys" class="nav-link" data-scroll-target="#surveys"><span class="header-section-number">3.2.2</span> Surveys</a></li>
-  <li><a href="#case-studies" id="toc-case-studies" class="nav-link" data-scroll-target="#case-studies"><span class="header-section-number">3.2.3</span> Case studies</a></li>
-  <li><a href="#experiments" id="toc-experiments" class="nav-link" data-scroll-target="#experiments"><span class="header-section-number">3.2.4</span> Experiments</a></li>
-  <li><a href="#observational-data" id="toc-observational-data" class="nav-link" data-scroll-target="#observational-data"><span class="header-section-number">3.2.5</span> Observational data</a></li>
-  </ul></li>
-  <li><a href="#sec-causalinfer" id="toc-sec-causalinfer" class="nav-link" data-scroll-target="#sec-causalinfer"><span class="header-section-number">3.3</span> Causal inference</a>
-  <ul class="collapse">
-  <li><a href="#sec-fpci" id="toc-sec-fpci" class="nav-link" data-scroll-target="#sec-fpci"><span class="header-section-number">3.3.1</span> The fundamental problem of causal inference</a></li>
-  <li><a href="#sec-cornotcaus" id="toc-sec-cornotcaus" class="nav-link" data-scroll-target="#sec-cornotcaus"><span class="header-section-number">3.3.2</span> Correlation does not imply causation</a></li>
-  <li><a href="#simpsons-paradox" id="toc-simpsons-paradox" class="nav-link" data-scroll-target="#simpsons-paradox"><span class="header-section-number">3.3.3</span> Simpsons Paradox</a></li>
-  <li><a href="#rubin-causal-model" id="toc-rubin-causal-model" class="nav-link" data-scroll-target="#rubin-causal-model"><span class="header-section-number">3.3.4</span> Rubin causal model</a></li>
-  <li><a href="#sec-overfunda" id="toc-sec-overfunda" class="nav-link" data-scroll-target="#sec-overfunda"><span class="header-section-number">3.3.5</span> Its difficult to overcome the fundamental problem</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">5.6.1</span> Example</a></li>
+  <li><a href="#sec-ingnorability" id="toc-sec-ingnorability" class="nav-link" data-scroll-target="#sec-ingnorability"><span class="header-section-number">5.6.2</span> Ignorability</a></li>
+  <li><a href="#sec-unconfound" id="toc-sec-unconfound" class="nav-link" data-scroll-target="#sec-unconfound"><span class="header-section-number">5.6.3</span> Unconfoundedness</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -273,7 +273,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-identification" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Identification</span></span></h1>
+<h1 class="title"><span id="sec-identification" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Identification</span></span></h1>
 </div>
 
 
@@ -290,254 +290,38 @@ window.Quarto = {
 </header>
 
 
-<p>In empirical research, identification refers to the process of establishing a clear and logical relationship between a cause and an effect. This involves demonstrating that the cause is responsible for the observed effect, and that there are no other factors that could potentially explain the effect. The goal of identification is to provide strong evidence that a particular factor is indeed the cause of a particular outcome, rather than simply coincidentally happen. In order to identify a cause-and-effect relationship, researchers can use experimental or non-experimental, that is, observational data, or both. <a href="#sec-acquistion" class="quarto-xref"><span>Section 3.2</span></a> will discuss in greater detail how data can be collected that helps to evaluate causes and measure the magnitude of the effects of causes. <a href="#sec-cornotcaus" class="quarto-xref"><span>Section 3.3.2</span></a> will explain some difficulties researchers must face when they aim to find empirical evidence on causal effects.</p>
-<section id="from-anecdote-to-insight" class="level2 page-columns page-full" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="from-anecdote-to-insight"><span class="header-section-number">3.1</span> From anecdote to insight</h2>
-<p>Anecdotes are great. They are true stories—often intriguing, relatable, and easy to understand. They provide vivid examples that make abstract ideas more concrete and memorable. Whether it’s a personal experience or a captivating story about a successful business leader, anecdotes resonate because they tap into our natural affinity for storytelling. Their simplicity and emotional impact can make them powerful teaching tools.</p>
-<p>And importantly, anecdotes are hard to contradict. Take, for example, the argument that smoking can’t be that harmful because your 88-year-old uncle has smoked his entire life and he is still in good health. It’s a tough claim to refute, as it’s a real-life example. However, the problem lies in extrapolating a single, isolated case to draw broader conclusions, which can be misleading.</p>
-<p>However, while anecdotes can be persuasive, their strength is also their weakness. They represent isolated instances, and while it’s hard to deny the truth of an individual story, the danger lies in overgeneralizing from it. Anecdotes lack the rigorous analysis and breadth of evidence necessary to draw reliable conclusions. They don’t account for the full complexity of most situations, especially in business, where decisions are influenced by many interconnected factors.</p>
-<p>In business, relying too heavily on anecdotes can lead to misguided conclusions. For example, a company might base its strategy on the success story of a famous entrepreneur without considering the countless failed ventures that didn’t make the headlines. This is known as survivorship bias, where the successes are visible, but the failures are hidden.</p>
-<p>The challenge, then, is to take anecdotes and go beyond them. Instead of drawing direct conclusions, use them as starting points for deeper investigation. They can provide valuable hypotheses but need to be supported by data, rigorous analysis, and an understanding of the underlying principles at play. Anecdotes can inspire curiosity and point us in interesting directions, but they should be tested against a larger body of evidence to ensure that the insights we draw are reliable and applicable in a broader context.</p>
-<div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-martin" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.1</strong></span> Survivorship bias</p>
-<p>Read “How Successful Leaders Think” by Roger <span class="citation" data-cites="Martin2007How">Martin (<a href="references.html#ref-Martin2007How" role="doc-biblioref">2007</a>)</span>. Here is a summary of <span class="citation" data-cites="Martin2007How">Martin (<a href="references.html#ref-Martin2007How" role="doc-biblioref">2007</a>)</span> taken from the <a href="https://store.hbr.org/product/how-successful-leaders-think/R0706C">Harvard Business Review Store</a>:</p>
-<blockquote class="blockquote">
-<p>In search of lessons to apply in our own careers, we often try to emulate what effective leaders do. Roger Martin says this focus is misplaced, because moves that work in one context may make little sense in another. A more productive, though more difficult, approach is to look at how such leaders think. After extensive interviews with more than 50 of them, the author discovered that most are integrative thinkers–that is, they can hold in their heads two opposing ideas at once and then come up with a new idea that contains elements of each but is superior to both. Martin argues that this process of consideration and synthesis (rather than superior strategy or faultless execution) is the hallmark of exceptional businesses and the people who run them. To support his point, he examines how integrative thinkers approach the four stages of decision making to craft superior solutions. First, when determining which features of a problem are salient, they go beyond those that are obviously relevant. Second, they consider multidirectional and nonlinear relationships, not just linear ones. Third, they see the whole problem and how the parts fit together. Fourth, they creatively resolve the tensions between opposing ideas and generate new alternatives. According to the author, integrative thinking is an ability everyone can hone. He points to several examples of business leaders who have done so, such as Bob Young, co-founder and former CEO of Red Hat, the dominant distributor of Linux open-source software. Young recognized from the beginning that he didn’t have to choose between the two prevailing software business models. Inspired by both, he forged an innovative third way, creating a service offering for corporate customers that placed Red Hat on a path to tremendous success.</p>
-</blockquote>
-<ol type="a">
-<li>Discuss the concepts introduced by <span class="citation" data-cites="Martin2007How">Martin (<a href="references.html#ref-Martin2007How" role="doc-biblioref">2007</a>)</span> critically:</li>
-</ol>
-<ul>
-<li>Does he provide evidence for his ideas to work?</li>
-<li>Is there a proof that his suggestions can yield success?</li>
-<li>Is there some evidence about whether his ideas are superior to alternative causes of action?</li>
-<li>What can we learn from the article?</li>
-<li>Does his argumentation fulfill highest academic standards?</li>
-<li>What is his identification strategy with respect to the <em>causes of effects</em> and the <em>effects of causes</em>?</li>
-<li><span class="citation" data-cites="Martin2007How">Martin (<a href="references.html#ref-Martin2007How" role="doc-biblioref">2007, p. 81</a>)</span> speculates:</li>
-</ul>
-<blockquote class="blockquote">
-<p>“At some point, integrative thinking will no longer be just a tacit skill (cultivated knowingly or not) in the heads of a select few.”</p>
-</blockquote>
-<ol start="2" type="a">
-<li>If teachers in business schools would have followed his ideas of integrative thinkers being more successful, almost 20 years later, this should be the dominant way to think as a business leader. Is that the case? And if so, can you still gain some competitive advantage by thinking that way?</li>
-</ol>
-<div id="fig-survivorbias" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-survivorbias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.1: Distribution of bullet holes in returned aircraft
-</figcaption>
-<div aria-describedby="fig-survivorbias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><img src="fig/survivorbias.svg" class="img-fluid figure-img" style="width:50.0%"></p>
-<p><em>Source: <a href="./commons.wikimedia.org/wiki/User:SlvrKy">Martin Grandjean</a> (vector), <a href="./commons.wikimedia.org/wiki/User:McGeddon">McGeddon</a> (picture), Cameron Moll (concept), <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=102017718">Link</a></em></p>
-</div>
-</figure>
-</div>
-<ol start="3" type="a">
-<li><p><a href="#fig-survivorbias" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> visualizes the distribution of bullet holes in aircraft that returned from combat in World War II. Imagine you are an aircraft engineer. What does this picture teach you?</p></li>
-<li><p>Inform yourself about the concept of survivorship bias explained in <a href="https://en.wikipedia.org/wiki/Survivorship_bias"><span class="citation" data-cites="Encyclopedia2024Survivorship">Wikipedia (<span>2024</span>)</span></a>.</p></li>
-<li><p>In <span class="citation" data-cites="Martin2007How">Martin (<a href="references.html#ref-Martin2007How" role="doc-biblioref">2007</a>)</span>, the author provides an example of a successful company to support his management ideas. Discuss whether this article relates to survivorship bias.</p></li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="no-row-height column-margin column-container"><div id="ref-Martin2007How" class="csl-entry" role="listitem">
-Martin, R. (2007). How successful leaders think. <em>Harvard Business Review</em>, <em>85</em>(6), 71–81. <a href="https://hbr.org/2007/06/how-successful-leaders-think">https://hbr.org/2007/06/how-successful-leaders-think</a>
-</div></div><div class="no-row-height column-margin column-container"></div><div class="no-row-height column-margin column-container"></div><div class="no-row-height column-margin column-container"></div><div class="no-row-height column-margin column-container"></div><p>Drawing insights from anecdotes is challenging, especially in business, for several reasons:</p>
-<ol type="1">
-<li><p><strong>Limited sample size</strong>: Anecdotes are usually individual cases that do not reflect the full extent of a situation. In business, decisions often require data from large, diverse populations to ensure reliability. Relying on a single story or experience can lead to conclusions that are not universally valid.</p></li>
-<li><p><strong>Bias and subjectivity</strong>: Anecdotes are often influenced by personal perspectives, emotions or particular circumstances. Moreover, anecdotes often highlight success stories while ignoring failures. This is an example for the so-called <em>Survivorship Bias</em>.</p></li>
-<li><p><strong>Lack of context and the inability to generalize</strong>: Anecdotes often lack the broader context necessary to understand the underlying factors of a situation. Business problems tend to be complex and influenced by numerous variables such as market trends, consumer behavior and external economic conditions. Many of these variables change significantly over time. Without this context, an anecdote can oversimplify the problem and lead to incorrect decisions. Anecdotes are usually specific to a particular time, place or set of circumstances. They may not apply to different markets, industries or economic environments, which limits their usefulness for general decision-making. For example, learning only from the tremendous success of figures like Steve Jobs while ignoring the countless people who failed is like learning how to live a long life by talking to a single 90-year-old person. If that person happens to be obese and a heavy smoker, it doesn’t mean those behaviors contributed to their longevity.</p></li>
-<li><p><strong>Lack of data rigor</strong>: Anecdotes lack the rigor and precision of data-driven analysis where the empirical model that allows to identify causality and to measure the effect of causes is formally described.</p></li>
-</ol>
-<p>Thus, to make informed business decisions, it is critical to base insights on systematic data analysis rather than anecdotal evidence, as anecdotes are too narrow, subjective and unreliable to guide complex business strategies.</p>
-<div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-systematicanalysis" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.2</strong></span> Systematic analysis as an alternative to anecdotal analysis</p>
-<ul>
-<li>What defines a systematic analysis?</li>
-<li>When can we say that we have ‘found evidence’?</li>
-<li>When can we claim to have identified a causal effect?</li>
-<li>When can we trust the size of an effect that we have measured?</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="sec-acquistion" class="level2 page-columns page-full" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="sec-acquistion"><span class="header-section-number">3.2</span> Data acquisition</h2>
-<!-- ::: {#fig-interview} -->
-<!-- ![Interview](fig/interview.jpg){width="30%"} -->
-<!-- ![Survey](fig/opinion-poll.jpg){width="30%"} -->
-<!-- ![Case study](fig/pexels-rodnae-productions-7947753.jpg){width="30%"} -->
-<!-- Three methods of data acquisition^[Sources:  https://www.pexels.com/de-de/foto/linse-geschaft-papier-aufsicht-7947753, https://pixabay.com/images/id-1594962, and   https://pixabay.com/images/id-4799256] -->
-<!-- ::: -->
-<p>There are several ways to get data which allows you to (hopefully) identify a cause-and-effect relationship:</p>
-<section id="interviews" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="interviews"><span class="header-section-number">3.2.1</span> Interviews</h3>
-<p>An interview is normally a one-on-one verbal conversation. Interviews are conducted to learn about the participants’ experiences, perceptions, opinions, or motivations. The relationship between the interviewer and interviewee must be taken into account and other circumstances (place, time, face to face, email, etc.) should be taken into account. There are three types of interviews structured, semi-structured, and unstructured. <em>Structured interviews</em> use a set list of questions and hence are like a verbal surveys. In <em>unstructured interviews</em> the interviewer doesn’t use predetermined questions but only a list of topics to address. Semi-structured interviews are the middle ground. Semi-structured interviews require the interviewer to have a list of questions and topics pre-prepared, which can be asked in different ways with different interviewee/s. Semi-structured interviews increase the flexibility and the responsiveness of the interview while keeping the interview on track, increasing the reliability and credibility of the data. Semi-structured interviews are one of the most common interview techniques.</p>
-<p>Structured interviews use a predetermined list of questions that must be asked in a specific order, improving the validity and trustworthiness of the data but lowering respondent response. Structured interviews resemble verbal questionnaires. In unstructured interviews, the interviewer has a planned list of subjects to cover but no predetermined interview questions. In exchange for less reliable data, this makes the interview more adaptable. Long-term field observation studies may employ unstructured interviews. The middle ground are interviews that are semi-structured. In semi-structured interviews, the interviewer must prepare a list of questions and themes that can be brought up in various ways with various interviewees.</p>
-<p>Interviews allow you to address a cause-and-effect relationship fairly directly, and it can be a good idea to interview experts and ask some <em>why</em> and <em>how</em> questions to gather initial knowledge about a particular topic before further elaborating your research strategy. For example, I interviewed kindergarten teachers with many years of experience working with children, as well as other parents, to get information on how to solve the problem of my children throwing plates around the dining room. However, findings based on interviews are not very valid or reliable because the personal perceptions of both the interviewer and the interviewee can have an impact on the conclusions drawn. For example, I received very different tips and explanations because of the personal experiences of the people I interviewed. Unfortunately, I could not really ask my son why he was misbehaving. His vocabulary was too limited at the time, and even if he could speak, he would probably refuse to tell me the truth.</p>
-</section>
-<section id="surveys" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="surveys"><span class="header-section-number">3.2.2</span> Surveys</h3>
-<p>In contrast to an interview a survey can be sent out to many different people. Surveys can be used to identify a cause-and-effect relationship by asking questions about both the cause and the effect and examining the responses. For example, if a researcher wanted to determine whether there is a relationship between a person’s level of education and their income, they could conduct a survey asking participants about their education level and their income. If the data shows that participants with higher levels of education tend to have higher incomes, it suggests that education may be a cause of higher income. However, it is important to note that surveys can only establish a correlation between variables, but it is difficult to claim that correlations that where found through the survey imply a causal relationship. To establish a causal relationship, a researcher would need to use other methods, such as an experiment, to control for other potential factors that might influence the relationship that the respondent does not see.</p>
-</section>
-<section id="case-studies" class="level3" data-number="3.2.3">
-<h3 data-number="3.2.3" class="anchored" data-anchor-id="case-studies"><span class="header-section-number">3.2.3</span> Case studies</h3>
-<p>Case studies involve in-depth examination of a single case or a small number of cases in order to understand a particular phenomenon. Case studies can be conducted using both quantitative and qualitative methods, depending on the research question and the data being analyzed. While it is reasonable to find causal effects in the particular case, it is problematic to generalize the causal relationship. To establish a general causal relationship, a researcher would need to use other methods, such as an experiment, to control for other potential factors that might influence the relationship that the respondent does not see.</p>
-</section>
-<section id="experiments" class="level3 page-columns page-full" data-number="3.2.4">
-<h3 data-number="3.2.4" class="anchored" data-anchor-id="experiments"><span class="header-section-number">3.2.4</span> Experiments</h3>
-<p>One way to clearly identify a cause-and-effect relationship is through experiments, which involve manipulating the cause (the independent variable) and measuring the effect (the dependent variable) under controlled conditions (we will later on define precisely what is meant here). Experiments can be conducted using both quantitative and qualitative methods. Here are some examples:</p>
-<ul>
-<li>A medical study in which a new drug is tested on a group of patients, while a control group receives a placebo.</li>
-<li>An educational study in which a group of students is taught a new method of learning, while a control group is taught using the traditional method.</li>
-<li>An agricultural study in which a group of crops is treated with a new fertilization method, while a control group is not treated.</li>
-<li>A study to determine the effect of a new training program on employee productivity might involve randomly assigning employees to either a control group that does not receive the training, or an experimental group that does receive the training. By comparing the productivity of the two groups, the researchers can determine if the new training program had a causal effect on employee productivity.</li>
-<li>A study to determine the effect of a new advertising campaign on sales might involve randomly assigning different groups of customers to be exposed to different versions of the campaign. By comparing the sales of the different groups, the researchers can determine if the advertising campaign had a causal effect on sales.</li>
-<li>In <em>experimental economics</em>, experimental methods are used to study economic questions. In a lab-like environment data are collected to investigate the size of certain effects, to test the validity of economic theories, to illuminate market mechanisms, or to examine the decision making of people. Economic experiments usually motivates and rewards subjects with money. The overall goal is to mimic real-world incentives and investigate things that cannot be captured or identified in the field.</li>
-<li>In <em>behavioral economics</em>, laboratory experiments are also used to study decisions of individuals or institutions and to test economic theory. However, it is done with a focus on cognitive, psychological, emotional, cultural, and social factors.</li>
-</ul>
-<div id="fig-dkahnemann" class="quarto-layout-panel page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-dkahnemann-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.2: Daniel Kahneman and his best selling book<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
-</figcaption>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Source: https://commons.wikimedia.org/wiki/File:Daniel_Kahneman_(3283955327)_(cropped).jpg</p></div></div><div aria-describedby="fig-dkahnemann-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<figcaption>Daniel Kahneman</figcaption>
-<p><img src="fig/Daniel_Kahneman.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<figcaption>Thinking, Fast and Slow</figcaption>
-<p><img src="fig/tfts.jpg" class="img-fluid figure-img" style="width:35.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</figure>
-</div>
-<p>In 2002 the Nobel Prize of Economics was awarded to Vernon L. Smith, I quote <span class="citation" data-cites="RSAS2002">The Sveriges Riksbank Prize in Economic Sciences in Memory of Alfred Nobel (<a href="references.html#ref-RSAS2002" role="doc-biblioref">2002</a>)</span>, “for having established <em>laboratory experiments</em> as a tool in empirical economic analysis, especially in the study of alternative market mechanisms” and Daniel Kahneman “for having integrated insights from psychological research into economic science, especially concerning human judgment and decision-making under uncertainty”.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-RSAS2002" class="csl-entry" role="listitem">
-The Sveriges Riksbank Prize in Economic Sciences in Memory of Alfred Nobel. (2002). <em>Nobel prize outreach AB 2024. Fri. 15 nov 2024</em>. <a href="https://www.nobelprize.org/prizes/economic-sciences/2002/summary/">https://www.nobelprize.org/prizes/economic-sciences/2002/summary/</a>
-</div></div><p>The strength of evidence from a controlled experiment is generally considered to be strong. However, the external validity, i.e., the generalizability, should be considered as well. External validity is sometimes low because effects that you can identify and measure in a lab are sometimes only of minor importance in the field.</p>
-<p>There are different types of experiments:</p>
-<p><strong>Randomized controlled trials (RCTs)</strong> are a specific type of an experiment that involve randomly assigning participants to different treatment groups and comparing the outcomes of those groups. RCTs are often considered the gold standard of experimental research because they provide a high degree of control over extraneous variables and are less prone to bias.</p>
-<p>For a better explanation and some great insights into what an RCT actually is, please watch the video produced by UNICEFInnocenti and published on the YouTube channel of UNICEF’s dedicated research center, see <a href="https://youtu.be/Wy7qpJeozec" class="uri">https://youtu.be/Wy7qpJeozec</a> and <a href="#fig-rcts" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>.</p>
-<div id="fig-rcts" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-rcts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.3: Randomized Controlled Trials (RCTs)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
-</figcaption>
-<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Source: https://youtu.be/Wy7qpJeozec</p></div></div><div aria-describedby="fig-rcts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/rcts-video.png" class="img-fluid figure-img" style="width:60.0%">
-</div>
-</figure>
-</div>
-<p><strong>Quasi-experiments</strong> involve the manipulation of an independent variable, but do not involve random assignment of participants to treatment groups. Quasi-experiments are less controlled than RCTs, but can still provide valuable insights into cause-and-effect relationships.</p>
-<p><strong>Natural experiments</strong> involve the observation of naturally occurring events or situations that provide an opportunity to study cause-and-effect relationships. Natural experiments are often used when it is not possible or ethical to manipulate variables experimentally.</p>
-<p>In a <strong>laboratory experiment</strong>, researchers manipulate an independent variable and measure the effect on a dependent variable in a controlled laboratory setting. This allows for greater control over extraneous variables, but the results may not generalize to real-world situations.</p>
-<p>In a <strong>field experiment</strong>, researchers manipulate an independent variable and measure the effect on a dependent variable in a natural setting, rather than in a laboratory. This allows researchers to study real-world phenomena, but it can be more difficult to control for extraneous variables.</p>
-</section>
-<section id="observational-data" class="level3 page-columns page-full" data-number="3.2.5">
-<h3 data-number="3.2.5" class="anchored" data-anchor-id="observational-data"><span class="header-section-number">3.2.5</span> Observational data</h3>
-<div id="fig-observationaldata" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-observationaldata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.4: Observational data<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
-</figcaption>
-<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Source: https://pixabay.com/images/id-5029286/</p></div></div><div aria-describedby="fig-observationaldata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/usb.jpg" class="img-fluid figure-img" style="width:25.0%">
-</div>
-</figure>
-</div>
-<p>Observational data are data that had been observed before the research question was asked or being collected independently from the study. To understand how observational data can be used to constitute a causal relationship is a bit tricky because there is only one world and only one reality at a time. In other words, we usually miss a counterfactual which we can use for a comparison. Take, for example, the past COVID-19 pandemic, where you chose to be vaccinated or not. Regardless of what you chose, we will never find out what would have happened to you if you had chosen differently. Maybe you would have died, maybe you would have gotten more or less sick, or maybe you wouldn’t have gotten sick at all. We don’t know, and it’s impossible to find out because it’s impossible to observe the counterfactual outcomes. This makes it difficult to establish causality from observational data. However, ingenious minds have found reasonable procedures and methods to extract some level of knowledge from observational data that allows us to infer causal relationships from observational data where we cannot directly observe the counterfactual outcome. We will come back to these methods later on.</p>
-<p>In the upcoming sections, however, we will discuss experimental research designs including <em>randomized controlled trials</em> (RCTs) which are considered to be the “gold standard for measuring the effect of an action” <span class="citation" data-cites="Taddy2019Business">(<a href="references.html#ref-Taddy2019Business" role="doc-biblioref">Taddy, 2019, p. 128</a>)</span>. RCTs can be used, for example, to study the effectiveness of drugs by observing people randomly assigned to three groups, one taking the pill (or treatment), a second receiving a placebo, and a third taking nothing. If the first group responds in any way differently than the other groups, the drug has an effect. Before explaining an RCT in more detail, we need to be clear about the fundamental problem of causal inference. This will be discussed in the following.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-Taddy2019Business" class="csl-entry" role="listitem">
-Taddy, M. (2019). <em>Business data science: Combining machine learning and economics to optimize, automate, and accelerate business decisions</em> (1st ed.). McGraw Hill Education.
-</div></div><div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-methodsinresearch" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.3</strong></span> Methods used in economic research (<a href="#sol-methodsinresearch" class="quarto-xref">Solution&nbsp;<span>3.1</span></a>)</p>
-<p>Read <span class="citation" data-cites="Paldam2021Methods">Paldam (<a href="references.html#ref-Paldam2021Methods" role="doc-biblioref">2021</a>)</span> which is freely available <a href="https://doi.org/10.1515/econ-2021-0003">here</a> and answer the following questions:</p>
-<ol type="a">
-<li>List the eight types of research methods described in the paper and provide the description found in the paper.</li>
-<li>Read the following statements and discuss whether they are true or not, and if the latter, correct them:
-<ol type="i">
-<li>The annual production of research papers in economics in the year 2017 has reached about 100 papers in top journals, and about 1,400 papers in the group of good journals. The production has grown with 3.3% per year, and thus it has doubled the last twenty years.</li>
-<li>The upward trend in publication must be due to the large increase in the importance of publications for the careers of researchers, which has greatly increased the production of papers. There has also been a large increase in the number of researches, but as citations are increasingly skewed toward the top journals it has not increased demand for papers correspondingly.</li>
-<li>Four trends are significant: The fall in theoretical papers and the rise in classical papers. There is also a rise in the share of statistical method and event studies. It is surprising that there is no trend in the number of experimental studies.</li>
-<li>Book reviews have dropped to less than 1/3. Perhaps, it also indicates that economists read fewer books than they used to. Journals have increasingly come to use smaller fonts and larger pages, allowing more words per page. The journals from North-Holland Elsevier have managed to cram almost two old pages into one new one. This makes it easier to publish papers, while they become harder to read.</li>
-<li>About 50% of papers in the sample considered in belong to the economic theory class, about 6% are experimental studies, and about 43% are empirical studies based on data inference.</li>
-<li>The papers in economic theory have increased from 33.6% to 59.5% – this is the largest change for any of the eight subgroups. It is highly significant in the trend test.</li>
-</ol></li>
-<li>Explain what is meant with and discuss the reasons that lead to that fatigue.</li>
-<li>According to <span class="citation" data-cites="Paldam2021Methods">Paldam (<a href="references.html#ref-Paldam2021Methods" role="doc-biblioref">2021</a>)</span>: What factors contribute to the immediate relevance of research papers for policymakers?</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="no-row-height column-margin column-container"><div id="ref-Paldam2021Methods" class="csl-entry" role="listitem">
-Paldam, M. (2021). Methods used in economic research: An empirical study of trends and levels. <em>Economics</em>, <em>15</em>(1), 28–42.
-</div></div><div class="no-row-height column-margin column-container"></div></section>
-</section>
-<section id="sec-causalinfer" class="level2 page-columns page-full" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="sec-causalinfer"><span class="header-section-number">3.3</span> Causal inference</h2>
-<div id="fig-cimt" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
+<p>In empirical research, identification refers to the process of establishing a clear and logical relationship between a cause and an effect. This involves demonstrating that the cause is responsible for the observed effect, and that there are no other factors that could potentially explain the effect. The goal of identification is to provide strong evidence that a particular factor is indeed the cause of a particular outcome, rather than simply coincidentally happen. In order to identify a cause-and-effect relationship, researchers can use experimental or non-experimental, that is, observational data, or both. <a href="getdata.html" class="quarto-xref"><span>Chapter 3</span></a> will discuss in greater detail how data can be collected that helps to evaluate causes and measure the magnitude of the effects of causes. <a href="#sec-cornotcaus" class="quarto-xref"><span>Section 5.3</span></a> will explain some difficulties researchers must face when they aim to find empirical evidence on causal effects.</p>
+<section id="sec-causalinfer" class="level2 page-columns page-full" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sec-causalinfer"><span class="header-section-number">5.1</span> Causal inference</h2>
+<div id="fig-cimt" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-cimt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.5: Causal Inference: The Mixtape<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+Figure&nbsp;5.1: Causal Inference: The Mixtape<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
 </figcaption>
-<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Source: <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span></p><div id="ref-Cunningham2021Causal" class="csl-entry" role="listitem">
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Source: <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span></p><div id="ref-Cunningham2021Causal" class="csl-entry" role="listitem">
 Cunningham, S. (2021). <em>Causal inference: The mixtape</em>. Accessed January 30, 2023; Yale University Press. <a href="https://mixtape.scunning.com/">https://mixtape.scunning.com/</a>
 </div></div></div><div aria-describedby="fig-cimt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/cover-ci.jpg" class="img-fluid figure-img" style="width:25.0%">
 </div>
 </figure>
 </div>
-<p>As <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span> explains in his book (see <a href="#fig-cimt" class="quarto-xref">Figure&nbsp;<span>3.5</span></a>), establishing causality is very challenging. Causal inference can assist to some extent. It is the process of establishing causal relationships between variables, aiming to determine whether a change in one variable (the cause or independent variable) leads to a change in another variable (the effect or dependent variable). This process goes beyond mere association or correlation and seeks to establish that one event or factor directly influences another. Various methods of causal inference exist, and this section along with the upcoming chapters will discuss these methods. All methods share a common goal: identifying and measuring a relationship without any bias.</p>
-<div class="no-row-height column-margin column-container"></div><section id="sec-fpci" class="level3 page-columns page-full" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="sec-fpci"><span class="header-section-number">3.3.1</span> The fundamental problem of causal inference</h3>
+<p>As <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span> explains in his book (see <a href="#fig-cimt" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>), establishing causality is very challenging. Causal inference can assist to some extent. It is the process of establishing causal relationships between variables, aiming to determine whether a change in one variable (the cause or independent variable) leads to a change in another variable (the effect or dependent variable). This process goes beyond mere association or correlation and seeks to establish that one event or factor directly influences another. Various methods of causal inference exist, and this section along with the upcoming chapters will discuss these methods. All methods share a common goal: identifying and measuring a relationship without any bias.</p>
+<div class="no-row-height column-margin column-container"></div></section>
+<section id="sec-fpci" class="level2 page-columns page-full" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="sec-fpci"><span class="header-section-number">5.2</span> The fundamental problem of causal inference</h2>
 <p>Unfortunately, claiming a causal relationship to be empirically true is often not straightforward. The main reason for this lies in the so-called <em>fundamental problem of causal inference</em>, which is the issue of observing only one of the potential outcomes for each unit in a study. This means we lack the counterfactual outcome, which is the hypothetical outcome that would have occurred if a subject or unit had experienced a different condition or treatment than what actually happened. Thus, the fundamental problem of causal inference is actually a missing data problem.</p>
 <p>For example, consider my son, who enjoyed throwing plates from the table. He must decide between throwing a plate or not, but he cannot do both simultaneously – an ability only possible in fictional movies like “Everything Everywhere All at Once”. Of course, my son can conduct an experiment by throwing a plate now and later deciding not to throw a plate. After observing both actions, he may claim to have found evidence that throwing a plate causes noise. However, he can never be 100% certain that the noise he heard after throwing the plate was solely caused by his action. It could be a coincidence that something else caused the noise at precisely the same time, like one of his siblings throwing a fork. He merely assumes it was due to his action. To be more certain, he might repeat the experiment hundreds of times. Even then, he can never be 100% sure. It is still not proof in a logical sense because an external factor could theoretically cause the noise. However, this is where statistics come into play: nowing the environment and the setup of his actions, it becomes extremely unlikely that the noise was not caused by his action. Knowing the setup means, we now that hasn’t been any external factor that may have caused a false a causal fallacy. As Scott Cunningham emphasizes, “prior knowledge is required in order to justify any claim about a causal finding”:</p>
 <div class="page-columns page-full"><blockquote class="blockquote">
 <p><span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>, ch.&nbsp;1.3)</span>: <em>“It is my firm belief, which I will emphasize over and over in this book, that without prior knowledge, estimated causal effects are rarely, if ever, believable. Prior knowledge is required in order to justify any claim of a causal finding. And economic theory also highlights why causal inference is necessarily a thorny task.”</em></p>
 </blockquote><div class="no-row-height column-margin column-container"></div></div>
-<p>To illustrate that the fundamental problem of causal inference is actually a missing data problem, let’s consider the fictitious example data presented in <a href="#tbl-tab21" class="quarto-xref">Table&nbsp;<span>3.1</span></a>. For different individuals, dentoted as <span class="math inline">\(i\)</span>, we know whether they were received treatment <span class="math inline">\((T=1)\)</span> or did not receive treatment <span class="math inline">\((T=0)\)</span>, as well as whether the outcome was positive <span class="math inline">\((Y=1)\)</span> or negative <span class="math inline">\((Y=0)\)</span>. Since we do not observe the counterfactual outcomes, we are unable to determine the individual treatment effect (ITE), which is expressed as <span class="math inline">\(Y_i(1)-Y_i(0)\)</span>.</p>
-<div id="tbl-tab21" class="quarto-float anchored">
+<p>To illustrate that the fundamental problem of causal inference is actually a missing data problem, let’s consider the fictitious example data presented in <a href="#tbl-tab21" class="quarto-xref">Table&nbsp;<span>5.1</span></a>. For different individuals, dentoted as <span class="math inline">\(i\)</span>, we know whether they were received treatment <span class="math inline">\((T=1)\)</span> or did not receive treatment <span class="math inline">\((T=0)\)</span>, as well as whether the outcome was positive <span class="math inline">\((Y=1)\)</span> or negative <span class="math inline">\((Y=0)\)</span>. Since we do not observe the counterfactual outcomes, we are unable to determine the individual treatment effect (ITE), which is expressed as <span class="math inline">\(Y_i(1)-Y_i(0)\)</span>.</p>
+<div id="tbl-tab21" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tab21-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3.1: Example data to illustrate that the fundamental problem of causal inference
+Table&nbsp;5.1: Example data to illustrate that the fundamental problem of causal inference
 </figcaption>
 <div aria-describedby="tbl-tab21-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: center;"><span class="math inline">\(i\)</span></th>
@@ -601,7 +385,7 @@ Table&nbsp;3.1: Example data to illustrate that the fundamental problem of causa
 </div>
 <div class="callout-body-container">
 <div id="exr-causalinf1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.4</strong></span> Causal inference ch.1 (<a href="#sol-causalinf1" class="quarto-xref">Solution&nbsp;<span>3.2</span></a>)</p>
+<p><span class="theorem-title"><strong>Exercise 5.1</strong></span> Causal inference ch.1 (<a href="#sol-causalinf1" class="quarto-xref">Solution&nbsp;<span>5.2</span></a>)</p>
 <p>Please read chapter 1 (Introduction) of <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span> and answer the following questions. The book is freely available <a href="https://mixtape.scunning.com">here</a> and here you find <a href="https://mixtape.scunning.com/01-introduction">chapter 1</a>.</p>
 <ol type="1">
 <li>What are some common misconceptions about causality that the author addresses in chapter 1?</li>
@@ -612,19 +396,19 @@ Table&nbsp;3.1: Example data to illustrate that the fundamental problem of causa
 </div>
 </div>
 <div class="no-row-height column-margin column-container"></div></section>
-<section id="sec-cornotcaus" class="level3 page-columns page-full" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="sec-cornotcaus"><span class="header-section-number">3.3.2</span> Correlation does not imply causation</h3>
+<section id="sec-cornotcaus" class="level2 page-columns page-full" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="sec-cornotcaus"><span class="header-section-number">5.3</span> Correlation does not imply causation</h2>
 <p>Correlation refers to a statistical relationship between two variables, where one variable tends to increase or decrease as the other variable also increases or decreases. However, just because two variables are correlated does not necessarily mean that one variable causes the other. This is known as the <em>correlation does not imply causation</em> principle.</p>
 <p>For example, across many areas the number of storks is correlated with the birth rate of babies <span class="citation" data-cites="Matthews2000Storks">(see <a href="references.html#ref-Matthews2000Storks" role="doc-biblioref">Matthews, 2000</a>)</span>. However, this does not mean that the presence of storks causes an increase in the birth rate. It is possible that both the number of storks and the number of babies born are influenced by other factors, such as the overall population density or economic conditions in the area.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-Matthews2000Storks" class="csl-entry" role="listitem">
 Matthews, R. (2000). Storks deliver babies (p= 0.008). <em>Teaching Statistics</em>, <em>22</em>(2), 36–38.
 </div></div><p>Therefore, it is important to carefully consider all possible explanations (confounders) for a correlation and to use data to disentangle the true cause-and-effect relationship between variables.</p>
-<div id="fig-cdnic" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
+<div id="fig-cdnic" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-cdnic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.6: Correlation does not imply causation<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>
+Figure&nbsp;5.2: Correlation does not imply causation<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
 </figcaption>
-<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;Source: https://youtu.be/DFPm_a-_uJM</p></div></div><div aria-describedby="fig-cdnic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Source: https://youtu.be/DFPm_a-_uJM</p></div></div><div aria-describedby="fig-cdnic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/neal1-3.png" class="img-fluid figure-img" style="width:50.0%">
 </div>
 </figure>
@@ -635,7 +419,7 @@ Figure&nbsp;3.6: Correlation does not imply causation<a href="#fn5" class="footn
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;3.1
+Tip&nbsp;5.1
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -643,26 +427,26 @@ Tip&nbsp;3.1
 </div>
 </div>
 <div class="no-row-height column-margin column-container"></div></section>
-<section id="simpsons-paradox" class="level3 page-columns page-full" data-number="3.3.3">
-<h3 data-number="3.3.3" class="anchored" data-anchor-id="simpsons-paradox"><span class="header-section-number">3.3.3</span> Simpsons Paradox</h3>
-<div id="fig-waitingroom" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
+<section id="simpsons-paradox" class="level2 page-columns page-full" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="simpsons-paradox"><span class="header-section-number">5.4</span> Simpsons Paradox</h2>
+<div id="fig-waitingroom" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-waitingroom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.7: Discrimination<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>
+Figure&nbsp;5.3: Discrimination<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
 </figcaption>
-<div class="no-row-height column-margin column-container"><div id="fn6"><p><sup>6</sup>&nbsp;Source: The photography is public domain and stems from the Library of Congress Prints and Photographs Division Washington, see: http://hdl.loc.gov/loc.pnp/pp.print.</p></div></div><div aria-describedby="fig-waitingroom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Source: The photography is public domain and stems from the Library of Congress Prints and Photographs Division Washington, see: http://hdl.loc.gov/loc.pnp/pp.print.</p></div></div><div aria-describedby="fig-waitingroom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/1943_Colored_Waiting_Room_Sign.jpg" class="img-fluid figure-img" style="width:25.0%">
 </div>
 </figure>
 </div>
 <p>Discrimination is bad. Whenever we see it, we should try to find ways to overcome it. De jure segregation mandated the separation of races by law is clearly discriminatory. Other forms of discrimination, however, are often more difficult to spot and as long we don’t have good evidence for discrimination, we should not judge prematurely. That means, we should be sure that we see an act of making unjustified distinctions between individuals based on some categories to which they belong or perceived to belong. For example, if men and women are treated differently without an acceptable reason, we consider it discriminative.</p>
-<p>However, as the following example discussed in <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975</a>)</span> will show, it is often challenging to identify discrimination. In 1973, UC Berkeley was accused of discrimination because it admitted only 35% of female applicants but 44% of male applicants overall. The difference was statistical significant and based on that many people protested claiming justice and equality. However, it turned out that the selection of students was not discriminative against women but against men. Accordingly to <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975</a>)</span> the different overall admission rates can be largely explained by a “tendency of women to apply to graduate departments that are more difficult for applicants of either sex to enter” <span class="citation" data-cites="Bickel1975Sex">(<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">Bickel et al., 1975, p. 403</a>)</span>. Figure <a href="#fig-berkley" class="quarto-xref">Figure&nbsp;<span>3.8</span></a> taken from <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975, p. 403</a>)</span> visualizes this fact. Looking on the decisions within the departments seperately, there is even a “statistically significant bias in favor of women” <span class="citation" data-cites="Bickel1975Sex">(<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">Bickel et al., 1975, p. 403</a>)</span>.</p>
-<div class="no-row-height column-margin column-container"></div><div id="fig-berkley" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full">
+<p>However, as the following example discussed in <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975</a>)</span> will show, it is often challenging to identify discrimination. In 1973, UC Berkeley was accused of discrimination because it admitted only 35% of female applicants but 44% of male applicants overall. The difference was statistical significant and based on that many people protested claiming justice and equality. However, it turned out that the selection of students was not discriminative against women but against men. Accordingly to <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975</a>)</span> the different overall admission rates can be largely explained by a “tendency of women to apply to graduate departments that are more difficult for applicants of either sex to enter” <span class="citation" data-cites="Bickel1975Sex">(<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">Bickel et al., 1975, p. 403</a>)</span>. Figure <a href="#fig-berkley" class="quarto-xref">Figure&nbsp;<span>5.4</span></a> taken from <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975, p. 403</a>)</span> visualizes this fact. Looking on the decisions within the departments seperately, there is even a “statistically significant bias in favor of women” <span class="citation" data-cites="Bickel1975Sex">(<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">Bickel et al., 1975, p. 403</a>)</span>.</p>
+<div class="no-row-height column-margin column-container"></div><div id="fig-berkley" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-berkley-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.8: Proportion of applicants that are women plotted against proportion of applicants admitted<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>
+Figure&nbsp;5.4: Proportion of applicants that are women plotted against proportion of applicants admitted<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
 </figcaption>
-<div class="no-row-height column-margin column-container"><div id="fn7"><p><sup>7</sup>&nbsp;Source: <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975, p. 403</a>)</span></p><div id="ref-Bickel1975Sex" class="csl-entry" role="listitem">
+<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Source: <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975, p. 403</a>)</span></p><div id="ref-Bickel1975Sex" class="csl-entry" role="listitem">
 Bickel, P. J., Hammel, E. A., &amp; O’Connell, J. W. (1975). Sex bias in graduate admissions: Data from <span>Berkeley</span>: Measuring bias is harder than is usually assumed, and the evidence is sometimes contrary to expectation. <em>Science</em>, <em>187</em>(4175), 398–404.
 </div></div></div><div aria-describedby="fig-berkley-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/berkley.png" class="img-fluid figure-img" style="width:70.0%">
@@ -680,7 +464,7 @@ Bickel, P. J., Hammel, E. A., &amp; O’Connell, J. W. (1975). Sex bias in gradu
 </div>
 <div class="callout-body-container">
 <div id="exr-graduateadmission" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.5</strong></span> Graduate admissions (<a href="#sol-graduateadmission" class="quarto-xref">Solution&nbsp;<span>3.3</span></a>)</p>
+<p><span class="theorem-title"><strong>Exercise 5.2</strong></span> Graduate admissions (<a href="#sol-graduateadmission" class="quarto-xref">Solution&nbsp;<span>5.3</span></a>)</p>
 <p>Read the first three pages of <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975</a>)</span>, i.e., pages 398-400, and answer the following questions. The article can be found <a href="https://www.science.org/doi/pdf/10.1126/science.187.4175.398">here</a>.</p>
 <ol type="a">
 <li>Describe the two assumptions that must be true in order to prove that UC Berkeley discriminates against women or men overall.</li>
@@ -698,7 +482,7 @@ Bickel, P. J., Hammel, E. A., &amp; O’Connell, J. W. (1975). Sex bias in gradu
 </div>
 <div class="callout-body-container">
 <div id="exr-simpsonpara" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.6</strong></span> Simpson’s Paradox (<a href="#sol-simpsonpara" class="quarto-xref">Solution&nbsp;<span>3.4</span></a>)</p>
+<p><span class="theorem-title"><strong>Exercise 5.3</strong></span> Simpson’s Paradox (<a href="#sol-simpsonpara" class="quarto-xref">Solution&nbsp;<span>5.4</span></a>)</p>
 <ol type="1">
 <li>What is Simpson’s Paradox?
 <ol type="a">
@@ -719,31 +503,31 @@ Bickel, P. J., Hammel, E. A., &amp; O’Connell, J. W. (1975). Sex bias in gradu
 </div>
 </div>
 </section>
-<section id="rubin-causal-model" class="level3" data-number="3.3.4">
-<h3 data-number="3.3.4" class="anchored" data-anchor-id="rubin-causal-model"><span class="header-section-number">3.3.4</span> Rubin causal model</h3>
+<section id="rubin-causal-model" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="rubin-causal-model"><span class="header-section-number">5.5</span> Rubin causal model</h2>
 <p>If we are interested in the causal effect of a certain treatment on an outcome, we need to compare the outcome, <span class="math inline">\(Y\)</span>, of an individuals, <span class="math inline">\(i\)</span>, who received the treatment, <span class="math inline">\(1\)</span>, to the outcome, <span class="math inline">\(Y\)</span>, of the same individual, <span class="math inline">\(i\)</span>, who did not receive the treatment, <span class="math inline">\(0\)</span>:</p>
 <p><span class="math display">\[
 ITE_i=Y_i(1)-Y_i(0).
 \]</span></p>
-<p>Unfortunately, as discussed in <a href="#sec-fpci" class="quarto-xref"><span>Section 3.3.1</span></a>, this individual treatment effect (ITE) does not exist as person <span class="math inline">\(i\)</span> can either be treated or not, but not both simultaneously. Since the counterfactual outcome is missing for each individual, we cannot observe the actual causal effect.</p>
+<p>Unfortunately, as discussed in <a href="#sec-fpci" class="quarto-xref"><span>Section 5.2</span></a>, this individual treatment effect (ITE) does not exist as person <span class="math inline">\(i\)</span> can either be treated or not, but not both simultaneously. Since the counterfactual outcome is missing for each individual, we cannot observe the actual causal effect.</p>
 <p>The Rubin model, also known as the potential outcomes framework, provides a theoretical framework for identifying causality in the context of missing data-existing.</p>
 <p>In the model, each subject, denoted with <span class="math inline">\(i\)</span> (for example, a person, a school), has two potential outcomes: one outcome if the subject receives the treatment (treatment condition denoted with <span class="math inline">\(T=1\)</span>) and another outcome if the does not receive the treatment (control condition denoted with <span class="math inline">\(T=0\)</span>). In short, the model specifies that you can use the difference of the average of a group that received the treatment and the average of the group that did not received the treatment and use it as a substitute for the ITE: <span id="eq-feq"><span class="math display">\[
 \mathbb{E} [\underbrace{Y_i(1)-Y_i(0)}_{ITE}] = \underbrace{\mathbb{E}[Y(1)] - \mathbb{E}[Y(0)]}_{ATE}.
-\tag{3.1}\]</span></span></p>
+\tag{5.1}\]</span></span></p>
 <p>However, the ATE is only equal to the expected ITE if certain assumptions are fulfilled. The upcoming sections will discuss these assumptions.</p>
 </section>
-<section id="sec-overfunda" class="level3 page-columns page-full" data-number="3.3.5">
-<h3 data-number="3.3.5" class="anchored" data-anchor-id="sec-overfunda"><span class="header-section-number">3.3.5</span> Its difficult to overcome the fundamental problem</h3>
+<section id="sec-overfunda" class="level2 page-columns page-full" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="sec-overfunda"><span class="header-section-number">5.6</span> Its difficult to overcome the fundamental problem</h2>
 <div class="page-columns page-full"><blockquote class="blockquote">
 <p><span class="citation" data-cites="Keele2015statistics">Keele (<a href="references.html#ref-Keele2015statistics" role="doc-biblioref">2015, p. 314</a>)</span>: <em>“An identification analysis identifies the assumptions needed for statistical estimates to be given a causal interpretation.”</em></p>
 </blockquote><div class="no-row-height column-margin column-container"><div id="ref-Keele2015statistics" class="csl-entry" role="listitem">
 Keele, L. (2015). The statistics of causal inference: A view from political methodology. <em>Political Analysis</em>, <em>23</em>(3), 313–335.
 </div></div></div>
-<p>In the following we will discuss conditions that need to hold in order to empirically draw causal conclusions from the ATE without bias. This is important because equation <a href="#eq-feq" class="quarto-xref">Equation&nbsp;<span>3.1</span></a> does not necessarily hold when using observational data without a more elaborated identification strategy.</p>
-<section id="example" class="level4 page-columns page-full" data-number="3.3.5.1">
-<h4 data-number="3.3.5.1" class="anchored" data-anchor-id="example"><span class="header-section-number">3.3.5.1</span> Example</h4>
-<p>Suppose we want to measure the effect of a vaccine on survival rates. We observed the residents of a small city with 2,000 inhabitants over the course of 30 days. On day 1, we arrived in town and injected the vaccine to 200 individuals. By day 30, we counted the deceased in both groups: four died in the vaccinated group, while eighteen died in the group of 1,800 unvaccinated individuals. With a survival rate of 98% in the vaccinated group and 99% in the unvaccinated group, it may appear that the vaccine lowers the survival rate. Imagine that study is real, would you claim that the vaccine kills because according to <a href="#eq-feq" class="quarto-xref">Equation&nbsp;<span>3.1</span></a> we could use the ATE to indicate the ITE?</p>
-<p>The answer is yes, but only if the assumptions of <em>ignorability</em> (<a href="#sec-ingnorability" class="quarto-xref"><span>Section 3.3.5.2</span></a>) and <em>unconfoundedness</em> (<a href="#sec-unconfound" class="quarto-xref"><span>Section 3.3.5.3</span></a>) are satisfied.</p>
+<p>In the following we will discuss conditions that need to hold in order to empirically draw causal conclusions from the ATE without bias. This is important because equation <a href="#eq-feq" class="quarto-xref">Equation&nbsp;<span>5.1</span></a> does not necessarily hold when using observational data without a more elaborated identification strategy.</p>
+<section id="example" class="level3 page-columns page-full" data-number="5.6.1">
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="example"><span class="header-section-number">5.6.1</span> Example</h3>
+<p>Suppose we want to measure the effect of a vaccine on survival rates. We observed the residents of a small city with 2,000 inhabitants over the course of 30 days. On day 1, we arrived in town and injected the vaccine to 200 individuals. By day 30, we counted the deceased in both groups: four died in the vaccinated group, while eighteen died in the group of 1,800 unvaccinated individuals. With a survival rate of 98% in the vaccinated group and 99% in the unvaccinated group, it may appear that the vaccine lowers the survival rate. Imagine that study is real, would you claim that the vaccine kills because according to <a href="#eq-feq" class="quarto-xref">Equation&nbsp;<span>5.1</span></a> we could use the ATE to indicate the ITE?</p>
+<p>The answer is yes, but only if the assumptions of <em>ignorability</em> (<a href="#sec-ingnorability" class="quarto-xref"><span>Section 5.6.2</span></a>) and <em>unconfoundedness</em> (<a href="#sec-unconfound" class="quarto-xref"><span>Section 5.6.3</span></a>) are satisfied.</p>
 <p>In brief, ignorability means that the 200 treated individuals are not systematically different from the other 1,800 individuals regarding characteristics that have an impact of the chances to survive. Considering the fact that we cannot randomly select 200 individuals from the 2,000 inhabitants due to legal constraints (as everyone has the right to choose whether or not to receive the vaccine), we must consider who is willing to get vaccinated. This selection bias may pose issues, as vulnerable populations often have a higher willingness to accept the vaccine compared to younger and healthier individuals who may fear the disease less. For example, if we vaccinated individuals with preexisting conditions that make them more vulnerable, such as the elderly or those with chronic illnesses, we cannot assume that the ATE is equal to the ITE. This is because the overall mortality risk is higher among those who received the vaccine.</p>
 <p>Unconfoundedness means that there are no other factors that could explain both the likelihood of receiving the vaccine and the likelihood of death. For example, if vaccinated individuals were not required to stay at home during these 30 days, their likelihood of dying may increase due to greater exposure to risky situations and other people, which in turn raises their chances of contracting a disease.</p>
 <div id="tip-vidneal" class="callout callout-style-simple callout-tip callout-titled">
@@ -752,31 +536,31 @@ Keele, L. (2015). The statistics of causal inference: A view from political meth
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;3.2
+Tip&nbsp;5.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div id="fig-neal-rct" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-neal-rct" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-neal-rct-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.9: Average treatment effect (ATE)
+Figure&nbsp;5.5: Average treatment effect (ATE)
 </figcaption>
 <div aria-describedby="fig-neal-rct-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/neal-rct.png" class="img-fluid figure-img" style="width:50.0%">
 </div>
 </figure>
 </div>
-<p>Watch the video of Brady Neal’s lecture <a href="https://youtu.be/gGaWU8XEoGk">What Does Imply Causation? Randomized Control Trials</a> (see <a href="#fig-neal-rct" class="quarto-xref">Figure&nbsp;<span>3.9</span></a>). Alternatively, you can read <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>, ch. 2)</span> of his lecture notes, see <a href="https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf">here</a>.</p>
+<p>Watch the video of Brady Neal’s lecture <a href="https://youtu.be/gGaWU8XEoGk">What Does Imply Causation? Randomized Control Trials</a> (see <a href="#fig-neal-rct" class="quarto-xref">Figure&nbsp;<span>5.5</span></a>). Alternatively, you can read <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>, ch. 2)</span> of his lecture notes, see <a href="https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf">here</a>.</p>
 </div>
 </div>
 <div class="no-row-height column-margin column-container"></div></section>
-<section id="sec-ingnorability" class="level4 page-columns page-full" data-number="3.3.5.2">
-<h4 data-number="3.3.5.2" class="anchored" data-anchor-id="sec-ingnorability"><span class="header-section-number">3.3.5.2</span> Ignorability</h4>
-<p>Referring to table <a href="#tbl-tab21" class="quarto-xref">Table&nbsp;<span>3.1</span></a>, Brady <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>)</span> wrote:</p>
+<section id="sec-ingnorability" class="level3 page-columns page-full" data-number="5.6.2">
+<h3 data-number="5.6.2" class="anchored" data-anchor-id="sec-ingnorability"><span class="header-section-number">5.6.2</span> Ignorability</h3>
+<p>Referring to table <a href="#tbl-tab21" class="quarto-xref">Table&nbsp;<span>5.1</span></a>, Brady <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>)</span> wrote:</p>
 <div class="no-row-height column-margin column-container"></div><div class="page-columns page-full"><blockquote class="blockquote">
 <p><em>“what makes it valid to calculate the ATE by taking the average of the Y(0) column, ignoring the question marks, and subtracting that from the average of the Y(1) column, ignoring the question marks?” This ignoring of the question marks (missing data) is known as ignorability. Assuming ignorability is like ignoring how people ended up selecting the treatment they selected and just assuming they were randomly assigned their treatment”</em> <span class="citation" data-cites="Neal2020Introduction">(<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">Neal, 2020, p. 9</a>)</span></p>
 </blockquote><div class="no-row-height column-margin column-container"></div></div>
-<p>Ignorability means that the way individuals are assigned to treatment and control groups is irrelevant for the data analysis. Thus, when we aim to explain a certain outcome, we can ignore how an individual made it into the treated or control group. It has also been called <em>unconfoundedness</em> or no <em>omitted variable bias</em>. We will come back to these two terms in <a href="regression.html#sec-scrcj" class="quarto-xref"><span>Section 5.4</span></a> and in <a href="regression.html" class="quarto-xref"><span>Chapter 5</span></a>.</p>
+<p>Ignorability means that the way individuals are assigned to treatment and control groups is irrelevant for the data analysis. Thus, when we aim to explain a certain outcome, we can ignore how an individual made it into the treated or control group. It has also been called <em>unconfoundedness</em> or no <em>omitted variable bias</em>. We will come back to these two terms in <a href="regression.html#sec-scrcj" class="quarto-xref"><span>Section 6.4</span></a> and in <a href="regression.html" class="quarto-xref"><span>Chapter 6</span></a>.</p>
 <p>Randomized controlled trials (RCTs) are characterized by randomly assigning individuals to different treatment groups and comparing the outcomes of those groups. Thus, RCTs are essentially build on the assumption of <em>ignorability</em> which can be written formally like <span class="math display">\[
 (Y(1), Y(0)) \perp T.
 \]</span></p>
@@ -787,15 +571,15 @@ Figure&nbsp;3.9: Average treatment effect (ATE)
 \end{align}\]</span></p>
 <p>Another perspective on this assumption is the concept of exchangeability. Exchangeability refers to the idea that the treatment groups can be interchanged such that if they were switched, the new treatment group would have the same outcomes as the old treatment group, and the new control group would have the same outcomes as the old control group.</p>
 </section>
-<section id="sec-unconfound" class="level4 page-columns page-full" data-number="3.3.5.3">
-<h4 data-number="3.3.5.3" class="anchored" data-anchor-id="sec-unconfound"><span class="header-section-number">3.3.5.3</span> Unconfoundedness</h4>
-<p>While randomized controlled trials (RCTs) assume the concept of ignoreability, most observational data present challenges in drawing causal conclusions due to the presence of confounding factors that affect both (1) the likelihood of individuals being part of the treatment group and (2) the observed outcome. For example, regional factors can affect both the number of storks and the number of babies born in a region. These factors are typically referred to as confounders, which we discussed in <a href="#sec-cornotcaus" class="quarto-xref"><span>Section 3.3.2</span></a> as having the potential to create the illusion of a causal impact where none exists. However, empirical methods are available <em>to control for</em> these confounders and prevent the violation of the ignoreability assumption. Formally, the assumption can be written as <span class="math display">\[
+<section id="sec-unconfound" class="level3 page-columns page-full" data-number="5.6.3">
+<h3 data-number="5.6.3" class="anchored" data-anchor-id="sec-unconfound"><span class="header-section-number">5.6.3</span> Unconfoundedness</h3>
+<p>While randomized controlled trials (RCTs) assume the concept of ignoreability, most observational data present challenges in drawing causal conclusions due to the presence of confounding factors that affect both (1) the likelihood of individuals being part of the treatment group and (2) the observed outcome. For example, regional factors can affect both the number of storks and the number of babies born in a region. These factors are typically referred to as confounders, which we discussed in <a href="#sec-cornotcaus" class="quarto-xref"><span>Section 5.3</span></a> as having the potential to create the illusion of a causal impact where none exists. However, empirical methods are available <em>to control for</em> these confounders and prevent the violation of the ignoreability assumption. Formally, the assumption can be written as <span class="math display">\[
 (Y(1), Y(0)) \perp T \mid X.
 \]</span> This allows to write the ATE as follows: <span class="math display">\[\begin{align}
 \mathbb{E}[Y(1)\mid X]-\mathbb{E}[Y(0)\mid X] &amp; =\mathbb{E}[Y(1) \mid T=1, X]-\mathbb{E}[Y(0) \mid T=0, X] \\
 &amp; =\mathbb{E}[Y \mid T=1, X]-\mathbb{E}[Y \mid T=0, X].
 \end{align}\]</span></p>
-<p>This means that we need to control for all factors (X) that influence both groups. We will revisit this topic in <a href="regression.html#sec-scrcj" class="quarto-xref"><span>Section 5.4</span></a>, where we will discuss the various functional impacts that must be considered to avoid causal bias.</p>
+<p>This means that we need to control for all factors (X) that influence both groups. We will revisit this topic in <a href="regression.html#sec-scrcj" class="quarto-xref"><span>Section 6.4</span></a>, where we will discuss the various functional impacts that must be considered to avoid causal bias.</p>
 <div class="callout callout-style-simple callout-important no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -803,7 +587,7 @@ Figure&nbsp;3.9: Average treatment effect (ATE)
 </div>
 <div class="callout-body-container">
 <div id="exr-treatmenteffects" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.7</strong></span> Treatment effects (<a href="#sol-treatmenteffects" class="quarto-xref">Solution&nbsp;<span>3.5</span></a>)</p>
+<p><span class="theorem-title"><strong>Exercise 5.4</strong></span> Treatment effects (<a href="#sol-treatmenteffects" class="quarto-xref">Solution&nbsp;<span>5.5</span></a>)</p>
 <p>Read sections 2.1 and 2.3 of <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>)</span>.</p>
 <ol type="1">
 <li>What is the individual treatment effect (ITE)?</li>
@@ -820,7 +604,6 @@ Figure&nbsp;3.9: Average treatment effect (ATE)
 Neal, B. (2020). <em>Introduction to causal inference from a machine learning perspective: Course lecture notes</em>. Accessed January 30, 2023. <a href="https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf">https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf</a>
 </div></div></section>
 </section>
-</section>
 <section id="solutions-to-the-exercises" class="level2 unlisted unnumbered page-columns page-full">
 <h2 class="unlisted unnumbered anchored" data-anchor-id="solutions-to-the-exercises">Solutions to the exercises</h2>
 <div class="callout callout-style-simple callout-tip no-icon">
@@ -830,7 +613,7 @@ Neal, B. (2020). <em>Introduction to causal inference from a machine learning pe
 </div>
 <div class="callout-body-container">
 <div id="sol-methodsinresearch" class="proof solution">
-<p><span class="proof-title"><em>Solution 3.1</em>. </span>Methods used in economic research (<a href="#exr-methodsinresearch" class="quarto-xref">Exercise&nbsp;<span>3.3</span></a>)</p>
+<p><span class="proof-title"><em>Solution 5.1</em>. </span>Methods used in economic research (<a href="getdata.html#exr-methodsinresearch" class="quarto-xref">Exercise&nbsp;<span>3.1</span></a>)</p>
 <ol type="a">
 <li>List the eight types of research methods described in the paper and provide the description found in the paper {.unlisted .unnumbered}</li>
 </ol>
@@ -850,7 +633,7 @@ Neal, B. (2020). <em>Introduction to causal inference from a machine learning pe
 </ol></li>
 <li><p><strong>Descriptive, deductions from data</strong> In a descriptive study, researcher use an existing sample and hence, they have no control over the data generating process as it is usually the case with experiments. Descriptive studies are deductive. The researcher describes the data aiming at finding structures that tell a story, which can be interpreted. The findings may call for a formal test. If one clean test follows from the description, the paper can still be classified as a descriptive study. If more elaborate regression analysis is used, however, it can also be classified as a classical empirical study. Descriptive studies often contain a great deal of theory. Some descriptive studies present a new data set developed by the author to analyze a debated issue. In these cases, it is often possible to make a clean test, so to the extent that biases sneak in, they are hidden in the details of the assessments made when the data are compiled.</p></li>
 <li><p><strong>Classical empirical studies</strong> Typically have three steps: It starts by a theory, which is developed into an operational model. Then it presents the data set, and finally it runs regressions. The significance levels of the t-ratios on the coefficient estimated assume that the regression is the first meeting of the estimation model and the data. In practice, we all know that this is rarely the case. The classical method is often just a presentation technique. The great virtue of the method is that it can be applied to real problems outside academia. The relevance comes with a price: The method is quite flexible as many choices have to be made, and they often give different results. Preferences and interests, may affect these choices.</p></li>
-<li><p><strong>Newer techniques</strong> Partly as a reaction to the problems of classical empirical methods, the last 3–4 decades have seen a whole set of newer empirical techniques. They include different types of vector autoregression (VAR)<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>, Bayesian techniques, causality and co-integration tests, Kalman filters, hazard functions, etc. The main reason for the lack of success for the new empirics is that it is quite bulky to report a careful set of co-integration tests or VARs, for example, and they often show results that are far from useful in the sense that they are unclear and difficult to interpret.</p></li>
+<li><p><strong>Newer techniques</strong> Partly as a reaction to the problems of classical empirical methods, the last 3–4 decades have seen a whole set of newer empirical techniques. They include different types of vector autoregression (VAR)<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>, Bayesian techniques, causality and co-integration tests, Kalman filters, hazard functions, etc. The main reason for the lack of success for the new empirics is that it is quite bulky to report a careful set of co-integration tests or VARs, for example, and they often show results that are far from useful in the sense that they are unclear and difficult to interpret.</p></li>
 </ol>
 <ol start="2" type="a">
 <li>Read the following statements and discuss whether they are true or not, and if the latter, correct them: {.unlisted .unnumbered}</li>
@@ -870,14 +653,14 @@ Neal, B. (2020). <em>Introduction to causal inference from a machine learning pe
 </div>
 </div>
 </div>
-<div class="no-row-height column-margin column-container"><div id="fn8"><p><sup>8</sup>&nbsp; A VAR is a statistical model used to capture the relationship between multiple quantities as they change over time.</p></div></div><div class="callout callout-style-simple callout-tip no-icon">
+<div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp; A VAR is a statistical model used to capture the relationship between multiple quantities as they change over time.</p></div></div><div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
 <div id="sol-causalinf1" class="proof solution">
-<p><span class="proof-title"><em>Solution 3.2</em>. </span>Causal inference ch.1 (<a href="#exr-causalinf1" class="quarto-xref">Exercise&nbsp;<span>3.4</span></a>)</p>
+<p><span class="proof-title"><em>Solution 5.2</em>. </span>Causal inference ch.1 (<a href="#exr-causalinf1" class="quarto-xref">Exercise&nbsp;<span>5.1</span></a>)</p>
 <ol type="1">
 <li><p>Some common misconceptions about causality that the author addresses in chapter 1 include confusion between correlation and causality, and the belief that observational studies cannot (hardly) establish causality without prior knowledge. He says that human beings “engaging in optimal behavior are the main reason correlations almost never reveal causal relationships, because rarely are human beings acting randomly” which is crucial for identifying causal effects.</p></li>
 <li><p>The role of randomization in causal inference, as described in the book, is that it helps to control for confounding variables and allows for the estimation of causal effects.</p></li>
@@ -893,7 +676,7 @@ Neal, B. (2020). <em>Introduction to causal inference from a machine learning pe
 </div>
 <div class="callout-body-container">
 <div id="sol-graduateadmission" class="proof solution">
-<p><span class="proof-title"><em>Solution 3.3</em>. </span>Graduate admissions (<a href="#exr-graduateadmission" class="quarto-xref">Exercise&nbsp;<span>3.5</span></a>)</p>
+<p><span class="proof-title"><em>Solution 5.3</em>. </span>Graduate admissions (<a href="#exr-graduateadmission" class="quarto-xref">Exercise&nbsp;<span>5.2</span></a>)</p>
 <ol type="a">
 <li>Assumption 1 is that in any given discipline male and female applicants do not differ in respect of their intelligence, skill, qualifications, promise, or other attribute deemed legitimately pertinent to their acceptance as students. It is precisely this assumption that makes the study of “sex bias” meaningful, for if we did not hold it any differences in acceptance of applicants by sex could be attributed to differences in their qualifications, promise as scholars, and so on. (…) Assumption 2 is that the sex ratios of applicants to the various fields of graduate study are not importantly associated with any other factors in admission. <span class="citation" data-cites="Bickel1975Sex">(<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">Bickel et al., 1975, p. 398</a>)</span></li>
 <li>Expectations were taken based on the overall acceptance rate of about 0.416 and multiplied by the total observed numbers of applicants admitted and rejected. For example: <span class="math inline">\((3738+4704) \cdot 0.41666 \approx 3460\)</span> and <span class="math inline">\((3738+4704) \cdot (1-0.41666) \approx 4981\)</span>. Taking the difference of these two measures gives the number to be explained.</li>
@@ -914,7 +697,7 @@ Neal, B. (2020). <em>Introduction to causal inference from a machine learning pe
 </div>
 <div class="callout-body-container">
 <div id="sol-simpsonpara" class="proof solution">
-<p><span class="proof-title"><em>Solution 3.4</em>. </span>Simpson’s Paradox (<a href="#exr-simpsonpara" class="quarto-xref">Exercise&nbsp;<span>3.6</span></a>)</p>
+<p><span class="proof-title"><em>Solution 5.4</em>. </span>Simpson’s Paradox (<a href="#exr-simpsonpara" class="quarto-xref">Exercise&nbsp;<span>5.3</span></a>)</p>
 <ol type="1">
 <li>a), 2. c) and d)</li>
 </ol>
@@ -929,7 +712,7 @@ Neal, B. (2020). <em>Introduction to causal inference from a machine learning pe
 </div>
 <div class="callout-body-container">
 <div id="sol-treatmenteffects" class="proof solution">
-<p><span class="proof-title"><em>Solution 3.5</em>. </span>Solution to exercise <a href="#exr-treatmenteffects" class="quarto-xref">Exercise&nbsp;<span>3.7</span></a></p>
+<p><span class="proof-title"><em>Solution 5.5</em>. </span>Solution to exercise <a href="#exr-treatmenteffects" class="quarto-xref">Exercise&nbsp;<span>5.4</span></a></p>
 <ol type="1">
 <li>The individual treatment effect (ITE) is a measure of the effect of a treatment or intervention on an individual level. It represents the difference in the outcome for an individual who receives the treatment versus the outcome for that same individual if they had not received the treatment.</li>
 <li>The average treatment effect (ATE) is a measure of the difference in the expected outcomes between a treatment group and a control group. It represents the overall effect of a treatment on the population as a whole.</li>
@@ -1127,18 +910,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1170,7 +942,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1178,7 +970,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1275,7 +1067,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1503,13 +1294,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./doing_research.html" class="pagination-link" aria-label="Doing research">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Doing research</span></span>
+      <a href="./statistics.html" class="pagination-link" aria-label="Descriptive statistics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descriptive statistics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./statistics.html" class="pagination-link" aria-label="Statistics">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Statistics</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./regression.html" class="pagination-link" aria-label="Regression analysis">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
