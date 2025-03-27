@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Descriptive statistics – Quantitative Methods</title>
+<title>5&nbsp; Descriptive statistics – Quantitative Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -30,7 +50,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./identification.html" rel="next">
+<link href="./experiments.html" rel="next">
 <link href="./getdata.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -112,7 +132,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./statistics.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descriptive statistics</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./statistics.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Descriptive statistics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -155,38 +175,38 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./publish.html" class="sidebar-item-text sidebar-link">
+  <a href="./good_research.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Good research</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./identification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Identification</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./getdata.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data acquisition</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data acquisition</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./statistics.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descriptive statistics</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./identification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Identification</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Descriptive statistics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./experiments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Experiments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Out-of-Lab experiments</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -234,25 +254,26 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#univariate-data" id="toc-univariate-data" class="nav-link active" data-scroll-target="#univariate-data"><span class="header-section-number">4.1</span> Univariate data</a>
+  <li><a href="#univariate-data" id="toc-univariate-data" class="nav-link active" data-scroll-target="#univariate-data"><span class="header-section-number">5.1</span> Univariate data</a>
   <ul class="collapse">
-  <li><a href="#arithmetic-mean" id="toc-arithmetic-mean" class="nav-link" data-scroll-target="#arithmetic-mean"><span class="header-section-number">4.1.1</span> Arithmetic mean</a></li>
-  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median"><span class="header-section-number">4.1.2</span> Median</a></li>
-  <li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode"><span class="header-section-number">4.1.3</span> Mode</a></li>
-  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range"><span class="header-section-number">4.1.4</span> Range</a></li>
-  <li><a href="#variance" id="toc-variance" class="nav-link" data-scroll-target="#variance"><span class="header-section-number">4.1.5</span> Variance</a></li>
-  <li><a href="#standard-deviation" id="toc-standard-deviation" class="nav-link" data-scroll-target="#standard-deviation"><span class="header-section-number">4.1.6</span> Standard deviation</a></li>
-  <li><a href="#standard-error" id="toc-standard-error" class="nav-link" data-scroll-target="#standard-error"><span class="header-section-number">4.1.7</span> Standard error</a></li>
-  <li><a href="#coefficient-of-variation" id="toc-coefficient-of-variation" class="nav-link" data-scroll-target="#coefficient-of-variation"><span class="header-section-number">4.1.8</span> Coefficient of variation</a></li>
-  <li><a href="#skewness" id="toc-skewness" class="nav-link" data-scroll-target="#skewness"><span class="header-section-number">4.1.9</span> Skewness</a></li>
-  <li><a href="#kurtosis" id="toc-kurtosis" class="nav-link" data-scroll-target="#kurtosis"><span class="header-section-number">4.1.10</span> Kurtosis</a></li>
+  <li><a href="#arithmetic-mean" id="toc-arithmetic-mean" class="nav-link" data-scroll-target="#arithmetic-mean"><span class="header-section-number">5.1.1</span> Arithmetic mean</a></li>
+  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median"><span class="header-section-number">5.1.2</span> Median</a></li>
+  <li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode"><span class="header-section-number">5.1.3</span> Mode</a></li>
+  <li><a href="#range" id="toc-range" class="nav-link" data-scroll-target="#range"><span class="header-section-number">5.1.4</span> Range</a></li>
+  <li><a href="#variance" id="toc-variance" class="nav-link" data-scroll-target="#variance"><span class="header-section-number">5.1.5</span> Variance</a></li>
+  <li><a href="#standard-deviation" id="toc-standard-deviation" class="nav-link" data-scroll-target="#standard-deviation"><span class="header-section-number">5.1.6</span> Standard deviation</a></li>
+  <li><a href="#standard-error" id="toc-standard-error" class="nav-link" data-scroll-target="#standard-error"><span class="header-section-number">5.1.7</span> Standard error</a></li>
+  <li><a href="#coefficient-of-variation" id="toc-coefficient-of-variation" class="nav-link" data-scroll-target="#coefficient-of-variation"><span class="header-section-number">5.1.8</span> Coefficient of variation</a></li>
+  <li><a href="#skewness" id="toc-skewness" class="nav-link" data-scroll-target="#skewness"><span class="header-section-number">5.1.9</span> Skewness</a></li>
+  <li><a href="#kurtosis" id="toc-kurtosis" class="nav-link" data-scroll-target="#kurtosis"><span class="header-section-number">5.1.10</span> Kurtosis</a></li>
   </ul></li>
-  <li><a href="#bivariate-data" id="toc-bivariate-data" class="nav-link" data-scroll-target="#bivariate-data"><span class="header-section-number">4.2</span> Bivariate data</a>
+  <li><a href="#bivariate-data" id="toc-bivariate-data" class="nav-link" data-scroll-target="#bivariate-data"><span class="header-section-number">5.2</span> Bivariate data</a>
   <ul class="collapse">
-  <li><a href="#covariance" id="toc-covariance" class="nav-link" data-scroll-target="#covariance"><span class="header-section-number">4.2.1</span> Covariance</a></li>
-  <li><a href="#the-correlation-coefficient-bravais-pearson" id="toc-the-correlation-coefficient-bravais-pearson" class="nav-link" data-scroll-target="#the-correlation-coefficient-bravais-pearson"><span class="header-section-number">4.2.2</span> The correlation coefficient (Bravais-Pearson)</a></li>
-  <li><a href="#rank-correlation-coefficient-spearman" id="toc-rank-correlation-coefficient-spearman" class="nav-link" data-scroll-target="#rank-correlation-coefficient-spearman"><span class="header-section-number">4.2.3</span> Rank correlation coefficient (Spearman)</a></li>
+  <li><a href="#covariance" id="toc-covariance" class="nav-link" data-scroll-target="#covariance"><span class="header-section-number">5.2.1</span> Covariance</a></li>
+  <li><a href="#the-correlation-coefficient-bravais-pearson" id="toc-the-correlation-coefficient-bravais-pearson" class="nav-link" data-scroll-target="#the-correlation-coefficient-bravais-pearson"><span class="header-section-number">5.2.2</span> The correlation coefficient (Bravais-Pearson)</a></li>
+  <li><a href="#rank-correlation-coefficient-spearman" id="toc-rank-correlation-coefficient-spearman" class="nav-link" data-scroll-target="#rank-correlation-coefficient-spearman"><span class="header-section-number">5.2.3</span> Rank correlation coefficient (Spearman)</a></li>
   </ul></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">5.3</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -261,7 +282,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-statistics" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descriptive statistics</span></span></h1>
+<h1 class="title"><span id="sec-statistics" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Descriptive statistics</span></span></h1>
 </div>
 
 
@@ -278,6 +299,19 @@ window.Quarto = {
 </header>
 
 
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Required reading">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Required reading
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="citation" data-cites="Lane2023Introduction">Lane (<a href="references.html#ref-Lane2023Introduction" role="doc-biblioref">2023</a>, ch.&nbsp;1)</span></p>
+</div>
+</div>
 <!-- ::: {.callout-tip appearance="default" title="Learning objectives"} -->
 <!-- In this chapter, we will explore several key concepts essential for conducting empirical analysis through statistical inference. Specifically, we will cover: -->
 <!-- - The defining characteristics of a sample suitable for empirical analysis and statistical inference. -->
@@ -287,7 +321,9 @@ window.Quarto = {
 <!-- - Why a simple random sample is considered the gold standard in sampling methods due to its advantageous properties. -->
 <!-- - Various methods for data collection and drawing samples, highlighting the strengths and weaknesses of each approach. -->
 <!-- ::: -->
-<p><strong>Learning objectives:</strong></p>
+<div class="no-row-height column-margin column-container"><div id="ref-Lane2023Introduction" class="csl-entry" role="listitem">
+Lane, D. M. (2023). <em>Introduction to statistics: Online statistics education: A multimedia course of study</em>. Accessed January 30, 2023; Online Statistics Education: A Multimedia Course of Study. <a href="http://onlinestatbook.com">http://onlinestatbook.com</a>
+</div></div><p><strong>Learning objectives:</strong></p>
 <ul>
 <li>Calculate and interpret the arithmetic mean, median, mode, range, variance, and standard deviation of a dataset.</li>
 <li>Understand the concepts of skewness and kurtosis to describe the shape of data distribution.</li>
@@ -297,45 +333,45 @@ window.Quarto = {
 <li>Explore the Spearman rank correlation coefficient for non-parametric data analysis.</li>
 <li>Apply these statistical measures to real-world datasets through exercises and supplementary video materials.</li>
 </ul>
-<section id="univariate-data" class="level2 page-columns page-full" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="univariate-data"><span class="header-section-number">4.1</span> Univariate data</h2>
-<section id="arithmetic-mean" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="arithmetic-mean"><span class="header-section-number">4.1.1</span> Arithmetic mean</h3>
+<section id="univariate-data" class="level2 page-columns page-full" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="univariate-data"><span class="header-section-number">5.1</span> Univariate data</h2>
+<section id="arithmetic-mean" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="arithmetic-mean"><span class="header-section-number">5.1.1</span> Arithmetic mean</h3>
 <p>The arithmetic mean (<span class="math inline">\(\bar{x}\)</span>) is calculated as the sum of all the values in a dataset divided by the total number of values:</p>
 <p><span class="math display">\[\bar{x} = \frac{{\sum_{i=1}^{n} x_i}}{n}\]</span></p>
 <p>where <span class="math inline">\(\bar{x}\)</span> represents the arithmetic mean, <span class="math inline">\(x_i\)</span> represents each individual value in the dataset, and <span class="math inline">\(n\)</span> represents the total number of values in the dataset.</p>
 </section>
-<section id="median" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="median"><span class="header-section-number">4.1.2</span> Median</h3>
+<section id="median" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="median"><span class="header-section-number">5.1.2</span> Median</h3>
 <p>The median is the middle value of a dataset when it is sorted in ascending or descending order. If the dataset has an odd number of values, the median is the middle value. If the dataset has an even number of values, the median is the average of the two middle values.</p>
 </section>
-<section id="mode" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="mode"><span class="header-section-number">4.1.3</span> Mode</h3>
+<section id="mode" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="mode"><span class="header-section-number">5.1.3</span> Mode</h3>
 <p>The mode is the value or values that appear most frequently in a dataset.</p>
 </section>
-<section id="range" class="level3" data-number="4.1.4">
-<h3 data-number="4.1.4" class="anchored" data-anchor-id="range"><span class="header-section-number">4.1.4</span> Range</h3>
+<section id="range" class="level3" data-number="5.1.4">
+<h3 data-number="5.1.4" class="anchored" data-anchor-id="range"><span class="header-section-number">5.1.4</span> Range</h3>
 <p>The range is the difference between the maximum and minimum values in a dataset.</p>
 <p><span class="math display">\[
 \text{{Range}} = \max(x_i) - \min(x_i)
 \]</span></p>
 <p>where <span class="math inline">\(\text{{Range}}\)</span> represents the range value, and <span class="math inline">\(x_i\)</span> represents each individual value in the dataset.</p>
 </section>
-<section id="variance" class="level3 page-columns page-full" data-number="4.1.5">
-<h3 data-number="4.1.5" class="anchored" data-anchor-id="variance"><span class="header-section-number">4.1.5</span> Variance</h3>
+<section id="variance" class="level3 page-columns page-full" data-number="5.1.5">
+<h3 data-number="5.1.5" class="anchored" data-anchor-id="variance"><span class="header-section-number">5.1.5</span> Variance</h3>
 <p>The variance represents the average of the squared deviations of a random variable from its mean. It quantifies the extent to which a set of numbers deviates from their average value. Variance is commonly denoted as <span class="math inline">\(Var(X)\)</span>, <span class="math inline">\(\sigma^2\)</span>, or <span class="math inline">\(s^2\)</span>. The calculation of variance is as follows: <span class="math display">\[
     \sigma^2={\frac{1}{n}}\sum _{i=1}^{n}(x_{i}-\mu )^{2}
 \]</span> However, it is better to use <span class="math display">\[
   \sigma^2={\frac{1}{n-1}}\sum _{i=1}^{n}(x_{i}-\mu )^{2}.
 \]</span></p>
-<p>The use of <span class="math inline">\(n - 1\)</span> instead of <span class="math inline">\(n\)</span> in the formula for the sample variance is known as <em>Bessel’s correction</em>, which corrects the bias in the estimation of the population variance, and some, but not all of the bias in the estimation of the population standard deviation. Consequently this way to calculate the variance and hence the standard deviation is called the <em>sample standard deviation</em> or the <em>unbiased estimation of standard deviation</em>. In other words, when working with a sample instead of the full population the limited number of observations tend to be closer to the <em>sample mean</em> than to the <em>population mean</em>, see <a href="#fig-bessel" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>. Bessels Correction takes that into account.</p>
+<p>The use of <span class="math inline">\(n - 1\)</span> instead of <span class="math inline">\(n\)</span> in the formula for the sample variance is known as <em>Bessel’s correction</em>, which corrects the bias in the estimation of the population variance, and some, but not all of the bias in the estimation of the population standard deviation. Consequently this way to calculate the variance and hence the standard deviation is called the <em>sample standard deviation</em> or the <em>unbiased estimation of standard deviation</em>. In other words, when working with a sample instead of the full population the limited number of observations tend to be closer to the <em>sample mean</em> than to the <em>population mean</em>, see <a href="#fig-bessel" class="quarto-xref">Figure&nbsp;<span>5.1</span></a>. Bessels Correction takes that into account.</p>
 <p>For a detailed explanation, you can watch the video by <a href="https://youtu.be/sHRBg6BhKjI">StatQuest with Josh Starmer: Why Dividing By N Underestimates the Variance</a>:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sHRBg6BhKjI?si=8B8oC5kXlxOjuiMv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
 </iframe>
 <div id="fig-bessel" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-bessel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1: Bias when using the sample mean<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+Figure&nbsp;5.1: Bias when using the sample mean<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
 </figcaption>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Picture is taken from the video https://youtu.be/sHRBg6BhKjI</p></div></div><div aria-describedby="fig-bessel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/bessel.png" class="img-fluid figure-img" style="width:75.0%">
@@ -343,14 +379,14 @@ Figure&nbsp;4.1: Bias when using the sample mean<a href="#fn1" class="footnote-r
 </figure>
 </div>
 </section>
-<section id="standard-deviation" class="level3" data-number="4.1.6">
-<h3 data-number="4.1.6" class="anchored" data-anchor-id="standard-deviation"><span class="header-section-number">4.1.6</span> Standard deviation</h3>
+<section id="standard-deviation" class="level3" data-number="5.1.6">
+<h3 data-number="5.1.6" class="anchored" data-anchor-id="standard-deviation"><span class="header-section-number">5.1.6</span> Standard deviation</h3>
 <p>As the variance is hard to interpret, the standard deviation is a more often used measure of dispersion. A low standard deviation indicates that the values tend to be close to the mean. It is often abbreviated with <span class="math inline">\(sd\)</span>, <span class="math inline">\(SD\)</span>, or most often with the Greek letter sigma, <span class="math inline">\(\sigma\)</span>. The underlying idea is to measure the average deviation from the mean. It is calculated as follows: <span class="math display">\[
 sd(x)=\sqrt{\sigma^2}={\sqrt {{\frac {1}{n-1}}\sum _{i=1}^{n}\left(x_{i}-{\mu}\right)^{2}}}=\sigma
 \]</span></p>
 </section>
-<section id="standard-error" class="level3" data-number="4.1.7">
-<h3 data-number="4.1.7" class="anchored" data-anchor-id="standard-error"><span class="header-section-number">4.1.7</span> Standard error</h3>
+<section id="standard-error" class="level3" data-number="5.1.7">
+<h3 data-number="5.1.7" class="anchored" data-anchor-id="standard-error"><span class="header-section-number">5.1.7</span> Standard error</h3>
 <p>The standard deviation (SD) measures the amount of variability, or dispersion, for a subject set of data from the mean, while the standard error of the mean (SEM) measures how far the sample mean of the data is likely to be from the true population mean. The SEM is always smaller than the SD. It matters because it helps you estimate how well your sample data represents the whole population.</p>
 <p>The standard error of the mean (SEM) can be expressed as: <span class="math display">\[
 sd(\bar{x})=\sigma_{\bar {x}}\ = s = {\frac {\sigma }{\sqrt {n}}}
@@ -364,7 +400,7 @@ sd(\bar{x})=\sigma_{\bar {x}}\ = s = {\frac {\sigma }{\sqrt {n}}}
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;4.1
+Tip&nbsp;5.1
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -388,33 +424,33 @@ sd(\bar x)=\sqrt{\operatorname{Var}(\bar{x})}=s={\frac {\sigma }{\sqrt {n}}}
 </div>
 </div>
 </section>
-<section id="coefficient-of-variation" class="level3" data-number="4.1.8">
-<h3 data-number="4.1.8" class="anchored" data-anchor-id="coefficient-of-variation"><span class="header-section-number">4.1.8</span> Coefficient of variation</h3>
+<section id="coefficient-of-variation" class="level3" data-number="5.1.8">
+<h3 data-number="5.1.8" class="anchored" data-anchor-id="coefficient-of-variation"><span class="header-section-number">5.1.8</span> Coefficient of variation</h3>
 <p>The coefficient of variation (<span class="math inline">\(CoV\)</span>) is a relative measure of variability and is calculated as the ratio of the standard deviation to the mean, expressed as a percentage:</p>
 <p><span class="math display">\[
 CoV =  \frac{\sigma}{\bar{x}}
 \]</span></p>
 <p>where <span class="math inline">\(CoV\)</span> represents the coefficient of variation, <span class="math inline">\(\sigma\)</span> represents the standard deviation, and <span class="math inline">\(\bar{x}\)</span> represents the arithmetic mean.</p>
 </section>
-<section id="skewness" class="level3" data-number="4.1.9">
-<h3 data-number="4.1.9" class="anchored" data-anchor-id="skewness"><span class="header-section-number">4.1.9</span> Skewness</h3>
+<section id="skewness" class="level3" data-number="5.1.9">
+<h3 data-number="5.1.9" class="anchored" data-anchor-id="skewness"><span class="header-section-number">5.1.9</span> Skewness</h3>
 <p>Skewness is a measure of the asymmetry of a distribution. There are different formulas to calculate skewness, but one common method is using the third standardized moment (<span class="math inline">\(\gamma_1\)</span>):</p>
 <p><span class="math display">\[
 \gamma_1 = \frac{{\sum_{i=1}^{n} \left(\frac{x_i - \bar{x}}{\sigma}\right)^3}}{n}
 \]</span> where <span class="math inline">\(\gamma_1\)</span> represents the skewness, <span class="math inline">\(x_i\)</span> represents each individual value in the dataset, <span class="math inline">\(\bar{x}\)</span> represents the arithmetic mean, <span class="math inline">\(\sigma\)</span> represents the standard deviation, and <span class="math inline">\(n\)</span> represents the total number of values in the dataset.</p>
 </section>
-<section id="kurtosis" class="level3" data-number="4.1.10">
-<h3 data-number="4.1.10" class="anchored" data-anchor-id="kurtosis"><span class="header-section-number">4.1.10</span> Kurtosis</h3>
+<section id="kurtosis" class="level3" data-number="5.1.10">
+<h3 data-number="5.1.10" class="anchored" data-anchor-id="kurtosis"><span class="header-section-number">5.1.10</span> Kurtosis</h3>
 <p>Kurtosis measures the peakedness or flatness of a probability distribution. There are different formulations for kurtosis, and one of the common ones is the fourth standardized moment. The formula for kurtosis is given by:</p>
 <p><span class="math display">\[
 \text{Kurtosis} = \frac{{\frac{1}{n} \sum_{i=1}^{n}(x_i - \bar{x})^4}}{{\left(\frac{1}{n} \sum_{i=1}^{n}(x_i - \bar{x})^2\right)^2}}
 \]</span> where <span class="math inline">\(\text{Kurtosis}\)</span> represents the kurtosis value, <span class="math inline">\(x_i\)</span> represents each individual value in the dataset, <span class="math inline">\(\bar{x}\)</span> represents the mean of the dataset, and <span class="math inline">\(n\)</span> represents the total number of values in the dataset.</p>
 </section>
 </section>
-<section id="bivariate-data" class="level2 page-columns page-full" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="bivariate-data"><span class="header-section-number">4.2</span> Bivariate data</h2>
-<section id="covariance" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="covariance"><span class="header-section-number">4.2.1</span> Covariance</h3>
+<section id="bivariate-data" class="level2 page-columns page-full" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="bivariate-data"><span class="header-section-number">5.2</span> Bivariate data</h2>
+<section id="covariance" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="covariance"><span class="header-section-number">5.2.1</span> Covariance</h3>
 <p>Covariance <span class="math inline">\(Cov(X,Y)\)</span> (or <span class="math inline">\(\sigma_{XY}\)</span>) is a measure of the joint variability of two variables (<span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>) and their observations <span class="math inline">\(i\)</span>, respectively. The covariance is positive when larger values of one variable tend to correspond with larger values of the other variable, or when smaller values of one variable tend to correspond with smaller values of the other variable. On the other hand, a negative covariance suggests an inverse relationship, where larger values of one variable tend to correspond with smaller values of the other variable.</p>
 <p>It’s important to note that the magnitude of the covariance is influenced by the units of measurement, making it challenging to interpret directly. Additionally, the spread of the variables also affects the covariance. The formula for calculating covariance is as follows: <span class="math display">\[
 \operatorname{Cov}(X,Y)=\sigma_{XY}={\frac {1}{n-1}}\sum _{i=1}^{n}(x_{i}-\bar{x})(y_{i}-\bar{y})
@@ -425,7 +461,7 @@ CoV =  \frac{\sigma}{\bar{x}}
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;4.2
+Tip&nbsp;5.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -435,8 +471,8 @@ Tip&nbsp;4.2
 </div>
 </div>
 </section>
-<section id="the-correlation-coefficient-bravais-pearson" class="level3 page-columns page-full" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="the-correlation-coefficient-bravais-pearson"><span class="header-section-number">4.2.2</span> The correlation coefficient (Bravais-Pearson)</h3>
+<section id="the-correlation-coefficient-bravais-pearson" class="level3 page-columns page-full" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="the-correlation-coefficient-bravais-pearson"><span class="header-section-number">5.2.2</span> The correlation coefficient (Bravais-Pearson)</h3>
 <p>The Pearson correlation coefficient measures the linear relationship between two variables. It is calculated as the covariance of the variables divided by the product of their standard deviations. <span class="math display">\[
 \rho_{X,Y} = \frac{{\text{Cov}(X, Y)}}{{\sigma_X \sigma_Y}}
 \]</span> where <span class="math inline">\(\rho\)</span> represents the Pearson correlation coefficient, <span class="math inline">\(\text{Cov}(X, Y)\)</span> denotes the covariance between variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, <span class="math inline">\(\sigma_X\)</span> denotes the standard deviation of variable <span class="math inline">\(X\)</span>, and <span class="math inline">\(\sigma_Y\)</span> denotes the standard deviation of variable <span class="math inline">\(Y\)</span>. It has a value between +1 and -1.</p>
@@ -447,7 +483,7 @@ Tip&nbsp;4.2
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;4.3
+Tip&nbsp;5.3
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -465,19 +501,19 @@ Tip&nbsp;4.3
 <div id="fig-corelateoverview" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-corelateoverview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.2: Correlations are blind on some eye
+Figure&nbsp;5.2: Correlations are blind on some eye
 </figcaption>
 <div aria-describedby="fig-corelateoverview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/corelate_overview.png" class="img-fluid figure-img" style="width:75.0%">
 </div>
 </figure>
 </div>
-<p><a href="#fig-corelateoverview" class="quarto-xref">Figure&nbsp;<span>4.2</span></a> shows that correlation coefficients are limited in to explaining the relationship of two variables. For example, when the slope of a relationship is zero, the correlation coefficient becomes undefined due to the variance of <span class="math inline">\(Y\)</span> being zero. Furthermore, Pearson’s correlation coefficient is sensitive to outliers, and all correlation coefficients are prone to sample selection biases. It is crucial to be careful when attempting to correlate two variables, particularly when one represents a part and the other represents the total. It is also worth noting that small correlation values do not necessarily indicate a lack of association between variables. For example, Pearson’s correlation coefficient can underestimates the association between variables exhibiting a quadratic relationship. Therefore, it is always advisable to examine scatterplots in conjunction with correlation analysis.</p>
-<p>In <a href="#fig-allcorsame" class="quarto-xref">Figure&nbsp;<span>4.3</span></a> you see various graphs that all have the same correlation coefficient and share other statistical properties like is investigated in <a href="#exr-DatasauRus" class="quarto-xref">Exercise&nbsp;<span>4.1</span></a>.</p>
+<p><a href="#fig-corelateoverview" class="quarto-xref">Figure&nbsp;<span>5.2</span></a> shows that correlation coefficients are limited in to explaining the relationship of two variables. For example, when the slope of a relationship is zero, the correlation coefficient becomes undefined due to the variance of <span class="math inline">\(Y\)</span> being zero. Furthermore, Pearson’s correlation coefficient is sensitive to outliers, and all correlation coefficients are prone to sample selection biases. It is crucial to be careful when attempting to correlate two variables, particularly when one represents a part and the other represents the total. It is also worth noting that small correlation values do not necessarily indicate a lack of association between variables. For example, Pearson’s correlation coefficient can underestimates the association between variables exhibiting a quadratic relationship. Therefore, it is always advisable to examine scatterplots in conjunction with correlation analysis.</p>
+<p>In <a href="#fig-allcorsame" class="quarto-xref">Figure&nbsp;<span>5.3</span></a> you see various graphs that all have the same correlation coefficient and share other statistical properties like is investigated in <a href="#exr-DatasauRus" class="quarto-xref">Exercise&nbsp;<span>5.1</span></a>.</p>
 <div id="fig-allcorsame" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-allcorsame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.3: These diagrams all have the same statistical properties<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+Figure&nbsp;5.3: These diagrams all have the same statistical properties<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
 </figcaption>
 <div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;This graph was produced employing the <code>datasauRus</code> R package.</p></div></div><div aria-describedby="fig-allcorsame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/allcorsame.png" class="img-fluid figure-img" style="width:75.0%" data-align="center">
@@ -485,8 +521,8 @@ Figure&nbsp;4.3: These diagrams all have the same statistical properties<a href=
 </figure>
 </div>
 </section>
-<section id="rank-correlation-coefficient-spearman" class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="rank-correlation-coefficient-spearman"><span class="header-section-number">4.2.3</span> Rank correlation coefficient (Spearman)</h3>
+<section id="rank-correlation-coefficient-spearman" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="rank-correlation-coefficient-spearman"><span class="header-section-number">5.2.3</span> Rank correlation coefficient (Spearman)</h3>
 <p>Spearman’s rank correlation coefficient is a measure of the strength and direction of the monotonic relationship between two variables. It can be calculated for a sample of size <span class="math inline">\(n\)</span> by converting the <span class="math inline">\(n\)</span> raw scores <span class="math inline">\(X_i, Y_i\)</span> to ranks <span class="math inline">\(\text{R}(X_i), \text{R}(Y_i)\)</span>, then using the following formula:</p>
 <p><span class="math display">\[
 r_s = \rho_{\operatorname{R}(X),\operatorname{R}(Y)} = \frac{\text{cov}(\operatorname{R}(X), \operatorname{R}(Y))}{\sigma_{\operatorname{R}(X)} \sigma_{\operatorname{R}(Y)}},
@@ -496,6 +532,10 @@ r_s = \rho_{\operatorname{R}(X),\operatorname{R}(Y)} = \frac{\text{cov}(\operato
 \]</span> where <span class="math inline">\(\rho\)</span> denotes the correlation coefficient, <span class="math inline">\(\sum d_i^2\)</span> is the sum of squared differences between the ranks of corresponding pairs of variables, and <span class="math inline">\(n\)</span> represents the number of pairs of observations.</p>
 <p>The coefficient ranges from -1 to 1. A value of 1 indicates a perfect increasing monotonic relationship, while a value of -1 indicates a perfect decreasing monotonic relationship. A value of 0 suggests no monotonic relationship between the variables.</p>
 <p>Spearman’s rank correlation coefficient is a non-parametric measure and is often used when the relationship between variables is not linear or when the data is in the form of ranks or ordinal categories.</p>
+</section>
+</section>
+<section id="exercises" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">5.3</span> Exercises</h2>
 <div class="callout callout-style-simple callout-important no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -503,12 +543,12 @@ r_s = \rho_{\operatorname{R}(X),\operatorname{R}(Y)} = \frac{\text{cov}(\operato
 </div>
 <div class="callout-body-container">
 <div id="exr-DatasauRus" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.1</strong></span> DatasauRus (<a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/datasaurus_solution.html">Solution online</a>.)</p>
-<p>The following exercise shows how to create <a href="#fig-allcorsame" class="quarto-xref">Figure&nbsp;<span>4.3</span></a> using the programming language R.</p>
+<p><span class="theorem-title"><strong>Exercise 5.1</strong></span> DatasauRus (<a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/datasaurus_solution.html">Solution online</a>.)</p>
+<p>The following exercise shows how to create <a href="#fig-allcorsame" class="quarto-xref">Figure&nbsp;<span>5.3</span></a> using the programming language R.</p>
 <div id="fig-datasaurus" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-datasaurus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.4: The logo of the DatasauRus package
+Figure&nbsp;5.4: The logo of the DatasauRus package
 </figcaption>
 <div aria-describedby="fig-datasaurus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <p><img src="fig/datasaurus.png" class="img-fluid figure-img" style="width:20.0%"></p>
@@ -542,7 +582,7 @@ Figure&nbsp;4.4: The logo of the DatasauRus package
 </div>
 <div class="callout-body-container">
 <div id="exr-summarystatistics" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.2</strong></span> Summary statistics (<a href="#sol-summarystatistics" class="quarto-xref">Solution&nbsp;<span>4.1</span></a>)</p>
+<p><span class="theorem-title"><strong>Exercise 5.2</strong></span> Summary statistics (<a href="#sol-summarystatistics" class="quarto-xref">Solution&nbsp;<span>5.1</span></a>)</p>
 <p>Calculate for the following datasets: the mode, the median, the 20% quantile, the range, the interquartile range, the variance, the arithmetic mean, the sample standard deviation, the coefficient of variation.</p>
 <ol type="a">
 <li>For ten participants in a scientific conference the age has been noted: [25, 21, 18, 37, 56, 89, 46, 23, 21, 34.]</li>
@@ -551,7 +591,7 @@ Figure&nbsp;4.4: The logo of the DatasauRus package
 <div id="tbl-visitors" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-visitors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4.1: Random sample of 128 visitors
+Table&nbsp;5.1: Random sample of 128 visitors
 </figcaption>
 <div aria-describedby="tbl-visitors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -586,19 +626,19 @@ Table&nbsp;4.1: Random sample of 128 visitors
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution to @exr-summarystatistics">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution to <a href="#exr-summarystatistics" class="quarto-xref">Exercise&nbsp;<span>4.2</span></a>
+Solution to <a href="#exr-summarystatistics" class="quarto-xref">Exercise&nbsp;<span>5.2</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-summarystatistics" class="proof solution">
-<p><span class="proof-title"><em>Solution 4.1</em>. </span></p>
+<p><span class="proof-title"><em>Solution 5.1</em>. </span></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -666,26 +706,26 @@ Solution to <a href="#exr-summarystatistics" class="quarto-xref">Exercise&nbsp;<
 </div>
 <div class="callout-body-container">
 <div id="exr-destatexcel" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.3</strong></span> Summary statistics in spreadsheet software (<a href="#sol-destatexcel" class="quarto-xref">Solution&nbsp;<span>4.2</span></a>)</p>
+<p><span class="theorem-title"><strong>Exercise 5.3</strong></span> Summary statistics in spreadsheet software (<a href="#sol-destatexcel" class="quarto-xref">Solution&nbsp;<span>5.2</span></a>)</p>
 <p>Given is the following datset: [0, 0, 40, 50, 50, 60, 70, 90, 100, 100.] Compute the following summary statistics of the data set using a spreadsheet software like or : mean, median, mode, quartiles (Q1, Q2, Q3), range, interquartile range, variance, standard deviation, mean absolute deviation, coefficient of variation and skewness.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution to @exr-destatexcel">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution to <a href="#exr-destatexcel" class="quarto-xref">Exercise&nbsp;<span>4.3</span></a>
+Solution to <a href="#exr-destatexcel" class="quarto-xref">Exercise&nbsp;<span>5.3</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-destatexcel" class="proof solution">
-<p><span class="proof-title"><em>Solution 4.2</em>. </span></p>
+<p><span class="proof-title"><em>Solution 5.2</em>. </span></p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -763,12 +803,12 @@ Solution to <a href="#exr-destatexcel" class="quarto-xref">Exercise&nbsp;<span>4
 </div>
 <div class="callout-body-container">
 <div id="exr-guessstat" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.4</strong></span> Guess the summary statistics (<a href="#sol-guessstat" class="quarto-xref">Solution&nbsp;<span>4.3</span></a>)</p>
+<p><span class="theorem-title"><strong>Exercise 5.4</strong></span> Guess the summary statistics (<a href="#sol-guessstat" class="quarto-xref">Solution&nbsp;<span>5.3</span></a>)</p>
 <p>Given are the following variables:</p>
 <div id="tbl-someobs" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-someobs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4.2: Some variables with observations
+Table&nbsp;5.2: Some variables with observations
 </figcaption>
 <div aria-describedby="tbl-someobs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -842,19 +882,19 @@ Table&nbsp;4.2: Some variables with observations
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution to  @exr-guessstat">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution to <a href="#exr-guessstat" class="quarto-xref">Exercise&nbsp;<span>4.4</span></a>
+Solution to <a href="#exr-guessstat" class="quarto-xref">Exercise&nbsp;<span>5.4</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-guessstat" class="proof solution">
-<p><span class="proof-title"><em>Solution 4.3</em>. </span></p>
+<p><span class="proof-title"><em>Solution 5.3</em>. </span></p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -931,7 +971,7 @@ Solution to <a href="#exr-guessstat" class="quarto-xref">Exercise&nbsp;<span>4.4
 </div>
 
 
-</section>
+
 </section>
 
 
@@ -1500,12 +1540,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./getdata.html" class="pagination-link" aria-label="Data acquisition">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data acquisition</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data acquisition</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./identification.html" class="pagination-link" aria-label="Identification">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Identification</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./experiments.html" class="pagination-link" aria-label="Out-of-Lab experiments">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Out-of-Lab experiments</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
