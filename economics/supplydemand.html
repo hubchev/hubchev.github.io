@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Supply and demand – Economics (INCOMPLETE)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./monopoly.html" rel="next">
+<link href="./micro_prelim.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-4a50d11bc9451c364e1c713eeeb450fd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-f76b809562899e5926ed266919a3074e.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./gdp.html">CORE</a></li><li class="breadcrumb-item"><a href="./supplydemand.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Supply and demand</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Economics (INCOMPLETE)</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Economics--INCOMPLETE-.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">INTRODUCTION</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./scope.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Scope</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./perfect.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Perfect markets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Methods</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">CORE</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gdp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">GDP</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inflation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Inflation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gdp2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Welfare</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./micro_prelim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Basics concepts</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./supplydemand.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Supply and demand</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./monopoly.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Monopoly</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">INTERNATIONAL ECONOMICS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./monetary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Monetary international economics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./trade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">International trade</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./policy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Trade policy</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">TBA</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./math_prelim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Mathematical preliminaries</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exams.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Past exams</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-a-market" id="toc-what-is-a-market" class="nav-link active" data-scroll-target="#what-is-a-market"><span class="header-section-number">8.1</span> What is a market?</a></li>
+  <li><a href="#demand" id="toc-demand" class="nav-link" data-scroll-target="#demand"><span class="header-section-number">8.2</span> Demand</a>
+  <ul class="collapse">
+  <li><a href="#the-law-of-demand" id="toc-the-law-of-demand" class="nav-link" data-scroll-target="#the-law-of-demand"><span class="header-section-number">8.2.1</span> The law of demand</a></li>
+  <li><a href="#demand-schedule-and-demand-curve" id="toc-demand-schedule-and-demand-curve" class="nav-link" data-scroll-target="#demand-schedule-and-demand-curve"><span class="header-section-number">8.2.2</span> Demand schedule and demand curve</a></li>
+  <li><a href="#changes-and-shifts-of-demand" id="toc-changes-and-shifts-of-demand" class="nav-link" data-scroll-target="#changes-and-shifts-of-demand"><span class="header-section-number">8.2.3</span> Changes and shifts of demand</a></li>
+  </ul></li>
+  <li><a href="#types-of-goods" id="toc-types-of-goods" class="nav-link" data-scroll-target="#types-of-goods"><span class="header-section-number">8.3</span> Types of goods</a>
+  <ul class="collapse">
+  <li><a href="#normal-goods" id="toc-normal-goods" class="nav-link" data-scroll-target="#normal-goods"><span class="header-section-number">8.3.1</span> Normal goods</a></li>
+  <li><a href="#inferior-goods" id="toc-inferior-goods" class="nav-link" data-scroll-target="#inferior-goods"><span class="header-section-number">8.3.2</span> Inferior goods</a></li>
+  <li><a href="#giffen-goods" id="toc-giffen-goods" class="nav-link" data-scroll-target="#giffen-goods"><span class="header-section-number">8.3.3</span> Giffen goods:</a></li>
+  <li><a href="#veblen-goods" id="toc-veblen-goods" class="nav-link" data-scroll-target="#veblen-goods"><span class="header-section-number">8.3.4</span> Veblen goods:</a></li>
+  </ul></li>
+  <li><a href="#supply" id="toc-supply" class="nav-link" data-scroll-target="#supply"><span class="header-section-number">8.4</span> Supply</a>
+  <ul class="collapse">
+  <li><a href="#changes-and-shifts-of-supply" id="toc-changes-and-shifts-of-supply" class="nav-link" data-scroll-target="#changes-and-shifts-of-supply"><span class="header-section-number">8.4.1</span> Changes and shifts of supply</a></li>
+  <li><a href="#market-equilibrium" id="toc-market-equilibrium" class="nav-link" data-scroll-target="#market-equilibrium"><span class="header-section-number">8.4.2</span> Market equilibrium</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full column-body" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./gdp.html">CORE</a></li><li class="breadcrumb-item"><a href="./supplydemand.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Supply and demand</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Supply and demand</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-body">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Recommended readings:</strong></p>
+<p><span class="citation" data-cites="Shapiro2022Principles">Shapiro et al. (<a href="references.html#ref-Shapiro2022Principles" role="doc-biblioref">2022</a>, ch.&nbsp;3)</span></p>
+<div class="no-row-height column-margin column-container"><div id="ref-Shapiro2022Principles" class="csl-entry" role="listitem">
+Shapiro, D., MacDonald, D., &amp; Greenlaw, S. A. (2022). <em>Principles of economics</em> (3rd ed.). OpenStax. <a href="https://openstax.org/details/books/principles-economics-3e">https://openstax.org/details/books/principles-economics-3e</a>
+</div></div><p><strong>Learning objectives:</strong></p>
+<p>Students will be able to:</p>
+<ul>
+<li>Distinguish between quantity demanded and demand, and explain what determines demand.</li>
+<li>Distinguish between quantity supplied and supply, and explain what determines supply.</li>
+<li>Explain how demand and supply determine price and quantity in a market, and discuss the effects of changes in demand and supply.</li>
+</ul>
+<section id="what-is-a-market" class="level2 page-columns page-full" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="what-is-a-market"><span class="header-section-number">8.1</span> What is a market?</h2>
+<p>A market is any arrangement that brings buyers and sellers together. A market might be a physical place or a group of buyers and sellers spread around the world who never meet. In this chapter, we study a competitive market that has so many buyers and sellers that no individual buyer or seller can influence the price. Quantity demanded is the amount of a good, service, or resource that people are willing and able to buy during a specified period at a specified price. The quantity demanded is expressed as an amount per unit of time, for example, the amount per day or per month. Supply and demand are the forces that make market economies work because they determine prices in a market economy. Prices, in turn, allocate the economy’s scarce resources. The model of the market based on supply and demand, like any other model, is based on a series of assumptions.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-theoofval" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.1</strong></span> The problem of value: The Water-Diamond Paradox</p>
+<blockquote class="blockquote">
+<p>“Water is clearly important. We literally can’t live without it. Yet you can get water in your apartment in New York without paying for it. On modern Roman streets you can wash your hands or bathe your dog at any old fire hydrant. In the office and in the dorm you can drink water from the fountain down the hall.</p>
+<p>Diamonds are different. You can live without diamonds. Yet they are very expensive, valued extremely highly per ounce in the marketplace.</p>
+<p>Notice how strange this is - how a good such as a diamond, which is beautiful but inessential, could be so much more expensive per ounce than an essential and not necessarily beautiful good, such as water. The case is called ‘the water/diamond paradox.’ It is the first and the deepest question of value. What, after all, determines the value of things?” <span class="citation" data-cites="Klamer2015Economic">(<a href="references.html#ref-Klamer2015Economic" role="doc-biblioref">Klamer et al., 2015</a>, ch.&nbsp;5.1)</span></p>
+</blockquote>
+<p>Discuss the water-diamond paradox. Can you think of similar examples of goods that have a high price but no <em>real value</em>? Also discuss what the <em>value of a good</em> is when it is not based on price.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Klamer2015Economic" class="csl-entry" role="listitem">
+Klamer, A., McCloskey, D., &amp; Ziliak, S. (2015). <em>The economic conversation</em>. <a href="https://www.theeconomicconversation.com">https://www.theeconomicconversation.com</a>
+</div></div></section>
+<section id="demand" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="demand"><span class="header-section-number">8.2</span> Demand</h2>
+<section id="the-law-of-demand" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="the-law-of-demand"><span class="header-section-number">8.2.1</span> The law of demand</h3>
+<p>Other things remaining the same, if the price of the good rises, the quantity demanded of that good decreases. Conversely, if the price of the good falls, the quantity demanded of that good increases.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-greed" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.2</strong></span> Greed</p>
+<p>Watch Gordon Gekko’s “Greed is good” speech from the movie <em>Wall Street</em> (see <a href="#fig-wallstreet" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>).</p>
+<div id="fig-wallstreet" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-wallstreet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: <em>Source: <a href="https://www.imdb.com/title/tt0094291/">IMDb.com</a></em>
+</figcaption>
+<div aria-describedby="fig-wallstreet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/wallstreet.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;8.1: Source: IMDb.com"><img src="fig/wallstreet.png" class="img-fluid figure-img" style="width:40.0%"></a>
+</div>
+</figure>
+</div>
+<div id="fig-wallstreet2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-wallstreet2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.2: Wall Street: Greed is good (1987)
+</figcaption>
+<div aria-describedby="fig-wallstreet2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/VVxYOQS6ggk" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p><em>Source: <a href="https://youtu.be/VVxYOQS6ggk">Youtube</a></em></p>
+</div>
+</figure>
+</div>
+<p><a href="https://youtu.be/VVxYOQS6ggk"></a><br>
+Discuss the relationship between <em>greed</em>, the <em>law of demand</em>, and perfect markets.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="demand-schedule-and-demand-curve" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="demand-schedule-and-demand-curve"><span class="header-section-number">8.2.2</span> Demand schedule and demand curve</h3>
+<p>Demand is the relationship between the quantity demanded and the price of a good when all other influences on buying plans remain the same. Demand is illustrated by a demand schedule and a demand curve. The demand curve shows the relationship between price and quantity demanded. In <a href="#tbl-milk" class="quarto-xref">Table&nbsp;<span>8.1</span></a> you see an example of a demand schedule for two individuals, A and B. This schedule is visualized in <a href="#fig-milk" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>.</p>
+<p>Market demand refers to the sum of all individual demands for a particular good or service. Graphically, individual demand curves are summed horizontally to obtain the market demand curve. The aggregated demand is visualized in <a href="#fig-milk2" class="quarto-xref">Figure&nbsp;<span>8.4</span></a>.</p>
+<div id="tbl-milk" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-milk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;8.1: Demand schedule of persons A and B
+</figcaption>
+<div aria-describedby="tbl-milk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 28%">
+<col style="width: 28%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Price of a per Unit (€)</th>
+<th>Quantity Demanded by Person 1 (litres per month)</th>
+<th>Quantity Demanded by Person 2 (units per period)</th>
+<th>Total Quantity Demanded (units per period)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.00</td>
+<td>20</td>
+<td>10</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td>0.10</td>
+<td>18</td>
+<td>9</td>
+<td>27</td>
+</tr>
+<tr class="odd">
+<td>0.20</td>
+<td>16</td>
+<td>8</td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td>0.30</td>
+<td>14</td>
+<td>7</td>
+<td>21</td>
+</tr>
+<tr class="odd">
+<td>0.40</td>
+<td>12</td>
+<td>6</td>
+<td>18</td>
+</tr>
+<tr class="even">
+<td>0.50</td>
+<td>10</td>
+<td>5</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td>0.60</td>
+<td>8</td>
+<td>4</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>0.70</td>
+<td>6</td>
+<td>3</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td>0.80</td>
+<td>4</td>
+<td>2</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>0.90</td>
+<td>2</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>1.00</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-milk" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-milk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.3: Demand curve
+</figcaption>
+<div aria-describedby="fig-milk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="supplydemand_files/figure-html/fig-milk-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;8.3: Demand curve"><img src="supplydemand_files/figure-html/fig-milk-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-milk2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-milk2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.4: Aggregate demand
+</figcaption>
+<div aria-describedby="fig-milk2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="supplydemand_files/figure-html/fig-milk2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;8.4: Aggregate demand"><img src="supplydemand_files/figure-html/fig-milk2-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="changes-and-shifts-of-demand" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="changes-and-shifts-of-demand"><span class="header-section-number">8.2.3</span> Changes and shifts of demand</h3>
+<p>Movements along the demand curve are caused by a change in the price of the product. For example, if the price of a specific good changes, the quantity demanded will typically be altered by two effects: the income effect and the substitution effect:</p>
+<ul>
+<li><strong>The income effect</strong>: Assuming that consumers’ incomes remain constant, a decrease in the price of a good allows them to purchase more of it with their available income.</li>
+<li><strong>The substitution effect</strong>: If the price of one good is lower compared to other similar products, some consumers will choose to substitute the more expensive options with the now cheaper alternative, such as milk.</li>
+</ul>
+<p>In section <span class="quarto-unresolved-ref">?sec-consumption</span>, I will discuss both the income and substitution effects in greater detail.</p>
+<p>In contrast, changes in other factors that influence demand can result in a shift of the demand curve in a price-quantity diagram. A shift in the demand curve—either to the left or right—occurs when there is a change that affects the quantity demanded at every price level. Below is an incomplete list of factors that can cause demand curves to shift:</p>
+<p><strong>Income:</strong> The overall income of consumers greatly impacts their purchasing power. For normal goods, as income rises, the demand increases. Conversely, for inferior goods, demand decreases as income increases. For example, when consumers have higher incomes, they are less likely to purchase instant noodles (an inferior good) and may instead buy higher-quality meals.</p>
+<p><strong>Tastes and preferences:</strong> Changes in consumer preferences can shift demand. If health trends favor plant-based foods, demand for these products may rise, while demand for red meat may decline.</p>
+<p><strong>Consumer expectations:</strong> Expectations about future prices can influence current demand. If consumers expect that prices will rise in the future, they are more likely to purchase now, increasing current demand. Conversely, if they expect prices to drop, they may delay purchases, decreasing current demand.</p>
+<p><strong>Population and demographics:</strong> Changes in the number of consumers or their demographics can impact demand. For example, an aging population might increase the demand for healthcare products and services, while a growing youth demographic might boost demand for technology and entertainment products.</p>
+<p><strong>Price of related goods:</strong> When the price of a good rises, consumers may switch to other goods that offer similar benefits, known as substitutes. A substitute is a product that can be consumed in place of another. For example, apples and oranges are substitutes. If the price of butter increases, consumers may opt for margarine instead. In this scenario, the demand for margarine increases, while the demand for butter decreases. Conversely, demand can also be affected by changes in the prices of complementary goods—products that are often consumed together. A <strong>complement</strong> is a good that pairs well with another. For instance, sausages and mustard, or fish and chips are common complements. If the price of printers drops, the demand for ink cartridges might increase as more people purchase printers. Or, if the price of hot dogs rises, the demand for hot dog buns may decrease.</p>
+</section>
+</section>
+<section id="types-of-goods" class="level2 page-columns page-full" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="types-of-goods"><span class="header-section-number">8.3</span> Types of goods</h2>
+<p>Goods can be classified based on how their demand reacts to changes in prices and consumer income. Here are some relevant types of goods:</p>
+<section id="normal-goods" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="normal-goods"><span class="header-section-number">8.3.1</span> Normal goods</h3>
+<p>A normal good is defined as a good for which the demand increases as income increases. Conversely, demand decreases when income decreases.</p>
+<p>Examples of normal goods include luxury items, branded clothing, and high-quality food products. As consumers’ incomes rise, they are more likely to purchase these goods, reflecting their preference for higher-quality or more luxurious items.</p>
+</section>
+<section id="inferior-goods" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="inferior-goods"><span class="header-section-number">8.3.2</span> Inferior goods</h3>
+<p>An inferior good is one for which the demand decreases as incomes rise and increases when incomes fall.</p>
+<p>Examples of inferior goods include budget brands, instant noodles, and second-hand clothing. When consumers have lower incomes, they may opt for these less expensive options, but as their income increases, they tend to switch to more expensive alternatives.</p>
+</section>
+<section id="giffen-goods" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="giffen-goods"><span class="header-section-number">8.3.3</span> Giffen goods:</h3>
+<p>A giffen good is a special type of good that increase in demand when its price rises, violating the basic law of demand. This phenomenon typically occurs because the good is so essential that the consumer constitutes a significant portion of its budget and they buy even more if it when the price increases as their inability to afford more expensive alternatives.</p>
+</section>
+<section id="veblen-goods" class="level3 page-columns page-full" data-number="8.3.4">
+<h3 data-number="8.3.4" class="anchored" data-anchor-id="veblen-goods"><span class="header-section-number">8.3.4</span> Veblen goods:</h3>
+<p>A Veblen good is a type of luxury good for which demand increases as the price increases, contrary to the law of demand. These goods serve as a status symbol. The higher price makes them more desirable to certain consumers who view these goods as markers of wealth or prestige. Examples include designer handbags and high-end cars.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Read the two Wikipedia entries for giffen and veblen goods: <span class="citation" data-cites="Wikipedia2025Giffen">Wikipedia (<a href="references.html#ref-Wikipedia2025Giffen" role="doc-biblioref">2025a</a>)</span> and <span class="citation" data-cites="Wikipedia2025Veblen">Wikipedia (<a href="references.html#ref-Wikipedia2025Veblen" role="doc-biblioref">2025b</a>)</span>.</p>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Wikipedia2025Veblen" class="csl-entry" role="listitem">
+Wikipedia. (2025b). <em>Veblen good</em>. <a href="https://en.wikipedia.org/wiki/Veblen_good">https://en.wikipedia.org/wiki/Veblen_good</a>
+</div></div><div class="no-row-height column-margin column-container"><div id="ref-Wikipedia2025Giffen" class="csl-entry" role="listitem">
+Wikipedia. (2025a). <em>Giffen good</em>. <a href="https://en.wikipedia.org/wiki/Giffen_good">https://en.wikipedia.org/wiki/Giffen_good</a>
+</div></div><p>Understanding these classifications is important in microeconomics as they help economists analyze consumer behavior, market trends, and the overall economy’s response to changes in income levels.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-fillblanks" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.3</strong></span> &nbsp;</p>
+<ol type="a">
+<li>Fill in the blanks:</li>
+</ol>
+<p>The demand for a good __________ (increases/decreases) if the price of one of its substitutes rises.<br>
+The demand for a good __________ (increases/decreases) if the price of one of its substitutes falls.<br>
+The demand for a good __________ (increases/decreases) if the price of one of its complements rises.<br>
+The demand for a good __________ (increases/decreases) if the price of one of its complements falls.<br>
+A rise in the expected future price of a good __________ (increases/decreases) the current demand for that good.<br>
+A fall in the expected future price of a good __________ (increases/decreases) the current demand for that good.</p>
+<ol start="2" type="a">
+<li><p>Can you give examples of normal and inferior goods?</p></li>
+<li><p>Fill in the blanks:</p></li>
+</ol>
+<p>When income is expected to increase in the future, or when credit is easy to get and the cost of borrowing is low, the demand for some goods __________ (increases/decreases).<br>
+When income is expected to decrease in the future, or when credit is hard to get and the cost of borrowing is high, the demand for some goods __________ (increases/decreases).</p>
+<ol start="4" type="a">
+<li>Is the following statement true or false: Changes in expected future income and the availability and cost of credit have the greatest effect on the demand for big-ticket items such as homes and cars?</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-threedemandcurves" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.4</strong></span> Three demand curves</p>
+<p>Use <a href="#fig-threecurve" class="quarto-xref">Figure&nbsp;<span>8.5</span></a> to draw a plot with three demand curves. Explain everything you show. One curve should represent an economy in an economic boom, one in an economic downturn, and one in between.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-threecurve" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-threecurve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.5: Sketch of demand in three different economic states
+</figcaption>
+<div aria-describedby="fig-threecurve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="supplydemand_files/figure-html/fig-threecurve-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;8.5: Sketch of demand in three different economic states"><img src="supplydemand_files/figure-html/fig-threecurve-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="supply" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="supply"><span class="header-section-number">8.4</span> Supply</h2>
+<p>The <strong>law of supply</strong> states that, all else being equal: When the price of a good rises, the quantity supplied of that good increases and vice versa.</p>
+<p>The quantity supplied is the amount of a good that sellers are willing and able to sell at a given price. In <a href="#tbl-market-supply" class="quarto-xref">Table&nbsp;<span>8.2</span></a> an example of a supply schedule is shown that illustrates the relationship between the price of a good and the corresponding quantity supplied. The graphical representation of the relationship between the price of a good and the quantity supplied is visualized in <a href="#fig-supmarket" class="quarto-xref">Figure&nbsp;<span>8.6</span></a>.</p>
+<div id="tbl-market-supply" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-market-supply-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;8.2: Example: supply schedule
+</figcaption>
+<div aria-describedby="tbl-market-supply-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 14%">
+<col style="width: 4%">
+<col style="width: 11%">
+<col style="width: 4%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Price of good per unit (€)</th>
+<th>producer A</th>
+<th>+</th>
+<th>producer B</th>
+<th>=</th>
+<th>Market</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.00</td>
+<td>0</td>
+<td>+</td>
+<td>0</td>
+<td>=</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>0.10</td>
+<td>0</td>
+<td>+</td>
+<td>1</td>
+<td>=</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>0.20</td>
+<td>2</td>
+<td>+</td>
+<td>2</td>
+<td>=</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>0.30</td>
+<td>4</td>
+<td>+</td>
+<td>3</td>
+<td>=</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>0.40</td>
+<td>6</td>
+<td>+</td>
+<td>4</td>
+<td>=</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>0.50</td>
+<td>8</td>
+<td>+</td>
+<td>5</td>
+<td>=</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td>0.60</td>
+<td>10</td>
+<td>+</td>
+<td>6</td>
+<td>=</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<td>0.70</td>
+<td>12</td>
+<td>+</td>
+<td>7</td>
+<td>=</td>
+<td>19</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-supmarket" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-supmarket-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.6: Supply curves
+</figcaption>
+<div aria-describedby="fig-supmarket-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="supplydemand_files/figure-html/fig-supmarket-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;8.6: Supply curves"><img src="supplydemand_files/figure-html/fig-supmarket-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<section id="changes-and-shifts-of-supply" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="changes-and-shifts-of-supply"><span class="header-section-number">8.4.1</span> Changes and shifts of supply</h3>
+<p>The supply curve illustrates the quantities that producers are willing to offer for sale at various prices, while assuming that all other factors affecting their selling decisions remain constant. Any alteration in these additional factors—excluding price changes—results in a shift of the supply curve either to the left or the right.</p>
+<p>Several key factors can cause shifts in the supply curve. These include the profitability of alternative goods in production and the prices of goods produced jointly. Advancements in technology can also influence supply, as can changes in the number of sellers in the market. Natural and social factors, such as weather conditions and evolving public attitudes, play a significant role as well. Furthermore, input prices—the costs associated with the factors of production—affect the supply. As production costs rise, the quantity supplied typically decreases. Expectations regarding future market conditions can also impact supply decisions, as can changes in resource prices. Higher resource and input prices generally elevate production costs, resulting in a reduced quantity supplied. Additionally, improvements in productivity—defined as output per unit of input—can lower costs and lead to an increase in supply.</p>
+<p>A change in the price of one good can impact the supply of another good. This relationship occurs particularly in the context of goods that can be produced in place of one another, known as <strong>substitutes in production</strong>. These are goods that can be manufactured using similar resources, allowing producers to switch between them based on price fluctuations and market demands.</p>
+<p>Overall, these dynamics illustrate the complex interplay of various factors that can influence how supply responds to changes in the market environment.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-pricerelpro" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.5</strong></span> Prices of related goods in production</p>
+<p>Fill in the blanks:</p>
+<ol type="a">
+<li>The quantity supplied of a good ______________ (increases/decreases) if the price of one of its substitutes in production falls.<br>
+</li>
+<li>The quantity supplied of a good ______________ (increases/decreases) if the price of one of its substitutes in production rises.<br>
+</li>
+<li>The quantity supplied of a good ______________ (increases/decreases) if the price of one of its complements in production rises.<br>
+</li>
+<li>The quantity supplied of a good ______________ (increases/decreases) if the price of one of its complements in production falls.</li>
+</ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>decreases</li>
+<li>increases</li>
+<li>decreases</li>
+<li>increases</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="market-equilibrium" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="market-equilibrium"><span class="header-section-number">8.4.2</span> Market equilibrium</h3>
+<p>In economics, equilibrium refers to a situation where economic forces such as supply and demand are balanced. In the absence of external influences, the equilibrium values of economic variables remain unchanged.</p>
+<p>The price that balances quantity supplied and quantity demanded is called the <strong>equilibrium price</strong>. Graphically, this is the price at which the supply and demand curves intersect. The quantity that comes along the equilibrium price is called the <strong>equilibrium quantity</strong>. That is visualized in <a href="#fig-market-equilibrium" class="quarto-xref">Figure&nbsp;<span>8.7</span></a>.</p>
+<div id="fig-market-equilibrium" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-market-equilibrium-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.7: Market equilibrium of supply and demand
+</figcaption>
+<div aria-describedby="fig-market-equilibrium-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="supplydemand_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;8.7: Market equilibrium of supply and demand"><img src="supplydemand_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-formmarket" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 8.6</strong></span> After the visual determination of the equilibrium market price and quantity, calculate the equilibrium market price and quantity assuming the demand function:<br>
+<span class="math display">\[x(p) = -\frac{3}{4}p + 300\]</span><br>
+and the supply function<br>
+<span class="math display">\[x_S(p) = \frac{5}{4}p - 100.\]</span></p>
+<p>Addtionally, draw the two functions and mark the equilibrium.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To formally calculate the equilibrium market price and quantity using the given demand and supply functions, you can set the two equations equal to each other and solve for the price (p). Here’s how it can be represented mathematically:</p>
+<p>At equilibrium, the quantity demanded equals the quantity supplied: <span class="math display">\[x(p) = x_S(p)\]</span> Soving both functions for <span class="math inline">\(x\)</span> and setting the two functions equal gives: <span class="math display">\[-\frac{3}{4}p + 300 = \frac{5}{4}p - 100\]</span> Now, solve for (p): <span class="math display">\[p = 200.\]</span> Substituting <span class="math inline">\(p = 200\)</span> back into either the demand or supply equation yields <span class="math display">\[x(200) = -\frac{3}{4}(200) + 300, \]</span> or<br>
+<span class="math display">\[x(200) = -150 + 300.\]</span> Thus, the equilibrium quantity is <span class="math display">\[x^* = 150\]</span> and the equilibrium market price is <span class="math display">\[p^* = 200\]</span></p>
+<p>The graphical solution is shown in <a href="#fig-exercise-22" class="quarto-xref">Figure&nbsp;<span>8.8</span></a>.</p>
+<div id="fig-exercise-22" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-exercise-22-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.8: The equlibrium with supply and demand
+</figcaption>
+<div aria-describedby="fig-exercise-22-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/exe22.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;8.8: The equlibrium with supply and demand"><img src="fig/exe22.png" class="img-fluid figure-img" style="width:45.0%"></a>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Supply &gt; demand (surplus / excess)</strong></p>
+<p>If price &gt; equilibrium price, then quantity supplied &gt; quantity demanded. There is excess supply or a surplus. Suppliers will lower the price to increase sales, thereby moving towards equilibrium.</p>
+<p><strong>Supply &lt; demand (shortage)</strong></p>
+<p>If price &lt; equilibrium price, then quantity demanded &gt; quantity supplied. There is excess demand or a shortage. Suppliers will raise the price due to too many buyers chasing too few goods, thereby moving toward equilibrium.</p>
+<p><strong>Three steps to analyzing changes in equilibrium</strong></p>
+<ol type="1">
+<li>Decide whether the event shifts the supply or demand curve (or both).</li>
+<li>Determine whether the curve(s) shift to the left or to the right.</li>
+<li>Use the supply and demand diagram to see how the shift affects equilibrium price and quantity.</li>
+</ol>
+
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation column-body">
+  <div class="nav-page nav-page-previous">
+      <a href="./micro_prelim.html" class="pagination-link" aria-label="Basics concepts">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Basics concepts</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./monopoly.html" class="pagination-link" aria-label="Monopoly">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Monopoly</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
