@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; Data Pitfalls – Data Analysis for Decision-Making</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./quantitative.html" rel="next">
+<link href="./value.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-9e9859933c91f34f401bf8f9943a3ac4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-9fee88cce2fd029610ad01338e3410fc.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pitfalls.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Pitfalls</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Data Analysis for Decision-Making</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Data-Analysis-for-Decision-Making.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./value.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pitfalls.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Pitfalls</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./quantitative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quantitative research design</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./decision.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Decision-making</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./htur4ds.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">How to use R for data science</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./54_quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Markdown, Quarto, and R Markdown</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./git-github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Collaborating with Git and GitHub</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./website.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Create and host a website</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dadm_guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Presentation and Handout Guidelines</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#epistemic-errors" id="toc-epistemic-errors" class="nav-link active" data-scroll-target="#epistemic-errors"><span class="header-section-number">2.1</span> Epistemic Errors</a></li>
+  <li><a href="#technical-trespasses" id="toc-technical-trespasses" class="nav-link" data-scroll-target="#technical-trespasses"><span class="header-section-number">2.2</span> Technical trespasses</a></li>
+  <li><a href="#mathematical-miscues" id="toc-mathematical-miscues" class="nav-link" data-scroll-target="#mathematical-miscues"><span class="header-section-number">2.3</span> Mathematical Miscues</a></li>
+  <li><a href="#statistical-slipups" id="toc-statistical-slipups" class="nav-link" data-scroll-target="#statistical-slipups"><span class="header-section-number">2.4</span> Statistical slipups</a>
+  <ul class="collapse">
+  <li><a href="#descriptive-debacles" id="toc-descriptive-debacles" class="nav-link" data-scroll-target="#descriptive-debacles"><span class="header-section-number">2.4.1</span> Descriptive debacles</a></li>
+  <li><a href="#inferential-infernos" id="toc-inferential-infernos" class="nav-link" data-scroll-target="#inferential-infernos"><span class="header-section-number">2.4.2</span> Inferential infernos</a></li>
+  <li><a href="#slippery-sampling" id="toc-slippery-sampling" class="nav-link" data-scroll-target="#slippery-sampling"><span class="header-section-number">2.4.3</span> Slippery sampling</a></li>
+  <li><a href="#insensitivity-to-sample-size" id="toc-insensitivity-to-sample-size" class="nav-link" data-scroll-target="#insensitivity-to-sample-size"><span class="header-section-number">2.4.4</span> Insensitivity to sample size</a></li>
+  </ul></li>
+  <li><a href="#analytical-aberrations" id="toc-analytical-aberrations" class="nav-link" data-scroll-target="#analytical-aberrations"><span class="header-section-number">2.5</span> Analytical Aberrations</a>
+  <ul class="collapse">
+  <li><a href="#the-intuitionanalysis-false-dichotomy" id="toc-the-intuitionanalysis-false-dichotomy" class="nav-link" data-scroll-target="#the-intuitionanalysis-false-dichotomy"><span class="header-section-number">2.5.1</span> The intuition/analysis false dichotomy</a></li>
+  <li><a href="#exuberant-extrapolations" id="toc-exuberant-extrapolations" class="nav-link" data-scroll-target="#exuberant-extrapolations"><span class="header-section-number">2.5.2</span> Exuberant extrapolations</a></li>
+  <li><a href="#ill-advised-interpolations" id="toc-ill-advised-interpolations" class="nav-link" data-scroll-target="#ill-advised-interpolations"><span class="header-section-number">2.5.3</span> Ill-advised interpolations</a></li>
+  <li><a href="#funky-forecasts" id="toc-funky-forecasts" class="nav-link" data-scroll-target="#funky-forecasts"><span class="header-section-number">2.5.4</span> Funky forecasts</a></li>
+  <li><a href="#moronic-measures" id="toc-moronic-measures" class="nav-link" data-scroll-target="#moronic-measures"><span class="header-section-number">2.5.5</span> Moronic measures</a></li>
+  </ul></li>
+  <li><a href="#graphical-gaffes" id="toc-graphical-gaffes" class="nav-link" data-scroll-target="#graphical-gaffes"><span class="header-section-number">2.6</span> Graphical Gaffes</a>
+  <ul class="collapse">
+  <li><a href="#challenging-charts" id="toc-challenging-charts" class="nav-link" data-scroll-target="#challenging-charts"><span class="header-section-number">2.6.1</span> Challenging charts</a></li>
+  <li><a href="#data-dogmatism" id="toc-data-dogmatism" class="nav-link" data-scroll-target="#data-dogmatism"><span class="header-section-number">2.6.2</span> Data dogmatism</a></li>
+  <li><a href="#the-optimizesatisfice-false-dichotomy" id="toc-the-optimizesatisfice-false-dichotomy" class="nav-link" data-scroll-target="#the-optimizesatisfice-false-dichotomy"><span class="header-section-number">2.6.3</span> The optimize/satisfice false dichotomy</a></li>
+  </ul></li>
+  <li><a href="#design-dangers" id="toc-design-dangers" class="nav-link" data-scroll-target="#design-dangers"><span class="header-section-number">2.7</span> Design Dangers</a>
+  <ul class="collapse">
+  <li><a href="#confusing-colors" id="toc-confusing-colors" class="nav-link" data-scroll-target="#confusing-colors"><span class="header-section-number">2.7.1</span> Confusing Colors</a></li>
+  <li><a href="#usability-uh-ohs" id="toc-usability-uh-ohs" class="nav-link" data-scroll-target="#usability-uh-ohs"><span class="header-section-number">2.7.2</span> Usability uh-ohs</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Pitfalls</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-tip callout-titled" title="Recommended reading">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Recommended reading
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please read “Quantitative Methods” by <span class="citation" data-cites="Huber2023Quantitative">Huber (<a href="references.html#ref-Huber2023Quantitative" role="doc-biblioref">2025</a>)</span>. In particular, chapter “Identification” can help to understand how causes of effects can be identified empirically.</p>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"></div><p>The following sections highlight common pitfalls when dealing with data. Being aware of these pitfalls helps build best practices to maintain the integrity of analyses and visualizations. The structure and content align with the excellent book by <span class="citation" data-cites="Jones2020Avoiding">Jones (<a href="references.html#ref-Jones2020Avoiding" role="doc-biblioref">2020</a>)</span>. I recommend reading this book.</p>
+<section id="epistemic-errors" class="level2 page-columns page-full" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="epistemic-errors"><span class="header-section-number">2.1</span> Epistemic Errors</h2>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Learning objectives">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Learning objectives
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Understand the concept of epistemic errors and their impact on data analysis.</li>
+<li>Identify and describe common types of epistemic errors.</li>
+<li>Apply strategies to avoid epistemic errors in your data work.</li>
+</ul>
+</div>
+</div>
+<p>Epistemic errors occur when there are mistakes in our understanding and conceptualization of data. These errors arise from cognitive biases, misunderstandings, and incorrect assumptions about the nature of data and the reality it represents. Recognizing and addressing these errors is crucial for accurate data analysis and effective decision-making.</p>
+<p>One significant type of epistemic error is the data-reality gap, which refers to the difference between the data we collect and the reality it is supposed to represent. For instance, a survey on customer satisfaction that only includes responses from a self-selected group of highly engaged customers may not accurately reflect the overall customer base. To avoid this pitfall, it is essential to ensure that your data collection methods are representative and unbiased, and to validate your data against external benchmarks or additional data sources.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="The Data-Reality Gap">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Data-Reality Gap
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The difference between the data we collect and the reality it is supposed to represent.</p>
+</div>
+</div>
+<p>Another common epistemic error involves the influence of human biases during data collection and interpretation. Known as the all too human data error, this occurs when personal biases or inaccuracies affect the data. An example would be a researcher’s personal bias influencing the design of a study or the interpretation of its results. To mitigate this, implement rigorous protocols for data collection and analysis, and consider using double-blind studies and peer reviews to minimize bias.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="All Too Human Data">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+All Too Human Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Errors introduced by human biases or inaccuracies during data collection and interpretation.</p>
+</div>
+</div>
+<p>Inconsistent ratings can also lead to epistemic errors. This happens when there is variability in data collection methods, resulting in inconsistent or unreliable data. For example, different evaluators might rate the same product using different criteria or standards. To avoid this issue, standardize data collection processes and provide training for all individuals involved in data collection to ensure consistency.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Inconsistent Ratings">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Inconsistent Ratings
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Variability in data collection methods that leads to inconsistent or unreliable data.</p>
+</div>
+</div>
+<p>The black swan pitfall refers to the failure to account for rare, high-impact events that fall outside regular expectations. Financial models that did not predict the 2008 financial crisis due to the unexpected nature of the events that led to it are an example of this error. To prevent such pitfalls, consider a wide range of possible outcomes in your models and incorporate stress testing to understand the impact of rare events.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="The Black Swan Pitfall">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Black Swan Pitfall
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The failure to account for rare, high-impact events that fall outside the realm of regular expectations.</p>
+</div>
+</div>
+<p>Falsifiability and the God pitfall involve the tendency to accept hypotheses that cannot be tested or disproven. This error might occur when assuming that a correlation between two variables implies causation without the ability to test alternative explanations. To avoid this, ensure that your hypotheses are testable and that you actively seek out potential falsifications. Use control groups and randomized experiments to validate causal relationships.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Falsifiability and the God Pitfall">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Falsifiability and the God Pitfall
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The tendency to accept hypotheses that cannot be tested or disproven.</p>
+</div>
+</div>
+<p>To avoid epistemic errors, critically assess your assumptions, methodologies, and interpretations. Engage in critical thinking by regularly questioning your assumptions and seeking alternative explanations for your findings. Employ methodological rigor by using standardized and validated methods for data collection and analysis. Engage with peers to review and critique your work, providing a fresh perspective and identifying potential biases. Finally, stay updated with the latest research and best practices in your field to avoid outdated or incorrect methodologies.</p>
+<p>Understanding and addressing epistemic errors can significantly improve the reliability and accuracy of your data analyses, leading to better decision-making and more trustworthy insights.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-pit1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.1</strong></span> &nbsp;</p>
+<div id="fig-bananarip" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-bananarip-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: Bananas in various stages of ripeness
+</figcaption>
+<div aria-describedby="fig-bananarip-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="fig/bananarip.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;2.1: Bananas in various stages of ripeness"><img src="fig/bananarip.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<p><em>Source: <span class="citation" data-cites="Jones2020Avoiding">Jones (<a href="references.html#ref-Jones2020Avoiding" role="doc-biblioref">2020, p. 33</a>)</span></em></p>
+</div>
+</figure>
+</div>
+<ol type="a">
+<li><p>Rate the ripeness level of the bananas pictured by <a href="#fig-bananarip" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>. Compare your assessment to that of a colleague and discuss any differences in your ratings. What might account for the variance in perception of the bananas’ ripeness between you and your colleague?</p></li>
+<li><p>Specify how you rated the second and the last bananas on the ripeness scale?</p></li>
+<li><p>Upon reevaluation, it appears that the second and the last bananas are identical in ripeness. How would you justify your initial decision now? This scenario underscores an important lesson for interpreting polls and surveys: it illustrates how subjective assessments can lead to variance in results. It highlights the necessity of ensuring clarity and consistency in the criteria used for evaluations to minimize subjective discrepancies.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Jones2020Avoiding" class="csl-entry" role="listitem">
+Jones, B. (2020). <em>Avoiding data pitfalls: How to steer clear of common blunders when working with data and presenting analysis and visualizations</em>. John Wiley &amp; Sons.
+</div></div></section>
+<section id="technical-trespasses" class="level2 page-columns page-full" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="technical-trespasses"><span class="header-section-number">2.2</span> Technical trespasses</h2>
+<p>The second pitfall refers to the mishandling of data through a lack of technical expertise or the misapplication of statistical methods. It can lead to significant distortions in data analysis and result in flawed decisions. This might include using inappropriate statistical tests, excessive model complexity, or improper data manipulation. Understanding essential statistics and maintaining data integrity are vital to prevent these errors. Business leaders need to ensure that their teams have the requisite technical knowledge and to foster a culture of cooperation with data science experts to safeguard against these common technical blunders. This will ultimately support more reliable and actionable insights for strategic decision-making.</p>
+<p>Here are some examples things that frequently causes wrong conclusions when analyzing data:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Misinterpreting correlation as causation">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Misinterpreting correlation as causation
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A classic mistake is interpreting a correlation between two variables as evidence that one causes the other. Without proper experimental design or further statistical analysis, such claims can lead to ill-informed business decisions.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Inappropriate use of average">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Inappropriate use of average
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Averages can be misleading when data is skewed or has outliers. For example, using the mean salary in a company where the CEO’s salary is drastically higher than the rest of the employees can give a false impression of the typical compensation.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Neglecting the test assumptions">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Neglecting the test assumptions
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Applying statistical tests without checking the necessary assumptions can invalidate the results. For instance, using a t-test on data that is not normally distributed or has unequal variances between groups might lead to incorrect conclusions.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Overfitting predictive models">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Overfitting predictive models
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Creating a model that performs extremely well on historical data but fails to predict future outcomes undermines its utility. Overfit models are often too complex, capturing noise rather than underlying trends in the training data.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Ignoring the effect of sample size">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ignoring the effect of sample size
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Small samples can produce volatile or non-representative results; business decisions made on such shaky ground may not stand up when scaled to the full population or market.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Cherry-picking data">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Cherry-picking data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Selecting data that supports a preconceived hypothesis, while ignoring data that doesn’t, compromises the objectivity of the analysis and can mislead stakeholders about the reality of the situation.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Improper data visualization">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Improper data visualization
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Misrepresenting data through poor chart choices or scales can mislead viewers. For example, truncating the y-axis can exaggerate trends, and using pie charts for too many categories can confuse rather than clarify.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-martin" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.2</strong></span> Survivorship bias</p>
+<p>Read “How Successful Leaders Think” by Roger <span class="citation" data-cites="Martin2007How">Martin (<a href="references.html#ref-Martin2007How" role="doc-biblioref">2007</a>)</span> and the chapter “Identification” of “Quantitative Methods” by <span class="citation" data-cites="Huber2023Quantitative">Huber (<a href="references.html#ref-Huber2023Quantitative" role="doc-biblioref">2025</a>)</span>.</p>
+<p>Here is a summary of <span class="citation" data-cites="Martin2007How">Martin (<a href="references.html#ref-Martin2007How" role="doc-biblioref">2007</a>)</span> taken from the <a href="https://store.hbr.org/product/how-successful-leaders-think/R0706C">Harvard Business Review Store</a>:</p>
+<blockquote class="blockquote">
+<p>In search of lessons to apply in our own careers, we often try to emulate what effective leaders do. Roger Martin says this focus is misplaced, because moves that work in one context may make little sense in another. A more productive, though more difficult, approach is to look at how such leaders think. After extensive interviews with more than 50 of them, the author discovered that most are integrative thinkers–that is, they can hold in their heads two opposing ideas at once and then come up with a new idea that contains elements of each but is superior to both. Martin argues that this process of consideration and synthesis (rather than superior strategy or faultless execution) is the hallmark of exceptional businesses and the people who run them. To support his point, he examines how integrative thinkers approach the four stages of decision making to craft superior solutions. First, when determining which features of a problem are salient, they go beyond those that are obviously relevant. Second, they consider multidirectional and nonlinear relationships, not just linear ones. Third, they see the whole problem and how the parts fit together. Fourth, they creatively resolve the tensions between opposing ideas and generate new alternatives. According to the author, integrative thinking is an ability everyone can hone. He points to several examples of business leaders who have done so, such as Bob Young, co-founder and former CEO of Red Hat, the dominant distributor of Linux open-source software. Young recognized from the beginning that he didn’t have to choose between the two prevailing software business models. Inspired by both, he forged an innovative third way, creating a service offering for corporate customers that placed Red Hat on a path to tremendous success.</p>
+</blockquote>
+<ol type="a">
+<li>Discuss the concepts introduced by <span class="citation" data-cites="Martin2007How">Martin (<a href="references.html#ref-Martin2007How" role="doc-biblioref">2007</a>)</span> critically:</li>
+</ol>
+<ul>
+<li>Does he provide evidence for his ideas to work?</li>
+<li>Is there a proof that his suggestions can yield success?</li>
+<li>Is there some evidence about whether his ideas are superior to alternative causes of action?</li>
+<li>What can we learn from the article?</li>
+<li>Does his argumentation fulfill highest academic standards?</li>
+<li>What is his identification strategy with respect to the <em>causes of effects</em> and the <em>effects of causes</em>?</li>
+<li><span class="citation" data-cites="Martin2007How">Martin (<a href="references.html#ref-Martin2007How" role="doc-biblioref">2007, p. 81</a>)</span> speculates:</li>
+</ul>
+<blockquote class="blockquote">
+<p>“At some point, integrative thinking will no longer be just a tacit skill (cultivated knowingly or not) in the heads of a select few.”</p>
+</blockquote>
+<ol start="2" type="a">
+<li>If teachers in business schools would have followed his ideas of integrative thinkers being more successful, almost 20 years later, this should be the dominant way to think as a business leader. Is that the case? And if so, can you still gain some competitive advantage by thinking that way?</li>
+</ol>
+<div id="fig-survivorbias" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-survivorbias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: Distribution of bullet holes in returned aircraft
+</figcaption>
+<div aria-describedby="fig-survivorbias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="fig/survivorbias.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2.2: Distribution of bullet holes in returned aircraft"><img src="fig/survivorbias.svg" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p><em>Source: <a href="./commons.wikimedia.org/wiki/User:SlvrKy">Martin Grandjean</a> (vector), <a href="./commons.wikimedia.org/wiki/User:McGeddon">McGeddon</a> (picture), Cameron Moll (concept), <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=102017718">Link</a></em></p>
+</div>
+</figure>
+</div>
+<ol start="3" type="a">
+<li><p><a href="#fig-survivorbias" class="quarto-xref">Figure&nbsp;<span>2.2</span></a> visualizes the distribution of bullet holes in aircraft that returned from combat in World War II. Imagine you are an aircraft engineer. What does this picture teach you?</p></li>
+<li><p>Inform yourself about the concept of survivorship bias explained in <a href="https://en.wikipedia.org/wiki/Survivorship_bias"><span class="citation" data-cites="Encyclopedia2024Survivorship">Wikipedia (<span>2024</span>)</span></a>.</p></li>
+<li><p>In <span class="citation" data-cites="Martin2007How">Martin (<a href="references.html#ref-Martin2007How" role="doc-biblioref">2007</a>)</span>, the author provides an example of a successful company to support his management ideas. Discuss whether this article relates to survivorship bias.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"></div><div class="no-row-height column-margin column-container"></div><div class="no-row-height column-margin column-container"></div><div class="no-row-height column-margin column-container"></div><div class="no-row-height column-margin column-container"></div><div class="no-row-height column-margin column-container"></div></section>
+<section id="mathematical-miscues" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="mathematical-miscues"><span class="header-section-number">2.3</span> Mathematical Miscues</h2>
+<p>This pitfall deals with the errors that can occur when mathematical reasoning is flawed or when calculations are incorrectly applied within data analysis. This encompasses a range of issues, from simple arithmetic mistakes to more complex misunderstandings of mathematical principles that underlie data models. It might involve misjudging how certain metrics are calculated, which could significantly alter an analysis’s outcomes.</p>
+<p>Additionally, this pitfall includes a lack of understanding the nuanced relationships within mathematical functions that can result in poor model performance or misestimation of forecasts and trends. Business leaders should be keenly aware that even advanced data analytics rely on the precise and proper application of mathematics. Therefore, ensuring precise calculations and fostering a thorough understanding of the mathematical techniques used in data analysis is vital to avoid undermining data-driven business decisions with slip-ups in mathematical reasoning.</p>
+<p>Here is an incomplete list of things that are often misused:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Misuse of averages">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Misuse of averages
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Arithmetic Mean vs.&nbsp;Median:</strong> Incorrectly using the arithmetic mean without considering outliers or skewed distributions, which can misrepresent the central tendency of data.</p>
+<p><strong>Weighted Averages:</strong> Failing to appropriately weight averages based on sample sizes or importance of data points, leading to biased results.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Improper scaling and normalization">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Improper scaling and normalization
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Scaling data improperly without considering the original distribution or range, which can distort comparisons and statistical analyses. Improper normalization techniques that fail to account for the underlying data structure or variance, leading to skewed interpretations.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Misapplication of probability and statistics">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Misapplication of probability and statistics
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Misunderstanding statistical significance and confidence intervals, leading to incorrect conclusions about the reliability of findings. Inappropriate use of probability distributions or assumptions, which can invalidate statistical tests or predictions.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Errors in calculating percentages and ratios">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Errors in calculating percentages and ratios
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Incorrectly calculating percentages or ratios without ensuring consistent bases or understanding the context, leading to misrepresentation of trends or relationships.</p>
+</div>
+</div>
+</section>
+<section id="statistical-slipups" class="level2 page-columns page-full" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="statistical-slipups"><span class="header-section-number">2.4</span> Statistical slipups</h2>
+<p>This pitfall is about common errors when applying statistical methods. These errors include misinterpreting statistical significance, sampling biases, ignoring multicollinearity in regression analysis, misapplying hypothesis tests, and failing to adjust for multiple comparisons.</p>
+<p>For example, misinterpreting a small p-value as evidence of causation rather than correlation can lead to misleading conclusions. Similarly, using a convenience sample that does not accurately represent the population can skew results and compromise the generalizability of findings. In regression analysis, overlooking multicollinearity among predictor variables can result in inaccurate assessments of their individual impacts.</p>
+<section id="descriptive-debacles" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="descriptive-debacles"><span class="header-section-number">2.4.1</span> Descriptive debacles</h3>
+<p>This pitfall refers to errors in data analysis stemming from inadequate or misleading use of descriptive statistics. This bias occurs when analysts present summary statistics that are incomplete, misleading, or not properly contextualized. It also includes misrepresenting data through inappropriate visualizations or failing to provide sufficient detail in describing data characteristics.</p>
+<p>In practical terms, this bias leads to misunderstandings or incorrect interpretations of data. For exmple, using measures like mean or median without considering data variability can oversimplify complex datasets. Similarly, misleading graphs or charts may obscure important trends or relationships within the data.</p>
+<p>To mitigate this bias, analysts should employ a range of appropriate descriptive statistics tailored to data types and research questions. They should ensure visual representations accurately depict data characteristics without distorting interpretations. Providing adequate context and explanations helps stakeholders understand data limitations and implications more effectively.</p>
+</section>
+<section id="inferential-infernos" class="level3 page-columns page-full" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="inferential-infernos"><span class="header-section-number">2.4.2</span> Inferential infernos</h3>
+<p>Frequently, researchers draw erroneous or exaggerated conclusions from statistical analyses. This bias manifests when statistical significance is misinterpreted, leading to unwarranted claims of causation or generalization beyond the scope of the data.</p>
+<p>Researchers may overlook alternative explanations or fail to consider confounding variables, thereby overstating the implications of their findings. To mitigate this bias, it is essential to apply statistical tests accurately, interpret results cautiously, and acknowledge the limitations and uncertainties of the data.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Recommended reading">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Recommended reading
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Read <span class="citation" data-cites="Wysocki2022Statistical">Wysocki et al. (<a href="references.html#ref-Wysocki2022Statistical" role="doc-biblioref">2022</a>)</span> which is freely available <a href="https://doi.org/10.1177/25152459221095823">here</a>. <a href="https://osf.io/38mxq">Here</a> you find a good summary of the paper.</p>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Wysocki2022Statistical" class="csl-entry" role="listitem">
+Wysocki, A. C., Lawson, K. M., &amp; Rhemtulla, M. (2022). Statistical control requires causal justification. <em>Advances in Methods and Practices in Psychological Science</em>, <em>5</em>(2).
+</div></div></section>
+<section id="slippery-sampling" class="level3 page-columns page-full" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="slippery-sampling"><span class="header-section-number">2.4.3</span> Slippery sampling</h3>
+<p>Systematic errors can be introduced in research studies due to flawed or biased sampling methods. This bias occurs when the sample selected for study does not accurately represent the target population, leading to skewed or misleading conclusions.</p>
+<p>In practice, researchers may inadvertently use convenience sampling methods or fail to account for selection biases, resulting in a sample that is not representative of the broader population. As a result, findings based on such samples may not generalize well beyond the specific sample group, undermining the external validity of the study.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Recommended reading">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Recommended reading
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Read chapter <a href="https://hubchev.github.io/qm/statistics.html#sampling">Sampling</a> of <span class="citation" data-cites="Huber2023Quantitative">Huber (<a href="references.html#ref-Huber2023Quantitative" role="doc-biblioref">2025</a>)</span>.</p>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Huber2023Quantitative" class="csl-entry" role="listitem">
+Huber, S. (2025). <em>Quantitative methods: Lecture notes</em>. <a href="https://hubchev.github.io/qm/">https://hubchev.github.io/qm/</a>
+</div></div></section>
+<section id="insensitivity-to-sample-size" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="insensitivity-to-sample-size"><span class="header-section-number">2.4.4</span> Insensitivity to sample size</h3>
+<p>This bias refers to the tendency to overlook or underestimate the impact of sample size on the reliability and validity of study results. This bias occurs when analysts or researchers fail to recognize that smaller sample sizes may produce more variable or less representative data, leading to less reliable conclusions.</p>
+<p>In practical terms, studies with smaller sample sizes are more prone to random fluctuations and may not accurately reflect the characteristics of the larger population. Consequently, findings based on small samples may lack statistical power and may not be generalizable to broader contexts or populations.</p>
+<p>Here is an incomplete summary of common statistical slipups:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Misunderstanding statistical significance">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Misunderstanding statistical significance
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Incorrect interpretation of p-values and confidence intervals can lead to erroneous conclusions about the strength of relationships in data.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Sampling errors">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Sampling errors
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Biased sampling or inadequate sample size selection can distort results and impair the generalizability of findings.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Ignoring multicollinearity">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ignoring multicollinearity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Failure to account for correlations between predictor variables in regression analysis can lead to unreliable coefficient estimates and misjudgment of variable impacts.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Misapplication of hypothesis tests">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Misapplication of hypothesis tests
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Improper formulation of hypotheses or disregarding test assumptions can invalidate statistical results and mislead interpretations.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Failure to adjust for multiple comparisons">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Failure to adjust for multiple comparisons
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Conducting multiple tests without adjusting significance levels increases the likelihood of false positives and misleading conclusions.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="analytical-aberrations" class="level2 page-columns page-full" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="analytical-aberrations"><span class="header-section-number">2.5</span> Analytical Aberrations</h2>
+<section id="the-intuitionanalysis-false-dichotomy" class="level3 page-columns page-full" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="the-intuitionanalysis-false-dichotomy"><span class="header-section-number">2.5.1</span> The intuition/analysis false dichotomy</h3>
+<p>This error stems from misconception that intuition and analytical thinking involves when trying to use it as approaches to decision-making. In reality, effective decision-making often integrates both intuitive insights and analytical rigor. Intuition can provide valuable initial impressions or creative ideas, while analysis offers systematic evaluation and validation of hypotheses. Acknowledging and balancing these two aspects enhances decision-making processes by leveraging diverse perspectives and ensuring comprehensive consideration of factors influencing outcomes.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Recommended reading">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Recommended reading
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Read the chapter <a href="https://hubchev.github.io/me/decision-making-basics.html">Decision making basics</a> of <span class="citation" data-cites="Huber2024Managerial">Huber (<a href="references.html#ref-Huber2024Managerial" role="doc-biblioref">2024b</a>)</span></p>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Huber2024Managerial" class="csl-entry" role="listitem">
+Huber, S. (2024b). <em>Managerial economics: Lecture notes</em>. <a href="https://hubchev.github.io/me/">https://hubchev.github.io/me/</a>
+</div></div><p>While intuition comes with multiple cognitive biases. Intuition remains valuable in decision-making for several reasons. Firstly, it often draws on subconscious processing of vast amounts of information, leading to quick insights that can guide effective decisions. Secondly, intuition can fill gaps left by incomplete data, offering solutions when data is scarce or ambiguous. Thirdly, it allows for creativity and innovation by providing unconventional perspectives that data alone may not reveal. Fourthly, intuition serves as a valuable complement to analytical thinking, providing a holistic approach to problem-solving. Lastly, it facilitates swift decision-making in fast-paced environments where immediate action is crucial. Integrating intuition with data-driven approaches enhances decision-making by leveraging both analytical rigor and intuitive wisdom.</p>
+</section>
+<section id="exuberant-extrapolations" class="level3 page-columns page-full" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="exuberant-extrapolations"><span class="header-section-number">2.5.2</span> Exuberant extrapolations</h3>
+<p>Exuberant Extrapolations refer to the tendency to make overly optimistic or exaggerated predictions based on limited data or trends. This pitfall occurs when analysts or decision-makers extend current trends far into the future without considering potential deviations or external factors that could influence outcomes. It can lead to unrealistic expectations, flawed projections, and poor decision-making due to overconfidence in extrapolated outcomes. Mitigating this pitfall requires cautious interpretation of trends, consideration of uncertainties, and validation through robust analysis and scenario planning to ensure more realistic and reliable forecasts.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-martin2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2.3</strong></span> Past and present</p>
+<p>Again, let us consider “How Successful Leaders Think” by Roger <span class="citation" data-cites="Martin2007How">Martin (<a href="references.html#ref-Martin2007How" role="doc-biblioref">2007</a>)</span>.</p>
+<p>Discuss the insights that he puts forward. Can we really learn from the experience of successfull leaders?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Martin2007How" class="csl-entry" role="listitem">
+Martin, R. (2007). How successful leaders think. <em>Harvard Business Review</em>, <em>85</em>(6), 71–81. <a href="https://hbr.org/2007/06/how-successful-leaders-think">https://hbr.org/2007/06/how-successful-leaders-think</a>
+</div></div></section>
+<section id="ill-advised-interpolations" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="ill-advised-interpolations"><span class="header-section-number">2.5.3</span> Ill-advised interpolations</h3>
+<p>Ill-advised interpolations occur when analysts or decision-makers infer trends or make assumptions between data points without sufficient evidence or justification. This pitfall involves filling gaps in data with speculative assumptions or linear extrapolations that do not accurately reflect the underlying patterns or relationships. It can lead to misleading interpretations, erroneous conclusions, and misguided decision-making based on incomplete or flawed information.</p>
+</section>
+<section id="funky-forecasts" class="level3" data-number="2.5.4">
+<h3 data-number="2.5.4" class="anchored" data-anchor-id="funky-forecasts"><span class="header-section-number">2.5.4</span> Funky forecasts</h3>
+<p>This pitfall arises when forecasters fail to account for changing circumstances, unexpected events, or complex interactions among factors influencing future trends. It can lead to unreliable projections, erroneous planning, and ineffective decision-making based on overly simplistic or deterministic forecasts. To mitigate this pitfall, analysts should use robust forecasting techniques, incorporate scenario analysis to account for uncertainties, and continuously update forecasts based on new information and changing conditions.</p>
+</section>
+<section id="moronic-measures" class="level3" data-number="2.5.5">
+<h3 data-number="2.5.5" class="anchored" data-anchor-id="moronic-measures"><span class="header-section-number">2.5.5</span> Moronic measures</h3>
+<p>Moronic measures refer to the use of inappropriate or inadequate metrics for evaluating performance or assessing outcomes. This pitfall occurs when decision-makers rely on metrics that do not accurately capture the intended goals or fail to account for relevant factors influencing performance. It can lead to misleading assessments, misguided resource allocation, and ineffective strategies due to a lack of alignment between chosen metrics and organizational objectives. To mitigate this pitfall, organizations should carefully select metrics that are relevant, measurable, and aligned with strategic priorities. They should also consider using complementary metrics and qualitative assessments to provide a comprehensive understanding of performance outcomes. By using appropriate measures and periodically reviewing their relevance, organizations can enhance decision-making and ensure that performance evaluations contribute meaningfully to achieving desired outcomes.</p>
+</section>
+</section>
+<section id="graphical-gaffes" class="level2 page-columns page-full" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="graphical-gaffes"><span class="header-section-number">2.6</span> Graphical Gaffes</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Recommended reading">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Recommended reading
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Read the chapter <a href="https://hubchev.github.io/ds/50_graph.html">Visualize data</a> of <span class="citation" data-cites="Huber2024How">Huber (<a href="references.html#ref-Huber2024How" role="doc-biblioref">2024a</a>)</span> and the literature that you find cited therein.</p>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"></div><section id="challenging-charts" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="challenging-charts"><span class="header-section-number">2.6.1</span> Challenging charts</h3>
+<p>Pitfalls in data visualization are pretty commen. Charts are frequently poorly designed, misleading, or difficult to interpret. Actually, it is simply difficult to effectively communicate insights with graphical visualzations of data due to cluttered layouts, inappropriate chart types, distorted scales, or ambiguous labeling. It can lead to confusion, misinterpretation of data trends, and inaccurate decision-making based on flawed visual presentations. To mitigate this pitfall, analysts should adhere to best practices in data visualization, such as using clear and simple designs, choosing appropriate chart types for the data being presented, ensuring accurate scaling and labeling, and providing contextual information to aid interpretation.</p>
+</section>
+<section id="data-dogmatism" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="data-dogmatism"><span class="header-section-number">2.6.2</span> Data dogmatism</h3>
+<p>Data Dogmatism refers to the pitfall of rigidly adhering to data-driven decisions without considering broader context, qualitative insights, or expert judgment. This pitfall occurs when organizations or decision-makers prioritize data alone as the sole basis for decision-making, ignoring nuanced factors that may influence outcomes. It can lead to overly deterministic decisions, missed opportunities, and ineffective strategies that fail to account for human expertise, market dynamics, or unforeseen variables. To mitigate this pitfall, organizations should adopt a balanced approach that integrates data-driven insights with qualitative analysis, expert opinions, and contextual understanding. By recognizing the limitations of data and embracing a more holistic decision-making framework, organizations can enhance flexibility, innovation, and strategic agility in response to complex challenges.</p>
+</section>
+<section id="the-optimizesatisfice-false-dichotomy" class="level3" data-number="2.6.3">
+<h3 data-number="2.6.3" class="anchored" data-anchor-id="the-optimizesatisfice-false-dichotomy"><span class="header-section-number">2.6.3</span> The optimize/satisfice false dichotomy</h3>
+<p>This dichotomy refers to the misconception that decision-making strategies must exclusively prioritize either optimizing for the best possible outcome or satisficing by accepting a satisfactory but not necessarily optimal solution. This pitfall arises when decision-makers perceive a dichotomy between these approaches, potentially overlooking opportunities for adaptive strategies that blend elements of both optimization and satisficing. It can lead to suboptimal decisions, missed opportunities for innovation, or inefficient resource allocation due to rigid adherence to a singular decision-making approach. To mitigate this pitfall, organizations should adopt a flexible and adaptive decision-making framework that considers both optimizing for excellence where feasible and satisficing when constraints or uncertainties warrant. By embracing a nuanced approach that balances ambition with pragmatism, organizations can enhance resilience, innovation, and effectiveness in achieving strategic objectives.</p>
+</section>
+</section>
+<section id="design-dangers" class="level2 page-columns page-full" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="design-dangers"><span class="header-section-number">2.7</span> Design Dangers</h2>
+<div class="callout callout-style-default callout-tip callout-titled" title="Recommended reading">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Recommended reading
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Read the chapter <a href="https://hubchev.github.io/ds/50_graph.html">Visualize data</a> of <span class="citation" data-cites="Huber2024How">Huber (<a href="references.html#ref-Huber2024How" role="doc-biblioref">2024a</a>)</span> and the literature that you find cited therein.</p>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Huber2024How" class="csl-entry" role="listitem">
+Huber, S. (2024a). <em>How to use <span>R</span> for data science: Lecture notes</em>. <a href="https://hubchev.github.io/ds/">https://hubchev.github.io/ds/</a>
+</div></div><p>This section encompasses pitfalls related to the design and implementation of data-driven projects or experiments. It includes errors such as biased sampling methods, inadequate experimental design, or flawed data collection protocols.</p>
+<section id="confusing-colors" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="confusing-colors"><span class="header-section-number">2.7.1</span> Confusing Colors</h3>
+<p>In data visualization the choice of colors in charts matter. When colors are poorly contrasted, misaligned with data meaning, or inconsistently applied across visual elements, it may be difficult to distinguish different data categories or trends. The wrong colors can lead to misunderstandings and inaccurate conclusions. And by the way, many people are color blind.</p>
+</section>
+<section id="usability-uh-ohs" class="level3" data-number="2.7.2">
+<h3 data-number="2.7.2" class="anchored" data-anchor-id="usability-uh-ohs"><span class="header-section-number">2.7.2</span> Usability uh-ohs</h3>
+<p>This pitfall occurs when systems lack intuitive interfaces, are overly complex, or fail to meet user needs and expectations. It can result in frustration, inefficiencies, or resistance to adoption among users, leading to underutilization of valuable data resources. To mitigate this pitfall, organizations should prioritize user-centric design principles, conduct usability testing with diverse user groups, and solicit feedback to refine interfaces and functionalities. By enhancing usability, organizations can improve user satisfaction, facilitate smoother workflows, and maximize the utility of data-driven tools for informed decision-making.</p>
+<section id="good-visualizations-are-discoverable-and-understandable" class="level4" data-number="2.7.2.1">
+<h4 data-number="2.7.2.1" class="anchored" data-anchor-id="good-visualizations-are-discoverable-and-understandable"><span class="header-section-number">2.7.2.1</span> Good visualizations are discoverable and understandable</h4>
+<p>Good visualizations are designed to be easily discovered and understood by users. They prioritize clarity and accessibility, allowing users to quickly grasp the presented information without ambiguity or unnecessary complexity.</p>
+</section>
+<section id="dont-blame-people-for-getting-confused-or-making-errors" class="level4" data-number="2.7.2.2">
+<h4 data-number="2.7.2.2" class="anchored" data-anchor-id="dont-blame-people-for-getting-confused-or-making-errors"><span class="header-section-number">2.7.2.2</span> Don’t blame people for getting confused or making errors</h4>
+<p>Users should not be blamed for confusion or errors in understanding visualizations. Instead, designers should strive to create intuitive and user-friendly designs that minimize cognitive load and facilitate accurate interpretation of data.</p>
+</section>
+<section id="designing-for-pleasure-and-emotion-is-important" class="level4" data-number="2.7.2.3">
+<h4 data-number="2.7.2.3" class="anchored" data-anchor-id="designing-for-pleasure-and-emotion-is-important"><span class="header-section-number">2.7.2.3</span> Designing for pleasure and emotion is important</h4>
+<p>Effective visualizations consider the emotional and aesthetic impact on users. Design elements that evoke positive emotions and engage users can enhance comprehension and retention of information, making the visualization more impactful and memorable.</p>
+</section>
+<section id="complexity-is-good-confusion-is-bad" class="level4" data-number="2.7.2.4">
+<h4 data-number="2.7.2.4" class="anchored" data-anchor-id="complexity-is-good-confusion-is-bad"><span class="header-section-number">2.7.2.4</span> Complexity is good, confusion is bad</h4>
+<p>Complexity in visualizations can enrich understanding by presenting detailed information and relationships. However, complexity should not lead to confusion or overwhelm users. Designers must balance complexity with clarity to ensure that insights are communicated effectively without causing cognitive overload.</p>
+</section>
+<section id="absolute-precision-isnt-always-necessary" class="level4" data-number="2.7.2.5">
+<h4 data-number="2.7.2.5" class="anchored" data-anchor-id="absolute-precision-isnt-always-necessary"><span class="header-section-number">2.7.2.5</span> Absolute precision isn’t always necessary</h4>
+<p>Visualizations do not always need to convey absolute precision in every detail. Depending on the context and audience, approximations or visual representations that convey trends and patterns effectively may be sufficient. Designers should prioritize meaningful insights over exhaustive accuracy in all data points.</p>
+
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./value.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./quantitative.html" class="pagination-link" aria-label="Quantitative research design">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Quantitative research design</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
