@@ -199,14 +199,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./experiments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Out-of-Lab experiments</span></span></a>
+  <a href="./epidem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Epistemic</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./experiments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Out-of-lab experiments</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -256,14 +262,12 @@ window.Quarto = {
   <ul>
   <li><a href="#sec-causalinfer" id="toc-sec-causalinfer" class="nav-link active" data-scroll-target="#sec-causalinfer"><span class="header-section-number">3.1</span> Causal inference</a></li>
   <li><a href="#sec-fpci" id="toc-sec-fpci" class="nav-link" data-scroll-target="#sec-fpci"><span class="header-section-number">3.2</span> The fundamental problem of causal inference</a></li>
-  <li><a href="#sec-cornotcaus" id="toc-sec-cornotcaus" class="nav-link" data-scroll-target="#sec-cornotcaus"><span class="header-section-number">3.3</span> Correlation does not imply causation</a></li>
-  <li><a href="#simpsons-paradox" id="toc-simpsons-paradox" class="nav-link" data-scroll-target="#simpsons-paradox"><span class="header-section-number">3.4</span> Simpsons Paradox</a></li>
-  <li><a href="#rubin-causal-model" id="toc-rubin-causal-model" class="nav-link" data-scroll-target="#rubin-causal-model"><span class="header-section-number">3.5</span> Rubin causal model</a></li>
-  <li><a href="#sec-overfunda" id="toc-sec-overfunda" class="nav-link" data-scroll-target="#sec-overfunda"><span class="header-section-number">3.6</span> Its difficult to overcome the fundamental problem</a>
+  <li><a href="#rubin-causal-model" id="toc-rubin-causal-model" class="nav-link" data-scroll-target="#rubin-causal-model"><span class="header-section-number">3.3</span> Rubin causal model</a></li>
+  <li><a href="#sec-overfunda" id="toc-sec-overfunda" class="nav-link" data-scroll-target="#sec-overfunda"><span class="header-section-number">3.4</span> Its difficult to overcome the fundamental problem</a>
   <ul class="collapse">
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">3.6.1</span> Example</a></li>
-  <li><a href="#sec-ingnorability" id="toc-sec-ingnorability" class="nav-link" data-scroll-target="#sec-ingnorability"><span class="header-section-number">3.6.2</span> Ignorability</a></li>
-  <li><a href="#sec-unconfound" id="toc-sec-unconfound" class="nav-link" data-scroll-target="#sec-unconfound"><span class="header-section-number">3.6.3</span> Unconfoundedness</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="header-section-number">3.4.1</span> Example</a></li>
+  <li><a href="#sec-ingnorability" id="toc-sec-ingnorability" class="nav-link" data-scroll-target="#sec-ingnorability"><span class="header-section-number">3.4.2</span> Ignorability</a></li>
+  <li><a href="#sec-unconfound" id="toc-sec-unconfound" class="nav-link" data-scroll-target="#sec-unconfound"><span class="header-section-number">3.4.3</span> Unconfoundedness</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -300,10 +304,10 @@ Required reading
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>, ch.&nbsp;1)</span>, <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>, ch.&nbsp;1-2)</span>, <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975</a>)</span></p>
+<p><span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>, ch.&nbsp;1)</span></p>
 </div>
 </div>
-<div class="no-row-height column-margin column-container"></div><div class="no-row-height column-margin column-container"></div><div class="no-row-height column-margin column-container"></div><p>In empirical research, identification refers to the process of establishing a clear and logical relationship between a cause and an effect. This involves demonstrating that the cause is responsible for the observed effect, and that there are no other factors that could potentially explain the effect. The goal of identification is to provide strong evidence that a particular factor is indeed the cause of a particular outcome, rather than simply coincidentally happen. In order to identify a cause-and-effect relationship, researchers can use experimental or non-experimental, that is, observational data, or both. <a href="#sec-cornotcaus" class="quarto-xref"><span>Section 3.3</span></a> will explain some difficulties researchers must face when they aim to find empirical evidence on causal effects.</p>
+<div class="no-row-height column-margin column-container"></div><p>In empirical research, identification refers to the process of establishing a clear and logical relationship between a cause and an effect. This involves demonstrating that the cause is responsible for the observed effect, and that there are no other factors that could potentially explain the effect. The goal of identification is to provide strong evidence that a particular factor is indeed the cause of a particular outcome, rather than simply coincidentally happen. In order to identify a cause-and-effect relationship, researchers can use experimental or non-experimental, that is, observational data, or both. <a href="epidem.html#sec-cornotcaus" class="quarto-xref"><span>Section 6.2</span></a> will explain some difficulties researchers must face when they aim to find empirical evidence on causal effects.</p>
 <section id="sec-causalinfer" class="level2 page-columns page-full" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="sec-causalinfer"><span class="header-section-number">3.1</span> Causal inference</h2>
 <div id="fig-cimt" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
@@ -398,7 +402,7 @@ Table&nbsp;3.1: Example data to illustrate that the fundamental problem of causa
 </div>
 <div class="callout-body-container">
 <div id="exr-causalinf1" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.1</strong></span> Causal inference ch.1 (<span class="quarto-unresolved-ref">?sol-causalinf1</span>)</p>
+<p><span class="theorem-title"><strong>Exercise 3.1</strong></span> Causal inference ch.1</p>
 <p>Please read chapter 1 (Introduction) of <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span> and answer the following questions. The book is freely available <a href="https://mixtape.scunning.com">here</a> and here you find <a href="https://mixtape.scunning.com/01-introduction">chapter 1</a>.</p>
 <ol type="1">
 <li>What are some common misconceptions about causality that the author addresses in chapter 1?</li>
@@ -428,157 +432,8 @@ Solution
 </div>
 </div>
 <div class="no-row-height column-margin column-container"></div></section>
-<section id="sec-cornotcaus" class="level2 page-columns page-full" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="sec-cornotcaus"><span class="header-section-number">3.3</span> Correlation does not imply causation</h2>
-<p>Correlation refers to a statistical relationship between two variables, where one variable tends to increase or decrease as the other variable also increases or decreases. However, just because two variables are correlated does not necessarily mean that one variable causes the other. This is known as the <em>correlation does not imply causation</em> principle.</p>
-<p>For example, across many areas the number of storks is correlated with the birth rate of babies <span class="citation" data-cites="Matthews2000Storks">(see <a href="references.html#ref-Matthews2000Storks" role="doc-biblioref">Matthews, 2000</a>)</span>. However, this does not mean that the presence of storks causes an increase in the birth rate. It is possible that both the number of storks and the number of babies born are influenced by other factors, such as the overall population density or economic conditions in the area.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-Matthews2000Storks" class="csl-entry" role="listitem">
-Matthews, R. (2000). Storks deliver babies (p= 0.008). <em>Teaching Statistics</em>, <em>22</em>(2), 36–38.
-</div></div><p>Therefore, it is important to carefully consider all possible explanations (confounders) for a correlation and to use data to disentangle the true cause-and-effect relationship between variables.</p>
-<div id="fig-cdnic" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-cdnic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.2: Correlation does not imply causation<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
-</figcaption>
-<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Source: https://youtu.be/DFPm_a-_uJM</p></div></div><div aria-describedby="fig-cdnic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/neal1-3.png" class="img-fluid figure-img" style="width:50.0%">
-</div>
-</figure>
-</div>
-<div id="tip-bradycdn" class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip&nbsp;3.1
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Watch the video of Brady Neal’s lecture <a href="https://youtu.be/DFPm_a-_uJM"><em>Correlation Does Not Imply Causation and Why</em></a>. Alternatively, you can read chapter 1.3 of his lecture notes <span class="citation" data-cites="Neal2020Introduction">(<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">Neal, 2020</a>)</span> which you find <a href="https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf">here</a>.</p>
-</div>
-</div>
-<div class="no-row-height column-margin column-container"></div></section>
-<section id="simpsons-paradox" class="level2 page-columns page-full" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="simpsons-paradox"><span class="header-section-number">3.4</span> Simpsons Paradox</h2>
-<div id="fig-waitingroom" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-waitingroom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.3: Discrimination<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
-</figcaption>
-<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Source: The photography is public domain and stems from the Library of Congress Prints and Photographs Division Washington, see: http://hdl.loc.gov/loc.pnp/pp.print.</p></div></div><div aria-describedby="fig-waitingroom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/1943_Colored_Waiting_Room_Sign.jpg" class="img-fluid figure-img" style="width:25.0%">
-</div>
-</figure>
-</div>
-<p>Discrimination is bad. Whenever we see it, we should try to find ways to overcome it. De jure segregation mandated the separation of races by law is clearly discriminatory. Other forms of discrimination, however, are often more difficult to spot and as long we don’t have good evidence for discrimination, we should not judge prematurely. That means, we should be sure that we see an act of making unjustified distinctions between individuals based on some categories to which they belong or perceived to belong. For example, if men and women are treated differently without an acceptable reason, we consider it discriminative.</p>
-<p>However, as the following example discussed in <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975</a>)</span> will show, it is often challenging to identify discrimination. In 1973, UC Berkeley was accused of discrimination because it admitted only 35% of female applicants but 44% of male applicants overall. The difference was statistical significant and based on that many people protested claiming justice and equality. However, it turned out that the selection of students was not discriminative against women but against men. Accordingly to <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975</a>)</span> the different overall admission rates can be largely explained by a “tendency of women to apply to graduate departments that are more difficult for applicants of either sex to enter” <span class="citation" data-cites="Bickel1975Sex">(<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">Bickel et al., 1975, p. 403</a>)</span>. Figure <a href="#fig-berkley" class="quarto-xref">Figure&nbsp;<span>3.4</span></a> taken from <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975, p. 403</a>)</span> visualizes this fact. Looking on the decisions within the departments seperately, there is even a “statistically significant bias in favor of women” <span class="citation" data-cites="Bickel1975Sex">(<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">Bickel et al., 1975, p. 403</a>)</span>.</p>
-<div class="no-row-height column-margin column-container"></div><div id="fig-berkley" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-berkley-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.4: Proportion of applicants that are women plotted against proportion of applicants admitted<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
-</figcaption>
-<div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;Source: <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975, p. 403</a>)</span></p><div id="ref-Bickel1975Sex" class="csl-entry" role="listitem">
-Bickel, P. J., Hammel, E. A., &amp; O’Connell, J. W. (1975). Sex bias in graduate admissions: Data from <span>Berkeley</span>: Measuring bias is harder than is usually assumed, and the evidence is sometimes contrary to expectation. <em>Science</em>, <em>187</em>(4175), 398–404.
-</div></div></div><div aria-describedby="fig-berkley-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/berkley.png" class="img-fluid figure-img" style="width:70.0%">
-</div>
-</figure>
-</div>
-<p>Here is a summary of <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975, p. 403</a>)</span>:</p>
-<div class="no-row-height column-margin column-container"></div><blockquote class="blockquote">
-<p><em>“Examination of aggregate data on graduate admissions to the University of California, Berkeley, for fall 1973 shows a clear but misleading pattern of bias against female applicants. Examination of the disaggregated data reveals few decision-making units that show statistically significant departures from expected frequencies of female admissions, and about as many units appear to favor women as to favor men. If the data are properly pooled, taking into account the autonomy of departmental decision making, thus correcting for the tendency of women to apply to graduate departments that are more difficult for applicants of either sex to enter, there is a small but statistically significant bias in favor of women. The graduate departments that are easier to enter tend to be those that require more mathematics in the undergraduate preparatory curriculum. The bias in the aggregated data stems not from any pattern of discrimination on the part of admissions committees, which seem quite fair on the whole, but apparently from prior screening at earlier levels of the educational system. Women are shunted by their socialization and education toward fields of graduate study that are generally more crowded, less productive of completed degrees, and less well funded, and that frequently offer poorer professional employment prospects.”</em></p>
-</blockquote>
-<div class="callout callout-style-simple callout-important no-icon page-columns page-full">
-<div class="callout-body d-flex page-columns page-full">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container page-columns page-full">
-<div id="exr-graduateadmission" class="theorem exercise page-columns page-full">
-<p><span class="theorem-title"><strong>Exercise 3.2</strong></span> Graduate admissions</p>
-<p>Read the first three pages of <span class="citation" data-cites="Bickel1975Sex">Bickel et al. (<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">1975</a>)</span>, i.e., pages 398-400, and answer the following questions. The article can be found <a href="https://www.science.org/doi/pdf/10.1126/science.187.4175.398">here</a>.</p>
-<ol type="a">
-<li>Describe the two assumptions that must be true in order to prove that UC Berkeley discriminates against women or men overall.</li>
-<li>Table 1, shows that 277 fewer women and 277 more men were admitted than we would have expected under the two assumptions. Show how this number was calculated.</li>
-<li>Explain the analogy with fish that illustrates the danger of pooling data.</li>
-</ol>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="a">
-<li>Assumption 1 is that in any given discipline male and female applicants do not differ in respect of their intelligence, skill, qualifications, promise, or other attribute deemed legitimately pertinent to their acceptance as students. It is precisely this assumption that makes the study of “sex bias” meaningful, for if we did not hold it any differences in acceptance of applicants by sex could be attributed to differences in their qualifications, promise as scholars, and so on. (…) Assumption 2 is that the sex ratios of applicants to the various fields of graduate study are not importantly associated with any other factors in admission. <span class="citation" data-cites="Bickel1975Sex">(<a href="references.html#ref-Bickel1975Sex" role="doc-biblioref">Bickel et al., 1975, p. 398</a>)</span></li>
-<li>Expectations were taken based on the overall acceptance rate of about 0.416 and multiplied by the total observed numbers of applicants admitted and rejected. For example: <span class="math inline">\((3738+4704) \cdot 0.41666 \approx 3460\)</span> and <span class="math inline">\((3738+4704) \cdot (1-0.41666) \approx 4981\)</span>. Taking the difference of these two measures gives the number to be explained.</li>
-<li>The analogy is explained on page 400:</li>
-</ol>
-<blockquote class="blockquote">
-<p>“Picture a fishnet with two different mesh sizes. A school of fish, all of identical size (assumption 1), swim toward the net and seek to pass. The female fish all try to get through the small mesh, while the male fish all try to get through the large mesh. On the other side of the net all the fish are male. Assumption 2 said that the sex of the fish had no relation to the size of the mesh they tried to get through. It is false.”</p>
-</blockquote>
-<p>The UC Berkley case is just one of many examples to illustrate that uniformity of group assignment of individuals is a necessary condition to ensure that pooling of data does not lead to misleading conclusions when using statistics. The phenomenon of obtaining different results depending on whether one considers the data pooled or unpooled is often referred to as the <em>Simpson Paradox</em>.</p>
-</div>
-</div>
-</div>
-<div class="no-row-height column-margin column-container"></div></div>
-</div>
-</div>
-</div>
-<div class="no-row-height column-margin column-container"></div><div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-simpsonpara" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.3</strong></span> Simpson’s Paradox</p>
-<ol type="1">
-<li>What is Simpson’s Paradox?
-<ol type="a">
-<li>A phenomenon in which the direction of a relationship between two variables changes when a third variable is introduced</li>
-<li>A phenomenon in which the strength of a relationship between two variables changes when a third variable is introduced</li>
-<li>The phenomenon where correlation appears to be present in different groups of data, but disappears or reverses when the groups are combined</li>
-</ol></li>
-<li>What is a potential cause of Simpson’s Paradox?
-<ol type="a">
-<li>Differences in the variance of the two variables</li>
-<li>Differences in the correlation of the two variables</li>
-<li>Confounding variables</li>
-<li>Differences in the sample size of the two variables</li>
-</ol></li>
-</ol>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li>a), 2. c) and d)</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="rubin-causal-model" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="rubin-causal-model"><span class="header-section-number">3.5</span> Rubin causal model</h2>
+<section id="rubin-causal-model" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="rubin-causal-model"><span class="header-section-number">3.3</span> Rubin causal model</h2>
 <p>If we are interested in the causal effect of a certain treatment on an outcome, we need to compare the outcome, <span class="math inline">\(Y\)</span>, of an individuals, <span class="math inline">\(i\)</span>, who received the treatment, <span class="math inline">\(1\)</span>, to the outcome, <span class="math inline">\(Y\)</span>, of the same individual, <span class="math inline">\(i\)</span>, who did not receive the treatment, <span class="math inline">\(0\)</span>:</p>
 <p><span class="math display">\[
 ITE_i=Y_i(1)-Y_i(0).
@@ -590,18 +445,18 @@ ITE_i=Y_i(1)-Y_i(0).
 \tag{3.1}\]</span></span></p>
 <p>However, the ATE is only equal to the expected ITE if certain assumptions are fulfilled. The upcoming sections will discuss these assumptions.</p>
 </section>
-<section id="sec-overfunda" class="level2 page-columns page-full" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="sec-overfunda"><span class="header-section-number">3.6</span> Its difficult to overcome the fundamental problem</h2>
+<section id="sec-overfunda" class="level2 page-columns page-full" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-overfunda"><span class="header-section-number">3.4</span> Its difficult to overcome the fundamental problem</h2>
 <div class="page-columns page-full"><blockquote class="blockquote">
 <p><span class="citation" data-cites="Keele2015statistics">Keele (<a href="references.html#ref-Keele2015statistics" role="doc-biblioref">2015, p. 314</a>)</span>: <em>“An identification analysis identifies the assumptions needed for statistical estimates to be given a causal interpretation.”</em></p>
 </blockquote><div class="no-row-height column-margin column-container"><div id="ref-Keele2015statistics" class="csl-entry" role="listitem">
 Keele, L. (2015). The statistics of causal inference: A view from political methodology. <em>Political Analysis</em>, <em>23</em>(3), 313–335.
 </div></div></div>
 <p>In the following we will discuss conditions that need to hold in order to empirically draw causal conclusions from the ATE without bias. This is important because equation <a href="#eq-feq" class="quarto-xref">Equation&nbsp;<span>3.1</span></a> does not necessarily hold when using observational data without a more elaborated identification strategy.</p>
-<section id="example" class="level3 page-columns page-full" data-number="3.6.1">
-<h3 data-number="3.6.1" class="anchored" data-anchor-id="example"><span class="header-section-number">3.6.1</span> Example</h3>
+<section id="example" class="level3 page-columns page-full" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="example"><span class="header-section-number">3.4.1</span> Example</h3>
 <p>Suppose we want to measure the effect of a vaccine on survival rates. We observed the residents of a small city with 2,000 inhabitants over the course of 30 days. On day 1, we arrived in town and injected the vaccine to 200 individuals. By day 30, we counted the deceased in both groups: four died in the vaccinated group, while eighteen died in the group of 1,800 unvaccinated individuals. With a survival rate of 98% in the vaccinated group and 99% in the unvaccinated group, it may appear that the vaccine lowers the survival rate. Imagine that study is real, would you claim that the vaccine kills because according to <a href="#eq-feq" class="quarto-xref">Equation&nbsp;<span>3.1</span></a> we could use the ATE to indicate the ITE?</p>
-<p>The answer is yes, but only if the assumptions of <em>ignorability</em> (<a href="#sec-ingnorability" class="quarto-xref"><span>Section 3.6.2</span></a>) and <em>unconfoundedness</em> (<a href="#sec-unconfound" class="quarto-xref"><span>Section 3.6.3</span></a>) are satisfied.</p>
+<p>The answer is yes, but only if the assumptions of <em>ignorability</em> (<a href="#sec-ingnorability" class="quarto-xref"><span>Section 3.4.2</span></a>) and <em>unconfoundedness</em> (<a href="#sec-unconfound" class="quarto-xref"><span>Section 3.4.3</span></a>) are satisfied.</p>
 <p>In brief, ignorability means that the 200 treated individuals are not systematically different from the other 1,800 individuals regarding characteristics that have an impact of the chances to survive. Considering the fact that we cannot randomly select 200 individuals from the 2,000 inhabitants due to legal constraints (as everyone has the right to choose whether or not to receive the vaccine), we must consider who is willing to get vaccinated. This selection bias may pose issues, as vulnerable populations often have a higher willingness to accept the vaccine compared to younger and healthier individuals who may fear the disease less. For example, if we vaccinated individuals with preexisting conditions that make them more vulnerable, such as the elderly or those with chronic illnesses, we cannot assume that the ATE is equal to the ITE. This is because the overall mortality risk is higher among those who received the vaccine.</p>
 <p>Unconfoundedness means that there are no other factors that could explain both the likelihood of receiving the vaccine and the likelihood of death. For example, if vaccinated individuals were not required to stay at home during these 30 days, their likelihood of dying may increase due to greater exposure to risky situations and other people, which in turn raises their chances of contracting a disease.</p>
 <div id="tip-vidneal" class="callout callout-style-simple callout-tip callout-titled">
@@ -610,26 +465,26 @@ Keele, L. (2015). The statistics of causal inference: A view from political meth
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;3.2
+Tip&nbsp;3.1
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div id="fig-neal-rct" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-neal-rct-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.5: Average treatment effect (ATE)
+Figure&nbsp;3.2: Average treatment effect (ATE)
 </figcaption>
 <div aria-describedby="fig-neal-rct-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/neal-rct.png" class="img-fluid figure-img" style="width:50.0%">
 </div>
 </figure>
 </div>
-<p>Watch the video of Brady Neal’s lecture <a href="https://youtu.be/gGaWU8XEoGk">What Does Imply Causation? Randomized Control Trials</a> (see <a href="#fig-neal-rct" class="quarto-xref">Figure&nbsp;<span>3.5</span></a>). Alternatively, you can read <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>, ch. 2)</span> of his lecture notes, see <a href="https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf">here</a>.</p>
+<p>Watch the video of Brady Neal’s lecture <a href="https://youtu.be/gGaWU8XEoGk">What Does Imply Causation? Randomized Control Trials</a> (see <a href="#fig-neal-rct" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>). Alternatively, you can read <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>, ch. 2)</span> of his lecture notes, see <a href="https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf">here</a>.</p>
 </div>
 </div>
 <div class="no-row-height column-margin column-container"></div></section>
-<section id="sec-ingnorability" class="level3 page-columns page-full" data-number="3.6.2">
-<h3 data-number="3.6.2" class="anchored" data-anchor-id="sec-ingnorability"><span class="header-section-number">3.6.2</span> Ignorability</h3>
+<section id="sec-ingnorability" class="level3 page-columns page-full" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="sec-ingnorability"><span class="header-section-number">3.4.2</span> Ignorability</h3>
 <p>Referring to table <a href="#tbl-tab21" class="quarto-xref">Table&nbsp;<span>3.1</span></a>, Brady <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>)</span> wrote:</p>
 <div class="no-row-height column-margin column-container"></div><div class="page-columns page-full"><blockquote class="blockquote">
 <p><em>“what makes it valid to calculate the ATE by taking the average of the Y(0) column, ignoring the question marks, and subtracting that from the average of the Y(1) column, ignoring the question marks?” This ignoring of the question marks (missing data) is known as ignorability. Assuming ignorability is like ignoring how people ended up selecting the treatment they selected and just assuming they were randomly assigned their treatment”</em> <span class="citation" data-cites="Neal2020Introduction">(<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">Neal, 2020, p. 9</a>)</span></p>
@@ -645,9 +500,9 @@ Figure&nbsp;3.5: Average treatment effect (ATE)
 \end{align}\]</span></p>
 <p>Another perspective on this assumption is the concept of exchangeability. Exchangeability refers to the idea that the treatment groups can be interchanged such that if they were switched, the new treatment group would have the same outcomes as the old treatment group, and the new control group would have the same outcomes as the old control group.</p>
 </section>
-<section id="sec-unconfound" class="level3 page-columns page-full" data-number="3.6.3">
-<h3 data-number="3.6.3" class="anchored" data-anchor-id="sec-unconfound"><span class="header-section-number">3.6.3</span> Unconfoundedness</h3>
-<p>While randomized controlled trials (RCTs) assume the concept of ignoreability, most observational data present challenges in drawing causal conclusions due to the presence of confounding factors that affect both (1) the likelihood of individuals being part of the treatment group and (2) the observed outcome. For example, regional factors can affect both the number of storks and the number of babies born in a region. These factors are typically referred to as confounders, which we discussed in <a href="#sec-cornotcaus" class="quarto-xref"><span>Section 3.3</span></a> as having the potential to create the illusion of a causal impact where none exists. However, empirical methods are available <em>to control for</em> these confounders and prevent the violation of the ignoreability assumption. Formally, the assumption can be written as <span class="math display">\[
+<section id="sec-unconfound" class="level3 page-columns page-full" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="sec-unconfound"><span class="header-section-number">3.4.3</span> Unconfoundedness</h3>
+<p>While randomized controlled trials (RCTs) assume the concept of ignoreability, most observational data present challenges in drawing causal conclusions due to the presence of confounding factors that affect both (1) the likelihood of individuals being part of the treatment group and (2) the observed outcome. For example, regional factors can affect both the number of storks and the number of babies born in a region. These factors are typically referred to as confounders, which we discussed in <a href="epidem.html#sec-cornotcaus" class="quarto-xref"><span>Section 6.2</span></a> as having the potential to create the illusion of a causal impact where none exists. However, empirical methods are available <em>to control for</em> these confounders and prevent the violation of the ignoreability assumption. Formally, the assumption can be written as <span class="math display">\[
 (Y(1), Y(0)) \perp T \mid X.
 \]</span> This allows to write the ATE as follows: <span class="math display">\[\begin{align}
 \mathbb{E}[Y(1)\mid X]-\mathbb{E}[Y(0)\mid X] &amp; =\mathbb{E}[Y(1) \mid T=1, X]-\mathbb{E}[Y(0) \mid T=0, X] \\
@@ -661,7 +516,7 @@ Figure&nbsp;3.5: Average treatment effect (ATE)
 </div>
 <div class="callout-body-container">
 <div id="exr-treatmenteffects" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3.4</strong></span> Treatment effects</p>
+<p><span class="theorem-title"><strong>Exercise 3.2</strong></span> Treatment effects</p>
 <p>Read sections 2.1 and 2.3 of <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>)</span>.</p>
 <ol type="1">
 <li>What is the individual treatment effect (ITE)?</li>
@@ -671,7 +526,7 @@ Figure&nbsp;3.5: Average treatment effect (ATE)
 <li>What are some potential sources of bias when estimating the ATE?</li>
 </ol>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -680,7 +535,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="1">
 <li>The individual treatment effect (ITE) is a measure of the effect of a treatment or intervention on an individual level. It represents the difference in the outcome for an individual who receives the treatment versus the outcome for that same individual if they had not received the treatment.</li>
