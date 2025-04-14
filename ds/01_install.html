@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.551">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>How to Use R for Data Science - 1&nbsp; …R</title>
+<title>1&nbsp; …R – How to Use R for Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -91,12 +91,12 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-e1b5cdf4a482e8b41c9a9340f2e7685a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ee576d39dd3ab1c659793b0fe0d288d2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -128,7 +128,7 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -166,13 +166,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_install.html">Getting started with…</a></li><li class="breadcrumb-item"><a href="./01_install.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">…R</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -209,9 +209,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Getting started with…</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -238,9 +238,9 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Basics of coding</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -267,9 +267,9 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Do stuff</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -294,6 +294,35 @@ window.Quarto = {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Publish</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90_quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./91_git-github.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Collaborating with Git and GitHub</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./92_website.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Create and host a website</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
@@ -302,13 +331,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./95_filesys.html" class="sidebar-item-text sidebar-link">
@@ -469,13 +498,13 @@ Make your hands dirty!
 <p>Learning a programming language can, like learning a foreign language, be daunting and frustrating. However, if you put in the effort and are not afraid to make mistakes, anybody can learn it. You don’t have to be a nerd. To have a guide next to you can help and speed up your progress significantly. The key is taking action and getting involved. I mean, do write code. Try to copy the code that you read here and elsewhere. Explore what the code does on your machine. Don’t be afraid to make errors. Your PC will not explode. In this paper, most of the code is written in a manner that allows you to effortlessly copy and reproduce the output on your PC. Take advantage of this opportunity and go for it! Hands-on practice is far more enjoyable than merely reading through the material.</p>
 </div>
 </div>
-<div id="fig-catsee" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-catsee" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-catsee-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.1: Play around with code
 </figcaption>
 <div aria-describedby="fig-catsee-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="fig/changinstuff-big.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="fig/changinstuff-big.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p><a href="fig/changinstuff-big.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1.1: Play around with code"><img src="fig/changinstuff-big.png" class="img-fluid figure-img" style="width:50.0%"></a></p>
 <p><em>Source: <a href="https://github.com/thepracticaldev/orly-full-res">DEV Community on GitHub</a></em></p>
 </div>
 </figure>
@@ -529,18 +558,18 @@ Figure&nbsp;1.2: A collection of textbooks
 <div aria-describedby="fig-forexplayer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="fig/r4ds-cover.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="fig/r4ds-cover.jpg" class="img-fluid figure-img" style="width:90.0%"></a></p>
+<p><a href="fig/r4ds-cover.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;1.2: A collection of textbooks"><img src="fig/r4ds-cover.jpg" class="img-fluid figure-img"></a></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="fig/healy-cover.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="fig/healy-cover.jpg" class="img-fluid figure-img" style="width:90.0%"></a></p>
+<p><a href="fig/healy-cover.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;1.2: A collection of textbooks"><img src="fig/healy-cover.jpg" class="img-fluid figure-img"></a></p>
 </div>
 </div>
 <div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="fig/irizarrybook.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4"><img src="fig/irizarrybook.png" class="img-fluid figure-img" style="width:95.0%"></a></p>
+<div class="quarto-layout-cell" style="flex-basis: 51.4%;justify-content: center;">
+<p><a href="fig/irizarrybook.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;1.2: A collection of textbooks"><img src="fig/irizarrybook.png" class="img-fluid figure-img"></a></p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><a href="fig/Kabacoff2024Modern.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5"><img src="fig/Kabacoff2024Modern.png" class="img-fluid figure-img" style="width:90.0%"></a></p>
+<div class="quarto-layout-cell" style="flex-basis: 48.6%;justify-content: center;">
+<p><a href="fig/Kabacoff2024Modern.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;1.2: A collection of textbooks"><img src="fig/Kabacoff2024Modern.png" class="img-fluid figure-img"></a></p>
 </div>
 </div>
 </div>
@@ -593,13 +622,13 @@ Kabacoff, R. (2024). <em>Modern data visualization with <span>R</span></em>. Cha
 </ul>
 <p>Understanding these sections can significantly enhance your ability to navigate and utilize R.</p>
 <p>An excerpt of the <em>R Documentation</em> for the function <code>q()</code> is shown in <a href="#fig-help-q" class="quarto-xref">Figure&nbsp;<span>1.3</span></a>. Here, we observe that the function has three arguments that you can manipulate. If you do not specify any of these arguments explicitly, we see that <em>by default</em>, R sets the three arguments as shown.</p>
-<div id="fig-help-q" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-help-q" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-help-q-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.3: The R Documentation of <code>q()</code>
 </figcaption>
 <div aria-describedby="fig-help-q-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/help-q.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6"><img src="fig/help-q.png" class="img-fluid figure-img" style="width:70.0%"></a>
+<a href="fig/help-q.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;1.3: The R Documentation of q()"><img src="fig/help-q.png" class="img-fluid figure-img" style="width:70.0%"></a>
 </div>
 </figure>
 </div>
@@ -618,37 +647,37 @@ Chambers, J. M. (2017). <em>Extending <span>R</span></em>. CRC Press.
 <section id="sec-r-rstudio" class="level2" data-number="1.6">
 <h2 data-number="1.6" class="anchored" data-anchor-id="sec-r-rstudio"><span class="header-section-number">1.6</span> What are R and RStudio?</h2>
 <p>While R has a command line interface, there are multiple third-party graphical user interfaces available that improve the user experience a lot. The most successful graphical user interface or integrated development environment (IDE) is RStudio. Throughout this book, I will assume that you are using R via RStudio. First time users often confuse the two. At its simplest, R is like a car’s engine while RStudio is like a car’s dashboard as illustrated in Figure <a href="#fig-R_vs_RStudio_1" class="quarto-xref">Figure&nbsp;<span>1.4</span></a>.</p>
-<div id="fig-R_vs_RStudio_1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-R_vs_RStudio_1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-R_vs_RStudio_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.4: Analogy of difference between R and RStudio
 </figcaption>
 <div aria-describedby="fig-R_vs_RStudio_1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/R_vs_RStudio_1.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7"><img src="fig/R_vs_RStudio_1.png" class="img-fluid figure-img"></a>
+<a href="fig/R_vs_RStudio_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;1.4: Analogy of difference between R and RStudio"><img src="fig/R_vs_RStudio_1.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
 </div>
 <p>More precisely, R is a functional programming language that runs computations, while RStudio is an <em>integrated development environment (IDE)</em> that provides an interface by adding many convenient features and tools. So just as the way of having access to a speedometer, rearview mirrors, and a navigation system makes driving much easier, using RStudio’s interface makes using R much easier as well.</p>
 <p>Much as we don’t drive a car by interacting directly with the engine but rather by interacting with elements on the car’s dashboard, we won’t be using R directly but rather we will use RStudio’s interface. After you install R and RStudio on your computer, you’ll have two new <em>programs</em> (also called <em>applications</em>) you can open. We’ll always work in RStudio and not in the R application. Figure <a href="#fig-R_vs_RStudio" class="quarto-xref">Figure&nbsp;<span>1.5</span></a> shows what icon you should be clicking on your computer.</p>
-<div id="fig-R_vs_RStudio" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-R_vs_RStudio" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-R_vs_RStudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.5: Icons of R versus RStudio on your computer
 </figcaption>
 <div aria-describedby="fig-R_vs_RStudio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/R_vs_RStudio.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="quarto-lightbox-gallery-8"><img src="fig/R_vs_RStudio.png" class="img-fluid figure-img"></a>
+<a href="fig/R_vs_RStudio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;1.5: Icons of R versus RStudio on your computer"><img src="fig/R_vs_RStudio.png" class="img-fluid figure-img"></a>
 </div>
 </figure>
 </div>
 <p>After you open RStudio, you should see something similar to Figure <a href="#fig-rstudio2" class="quarto-xref">Figure&nbsp;<span>1.6</span></a> where three or four panels dividing the screen.</p>
-<div id="fig-rstudio2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-rstudio2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-rstudio2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.6: A sketch of RStudio interface to R
 </figcaption>
 <div aria-describedby="fig-rstudio2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <!-- ![](fig/rstudio4.png) -->
-<p><a href="fig/rstudio4.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="quarto-lightbox-gallery-9"><img src="fig/rstudio4.png" class="img-fluid figure-img"></a></p>
+<p><a href="fig/rstudio4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;1.6: A sketch of RStudio interface to R"><img src="fig/rstudio4.png" class="img-fluid figure-img"></a></p>
 </div>
 </figure>
 </div>
@@ -715,27 +744,27 @@ If you don’t have panel number 4,
 </div>
 <p>While working in the Console is possible, we usually work in RStudio using so-called <em>scripts</em>. These scripts are plain text files with the file extension “.R”. Scripts are discussed in detail in <a href="22_script.html" class="quarto-xref"><span>Chapter 3</span></a>. To create a script, go to the <em>File</em> menu, select <em>New File</em> and then choose <em>R Script</em>.</p>
 <p>With the key shortcut <code>Ctrl+Enter</code> for Windows and Linux user or by <code>Cmd+Enter</code> for MacOs users (or by clicking <code>Run</code>) you can run a line of a script, that means you send one line of code to the Console. See <a href="#fig-oneplusfour" class="quarto-xref">Figure&nbsp;<span>1.7</span></a> how this looks like in RStudio.</p>
-<div id="fig-oneplusfour" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-oneplusfour" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-oneplusfour-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.7: One plus four in a R script
 </figcaption>
 <div aria-describedby="fig-oneplusfour-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/oneplusfour.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="quarto-lightbox-gallery-10"><img src="fig/oneplusfour.png" class="img-fluid figure-img" style="width:75.0%"></a>
+<a href="fig/oneplusfour.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure&nbsp;1.7: One plus four in a R script"><img src="fig/oneplusfour.png" class="img-fluid figure-img" style="width:75.0%"></a>
 </div>
 </figure>
 </div>
 </section>
 <section id="sec-installing" class="level2" data-number="1.8">
 <h2 data-number="1.8" class="anchored" data-anchor-id="sec-installing"><span class="header-section-number">1.8</span> How to install R, RStudio, and R packages</h2>
-<div id="fig-3steps" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-3steps" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-3steps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.8: Set up R in three steps
 </figcaption>
 <div aria-describedby="fig-3steps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <!-- ![](fig/rstudiolay.png) -->
-<p><a href="fig/3steps-green.png" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="quarto-lightbox-gallery-11"><img src="fig/3steps-green.png" class="img-fluid figure-img" style="width:75.0%"></a></p>
+<p><a href="fig/3steps-green.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;1.8: Set up R in three steps"><img src="fig/3steps-green.png" class="img-fluid figure-img" style="width:75.0%"></a></p>
 </div>
 </figure>
 </div>
@@ -899,13 +928,13 @@ Tip&nbsp;1.1: Install everything now
 <p>Upon successfully installing R, you gain access to functions that are part of <em>Base R</em>. This includes standard packages automatically installed and loaded with each R session, such as <code>stats</code>, <code>utils</code>, and <code>graphics</code>, providing a broad spectrum of functionalities for statistical analysis and graphical capabilities <span class="citation" data-cites="Venables2022Introduction">(see <a href="references.html#ref-Venables2022Introduction" role="doc-biblioref">Venables et al., 2022</a>)</span>. However, the syntax in <em>Base R</em> can become complex and less intuitive for users. Consequently, many individuals, including Hadley Wickham, the Chief Data Scientist at <em>Posit</em> (formerly RStudio), and his team, have developed an alternative suite of packages known as the <code>tidyverse</code>. These packages share a common philosophy and syntax, emphasizing readability and ease of use. We will heavily utilize the <code>tidyverse</code> in the following sections.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-Venables2022Introduction" class="csl-entry" role="listitem">
 Venables, W. N., Smith, D. M., &amp; R Core Team. (2022). <em>An introduction to <span>R</span>: Notes on <span>R</span>: A programming environment for data analysis and graphics</em> (Version 4.3.2 (2023-10-31)). <a href="http://cran.r-project.org/doc/manuals/R-intro.pdf">http://cran.r-project.org/doc/manuals/R-intro.pdf</a>
-</div></div><div id="fig-tidyverse-logo" class="quarto-figure quarto-figure-center quarto-float anchored">
+</div></div><div id="fig-tidyverse-logo" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-tidyverse-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1.9: The tidyverse universe
 </figcaption>
 <div aria-describedby="fig-tidyverse-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/tidyverse-logo.png" class="lightbox" data-glightbox="description: .lightbox-desc-12" data-gallery="quarto-lightbox-gallery-12"><img src="fig/tidyverse-logo.png" class="img-fluid figure-img" style="width:30.0%"></a>
+<a href="fig/tidyverse-logo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure&nbsp;1.9: The tidyverse universe"><img src="fig/tidyverse-logo.png" class="img-fluid figure-img" style="width:30.0%"></a>
 </div>
 </figure>
 </div>
@@ -1020,20 +1049,6 @@ Wickham, H., &amp; Grolemund, G. (2023). <em>R for data science (2e)</em>. <a hr
 <p>How to define user-defined function is explained in greater detail in <a href="40_manage.html#sec-generics" class="quarto-xref"><span>Section 7.5</span></a>.</p>
 
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1.1: Play around with code</span>
-<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;1.2: A collection of textbooks</span>
-<span class="glightbox-desc lightbox-desc-3">Figure&nbsp;1.2: A collection of textbooks</span>
-<span class="glightbox-desc lightbox-desc-4">Figure&nbsp;1.2: A collection of textbooks</span>
-<span class="glightbox-desc lightbox-desc-5">Figure&nbsp;1.2: A collection of textbooks</span>
-<span class="glightbox-desc lightbox-desc-6">Figure&nbsp;1.3: The R Documentation of <code>q()</code></span>
-<span class="glightbox-desc lightbox-desc-7">Figure&nbsp;1.4: Analogy of difference between R and RStudio</span>
-<span class="glightbox-desc lightbox-desc-8">Figure&nbsp;1.5: Icons of R versus RStudio on your computer</span>
-<span class="glightbox-desc lightbox-desc-9">Figure&nbsp;1.6: A sketch of RStudio interface to R</span>
-<span class="glightbox-desc lightbox-desc-10">Figure&nbsp;1.7: One plus four in a R script</span>
-<span class="glightbox-desc lightbox-desc-11">Figure&nbsp;1.8: Set up R in three steps</span>
-<span class="glightbox-desc lightbox-desc-12">Figure&nbsp;1.9: The tidyverse universe</span>
-</div>
 
 </section>
 
@@ -1217,18 +1232,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1260,7 +1264,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1268,7 +1292,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1365,7 +1389,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1604,30 +1627,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":false});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
     }
-  });
-
-};
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
           </script>
 
 
