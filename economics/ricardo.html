@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.7.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>21&nbsp; Comparative advantage – Economics (INCOMPLETE)</title>
+<title>30&nbsp; Comparative advantage – Economics (INCOMPLETE)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -52,17 +52,20 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./ho.html" rel="next">
 <link href="./tradebasic.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-6c49c5477b92c77c9eb341f9299c235f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-697d7572a4640dea65613f47d4b9e4f9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-382c4c3f3f0e6c84ddceb4dfcef4c23a.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1ec64508104361cc5d30fee173ccbc38.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-d75fc606862db31faea375859155f61b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1ec64508104361cc5d30fee173ccbc38.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -126,7 +129,167 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar docked slimcontent">
+<body class="nav-sidebar docked slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    window.setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      window.setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    window.hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(darkModeDefault) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const darkModeDefault = false;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !window.hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+    };
+    // Switch to dark mode if need be
+    if (window.hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -135,7 +298,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tradebasic.html">INTERNATIONAL TRADE</a></li><li class="breadcrumb-item"><a href="./ricardo.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Comparative advantage</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tradebasic.html">INTERNATIONAL TRADE</a></li><li class="breadcrumb-item"><a href="./ricardo.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Comparative advantage</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -211,7 +374,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">CORE</span></a>
+ <span class="menu-text">BASICS</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -250,7 +413,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./allocation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Allocation and surplus</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Allocation</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -279,7 +442,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./failure.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Market failure</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Imperfect</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -294,18 +457,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Externalities</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./cognitive.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Cognitive biases</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
- <span class="menu-text">MONETARY INTERNATIONAL ECONOMICS</span></a>
+ <span class="menu-text">DECISION MAKING</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -313,20 +470,50 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./currencies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Currencies</span></span></a>
+  <a href="./dmtheory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Payoff table</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./iinvest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">International investments</span></span></a>
+  <a href="./certainty.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Certainty</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./bop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Balance of payments</span></span></a>
+  <a href="./uncertainty.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Uncertainty</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./risk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Risk</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dmbayes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Conditional events</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./game.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Games</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./finance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Finance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cognitive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Cognitive biases</span></span></a>
   </div>
 </li>
       </ul>
@@ -334,7 +521,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
- <span class="menu-text">INTERNATIONAL TRADE</span></a>
+ <span class="menu-text">MACRO</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -342,26 +529,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tradebasic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Basics</span></span></a>
+  <a href="./solow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Long-run growth</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ricardo.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Comparative advantage</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ho.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Endowments</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./sectorspecific.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">The specific factor model</span></span></a>
+  <a href="./shortrun.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Unemployment and business cycles</span></span></a>
   </div>
 </li>
       </ul>
@@ -369,7 +544,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
- <span class="menu-text">TRADE POLICY</span></a>
+ <span class="menu-text">MONETARY INTERNATIONAL ECONOMICS</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -377,20 +552,84 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./currencies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Currencies</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./iinvest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">International investments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Balance of payments</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">INTERNATIONAL TRADE</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tradebasic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ricardo.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Comparative advantage</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ho.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Endowments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sectorspecific.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">The specific factor model</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">TRADE POLICY</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./wto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">World Trade Organization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">World Trade Organization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./policy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Globalization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Globalization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./strategic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Strategic trade policy</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">Strategic trade policy</span></span></a>
   </div>
 </li>
       </ul>
@@ -403,13 +642,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./glossary.html" class="sidebar-item-text sidebar-link">
@@ -440,26 +679,27 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#defining-absolute-and-comparative-advantages" id="toc-defining-absolute-and-comparative-advantages" class="nav-link active" data-scroll-target="#defining-absolute-and-comparative-advantages"><span class="header-section-number">21.1</span> Defining absolute and comparative advantages</a></li>
-  <li><a href="#sec-exampleAB" id="toc-sec-exampleAB" class="nav-link" data-scroll-target="#sec-exampleAB"><span class="header-section-number">21.2</span> Autarky: An example of two different persons</a>
+  <li><a href="#defining-absolute-and-comparative-advantages" id="toc-defining-absolute-and-comparative-advantages" class="nav-link active" data-scroll-target="#defining-absolute-and-comparative-advantages"><span class="header-section-number">30.1</span> Defining absolute and comparative advantages</a></li>
+  <li><a href="#sec-exampleAB" id="toc-sec-exampleAB" class="nav-link" data-scroll-target="#sec-exampleAB"><span class="header-section-number">30.2</span> Autarky: An example of two different persons</a>
   <ul class="collapse">
-  <li><a href="#can-person-a-and-b-improve-their-maximum-consumption-with-cooperation" id="toc-can-person-a-and-b-improve-their-maximum-consumption-with-cooperation" class="nav-link" data-scroll-target="#can-person-a-and-b-improve-their-maximum-consumption-with-cooperation"><span class="header-section-number">21.2.1</span> Can person A and B improve their maximum consumption with cooperation?</a></li>
-  <li><a href="#optimal-production-in-cooperation" id="toc-optimal-production-in-cooperation" class="nav-link" data-scroll-target="#optimal-production-in-cooperation"><span class="header-section-number">21.2.2</span> Optimal production in cooperation</a></li>
-  <li><a href="#check-for-absolute-advantage" id="toc-check-for-absolute-advantage" class="nav-link" data-scroll-target="#check-for-absolute-advantage"><span class="header-section-number">21.2.3</span> Check for absolute advantage</a></li>
-  <li><a href="#check-for-comparative-advantage" id="toc-check-for-comparative-advantage" class="nav-link" data-scroll-target="#check-for-comparative-advantage"><span class="header-section-number">21.2.4</span> Check for comparative advantage</a></li>
-  <li><a href="#trade-structure-and-consumption-in-cooperation" id="toc-trade-structure-and-consumption-in-cooperation" class="nav-link" data-scroll-target="#trade-structure-and-consumption-in-cooperation"><span class="header-section-number">21.2.5</span> Trade structure and consumption in cooperation</a></li>
+  <li><a href="#can-person-a-and-b-improve-their-maximum-consumption-with-cooperation" id="toc-can-person-a-and-b-improve-their-maximum-consumption-with-cooperation" class="nav-link" data-scroll-target="#can-person-a-and-b-improve-their-maximum-consumption-with-cooperation"><span class="header-section-number">30.2.1</span> Can person A and B improve their maximum consumption with cooperation?</a></li>
+  <li><a href="#optimal-production-in-cooperation" id="toc-optimal-production-in-cooperation" class="nav-link" data-scroll-target="#optimal-production-in-cooperation"><span class="header-section-number">30.2.2</span> Optimal production in cooperation</a></li>
+  <li><a href="#check-for-absolute-advantage" id="toc-check-for-absolute-advantage" class="nav-link" data-scroll-target="#check-for-absolute-advantage"><span class="header-section-number">30.2.3</span> Check for absolute advantage</a></li>
+  <li><a href="#check-for-comparative-advantage" id="toc-check-for-comparative-advantage" class="nav-link" data-scroll-target="#check-for-comparative-advantage"><span class="header-section-number">30.2.4</span> Check for comparative advantage</a></li>
+  <li><a href="#trade-structure-and-consumption-in-cooperation" id="toc-trade-structure-and-consumption-in-cooperation" class="nav-link" data-scroll-target="#trade-structure-and-consumption-in-cooperation"><span class="header-section-number">30.2.5</span> Trade structure and consumption in cooperation</a></li>
   </ul></li>
-  <li><a href="#the-ricardian-model" id="toc-the-ricardian-model" class="nav-link" data-scroll-target="#the-ricardian-model"><span class="header-section-number">21.3</span> The Ricardian model</a></li>
-  <li><a href="#distribution-of-welfare-gains" id="toc-distribution-of-welfare-gains" class="nav-link" data-scroll-target="#distribution-of-welfare-gains"><span class="header-section-number">21.4</span> Distribution of welfare gains</a></li>
+  <li><a href="#the-ricardian-model" id="toc-the-ricardian-model" class="nav-link" data-scroll-target="#the-ricardian-model"><span class="header-section-number">30.3</span> The Ricardian model</a></li>
+  <li><a href="#distribution-of-welfare-gains" id="toc-distribution-of-welfare-gains" class="nav-link" data-scroll-target="#distribution-of-welfare-gains"><span class="header-section-number">30.4</span> Distribution of welfare gains</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tradebasic.html">INTERNATIONAL TRADE</a></li><li class="breadcrumb-item"><a href="./ricardo.html"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Comparative advantage</span></a></li></ol></nav>
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./tradebasic.html">INTERNATIONAL TRADE</a></li><li class="breadcrumb-item"><a href="./ricardo.html"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Comparative advantage</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-ricardo" class="quarto-section-identifier"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Comparative advantage</span></span></h1>
+<h1 class="title"><span id="sec-ricardo" class="quarto-section-identifier"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Comparative advantage</span></span></h1>
 </div>
 
 
@@ -498,10 +738,10 @@ Learning objectives
 <div class="no-row-height column-margin column-container"></div><div id="fig-ricardo" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-ricardo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;21.1: This painting shows Ricardo, aged 49 in 1821.
+Figure&nbsp;30.1: This painting shows Ricardo, aged 49 in 1821.
 </figcaption>
 <div aria-describedby="fig-ricardo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="fig/ricardo.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;21.1: This painting shows Ricardo, aged 49 in 1821."><img src="fig/ricardo.jpg" class="img-fluid figure-img" style="width:20.0%"></a></p>
+<p><a href="fig/ricardo.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;30.1: This painting shows Ricardo, aged 49 in 1821."><img src="fig/ricardo.jpg" class="img-fluid figure-img" style="width:20.0%"></a></p>
 <p><em>Source: National Portrait Gallery</em></p>
 </div>
 </figure>
@@ -515,16 +755,16 @@ Torrens, R. (1815). <em>An essay on the external corn trade</em>.
 <div id="fig-oldyoung_ca" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-oldyoung_ca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;21.2: Comparative advantage: Specialize and exchange
+Figure&nbsp;30.2: Comparative advantage: Specialize and exchange
 </figcaption>
 <div aria-describedby="fig-oldyoung_ca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/oldyoung_ca.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;21.2: Comparative advantage: Specialize and exchange"><img src="fig/oldyoung_ca.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="fig/oldyoung_ca.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;30.2: Comparative advantage: Specialize and exchange"><img src="fig/oldyoung_ca.png" class="img-fluid figure-img" style="width:80.0%"></a>
 </div>
 </figure>
 </div>
-<p>As shown in <a href="#fig-oldyoung_ca" class="quarto-xref">Figure&nbsp;<span>21.2</span></a>, the concept of comparative advantage is quite simple. Two parties can increase their overall productivity by sharing the workload based on their respective comparative advantages. Once they have achieved this increase in productivity, they must agree on how to divide the resulting output. Of course, both parties must benefit compared to a scenario in which they work independently.</p>
-<section id="defining-absolute-and-comparative-advantages" class="level2 page-columns page-full" data-number="21.1">
-<h2 data-number="21.1" class="anchored" data-anchor-id="defining-absolute-and-comparative-advantages"><span class="header-section-number">21.1</span> Defining absolute and comparative advantages</h2>
+<p>As shown in <a href="#fig-oldyoung_ca" class="quarto-xref">Figure&nbsp;<span>30.2</span></a>, the concept of comparative advantage is quite simple. Two parties can increase their overall productivity by sharing the workload based on their respective comparative advantages. Once they have achieved this increase in productivity, they must agree on how to divide the resulting output. Of course, both parties must benefit compared to a scenario in which they work independently.</p>
+<section id="defining-absolute-and-comparative-advantages" class="level2 page-columns page-full" data-number="30.1">
+<h2 data-number="30.1" class="anchored" data-anchor-id="defining-absolute-and-comparative-advantages"><span class="header-section-number">30.1</span> Defining absolute and comparative advantages</h2>
 <p>A subject (country, household, individual, company) has an <strong>absolute advantage</strong> in the production of a good relative to another subject if it can produce the good at lower total costs or with higher productivity. Thus, absolute advantage compares productivity across subjects but within an item.</p>
 <p>A subject has a <strong>comparative advantage</strong> in the production of a good relative to another subject if it can produce that good at a lower opportunity cost relative to another subject.</p>
 <p>Let me explain the idea of the concept of comparative advantage with some examples:</p>
@@ -541,8 +781,8 @@ Backhouse, R. E., &amp; Cherrier, B. (2019). <span>Paul Samuelson</span>, gender
 Stevenson, B., &amp; Zlotnik, H. (2018). Representations of men and women in introductory economics textbooks. <em>AEA Papers and Proceedings</em>, <em>108</em>, 180–185.
 </div></div></div></section>
 </section>
-<section id="sec-exampleAB" class="level2" data-number="21.2">
-<h2 data-number="21.2" class="anchored" data-anchor-id="sec-exampleAB"><span class="header-section-number">21.2</span> Autarky: An example of two different persons</h2>
+<section id="sec-exampleAB" class="level2" data-number="30.2">
+<h2 data-number="30.2" class="anchored" data-anchor-id="sec-exampleAB"><span class="header-section-number">30.2</span> Autarky: An example of two different persons</h2>
 <p>Assume that A and B want to produce and consume <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> respectively. Because of the complementarity of the two goods, each must be consumed in combination with the other. The utility function of both persons is <span class="math inline">\(U_{\{A;B\}}=min(x,y)\)</span>. Both persons work for 4 time units, that is, their units of labor are <span class="math inline">\(L_A=L_B=4\)</span>. A needs 1 units of labor to produce one unit of good <span class="math inline">\(y\)</span> and 2 units of labor to produce one unit of good <span class="math inline">\(x\)</span>. B needs <span class="math inline">\(\frac{4}{10}=0.4\)</span> units of labor to produce one unit of good <span class="math inline">\(y\)</span> or good <span class="math inline">\(x\)</span>. Thus, their <strong>labor input coefficients</strong>, which measure the units of labor required by a subject to produce one unit of good, are <span class="math inline">\(a^A_y=1, a^A_x=2, a^B_y=0.4, a^B_x=0.4\)</span>:</p>
 <table class="caption-top table">
 <thead>
@@ -565,18 +805,18 @@ Stevenson, B., &amp; Zlotnik, H. (2018). Representations of men and women in int
 </tr>
 </tbody>
 </table>
-<p>Spending all her time in the production of <span class="math inline">\(y\)</span>, A can produce <span class="math inline">\(\frac{L_A}{a_y^A}=\frac{4}{1}=4\)</span> units of <span class="math inline">\(y\)</span> and B can produce <span class="math inline">\(\frac{L_B}{a_y^B}=\frac{4}{0.4}=10\)</span> units of <span class="math inline">\(y\)</span>. Spending all her time in the production of <span class="math inline">\(y\)</span>, A can produce <span class="math inline">\(\frac{L_A}{a_x^A}=\frac{4}{2}=2\)</span> units of <span class="math inline">\(x\)</span>and B can produce <span class="math inline">\(\frac{L_B}{a_x^B}=\frac{4}{0.4}=10\)</span> units of <span class="math inline">\(x\)</span>. Knowing this, we can easily draw the production possibility frontier curves (PPF) of person A and B as shown in <a href="#fig-ppf9" class="quarto-xref">Figure&nbsp;<span>21.3</span></a>.</p>
+<p>Spending all her time in the production of <span class="math inline">\(y\)</span>, A can produce <span class="math inline">\(\frac{L_A}{a_y^A}=\frac{4}{1}=4\)</span> units of <span class="math inline">\(y\)</span> and B can produce <span class="math inline">\(\frac{L_B}{a_y^B}=\frac{4}{0.4}=10\)</span> units of <span class="math inline">\(y\)</span>. Spending all her time in the production of <span class="math inline">\(y\)</span>, A can produce <span class="math inline">\(\frac{L_A}{a_x^A}=\frac{4}{2}=2\)</span> units of <span class="math inline">\(x\)</span>and B can produce <span class="math inline">\(\frac{L_B}{a_x^B}=\frac{4}{0.4}=10\)</span> units of <span class="math inline">\(x\)</span>. Knowing this, we can easily draw the production possibility frontier curves (PPF) of person A and B as shown in <a href="#fig-ppf9" class="quarto-xref">Figure&nbsp;<span>30.3</span></a>.</p>
 <div id="fig-ppf9" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-ppf9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;21.3: The production possibility frontier in autarky
+Figure&nbsp;30.3: The production possibility frontier in autarky
 </figcaption>
 <div aria-describedby="fig-ppf9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/documentppf1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;21.3: The production possibility frontier in autarky"><img src="fig/documentppf1.png" class="img-fluid figure-img" style="width:90.0%"></a>
+<a href="fig/documentppf1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;30.3: The production possibility frontier in autarky"><img src="fig/documentppf1.png" class="img-fluid figure-img" style="width:90.0%"></a>
 </div>
 </figure>
 </div>
-<p>In autarky, both person maximize their utility: Individual A can consume <span class="math inline">\(\frac{4}{3}\)</span> units of each good and individual B can consume <span class="math inline">\(5\)</span> units of each good. The respective indifference curves are drawn in dashed blue lines in <a href="#fig-ppf9" class="quarto-xref">Figure&nbsp;<span>21.3</span></a>.</p>
+<p>In autarky, both person maximize their utility: Individual A can consume <span class="math inline">\(\frac{4}{3}\)</span> units of each good and individual B can consume <span class="math inline">\(5\)</span> units of each good. The respective indifference curves are drawn in dashed blue lines in <a href="#fig-ppf9" class="quarto-xref">Figure&nbsp;<span>30.3</span></a>.</p>
 <div class="callout callout-style-simple callout-important no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -584,60 +824,60 @@ Figure&nbsp;21.3: The production possibility frontier in autarky
 </div>
 <div class="callout-body-container">
 <div id="exr-indicom" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 21.1</strong></span> Indifference curves for perfect complementary goods</p>
+<p><span class="theorem-title"><strong>Exercise 30.1</strong></span> Indifference curves for perfect complementary goods</p>
 <ol type="a">
 <li>Name some real world examples of goods that are perfectly complementary.</li>
-<li>The blue dashed lines in <a href="#fig-ppf9" class="quarto-xref">Figure&nbsp;<span>21.3</span></a> represent the indifference curves of individual A and B. The upward sloping dashed black line is denoted with ``possible consumption path’’. Explain, why is it not correct–in strict sense–to name it like that?</li>
+<li>The blue dashed lines in <a href="#fig-ppf9" class="quarto-xref">Figure&nbsp;<span>30.3</span></a> represent the indifference curves of individual A and B. The upward sloping dashed black line is denoted with ``possible consumption path’’. Explain, why is it not correct–in strict sense–to name it like that?</li>
 </ol>
 </div>
 </div>
 </div>
 </div>
-<section id="can-person-a-and-b-improve-their-maximum-consumption-with-cooperation" class="level3" data-number="21.2.1">
-<h3 data-number="21.2.1" class="anchored" data-anchor-id="can-person-a-and-b-improve-their-maximum-consumption-with-cooperation"><span class="header-section-number">21.2.1</span> Can person A and B improve their maximum consumption with cooperation?</h3>
+<section id="can-person-a-and-b-improve-their-maximum-consumption-with-cooperation" class="level3" data-number="30.2.1">
+<h3 data-number="30.2.1" class="anchored" data-anchor-id="can-person-a-and-b-improve-their-maximum-consumption-with-cooperation"><span class="header-section-number">30.2.1</span> Can person A and B improve their maximum consumption with cooperation?</h3>
 <p>Let us assume the two persons come together and try to understand how they can improve by jointly deciding which goods they should produce. If we assume that both persons redistribute their joint production so that both have an incentive to share and trade, we can concentrate on the total production output. Their joint PPF curve can then be drawn in two ways:</p>
 <ol type="1">
-<li>Person A specializes in good <span class="math inline">\(x\)</span>, then the joint production possibilities are presented in <a href="#fig-ppfx" class="quarto-xref">Figure&nbsp;<span>21.4</span></a>.</li>
+<li>Person A specializes in good <span class="math inline">\(x\)</span>, then the joint production possibilities are presented in <a href="#fig-ppfx" class="quarto-xref">Figure&nbsp;<span>30.4</span></a>.</li>
 </ol>
 <div id="fig-ppfx" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-ppfx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;21.4: World PFF, A specializes in <span class="math inline">\(x\)</span>
+Figure&nbsp;30.4: World PFF, A specializes in <span class="math inline">\(x\)</span>
 </figcaption>
 <div aria-describedby="fig-ppfx-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/ppf2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;21.4: World PFF, A specializes in x"><img src="fig/ppf2.png" class="img-fluid figure-img" style="width:50.0%"></a>
+<a href="fig/ppf2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;30.4: World PFF, A specializes in x"><img src="fig/ppf2.png" class="img-fluid figure-img" style="width:50.0%"></a>
 </div>
 </figure>
 </div>
-<p>If A produces only good <span class="math inline">\(x\)</span>, as shown in <a href="#fig-ppfx" class="quarto-xref">Figure&nbsp;<span>21.4</span></a>, we see that A and B can consume a total of 6 units of goods <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. This is less in total than in autarky, where A can consume <span class="math inline">\(\frac{4}{3}\)</span> units of each good and person B can consume <span class="math inline">\(5\)</span> units of each good, giving a combined consumption of <span class="math inline">\(\frac{19}{3}=6,\bar{6}\)</span>.</p>
+<p>If A produces only good <span class="math inline">\(x\)</span>, as shown in <a href="#fig-ppfx" class="quarto-xref">Figure&nbsp;<span>30.4</span></a>, we see that A and B can consume a total of 6 units of goods <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. This is less in total than in autarky, where A can consume <span class="math inline">\(\frac{4}{3}\)</span> units of each good and person B can consume <span class="math inline">\(5\)</span> units of each good, giving a combined consumption of <span class="math inline">\(\frac{19}{3}=6,\bar{6}\)</span>.</p>
 <ol start="2" type="1">
-<li>Person A specializes in good <span class="math inline">\(y\)</span>, then the joint production possibilities are presented in <a href="#fig-ppfy2" class="quarto-xref">Figure&nbsp;<span>21.5</span></a>.</li>
+<li>Person A specializes in good <span class="math inline">\(y\)</span>, then the joint production possibilities are presented in <a href="#fig-ppfy2" class="quarto-xref">Figure&nbsp;<span>30.5</span></a>.</li>
 </ol>
 <div id="fig-ppfy2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-ppfy2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;21.5: World PFF, A specializes <span class="math inline">\(y\)</span>
+Figure&nbsp;30.5: World PFF, A specializes <span class="math inline">\(y\)</span>
 </figcaption>
 <div aria-describedby="fig-ppfy2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/ppf3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;21.5: World PFF, A specializes y"><img src="fig/ppf3.png" class="img-fluid figure-img" style="width:50.0%"></a>
+<a href="fig/ppf3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;30.5: World PFF, A specializes y"><img src="fig/ppf3.png" class="img-fluid figure-img" style="width:50.0%"></a>
 </div>
 </figure>
 </div>
-<p>If A produces only good <span class="math inline">\(y\)</span>, as shown in <a href="#fig-ppfy2" class="quarto-xref">Figure&nbsp;<span>21.5</span></a>, we see that A and B can consume a total of 7 units of goods <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. Thus, both can be better off compared to autarky, since the total quantity distributed is larger. Thus, we have an <strong>Pareto improvement</strong> here because at least one person can be better off compared to autarky.</p>
+<p>If A produces only good <span class="math inline">\(y\)</span>, as shown in <a href="#fig-ppfy2" class="quarto-xref">Figure&nbsp;<span>30.5</span></a>, we see that A and B can consume a total of 7 units of goods <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. Thus, both can be better off compared to autarky, since the total quantity distributed is larger. Thus, we have an <strong>Pareto improvement</strong> here because at least one person can be better off compared to autarky.</p>
 <div id="fig-ppfy" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-ppfy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;21.6: World PFF in autarky when A specialize in producing good <span class="math inline">\(y\)</span>
+Figure&nbsp;30.6: World PFF in autarky when A specialize in producing good <span class="math inline">\(y\)</span>
 </figcaption>
 <div aria-describedby="fig-ppfy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/ppf4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;21.6: World PFF in autarky when A specialize in producing good y"><img src="fig/ppf4.png" class="img-fluid figure-img" style="width:60.0%"></a>
+<a href="fig/ppf4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;30.6: World PFF in autarky when A specialize in producing good y"><img src="fig/ppf4.png" class="img-fluid figure-img" style="width:60.0%"></a>
 </div>
 </figure>
 </div>
-<p>In <a href="#fig-ppfy" class="quarto-xref">Figure&nbsp;<span>21.6</span></a>, the three possible consumption scenarios are marked with a dot and the PPFs of person A specializing in the production of good <span class="math inline">\(x\)</span> (<span class="math inline">\(PPF_{A\rightarrow x}\)</span>) or good <span class="math inline">\(y\)</span> (<span class="math inline">\(PPF_{A\rightarrow y}\)</span>) are also drawn. The scenario with person A specializing in the production of good <span class="math inline">\(y\)</span> is the output maximizing solution.</p>
+<p>In <a href="#fig-ppfy" class="quarto-xref">Figure&nbsp;<span>30.6</span></a>, the three possible consumption scenarios are marked with a dot and the PPFs of person A specializing in the production of good <span class="math inline">\(x\)</span> (<span class="math inline">\(PPF_{A\rightarrow x}\)</span>) or good <span class="math inline">\(y\)</span> (<span class="math inline">\(PPF_{A\rightarrow y}\)</span>) are also drawn. The scenario with person A specializing in the production of good <span class="math inline">\(y\)</span> is the output maximizing solution.</p>
 </section>
-<section id="optimal-production-in-cooperation" class="level3" data-number="21.2.2">
-<h3 data-number="21.2.2" class="anchored" data-anchor-id="optimal-production-in-cooperation"><span class="header-section-number">21.2.2</span> Optimal production in cooperation</h3>
+<section id="optimal-production-in-cooperation" class="level3" data-number="30.2.2">
+<h3 data-number="30.2.2" class="anchored" data-anchor-id="optimal-production-in-cooperation"><span class="header-section-number">30.2.2</span> Optimal production in cooperation</h3>
 <p>In order to produce the most bundles of both goods, the optimal cooperative production is</p>
 <table class="caption-top table">
 <thead>
@@ -661,8 +901,8 @@ Figure&nbsp;21.6: World PFF in autarky when A specialize in producing good <span
 </tbody>
 </table>
 </section>
-<section id="check-for-absolute-advantage" class="level3" data-number="21.2.3">
-<h3 data-number="21.2.3" class="anchored" data-anchor-id="check-for-absolute-advantage"><span class="header-section-number">21.2.3</span> Check for absolute advantage</h3>
+<section id="check-for-absolute-advantage" class="level3" data-number="30.2.3">
+<h3 data-number="30.2.3" class="anchored" data-anchor-id="check-for-absolute-advantage"><span class="header-section-number">30.2.3</span> Check for absolute advantage</h3>
 <p>Employing 10 units of labor B can produce more of both goods and hence has an absolute advantage in producing <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. Formally, we can proof this by comparing the input coefficients of both countries in each good:</p>
 <table class="caption-top table">
 <colgroup>
@@ -699,8 +939,8 @@ Figure&nbsp;21.6: World PFF in autarky when A specialize in producing good <span
 </tbody>
 </table>
 </section>
-<section id="check-for-comparative-advantage" class="level3" data-number="21.2.4">
-<h3 data-number="21.2.4" class="anchored" data-anchor-id="check-for-comparative-advantage"><span class="header-section-number">21.2.4</span> Check for comparative advantage</h3>
+<section id="check-for-comparative-advantage" class="level3" data-number="30.2.4">
+<h3 data-number="30.2.4" class="anchored" data-anchor-id="check-for-comparative-advantage"><span class="header-section-number">30.2.4</span> Check for comparative advantage</h3>
 <p>The slope of the PPFs represent the <em>marginal rate of transformation</em>, the terms of trade in autarky and the opportunity costs of a country. The opportunity costs are defined by how much of a good <span class="math inline">\(x\)</span> (or <span class="math inline">\(y\)</span>) a person (or country) has to give up to get one more of good <span class="math inline">\(y\)</span> (or <span class="math inline">\(x\)</span>). For example, A must give up <span class="math inline">\(\frac{a_x^A}{a_y^A}=\frac{1}{2}=0.5\)</span> of good <span class="math inline">\(x\)</span> to produce one more of good <span class="math inline">\(y\)</span>. Thus, A’s opportunity costs of producing one unit of <span class="math inline">\(y\)</span> is the production foregone, that is, a half good <span class="math inline">\(x\)</span>. All opportunity costs of our example are:</p>
 <table class="caption-top table">
 <colgroup>
@@ -728,7 +968,7 @@ Figure&nbsp;21.6: World PFF in autarky when A specialize in producing good <span
 </tr>
 </tbody>
 </table>
-<p>Person A has a comparative advantage in producing good <span class="math inline">\(y\)</span> since A must give up less of good <span class="math inline">\(x\)</span> to produce one unit more of good <span class="math inline">\(y\)</span> than person B must. In turn, Person B has a comparative advantage in producing good <span class="math inline">\(x\)</span> since B must give up less of good <span class="math inline">\(y\)</span> to produce one unit more of good <span class="math inline">\(x\)</span> than person B must give up of good <span class="math inline">\(y\)</span> to produce one unit more of good <span class="math inline">\(x\)</span>. Thus, every person has a comparative advantage and if both would specialize in producing the good in which they have a comparative advantage and share their output they can improve their overall output as was shown in <a href="#fig-ppfy" class="quarto-xref">Figure&nbsp;<span>21.6</span></a>.</p>
+<p>Person A has a comparative advantage in producing good <span class="math inline">\(y\)</span> since A must give up less of good <span class="math inline">\(x\)</span> to produce one unit more of good <span class="math inline">\(y\)</span> than person B must. In turn, Person B has a comparative advantage in producing good <span class="math inline">\(x\)</span> since B must give up less of good <span class="math inline">\(y\)</span> to produce one unit more of good <span class="math inline">\(x\)</span> than person B must give up of good <span class="math inline">\(y\)</span> to produce one unit more of good <span class="math inline">\(x\)</span>. Thus, every person has a comparative advantage and if both would specialize in producing the good in which they have a comparative advantage and share their output they can improve their overall output as was shown in <a href="#fig-ppfy" class="quarto-xref">Figure&nbsp;<span>30.6</span></a>.</p>
 <p>An alternative and more direct way to see the comparative advantages of A and B, respectively, is by comparing the two input coefficients of A with the two input coefficients of B: <span class="math display">\[\begin{align*}
 \frac{a^A_y}{a^A_x} &amp;\lesseqqgtr \frac{a^B_y}{a^B_x} \quad  \Rightarrow \quad \frac{1}{2} &lt;\frac{0.4}{0.4}.
 \end{align*}\]</span> Thus, A has a comparative advantage in <span class="math inline">\(y\)</span> and B in <span class="math inline">\(x\)</span>.</p>
@@ -749,28 +989,20 @@ Figure&nbsp;21.6: World PFF in autarky when A specialize in producing good <span
 </div>
 </div>
 </section>
-<section id="trade-structure-and-consumption-in-cooperation" class="level3" data-number="21.2.5">
-<h3 data-number="21.2.5" class="anchored" data-anchor-id="trade-structure-and-consumption-in-cooperation"><span class="header-section-number">21.2.5</span> Trade structure and consumption in cooperation</h3>
+<section id="trade-structure-and-consumption-in-cooperation" class="level3" data-number="30.2.5">
+<h3 data-number="30.2.5" class="anchored" data-anchor-id="trade-structure-and-consumption-in-cooperation"><span class="header-section-number">30.2.5</span> Trade structure and consumption in cooperation</h3>
 <p>If A specializes in the production of <span class="math inline">\(y\)</span>, she must import some of good <span class="math inline">\(y\)</span>, otherwise she cannot consume a bundle of both goods as desired. In turn, B wants to import some of the good <span class="math inline">\(y\)</span>. B will not accept to consume less than 5 bundles of <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> as this was his autarky consumption. Thus, B wants a minimum of 2 units of good <span class="math inline">\(y\)</span> from A. A will not accept to give more than <span class="math inline">\(4-\frac{4}{3}=2\frac{2}{3}\)</span> items of good <span class="math inline">\(y\)</span> away and he wants at least <span class="math inline">\(\frac{4}{3}\)</span> items of good <span class="math inline">\(x\)</span>. Overall, we can define three trade scenarios:</p>
 <ol type="1">
-<li>All gains from cooperation goes to A (see <a href="#fig-1winner" class="quarto-xref">Figure&nbsp;<span>21.7</span></a> and <a href="#tbl-alla" class="quarto-xref">Table&nbsp;<span>21.1</span></a>);</li>
-<li>All gains from cooperation goes to B (see <a href="#tbl-allb" class="quarto-xref">Table&nbsp;<span>21.2</span></a>); or</li>
+<li>All gains from cooperation goes to A (see <a href="#fig-1winner" class="quarto-xref">Figure&nbsp;<span>30.7</span></a> and <a href="#tbl-alla" class="quarto-xref">Table&nbsp;<span>30.1</span></a>);</li>
+<li>All gains from cooperation goes to B (see <a href="#tbl-allb" class="quarto-xref">Table&nbsp;<span>30.2</span></a>); or</li>
 <li>The gains from specialization and trade are shared by A and B with a trade structure between the two extreme scenarios.</li>
 </ol>
-<div id="tbl-alla" class="quarto-layout-panel anchored">
+<div id="tbl-alla" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-alla-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;21.1: : Consumption and trade when all gains from cooperation goes to A
+Table&nbsp;30.1: Consumption and trade when all gains from cooperation goes to A
 </figcaption>
 <div aria-describedby="tbl-alla-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-alla" style="flex-basis: 50.0%;justify-content: center;">
-<div id="tbl-gainsconsA" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-gainsconsA-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) Consumption
-</figcaption>
-<div aria-describedby="tbl-gainsconsA-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 44%">
@@ -779,35 +1011,24 @@ Table&nbsp;21.1: : Consumption and trade when all gains from cooperation goes to
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">A</th>
-<th style="text-align: left;">B</th>
+<th>Consumption</th>
+<th>A</th>
+<th>B</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Good <span class="math inline">\(y\)</span></td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">5</td>
+<td>Good <span class="math inline">\(y\)</span></td>
+<td>2</td>
+<td>5</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Good <span class="math inline">\(x\)</span></td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">5</td>
+<td>Good <span class="math inline">\(x\)</span></td>
+<td>2</td>
+<td>5</td>
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-alla" style="flex-basis: 50.0%;justify-content: center;">
-<div id="tbl-gainstradeB" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-gainstradeB-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) Exports and imports of goods
-</figcaption>
-<div aria-describedby="tbl-gainstradeB-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 44%">
@@ -816,46 +1037,33 @@ Table&nbsp;21.1: : Consumption and trade when all gains from cooperation goes to
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">A</th>
-<th style="text-align: left;">B</th>
+<th>Trade</th>
+<th>A</th>
+<th>B</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Good <span class="math inline">\(y\)</span></td>
-<td style="text-align: left;">-2</td>
-<td style="text-align: left;">2</td>
+<td>Good <span class="math inline">\(y\)</span></td>
+<td>-2</td>
+<td>2</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Good <span class="math inline">\(x\)</span></td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">-2</td>
+<td>Good <span class="math inline">\(x\)</span></td>
+<td>2</td>
+<td>-2</td>
 </tr>
 </tbody>
 </table>
 </div>
 </figure>
 </div>
-</div>
-</div>
-</div>
-</figure>
-</div>
-<div id="tbl-allb" class="quarto-layout-panel anchored">
+<div id="tbl-allb" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-allb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;21.2: : Consumption and trade when all gains from cooperation goes to B
+Table&nbsp;30.2: Consumption and trade when all gains from cooperation goes to B
 </figcaption>
 <div aria-describedby="tbl-allb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-allb" style="flex-basis: 50.0%;justify-content: center;">
-<div id="tbl-gainsconsB" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-gainsconsB-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) Consumption
-</figcaption>
-<div aria-describedby="tbl-gainsconsB-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 44%">
@@ -864,35 +1072,24 @@ Table&nbsp;21.2: : Consumption and trade when all gains from cooperation goes to
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: left;">A</th>
-<th style="text-align: left;">B</th>
+<th>Consumption</th>
+<th>A</th>
+<th>B</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Good <span class="math inline">\(y\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\frac{4}{3}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(5\frac{2}{3}\)</span></td>
+<td>Good <span class="math inline">\(y\)</span></td>
+<td><span class="math inline">\(\frac{4}{3}\)</span></td>
+<td><span class="math inline">\(5\frac{2}{3}\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Good <span class="math inline">\(x\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\frac{4}{3}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(5\frac{2}{3}\)</span></td>
+<td>Good <span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(\frac{4}{3}\)</span></td>
+<td><span class="math inline">\(5\frac{2}{3}\)</span></td>
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="tbl-allb" style="flex-basis: 50.0%;justify-content: center;">
-<div id="tbl-gainstradeB" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-subfloat-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-gainstradeB-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) Exports and imports of goods
-</figcaption>
-<div aria-describedby="tbl-gainstradeB-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <colgroup>
 <col style="width: 44%">
@@ -901,29 +1098,24 @@ Table&nbsp;21.2: : Consumption and trade when all gains from cooperation goes to
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Trade</th>
-<th style="text-align: left;">A</th>
-<th style="text-align: left;">B</th>
+<th>Trade</th>
+<th>A</th>
+<th>B</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Good <span class="math inline">\(y\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(-\frac{2}{3}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\frac{2}{3}\)</span></td>
+<td>Good <span class="math inline">\(y\)</span></td>
+<td><span class="math inline">\(-\frac{2}{3}\)</span></td>
+<td><span class="math inline">\(\frac{2}{3}\)</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Good <span class="math inline">\(x\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(\frac{4}{3}\)</span></td>
-<td style="text-align: left;"><span class="math inline">\(-\frac{4}{3}\)</span></td>
+<td>Good <span class="math inline">\(x\)</span></td>
+<td><span class="math inline">\(\frac{4}{3}\)</span></td>
+<td><span class="math inline">\(-\frac{4}{3}\)</span></td>
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
-</div>
-</div>
 </div>
 </figure>
 </div>
@@ -931,17 +1123,17 @@ Table&nbsp;21.2: : Consumption and trade when all gains from cooperation goes to
 <div id="fig-1winner" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-1winner-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;21.7: Bilateral trade with one winner
+Figure&nbsp;30.7: Bilateral trade with one winner
 </figcaption>
 <div aria-describedby="fig-1winner-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/onewinner.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;21.7: Bilateral trade with one winner"><img src="fig/onewinner.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="fig/onewinner.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;30.7: Bilateral trade with one winner"><img src="fig/onewinner.png" class="img-fluid figure-img" style="width:80.0%"></a>
 </div>
 </figure>
 </div>
 </section>
 </section>
-<section id="the-ricardian-model" class="level2 page-columns page-full" data-number="21.3">
-<h2 data-number="21.3" class="anchored" data-anchor-id="the-ricardian-model"><span class="header-section-number">21.3</span> The Ricardian model</h2>
+<section id="the-ricardian-model" class="level2 page-columns page-full" data-number="30.3">
+<h2 data-number="30.3" class="anchored" data-anchor-id="the-ricardian-model"><span class="header-section-number">30.3</span> The Ricardian model</h2>
 <p>To understand the underlying logic of the argument, let us formalize and generalize the situation of two subjects and their choices for production and consumption.</p>
 <p>In particular, the Ricardian Model build on the following assumptions:</p>
 <ul>
@@ -970,22 +1162,22 @@ Figure&nbsp;21.7: Bilateral trade with one winner
             \]</span> Setting <span class="math inline">\(w_j=1\)</span> as the numeraire and re-arranging the equation, we get <span class="math display">\[
             p_j^i=\frac{L_j^i}{x_j^i}=a_j^i.
             \]</span> </p></div></div></section>
-<section id="distribution-of-welfare-gains" class="level2 page-columns page-full" data-number="21.4">
-<h2 data-number="21.4" class="anchored" data-anchor-id="distribution-of-welfare-gains"><span class="header-section-number">21.4</span> Distribution of welfare gains</h2>
+<section id="distribution-of-welfare-gains" class="level2 page-columns page-full" data-number="30.4">
+<h2 data-number="30.4" class="anchored" data-anchor-id="distribution-of-welfare-gains"><span class="header-section-number">30.4</span> Distribution of welfare gains</h2>
 <p>The Ricardo theorem tells us nothing about the precise distribution of welfare gains. In this section, I will show that the distribution of welfare gains is the result of relative supply and demand in the world.</p>
 <p>To illustrate this, consider Ricardo’s famous example<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> of two countries (England and Portugal) that can produce cloth <span class="math inline">\(T\)</span> and wine <span class="math inline">\(W\)</span> with different input requirements, namely:</p>
 <div class="no-row-height column-margin column-container"><div id="fn4"><p><sup>4</sup>&nbsp;The example is explained by <span class="citation" data-cites="Academy2012International">Suranovic (<a href="references.html#ref-Academy2012International" role="doc-biblioref">2012</a>)</span> in greater detail.</p><div id="ref-Academy2012International" class="csl-entry" role="listitem">
 Suranovic, S. (2012). <em>International economics: Theory and policy</em> (1.0 ed.). Saylor Foundation. <a href="https://open.umn.edu/opentextbooks/textbooks/276">https://open.umn.edu/opentextbooks/textbooks/276</a>
 </div></div></div><p><span class="math display">\[\begin{align*}
 \frac{p^P_W}{p^P_T}=\frac{a^P_W}{a^P_T}=\frac{8}{9}&lt;\frac{12}{10}=\frac{a^E_W}{a^E_T}= \frac{p^E_W}{p^E_T}
-\end{align*}\]</span> Thus, England has an absolute disadvantage in the production of both goods, but England has a <em>comparative advantage in the production of cloth</em> and Portugal has a <em>comparative advantage in the production of wine</em>. Let us further assume that both countries are similarly endowed with labor, <span class="math inline">\(\bar{L}\)</span>. Then we can calculate the world supply of cloth and wine given relative world prices, <span class="math inline">\(\frac{p_T}{p_W}\)</span>. Since we know that Portugal will only produce wine if the price of wine relative to cloth is above <span class="math inline">\(\frac{p_W}{p_T}=\frac{8}{9}\)</span> and England will only produce wine if the price of wine relative to cloth is above <span class="math inline">\(\frac{p_W}{p_T}=\frac{12}{10}\)</span>, we can draw the relative world supply of goods as shown in the left panel of <a href="#fig-rica_dem1" class="quarto-xref">Figure&nbsp;<span>21.8</span></a>. Note that <span class="math inline">\(\alpha\)</span> in the figure means <span class="math inline">\(\frac{1}{a}\)</span>. Similarly, we can draw in the world supply of clothes, shown in the left panel of <a href="#fig-rica_dem1" class="quarto-xref">Figure&nbsp;<span>21.8</span></a>.</p>
+\end{align*}\]</span> Thus, England has an absolute disadvantage in the production of both goods, but England has a <em>comparative advantage in the production of cloth</em> and Portugal has a <em>comparative advantage in the production of wine</em>. Let us further assume that both countries are similarly endowed with labor, <span class="math inline">\(\bar{L}\)</span>. Then we can calculate the world supply of cloth and wine given relative world prices, <span class="math inline">\(\frac{p_T}{p_W}\)</span>. Since we know that Portugal will only produce wine if the price of wine relative to cloth is above <span class="math inline">\(\frac{p_W}{p_T}=\frac{8}{9}\)</span> and England will only produce wine if the price of wine relative to cloth is above <span class="math inline">\(\frac{p_W}{p_T}=\frac{12}{10}\)</span>, we can draw the relative world supply of goods as shown in the left panel of <a href="#fig-rica_dem1" class="quarto-xref">Figure&nbsp;<span>30.8</span></a>. Note that <span class="math inline">\(\alpha\)</span> in the figure means <span class="math inline">\(\frac{1}{a}\)</span>. Similarly, we can draw in the world supply of clothes, shown in the left panel of <a href="#fig-rica_dem1" class="quarto-xref">Figure&nbsp;<span>30.8</span></a>.</p>
 <div id="fig-rica_dem1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-rica_dem1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;21.8: World’s relative supply
+Figure&nbsp;30.8: World’s relative supply
 </figcaption>
 <div aria-describedby="fig-rica_dem1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/rica_dem1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;21.8: World’s relative supply"><img src="fig/rica_dem1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+<a href="fig/rica_dem1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;30.8: World’s relative supply"><img src="fig/rica_dem1.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 </figure>
 </div>
@@ -995,14 +1187,14 @@ Figure&nbsp;21.8: World’s relative supply
 <span class="math display">\[\begin{align}
 \left[\frac{\left(1-\frac{10}{12}\right)}{\left(\frac{9}{8}-\frac{10}{12}\right)}\approx 0.57 \right]
 \end{align}\]</span> of the gains through trade will be distributed to Portugal and about 43% will be distributed to England.</p>
-<p>In <a href="#fig-rica_dem2" class="quarto-xref">Figure&nbsp;<span>21.9</span></a>, I show two demand curves of the World. The dashed demand curve represents a world with a relative strong preference on wine and the other demand curve represents a relative strong demand for cloth. Since Portugal has a comparative advantage in producing wine, they would happy to live in a world where demand for wine is relatively high, whereas the opposite holds true for England.</p>
+<p>In <a href="#fig-rica_dem2" class="quarto-xref">Figure&nbsp;<span>30.9</span></a>, I show two demand curves of the World. The dashed demand curve represents a world with a relative strong preference on wine and the other demand curve represents a relative strong demand for cloth. Since Portugal has a comparative advantage in producing wine, they would happy to live in a world where demand for wine is relatively high, whereas the opposite holds true for England.</p>
 <div id="fig-rica_dem2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-rica_dem2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;21.9: World’s relative supply and demand
+Figure&nbsp;30.9: World’s relative supply and demand
 </figcaption>
 <div aria-describedby="fig-rica_dem2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/rica_dem2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;21.9: World’s relative supply and demand"><img src="fig/rica_dem2.png" class="img-fluid figure-img" style="width:100.0%"></a>
+<a href="fig/rica_dem2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;30.9: World’s relative supply and demand"><img src="fig/rica_dem2.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 </figure>
 </div>
@@ -1013,7 +1205,7 @@ Figure&nbsp;21.9: World’s relative supply and demand
 </div>
 <div class="callout-body-container">
 <div id="exr-compxy" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 21.2</strong></span> Comparative advantage and opportunity costs</p>
+<p><span class="theorem-title"><strong>Exercise 30.2</strong></span> Comparative advantage and opportunity costs</p>
 <p>Assume that only two countries, A and B, exist. Both countries are equally endowed with labor which is the only production factor. Both countries can produce either good <span class="math inline">\(y\)</span> or good <span class="math inline">\(x\)</span>. The table below gives the input coefficients, <span class="math inline">\(a\)</span>, for both countries, that is, the units of labor needed to produce one unit of good <span class="math inline">\(y\)</span> and good <span class="math inline">\(x\)</span>, respectively. Assume that both countries have 12 units of labor available.</p>
 <table class="caption-top table">
 <thead>
@@ -1116,7 +1308,7 @@ Solution
 </div>
 <div class="callout-body-container">
 <div id="exr-bestncomp" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 21.3</strong></span> The best industry is not competitive</p>
+<p><span class="theorem-title"><strong>Exercise 30.3</strong></span> The best industry is not competitive</p>
 <p>Assume that only two countries, A and B, exist. Both countries are equally endowed with labor which is the only production factor. Both countries can produce either good <span class="math inline">\(y\)</span> or good <span class="math inline">\(x\)</span>. The table below gives the input coefficients, <span class="math inline">\(a\)</span>, for both countries, that is, the units of labor needed to produce one unit of good <span class="math inline">\(y\)</span> and good <span class="math inline">\(x\)</span>, respectively.</p>
 <table class="caption-top table">
 <thead>
@@ -1198,7 +1390,7 @@ Solution
 </div>
 <div class="callout-body-container">
 <div id="exr-compicoe" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 21.4</strong></span> Comparative advantage and input coefficients</p>
+<p><span class="theorem-title"><strong>Exercise 30.4</strong></span> Comparative advantage and input coefficients</p>
 <p>Assume that only two countries, A and B, exist. Both countries are equally endowed with labor which is the only production factor. Both countries can produce either good <span class="math inline">\(y\)</span> or good <span class="math inline">\(x\)</span>. The table below gives the input coefficients, <span class="math inline">\(a\)</span>, for both countries, that is, the units of labor needed to produce one unit of good <span class="math inline">\(y\)</span> and good <span class="math inline">\(x\)</span>, respectively.</p>
 <table class="caption-top table">
 <thead>
@@ -1257,7 +1449,7 @@ Solution
 </div>
 <div class="callout-body-container">
 <div id="exr-gerban" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 21.5</strong></span> Comparative advantage: Germany and Bangladesh</p>
+<p><span class="theorem-title"><strong>Exercise 30.5</strong></span> Comparative advantage: Germany and Bangladesh</p>
 <p>The table below gives the unit of labor needed to produce one machine, one ship, and one cloth in Germany and Bangladesh.</p>
 <table class="caption-top table">
 <thead>
@@ -1323,7 +1515,7 @@ Solution
 </div>
 <div class="callout-body-container">
 <div id="exr-mcricard" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 21.6</strong></span> Multiple choice: Ricardian model</p>
+<p><span class="theorem-title"><strong>Exercise 30.6</strong></span> Multiple choice: Ricardian model</p>
 <p>Assume that only two countries, A and B, exist. Both countries are equally endowed with labor which is the only production factor. Both countries can produce either good <span class="math inline">\(y\)</span> or good <span class="math inline">\(x\)</span>. The table below gives the input coefficients, <span class="math inline">\(a\)</span>, for both countries, that is, the units of labor needed to produce one unit of good <span class="math inline">\(y\)</span> and good <span class="math inline">\(x\)</span>, respectively.</p>
 <table class="caption-top table">
 <thead>
@@ -1381,7 +1573,7 @@ Solution
 </div>
 <div class="callout-body-container">
 <div id="exr-rmagain" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 21.7</strong></span> Ricardian Model again</p>
+<p><span class="theorem-title"><strong>Exercise 30.7</strong></span> Ricardian Model again</p>
 <p>Assume that only two countries, A and B, exist. Both countries are equally endowed with the only production factor labor which can be used to produce either good <span class="math inline">\(y\)</span> or good <span class="math inline">\(x\)</span>. The table below gives input coefficients, <span class="math inline">\(a\)</span>, for both countries, that is, the units of labor needed to produce one unit of good <span class="math inline">\(y\)</span> and good <span class="math inline">\(x\)</span>, respectively.</p>
 <table class="caption-top table">
 <thead>
@@ -1440,15 +1632,15 @@ Solution
 </div>
 <div class="callout-body-container">
 <div id="exr-biketire" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 21.8</strong></span> Bike and tires</p>
+<p><span class="theorem-title"><strong>Exercise 30.8</strong></span> Bike and tires</p>
 <p>Consider two countries, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Both have a labor endowment of 24, <span class="math inline">\(L^A=L^B=24\)</span>. In both countries two goods can be produced: bikes, which are denoted by <span class="math inline">\(y\)</span>, and bike tires, which are denoted by <span class="math inline">\(x\)</span>. Assume that the two goods can only be consumed in bundles of one bike and two bike tires. The following graph illustrates the production possibility (PPF) curve of both countries in autarky, i.e, country A and B do not trade with each other.</p>
 <div id="fig-ricardo" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-ricardo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;21.10: Production possibilities of bike and tires in A and B
+Figure&nbsp;30.10: Production possibilities of bike and tires in A and B
 </figcaption>
 <div aria-describedby="fig-ricardo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/ricardo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure&nbsp;21.10: Production possibilities of bike and tires in A and B"><img src="fig/ricardo.png" class="img-fluid figure-img" style="width:80.0%"></a>
+<a href="fig/ricardo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure&nbsp;30.10: Production possibilities of bike and tires in A and B"><img src="fig/ricardo.png" class="img-fluid figure-img" style="width:80.0%"></a>
 </div>
 </figure>
 </div>
@@ -1505,15 +1697,15 @@ Solution
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
-<li>Both countries can consume 2 complete bikes, see <a href="#fig-bikes1" class="quarto-xref">Figure&nbsp;<span>21.11</span></a>.</li>
+<li>Both countries can consume 2 complete bikes, see <a href="#fig-bikes1" class="quarto-xref">Figure&nbsp;<span>30.11</span></a>.</li>
 </ol>
 <div id="fig-bikes1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-bikes1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;21.11: Production and consumption in A and B
+Figure&nbsp;30.11: Production and consumption in A and B
 </figcaption>
 <div aria-describedby="fig-bikes1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/bikes1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;21.11: Production and consumption in A and B"><img src="fig/bikes1.png" class="img-fluid figure-img" style="width:100.0%"></a>
+<a href="fig/bikes1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;30.11: Production and consumption in A and B"><img src="fig/bikes1.png" class="img-fluid figure-img" style="width:100.0%"></a>
 </div>
 </figure>
 </div>
@@ -1571,7 +1763,7 @@ Figure&nbsp;21.11: Production and consumption in A and B
 </div>
 <div class="callout-body-container">
 <div id="exr-ricmodmc" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 21.9</strong></span> Ricardian model MC</p>
+<p><span class="theorem-title"><strong>Exercise 30.9</strong></span> Ricardian model MC</p>
 <p>Assume that only two countries, A and B, exist. Both countries are equally endowed with the only production factor labor which can be used to produce either good <span class="math inline">\(y\)</span> or good <span class="math inline">\(x\)</span>. The table below gives input coefficients, <span class="math inline">\(a\)</span>, for both countries, that is, the units of labor needed to produce one unit of good <span class="math inline">\(y\)</span> and good <span class="math inline">\(x\)</span>, respectively.</p>
 <table class="caption-top table">
 <thead>
@@ -1631,380 +1823,255 @@ Solution
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
     }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
+    window.setColorSchemeToggle(window.hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
       }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
       });
     }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        return container.innerHTML
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -2012,194 +2079,170 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./tradebasic.html" class="pagination-link" aria-label="Basics">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Basics</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Basics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ho.html" class="pagination-link" aria-label="Endowments">
-        <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Endowments</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Endowments</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
