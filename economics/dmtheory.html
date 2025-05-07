@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.27">
+<meta name="generator" content="quarto-1.7.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -58,14 +58,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-6c49c5477b92c77c9eb341f9299c235f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1ec64508104361cc5d30fee173ccbc38.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-d75fc606862db31faea375859155f61b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-1ec64508104361cc5d30fee173ccbc38.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1b3682a6310c025b25e0252968a0a6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-12d64ba90eeecca9670aec3cb6d64fd4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1b3682a6310c025b25e0252968a0a6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -147,7 +147,7 @@ window.Quarto = {
         toggleBodyColorMode(bsSheetEl);
       }
     }
-    window.setColorSchemeToggle = (alternate) => {
+    const setColorSchemeToggle = (alternate) => {
       const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
@@ -180,7 +180,7 @@ window.Quarto = {
       }
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
-      window.setColorSchemeToggle(alternate)
+      setColorSchemeToggle(alternate)
       // Hack to workaround the fact that safari doesn't
       // properly recolor the scrollbar when toggling (#1455)
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
@@ -220,7 +220,7 @@ window.Quarto = {
     const isFileUrl = () => {
       return window.location.protocol === 'file:';
     }
-    window.hasAlternateSentinel = () => {
+    const hasAlternateSentinel = () => {
       let styleSentinel = getColorSchemeSentinel();
       if (styleSentinel !== null) {
         return styleSentinel === "alternate";
@@ -248,7 +248,7 @@ window.Quarto = {
       const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
       const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
       let newTheme = '';
-      if(darkModeDefault) {
+      if(authorPrefersDark) {
         newTheme = isAlternate ? baseTheme : alternateTheme;
       } else {
         newTheme = isAlternate ? alternateTheme : baseTheme;
@@ -271,20 +271,22 @@ window.Quarto = {
         changeGiscusTheme();
       }
     };
-    const darkModeDefault = false;
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
     // Dark / light mode switch
     window.quartoToggleColorScheme = () => {
       // Read the current dark / light value
-      let toAlternate = !window.hasAlternateSentinel();
+      let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
     };
     // Switch to dark mode if need be
-    if (window.hasAlternateSentinel()) {
+    if (hasAlternateSentinel()) {
       toggleColorMode(true);
     } else {
       toggleColorMode(false);
@@ -712,41 +714,19 @@ window.Quarto = {
 <!-- - Discuss the concept of bounded rationality and its impact on human decision-making. -->
 <!-- - Apply heuristics to enhance decision-making in practical situations. -->
 <!-- ::: -->
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Learning outcomes of @sec-payoff to @sec-bayes">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Learning outcomes of <a href="#sec-payoff" class="quarto-xref"><span>Section 17.1</span></a> to <a href="dmbayes.html" class="quarto-xref"><span>Chapter 18</span></a>
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<p><strong>Learning objectives:</strong></p>
+<p>Students will be able to:</p>
 <ul>
 <li>Distinguish different theories of decision making.</li>
 <li>Calculate the optimal decision under certainty, uncertainty, and under risk.</li>
 <li>Describe and use various criteria of decision making.</li>
-<li>Simplify complex decision making situations and use formal approaches of decision making to guide the decision making behavior of managers. <!-- - Avoid common mistakes when applying heuristics in decision making. --> <!-- - Use investment calculus to make good financial decisions.  --></li>
+<li>Simplify complex decision making situations and use formal approaches of decision making to guide the decision making behavior of managers. <!-- - Avoid common mistakes when applying heuristics in decision making. --> <!-- - Use investment calculus to make good financial decisions.  --> :::</li>
 </ul>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled" title="Readings">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Readings
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Required:</strong> <span class="citation" data-cites="Finne1998three">Finne (<a href="references.html#ref-Finne1998three" role="doc-biblioref">1998</a>)</span></p>
-<p><strong>Recommended:</strong> <span class="citation" data-cites="Bonanno2017Decision">Bonanno (<a href="references.html#ref-Bonanno2017Decision" role="doc-biblioref">2017, sec. 3</a>)</span></p>
-</div>
-</div>
+<p><strong>Required readings:</strong> <span class="citation" data-cites="Finne1998three">Finne (<a href="references.html#ref-Finne1998three" role="doc-biblioref">1998</a>)</span></p>
 <div class="no-row-height column-margin column-container"><div id="ref-Bonanno2017Decision" class="csl-entry" role="listitem">
 Bonanno, G. (2017). <em>Decision making</em>. Accessed March 21, 2023. <a href="https://faculty.econ.ucdavis.edu/faculty/bonanno/DM_Book.html">https://faculty.econ.ucdavis.edu/faculty/bonanno/DM_Book.html</a>
-</div></div><div class="no-row-height column-margin column-container"></div><section id="sec-payoff" class="level2" data-number="17.1">
+</div></div><p><strong>Recommended readings:</strong> <span class="citation" data-cites="Bonanno2017Decision">Bonanno (<a href="references.html#ref-Bonanno2017Decision" role="doc-biblioref">2017, sec. 3</a>)</span></p>
+<section id="sec-payoff" class="level2" data-number="17.1">
 <h2 data-number="17.1" class="anchored" data-anchor-id="sec-payoff"><span class="header-section-number">17.1</span> Payoff table</h2>
 <p>Every decision has consequences. While these consequences can be complex, economists often simplify decision analysis using the concept of utility. In this framework, anything positive is regarded as utility, and anything negative is viewed as disutility. Ultimately, these outcomes can be represented by a single value, which we will refer to as the “payoff.”</p>
 <p>In this sense, decision-making becomes straightforward: we simply choose the alternative that provides the highest payoff. For example, if you know the weather will be sunny, you might choose to wear a T-shirt and shorts. On a cold day, however, you would opt for warmer clothing. But since the state of nature (the weather) is not completely certain, your decision involves some degree of risk, assuming you have some idea of the likelihood of sunshine or cold weather. If you have no information about the weather at all, your decision is made under uncertainty.</p>
@@ -1497,7 +1477,7 @@ Table&nbsp;17.10: Relative minimum for each alternative
 </tbody>
 </table>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1506,7 +1486,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="math inline">\(\overline{O}_1=5; \overline{O}_2=1; \overline{O}_3=7; \overline{O}_4=3; \overline{O}_5=4\)</span></p>
 <table class="caption-top table">
@@ -1805,7 +1785,7 @@ H_i=\alpha \cdot \overline{O}_i + (1-\alpha)\cdot \underline{O}_i
 <div id="exr-hurwicz" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 17.3</strong></span> Use the data of <a href="#tbl-uncexa" class="quarto-xref">Table&nbsp;<span>17.12</span></a> to make a decision for a complete pessimist (<span class="math inline">\(\alpha = 0\)</span>) and an optimist (<span class="math inline">\(\alpha = 1\)</span>)</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1814,7 +1794,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>When <span class="math inline">\(\alpha = 0\)</span>:</p>
 <ul>
@@ -2103,7 +2083,7 @@ E(u(W(\infty)))=a \cdot \ln 2 .
 </ol>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2112,7 +2092,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Read the Wikipedia entry about the <span class="citation" data-cites="Ellsberg2024">Ellsberg paradox (<a href="references.html#ref-Ellsberg2024" role="doc-biblioref">2024</a>)</span>:</p>
 <blockquote class="blockquote">
@@ -2148,7 +2128,7 @@ Ellsberg paradox. (2024). <span>W</span>ikipedia<span>,</span> The Free Encyclop
       a.appendChild(i);
       window.document.body.appendChild(a);
     }
-    window.setColorSchemeToggle(window.hasAlternateSentinel())
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {

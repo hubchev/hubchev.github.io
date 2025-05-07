@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.27">
+<meta name="generator" content="quarto-1.7.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -58,14 +58,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-6c49c5477b92c77c9eb341f9299c235f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1ec64508104361cc5d30fee173ccbc38.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-d75fc606862db31faea375859155f61b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-1ec64508104361cc5d30fee173ccbc38.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1b3682a6310c025b25e0252968a0a6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-12d64ba90eeecca9670aec3cb6d64fd4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1b3682a6310c025b25e0252968a0a6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -147,7 +147,7 @@ window.Quarto = {
         toggleBodyColorMode(bsSheetEl);
       }
     }
-    window.setColorSchemeToggle = (alternate) => {
+    const setColorSchemeToggle = (alternate) => {
       const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
@@ -180,7 +180,7 @@ window.Quarto = {
       }
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
-      window.setColorSchemeToggle(alternate)
+      setColorSchemeToggle(alternate)
       // Hack to workaround the fact that safari doesn't
       // properly recolor the scrollbar when toggling (#1455)
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
@@ -220,7 +220,7 @@ window.Quarto = {
     const isFileUrl = () => {
       return window.location.protocol === 'file:';
     }
-    window.hasAlternateSentinel = () => {
+    const hasAlternateSentinel = () => {
       let styleSentinel = getColorSchemeSentinel();
       if (styleSentinel !== null) {
         return styleSentinel === "alternate";
@@ -248,7 +248,7 @@ window.Quarto = {
       const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
       const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
       let newTheme = '';
-      if(darkModeDefault) {
+      if(authorPrefersDark) {
         newTheme = isAlternate ? baseTheme : alternateTheme;
       } else {
         newTheme = isAlternate ? alternateTheme : baseTheme;
@@ -271,20 +271,22 @@ window.Quarto = {
         changeGiscusTheme();
       }
     };
-    const darkModeDefault = false;
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
     // Dark / light mode switch
     window.quartoToggleColorScheme = () => {
       // Read the current dark / light value
-      let toAlternate = !window.hasAlternateSentinel();
+      let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
     };
     // Switch to dark mode if need be
-    if (window.hasAlternateSentinel()) {
+    if (hasAlternateSentinel()) {
       toggleColorMode(true);
     } else {
       toggleColorMode(false);
@@ -705,27 +707,16 @@ window.Quarto = {
 </header>
 
 
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="Learning outcomes">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Learning outcomes
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>After successful completion of the module, students are able to:</p>
+<p><strong>Learning objectives:</strong></p>
+<p>Students will be able to:</p>
 <ul>
 <li>Understand and use the terminology of probability.</li>
 <li>Determine whether two events are mutually exclusive and whether two events are independent.</li>
 <li>Calculate probabilities using the addition rules and multiplication rules.</li>
 <li>Calculate with conditional probabilities using Bayes Theorem.</li>
 <li>Construct and interpret venn and tree diagrams.</li>
-<li>Apply their knowledge of probability theory to decision making in business.</li>
+<li>Apply their knowledge of probability theory to decision making in business. :::</li>
 </ul>
-</div>
-</div>
 <p>When dealing with probabilities, especially conditional probabilities, relying on intuition and gut feeling often leads to poor decision-making. Our judgments are biased, and the choices we make are usually less rational than we may believe. <a href="#exr-lisapregnant" class="quarto-xref">Exercise&nbsp;<span>18.1</span></a> provides some evidence for my claim. Before I discuss how conditional probabilities can be considered in a rational decision making process, I repeat the essential basics of stochastics in <a href="#sec-baybas" class="quarto-xref"><span>Section 18.1</span></a></p>
 <div class="callout callout-style-simple callout-important no-icon">
 <div class="callout-body d-flex">
@@ -747,7 +738,7 @@ Learning outcomes
 <p>Think about the question and put your answer here:</p>
 <p><a href="https://pingo.coactum.de/">https://pingo.coactum.de/</a> Code: 666528</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -756,7 +747,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>At the beginning of the <em>Inferential Statistics</em> course at summer 2020, I also asked student this question. Here are the results of the 16 students who participated:</p>
 <table class="caption-top table">
@@ -909,7 +900,7 @@ Figure&nbsp;18.2: Relative complement: <span class="math inline">\(\neg A \cup B
 <li>Picking two marbles, one at a time, from a bag that contains many blue, <span class="math inline">\(B\)</span>, and red marbles, <span class="math inline">\(R\)</span>.</li>
 </ol>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -918,7 +909,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><span class="math inline">\(\Omega = \{head, tail\}\)</span></li>
@@ -984,7 +975,7 @@ P(A)=\frac{\text{Number of outcomes favorable to the occurrence of } A}{\text{To
 <li>a positive number that is less than 7.</li>
 </ol>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -993,7 +984,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A fair dice is an unbiased dice where each of the six numbers is equally likely to turn up. The sample space is <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span>.</p>
 <ol type="a">
@@ -1032,7 +1023,7 @@ Solution
 <p><span class="theorem-title"><strong>Exercise 18.5</strong></span> Three dices</p>
 <p>Suppose you have three dice. Calculate the probability of getting three times a 4.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1041,7 +1032,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The probability of getting a <span class="math inline">\(4\)</span> on one dice is 1/6. The probability of getting three <span class="math inline">\(4\)</span> is: <span class="math display">\[
 P(4 \cap 4 \cap 4) = \frac{1}{6}\cdot \frac{1}{6}\cdot \frac{1}{6}= \frac{1}{216}
@@ -1073,7 +1064,7 @@ P(A \cap B)=P(A)\cdot P(B|A)
 <p><span class="theorem-title"><strong>Exercise 18.6</strong></span> Purse</p>
 <p>A purse contains four € 5 bills, five € 10 bills and three € 20 bills. Two bills are selected randomly without the first selection being replaced. Find the probability that two € 5 bills are selected.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1082,7 +1073,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>There are four € 5 bills. There are a total of twelve bills. The probability to select at first a € 5 bill then is <span class="math inline">\(P(\text{€} 5) = \frac{4}{12}\)</span>. As the the result of the first draw affects the probability of the second draw, we have to consider that there are only three € 5 bills left and there are a total of eleven bills left. Thus, <span class="math display">\[
 P(\text{€} 5 | \text{€} 5)=\frac{3}{11}
@@ -1105,7 +1096,7 @@ P(\text{€} 5 \cap \text{€} 5) = P(\text{€} 5) \cdot P(\text{€} 5 | \text
 P(A)P(B|A)=P(B)P(A|B)
 \]</span> This is true since <span class="math inline">\(P(A \cap B)=P(B \cap A)\)</span> and due to the fact that <span class="math inline">\(P(A\cap B)=P(B\mid A)P(A)\)</span>, we can write Bayes’ Theorem as <span class="math display">\[P(A\mid B)={\frac {P(B\mid A)P(A)}{P(B)}}.\]</span> The box below summarizes the important facts w.r.t. Bayes’ Theorem.</p>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Bayes' Theorem">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1114,7 +1105,7 @@ Bayes’ Theorem
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>The theorem states that <span class="math display">\[P(A\mid B)={\frac {P(B\mid A)P(A)}{P(B)}} \]</span> if <span class="math inline">\(P(B)\neq 0\)</span> and <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are events. It simply uses the following logical facts: <span class="math display">\[P(B\cap A)=P(A\cap B),\]</span> <span class="math display">\[P(A\mid B)=\frac {P(A\cap B)}{P(B)},  \text{ and}\]</span> <span class="math display">\[P(B\mid A)=\frac {P(A\cap B)}{P(A)},\]</span> or, to put it in one line: <span class="math display">\[  P(A\cap B)= P(B\cap A)=P(A\mid B)P(B)=P(B\mid A)P(A).   \]</span> Sometimes, it is helpful to re-write the Theorem as follows: <span class="math display">\[P(A)=P(A|B)P(B)+P(A|\neg B)P(\neg B),  \text{ and}\]</span> <span class="math display">\[P(B)=P(B|A)P(A)+P(B|\neg A)P(\neg A),\]</span></p>
 </div>
@@ -1153,7 +1144,7 @@ Figure&nbsp;18.5: Tree diagramm (<a href="#exr-tobevacornot" class="quarto-xref"
 <p>Disclaimer: The case presented here is fictitious. The data given here are purely fictitious and serve only to practice the method.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1162,7 +1153,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><span class="math display">\[\begin{align*}
@@ -1209,7 +1200,7 @@ Figure&nbsp;18.6: Tree diagramm (<a href="#exr-todieornot" class="quarto-xref">E
 <p>Disclaimer: The case presented here is fictitious. The data given here are purely fictitious and serve only to practice the method.</p>
 </blockquote>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1218,7 +1209,7 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><span class="math display">\[P(D) = 0.9\cdot0.2+0.1\cdot0.4=0.22\]</span></li>
@@ -1260,7 +1251,7 @@ P(V\mid D)=\frac{P(D\mid V)P(V)}{P(D)}=\frac{0.2\cdot 0.90}{0.22}=\frac{0.036}{0
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution to @exr-falspos">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1269,7 +1260,7 @@ Solution to <a href="#exr-falspos" class="quarto-xref">Exercise&nbsp;<span>18.9<
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In order to come to an answer, lets draw a table of the probabilities that may be of interest:</p>
 <table class="caption-top table">
@@ -1402,7 +1393,7 @@ P(\neg A|B)=\frac{P(\neg A\cap B)}{P(B)}=\frac{.01998}{.02097}=0,9527897\quad (=
       a.appendChild(i);
       window.document.body.appendChild(a);
     }
-    window.setColorSchemeToggle(window.hasAlternateSentinel())
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
