@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -50,21 +50,21 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./glossary.html" rel="next">
-<link href="./strategic.html" rel="prev">
+<link href="./policy.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-6c49c5477b92c77c9eb341f9299c235f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1b3682a6310c025b25e0252968a0a6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-12d64ba90eeecca9670aec3cb6d64fd4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-1b3682a6310c025b25e0252968a0a6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1ec64508104361cc5d30fee173ccbc38.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-d75fc606862db31faea375859155f61b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1ec64508104361cc5d30fee173ccbc38.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -114,7 +114,7 @@ div.csl-indent {
         toggleBodyColorMode(bsSheetEl);
       }
     }
-    const setColorSchemeToggle = (alternate) => {
+    window.setColorSchemeToggle = (alternate) => {
       const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
@@ -147,7 +147,7 @@ div.csl-indent {
       }
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
-      setColorSchemeToggle(alternate)
+      window.setColorSchemeToggle(alternate)
       // Hack to workaround the fact that safari doesn't
       // properly recolor the scrollbar when toggling (#1455)
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
@@ -187,7 +187,7 @@ div.csl-indent {
     const isFileUrl = () => {
       return window.location.protocol === 'file:';
     }
-    const hasAlternateSentinel = () => {
+    window.hasAlternateSentinel = () => {
       let styleSentinel = getColorSchemeSentinel();
       if (styleSentinel !== null) {
         return styleSentinel === "alternate";
@@ -215,7 +215,7 @@ div.csl-indent {
       const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
       const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
       let newTheme = '';
-      if(authorPrefersDark) {
+      if(darkModeDefault) {
         newTheme = isAlternate ? baseTheme : alternateTheme;
       } else {
         newTheme = isAlternate ? alternateTheme : baseTheme;
@@ -238,22 +238,20 @@ div.csl-indent {
         changeGiscusTheme();
       }
     };
-    const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
+    const darkModeDefault = false;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
     // Dark / light mode switch
     window.quartoToggleColorScheme = () => {
       // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
+      let toAlternate = !window.hasAlternateSentinel();
       toggleColorMode(toAlternate);
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
     };
     // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
+    if (window.hasAlternateSentinel()) {
       toggleColorMode(true);
     } else {
       toggleColorMode(false);
@@ -498,8 +496,32 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./other.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Other topics</span></span></a>
+  <a href="./demand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Aggregate demand</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./money.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Financial market</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./islm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">IS-LM model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./asad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Aggregate supply and demand</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nirp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Negative interest rates policy</span></span></a>
   </div>
 </li>
       </ul>
@@ -516,19 +538,19 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./currencies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Currencies</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Currencies</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./iinvest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">International investments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">International investments</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Balance of payments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Balance of payments</span></span></a>
   </div>
 </li>
       </ul>
@@ -545,25 +567,25 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tradebasic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ricardo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Comparative advantage</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Comparative advantage</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ho.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Endowments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Endowments</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sectorspecific.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">The specific factor model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">The specific factor model</span></span></a>
   </div>
 </li>
       </ul>
@@ -580,19 +602,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./wto.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">World Trade Organization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">World Trade Organization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./policy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Trade policy</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./strategic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Strategic trade policy</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Trade policy</span></span></a>
   </div>
 </li>
       </ul>
@@ -762,6 +778,11 @@ war?</em> Project Syndicate. <a href="https://www.project-syndicate.org/commenta
 Destatis. (2019). <em>Prices: Consumer price index for germany,
 weighting pattern for base year 2015</em>. <a href="https://www.destatis.de/DE/Themen/Wirtschaft/Preise/Verbraucherpreisindex/Methoden/Downloads/waegungsschema-2015.pdf">https://www.destatis.de/DE/Themen/Wirtschaft/Preise/Verbraucherpreisindex/Methoden/Downloads/waegungsschema-2015.pdf</a>
 </div>
+<div id="ref-Destatis2021Die" class="csl-entry" role="listitem">
+Destatis. (2021). <em><span class="nocase">Die Folgen der
+Corona-Pandemie in 10 Zahlen</span></em> (Pressemitteilung N 023 vom 31.
+März 2021).
+</div>
 <div id="ref-Destatis2025Price" class="csl-entry" role="listitem">
 Destatis. (2025). <em>Price kaleidoscope</em>. Statistisches Bundesamt.
 <a href="https://service.destatis.de/Voronoi/PriceKaleidoscope.svg">https://service.destatis.de/Voronoi/PriceKaleidoscope.svg</a>
@@ -771,6 +792,11 @@ Duesenberry, J. (1960). Comment on ’an economic analysis of fertility’.
 In <em>Demographic and economic change in developed countries</em>
 (<span>National Bureau Committee for Economic Research</span>, pp.
 231–234). Princeton University Press.
+</div>
+<div id="ref-Eggertsson2017Are" class="csl-entry" role="listitem">
+Eggertsson, G. B., Juelsrud, R. E., &amp; Wold, E. G. (2017). <em>Are
+negative nominal interest rates expansionary?</em> (NBER Working Paper
+24039). National Bureau of Economic Research (NBER).
 </div>
 <div id="ref-Eilon1969What" class="csl-entry" role="listitem">
 Eilon, S. (1969). What is a decision? <em>Management Science</em>,
@@ -911,6 +937,10 @@ Lusardi, A., &amp; Mitchell, O. S. (2014). The economic importance of
 financial literacy: Theory and evidence. <em>Journal of Economic
 Literature</em>, <em>52</em>(1), 5–44.
 </div>
+<div id="ref-Mankiw2010Macroeconomics" class="csl-entry" role="listitem">
+Mankiw, G. N. (2010). <em>Macroeconomics</em> (7th ed.). Worth
+Publishers, New York.
+</div>
 <div id="ref-Mankiw2020Principles" class="csl-entry" role="listitem">
 Mankiw, N. G. (2024). <em>Principles of economics</em> (10th ed.).
 Cengage Learning.
@@ -973,6 +1003,11 @@ Parkin, M. (2012). <em>Economics</em> (10th ed.). Addison-Wesley.
 <div id="ref-Pugel2015International" class="csl-entry" role="listitem">
 Pugel, T. A. (2015). <em>International economics</em> (16th ed.).
 McGraw-Hill.
+</div>
+<div id="ref-Ramey2019Ten" class="csl-entry" role="listitem">
+Ramey, V. A. (2019). Ten years after the financial crisis: What have we
+learned from the renaissance in fiscal research? <em>Journal of Economic
+Perspectives</em>, <em>33</em>(2), 89–114.
 </div>
 <div id="ref-Reich2017effectiveness" class="csl-entry" role="listitem">
 Reich, A. (2017). <em>The effectiveness of the WTO dispute settlement
@@ -1089,11 +1124,14 @@ Wikipedia. (2025c). <em>Great depression in the united states</em>. <a href="htt
 <div id="ref-Wikipedia2025No" class="csl-entry" role="listitem">
 Wikipedia. (2025d). <em>No such thing as a free lunch</em>. <a href="https://en.wikipedia.org/wiki/No_such_thing_as_a_free_lunch">https://en.wikipedia.org/wiki/No_such_thing_as_a_free_lunch</a>
 </div>
+<div id="ref-Wikipedia2025Shock" class="csl-entry" role="listitem">
+Wikipedia. (2025e). <em>Shock (economics)</em>. <a href="https://en.wikipedia.org/wiki/Shock_(economics)">https://en.wikipedia.org/wiki/Shock_(economics)</a>
+</div>
 <div id="ref-Wikipedia2025Veblen" class="csl-entry" role="listitem">
-Wikipedia. (2025e). <em>Veblen good</em>. <a href="https://en.wikipedia.org/wiki/Veblen_good">https://en.wikipedia.org/wiki/Veblen_good</a>
+Wikipedia. (2025f). <em>Veblen good</em>. <a href="https://en.wikipedia.org/wiki/Veblen_good">https://en.wikipedia.org/wiki/Veblen_good</a>
 </div>
 <div id="ref-Wikipedia2025kuznets" class="csl-entry" role="listitem">
-Wikipedia. (2025f). <em><span>Wikipedia</span><span>,</span> the free
+Wikipedia. (2025g). <em><span>Wikipedia</span><span>,</span> the free
 encyclopedia: File:simon kuznets 1971b.jpg</em>. <a href="https://commons.wikimedia.org/wiki/File:Simon_Kuznets_1971b.jpg">https://commons.wikimedia.org/wiki/File:Simon_Kuznets_1971b.jpg</a>
 </div>
 <div id="ref-Wilkinson2022Managerial" class="csl-entry" role="listitem">
@@ -1119,7 +1157,7 @@ World Bank. (2015). <em>World development indicators</em> [Dataset].
       a.appendChild(i);
       window.document.body.appendChild(a);
     }
-    setColorSchemeToggle(hasAlternateSentinel())
+    window.setColorSchemeToggle(window.hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -1519,8 +1557,8 @@ World Bank. (2015). <em>World development indicators</em> [Dataset].
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./strategic.html" class="pagination-link" aria-label="Strategic trade policy">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Strategic trade policy</span></span>
+      <a href="./policy.html" class="pagination-link" aria-label="Trade policy">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Trade policy</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

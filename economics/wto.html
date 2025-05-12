@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.7.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>32&nbsp; World Trade Organization – Economics</title>
+<title>36&nbsp; World Trade Organization – Economics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,14 +58,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-6c49c5477b92c77c9eb341f9299c235f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1b3682a6310c025b25e0252968a0a6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-12d64ba90eeecca9670aec3cb6d64fd4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-1b3682a6310c025b25e0252968a0a6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1ec64508104361cc5d30fee173ccbc38.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-d75fc606862db31faea375859155f61b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1ec64508104361cc5d30fee173ccbc38.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -118,7 +118,7 @@ div.csl-indent {
         toggleBodyColorMode(bsSheetEl);
       }
     }
-    const setColorSchemeToggle = (alternate) => {
+    window.setColorSchemeToggle = (alternate) => {
       const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
@@ -151,7 +151,7 @@ div.csl-indent {
       }
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
-      setColorSchemeToggle(alternate)
+      window.setColorSchemeToggle(alternate)
       // Hack to workaround the fact that safari doesn't
       // properly recolor the scrollbar when toggling (#1455)
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
@@ -191,7 +191,7 @@ div.csl-indent {
     const isFileUrl = () => {
       return window.location.protocol === 'file:';
     }
-    const hasAlternateSentinel = () => {
+    window.hasAlternateSentinel = () => {
       let styleSentinel = getColorSchemeSentinel();
       if (styleSentinel !== null) {
         return styleSentinel === "alternate";
@@ -219,7 +219,7 @@ div.csl-indent {
       const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
       const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
       let newTheme = '';
-      if(authorPrefersDark) {
+      if(darkModeDefault) {
         newTheme = isAlternate ? baseTheme : alternateTheme;
       } else {
         newTheme = isAlternate ? alternateTheme : baseTheme;
@@ -242,22 +242,20 @@ div.csl-indent {
         changeGiscusTheme();
       }
     };
-    const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
+    const darkModeDefault = false;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
     // Dark / light mode switch
     window.quartoToggleColorScheme = () => {
       // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
+      let toAlternate = !window.hasAlternateSentinel();
       toggleColorMode(toAlternate);
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
     };
     // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
+    if (window.hasAlternateSentinel()) {
       toggleColorMode(true);
     } else {
       toggleColorMode(false);
@@ -271,7 +269,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./wto.html">TRADE POLICY</a></li><li class="breadcrumb-item"><a href="./wto.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">World Trade Organization</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./wto.html">TRADE POLICY</a></li><li class="breadcrumb-item"><a href="./wto.html"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">World Trade Organization</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -502,8 +500,32 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./other.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Other topics</span></span></a>
+  <a href="./demand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Aggregate demand</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./money.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Financial market</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./islm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">IS-LM model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./asad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Aggregate supply and demand</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nirp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Negative interest rates policy</span></span></a>
   </div>
 </li>
       </ul>
@@ -520,19 +542,19 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./currencies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Currencies</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Currencies</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./iinvest.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">International investments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">International investments</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Balance of payments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Balance of payments</span></span></a>
   </div>
 </li>
       </ul>
@@ -549,25 +571,25 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./tradebasic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Basics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Basics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ricardo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Comparative advantage</span></span></a>
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Comparative advantage</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ho.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Endowments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Endowments</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sectorspecific.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">The specific factor model</span></span></a>
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">The specific factor model</span></span></a>
   </div>
 </li>
       </ul>
@@ -584,19 +606,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./wto.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">World Trade Organization</span></span></a>
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">World Trade Organization</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./policy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Trade policy</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./strategic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Strategic trade policy</span></span></a>
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Trade policy</span></span></a>
   </div>
 </li>
       </ul>
@@ -646,14 +662,14 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#principles" id="toc-principles" class="nav-link active" data-scroll-target="#principles"><span class="header-section-number">32.1</span> Principles</a>
+  <li><a href="#principles" id="toc-principles" class="nav-link active" data-scroll-target="#principles"><span class="header-section-number">36.1</span> Principles</a>
   <ul class="collapse">
-  <li><a href="#non-discrimination" id="toc-non-discrimination" class="nav-link" data-scroll-target="#non-discrimination"><span class="header-section-number">32.1.1</span> Non-discrimination:</a></li>
-  <li><a href="#transparency" id="toc-transparency" class="nav-link" data-scroll-target="#transparency"><span class="header-section-number">32.1.2</span> Transparency</a></li>
-  <li><a href="#more-open-and-predictable-trade" id="toc-more-open-and-predictable-trade" class="nav-link" data-scroll-target="#more-open-and-predictable-trade"><span class="header-section-number">32.1.3</span> More open and predictable trade</a></li>
+  <li><a href="#non-discrimination" id="toc-non-discrimination" class="nav-link" data-scroll-target="#non-discrimination"><span class="header-section-number">36.1.1</span> Non-discrimination:</a></li>
+  <li><a href="#transparency" id="toc-transparency" class="nav-link" data-scroll-target="#transparency"><span class="header-section-number">36.1.2</span> Transparency</a></li>
+  <li><a href="#more-open-and-predictable-trade" id="toc-more-open-and-predictable-trade" class="nav-link" data-scroll-target="#more-open-and-predictable-trade"><span class="header-section-number">36.1.3</span> More open and predictable trade</a></li>
   </ul></li>
-  <li><a href="#the-dispute-settlement-body" id="toc-the-dispute-settlement-body" class="nav-link" data-scroll-target="#the-dispute-settlement-body"><span class="header-section-number">32.2</span> The Dispute Settlement Body</a></li>
-  <li><a href="#trump-and-the-wto" id="toc-trump-and-the-wto" class="nav-link" data-scroll-target="#trump-and-the-wto"><span class="header-section-number">32.3</span> Trump and the WTO</a></li>
+  <li><a href="#the-dispute-settlement-body" id="toc-the-dispute-settlement-body" class="nav-link" data-scroll-target="#the-dispute-settlement-body"><span class="header-section-number">36.2</span> The Dispute Settlement Body</a></li>
+  <li><a href="#trump-and-the-wto" id="toc-trump-and-the-wto" class="nav-link" data-scroll-target="#trump-and-the-wto"><span class="header-section-number">36.3</span> Trump and the WTO</a></li>
   </ul>
 </nav>
     </div>
@@ -661,9 +677,9 @@ div.csl-indent {
 <main class="content page-columns page-full" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./wto.html">TRADE POLICY</a></li><li class="breadcrumb-item"><a href="./wto.html"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">World Trade Organization</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./wto.html">TRADE POLICY</a></li><li class="breadcrumb-item"><a href="./wto.html"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">World Trade Organization</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-WTO" class="quarto-section-identifier"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">World Trade Organization</span></span></h1>
+<h1 class="title"><span id="sec-WTO" class="quarto-section-identifier"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">World Trade Organization</span></span></h1>
 </div>
 
 
@@ -680,19 +696,19 @@ div.csl-indent {
 </header>
 
 
-<section id="principles" class="level2" data-number="32.1">
-<h2 data-number="32.1" class="anchored" data-anchor-id="principles"><span class="header-section-number">32.1</span> Principles</h2>
+<section id="principles" class="level2" data-number="36.1">
+<h2 data-number="36.1" class="anchored" data-anchor-id="principles"><span class="header-section-number">36.1</span> Principles</h2>
 <div id="fig-wto" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-wto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;32.1: The World Trade Organization (WTO)
+Figure&nbsp;36.1: The World Trade Organization (WTO)
 </figcaption>
 <div aria-describedby="fig-wto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="fig/wto.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;32.1: The World Trade Organization (WTO)"><img src="fig/wto.png" class="img-fluid figure-img" style="width:25.0%"></a>
+<a href="fig/wto.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;36.1: The World Trade Organization (WTO)"><img src="fig/wto.png" class="img-fluid figure-img" style="width:25.0%"></a>
 </div>
 </figure>
 </div>
-<p>The World Trade Organization (WTO) (see <a href="#fig-wto" class="quarto-xref">Figure&nbsp;<span>32.1</span></a>) is an intergovernmental organization that regulates international trade and replaced in 1995 the General Agreement on Tariffs and Trade (GATT). 164 (!) countries are currently member of the WTO. The WTO facilitates the smooth and free flow of global trade through the administration and monitoring of a rules-based system that should among others help to make international trade (policy) more predictable. This set of rules is embodied in the WTO Agreements which are based on basic principles, that are described in the following three sub-sections.</p>
+<p>The World Trade Organization (WTO) (see <a href="#fig-wto" class="quarto-xref">Figure&nbsp;<span>36.1</span></a>) is an intergovernmental organization that regulates international trade and replaced in 1995 the General Agreement on Tariffs and Trade (GATT). 164 (!) countries are currently member of the WTO. The WTO facilitates the smooth and free flow of global trade through the administration and monitoring of a rules-based system that should among others help to make international trade (policy) more predictable. This set of rules is embodied in the WTO Agreements which are based on basic principles, that are described in the following three sub-sections.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Watch: [The World Trade Organization (WTO) - Explained With Maps](https://youtu.be/3Gqq2sBWai4)">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -707,8 +723,8 @@ Watch: <a href="https://youtu.be/3Gqq2sBWai4">The World Trade Organization (WTO)
 </iframe>
 </div>
 </div>
-<section id="non-discrimination" class="level3" data-number="32.1.1">
-<h3 data-number="32.1.1" class="anchored" data-anchor-id="non-discrimination"><span class="header-section-number">32.1.1</span> Non-discrimination:</h3>
+<section id="non-discrimination" class="level3" data-number="36.1.1">
+<h3 data-number="36.1.1" class="anchored" data-anchor-id="non-discrimination"><span class="header-section-number">36.1.1</span> Non-discrimination:</h3>
 <section id="the-most-favoured-nation-rule-mfn" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="the-most-favoured-nation-rule-mfn">The Most Favoured Nation rule (MFN)</h4>
 <p>The MFN ensures non-discrimination between trading partners as it states that if a WTO member grants a country an advantage, it has to give such advantage to all WTO members. Thus, a WTO member has to grant the most favorable conditions under which it allows trade in a certain product type to all other WTO members. However, there is no rule without an exceptions.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
@@ -750,18 +766,18 @@ Watch:
 </div>
 </section>
 </section>
-<section id="transparency" class="level3" data-number="32.1.2">
-<h3 data-number="32.1.2" class="anchored" data-anchor-id="transparency"><span class="header-section-number">32.1.2</span> Transparency</h3>
+<section id="transparency" class="level3" data-number="36.1.2">
+<h3 data-number="36.1.2" class="anchored" data-anchor-id="transparency"><span class="header-section-number">36.1.2</span> Transparency</h3>
 <p>All WTO members must publish their trade regulations and changes therein. Moreover, members should respond to requests for information by other members.</p>
 </section>
-<section id="more-open-and-predictable-trade" class="level3" data-number="32.1.3">
-<h3 data-number="32.1.3" class="anchored" data-anchor-id="more-open-and-predictable-trade"><span class="header-section-number">32.1.3</span> More open and predictable trade</h3>
+<section id="more-open-and-predictable-trade" class="level3" data-number="36.1.3">
+<h3 data-number="36.1.3" class="anchored" data-anchor-id="more-open-and-predictable-trade"><span class="header-section-number">36.1.3</span> More open and predictable trade</h3>
 <p>While the use of tariffs and quotas is not prohibited, members have committed to carry out multilateral negotiations periodically with a view to reduce the general level of trade barriers.</p>
 </section>
 </section>
-<section id="the-dispute-settlement-body" class="level2 page-columns page-full" data-number="32.2">
-<h2 data-number="32.2" class="anchored" data-anchor-id="the-dispute-settlement-body"><span class="header-section-number">32.2</span> The Dispute Settlement Body</h2>
-<p>To make decisions on trade disputes between governments that are adjudicated by the organization, the WTO has established the Dispute Settlement Body (DSB). The Dispute Settlement Body is a meeting of the WTO General Council that brings together all representatives of WTO member governments, usually at the ambassador level. Any WTO member that believes another member is in violation of an obligation or WTO rule can file a complaint. The goal of the Dispute Settlement Body is then to find a solution to the dispute, including any violation. The first step is consultations between governments. If the dispute cannot be resolved through discussions, the DSB makes a decision and the offending country is ordered to correct its policies. In most cases, countries find a mutually acceptable solution to the dispute. If the offending country does not correct its policy or provide other compensation, the WTO authorizes retaliatory action by the complaining country against the offending country. The adjudication process can take some time, as can the implementation of remedies to enforce or compensate for the violation of a WTO rule. <a href="#fig-dischart" class="quarto-xref">Figure&nbsp;<span>32.2</span></a> provides an overview of the average number of active, that is, unresolved, complaints in recent years.</p>
+<section id="the-dispute-settlement-body" class="level2 page-columns page-full" data-number="36.2">
+<h2 data-number="36.2" class="anchored" data-anchor-id="the-dispute-settlement-body"><span class="header-section-number">36.2</span> The Dispute Settlement Body</h2>
+<p>To make decisions on trade disputes between governments that are adjudicated by the organization, the WTO has established the Dispute Settlement Body (DSB). The Dispute Settlement Body is a meeting of the WTO General Council that brings together all representatives of WTO member governments, usually at the ambassador level. Any WTO member that believes another member is in violation of an obligation or WTO rule can file a complaint. The goal of the Dispute Settlement Body is then to find a solution to the dispute, including any violation. The first step is consultations between governments. If the dispute cannot be resolved through discussions, the DSB makes a decision and the offending country is ordered to correct its policies. In most cases, countries find a mutually acceptable solution to the dispute. If the offending country does not correct its policy or provide other compensation, the WTO authorizes retaliatory action by the complaining country against the offending country. The adjudication process can take some time, as can the implementation of remedies to enforce or compensate for the violation of a WTO rule. <a href="#fig-dischart" class="quarto-xref">Figure&nbsp;<span>36.2</span></a> provides an overview of the average number of active, that is, unresolved, complaints in recent years.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Up-to-date sources of information">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -782,10 +798,10 @@ Up-to-date sources of information
 <div id="fig-dischart" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-dischart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;32.2: Average annual number of active proceedings per month 1995-2018
+Figure&nbsp;36.2: Average annual number of active proceedings per month 1995-2018
 </figcaption>
 <div aria-describedby="fig-dischart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="fig/dischart.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;32.2: Average annual number of active proceedings per month 1995-2018"><img src="fig/dischart.png" class="img-fluid figure-img" style="width:80.0%"></a></p>
+<p><a href="fig/dischart.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;36.2: Average annual number of active proceedings per month 1995-2018"><img src="fig/dischart.png" class="img-fluid figure-img" style="width:80.0%"></a></p>
 <p><em>Note: Annual averages are calculated on the basis of the number of active proceedings per month (January to December) over the yearly period concerned (e.g.&nbsp;in 2017, 39 proceedings were active per month, on average). The 2018 average is based on the number of active proceedings in January, February and March. Source: www.wto.org</em></p>
 </div>
 </figure>
@@ -793,10 +809,10 @@ Figure&nbsp;32.2: Average annual number of active proceedings per month 1995-201
 <div id="fig-duration" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-duration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;32.3: Duration of each stage of proceedings
+Figure&nbsp;36.3: Duration of each stage of proceedings
 </figcaption>
 <div aria-describedby="fig-duration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<p><a href="fig/duration.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;32.3: Duration of each stage of proceedings"><img src="fig/duration.png" class="img-fluid figure-img" style="width:80.0%"></a></p>
+<p><a href="fig/duration.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;36.3: Duration of each stage of proceedings"><img src="fig/duration.png" class="img-fluid figure-img" style="width:80.0%"></a></p>
 <div class="page-columns page-full"><p><em>Source: <span class="citation" data-cites="Johannesson2017WTO">Johannesson &amp; Mavroidis (<a href="references.html#ref-Johannesson2017WTO" role="doc-biblioref">2017</a>)</span> </em></p><div class="no-row-height column-margin column-container"><div id="ref-Johannesson2017WTO" class="csl-entry" role="listitem">
 Johannesson, L., &amp; Mavroidis, P. C. (2017). <em>The WTO dispute settlement system 1995‒2015: A data set and its descriptive statistics</em> (IFN Working Paper 1148). Institute of Industrial Economics (IFN).
 </div></div></div>
@@ -806,15 +822,15 @@ Johannesson, L., &amp; Mavroidis, P. C. (2017). <em>The WTO dispute settlement s
 <div id="fig-userdsb" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-userdsb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;32.4: Most active countries at the trade dispute settlement body
+Figure&nbsp;36.4: Most active countries at the trade dispute settlement body
 </figcaption>
 <div aria-describedby="fig-userdsb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<p><a href="fig/userdsb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;32.4: Most active countries at the trade dispute settlement body"><img src="fig/userdsb.png" class="img-fluid figure-img" style="width:70.0%"></a></p>
+<p><a href="fig/userdsb.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;36.4: Most active countries at the trade dispute settlement body"><img src="fig/userdsb.png" class="img-fluid figure-img" style="width:70.0%"></a></p>
 <div class="page-columns page-full"><p><em>Source: <span class="citation" data-cites="Reich2017effectiveness">Reich (<a href="references.html#ref-Reich2017effectiveness" role="doc-biblioref">2017</a>)</span> </em></p><div class="no-row-height column-margin column-container"></div></div>
 </div>
 </figure>
 </div>
-<p>Referring to <span class="citation" data-cites="Reich2017effectiveness">Reich (<a href="references.html#ref-Reich2017effectiveness" role="doc-biblioref">2017</a>)</span> the USA was a sinner. As <a href="#fig-userdsb" class="quarto-xref">Figure&nbsp;<span>32.4</span></a>, <a href="#fig-disus" class="quarto-xref">Figure&nbsp;<span>32.6</span></a>, and <a href="#fig-diseuro" class="quarto-xref">Figure&nbsp;<span>32.5</span></a> show, the US was the respondent in a relatively high proportion of all issued panel reports, namely in 38% of them (78 out 207). However, this high rate of US participation as respondent to complaints on trade violations is still much lower than its share in suspension requests. In the years I reviewed, there were 75 complainants that prevailed over the US. These are the cases where there is a potential for suspension requests in case of non-compliance. Indeed, 26 of these complainants ended up submitting suspension request against the US. That corresponds to 34.6% of the total. In other words, more than one third of the complainants who prevailed over the US in dispute settlement procedures, were forced to turn to trade sanctions in their effort to obtain compliance by the US.</p>
+<p>Referring to <span class="citation" data-cites="Reich2017effectiveness">Reich (<a href="references.html#ref-Reich2017effectiveness" role="doc-biblioref">2017</a>)</span> the USA was a sinner. As <a href="#fig-userdsb" class="quarto-xref">Figure&nbsp;<span>36.4</span></a>, <a href="#fig-disus" class="quarto-xref">Figure&nbsp;<span>36.6</span></a>, and <a href="#fig-diseuro" class="quarto-xref">Figure&nbsp;<span>36.5</span></a> show, the US was the respondent in a relatively high proportion of all issued panel reports, namely in 38% of them (78 out 207). However, this high rate of US participation as respondent to complaints on trade violations is still much lower than its share in suspension requests. In the years I reviewed, there were 75 complainants that prevailed over the US. These are the cases where there is a potential for suspension requests in case of non-compliance. Indeed, 26 of these complainants ended up submitting suspension request against the US. That corresponds to 34.6% of the total. In other words, more than one third of the complainants who prevailed over the US in dispute settlement procedures, were forced to turn to trade sanctions in their effort to obtain compliance by the US.</p>
 <div class="no-row-height column-margin column-container"></div><div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Suspension requests are...">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -837,10 +853,10 @@ Reich, A. (2017). <em>The effectiveness of the WTO dispute settlement system: A 
 </div></div><div id="fig-diseuro" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-diseuro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;32.5: Map of trade disputes of the European Union
+Figure&nbsp;36.5: Map of trade disputes of the European Union
 </figcaption>
 <div aria-describedby="fig-diseuro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="fig/diseuro.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;32.5: Map of trade disputes of the European Union"><img src="fig/diseuro.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<p><a href="fig/diseuro.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;36.5: Map of trade disputes of the European Union"><img src="fig/diseuro.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
 <p><em>Source: <a href="www.wto.org">www.wto.org</a></em></p>
 </div>
 </figure>
@@ -848,17 +864,17 @@ Figure&nbsp;32.5: Map of trade disputes of the European Union
 <div id="fig-disus" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-disus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;32.6: Map of trade disputes of the United States of America
+Figure&nbsp;36.6: Map of trade disputes of the United States of America
 </figcaption>
 <div aria-describedby="fig-disus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="fig/disus.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;32.6: Map of trade disputes of the United States of America"><img src="fig/disus.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<p><a href="fig/disus.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;36.6: Map of trade disputes of the United States of America"><img src="fig/disus.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
 <p><em>Source: <a href="www.wto.org">www.wto.org</a></em></p>
 </div>
 </figure>
 </div>
 </section>
-<section id="trump-and-the-wto" class="level2" data-number="32.3">
-<h2 data-number="32.3" class="anchored" data-anchor-id="trump-and-the-wto"><span class="header-section-number">32.3</span> Trump and the WTO</h2>
+<section id="trump-and-the-wto" class="level2" data-number="36.3">
+<h2 data-number="36.3" class="anchored" data-anchor-id="trump-and-the-wto"><span class="header-section-number">36.3</span> Trump and the WTO</h2>
 <p>Read the following excerpt of an article entitled with <em>“Trump Trade Fight Heads to Global Court as WTO Nears the Rubicon”</em> by Bryce Baschuk at <a href="www.bloomberg.com/news/articles/2018-11-20/trump-trade-fight-heads-to-global-court-as-wto-nears-the-rubicon">www.bloomberg.com</a> published on 21. of November 2018:</p>
 <blockquote class="blockquote">
 <p>The Geneva-based WTO has long avoided this politically fraught confrontation, which could irreparably harm the organization tasked with deciding international trade disputes. But barring any unforeseen developments, the WTO on Nov.&nbsp;21 will grant requests from members including China and the European Union to determine if U.S. steel and aluminum tariffs imposed in March – and based on national security concerns – are legal.</p>
@@ -875,15 +891,15 @@ Figure&nbsp;32.6: Map of trade disputes of the United States of America
 </div>
 <div class="callout-body-container">
 <div id="exr-godsdiplom" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 32.1</strong></span> God’s diplomacy</p>
+<p><span class="theorem-title"><strong>Exercise 36.1</strong></span> God’s diplomacy</p>
 <p>Watch the speech of Boris Johnson and discuss what is meant with <a href="https://x.com/i/status/1224392062587604994">free trade is god’s diplomacy</a>.</p>
 <div id="fig-" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;32.7: Boris Johnson
+Figure&nbsp;36.7: Boris Johnson
 </figcaption>
 <div aria-describedby="fig--caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="fig/godsdiplomacy.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;32.7: Boris Johnson"><img src="fig/godsdiplomacy.png" class="img-fluid figure-img" style="width:30.0%"></a></p>
+<p><a href="fig/godsdiplomacy.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;36.7: Boris Johnson"><img src="fig/godsdiplomacy.png" class="img-fluid figure-img" style="width:30.0%"></a></p>
 <p><em>Source: <a href="https://x.com/mattwridley/status/1224392062587604994">x.com/mattwridley</a></em></p>
 </div>
 </figure>
@@ -919,7 +935,7 @@ Figure&nbsp;32.7: Boris Johnson
       a.appendChild(i);
       window.document.body.appendChild(a);
     }
-    setColorSchemeToggle(hasAlternateSentinel())
+    window.setColorSchemeToggle(window.hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -1320,12 +1336,12 @@ Figure&nbsp;32.7: Boris Johnson
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./sectorspecific.html" class="pagination-link" aria-label="The specific factor model">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">The specific factor model</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">The specific factor model</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./policy.html" class="pagination-link" aria-label="Trade policy">
-        <span class="nav-page-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Trade policy</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Trade policy</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
