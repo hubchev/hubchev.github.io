@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.27">
+<meta name="generator" content="quarto-1.7.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -50,7 +50,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./strategic.html" rel="next">
+<link href="./references.html" rel="next">
 <link href="./wto.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -58,14 +58,14 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-6c49c5477b92c77c9eb341f9299c235f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-985aa47af68dae11cd4d235c71fb941e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1ec64508104361cc5d30fee173ccbc38.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-d75fc606862db31faea375859155f61b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-1ec64508104361cc5d30fee173ccbc38.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-1b3682a6310c025b25e0252968a0a6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-12d64ba90eeecca9670aec3cb6d64fd4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1b3682a6310c025b25e0252968a0a6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -147,7 +147,7 @@ window.Quarto = {
         toggleBodyColorMode(bsSheetEl);
       }
     }
-    window.setColorSchemeToggle = (alternate) => {
+    const setColorSchemeToggle = (alternate) => {
       const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
@@ -180,7 +180,7 @@ window.Quarto = {
       }
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
-      window.setColorSchemeToggle(alternate)
+      setColorSchemeToggle(alternate)
       // Hack to workaround the fact that safari doesn't
       // properly recolor the scrollbar when toggling (#1455)
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
@@ -220,7 +220,7 @@ window.Quarto = {
     const isFileUrl = () => {
       return window.location.protocol === 'file:';
     }
-    window.hasAlternateSentinel = () => {
+    const hasAlternateSentinel = () => {
       let styleSentinel = getColorSchemeSentinel();
       if (styleSentinel !== null) {
         return styleSentinel === "alternate";
@@ -248,7 +248,7 @@ window.Quarto = {
       const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
       const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
       let newTheme = '';
-      if(darkModeDefault) {
+      if(authorPrefersDark) {
         newTheme = isAlternate ? baseTheme : alternateTheme;
       } else {
         newTheme = isAlternate ? alternateTheme : baseTheme;
@@ -271,20 +271,22 @@ window.Quarto = {
         changeGiscusTheme();
       }
     };
-    const darkModeDefault = false;
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
       document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
       document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
     let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
     // Dark / light mode switch
     window.quartoToggleColorScheme = () => {
       // Read the current dark / light value
-      let toAlternate = !window.hasAlternateSentinel();
+      let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
     };
     // Switch to dark mode if need be
-    if (window.hasAlternateSentinel()) {
+    if (hasAlternateSentinel()) {
       toggleColorMode(true);
     } else {
       toggleColorMode(false);
@@ -419,12 +421,6 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./policy.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Trade policy</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./strategic.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Strategic trade policy</span></span></a>
   </div>
 </li>
       </ul>
@@ -1021,7 +1017,7 @@ Derviş, K., &amp; Conroy, C. (2018). <em>What’s behind trump’s trade war?</
 </section>
 <section id="sec-gains-from-trade" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="sec-gains-from-trade"><span class="header-section-number">9.5</span> Gains from trade</h2>
-<p><a href="strategic.html#fig-gft1" class="quarto-xref">Figure&nbsp;<span>10.1</span></a> and <a href="strategic.html#fig-gft2" class="quarto-xref">Figure&nbsp;<span>10.2</span></a> contain domestic supply and demand curves. In autarky with no possibilities to trade, supply and demand must meet. Under free trade and a given world market price, <span class="math inline">\(P^W\)</span>, countries can trade with each other. This has implications for the producer surplus (yellow area) and the consumer surplus (blue area), as shown in the figures. The area of the triangles a and b as denoted in <a href="strategic.html#fig-gft2" class="quarto-xref">Figure&nbsp;<span>10.2</span></a> represents the welfare gain from free trade that can be achieved given the world market price, <span class="math inline">\(P^W\)</span>.</p>
+<p><a href="#fig-gft1" class="quarto-xref">Figure&nbsp;<span>9.14</span></a> and <a href="#fig-gft2" class="quarto-xref">Figure&nbsp;<span>9.15</span></a> contain domestic supply and demand curves. In autarky with no possibilities to trade, supply and demand must meet. Under free trade and a given world market price, <span class="math inline">\(P^W\)</span>, countries can trade with each other. This has implications for the producer surplus (yellow area) and the consumer surplus (blue area), as shown in the figures. The area of the triangles a and b as denoted in <a href="#fig-gft2" class="quarto-xref">Figure&nbsp;<span>9.15</span></a> represents the welfare gain from free trade that can be achieved given the world market price, <span class="math inline">\(P^W\)</span>.</p>
 <div id="fig-gft1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-gft1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1045,8 +1041,8 @@ Figure&nbsp;9.15: Two countries that trade with each other
 </section>
 <section id="tariffs-in-small-open-economies" class="level2" data-number="9.6">
 <h2 data-number="9.6" class="anchored" data-anchor-id="tariffs-in-small-open-economies"><span class="header-section-number">9.6</span> Tariffs in small open economies</h2>
-<p><a href="strategic.html#fig-t1" class="quarto-xref">Figure&nbsp;<span>10.3</span></a> can teach us a lot about the impact of a tariff <span class="math inline">\(t\)</span> on trade and welfare. A tariff raises the domestic price of imported goods. If we assume that the imposition or change of a country’s tariff has no effect on the world price, we consider what is called a small open economy, which is so small that the country’s consumption and production decisions do not affect the world price. In other words, the country takes the world price for granted because its import demand does not change the world price.</p>
-<p>In autarky, the economy represented in <a href="strategic.html#fig-t1" class="quarto-xref">Figure&nbsp;<span>10.3</span></a> would consume 5 units at price <span class="math inline">\(P^A\)</span>, and total welfare would be represented by areas <span class="math inline">\(a+b_2+b_1\)</span>. Under free trade without tariffs, the country imports 8 units and consumes 9 units at the price of <span class="math inline">\(P^W\)</span>. The consumer surplus corresponds to areas <span class="math inline">\(a+b_2+d_1+c+d_2\)</span> and the producer surplus corresponds to area <span class="math inline">\(b_1\)</span>. After the introduction of tariff <span class="math inline">\(t\)</span>, the consumer surplus is equal to area <span class="math inline">\(a\)</span> and the producer surplus is equal to area <span class="math inline">\(b_1+b_2\)</span>. Thus, consumer surplus has decreased while producer surplus has increased. The area <span class="math inline">\(c\)</span> is equal to the government’s revenue. It represents the portion of the consumer welfare loss that is transferred to the government. Overall, welfare has decreased. The welfare loss is equal to the areas of the two triangles <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span>. These triangles represent what is called the <em>deadweight loss</em> due to the tariff.<br>
+<p><a href="#fig-t1" class="quarto-xref">Figure&nbsp;<span>9.16</span></a> can teach us a lot about the impact of a tariff <span class="math inline">\(t\)</span> on trade and welfare. A tariff raises the domestic price of imported goods. If we assume that the imposition or change of a country’s tariff has no effect on the world price, we consider what is called a small open economy, which is so small that the country’s consumption and production decisions do not affect the world price. In other words, the country takes the world price for granted because its import demand does not change the world price.</p>
+<p>In autarky, the economy represented in <a href="#fig-t1" class="quarto-xref">Figure&nbsp;<span>9.16</span></a> would consume 5 units at price <span class="math inline">\(P^A\)</span>. Under free trade without tariffs, the country imports 8 units and consumes 9 units at the price of <span class="math inline">\(P^W\)</span>. The consumer surplus corresponds to areas <span class="math inline">\(a+b_2+d_1+c+d_2\)</span> and the producer surplus corresponds to area <span class="math inline">\(b_1\)</span>. After the introduction of tariff <span class="math inline">\(t\)</span>, the consumer surplus is equal to area <span class="math inline">\(a\)</span> and the producer surplus is equal to area <span class="math inline">\(b_1+b_2\)</span>. Thus, consumer surplus has decreased while producer surplus has increased. The area <span class="math inline">\(c\)</span> is equal to the government’s revenue. It represents the portion of the consumer welfare loss that is transferred to the government. Overall, welfare has decreased. The welfare loss is equal to the areas of the two triangles <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span>. These triangles represent what is called the <em>deadweight loss</em> due to the tariff.<br>
 Specifically, triangle <span class="math inline">\(d_1\)</span> represents the reduction in imports that is replaced by domestic production, and triangle <span class="math inline">\(d_2\)</span> represents the loss in consumption due to a reduction in imports and a reduction in domestic consumption.</p>
 <div id="fig-t1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1075,7 +1071,7 @@ The implications of a tariff in a small economy
 <section id="quotas-in-small-open-economies" class="level2" data-number="9.7">
 <h2 data-number="9.7" class="anchored" data-anchor-id="quotas-in-small-open-economies"><span class="header-section-number">9.7</span> Quotas in small open economies</h2>
 <p>A trade restriction that sets a physical limit on the quantity of a good to be imported is called an import quota. It gives government officials more power and control than a tariff because they can strictly limit the quantity of goods traded and have the administrative authority to grant (or sell) import licenses to certain foreign exporters.</p>
-<p><a href="strategic.html#fig-importquotasmall" class="quarto-xref">Figure&nbsp;<span>10.4</span></a> shows the impact of an import quota that allows an import quantity of 4 units. In this scenario, 7 units are consumed, four of which are imported. The price at which all seven units are consumed is <span class="math inline">\(P*\)</span>. This is somewhat surprising because the world price <span class="math inline">\(P^W\)</span> is less than <span class="math inline">\(P^*\)</span>. The reason is that all firms that are allowed to sell their products do so at the highest possible price, that is, <span class="math inline">\(P^*\)</span>. As above, the blue area is the consumer surplus and the yellow area is the producer surplus. The gray area is the loss in value due to the import rate. The rectangle <span class="math inline">\(c\)</span> is only part of this loss, since we assume that the government does not sell the licenses to the best bidding exporting firm</p>
+<p><a href="#fig-importquotasmall" class="quarto-xref">Figure&nbsp;<span>9.17</span></a> shows the impact of an import quota that allows an import quantity of 4 units. In this scenario, 7 units are consumed, four of which are imported. The price at which all seven units are consumed is <span class="math inline">\(P*\)</span>. This is somewhat surprising because the world price <span class="math inline">\(P^W\)</span> is less than <span class="math inline">\(P^*\)</span>. The reason is that all firms that are allowed to sell their products do so at the highest possible price, that is, <span class="math inline">\(P^*\)</span>. As above, the blue area is the consumer surplus and the yellow area is the producer surplus. The gray area is the loss in value due to the import rate. The rectangle <span class="math inline">\(c\)</span> is only part of this loss, since we assume that the government does not sell the licenses to the best bidding exporting firm</p>
 <div id="fig-importquotasmall" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-importquotasmall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1089,7 +1085,7 @@ Figure&nbsp;9.17: Tariff in a small open economy
 </section>
 <section id="tariffs-in-large-open-economies" class="level2" data-number="9.8">
 <h2 data-number="9.8" class="anchored" data-anchor-id="tariffs-in-large-open-economies"><span class="header-section-number">9.8</span> Tariffs in large open economies</h2>
-<p>So far, we have assumed that the country of interest is small and takes the world market price as given. However, large countries’ demand for imported goods can have an impact on world prices. If this is the case, we can show that a tariff can actually improve a country’s welfare. <a href="strategic.html#fig-tarlarg" class="quarto-xref">Figure&nbsp;<span>10.5</span></a> illustrates the effects of a tariff on welfare, prices, and trade. In particular, we show the impact of a small tariff of 6 euros per bicycle.</p>
+<p>So far, we have assumed that the country of interest is small and takes the world market price as given. However, large countries’ demand for imported goods can have an impact on world prices. If this is the case, we can show that a tariff can actually improve a country’s welfare. <a href="#fig-tarlarg" class="quarto-xref">Figure&nbsp;<span>9.18</span></a> illustrates the effects of a tariff on welfare, prices, and trade. In particular, we show the impact of a small tariff of 6 euros per bicycle.</p>
 <div id="fig-tarlarg" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-tarlarg-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1154,7 +1150,7 @@ Figure&nbsp;9.19: The CE marking
 </div>
 </figure>
 </div>
-<p>The CE marking shown in <a href="strategic.html#fig-ce" class="quarto-xref">Figure&nbsp;<span>10.6</span></a> is one example for a non tariff trade barrier. It is not an abbreviation for <em>China Export</em>, as many believe. While CE is sometimes indicated as an abbreviation of <em>Conformite Europeenne</em> (French for <em>European Conformity</em>), it is not defined as such in the relevant legislation. The mark indicates that the product may be sold freely in any part of the European Economic Area, irrespective of its country of origin. The CE marking is a declaration by the manufacturer (not by some authority!) that the product complies with EU standards for health, safety and environmental protection for products sold within the European Economic Area (EEA). Thus, it is not a quality indicator or a certification mark and may also be found on products sold outside the EEA. You may also know the _FCC Declaration of Conformity} which is used for selling certain electronic devices in the United States.</p>
+<p>The CE marking shown in <a href="#fig-ce" class="quarto-xref">Figure&nbsp;<span>9.19</span></a> is one example for a non tariff trade barrier. It is not an abbreviation for <em>China Export</em>, as many believe. While CE is sometimes indicated as an abbreviation of <em>Conformite Europeenne</em> (French for <em>European Conformity</em>), it is not defined as such in the relevant legislation. The mark indicates that the product may be sold freely in any part of the European Economic Area, irrespective of its country of origin. The CE marking is a declaration by the manufacturer (not by some authority!) that the product complies with EU standards for health, safety and environmental protection for products sold within the European Economic Area (EEA). Thus, it is not a quality indicator or a certification mark and may also be found on products sold outside the EEA. You may also know the _FCC Declaration of Conformity} which is used for selling certain electronic devices in the United States.</p>
 </div>
 </div>
 <div class="callout callout-style-simple callout-important no-icon">
@@ -1164,8 +1160,8 @@ Figure&nbsp;9.19: The CE marking
 </div>
 <div class="callout-body-container">
 <div id="exr-tariff" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9.6</strong></span> Tariff (<a href="strategic.html#sol-tariff" class="quarto-xref">Solution&nbsp;<span>10.1</span></a>)</p>
-<p>Referring to <a href="strategic.html#fig-tariff" class="quarto-xref">Figure&nbsp;<span>10.7</span></a>, the government of a large country needs your help to decide whether the introduction of a tariff of $100 per metric ton of on steel is a good idea, or not. At the current world market price of <span class="math inline">\(p^W=\)</span> 600$, the country imports 14 millions metric tons of steel. The government expects that a tariff of $100 per ton of steel would decrease the world market price of steel for $1.</p>
+<p><span class="theorem-title"><strong>Exercise 9.6</strong></span> Tariff (<a href="#sol-tariff" class="quarto-xref">Solution&nbsp;<span>9.2</span></a>)</p>
+<p>Referring to <a href="#fig-tariff" class="quarto-xref">Figure&nbsp;<span>9.20</span></a>, the government of a large country needs your help to decide whether the introduction of a tariff of $100 per metric ton of on steel is a good idea, or not. At the current world market price of <span class="math inline">\(p^W=\)</span> 600$, the country imports 14 millions metric tons of steel. The government expects that a tariff of $100 per ton of steel would decrease the world market price of steel for $1.</p>
 <ol type="a">
 <li>Calculate how much the overall welfare gain (or loss) of the country would be in case the government decides to introduce a tariff of $ 100 per ton of steel. Assume thereby that the supply curve is given by <span class="math display">\[
 P^s=400+\frac{1}{2}Q^s
@@ -1197,9 +1193,9 @@ Figure&nbsp;9.20: Exercise: Tariff
 </div>
 <div class="callout-body-container">
 <div id="sol-tariff" class="proof solution">
-<p><span class="proof-title"><em>Solution 9.2</em>. </span>Tariff (<a href="strategic.html#exr-tariff" class="quarto-xref">Exercise&nbsp;<span>10.1</span></a>)</p>
+<p><span class="proof-title"><em>Solution 9.2</em>. </span>Tariff (<a href="#exr-tariff" class="quarto-xref">Exercise&nbsp;<span>9.6</span></a>)</p>
 <ol type="a">
-<li>By analogy with <a href="strategic.html#fig-tarlarg" class="quarto-xref">Figure&nbsp;<span>10.5</span></a>, here we should compare the two gray triangles with area <span class="math inline">\(c_2\)</span>.</li>
+<li>By analogy with <a href="#fig-tarlarg" class="quarto-xref">Figure&nbsp;<span>9.18</span></a>, here we should compare the two gray triangles with area <span class="math inline">\(c_2\)</span>.</li>
 </ol>
 <p>The price per metric ton of steel from foreign suppliers will be $699 because government will charge $100 on each ton of steel which is now worth $599 on world markets. As $699 is still below the autarky price of $950, domestic suppliers will set prices to be equal to $699. Thus,</p>
 <p><span class="math display">\[\begin{align*}
@@ -1257,7 +1253,7 @@ Figure&nbsp;9.20: Exercise: Tariff
       a.appendChild(i);
       window.document.body.appendChild(a);
     }
-    window.setColorSchemeToggle(window.hasAlternateSentinel())
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -1662,8 +1658,8 @@ Figure&nbsp;9.20: Exercise: Tariff
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./strategic.html" class="pagination-link" aria-label="Strategic trade policy">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Strategic trade policy</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
