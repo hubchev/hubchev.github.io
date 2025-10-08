@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Regression analysis – Quantitative Methods</title>
+<title>8&nbsp; Regression analysis – Quantitative Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -86,7 +86,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./experiments.html" rel="next">
-<link href="./identification.html" rel="prev">
+<link href="./causalinf.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -332,7 +332,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./epidem.html">IDENTIFICATION</a></li><li class="breadcrumb-item"><a href="./regression.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression analysis</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./epidem.html">IDENTIFICATION</a></li><li class="breadcrumb-item"><a href="./regression.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression analysis</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -430,20 +430,26 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./identification.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Identification</span></span></a>
+  <a href="./qca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Qualitative comparative analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./causalinf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Causal inference</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./regression.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression analysis</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./experiments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Out-of-lab experiments</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Out-of-lab experiments</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -493,30 +499,29 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#simple-linear-regression" id="toc-simple-linear-regression" class="nav-link active" data-scroll-target="#simple-linear-regression"><span class="header-section-number">7.1</span> Simple linear regression</a>
+  <li><a href="#simple-linear-regression" id="toc-simple-linear-regression" class="nav-link active" data-scroll-target="#simple-linear-regression"><span class="header-section-number">8.1</span> Simple linear regression</a>
   <ul class="collapse">
-  <li><a href="#estimating-the-coefficients-of-the-linear-regression-model" id="toc-estimating-the-coefficients-of-the-linear-regression-model" class="nav-link" data-scroll-target="#estimating-the-coefficients-of-the-linear-regression-model"><span class="header-section-number">7.1.1</span> Estimating the coefficients of the linear regression model</a></li>
-  <li><a href="#the-least-squares-assumptions" id="toc-the-least-squares-assumptions" class="nav-link" data-scroll-target="#the-least-squares-assumptions"><span class="header-section-number">7.1.2</span> The least squares assumptions</a></li>
-  <li><a href="#measures-of-fit" id="toc-measures-of-fit" class="nav-link" data-scroll-target="#measures-of-fit"><span class="header-section-number">7.1.3</span> Measures of fit</a></li>
+  <li><a href="#estimating-the-coefficients-of-the-linear-regression-model" id="toc-estimating-the-coefficients-of-the-linear-regression-model" class="nav-link" data-scroll-target="#estimating-the-coefficients-of-the-linear-regression-model"><span class="header-section-number">8.1.1</span> Estimating the coefficients of the linear regression model</a></li>
+  <li><a href="#the-least-squares-assumptions" id="toc-the-least-squares-assumptions" class="nav-link" data-scroll-target="#the-least-squares-assumptions"><span class="header-section-number">8.1.2</span> The least squares assumptions</a></li>
+  <li><a href="#measures-of-fit" id="toc-measures-of-fit" class="nav-link" data-scroll-target="#measures-of-fit"><span class="header-section-number">8.1.3</span> Measures of fit</a></li>
   </ul></li>
-  <li><a href="#multiple-linear-regression" id="toc-multiple-linear-regression" class="nav-link" data-scroll-target="#multiple-linear-regression"><span class="header-section-number">7.2</span> Multiple linear regression</a>
+  <li><a href="#multiple-linear-regression" id="toc-multiple-linear-regression" class="nav-link" data-scroll-target="#multiple-linear-regression"><span class="header-section-number">8.2</span> Multiple linear regression</a>
   <ul class="collapse">
-  <li><a href="#sec-simpsonregress" id="toc-sec-simpsonregress" class="nav-link" data-scroll-target="#sec-simpsonregress"><span class="header-section-number">7.2.1</span> Simpson’s paradox and regressions</a></li>
-  <li><a href="#gauss-markov-and-the-best-linear-unbiased-estimator" id="toc-gauss-markov-and-the-best-linear-unbiased-estimator" class="nav-link" data-scroll-target="#gauss-markov-and-the-best-linear-unbiased-estimator"><span class="header-section-number">7.2.2</span> Gauss-Markov and the best linear unbiased estimator</a></li>
+  <li><a href="#sec-simpsonregress" id="toc-sec-simpsonregress" class="nav-link" data-scroll-target="#sec-simpsonregress"><span class="header-section-number">8.2.1</span> Simpson’s paradox and regressions</a></li>
+  <li><a href="#gauss-markov-and-the-best-linear-unbiased-estimator" id="toc-gauss-markov-and-the-best-linear-unbiased-estimator" class="nav-link" data-scroll-target="#gauss-markov-and-the-best-linear-unbiased-estimator"><span class="header-section-number">8.2.2</span> Gauss-Markov and the best linear unbiased estimator</a></li>
   </ul></li>
-  <li><a href="#how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis" id="toc-how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis" class="nav-link" data-scroll-target="#how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis"><span class="header-section-number">7.3</span> How to identify statistically significant estimated coefficients in a regression analysis</a>
+  <li><a href="#how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis" id="toc-how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis" class="nav-link" data-scroll-target="#how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis"><span class="header-section-number">8.3</span> How to identify statistically significant estimated coefficients in a regression analysis</a>
   <ul class="collapse">
-  <li><a href="#p-values" id="toc-p-values" class="nav-link" data-scroll-target="#p-values"><span class="header-section-number">7.3.1</span> P-values</a></li>
-  <li><a href="#t-values" id="toc-t-values" class="nav-link" data-scroll-target="#t-values"><span class="header-section-number">7.3.2</span> t-values</a></li>
-  <li><a href="#standard-error" id="toc-standard-error" class="nav-link" data-scroll-target="#standard-error"><span class="header-section-number">7.3.3</span> Standard error</a></li>
+  <li><a href="#p-values" id="toc-p-values" class="nav-link" data-scroll-target="#p-values"><span class="header-section-number">8.3.1</span> P-values</a></li>
+  <li><a href="#t-values" id="toc-t-values" class="nav-link" data-scroll-target="#t-values"><span class="header-section-number">8.3.2</span> t-values</a></li>
+  <li><a href="#standard-error" id="toc-standard-error" class="nav-link" data-scroll-target="#standard-error"><span class="header-section-number">8.3.3</span> Standard error</a></li>
   </ul></li>
-  <li><a href="#sec-scrcj" id="toc-sec-scrcj" class="nav-link" data-scroll-target="#sec-scrcj"><span class="header-section-number">7.4</span> Statistical control requires causal justification</a>
+  <li><a href="#sec-scrcj" id="toc-sec-scrcj" class="nav-link" data-scroll-target="#sec-scrcj"><span class="header-section-number">8.4</span> Statistical control requires causal justification</a>
   <ul class="collapse">
-  <li><a href="#confounding-variables" id="toc-confounding-variables" class="nav-link" data-scroll-target="#confounding-variables"><span class="header-section-number">7.4.1</span> Confounding variables</a></li>
-  <li><a href="#other-controls" id="toc-other-controls" class="nav-link" data-scroll-target="#other-controls"><span class="header-section-number">7.4.2</span> Other controls</a></li>
-  <li><a href="#sec-ovbcp" id="toc-sec-ovbcp" class="nav-link" data-scroll-target="#sec-ovbcp"><span class="header-section-number">7.4.3</span> Omitted variable bias and ceteris paribus</a></li>
+  <li><a href="#confounding-variables" id="toc-confounding-variables" class="nav-link" data-scroll-target="#confounding-variables"><span class="header-section-number">8.4.1</span> Confounding variables</a></li>
+  <li><a href="#other-controls" id="toc-other-controls" class="nav-link" data-scroll-target="#other-controls"><span class="header-section-number">8.4.2</span> Other controls</a></li>
+  <li><a href="#sec-ovbcp" id="toc-sec-ovbcp" class="nav-link" data-scroll-target="#sec-ovbcp"><span class="header-section-number">8.4.3</span> Omitted variable bias and ceteris paribus</a></li>
   </ul></li>
-  <li><a href="#difference-in-difference" id="toc-difference-in-difference" class="nav-link" data-scroll-target="#difference-in-difference"><span class="header-section-number">7.5</span> Difference in difference</a></li>
   </ul>
 </nav>
     </div>
@@ -524,9 +529,9 @@ window.Quarto = {
 <main class="content page-columns page-full" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./epidem.html">IDENTIFICATION</a></li><li class="breadcrumb-item"><a href="./regression.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression analysis</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./epidem.html">IDENTIFICATION</a></li><li class="breadcrumb-item"><a href="./regression.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression analysis</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="sec-regression" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression analysis</span></span></h1>
+<h1 class="title"><span id="sec-regression" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression analysis</span></span></h1>
 </div>
 
 
@@ -556,8 +561,8 @@ Required reading
 <p><span class="citation" data-cites="Wysocki2022Statistical">Wysocki et al. (<a href="references.html#ref-Wysocki2022Statistical" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="Huntington-Klein2025Causal">Huntington-Klein (<a href="references.html#ref-Huntington-Klein2025Causal" role="doc-biblioref">2025</a>)</span></p>
 </div>
 </div>
-<div class="no-row-height column-margin column-container"></div><div class="no-row-height column-margin column-container"></div><section id="simple-linear-regression" class="level2 page-columns page-full" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="simple-linear-regression"><span class="header-section-number">7.1</span> Simple linear regression</h2>
+<div class="no-row-height column-margin column-container"></div><div class="no-row-height column-margin column-container"></div><section id="simple-linear-regression" class="level2 page-columns page-full" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="simple-linear-regression"><span class="header-section-number">8.1</span> Simple linear regression</h2>
 <p>The linear regression analysis is a widely used technique for predictive modeling. Its purpose is to establish a mathematical equation that relates a continuous response variable, denoted as <span class="math inline">\(y\)</span>, to one or more independent variables, represented by <span class="math inline">\(x\)</span>. The objective is to create a regression model that enables the prediction of the value of <span class="math inline">\(y\)</span> based on known values of <span class="math inline">\(x\)</span>.</p>
 <p>To ensure meaningful predictions, it is important to have an adequate number of observations, denoted as <span class="math inline">\(i\)</span>, available for the variables of interest.</p>
 <p>The linear regression model can be expressed as: <span class="math display">\[
@@ -565,13 +570,13 @@ y_i = \beta_{0} + \beta_{1} x_i + \epsilon_i,
 \]</span> where the index <span class="math inline">\(i\)</span> denotes the individual observations, ranging from <span class="math inline">\(i = 1\)</span> to <span class="math inline">\(n\)</span>. The variable <span class="math inline">\(y_i\)</span> represents the dependent variable, also known as the regressand. The variable <span class="math inline">\(x_i\)</span> represents the independent variable, also referred to as the regressor. <span class="math inline">\(\beta_0\)</span> denotes the intercept of the population regression line, a.k.a. the constant. <span class="math inline">\(\beta_1\)</span> denotes the slope of the population regression line. Lastly, <span class="math inline">\(\epsilon_i\)</span> refers to the error term or the residual, which accounts for the deviation between the predicted and observed values of <span class="math inline">\(y_i\)</span>.</p>
 <p>By fitting a linear regression model, one aims to estimate the values of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> in order to obtain an equation that best captures the relationship between <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span>.</p>
 <p>While the correlation coefficient and the slope in simple linear regression are similar in many ways, it’s important to note that they are not identical. The correlation coefficient measures the strength and direction of the linear relationship between variables in a broader sense, while the slope in simple linear regression specifically quantifies the change in the dependent variable associated with a unit change in the independent variable.</p>
-<section id="estimating-the-coefficients-of-the-linear-regression-model" class="level3 page-columns page-full" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="estimating-the-coefficients-of-the-linear-regression-model"><span class="header-section-number">7.1.1</span> Estimating the coefficients of the linear regression model</h3>
-<p>In practice, the intercept and slope of the regression are unknown. Therefore, we must employ data to estimate the unknown parameters, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. The method we use is called the ordinary least squared (OLS) method. The idea is to minimize the sum of the squared differences of all <span class="math inline">\(y_i\)</span> and <span class="math inline">\(y_i^*\)</span> as sketched in figure <a href="#fig-regressionols" class="quarto-xref">Figure&nbsp;<span>7.1</span></a>.</p>
+<section id="estimating-the-coefficients-of-the-linear-regression-model" class="level3 page-columns page-full" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="estimating-the-coefficients-of-the-linear-regression-model"><span class="header-section-number">8.1.1</span> Estimating the coefficients of the linear regression model</h3>
+<p>In practice, the intercept and slope of the regression are unknown. Therefore, we must employ data to estimate the unknown parameters, <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. The method we use is called the ordinary least squared (OLS) method. The idea is to minimize the sum of the squared differences of all <span class="math inline">\(y_i\)</span> and <span class="math inline">\(y_i^*\)</span> as sketched in figure <a href="#fig-regressionols" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>.</p>
 <div id="fig-regressionols" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-regressionols-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.1: The fitted line and the residuals
+Figure&nbsp;8.1: The fitted line and the residuals
 </figcaption>
 <div aria-describedby="fig-regressionols-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/regression_ols.png" class="img-fluid figure-img" style="width:50.0%">
@@ -606,8 +611,8 @@ Figure&nbsp;7.1: The fitted line and the residuals
 <div class="no-row-height column-margin column-container"><div id="ref-Hanck2020Introduction" class="csl-entry" role="listitem">
 Hanck, C., Arnold, M., Gerber, A., &amp; Schmelzer, M. (2020). <em>Introduction to econometrics with <span>R</span></em>. University of Duisburg-Essen. <a href="https://www.econometrics-with-r.org">www.econometrics-with-r.org</a>
 </div></div></section>
-<section id="the-least-squares-assumptions" class="level3" data-number="7.1.2">
-<h3 data-number="7.1.2" class="anchored" data-anchor-id="the-least-squares-assumptions"><span class="header-section-number">7.1.2</span> The least squares assumptions</h3>
+<section id="the-least-squares-assumptions" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="the-least-squares-assumptions"><span class="header-section-number">8.1.2</span> The least squares assumptions</h3>
 <p>OLS performs well under a quite broad variety of different circumstances. However, there are some assumptions which need to be satisfied in order to ensure that the estimates are normally distributed in large samples.</p>
 <p>The Least Squares Assumptions should fulfill the following assumptions: <span class="math display">\[
 Y_i = \beta_0 + \beta_1 X_i + \epsilon_i \text{, } i = 1,\dots,n
@@ -618,8 +623,8 @@ Y_i = \beta_0 + \beta_1 X_i + \epsilon_i \text{, } i = 1,\dots,n
 <li>Large outliers are unlikely: <span class="math inline">\(X_i\)</span> and <span class="math inline">\(Y_i\)</span> have nonzero finite fourth moments. That means, assumption 3 requires that <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have a finite kurtosis.</li>
 </ul>
 </section>
-<section id="measures-of-fit" class="level3" data-number="7.1.3">
-<h3 data-number="7.1.3" class="anchored" data-anchor-id="measures-of-fit"><span class="header-section-number">7.1.3</span> Measures of fit</h3>
+<section id="measures-of-fit" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="measures-of-fit"><span class="header-section-number">8.1.3</span> Measures of fit</h3>
 <p>After fitting a linear regression model, a natural question is how well the model describes the data. Visually, this amounts to assessing whether the observations are tightly clustered around the regression line. Both the coefficient of determination and the standard error of the regression measure how well the OLS Regression line fits the data.</p>
 <p><span class="math inline">\(R^2\)</span> is the fraction of the sample variance of <span class="math inline">\(Y_i\)</span> that is explained by <span class="math inline">\(X_i\)</span>. Mathematically, the <span class="math inline">\(R^2\)</span> can be written as the ratio of the explained sum of squares to the total sum of squares. The explained sum of squares (ESS) is the sum of squared deviations of the predicted values <span class="math inline">\(\hat{Y_i}\)</span>, from the average of the <span class="math inline">\(Y_i\)</span>. The total sum of squares (TSS) is the sum of squared deviations of the <span class="math inline">\(Y_i\)</span> from their average. Thus we have <span class="math display">\[\begin{align}
    ESS &amp; =  \sum_{i = 1}^n \left( \hat{Y_i} - \overline{Y} \right)^2,   \\
@@ -633,21 +638,21 @@ SSR= \sum_{i = 1}^n \epsilon^2.
 <div id="fig-fitR" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-fitR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.2: Total sum of squares and sum of squared residuals
+Figure&nbsp;8.2: Total sum of squares and sum of squared residuals
 </figcaption>
 <div aria-describedby="fig-fitR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/fitR.png" class="img-fluid figure-img" style="width:75.0%">
 </div>
 </figure>
 </div>
-<p><span class="math inline">\(R^2\)</span> lies between 0 and 1. It is easy to see that a perfect fit, i.e., no errors made when fitting the regression line, implies <span class="math inline">\(R2=1\)</span> since then we have <span class="math inline">\(SSR=0\)</span>. On the contrary, if our estimated regression line does not explain any variation in the <span class="math inline">\(Y_i\)</span>, we have <span class="math inline">\(ESS=0\)</span> and consequently <span class="math inline">\(R^2=0\)</span>. <a href="#fig-fitR" class="quarto-xref">Figure&nbsp;<span>7.2</span></a> represents the relationship of TTS and SSR.</p>
+<p><span class="math inline">\(R^2\)</span> lies between 0 and 1. It is easy to see that a perfect fit, i.e., no errors made when fitting the regression line, implies <span class="math inline">\(R2=1\)</span> since then we have <span class="math inline">\(SSR=0\)</span>. On the contrary, if our estimated regression line does not explain any variation in the <span class="math inline">\(Y_i\)</span>, we have <span class="math inline">\(ESS=0\)</span> and consequently <span class="math inline">\(R^2=0\)</span>. <a href="#fig-fitR" class="quarto-xref">Figure&nbsp;<span>8.2</span></a> represents the relationship of TTS and SSR.</p>
 </section>
 </section>
-<section id="multiple-linear-regression" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="multiple-linear-regression"><span class="header-section-number">7.2</span> Multiple linear regression</h2>
-<p>Having understood the simple linear regression model, it is important to broaden our scope beyond the relationship between just two variables: the dependent variable and a single regressor. Our goal is to causally interpret the measured association of two variables, which requires certain conditions as explained in <a href="identification.html" class="quarto-xref"><span>Chapter 6</span></a>.</p>
-<section id="sec-simpsonregress" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="sec-simpsonregress"><span class="header-section-number">7.2.1</span> Simpson’s paradox and regressions</h3>
+<section id="multiple-linear-regression" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="multiple-linear-regression"><span class="header-section-number">8.2</span> Multiple linear regression</h2>
+<p>Having understood the simple linear regression model, it is important to broaden our scope beyond the relationship between just two variables: the dependent variable and a single regressor. Our goal is to causally interpret the measured association of two variables, which requires certain conditions as explained in <span class="quarto-unresolved-ref">?sec-identification</span>.</p>
+<section id="sec-simpsonregress" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="sec-simpsonregress"><span class="header-section-number">8.2.1</span> Simpson’s paradox and regressions</h3>
 <p>To illustrate this concept, let’s revisit the phenomenon known as Simpson’s paradox. Simpson’s paradox occurs when the overall association between two categorical variables differs from the association observed when we consider the influence of one or more other variables, known as controlling variables. This paradox highlights three key points:</p>
 <ol type="1">
 <li><p>It challenges the assumption that statistical relationships are fixed and unchanging, showing that the relationship between two variables can vary depending on the set of variables being controlled.</p></li>
@@ -658,7 +663,7 @@ Figure&nbsp;7.2: Total sum of squares and sum of squared residuals
 <div id="fig-foo13" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-foo13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.3: Simpsons paradox and the power of controlling variables (1)
+Figure&nbsp;8.3: Simpsons paradox and the power of controlling variables (1)
 </figcaption>
 <div aria-describedby="fig-foo13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/foo-13.png" class="img-fluid figure-img" style="width:75.0%">
@@ -668,7 +673,7 @@ Figure&nbsp;7.3: Simpsons paradox and the power of controlling variables (1)
 <div id="fig-foo32" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-foo32-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.4: Simpsons paradox and the power of controlling variables (2)
+Figure&nbsp;8.4: Simpsons paradox and the power of controlling variables (2)
 </figcaption>
 <div aria-describedby="fig-foo32-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/foo-32.png" class="img-fluid figure-img" style="width:75.0%">
@@ -685,8 +690,8 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \dots + \beta
 \]</span></p>
 <p>This demands matrix notation which goes beyond the scope of this introduction.</p>
 </section>
-<section id="gauss-markov-and-the-best-linear-unbiased-estimator" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="gauss-markov-and-the-best-linear-unbiased-estimator"><span class="header-section-number">7.2.2</span> Gauss-Markov and the best linear unbiased estimator</h3>
+<section id="gauss-markov-and-the-best-linear-unbiased-estimator" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="gauss-markov-and-the-best-linear-unbiased-estimator"><span class="header-section-number">8.2.2</span> Gauss-Markov and the best linear unbiased estimator</h3>
 <p>The Gauss-Markov assumptions, also known as the classical linear regression assumptions, are a set of assumptions that underlie the ordinary least squares (OLS) method for estimating the parameters in a linear regression model. These assumptions ensure that the OLS estimators are unbiased, efficient, and have desirable statistical properties.</p>
 <p>The Gauss-Markov assumptions are as follows:</p>
 <ol type="1">
@@ -701,10 +706,10 @@ Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} + \beta_3 X_{3i} + \dots + \beta
 <p>These assumptions collectively ensure that the OLS estimators are unbiased, efficient, and have minimum variance among all linear unbiased estimators. Violations of these assumptions can lead to biased and inefficient estimators, invalid hypothesis tests, and unreliable predictions. Therefore, it is important to check these assumptions when using the OLS method and consider alternative estimation techniques if the assumptions are violated.</p>
 </section>
 </section>
-<section id="how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis"><span class="header-section-number">7.3</span> How to identify statistically significant estimated coefficients in a regression analysis</h2>
-<section id="p-values" class="level3" data-number="7.3.1">
-<h3 data-number="7.3.1" class="anchored" data-anchor-id="p-values"><span class="header-section-number">7.3.1</span> P-values</h3>
+<section id="how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="how-to-identify-statistically-significant-estimated-coefficients-in-a-regression-analysis"><span class="header-section-number">8.3</span> How to identify statistically significant estimated coefficients in a regression analysis</h2>
+<section id="p-values" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="p-values"><span class="header-section-number">8.3.1</span> P-values</h3>
 <p>When you perform regression analysis, the results are often presented in a table that includes p-values. Understanding these p-values is essential to determine whether the relationships between your variables are statistically significant.</p>
 <p>The p-value tells us the probability that the coefficient (effect) we observe is due to random chance rather than a real relationship. Thus, it ranges theoretically from 0 to 1.</p>
 <ol type="1">
@@ -767,8 +772,8 @@ Commonly used thresholds (also called significance levels) are:
 <li>A p-value greater than 0.05 suggests the variable’s effect is not statistically significant, and any observed relationship might be due to chance.</li>
 </ul>
 </section>
-<section id="t-values" class="level3" data-number="7.3.2">
-<h3 data-number="7.3.2" class="anchored" data-anchor-id="t-values"><span class="header-section-number">7.3.2</span> t-values</h3>
+<section id="t-values" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="t-values"><span class="header-section-number">8.3.2</span> t-values</h3>
 <p>Understanding t-values helps to determine whether the relationships between your variables are statistically significant.</p>
 <p>The t-value measures how many standard deviations the estimated coefficient is away from zero. It helps us understand if the coefficient is significantly different from zero (no effect).</p>
 <ol type="1">
@@ -831,8 +836,8 @@ Commonly used thresholds (also called significance levels) are:
 <li>A t-value between -2 and 2 suggests the variable’s effect is not statistically significant, and any observed relationship might be due to chance.</li>
 </ul>
 </section>
-<section id="standard-error" class="level3" data-number="7.3.3">
-<h3 data-number="7.3.3" class="anchored" data-anchor-id="standard-error"><span class="header-section-number">7.3.3</span> Standard error</h3>
+<section id="standard-error" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="standard-error"><span class="header-section-number">8.3.3</span> Standard error</h3>
 <p>Understanding the standard error also helps to assess regression estimates. It measures the average distance that the observed values fall from the regression line. It provides an estimate of the variability of the coefficient.</p>
 <p>The standard error (SE) of a coefficient quantifies the precision of the coefficient estimate. Smaller standard errors indicate more precise estimates. However, the standard error itself does not allow to judge on an estimate. Therefore, we need the t-values which can be calculated using the estimate and the SE as follows:</p>
 <p><span class="math display">\[
@@ -847,7 +852,7 @@ t_{\hat{\alpha}} = \frac{\hat{\alpha}}{s.e.(\hat{\alpha})}.
 <div id="tbl-seexa" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-seexa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;7.1: Example regression
+Table&nbsp;8.1: Example regression
 </figcaption>
 <div aria-describedby="tbl-seexa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -884,7 +889,7 @@ Table&nbsp;7.1: Example regression
 </div>
 </figure>
 </div>
-<p>Using <a href="#tbl-seexa" class="quarto-xref">Table&nbsp;<span>7.1</span></a> we can practice the formula:</p>
+<p>Using <a href="#tbl-seexa" class="quarto-xref">Table&nbsp;<span>8.1</span></a> we can practice the formula:</p>
 <ol type="1">
 <li><p><strong>Intercept:</strong> <span class="math display">\[
 t_{\text{Intercept}} = \frac{2.5}{0.5} = 5.0
@@ -899,11 +904,11 @@ t_{\text{Party Hours}} = \frac{-0.5}{0.05} = -10.0
 t_{\text{TV Watching}} = \frac{-0.3}{0.15} = -2.0
 \]</span></p></li>
 </ol>
-<p><a href="#tbl-seexa2" class="quarto-xref">Table&nbsp;<span>7.2</span></a> contains the respective t-values:</p>
+<p><a href="#tbl-seexa2" class="quarto-xref">Table&nbsp;<span>8.2</span></a> contains the respective t-values:</p>
 <div id="tbl-seexa2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-seexa2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;7.2: Example regression with t-values
+Table&nbsp;8.2: Example regression with t-values
 </figcaption>
 <div aria-describedby="tbl-seexa2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -954,15 +959,15 @@ Table&nbsp;7.2: Example regression with t-values
 </ul>
 </section>
 </section>
-<section id="sec-scrcj" class="level2 page-columns page-full" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="sec-scrcj"><span class="header-section-number">7.4</span> Statistical control requires causal justification</h2>
+<section id="sec-scrcj" class="level2 page-columns page-full" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="sec-scrcj"><span class="header-section-number">8.4</span> Statistical control requires causal justification</h2>
 <div id="tip-wysocki" class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;7.1
+Tip&nbsp;8.1
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -970,8 +975,9 @@ Tip&nbsp;7.1
 </div>
 </div>
 <div class="no-row-height column-margin column-container"></div><p>Scientific research revolves around challenging our own views and findings. A good researcher does not merely present their results; instead, they engage in discussions about potential limitations and pitfalls to draw valid conclusions. Engaging in polemics goes against the essence of good research. We should not conceal potential weaknesses in our scientific strategy or empirical approach; rather, we should emphasize their existence. Even if this disappoints individuals seeking easy answers, it is crucial to acknowledge these limitations. The <a href="https://catalogofbias.org/biases/">Catalogue of Bias</a> is an excellent resource that provides insight into various potential pitfalls and challenges encountered during research, which may sometimes be difficult to completely rule out.</p>
-<section id="confounding-variables" class="level3 page-columns page-full" data-number="7.4.1">
-<h3 data-number="7.4.1" class="anchored" data-anchor-id="confounding-variables"><span class="header-section-number">7.4.1</span> Confounding variables</h3>
+<p>The following sections discuss the necessity of statistical control when confounding effects are present, to avoid omitted variable bias in regression analysis. Additionally, we examine the impact of controlling for too many variables on regression estimates.</p>
+<section id="confounding-variables" class="level3 page-columns page-full" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="confounding-variables"><span class="header-section-number">8.4.1</span> Confounding variables</h3>
 <p>A confounding variable is a factor that was not accounted for or controlled in a study but has the potential to influence the results. In other words, the true effects of the treatment or intervention can be obscured or muddled by the presence of this variable.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="Do not ignore confounders!">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -985,7 +991,7 @@ Do not ignore confounders!
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>A confounding variable is not inherently problematic in regression analysis. It only becomes an issue if the analysis fails to account for its confounding effect in both the identification strategy and the execution of the regression. When the confounding effect is neglected, we refer to this as <em>omitted variable bias</em>. This bias is further detailed in <a href="#sec-ovbcp" class="quarto-xref"><span>Section 7.4.3</span></a>.</p>
+<p>A confounding variable is not inherently problematic in regression analysis. It only becomes an issue if the analysis fails to account for its confounding effect in both the identification strategy and the execution of the regression. When the confounding effect is neglected, we refer to this as <em>omitted variable bias</em>. This bias is further detailed in <a href="#sec-ovbcp" class="quarto-xref"><span>Section 8.4.3</span></a>.</p>
 </div>
 </div>
 </div>
@@ -1000,7 +1006,7 @@ Do not ignore confounders!
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip&nbsp;7.2
+Tip&nbsp;8.2
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1010,8 +1016,8 @@ Tip&nbsp;7.2
 <div class="no-row-height column-margin column-container"><div id="ref-Huntington-Klein2025Causal" class="csl-entry" role="listitem">
 Huntington-Klein, N. (2025). <em>Causal inference animated plots</em>. online. <a href="https://www.nickchk.com/causalgraphs.html">https://www.nickchk.com/causalgraphs.html</a>
 </div></div></section>
-<section id="other-controls" class="level3 page-columns page-full" data-number="7.4.2">
-<h3 data-number="7.4.2" class="anchored" data-anchor-id="other-controls"><span class="header-section-number">7.4.2</span> Other controls</h3>
+<section id="other-controls" class="level3 page-columns page-full" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="other-controls"><span class="header-section-number">8.4.2</span> Other controls</h3>
 <div class="page-columns page-full"><blockquote class="blockquote">
 <p><em>“Although it is possible to remove bias from an estimate of a causal path by controlling for a confounding variable, it is also easy to add bias to an estimate by controlling for a variable that is either not a confounder or does not block a confounding path”</em> <span class="citation" data-cites="Wysocki2022Statistical">(<a href="references.html#ref-Wysocki2022Statistical" role="doc-biblioref">Wysocki et al., 2022, p. 4</a>)</span></p>
 </blockquote><div class="no-row-height column-margin column-container"></div></div>
@@ -1025,7 +1031,7 @@ Cinelli, C., Forney, A., &amp; Pearl, J. (2022). A crash course in good and bad 
 </div>
 <div class="callout-body-container">
 <div id="exr-wysock" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.1</strong></span> Identification with observational data</p>
+<p><span class="theorem-title"><strong>Exercise 8.1</strong></span> Identification with observational data</p>
 <p><span class="citation" data-cites="Wysocki2022Statistical">Wysocki et al. (<a href="references.html#ref-Wysocki2022Statistical" role="doc-biblioref">2022</a>)</span> discuss how to identify effect using observational data using regression analysis. Using Directed Acyclic Graphs (DAGs), the paper discusses various types of variables associated with a variable of interest. Assume you are interested in the impact of a variable <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.</p>
 <p>For a regression analysis, how should you treat the following types of variables: (1) Confounder, (2) Mediator, (3) Collider, (4) Proxy, and (5) Independent.</p>
 <p>Please visualize these relationships using DAGs and discuss how each of these variable types should be incorporated into a regression analysis.</p>
@@ -1105,8 +1111,8 @@ Solution
 </div>
 </div>
 </section>
-<section id="sec-ovbcp" class="level3 page-columns page-full" data-number="7.4.3">
-<h3 data-number="7.4.3" class="anchored" data-anchor-id="sec-ovbcp"><span class="header-section-number">7.4.3</span> Omitted variable bias and ceteris paribus</h3>
+<section id="sec-ovbcp" class="level3 page-columns page-full" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="sec-ovbcp"><span class="header-section-number">8.4.3</span> Omitted variable bias and ceteris paribus</h3>
 <p>From the Gauss-Markov theorem we know that if the OLS assumptions are fulfilled, the OLS estimator is (in the sense of smallest variance) the best linear conditionally unbiased estimator (BLUE). However, OLS estimates can suffer from omitted variable bias when any regressor, X, is correlated with any omitted variable that matters for variable Y.</p>
 <p>For omitted variable bias to occur, two conditions must be fulfilled:</p>
 <ol type="1">
@@ -1123,18 +1129,18 @@ Solution
 </div>
 <div class="callout-body-container">
 <div id="exr-lookatoutput" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.2</strong></span> Look at the Output</p>
+<p><span class="theorem-title"><strong>Exercise 8.2</strong></span> Look at the Output</p>
 <div id="fig-regstata2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-regstata2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.5: Regression output
+Figure&nbsp;8.5: Regression output
 </figcaption>
 <div aria-describedby="fig-regstata2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/reg_stata2.png" class="img-fluid figure-img" style="width:75.0%">
 </div>
 </figure>
 </div>
-<p>In <a href="#fig-regstata2" class="quarto-xref">Figure&nbsp;<span>7.5</span></a> you see an excerpt of a regression output taken from a statistical program named <em>Stata</em>. Some t-values and p-values are missing.</p>
+<p>In <a href="#fig-regstata2" class="quarto-xref">Figure&nbsp;<span>8.5</span></a> you see an excerpt of a regression output taken from a statistical program named <em>Stata</em>. Some t-values and p-values are missing.</p>
 <ol type="a">
 <li>Calculate the t-value of the coefficient <code>mpg</code>. Is the coefficient at a level of <span class="math inline">\(\alpha=0.05\)</span> statistically significant?<br>
 </li>
@@ -1153,12 +1159,12 @@ Figure&nbsp;7.5: Regression output
 </div>
 <div class="callout-body-container">
 <div id="exr-exrstataoutput" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.3</strong></span> Look at Stata Output</p>
-<p>In <a href="#fig-regstata3" class="quarto-xref">Figure&nbsp;<span>7.6</span></a> you find two regression outputs from Stata. Try to interpret the p-values and the confidence intervals. How are the t-values calculated. Can you use the <em>magic number</em> 1.96 to say if a corresponding estimated coefficient is statistically significant, or not? Which estimated model is <em>better</em>?</p>
+<p><span class="theorem-title"><strong>Exercise 8.3</strong></span> Look at Stata Output</p>
+<p>In <a href="#fig-regstata3" class="quarto-xref">Figure&nbsp;<span>8.6</span></a> you find two regression outputs from Stata. Try to interpret the p-values and the confidence intervals. How are the t-values calculated. Can you use the <em>magic number</em> 1.96 to say if a corresponding estimated coefficient is statistically significant, or not? Which estimated model is <em>better</em>?</p>
 <div id="fig-regstata3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-regstata3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.6: Stata regression output
+Figure&nbsp;8.6: Stata regression output
 </figcaption>
 <div aria-describedby="fig-regstata3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-figure quarto-figure-center">
@@ -1187,7 +1193,7 @@ Figure&nbsp;7.6: Stata regression output
 </div>
 <div class="callout-body-container">
 <div id="exr-execal" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.4</strong></span> Explain the weight (<a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_calories.R">Solutions online</a>)</p>
+<p><span class="theorem-title"><strong>Exercise 8.4</strong></span> Explain the weight (<a href="https://raw.githubusercontent.com/hubchev/courses/main/scr/exe_calories.R">Solutions online</a>)</p>
 <p>In the following exercise you need to use the programming language R.</p>
 <ol type="a">
 <li>Write down your name, your matriculation number, and the date.<br>
@@ -1205,7 +1211,7 @@ Figure&nbsp;7.6: Stata regression output
 <div id="tbl-dtacol" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dtacol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;7.3: Dataset collected in Cologne
+Table&nbsp;8.3: Dataset collected in Cologne
 </figcaption>
 <div aria-describedby="tbl-dtacol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1296,7 +1302,7 @@ Table&nbsp;7.3: Dataset collected in Cologne
 <div id="fig-sport-r" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-sport-r-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.7: Weight vs.&nbsp;Calories
+Figure&nbsp;8.7: Weight vs.&nbsp;Calories
 </figcaption>
 <div aria-describedby="fig-sport-r-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="fig/sport-r.png" class="img-fluid figure-img" style="width:60.0%">
@@ -1338,7 +1344,7 @@ weight_i=\beta_0+\beta_1 calories_i+ \epsilon_i
 </div>
 <div class="callout-body-container">
 <div id="exr-explwestud" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.5</strong></span> Explain the weight of students</p>
+<p><span class="theorem-title"><strong>Exercise 8.5</strong></span> Explain the weight of students</p>
 <p>Please consider the lecture notes <span class="citation" data-cites="Huber2024How">Huber (<a href="references.html#ref-Huber2024How" role="doc-biblioref">2025</a>)</span> and the exercise that you find <a href="https://hubchev.github.io/ds/80_exercises.html#explain-the-weight-of-students">here</a>.</p>
 <!-- In the statistic course of WS 2020, I asked 23 students about their weight, height, sex, and number of siblings. I wonder how good the height can explain the weight of students. Examine with correlations and a regression analysis the association. Load the data as follows: -->
 <!-- ```{r} -->
@@ -1368,7 +1374,7 @@ Huber, S. (2025). <em>How to use <span>R</span> for data science: Lecture notes<
 </div>
 <div class="callout-body-container">
 <div id="exr-causalgraphnhk" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.6</strong></span> Causal inference and animated plots</p>
+<p><span class="theorem-title"><strong>Exercise 8.6</strong></span> Causal inference and animated plots</p>
 <p>Nick <span class="citation" data-cites="Huntington-Klein2022Effect">Huntington-Klein (<a href="references.html#ref-Huntington-Klein2022Effect" role="doc-biblioref">2023</a>)</span> has created wonderful animated graphs that give great and quick insights into how causal inference works. Please read his online chapter on <a href="https://www.nickchk.com/causalgraphs.html"><em>Causal Inference Animated Plots</em></a> and discuss</p>
 <ol type="a">
 <li>what he means when he speaks of <em>closing the back-door path</em> and <em>controlling for</em>,</li>
@@ -1379,155 +1385,12 @@ Huber, S. (2025). <em>How to use <span>R</span> for data science: Lecture notes<
 </div>
 </div>
 </div>
+
+
 <div class="no-row-height column-margin column-container"><div id="ref-Huntington-Klein2022Effect" class="csl-entry" role="listitem">
 Huntington-Klein, N. (2023). <em>The effect: An introduction to research design and causality</em>. CRC Press. <a href="https://theeffectbook.net">https://theeffectbook.net</a>
-</div></div></section>
+</div></div>
 </section>
-<section id="difference-in-difference" class="level2 page-columns page-full" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="difference-in-difference"><span class="header-section-number">7.5</span> Difference in difference</h2>
-<div id="fig-dcard" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-dcard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.8: David Card (*1956)
-</figcaption>
-<div aria-describedby="fig-dcard-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/dcard1.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:25.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><em>Source: <a href="https://davidcard.berkeley.edu" class="uri">https://davidcard.berkeley.edu</a>.</em></p>
-</div>
-</figure>
-</div>
-<p>David Card is one of the most influential labor economist of the 20th century and Nobel laureate of 2021. He is well-known for his research on the effects of the minimum wage on employment, which challenged the traditional view that increasing the minimum wage leads to a decrease in employment. In his article <em>Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania</em> <span class="citation" data-cites="Card1994Minimum">(<a href="references.html#ref-Card1994Minimum" role="doc-biblioref">Card &amp; Krueger, 1994</a>)</span> he and Alan Krueger (1960-2019) used a <em>natural experiment</em> to examine the effect of an increase in the minimum wage on employment. In particular, they identified a treatment group (restaurants in New Jersey) and a control group (restaurants in eastern Pennsylvania) to measure the effect of increasing the minimum wage that was increased in New Jersey but not in Pennsylvania. This increase did not lead to a decrease in employment, which contradicted the widely held view that increasing the minimum wage would lead to job loss. The empirical method that they used is called <em>difference in difference</em> and we discuss it in the following section.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-Card1994Minimum" class="csl-entry" role="listitem">
-Card, D., &amp; Krueger, A. B. (1994). Minimum wages and employment: A case study of the fast-food industry in new jersey and pennsylvania. <em>The American Economic Review</em>, <em>84</em>(4), 772–793.
-</div></div><p>The difference in difference (DiD) method allows to estimate the causal effect of a treatment or intervention. In particular, it is popular to study the impact of policy changes and other interventions on a specific outcome of interest.</p>
-<p>The basic idea behind the DiD method is to compare the change in an outcome variable between a treatment group and a control group over time. The treatment group is the group that is exposed to the intervention or treatment, while the control group is a group that is not exposed to the intervention. The difference in the change in the outcome variable between the two groups is then used to estimate the causal effect of the intervention.</p>
-<p>To use the DiD method, researchers typically collect data on the outcome variable of interest for both the treatment and control groups before and after the intervention. This data is then used to calculate the difference in the change in the outcome variable between the two groups.</p>
-<p>For example, if a study aims to examine the effect of a new policy on the employment rate, it should collect data on the employment rate for a group of individuals living in a region where the policy was implemented, and for a group living in a similar region where the policy was not implemented. The study can then compare the change in the employment rate for the two groups, before and after the implementation of the policy. The difference in the change in the employment rate between the two groups can be used to estimate of the causal effect of the policy on employment.</p>
-<p>It is important to note that DiD assumes that there are no other factors that could be affecting the outcome variable of interest and that the treatment and control groups are similar in all ways except for the intervention. To control for these assumptions researchers can use statistical techniques such as matching to ensure that treatment and control groups are similar before the intervention.</p>
-<p>DiD is useful when we only have observational data and in situations where it is not possible or ethical to randomly assign individuals to a treatment or control group, for example, in the case of policy changes.</p>
-<div id="tip-neal9" class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip&nbsp;7.3
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Differences-in-Differences and Rubin causal model</p>
-<div id="fig-neal9" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-neal9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.9: Differences-in-Differences
-</figcaption>
-<div aria-describedby="fig-neal9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/neal9.png" class="img-fluid figure-img" style="width:90.0%">
-</div>
-</figure>
-</div>
-<div id="fig-neal9b" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-neal9b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.10: Tolerate time-invariant unobserved confounding
-</figcaption>
-<div aria-describedby="fig-neal9b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/neal9b.png" class="img-fluid figure-img" style="width:90.0%">
-</div>
-</figure>
-</div>
-<p><a href="#fig-neal9" class="quarto-xref">Figure&nbsp;<span>7.9</span></a> and <a href="#fig-neal9b" class="quarto-xref">Figure&nbsp;<span>7.10</span></a> stem from a video of Brady Neal’s lecture on <a href="https://youtu.be/2nDgrNP7XSE"><em>Difference-in-Differences</em></a>. Please watch this video.</p>
-</div>
-</div>
-<div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<div id="exr-DiD" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7.7</strong></span> Mastering DiD with Joshua Angrist</p>
-<p>Watch the video <a href="https://youtu.be/eiffOVbYvNc"><em>Introduction to Differences-in-Differences</em></a>:</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/eiffOVbYvNc?si=QmcWw6jJnLsHoUzm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
-</iframe>
-<p>The video is part of a course called <em>Mastering Econometrics with Joshua Angrist (MIT)</em> produced by Marginal Revolution University. In it, Josh Angrist (see <a href="#fig-angristdid" class="quarto-xref">Figure&nbsp;<span>7.11</span></a>) introduces differences within differences using one of the worst economic events in history: the Great Depression.</p>
-<div id="fig-angristdid" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-angristdid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.11: Josh Angrist (*1960): Nobel Prize winner of economics in 2021
-</figcaption>
-<div aria-describedby="fig-angristdid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig/angrist-did.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:40.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p><em>Source: <a href="https://youtu.be/eiffOVbYvNc">Youtube</a>.</em></p>
-</div>
-</figure>
-</div>
-<ol type="1">
-<li>In the video, the treatment being examined is:
-<ol type="a">
-<li>Bank failure.</li>
-<li>“Easy” money.</li>
-<li>“Tight” money.</li>
-<li>Differences-in-Differences.</li>
-<li>None of the above.</li>
-</ol></li>
-<li>If the treatment were effective, which outcome would we expect to observe?
-<ol type="a">
-<li>Fewer bank failures.</li>
-<li>Increased bank failures.</li>
-<li>Continued parallel trends.</li>
-<li>No differences in any variables unrelated to bank failure.</li>
-<li>None of the above.</li>
-</ol></li>
-<li>Practically, how is DD (Differences-in-Differences) typically implemented?
-<ol type="a">
-<li>Non-parametric statistical techniques.</li>
-<li>Randomized trials.</li>
-<li>Regression analysis.</li>
-<li>Instrumental variables.</li>
-<li>None of the above.</li>
-</ol></li>
-</ol>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Solution to exercise <a href="#exr-DiD" class="quarto-xref">Exercise&nbsp;<span>7.7</span></a></p>
-<p>Answers: 1. b), 2. a), 3. c)</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
-
 </section>
 
 </main> <!-- /main -->
@@ -1945,13 +1808,13 @@ Solution
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./identification.html" class="pagination-link" aria-label="Identification">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Identification</span></span>
+      <a href="./causalinf.html" class="pagination-link" aria-label="Causal inference">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Causal inference</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./experiments.html" class="pagination-link" aria-label="Out-of-lab experiments">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Out-of-lab experiments</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Out-of-lab experiments</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
