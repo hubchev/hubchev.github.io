@@ -66,6 +66,9 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-3ddb96e3b7f5c488f29fbaca52260ca9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-ba9938a60e040d5451ea4df514037cd9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-3ddb96e3b7f5c488f29fbaca52260ca9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -520,7 +523,7 @@ Required reading
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="citation" data-cites="Lane2023Introduction">Lane (<a href="references.html#ref-Lane2023Introduction" role="doc-biblioref">2023</a>, ch.&nbsp;1)</span></p>
+<p><span class="citation" data-cites="Lane2023Introduction">Lane (<a href="#ref-Lane2023Introduction" role="doc-biblioref">2023</a>, ch.&nbsp;1)</span></p>
 </div>
 </div>
 <!-- ::: {.callout-tip appearance="default" title="Learning objectives"} -->
@@ -576,15 +579,15 @@ Lane, D. M. (2023). <em>Introduction to statistics: Online statistics education:
 \]</span> However, it is better to use <span class="math display">\[
   \sigma^2={\frac{1}{n-1}}\sum _{i=1}^{n}(x_{i}-\mu )^{2}.
 \]</span></p>
-<p>The use of <span class="math inline">\(n - 1\)</span> instead of <span class="math inline">\(n\)</span> in the formula for the sample variance is known as <em>Bessel’s correction</em>, which corrects the bias in the estimation of the population variance, and some, but not all of the bias in the estimation of the population standard deviation. Consequently this way to calculate the variance and hence the standard deviation is called the <em>sample standard deviation</em> or the <em>unbiased estimation of standard deviation</em>. In other words, when working with a sample instead of the full population the limited number of observations tend to be closer to the <em>sample mean</em> than to the <em>population mean</em>, see <a href="#fig-bessel" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>. Bessels Correction takes that into account.</p>
-<p>For a detailed explanation, you can watch the video shown in <a href="#fig-whydivn" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>.</p>
+<p>The use of <span class="math inline">\(n - 1\)</span> instead of <span class="math inline">\(n\)</span> in the formula for the sample variance is known as <em>Bessel’s correction</em>, which corrects the bias in the estimation of the population variance, and some, but not all of the bias in the estimation of the population standard deviation. Consequently this way to calculate the variance and hence the standard deviation is called the <em>sample standard deviation</em> or the <em>unbiased estimation of standard deviation</em>. In other words, when working with a sample instead of the full population the limited number of observations tend to be closer to the <em>sample mean</em> than to the <em>population mean</em>, see <a href="#fig-bessel" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bessel</span></a>. Bessels Correction takes that into account.</p>
+<p>For a detailed explanation, you can watch the video shown in <a href="#fig-whydivn" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-whydivn</span></a>.</p>
 <div id="fig-whydivn" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-whydivn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4.1
 </figcaption>
 <div aria-describedby="fig-whydivn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p></p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/sHRBg6BhKjI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div> ::: {.content-visible when-format=“pdf”} <img src="fig/whydivn.png" class="img-fluid figure-img" style="width:40.0%"><p></p>
+<p></p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/sHRBg6BhKjI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div> ::: {.content-visible when-format=“pdf”} <a href="fig/whydivn.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;4.1: "><img src="fig/whydivn.png" class="img-fluid figure-img" style="width:40.0%"></a><p></p>
 </div>
 </figure>
 </div>
@@ -595,7 +598,7 @@ Figure&nbsp;4.1
 Figure&nbsp;4.2: Bias when using the sample mean<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
 </figcaption>
 <div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Picture is taken from the video https://youtu.be/sHRBg6BhKjI</p></div></div><div aria-describedby="fig-bessel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/bessel.png" class="img-fluid figure-img" style="width:75.0%">
+<a href="fig/bessel.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;4.2: Bias when using the sample mean"><img src="fig/bessel.png" class="img-fluid figure-img" style="width:75.0%"></a>
 </div>
 </figure>
 </div>
@@ -725,19 +728,19 @@ Tip&nbsp;4.3
 Figure&nbsp;4.3: Correlations are blind on some eye
 </figcaption>
 <div aria-describedby="fig-corelateoverview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/corelate_overview.png" class="img-fluid figure-img" style="width:75.0%">
+<a href="fig/corelate_overview.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;4.3: Correlations are blind on some eye"><img src="fig/corelate_overview.png" class="img-fluid figure-img" style="width:75.0%"></a>
 </div>
 </figure>
 </div>
-<p><a href="#fig-corelateoverview" class="quarto-xref">Figure&nbsp;<span>4.3</span></a> shows that correlation coefficients are limited in to explaining the relationship of two variables. For example, when the slope of a relationship is zero, the correlation coefficient becomes undefined due to the variance of <span class="math inline">\(Y\)</span> being zero. Furthermore, Pearson’s correlation coefficient is sensitive to outliers, and all correlation coefficients are prone to sample selection biases. It is crucial to be careful when attempting to correlate two variables, particularly when one represents a part and the other represents the total. It is also worth noting that small correlation values do not necessarily indicate a lack of association between variables. For example, Pearson’s correlation coefficient can underestimates the association between variables exhibiting a quadratic relationship. Therefore, it is always advisable to examine scatterplots in conjunction with correlation analysis.</p>
-<p>In <a href="#fig-allcorsame" class="quarto-xref">Figure&nbsp;<span>4.4</span></a> you see various graphs that all have the same correlation coefficient and share other statistical properties like is investigated in <a href="#exr-DatasauRus" class="quarto-xref">Exercise&nbsp;<span>4.2</span></a>.</p>
+<p><a href="#fig-corelateoverview" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-corelateoverview</span></a> shows that correlation coefficients are limited in to explaining the relationship of two variables. For example, when the slope of a relationship is zero, the correlation coefficient becomes undefined due to the variance of <span class="math inline">\(Y\)</span> being zero. Furthermore, Pearson’s correlation coefficient is sensitive to outliers, and all correlation coefficients are prone to sample selection biases. It is crucial to be careful when attempting to correlate two variables, particularly when one represents a part and the other represents the total. It is also worth noting that small correlation values do not necessarily indicate a lack of association between variables. For example, Pearson’s correlation coefficient can underestimates the association between variables exhibiting a quadratic relationship. Therefore, it is always advisable to examine scatterplots in conjunction with correlation analysis.</p>
+<p>In <a href="#fig-allcorsame" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-allcorsame</span></a> you see various graphs that all have the same correlation coefficient and share other statistical properties like is investigated in <a href="#exr-DatasauRus" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref">exr-DatasauRus</span></a>.</p>
 <div id="fig-allcorsame" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-allcorsame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4.4: These diagrams all have the same statistical properties<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>
 </figcaption>
 <div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;This graph was produced employing the <code>datasauRus</code> R package.</p></div></div><div aria-describedby="fig-allcorsame-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/allcorsame.png" class="img-fluid figure-img" style="width:75.0%" data-align="center">
+<a href="fig/allcorsame.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4.4: These diagrams all have the same statistical properties"><img src="fig/allcorsame.png" class="img-fluid figure-img" style="width:75.0%" data-align="center"></a>
 </div>
 </figure>
 </div>
@@ -781,14 +784,14 @@ r_s = \rho_{\operatorname{R}(X),\operatorname{R}(Y)} = \frac{\text{cov}(\operato
 <div class="callout-body-container">
 <div id="exr-DatasauRus" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4.2</strong></span> DatasauRus (<a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/hubchev/hubchev.github.io/main/various/datasaurus_solution.html">Solution online</a>.)</p>
-<p>The following exercise shows how to create <a href="#fig-allcorsame" class="quarto-xref">Figure&nbsp;<span>4.4</span></a> using the programming language R.</p>
+<p>The following exercise shows how to create <a href="#fig-allcorsame" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-allcorsame</span></a> using the programming language R.</p>
 <div id="fig-datasaurus" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-datasaurus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4.5: The logo of the DatasauRus package
 </figcaption>
 <div aria-describedby="fig-datasaurus-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><img src="fig/datasaurus.png" class="img-fluid figure-img" style="width:20.0%"></p>
+<p><a href="fig/datasaurus.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;4.5: The logo of the DatasauRus package"><img src="fig/datasaurus.png" class="img-fluid figure-img" style="width:20.0%"></a></p>
 <p><em>Source: <a href="https://github.com/jumpingrivers/datasauRus">https://github.com/jumpingrivers/datasauRus</a>.</em></p>
 </div>
 </figure>
@@ -819,7 +822,7 @@ Figure&nbsp;4.5: The logo of the DatasauRus package
 </div>
 <div class="callout-body-container">
 <div id="exr-summarystatistics" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.3</strong></span> Summary statistics (<a href="#sol-summarystatistics" class="quarto-xref">Solution&nbsp;<span>4.1</span></a>)</p>
+<p><span class="theorem-title"><strong>Exercise 4.3</strong></span> Summary statistics (<a href="#sol-summarystatistics" class="quarto-xref">Solution&nbsp;<span class="quarto-unresolved-ref">sol-summarystatistics</span></a>)</p>
 <p>Calculate for the following datasets: the mode, the median, the 20% quantile, the range, the interquartile range, the variance, the arithmetic mean, the sample standard deviation, the coefficient of variation.</p>
 <ol type="a">
 <li>For ten participants in a scientific conference the age has been noted: [25, 21, 18, 37, 56, 89, 46, 23, 21, 34.]</li>
@@ -868,7 +871,7 @@ Table&nbsp;4.1: Random sample of 128 visitors
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution to <a href="#exr-summarystatistics" class="quarto-xref">Exercise&nbsp;<span>4.3</span></a>
+Solution to <a href="#exr-summarystatistics" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref">exr-summarystatistics</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -938,7 +941,7 @@ Solution to <a href="#exr-summarystatistics" class="quarto-xref">Exercise&nbsp;<
 </div>
 <div class="callout-body-container">
 <div id="exr-destatexcel" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.4</strong></span> Summary statistics in spreadsheet software (<a href="#sol-destatexcel" class="quarto-xref">Solution&nbsp;<span>4.2</span></a>)</p>
+<p><span class="theorem-title"><strong>Exercise 4.4</strong></span> Summary statistics in spreadsheet software (<a href="#sol-destatexcel" class="quarto-xref">Solution&nbsp;<span class="quarto-unresolved-ref">sol-destatexcel</span></a>)</p>
 <p>Given is the following datset: [0, 0, 40, 50, 50, 60, 70, 90, 100, 100.] Compute the following summary statistics of the data set using a spreadsheet software like or : mean, median, mode, quartiles (Q1, Q2, Q3), range, interquartile range, variance, standard deviation, mean absolute deviation, coefficient of variation and skewness.</p>
 </div>
 </div>
@@ -950,7 +953,7 @@ Solution to <a href="#exr-summarystatistics" class="quarto-xref">Exercise&nbsp;<
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution to <a href="#exr-destatexcel" class="quarto-xref">Exercise&nbsp;<span>4.4</span></a>
+Solution to <a href="#exr-destatexcel" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref">exr-destatexcel</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1035,7 +1038,7 @@ Solution to <a href="#exr-destatexcel" class="quarto-xref">Exercise&nbsp;<span>4
 </div>
 <div class="callout-body-container">
 <div id="exr-guessstat" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4.5</strong></span> Guess the summary statistics (<a href="#sol-guessstat" class="quarto-xref">Solution&nbsp;<span>4.3</span></a>)</p>
+<p><span class="theorem-title"><strong>Exercise 4.5</strong></span> Guess the summary statistics (<a href="#sol-guessstat" class="quarto-xref">Solution&nbsp;<span class="quarto-unresolved-ref">sol-guessstat</span></a>)</p>
 <p>Given are the following variables:</p>
 <div id="tbl-someobs" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1119,7 +1122,7 @@ Table&nbsp;4.2: Some variables with observations
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution to <a href="#exr-guessstat" class="quarto-xref">Exercise&nbsp;<span>4.5</span></a>
+Solution to <a href="#exr-guessstat" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref">exr-guessstat</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1633,6 +1636,38 @@ Solution to <a href="#exr-guessstat" class="quarto-xref">Exercise&nbsp;<span>4.5
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

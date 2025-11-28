@@ -66,6 +66,9 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-3ddb96e3b7f5c488f29fbaca52260ca9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-ba9938a60e040d5451ea4df514037cd9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-3ddb96e3b7f5c488f29fbaca52260ca9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -508,7 +511,7 @@ Required reading
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>, ch.&nbsp;1)</span>, <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>, ch.&nbsp;2)</span></p>
+<p><span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>, ch.&nbsp;1)</span>, <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="#ref-Neal2020Introduction" role="doc-biblioref">2020</a>, ch.&nbsp;2)</span></p>
 </div>
 </div>
 <div class="no-row-height column-margin column-container"></div><div class="no-row-height column-margin column-container"></div><div id="fig-cimt" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
@@ -516,22 +519,22 @@ Required reading
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-cimt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7.1: Causal Inference: The Mixtape<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>
 </figcaption>
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Source: <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span></p><div id="ref-Cunningham2021Causal" class="csl-entry" role="listitem">
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Source: <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span></p><div id="ref-Cunningham2021Causal" class="csl-entry" role="listitem">
 Cunningham, S. (2021). <em>Causal inference: The mixtape</em>. Accessed January 30, 2023; Yale University Press. <a href="https://mixtape.scunning.com/">https://mixtape.scunning.com/</a>
 </div></div></div><div aria-describedby="fig-cimt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="fig/cover-ci.jpg" class="img-fluid figure-img" style="width:25.0%">
+<a href="fig/cover-ci.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;7.1: Causal Inference: The Mixtape"><img src="fig/cover-ci.jpg" class="img-fluid figure-img" style="width:25.0%"></a>
 </div>
 </figure>
 </div>
-<p>As <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span> explains in his book (see <a href="#fig-cimt" class="quarto-xref">Figure&nbsp;<span>7.1</span></a>), establishing causality is very challenging. Causal inference can assist to some extent. It is the process of establishing causal relationships between variables, aiming to determine whether a change in one variable (the cause or independent variable) leads to a change in another variable (the effect or dependent variable). This process goes beyond mere association or correlation and seeks to establish that one event or factor directly influences another. Various methods of causal inference exist, and this section along with the upcoming chapters will discuss these methods. All methods share a common goal: identifying and measuring a relationship without any bias.</p>
+<p>As <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span> explains in his book (see <a href="#fig-cimt" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-cimt</span></a>), establishing causality is very challenging. Causal inference can assist to some extent. It is the process of establishing causal relationships between variables, aiming to determine whether a change in one variable (the cause or independent variable) leads to a change in another variable (the effect or dependent variable). This process goes beyond mere association or correlation and seeks to establish that one event or factor directly influences another. Various methods of causal inference exist, and this section along with the upcoming chapters will discuss these methods. All methods share a common goal: identifying and measuring a relationship without any bias.</p>
 <div class="no-row-height column-margin column-container"></div><section id="sec-fpci" class="level2 page-columns page-full" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="sec-fpci"><span class="header-section-number">7.1</span> The fundamental problem of causal inference</h2>
 <p>Unfortunately, claiming a causal relationship to be empirically true is often not straightforward. The main reason for this lies in the so-called <em>fundamental problem of causal inference</em>, which is the issue of observing only one of the potential outcomes for each unit in a study. This means we lack the counterfactual outcome, which is the hypothetical outcome that would have occurred if a subject or unit had experienced a different condition or treatment than what actually happened. Thus, the fundamental problem of causal inference is actually a missing data problem.</p>
 <p>For example, consider my son, who enjoyed throwing plates from the table. He must decide between throwing a plate or not, but he cannot do both simultaneously – an ability only possible in fictional movies like “Everything Everywhere All at Once”. Of course, my son can conduct an experiment by throwing a plate now and later deciding not to throw a plate. After observing both actions, he may claim to have found evidence that throwing a plate causes noise. However, he can never be 100% certain that the noise he heard after throwing the plate was solely caused by his action. It could be a coincidence that something else caused the noise at precisely the same time, like one of his siblings throwing a fork. He merely assumes it was due to his action. To be more certain, he might repeat the experiment hundreds of times. Even then, he can never be 100% sure. It is still not proof in a logical sense because an external factor could theoretically cause the noise. However, this is where statistics come into play: nowing the environment and the setup of his actions, it becomes extremely unlikely that the noise was not caused by his action. Knowing the setup means, we now that hasn’t been any external factor that may have caused a false a causal fallacy. As Scott Cunningham emphasizes, “prior knowledge is required in order to justify any claim about a causal finding”:</p>
 <div class="page-columns page-full"><blockquote class="blockquote">
-<p><span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>, ch.&nbsp;1.3)</span>: <em>“It is my firm belief, which I will emphasize over and over in this book, that without prior knowledge, estimated causal effects are rarely, if ever, believable. Prior knowledge is required in order to justify any claim of a causal finding. And economic theory also highlights why causal inference is necessarily a thorny task.”</em></p>
+<p><span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>, ch.&nbsp;1.3)</span>: <em>“It is my firm belief, which I will emphasize over and over in this book, that without prior knowledge, estimated causal effects are rarely, if ever, believable. Prior knowledge is required in order to justify any claim of a causal finding. And economic theory also highlights why causal inference is necessarily a thorny task.”</em></p>
 </blockquote><div class="no-row-height column-margin column-container"></div></div>
-<p>To illustrate that the fundamental problem of causal inference is actually a missing data problem, let’s consider the fictitious example data presented in <a href="#tbl-tab21" class="quarto-xref">Table&nbsp;<span>7.1</span></a>. For different individuals, dentoted as <span class="math inline">\(i\)</span>, we know whether they were received treatment <span class="math inline">\((T=1)\)</span> or did not receive treatment <span class="math inline">\((T=0)\)</span>, as well as whether the outcome was positive <span class="math inline">\((Y=1)\)</span> or negative <span class="math inline">\((Y=0)\)</span>. Since we do not observe the counterfactual outcomes, we are unable to determine the individual treatment effect (ITE), which is expressed as <span class="math inline">\(Y_i(1)-Y_i(0)\)</span>.</p>
+<p>To illustrate that the fundamental problem of causal inference is actually a missing data problem, let’s consider the fictitious example data presented in <a href="#tbl-tab21" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-tab21</span></a>. For different individuals, dentoted as <span class="math inline">\(i\)</span>, we know whether they were received treatment <span class="math inline">\((T=1)\)</span> or did not receive treatment <span class="math inline">\((T=0)\)</span>, as well as whether the outcome was positive <span class="math inline">\((Y=1)\)</span> or negative <span class="math inline">\((Y=0)\)</span>. Since we do not observe the counterfactual outcomes, we are unable to determine the individual treatment effect (ITE), which is expressed as <span class="math inline">\(Y_i(1)-Y_i(0)\)</span>.</p>
 <div id="tbl-tab21" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-tab21-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -603,7 +606,7 @@ Table&nbsp;7.1: Example data to illustrate that the fundamental problem of causa
 <div class="callout-body-container">
 <div id="exr-causalinf1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 7.1</strong></span> Causal inference ch.1</p>
-<p>Please read chapter 1 (Introduction) of <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="references.html#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span> and answer the following questions. The book is freely available <a href="https://mixtape.scunning.com">here</a> and here you find <a href="https://mixtape.scunning.com/01-introduction">chapter 1</a>.</p>
+<p>Please read chapter 1 (Introduction) of <span class="citation" data-cites="Cunningham2021Causal">Cunningham (<a href="#ref-Cunningham2021Causal" role="doc-biblioref">2021</a>)</span> and answer the following questions. The book is freely available <a href="https://mixtape.scunning.com">here</a> and here you find <a href="https://mixtape.scunning.com/01-introduction">chapter 1</a>.</p>
 <ol type="1">
 <li>What are some common misconceptions about causality that the author addresses in chapter 1?</li>
 <li>What is the role of randomization in causal inference, as described in the book?</li>
@@ -638,7 +641,7 @@ Solution
 <p><span class="math display">\[
 ITE_i=Y_i(1)-Y_i(0).
 \]</span></p>
-<p>Unfortunately, as discussed in <a href="#sec-fpci" class="quarto-xref"><span>Section 7.1</span></a>, this individual treatment effect (ITE) does not exist as person <span class="math inline">\(i\)</span> can either be treated or not, but not both simultaneously. Since the counterfactual outcome is missing for each individual, we cannot observe the actual causal effect.</p>
+<p>Unfortunately, as discussed in <a href="#sec-fpci" class="quarto-xref"><span class="quarto-unresolved-ref">sec-fpci</span></a>, this individual treatment effect (ITE) does not exist as person <span class="math inline">\(i\)</span> can either be treated or not, but not both simultaneously. Since the counterfactual outcome is missing for each individual, we cannot observe the actual causal effect.</p>
 <p>The Rubin model, also known as the potential outcomes framework, provides a theoretical framework for identifying causality in the context of missing data-existing.</p>
 <p>In the model, each subject, denoted with <span class="math inline">\(i\)</span> (for example, a person, a school), has two potential outcomes: one outcome if the subject receives the treatment (treatment condition denoted with <span class="math inline">\(T=1\)</span>) and another outcome if the does not receive the treatment (control condition denoted with <span class="math inline">\(T=0\)</span>). In short, the model specifies that you can use the difference of the average of a group that received the treatment and the average of the group that did not received the treatment and use it as a substitute for the ITE: <span id="eq-feq"><span class="math display">\[
 \mathbb{E} [\underbrace{Y_i(1)-Y_i(0)}_{ITE}] = \underbrace{\mathbb{E}[Y(1)] - \mathbb{E}[Y(0)]}_{ATE}.
@@ -648,15 +651,15 @@ ITE_i=Y_i(1)-Y_i(0).
 <section id="sec-overfunda" class="level2 page-columns page-full" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="sec-overfunda"><span class="header-section-number">7.3</span> Its difficult to overcome the fundamental problem</h2>
 <div class="page-columns page-full"><blockquote class="blockquote">
-<p><span class="citation" data-cites="Keele2015statistics">Keele (<a href="references.html#ref-Keele2015statistics" role="doc-biblioref">2015, p. 314</a>)</span>: <em>“An identification analysis identifies the assumptions needed for statistical estimates to be given a causal interpretation.”</em></p>
+<p><span class="citation" data-cites="Keele2015statistics">Keele (<a href="#ref-Keele2015statistics" role="doc-biblioref">2015, p. 314</a>)</span>: <em>“An identification analysis identifies the assumptions needed for statistical estimates to be given a causal interpretation.”</em></p>
 </blockquote><div class="no-row-height column-margin column-container"><div id="ref-Keele2015statistics" class="csl-entry" role="listitem">
 Keele, L. (2015). The statistics of causal inference: A view from political methodology. <em>Political Analysis</em>, <em>23</em>(3), 313–335.
 </div></div></div>
-<p>In the following we will discuss conditions that need to hold in order to empirically draw causal conclusions from the ATE without bias. This is important because equation <a href="#eq-feq" class="quarto-xref">Equation&nbsp;<span>7.1</span></a> does not necessarily hold when using observational data without a more elaborated identification strategy.</p>
+<p>In the following we will discuss conditions that need to hold in order to empirically draw causal conclusions from the ATE without bias. This is important because equation <a href="#eq-feq" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-feq</span></a> does not necessarily hold when using observational data without a more elaborated identification strategy.</p>
 <section id="example" class="level3 page-columns page-full" data-number="7.3.1">
 <h3 data-number="7.3.1" class="anchored" data-anchor-id="example"><span class="header-section-number">7.3.1</span> Example</h3>
-<p>Suppose we want to measure the effect of a vaccine on survival rates. We observed the residents of a small city with 2,000 inhabitants over the course of 30 days. On day 1, we arrived in town and injected the vaccine to 200 individuals. By day 30, we counted the deceased in both groups: four died in the vaccinated group, while eighteen died in the group of 1,800 unvaccinated individuals. With a survival rate of 98% in the vaccinated group and 99% in the unvaccinated group, it may appear that the vaccine lowers the survival rate. Imagine that study is real, would you claim that the vaccine kills because according to <a href="#eq-feq" class="quarto-xref">Equation&nbsp;<span>7.1</span></a> we could use the ATE to indicate the ITE?</p>
-<p>The answer is yes, but only if the assumptions of <em>ignorability</em> (<a href="#sec-ingnorability" class="quarto-xref"><span>Section 7.3.2</span></a>) and <em>unconfoundedness</em> (<a href="#sec-unconfound" class="quarto-xref"><span>Section 7.3.3</span></a>) are satisfied.</p>
+<p>Suppose we want to measure the effect of a vaccine on survival rates. We observed the residents of a small city with 2,000 inhabitants over the course of 30 days. On day 1, we arrived in town and injected the vaccine to 200 individuals. By day 30, we counted the deceased in both groups: four died in the vaccinated group, while eighteen died in the group of 1,800 unvaccinated individuals. With a survival rate of 98% in the vaccinated group and 99% in the unvaccinated group, it may appear that the vaccine lowers the survival rate. Imagine that study is real, would you claim that the vaccine kills because according to <a href="#eq-feq" class="quarto-xref">Equation&nbsp;<span class="quarto-unresolved-ref">eq-feq</span></a> we could use the ATE to indicate the ITE?</p>
+<p>The answer is yes, but only if the assumptions of <em>ignorability</em> (<a href="#sec-ingnorability" class="quarto-xref"><span class="quarto-unresolved-ref">sec-ingnorability</span></a>) and <em>unconfoundedness</em> (<a href="#sec-unconfound" class="quarto-xref"><span class="quarto-unresolved-ref">sec-unconfound</span></a>) are satisfied.</p>
 <p>In brief, ignorability means that the 200 treated individuals are not systematically different from the other 1,800 individuals regarding characteristics that have an impact of the chances to survive. Considering the fact that we cannot randomly select 200 individuals from the 2,000 inhabitants due to legal constraints (as everyone has the right to choose whether or not to receive the vaccine), we must consider who is willing to get vaccinated. This selection bias may pose issues, as vulnerable populations often have a higher willingness to accept the vaccine compared to younger and healthier individuals who may fear the disease less. For example, if we vaccinated individuals with preexisting conditions that make them more vulnerable, such as the elderly or those with chronic illnesses, we cannot assume that the ATE is equal to the ITE. This is because the overall mortality risk is higher among those who received the vaccine.</p>
 <p>Unconfoundedness means that there are no other factors that could explain both the likelihood of receiving the vaccine and the likelihood of death. For example, if vaccinated individuals were not required to stay at home during these 30 days, their likelihood of dying may increase due to greater exposure to risky situations and other people, which in turn raises their chances of contracting a disease.</p>
 <div id="tip-vidneal" class="callout callout-style-simple callout-tip callout-titled">
@@ -669,7 +672,7 @@ Tip&nbsp;7.1
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Watch the video of Brady Neal’s lecture as shown in <a href="#fig-neal-rct" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>. Alternatively, you can read <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>, ch. 2)</span> of his <a href="https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf">lecture notes</a>.</p>
+<p>Watch the video of Brady Neal’s lecture as shown in <a href="#fig-neal-rct" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-neal-rct</span></a>. Alternatively, you can read <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="#ref-Neal2020Introduction" role="doc-biblioref">2020</a>, ch. 2)</span> of his <a href="https://www.bradyneal.com/Introduction_to_Causal_Inference-Dec17_2020-Neal.pdf">lecture notes</a>.</p>
 <div id="fig-neal-rct" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-neal-rct-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -686,11 +689,11 @@ Figure&nbsp;7.2: Average treatment effect (ATE)
 <div class="no-row-height column-margin column-container"></div></section>
 <section id="sec-ingnorability" class="level3 page-columns page-full" data-number="7.3.2">
 <h3 data-number="7.3.2" class="anchored" data-anchor-id="sec-ingnorability"><span class="header-section-number">7.3.2</span> Ignorability</h3>
-<p>Referring to table <a href="#tbl-tab21" class="quarto-xref">Table&nbsp;<span>7.1</span></a>, Brady <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>)</span> wrote:</p>
+<p>Referring to table <a href="#tbl-tab21" class="quarto-xref">Table&nbsp;<span class="quarto-unresolved-ref">tbl-tab21</span></a>, Brady <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="#ref-Neal2020Introduction" role="doc-biblioref">2020</a>)</span> wrote:</p>
 <div class="no-row-height column-margin column-container"></div><div class="page-columns page-full"><blockquote class="blockquote">
-<p><em>“what makes it valid to calculate the ATE by taking the average of the Y(0) column, ignoring the question marks, and subtracting that from the average of the Y(1) column, ignoring the question marks?” This ignoring of the question marks (missing data) is known as ignorability. Assuming ignorability is like ignoring how people ended up selecting the treatment they selected and just assuming they were randomly assigned their treatment”</em> <span class="citation" data-cites="Neal2020Introduction">(<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">Neal, 2020, p. 9</a>)</span></p>
+<p><em>“what makes it valid to calculate the ATE by taking the average of the Y(0) column, ignoring the question marks, and subtracting that from the average of the Y(1) column, ignoring the question marks?” This ignoring of the question marks (missing data) is known as ignorability. Assuming ignorability is like ignoring how people ended up selecting the treatment they selected and just assuming they were randomly assigned their treatment”</em> <span class="citation" data-cites="Neal2020Introduction">(<a href="#ref-Neal2020Introduction" role="doc-biblioref">Neal, 2020, p. 9</a>)</span></p>
 </blockquote><div class="no-row-height column-margin column-container"></div></div>
-<p>Ignorability means that the way individuals are assigned to treatment and control groups is irrelevant for the data analysis. Thus, when we aim to explain a certain outcome, we can ignore how an individual made it into the treated or control group. It has also been called <em>unconfoundedness</em> or no <em>omitted variable bias</em>. We will come back to these two terms in <a href="regression.html#sec-scrcj" class="quarto-xref"><span>Section 8.4</span></a> and in <a href="regression.html" class="quarto-xref"><span>Chapter 8</span></a>.</p>
+<p>Ignorability means that the way individuals are assigned to treatment and control groups is irrelevant for the data analysis. Thus, when we aim to explain a certain outcome, we can ignore how an individual made it into the treated or control group. It has also been called <em>unconfoundedness</em> or no <em>omitted variable bias</em>. We will come back to these two terms in <a href="#sec-scrcj" class="quarto-xref"><span class="quarto-unresolved-ref">sec-scrcj</span></a> and in <a href="#sec-regression" class="quarto-xref"><span class="quarto-unresolved-ref">sec-regression</span></a>.</p>
 <p>Randomized controlled trials (RCTs) are characterized by randomly assigning individuals to different treatment groups and comparing the outcomes of those groups. Thus, RCTs are essentially build on the assumption of <em>ignorability</em> which can be written formally like <span class="math display">\[
 (Y(1), Y(0)) \perp T.
 \]</span></p>
@@ -703,13 +706,13 @@ Figure&nbsp;7.2: Average treatment effect (ATE)
 </section>
 <section id="sec-unconfound" class="level3 page-columns page-full" data-number="7.3.3">
 <h3 data-number="7.3.3" class="anchored" data-anchor-id="sec-unconfound"><span class="header-section-number">7.3.3</span> Unconfoundedness</h3>
-<p>While randomized controlled trials (RCTs) assume the concept of ignoreability, most observational data present challenges in drawing causal conclusions due to the presence of confounding factors that affect both (1) the likelihood of individuals being part of the treatment group and (2) the observed outcome. For example, regional factors can affect both the number of storks and the number of babies born in a region. These factors are typically referred to as confounders, which we discussed in <a href="epidem.html#sec-cornotcaus" class="quarto-xref"><span>Section 5.2</span></a> as having the potential to create the illusion of a causal impact where none exists. However, empirical methods are available <em>to control for</em> these confounders and prevent the violation of the ignoreability assumption. Formally, the assumption can be written as <span class="math display">\[
+<p>While randomized controlled trials (RCTs) assume the concept of ignoreability, most observational data present challenges in drawing causal conclusions due to the presence of confounding factors that affect both (1) the likelihood of individuals being part of the treatment group and (2) the observed outcome. For example, regional factors can affect both the number of storks and the number of babies born in a region. These factors are typically referred to as confounders, which we discussed in <a href="#sec-cornotcaus" class="quarto-xref"><span class="quarto-unresolved-ref">sec-cornotcaus</span></a> as having the potential to create the illusion of a causal impact where none exists. However, empirical methods are available <em>to control for</em> these confounders and prevent the violation of the ignoreability assumption. Formally, the assumption can be written as <span class="math display">\[
 (Y(1), Y(0)) \perp T \mid X.
 \]</span> This allows to write the ATE as follows: <span class="math display">\[\begin{align}
 \mathbb{E}[Y(1)\mid X]-\mathbb{E}[Y(0)\mid X] &amp; =\mathbb{E}[Y(1) \mid T=1, X]-\mathbb{E}[Y(0) \mid T=0, X] \\
 &amp; =\mathbb{E}[Y \mid T=1, X]-\mathbb{E}[Y \mid T=0, X].
 \end{align}\]</span></p>
-<p>This means that we need to control for all factors (X) that influence both groups. We will revisit this topic in <a href="regression.html#sec-scrcj" class="quarto-xref"><span>Section 8.4</span></a>, where we will discuss the various functional impacts that must be considered to avoid causal bias.</p>
+<p>This means that we need to control for all factors (X) that influence both groups. We will revisit this topic in <a href="#sec-scrcj" class="quarto-xref"><span class="quarto-unresolved-ref">sec-scrcj</span></a>, where we will discuss the various functional impacts that must be considered to avoid causal bias.</p>
 <div class="callout callout-style-simple callout-important no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -718,7 +721,7 @@ Figure&nbsp;7.2: Average treatment effect (ATE)
 <div class="callout-body-container">
 <div id="exr-treatmenteffects" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 7.2</strong></span> Treatment effects</p>
-<p>Read sections 2.1 and 2.3 of <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="references.html#ref-Neal2020Introduction" role="doc-biblioref">2020</a>)</span>.</p>
+<p>Read sections 2.1 and 2.3 of <span class="citation" data-cites="Neal2020Introduction">Neal (<a href="#ref-Neal2020Introduction" role="doc-biblioref">2020</a>)</span>.</p>
 <ol type="1">
 <li>What is the individual treatment effect (ITE)?</li>
 <li>What is the average treatment effect (ATE)?</li>
@@ -1187,6 +1190,38 @@ Neal, B. (2020). <em>Introduction to causal inference from a machine learning pe
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

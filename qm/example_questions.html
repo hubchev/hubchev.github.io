@@ -46,6 +46,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-3ddb96e3b7f5c488f29fbaca52260ca9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-ba9938a60e040d5451ea4df514037cd9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-3ddb96e3b7f5c488f29fbaca52260ca9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -493,7 +496,7 @@ Solution
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><p>OLS stands for Ordinary Least Squares.</p></li>
-<li><p>In the OLS method, the goal is to find the best-fitting line through a set of data points. More generally, it aims to make the best prediction by minimizing the sum of the squared residuals which are the vertical distances between each data point (<span class="math inline">\(y_i\)</span>) and the predicted value on the line (<span class="math inline">\(y_i^*\)</span>). The so-called residual is the difference between the observed value (<span class="math inline">\(y_i\)</span>) and the value predicted by the regression line (<span class="math inline">\(y_i^*\)</span>). The corresponding sketch is shown in <a href="regression.html#fig-regressionols" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>.</p></li>
+<li><p>In the OLS method, the goal is to find the best-fitting line through a set of data points. More generally, it aims to make the best prediction by minimizing the sum of the squared residuals which are the vertical distances between each data point (<span class="math inline">\(y_i\)</span>) and the predicted value on the line (<span class="math inline">\(y_i^*\)</span>). The so-called residual is the difference between the observed value (<span class="math inline">\(y_i\)</span>) and the value predicted by the regression line (<span class="math inline">\(y_i^*\)</span>). The corresponding sketch is shown in <a href="#fig-regressionols" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-regressionols</span></a>.</p></li>
 </ol>
 </div>
 </div>
@@ -509,14 +512,14 @@ Solution
 <div class="callout-body-container">
 <div id="exr-bam-cor" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise B.2</strong></span> Correlation</p>
-<p><a href="#fig-bam-cor" class="quarto-xref">Figure&nbsp;<span>B.1</span></a> shows a screenshot of Josh Starmer’s explanation of the correlation coefficient. The video was linked in the lecture notes and watched during the lecture.</p>
+<p><a href="#fig-bam-cor" class="quarto-xref">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bam-cor</span></a> shows a screenshot of Josh Starmer’s explanation of the correlation coefficient. The video was linked in the lecture notes and watched during the lecture.</p>
 <div id="fig-bam-cor" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-bam-cor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;B.1: Pearson’s Correlation, Clearly Explained!!!
 </figcaption>
 <div aria-describedby="fig-bam-cor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><img src="fig/bam-cor.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p><a href="fig/bam-cor.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;B.1: Pearson’s Correlation, Clearly Explained!!!"><img src="fig/bam-cor.png" class="img-fluid figure-img" style="width:80.0%"></a></p>
 <p><em>Source: <a href="https://www.youtube.com/watch?v=xZ_z8KWkhXE">StatQuest with Josh Starmer</a></em></p>
 </div>
 </figure>
@@ -540,7 +543,7 @@ Figure&nbsp;B.1: Pearson’s Correlation, Clearly Explained!!!
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution <a href="#exr-bam-cor" class="quarto-xref">Exercise&nbsp;<span>B.2</span></a>
+Solution <a href="#exr-bam-cor" class="quarto-xref">Exercise&nbsp;<span class="quarto-unresolved-ref">exr-bam-cor</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1010,6 +1013,38 @@ Solution <a href="#exr-bam-cor" class="quarto-xref">Exercise&nbsp;<span>B.2</spa
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
