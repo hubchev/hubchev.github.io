@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; GDP – Economics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./inflation.html" rel="next">
+<link href="./methods.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-1b3682a6310c025b25e0252968a0a6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-12d64ba90eeecca9670aec3cb6d64fd4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1b3682a6310c025b25e0252968a0a6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./gdp.html">BASICS</a></li><li class="breadcrumb-item"><a href="./gdp.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">GDP</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./fig/logo_economics_yy.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Economics</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Economics.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">INTRODUCTION</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./scope.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Scope</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rationality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rationality</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./perfect.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Perfect markets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methods</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">BASICS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gdp.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">GDP</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inflation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Inflation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./welfare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Welfare</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./micro_prelim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Production and utility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./supplydemand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Supply and demand</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Allocation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./constraints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Constraints</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./elasticity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Elasticity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">MARKET FAILURE</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./failure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Imperfect</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./monopoly.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Monopoly</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./externalities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Externalities</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">DECISION MAKING</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dmbasics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Decision making basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dmtheory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Decision theory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dmbayes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conditional events</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./game.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Games</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./finance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cognitive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Cognitive biases</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">MACRO</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Long-run growth</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./shortrun.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Unemployment and business cycles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./demand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Aggregate demand</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./money.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Financial market</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./islm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">IS-LM model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./asad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Aggregate supply and demand</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nirp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Negative interest rates policy</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">MONETARY INTERNATIONAL ECONOMICS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./currencies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Currencies</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./iinvest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">International investments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Balance of payments</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">INTERNATIONAL TRADE</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tradebasic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ricardo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Comparative advantage</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ho.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Endowments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sectorspecific.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">The specific factor model</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">TRADE POLICY</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./wto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">World Trade Organization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./policy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Trade policy</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./strategic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Strategic trade policy</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./math_prelim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Mathematical preliminaries</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exams.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Past exams</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#gross-domestic-product-gdp" id="toc-gross-domestic-product-gdp" class="nav-link active" data-scroll-target="#gross-domestic-product-gdp"><span class="header-section-number">5.1</span> Gross Domestic Product (GDP)</a></li>
+  <li><a href="#three-equivalent-ways-to-measure-the-gdp" id="toc-three-equivalent-ways-to-measure-the-gdp" class="nav-link" data-scroll-target="#three-equivalent-ways-to-measure-the-gdp"><span class="header-section-number">5.2</span> Three equivalent ways to measure the GDP</a>
+  <ul class="collapse">
+  <li><a href="#the-expenditure-approach" id="toc-the-expenditure-approach" class="nav-link" data-scroll-target="#the-expenditure-approach"><span class="header-section-number">5.2.1</span> The expenditure approach</a></li>
+  <li><a href="#the-income-approach" id="toc-the-income-approach" class="nav-link" data-scroll-target="#the-income-approach"><span class="header-section-number">5.2.2</span> The income approach</a></li>
+  <li><a href="#the-production-approach" id="toc-the-production-approach" class="nav-link" data-scroll-target="#the-production-approach"><span class="header-section-number">5.2.3</span> The production approach</a></li>
+  </ul></li>
+  <li><a href="#limitations-of-the-nominal-gdp" id="toc-limitations-of-the-nominal-gdp" class="nav-link" data-scroll-target="#limitations-of-the-nominal-gdp"><span class="header-section-number">5.3</span> Limitations of the nominal GDP</a></li>
+  <li><a href="#nominal-and-real-gdp" id="toc-nominal-and-real-gdp" class="nav-link" data-scroll-target="#nominal-and-real-gdp"><span class="header-section-number">5.4</span> Nominal and real GDP</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./gdp.html">BASICS</a></li><li class="breadcrumb-item"><a href="./gdp.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">GDP</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">GDP</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Required readings:</strong> <span class="citation" data-cites="Shapiro2022Principles">Shapiro et al. (<a href="references.html#ref-Shapiro2022Principles" role="doc-biblioref">2022</a>, ch.&nbsp;19)</span>, <span class="citation" data-cites="Mankiw2020Principles">Mankiw (<a href="references.html#ref-Mankiw2020Principles" role="doc-biblioref">2024</a>, ch.&nbsp;24)</span></p>
+<div class="no-row-height column-margin column-container"><div id="ref-Shapiro2022Principles" class="csl-entry" role="listitem">
+Shapiro, D., MacDonald, D., &amp; Greenlaw, S. A. (2022). <em>Principles of economics</em> (3rd ed.). OpenStax. <a href="https://openstax.org/details/books/principles-economics-3e">https://openstax.org/details/books/principles-economics-3e</a>
+</div></div><p><strong>Recommended readings:</strong> <span class="citation" data-cites="Shapiro2022Principles">Shapiro et al. (<a href="references.html#ref-Shapiro2022Principles" role="doc-biblioref">2022</a>, ch.&nbsp;22, 23)</span>, <span class="citation" data-cites="Mankiw2020Principles">Mankiw (<a href="references.html#ref-Mankiw2020Principles" role="doc-biblioref">2024, pt. VIII</a>, ch.&nbsp;32)</span></p>
+<p><strong>Learning objectives:</strong></p>
+<p>Students will be able to:</p>
+<ul>
+<li>Understand the importance of gross domestic product (GDP) and how it is measured.</li>
+<li>Analyze the composition of GDP and how it has changed over time.</li>
+<li>Recognize that GDP is the sum of consumption, investment, government spending, inventory investment, and exports minus imports.</li>
+</ul>
+<section id="gross-domestic-product-gdp" class="level2 page-columns page-full" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="gross-domestic-product-gdp"><span class="header-section-number">5.1</span> Gross Domestic Product (GDP)</h2>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p>William D. <span class="citation" data-cites="Nordhaus2002Health">Nordhaus (<a href="references.html#ref-Nordhaus2002Health" role="doc-biblioref">2002</a>)</span>: “While the GDP and the rest of the National Income and Product Accounts (NIPA) may seem to be arcane concepts, they are truly among the great inventions of the twentieth century. Much like a satellite in space can survey the weather across an entire continent, GDP provides an overall picture of the state of the economy. Since its initial construction by Simon Kuznets, who won the Nobel Prize in Economics for his contributions to national income accounting, significant strides have been made in developing and improving indexes of economic welfare.”</p>
+</blockquote><div class="no-row-height column-margin column-container"><div id="ref-Nordhaus2002Health" class="csl-entry" role="listitem">
+Nordhaus, W. D. (2002). <em>The health of nations: The contribution of improved health to living standards</em> (Working Paper 8818). National Bureau of Economic Research (NBER).
+</div></div></div>
+<p>The <strong>Gross Domestic Product (GDP)</strong> “is the market value of all final goods and services produced within a country in a given period of time” <span class="citation" data-cites="Mankiw2020Principles">(<a href="references.html#ref-Mankiw2020Principles" role="doc-biblioref">Mankiw, 2024</a>, ch.&nbsp;24)</span>.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Mankiw2020Principles" class="csl-entry" role="listitem">
+Mankiw, N. G. (2024). <em>Principles of economics</em> (10th ed.). Cengage Learning.
+</div></div><p>This definition consists of four parts:</p>
+<ul>
+<li><strong>Market value:</strong> The items in GDP are valued at their market prices.</li>
+<li><strong>Final goods and services:</strong> A final good is an item purchased by its final user. It contrasts with an intermediate good, which is produced by one firm, bought by another firm, and used as a component of a final good or service. To avoid double counting, GDP includes only final goods and services.</li>
+<li><strong>Produced within a country:</strong> Only goods and services produced within a country are counted.</li>
+<li><strong>In a given period of time:</strong> GDP is measured over a specified time frame, typically a quarter or a year.</li>
+</ul>
+</section>
+<section id="three-equivalent-ways-to-measure-the-gdp" class="level2 page-columns page-full" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="three-equivalent-ways-to-measure-the-gdp"><span class="header-section-number">5.2</span> Three equivalent ways to measure the GDP</h2>
+<p>GDP can be quantified through three methods, each expected to yield equivalent outcomes. The circular flow diagrams of <a href="#fig-cflow1" class="quarto-xref">Figure&nbsp;<span>5.2</span></a> visualize the concept.</p>
+<ol type="1">
+<li>Total spending on domestic products and services (expenditure approach)</li>
+<li>Total domestic income (income approach)</li>
+<li>Total domestic production (production approach)</li>
+</ol>
+<p>All three approaches theoretically should arrive at the same result, that is, measuring the value that was added within an economy over the course of time.</p>
+<div id="fig-cflow1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-cflow1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: Two circular flow diagrams
+</figcaption>
+<div aria-describedby="fig-cflow1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="fig/circular-flow.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;5.1: Two circular flow diagrams"><img src="fig/circular-flow.jpg" class="img-fluid figure-img" style="width:35.0%"></a></p>
+<p><a href="fig/circular-flow2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;5.1: Two circular flow diagrams"><img src="fig/circular-flow2.png" class="img-fluid figure-img" style="width:35.0%"></a></p>
+</div>
+</figure>
+</div>
+<div id="fig-cflow1" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-cflow1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.2: The circular flow in a closed economy
+</figcaption>
+<div aria-describedby="fig-cflow1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<p><a href="fig/cflow1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;5.2: The circular flow in a closed economy"><img src="fig/cflow1.png" class="img-fluid figure-img" style="width:40.0%"></a></p>
+<div class="page-columns page-full"><p><em>Note: The diagram was taken from <span class="citation" data-cites="Suranovic2016Survey">Suranovic (<a href="references.html#ref-Suranovic2016Survey" role="doc-biblioref">2016</a>)</span>, p.&nbsp;54.</em></p><div class="no-row-height column-margin column-container"><div id="ref-Suranovic2016Survey" class="csl-entry" role="listitem">
+Suranovic, S. (2016). <em>Survey of international economics: Theory and policy</em> (1.0 ed.). Flatworld Knowledge.
+</div></div></div>
+</div>
+</figure>
+</div>
+<p>Watch the videos of <a href="#fig-whatgdprev" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>.</p>
+<div id="fig-whatgdprev" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-whatgdprev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.3: What is Gross Domestic Product (GDP)?
+</figcaption>
+<div aria-describedby="fig-whatgdprev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/mjJmo5mN5yA" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p><em>Source: <a href="https://youtu.be/mjJmo5mN5yA">Youtube</a></em></p>
+</div>
+</figure>
+</div>
+<section id="the-expenditure-approach" class="level3 page-columns page-full" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="the-expenditure-approach"><span class="header-section-number">5.2.1</span> The expenditure approach</h3>
+<p>The expenditure approach measures GDP as the sum of consumption expenditure, <span class="math inline">\(C\)</span>, investment, <span class="math inline">\(I\)</span>, government expenditure on goods and services, <span class="math inline">\(G\)</span>, and net exports of goods and services, <span class="math inline">\((X - M)\)</span>. Therefore, the equation - which is often called the <em>GDP decomposition</em> - is:</p>
+<p><span class="math display">\[GDP = C + I + G + (X - M),\]</span></p>
+<p>where</p>
+<ul>
+<li><span class="math inline">\(C\)</span> denote the expenditure on all consumer goods,</li>
+<li><span class="math inline">\(I\)</span> denotes the expenditure on newly produced capital goods,</li>
+<li><span class="math inline">\(G\)</span> denotes government expenditure on goods and services (excluding transfers),</li>
+<li><span class="math inline">\(X\)</span> denotes the exports, and <span class="math inline">\(M\)</span> the imports. The difference <span class="math inline">\(X-M\)</span> stands for the net exports, also known as the trade balance. For example, for the USA in 2020, this amounts to: <span class="math display">\[\$14,145 + \$3,605 + \$3,831 + (-\$645) = \$20,936.\]</span> Aggregate expenditure equals GDP because all goods and services produced are sold to households, firms, governments, or foreigners. Please note, goods and services that are not sold are included in investment as inventories and thus are “sold” to the producing firm.</li>
+</ul>
+<p>Please consider Figures <a href="#fig-gdpquick" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>, <a href="#fig-gdpcompdev" class="quarto-xref">Figure&nbsp;<span>5.5</span></a>, and <a href="#fig-expdev" class="quarto-xref">Figure&nbsp;<span>5.6</span></a>. They illustrate various aspects of GDP composition.</p>
+<div id="fig-gdpquick" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-gdpquick-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.4: Decomposition of GDP in 2013 for the US, the Eurozone, and China.
+</figcaption>
+<div aria-describedby="fig-gdpquick-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<p><a href="fig/gdpquick.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;5.4: Decomposition of GDP in 2013 for the US, the Eurozone, and China."><img src="fig/gdpquick.jpg" class="img-fluid figure-img" style="width:80.0%"></a></p>
+<div class="page-columns page-full"><p><em>Source: <span class="citation" data-cites="WorldBank2015World">World Bank (<a href="references.html#ref-WorldBank2015World" role="doc-biblioref">2015</a>)</span>. Adapted from <a href="https://www.core-econ.org/the-economy/book/text/13.html">Core Economics</a></em></p><div class="no-row-height column-margin column-container"><div id="ref-WorldBank2015World" class="csl-entry" role="listitem">
+World Bank. (2015). <em>World development indicators</em> [Dataset]. <span>World Bank</span>.
+</div></div></div>
+</div>
+</figure>
+</div>
+<div id="fig-gdpcompdev" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-gdpcompdev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.5: Composition of US GDP, 1929-2005
+</figcaption>
+<div aria-describedby="fig-gdpcompdev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<p><a href="fig/gdp-comp-dev.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5.5: Composition of US GDP, 1929-2005"><img src="fig/gdp-comp-dev.jpg" class="img-fluid figure-img" style="width:60.0%"></a></p>
+<div class="page-columns page-full"><p><em>Source: <span class="citation" data-cites="Jones2008Macroeconomics">Jones (<a href="references.html#ref-Jones2008Macroeconomics" role="doc-biblioref">2008</a>)</span></em></p><div class="no-row-height column-margin column-container"></div></div>
+</div>
+</figure>
+</div>
+<div id="fig-expdev" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-expdev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.6: Expenditure Shares of U.S. GDP, 1970-2005
+</figcaption>
+<div aria-describedby="fig-expdev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<p><a href="fig/exp-dev.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;5.6: Expenditure Shares of U.S. GDP, 1970-2005"><img src="fig/exp-dev.jpg" class="img-fluid figure-img" style="width:60.0%"></a></p>
+<div class="page-columns page-full"><p><em>Source: <span class="citation" data-cites="Jones2008Macroeconomics">Jones (<a href="references.html#ref-Jones2008Macroeconomics" role="doc-biblioref">2008</a>)</span></em></p><div class="no-row-height column-margin column-container"><div id="ref-Jones2008Macroeconomics" class="csl-entry" role="listitem">
+Jones, C. I. (2008). <em>Macroeconomics</em>. W. W. Norton.
+</div></div></div>
+</div>
+</figure>
+</div>
+</section>
+<section id="the-income-approach" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="the-income-approach"><span class="header-section-number">5.2.2</span> The income approach</h3>
+<p>The income approach measures GDP as the sum of compensation of employees, net interest, rental income, corporate profits, and proprietors’ income. This sum equals net domestic income at factor costs. To obtain GDP, indirect taxes (taxes paid by consumers when they buy goods and services) minus subsidies are included along with depreciation. Finally, any discrepancy between the expenditure approach and the income approach is included in the income approach as a statistical discrepancy.</p>
+</section>
+<section id="the-production-approach" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="the-production-approach"><span class="header-section-number">5.2.3</span> The production approach</h3>
+<p>The production approach calculates how much value is contributed at each stage of production. (Gross value added = gross value of output - value of intermediate consumption.)</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="FAQ">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+FAQ
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Are government transfer payments part of the GDP?</strong><br>
+Government transfer payments, such as Social Security payments, are <strong>not</strong> included in government expenditures because they do not involve the government buying goods or services.</p></li>
+<li><p><strong>How do we account for international transactions?</strong><br>
+For example, foreign production is domestic consumption (imports), while domestic production is foreign consumption (exports).<br>
+We include exports and exclude imports, so that GDP reflects value added, income from, or consumption of, domestic production.</p></li>
+<li><p><strong>How do we incorporate government?</strong><br>
+Treat it as another producer where public services are <em>bought</em> via taxes.</p></li>
+<li><p><strong>Why “domestic” and why “gross”?</strong></p>
+<ul>
+<li>Depreciation refers to the decrease in the stock of capital due to wear and tear and obsolescence. The total spent on new capital purchases and replacing depreciated capital is termed <strong>gross investment</strong>. The increase in capital stock is termed <strong>net investment</strong>.
+<ul>
+<li>Net investment = gross investment - depreciation.</li>
+</ul></li>
+<li>The term “gross” in gross domestic product signifies that the investment in GDP is gross investment, part of which replaces depreciating capital. Net domestic product subtracts depreciation from GDP.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-htmgdp" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.1</strong></span> How to measure GDP Explain in one sentence the three equivalent ways to measure GDP.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>In the <em>expenditure approach</em>, GDP is calculated as the sum of all expenditure on final products.</li>
+<li>In the <em>income approach</em>, GDP is calculated as the sum of all income.</li>
+<li>In the <em>value-added approach</em>, GDP is calculated as the sum of all value added in all production units.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-partornotgdp" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.2</strong></span> Part of GDP?</p>
+<p>State which of the following are a part of the GDP and which are not:</p>
+<ol type="1">
+<li><p>Social security payments received by a retired factory worker.</p></li>
+<li><p>Unpaid services of a family member in painting the family home.</p></li>
+<li><p>The income of a butcher.</p></li>
+<li><p>The monthly allowance a college student receives from home.</p></li>
+<li><p>Rent received on an apartment.</p></li>
+<li><p>A €2 million increase in business inventories.</p></li>
+<li><p>Interest on a BMW bond.</p></li>
+<li><p>The purchase of an insurance policy.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Social security payments received by a retired factory worker.
+<ul class="task-list">
+<li><label><input type="checkbox">Part of GDP<br>
+</label></li>
+<li><label><input type="checkbox" checked="">Not Part of GDP</label></li>
+</ul></li>
+<li>Unpaid services of a family member in painting the family home.
+<ul class="task-list">
+<li><label><input type="checkbox">Part of GDP<br>
+</label></li>
+<li><label><input type="checkbox" checked="">Not Part of GDP</label></li>
+</ul></li>
+<li>The income of a butcher.
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Part of GDP<br>
+</label></li>
+<li><label><input type="checkbox">Not Part of GDP</label></li>
+</ul></li>
+<li>The monthly allowance a college student receives from home.
+<ul class="task-list">
+<li><label><input type="checkbox">Part of GDP<br>
+</label></li>
+<li><label><input type="checkbox" checked="">Not Part of GDP</label></li>
+</ul></li>
+<li>Rent received on an apartment.
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Part of GDP<br>
+</label></li>
+<li><label><input type="checkbox">Not Part of GDP</label></li>
+</ul></li>
+<li>A €2 million increase in business inventories.
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Part of GDP<br>
+</label></li>
+<li><label><input type="checkbox">Not Part of GDP</label></li>
+</ul></li>
+<li>Interest on a BMW bond.
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Part of GDP<br>
+</label></li>
+<li><label><input type="checkbox">Not Part of GDP</label></li>
+</ul></li>
+<li>The purchase of an insurance policy.
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Part of GDP<br>
+</label></li>
+<li><label><input type="checkbox">Not Part of GDP</label></li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="limitations-of-the-nominal-gdp" class="level2 page-columns page-full" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="limitations-of-the-nominal-gdp"><span class="header-section-number">5.3</span> Limitations of the nominal GDP</h2>
+<div id="fig-kuznets" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-kuznets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.7: Simon Kuznets (1901-1985)
+</figcaption>
+<div aria-describedby="fig-kuznets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<p><a href="fig/kuznets.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;5.7: Simon Kuznets (1901-1985)"><img src="fig/kuznets.jpg" class="img-fluid figure-img" style="width:20.0%"></a></p>
+<div class="page-columns page-full"><p><em>Source: Public domain taken from <span class="citation" data-cites="Wikipedia2025kuznets">Wikipedia (<a href="references.html#ref-Wikipedia2025kuznets" role="doc-biblioref">2025</a>)</span> </em></p><div class="no-row-height column-margin column-container"><div id="ref-Wikipedia2025kuznets" class="csl-entry" role="listitem">
+Wikipedia. (2025). <em><span>Wikipedia</span><span>,</span> the free encyclopedia: File:simon kuznets 1971b.jpg</em>. <a href="https://commons.wikimedia.org/wiki/File:Simon_Kuznets_1971b.jpg">https://commons.wikimedia.org/wiki/File:Simon_Kuznets_1971b.jpg</a>
+</div></div></div>
+</div>
+</figure>
+</div>
+<p>The GDP as a single measure for economic activity and production, respectively, was pioneered and developed by a Russian-born American economist, Simon Kuznets (1901-1985), see <a href="#fig-kuznets" class="quarto-xref">Figure&nbsp;<span>5.7</span></a>. He received the Nobel Prize in economics in 1971 for his contributions. While he was convinced about the valuable uses of national income measurements, he was very much aware of the limitations and the risks of the measures to be abused. In an report to the U.S. Senate where he explains the possibilities of a national income measure, he warns in the section “Uses and Abuses of National Income Measurements” <span class="citation" data-cites="Kuznets1934National">(<a href="references.html#ref-Kuznets1934National" role="doc-biblioref">Kuznets, 1934, pp. 5–8</a>)</span> that the GDP needs to be “interpreted with a full realization of the definition of national income assumed”<span class="citation" data-cites="Kuznets1934National">Kuznets (<a href="references.html#ref-Kuznets1934National" role="doc-biblioref">1934, p. 6</a>)</span>. Otherwise it is abused. Please read here his carefull warning:</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Kuznets1934National" class="csl-entry" role="listitem">
+Kuznets, S. (1934). <em>National income, 1929-32: Letter from the acting secretary of commerce transmitting in response to senate resolution no. 220 (72D cong.) a report on national income, 1929-32</em> (124). Senate, 73rd <span>Congress</span>, 2d session. <a href="https://fraser.stlouisfed.org/title/national-income-1929-1932-971">https://fraser.stlouisfed.org/title/national-income-1929-1932-971</a>
+</div></div><blockquote class="blockquote">
+<p>“The valuable capacity of the human mind to simplify a complex situation in a compact characterization becomes dangerous when not controlled in terms of definitely stated criteria. With quantitative measurements especially, the definiteness of the result suggests, often misleadingly, a precision and simplicity in the outlines of the object measured. Measurements of national income are subject to this type of illusion and resulting abuse, especially since they deal with matters that are the center of conflict of opposing social groups where the effectiveness of an argument is often contingent upon oversimplification.</p>
+<p>From the definition of national income presented and discussed above it is obvious that a measure of income produced sheds a good deal of light on the productivity of the nation; that income received measures the same productivity as reflected in the flow of means of purchase to the nation’s members; and that when total income paid out is adjusted for changes in the value of money and apportioned per capita, the result is illuminating of movements in the nation’s economic welfare. Comparison of such income measurements for different nations, or for the same nation for different years, yields valuable indications of spatial and temporal differences in national productivity and economic welfare. Moreover, various single groups of services or drafts may be compared with the country’s total to indicate their relative weight in or draft upon the latter.</p>
+<p>These constitute highly valuable uses of national income measurements, but only if the results are interpreted with a full realization of the definition of national income assumed, either explicitly or implicitly, by the measurement. Thus, the estimates submitted in the present study define income in such a way as to cover primarily only efforts whose results appear on the market place of our economy. A student of social affairs who is interested in the total productivity of the nation, including those efforts which, like housewives’ services, do not appear on the market, can therefore use our measures only with some qualifications. Secondly, the present study’s measures of national income, like all such studies, estimates the value of commodities and direct services at their market price. But market valuation of commodities and especially of direct services depends upon the personal distribution of income within the nation. Thus in a nation with a rich upper class, the personal services to the rich are likely to be valued at a much higher level than the very same services in another nation, characterized by a more equitable personal distribution of income. A student of social affairs who conceives of a nation’s end-product as undistorted by the existing distribution of income, yould again have to qualify and change our estimates, possibly in a marked fashion. Thirdly, the present study’s estimate of national income produced is based in part, like most existing estimates, upon the prevalent legal and accounting distinction between gross and net income of business enterprises. To a student of social affairs whose concept of net productivity does not agree with the prevailing practices of separating net from gross income, especially by corporations, our estimates will obviously present a somewhat distorted picture of the nation’s net product.</p>
+<p>All these qualifications upon estimates of national income as an index of productivity are just as important when income measurements are interpreted from the point of view of economic welfare. But in the latter case additional difficulties will be suggested to anyone who wants to penetrate below the surface of total figures and market values. Economic welfare cannot be adequately measured unless the personal distribution of income is known. And no income measurement undertakes to estimate the reverse side of income, that is, the intensity and unpleasantness of effort going into the earning of income. The welfare of a nation can, therefore, scarcely be inferred from a measurement of national income as defined above.</p>
+<p>The abuses of national income estimates arise largely from a failure to take into account the precise definition of income and the methods of its evaluation which the estimator assumes in arriving at his final figures. Notions of productivity or welfare as understood by the user of the estimates are often read by him into the income measurement, regardless of the assumptions made by the income estimator in arriving at the figures. As a result we find all too commonly such inferences that a decline of 30 percent in the national income (in terms of “constant” dollars) means a 30 percent decline in the total productivity of the nation, and a corresponding decline in its welfare. Or that a nation whose total income is twice the size of the national income of another country is twice “as well off”, can sustain payments abroad twice as large or can carry a debt burden double in size. Such statements can obviously be true only when gualified by a host of “ifs.”</p>
+<p>A similar failure to take into account the investigator’s basic assumptions underlies another widely prevalent abuse of national income measures, involved in estimating the draft or “burden” which this or that particular type of expenses (e.g., government expenses, payments on bonded debt, etc.) constitutes ot the country’s total end-product. Every payment included in the national income is ipso facto a draft or a “burden” upon national income. For example, net receipts by physicians from medical practice, are both an addition to national income and a draft upon individual incomes from which such receipts originate. Since we estimate the value of personal services or commodities at their market value it follows that any payment for productive services contributes just as much to the national income total as it takes away from it. No items included in national income can, therefore, be conceived as “pure” draft.</p>
+<p>The full meaning of a statement that such payments as interest on bonds or taxes for government services are a ” burden” or draft upon national income is that actually no services are being rendered in return for these payments. That an increasing weight in the national income of payments on fixed debt or of salaries of government officials is not hailed as an increased contribution to national income lies in the implicit assumption, not always true, that the services contributed by creditors or government officials have not increased proportionately, and that, therefore, a heavier burden was added upon other income recipients without an increased benefit.</p>
+<p>Such assumptions are accepted all too easily because they are based upon a natural but erroneous identification of national income with business or personal income. From the standpoint of a business firm or person, the income of employees, private or public, is likely to appear as a draft. But from the vantage point of national economy as a whole, which is used by a national income investigator, no payment that is included in national income can be considered as a pure draft upon the country’s end-product. This can be true only of payments not included, such as charity, earnings from illegal pursuits, and the like. All that the national income estimator can say is that this or the other part of the national total has increased or declined more than the others. That this rise or decline implies a larger or smaller burden upon the national economy can be established only on the basis of such additional assumptions as have been formulated above, assumptions which arc not a proper part of the national income estimate and which are far from being self-evident.”</p>
+</blockquote>
+<p>In a nutshell, GDP is an imperfect measure of production as it overlooks significant parts of economic activity. For example, it does not account for black market activity, private production, and production that occurs outside formal markets. While GDP is often used to gauge a country’s welfare or the well-being and happiness of its citizens, it neglects factors considered essential to these concepts, which are inherently difficult to define.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-kene" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.3</strong></span> GDP as an imperfect measure</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/77IdKFqXbUY?si=1dYSwl0Q1IPhOPsr" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<p>Watch the video <a href="https://youtu.be/77IdKFqXbUY">Robert F. Kennedy challenges Gross Domestic Product</a> or read the speech of Robert Kennedy below and discuss what factors influencing the standard of living are not included in GDP and how that may impact GDP:</p>
+<blockquote class="blockquote">
+<p>“Gross National Product counts air pollution and cigarette advertising, and ambulances to clear our highways of carnage. It counts special locks for our doors and the jails for the people who break them. It counts the destruction of the redwood and the loss of our natural wonder in chaotic sprawl. It counts napalm and counts nuclear warheads and armored cars for the police to fight the riots in our cities. It counts Whitman’s rifle and Speck’s knife, and the television programs which glorify violence in order to sell toys to our children. Yet the gross national product does not allow for the health of our children, the quality of their education or the joy of their play. It does not include the beauty of our poetry or the strength of our marriages, the intelligence of our public debate or the integrity of our public officials. […] it measures everything in short, except that which makes life worthwhile.”<br>
+– Senator Robert F. Kennedy (1925-1968) <span class="citation" data-cites="Kennedy1968Remarks">(see <a href="references.html#ref-Kennedy1968Remarks" role="doc-biblioref">Kennedy, 1968</a>)</span></p>
+</blockquote>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution: Factors omitted from GDP">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution: Factors omitted from GDP
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Some aspects that influence the standard of living are not part of GDP. These include:</p>
+<ul>
+<li><p><strong>Non-market transactions:</strong> Household production, such as childcare services, is excluded from GDP. As more services, including childcare, are provided in the marketplace, the measured growth rate might overstate the development of overall economic activity.</p></li>
+<li><p><strong>Black-market activities:</strong> Although the level of GDP may be underestimated if the underground economy is a stable proportion of total economic activity, the growth rate itself should remain accurate.</p></li>
+<li><p><strong>Leisure Time:</strong> An increase in leisure time may lower the economic growth rate, but individuals may value their leisure and feel better off as a result.</p></li>
+<li><p><strong>Environmental Quality:</strong> Pollution does not directly diminish the economic growth rate, even though it may lower living standards.</p></li>
+<li><p><strong>Inequality:</strong> GDP fails to account for income inequality within society.</p></li>
+<li><p><strong>Sustainability:</strong> GDP does not reflect the sustainability of economic growth.</p></li>
+<li><p><strong>Health and environment:</strong> GDP overlooks the health of individuals and the environment in general.</p></li>
+<li><p><strong>Depreciation replacement:</strong> GDP does not consider how much capital (tangible goods) has depreciated. For example, while GDP measures the construction of new bridges, it does not account for bridges that have been decommissioned. It is not a balance sheet of prosperity but a measure of the inflow of new production.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Kennedy1968Remarks" class="csl-entry" role="listitem">
+Kennedy, R. F. (1968). <em>Remarks at the <span>University</span> of <span>Kansas</span>, march 18, 1968</em> (Miscellaneous Recordings MR 89-34). John F. Kennedy Presidential Library.
+</div></div></section>
+<section id="nominal-and-real-gdp" class="level2 page-columns page-full" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="nominal-and-real-gdp"><span class="header-section-number">5.4</span> Nominal and real GDP</h2>
+<p>Please watch the video of <a href="#fig-norrealmarrev" class="quarto-xref">Figure&nbsp;<span>5.8</span></a>.</p>
+<div id="fig-norrealmarrev" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-norrealmarrev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.8: Nominal vs.&nbsp;Real GDP
+</figcaption>
+<div aria-describedby="fig-norrealmarrev-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/rGqhTQyY6g4" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p><em>Source: <a href="https://youtu.be/rGqhTQyY6g4">Youtube</a></em></p>
+</div>
+</figure>
+</div>
+<p><strong>Nominal GDP</strong> reflects the value of final goods and services produced in a specific year, valued at the prices prevalent during that year. The overall market value of production and thus GDP can rise either through increased output of goods and services or through higher prices. In contrast, the <strong>real GDP</strong> enables the comparison of production quantities across different time periods, as it represents the value of final goods and services produced in a year, valued at the prices of a reference base year. This relationship is expressed as:</p>
+<p><span class="math display">\[GDP^{\text{real}}=\frac{GDP^{\text{nominal}}}{P}\]</span></p>
+<p>While nominal GDP is the commonly reported figure and does not account for price adjustments, real GDP provides somehow a more accurate reflection of the actual quantity of goods and services produced. The real GDP is an inflation-adjusted measure that captures the value of all goods and services produced by an economy in a given year, expressed in base-year prices. It is often referred to as constant-price GDP, inflation-corrected GDP, or constant dollar GDP. A clear definition can be found on <span class="citation" data-cites="Wikipedia2020gdp">Wikipedia (<a href="references.html#ref-Wikipedia2020gdp" role="doc-biblioref">2020</a>)</span>:</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Wikipedia2020gdp" class="csl-entry" role="listitem">
+Wikipedia. (2020). <em><span>Wikipedia</span><span>,</span> the free encyclopedia: Real gross domestic product</em>. <a href="https://en.wikipedia.org/wiki/Real_gross_domestic_product">https://en.wikipedia.org/wiki/Real_gross_domestic_product</a>
+</div></div><blockquote class="blockquote">
+<p>“Real gross domestic product (real gdp for short) is a macroeconomic measure of the value of economic output adjusted for price changes (i.e., inflation or deflation). This adjustment transforms the money-value measure, nominal GDP, into an index for quantity of total output.”</p>
+</blockquote>
+<p>To clarify the concept of the real GDP, consider the two following examples where we suppose the economy produces only one product.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Example A: Prices change">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example A: Prices change
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Production and prices are as shown in <a href="#tbl-exampleA" class="quarto-xref">Table&nbsp;<span>5.1</span></a>:</p>
+<div id="tbl-exampleA" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-exampleA-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.1: No quantity changes
+</figcaption>
+<div aria-describedby="tbl-exampleA-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Year</th>
+<th>Number</th>
+<th>Price in Euro</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2010</td>
+<td>500</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>2011</td>
+<td>500</td>
+<td>1.1</td>
+</tr>
+<tr class="odd">
+<td>2012</td>
+<td>500</td>
+<td>1.2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Nominal GDP:</p>
+<p><span class="math display">\[\begin{align}
+GDP_{2010}^{nominal} &amp;= 500 \cdot 1 \text{€} = 500\text{€}\\
+GDP_{2011}^{nominal} &amp;= 500 \cdot 1.1 \text{€} = 550\text{€}\\
+GDP_{2012}^{nominal} &amp;= 500 \cdot 1.2 \text{€}= 600\text{€}
+\end{align}\]</span></p>
+<p>Real GDP with a base year 2010:</p>
+<p><span class="math display">\[\begin{align}
+GDP_{2010}^{real, base=2010} = 500 \cdot 1\text{€} = 500 \text{€} \\
+GDP_{2011}^{real, base=2010} = 500 \cdot 1\text{€} = 500 \text{€}  \\
+GDP_{2012}^{real, base=2010} = 500 \cdot 1\text{€} = 500 \text{€}
+\end{align}\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Example B: Prices and quantity change">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example B: Prices and quantity change
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The production and prices are as shown in <a href="#tbl-exampleB" class="quarto-xref">Table&nbsp;<span>5.2</span></a>:</p>
+<div id="tbl-exampleB" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-exampleB-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.2: Price and quantity changes
+</figcaption>
+<div aria-describedby="tbl-exampleB-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Year</th>
+<th>Number</th>
+<th>Price in Euro</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2010</td>
+<td>500</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>2011</td>
+<td>600</td>
+<td>1.1</td>
+</tr>
+<tr class="odd">
+<td>2012</td>
+<td>700</td>
+<td>1.2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Nominal GDP: <span class="math display">\[\begin{align}
+GDP_{2010} = 500 \cdot 1\text{€}   = 500 \text{€}  \\
+GDP_{2011} = 600 \cdot 1.1\text{€}   = 660 \text{€}  \\
+GDP_{2012} = 700 \cdot 1.2\text{€}   = 840 \text{€}  
+\end{align}\]</span> Real GDP with a base year of 2010: <span class="math display">\[\begin{align}
+GDP_{2010}^{base=2010} = 500 \cdot 1\text{€}   = 500 \text{€}  \\
+GDP_{2011}^{base=2010} = 600 \cdot 1\text{€}   = 600 \text{€}  \\
+GDP_{2012}^{base=2010} = 700 \cdot 1\text{€}   = 700 \text{€}  
+\end{align}\]</span></p>
+</div>
+</div>
+<p>The examples above simplify reality by assuming that only one item is being produced in the economy, while, in fact, many goods and services are produced. Despite this limitation, the examples illustrate two important points. First, it is crucial to identify a representative basket of goods produced in an economy. Second, it is essential to measure the prices of this basket accurately. Both of these aspects will be discussed in <a href="inflation.html" class="quarto-xref"><span>Chapter 6</span></a>. Afterward, we will return to evaluating GDP as a measure of welfare in <a href="welfare.html" class="quarto-xref"><span>Chapter 7</span></a>.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-vargdp" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.4</strong></span> Various GDP</p>
+<ol type="a">
+<li>To estimate GDP, you add the value of all goods and services produced, both final and intermediate goods. Is this procedure correct? Why?</li>
+<li>What is the relationship between aggregate income and aggregate production? Why does this relationship exist?</li>
+<li>Does my purchase of a domestically produced Ford automobile that was manufactured in 2020 add to the current U.S. GDP? Why? How about my purchase of a domestically produced, newly produced Ford? Why?</li>
+<li>Does my purchase of 100 shares of stock in Meta add to the nation’s GDP? Why?</li>
+<li>If a homeowner cuts their lawn, is the value of this work included in real GDP? Suppose the homeowner hires a neighborhood kid to cut the lawn. Is this activity included in real GDP? Comment on your answers.</li>
+<li>In 1900, the average work week was 65 hours; today it is approximately 35 hours. How did this change affect real GDP within the United States? How did it affect the standard of living within the United States? Comment on your answers.</li>
+<li>In the United States, many children receive daycare from commercial providers. In Africa, this is uncommon; children are almost all cared for by relatives. How would this difference affect comparisons of GDP per person?</li>
+</ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p>Adding the value of all goods and services produced is incorrect because it leads to significant double counting. Intermediate goods and services will be counted multiple times; for example, a CPU produced by Intel and then used in a Dell computer could be counted as both a CPU from Intel and as part of the computer from Dell.</p></li>
+<li><p>Aggregate income equals aggregate production. The circular flow shows this result: the flow of production out of business firms equals the flow of expenditure into business firms, which equals the flow of costs out of business firms, which is the same as the flow of aggregate income to households.</p></li>
+<li><p>The purchase of the used Ford does not add to current U.S. GDP as it was not produced in the current year; however, a new Ford automobile is counted in current U.S. GDP because it was produced during the current year.</p></li>
+<li><p>Purchasing shares of stock does not add to the nation’s GDP, as GDP measures production. Shares of stock are not the production of a good or service and, therefore, are not included in GDP.</p></li>
+<li><p>The homeowner’s work around their home is not included in GDP because home production is excluded. Hiring a neighborhood kid to cut the lawn is included in GDP because it is a service that has been sold in a market. This illustrates a flaw in GDP computation; the same lawn is mowed regardless of payment, yet GDP is unaffected in one case and increases in the other.</p></li>
+<li><p>The decrease in the average work week will likely decrease real GDP, as less time is spent producing goods and services. This could imply a lower standard of living. However, the increase in leisure time can lead to a higher standard of living for many individuals who value their leisure more than the goods and services they could produce. Thus, relying solely on changes in real GDP to measure standard of living is inadequate.</p></li>
+<li><p>This difference suggests that U.S. GDP per person is biased higher than GDP per person in African countries, as the same service—childcare—produced in both regions is included in GDP in the U.S. due to market transactions, while in Africa it is omitted due to being performed as household production.</p></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-whatcountsgdp" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5.5</strong></span> What counts as GDP?</p>
+<p>By how much does GDP rise in each of the following scenarios? Explain.</p>
+<ol type="1">
+<li>You spend 8000 € on college tuition this semester.</li>
+<li>You buy a used computer from a friend for 500€.</li>
+<li>The government spends 300€ million to build a bridge.</li>
+<li>Foreign graduate students work as teaching assistants at the local university and earn 2000€ each.</li>
+</ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>GDP rises by the $4,000 amount of your tuition payment. This is a purchase of a service (education) produced this semester.</li>
+<li>The purchase of used goods does not involve new production. This is simply a transfer of an existing good, so GDP is unchanged. If you bought the used car from a dealer, the service of selling the car would represent new production, so something like $200 of the $2,500 might be included in GDP.</li>
+<li>The new dam represents new production, and the government spending of $100 million is counted as GDP. If the spending were spread over several years, the flow of new production (and GDP) would also occur over time.</li>
+<li>Foreign graduate students working in the United States contribute to production that occurs within the country, and this is included in GDP. So GDP increases by $5,000 for each student.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./methods.html" class="pagination-link" aria-label="Methods">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methods</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./inflation.html" class="pagination-link" aria-label="Inflation">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Inflation</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Scope – Economics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./rationality.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-1b3682a6310c025b25e0252968a0a6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-12d64ba90eeecca9670aec3cb6d64fd4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-1b3682a6310c025b25e0252968a0a6f3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./scope.html">INTRODUCTION</a></li><li class="breadcrumb-item"><a href="./scope.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Scope</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./fig/logo_economics_yy.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Economics</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Economics.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">INTRODUCTION</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./scope.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Scope</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rationality.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rationality</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./perfect.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Perfect markets</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Methods</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">BASICS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gdp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">GDP</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inflation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Inflation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./welfare.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Welfare</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./micro_prelim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Production and utility</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./supplydemand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Supply and demand</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./allocation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Allocation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./constraints.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Constraints</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./elasticity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Elasticity</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">MARKET FAILURE</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./failure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Imperfect</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./monopoly.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Monopoly</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./externalities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Externalities</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">DECISION MAKING</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dmbasics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Decision making basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dmtheory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Decision theory</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dmbayes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Conditional events</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./game.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Games</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./finance.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Finance</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cognitive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Cognitive biases</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">MACRO</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Long-run growth</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./shortrun.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Unemployment and business cycles</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./demand.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Aggregate demand</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./money.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Financial market</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./islm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">IS-LM model</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./asad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Aggregate supply and demand</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nirp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Negative interest rates policy</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">MONETARY INTERNATIONAL ECONOMICS</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./currencies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Currencies</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./iinvest.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">International investments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title">Balance of payments</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">INTERNATIONAL TRADE</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tradebasic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title">Basics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ricardo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title">Comparative advantage</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ho.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title">Endowments</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sectorspecific.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title">The specific factor model</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
+ <span class="menu-text">TRADE POLICY</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./wto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title">World Trade Organization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./policy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title">Trade policy</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./strategic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title">Strategic trade policy</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./math_prelim.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Mathematical preliminaries</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exams.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Past exams</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-economics" id="toc-what-is-economics" class="nav-link active" data-scroll-target="#what-is-economics"><span class="header-section-number">1.1</span> What is economics?</a>
+  <ul class="collapse">
+  <li><a href="#production-and-productivity" id="toc-production-and-productivity" class="nav-link" data-scroll-target="#production-and-productivity"><span class="header-section-number">1.1.1</span> Production and productivity</a></li>
+  <li><a href="#sec-efficiency" id="toc-sec-efficiency" class="nav-link" data-scroll-target="#sec-efficiency"><span class="header-section-number">1.1.2</span> Efficiency and effectiveness</a></li>
+  <li><a href="#economic-topics" id="toc-economic-topics" class="nav-link" data-scroll-target="#economic-topics"><span class="header-section-number">1.1.3</span> Economic topics</a></li>
+  <li><a href="#definitions" id="toc-definitions" class="nav-link" data-scroll-target="#definitions"><span class="header-section-number">1.1.4</span> Definitions</a></li>
+  </ul></li>
+  <li><a href="#microeconomics-vs.-macroeconomics" id="toc-microeconomics-vs.-macroeconomics" class="nav-link" data-scroll-target="#microeconomics-vs.-macroeconomics"><span class="header-section-number">1.2</span> Microeconomics vs.&nbsp;Macroeconomics</a></li>
+  <li><a href="#the-scope-of-economics-in-five-questions" id="toc-the-scope-of-economics-in-five-questions" class="nav-link" data-scroll-target="#the-scope-of-economics-in-five-questions"><span class="header-section-number">1.3</span> The scope of economics in five questions</a>
+  <ul class="collapse">
+  <li><a href="#what" id="toc-what" class="nav-link" data-scroll-target="#what"><span class="header-section-number">1.3.1</span> What?</a></li>
+  <li><a href="#how" id="toc-how" class="nav-link" data-scroll-target="#how"><span class="header-section-number">1.3.2</span> How?</a></li>
+  <li><a href="#for-whom" id="toc-for-whom" class="nav-link" data-scroll-target="#for-whom"><span class="header-section-number">1.3.3</span> For whom?</a></li>
+  <li><a href="#where" id="toc-where" class="nav-link" data-scroll-target="#where"><span class="header-section-number">1.3.4</span> Where?</a></li>
+  </ul></li>
+  <li><a href="#when-is-the-pursuit-of-self-interest-in-the-social-interest" id="toc-when-is-the-pursuit-of-self-interest-in-the-social-interest" class="nav-link" data-scroll-target="#when-is-the-pursuit-of-self-interest-in-the-social-interest"><span class="header-section-number">1.4</span> When is the pursuit of self-interest in the social interest?</a></li>
+  <li><a href="#the-economic-way-of-thinking" id="toc-the-economic-way-of-thinking" class="nav-link" data-scroll-target="#the-economic-way-of-thinking"><span class="header-section-number">1.5</span> The economic way of thinking</a>
+  <ul class="collapse">
+  <li><a href="#a-choice-is-a-tradeoff" id="toc-a-choice-is-a-tradeoff" class="nav-link" data-scroll-target="#a-choice-is-a-tradeoff"><span class="header-section-number">1.5.1</span> A choice is a tradeoff</a></li>
+  <li><a href="#rational-choices" id="toc-rational-choices" class="nav-link" data-scroll-target="#rational-choices"><span class="header-section-number">1.5.2</span> Rational choices</a></li>
+  <li><a href="#benefit-what-you-gain" id="toc-benefit-what-you-gain" class="nav-link" data-scroll-target="#benefit-what-you-gain"><span class="header-section-number">1.5.3</span> Benefit: What you gain</a></li>
+  <li><a href="#cost-what-you-must-give-up" id="toc-cost-what-you-must-give-up" class="nav-link" data-scroll-target="#cost-what-you-must-give-up"><span class="header-section-number">1.5.4</span> Cost: What you must give up</a></li>
+  <li><a href="#choosing-at-the-margin" id="toc-choosing-at-the-margin" class="nav-link" data-scroll-target="#choosing-at-the-margin"><span class="header-section-number">1.5.5</span> Choosing at the margin</a></li>
+  </ul></li>
+  <li><a href="#sec-ie-Introduction" id="toc-sec-ie-Introduction" class="nav-link" data-scroll-target="#sec-ie-Introduction"><span class="header-section-number">1.6</span> International economics</a>
+  <ul class="collapse">
+  <li><a href="#what-is-international-trade" id="toc-what-is-international-trade" class="nav-link" data-scroll-target="#what-is-international-trade"><span class="header-section-number">1.6.1</span> What is international trade?</a></li>
+  <li><a href="#covid-and-international-economics-stylized-facts" id="toc-covid-and-international-economics-stylized-facts" class="nav-link" data-scroll-target="#covid-and-international-economics-stylized-facts"><span class="header-section-number">1.6.2</span> COVID and international economics: Stylized facts</a></li>
+  <li><a href="#what-is-international-monetary-economics" id="toc-what-is-international-monetary-economics" class="nav-link" data-scroll-target="#what-is-international-monetary-economics"><span class="header-section-number">1.6.3</span> What is international monetary economics?</a></li>
+  </ul></li>
+  <li><a href="#what-is-international-trade-policy" id="toc-what-is-international-trade-policy" class="nav-link" data-scroll-target="#what-is-international-trade-policy"><span class="header-section-number">1.7</span> What is international trade policy?</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./scope.html">INTRODUCTION</a></li><li class="breadcrumb-item"><a href="./scope.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Scope</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Scope</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Recommended reading:</strong> <span class="citation" data-cites="Shapiro2022Principles">Shapiro et al. (<a href="references.html#ref-Shapiro2022Principles" role="doc-biblioref">2022</a>, ch.&nbsp;1-3)</span> or <span class="citation" data-cites="Mankiw2020Principles">Mankiw (<a href="references.html#ref-Mankiw2020Principles" role="doc-biblioref">2024, pt. I</a>)</span></p>
+<div class="no-row-height column-margin column-container"><div id="ref-Shapiro2022Principles" class="csl-entry" role="listitem">
+Shapiro, D., MacDonald, D., &amp; Greenlaw, S. A. (2022). <em>Principles of economics</em> (3rd ed.). OpenStax. <a href="https://openstax.org/details/books/principles-economics-3e">https://openstax.org/details/books/principles-economics-3e</a>
+</div><div id="ref-Mankiw2020Principles" class="csl-entry" role="listitem">
+Mankiw, N. G. (2024). <em>Principles of economics</em> (10th ed.). Cengage Learning.
+</div></div><p><strong>Learning objectives:</strong></p>
+<p>Students will be able to:</p>
+<ul>
+<li>Define economics and distinguish between microeconomics and macroeconomics.</li>
+<li>Explain the scope and the big questions of economics.</li>
+<li>Differentiate between efficiency and effectiveness, analyzing how both concepts apply to economics and successful management.</li>
+<li>Identify contemporary economic topics, understanding the significant changes that shape the global economy and their relevance to the study of economics.</li>
+<li>Recognize the principles of scarcity and choice, exploring how these concepts underlie economic decision-making.</li>
+<li>Examine the key aspects that define perfect markets, recognizing the limitations of perfect competition in real-world contexts.</li>
+<li>Apply the rational economic way of thinking to recognize that all choices involve trade-offs, benefits, and costs.</li>
+<li>Investigate the role of the price system and Adam Smith’s invisible hand in market operations and resource allocation.</li>
+</ul>
+<section id="what-is-economics" class="level2 page-columns page-full" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="what-is-economics"><span class="header-section-number">1.1</span> What is economics?</h2>
+<p>It is important to note that economics encompasses a wide range of interpretations. There is no single definition that covers all facets. Nevertheless, there are certain aspects on which there is a certain consensus. This is the subject of the next chapter.</p>
+<section id="production-and-productivity" class="level3 page-columns page-full" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="production-and-productivity"><span class="header-section-number">1.1.1</span> Production and productivity</h3>
+<p>Economics is the study of how to maximize welfare, production, consumption of goods and services, and whatever may be considered beneficial for an economy and the people that live therein.</p>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p><span class="citation" data-cites="Wikipedia2022">Wikipedia (<a href="references.html#ref-Wikipedia2022" role="doc-biblioref">2022</a>)</span>: “An economy is an area of the production, distribution, and trade, as well as consumption of goods and services. In general, it is defined as a social domain that emphasizes the practices, discourses, and material expressions associated with the production, use, and management of scarce resources. Simplified, one can say that an economy is a system for providing livelihoods to people.”</p>
+</blockquote><div class="no-row-height column-margin column-container"><div id="ref-Wikipedia2022" class="csl-entry" role="listitem">
+Wikipedia. (2022). <em><span>Wikipedia</span><span>,</span> the free encyclopedia</em>. <a href="https://en.wikipedia.org/" class="uri">https://en.wikipedia.org/</a>.
+</div></div></div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-propro" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.1</strong></span> Production and Productivity</p>
+<p>Discuss the meaning of the terms production and productivity.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-efficiency" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="sec-efficiency"><span class="header-section-number">1.1.2</span> Efficiency and effectiveness</h3>
+<p>Economics and successful management revolves around two key concepts: Efficiency and Effectiveness.</p>
+<p><strong>Efficiency</strong> refers to the ability to achieve an intended result while minimizing waste in terms of time, effort, and resources. It emphasizes performing tasks in the most optimal manner, such as achieving results quickly or at the lowest cost. However, it’s important to note that efficiency can sometimes be applied to the wrong activities, meaning that while the task may be done optimally, the outcome may not be the desired one.</p>
+<p>Please keep in mind that efficiency is not an indicator of doing the right things. For example, if you are a business that provides a product that nobody wants to buy anymore, you can produce this product with the highest efficiency possible, but you will ultimately fail.</p>
+<p><strong>Effectiveness</strong>, on the other hand, is the capacity to produce better results that deliver greater value or achieve more favorable outcomes. It focuses on ensuring that the right tasks are carried out, completing activities successfully, and ultimately reaching one’s goals.</p>
+<p>Managers and individuals with goals should choose actions that are effective—meaning those actions allow them to achieve their intended objectives—and they should strive to execute these actions efficiently.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-dakota" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.2</strong></span> Wisdom of the Dakota Indians</p>
+<p>A well-known piece of wisdom from the Dakota Indians states: “If you realize that you are riding a dead horse, get off!”</p>
+<p>Discuss what could that mean in a management context.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>When managers are not doing the right thing they sometimes refuse to accept that they have the wrong business idea or the wrong strategy or product. Instead, they often tend to pursue the chosen strategy trying to do things more efficiency. To stay in the metapher:</p>
+<ul>
+<li>They procure a stronger whip.</li>
+<li>They change the rider.</li>
+<li>They argue, “That’s how we’ve always ridden this horse!”</li>
+<li>They form a working group to analyze the dead horse.</li>
+<li>They visit other places to see how they handle dead horses there.</li>
+<li>They raise the quality standards for riding dead horses.</li>
+<li>They create a task force to revive the dead horse.</li>
+<li>They schedule a training session to learn how to ride better.</li>
+<li>They make comparisons between different dead horses.</li>
+<li>They change the criteria that determine whether a horse is dead.</li>
+<li>They hire external experts to ride the dead horse.</li>
+<li>They yoke several dead horses together to make them faster.</li>
+<li>They assert, “No horse can be so dead that it can’t be beaten!”</li>
+<li>They allocate additional resources to improve the horse’s performance.</li>
+<li>They commission a study to find out if there are cheaper consultants.</li>
+<li>They purchase something that claims to teach dead horses to run faster.</li>
+<li>They declare that our horse is better, faster, and cheaper when dead.</li>
+<li>They form a quality circle to find a use for dead horses.</li>
+<li>They revise the performance criteria for dead horses.</li>
+<li>They establish an independent cost center for dead horses.</li>
+<li>They have the horses certified as quickly as possible.</li>
+<li>They freeze the horses and wait for a new technology that will allow them to ride dead horses.</li>
+<li>They form a prayer group to pray for the horse’s health.</li>
+<li>They place the horse in someone else’s stable and claim it as theirs.</li>
+<li>They note that others are also riding dead horses and declare this the norm.</li>
+<li>They change the requirements for riding and movement and issue a new development mandate.</li>
+<li>They outsource the horse.</li>
+<li>They bet that the horse is just pretending to be dead.</li>
+<li>If you can’t ride a dead horse, it can at least pull a cart.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="economic-topics" class="level3" data-number="1.1.3">
+<h3 data-number="1.1.3" class="anchored" data-anchor-id="economic-topics"><span class="header-section-number">1.1.3</span> Economic topics</h3>
+<p>You are studying economics at a time of <strong>enormous change</strong>. Some of these changes are for the better, while others are for the worse. Studying economics will help you to <strong>understand the powerful forces that are shaping and changing our world</strong>.</p>
+<p><strong>Recent topics in economics:</strong></p>
+<ul>
+<li>COVID</li>
+<li>Protectionism/trade war</li>
+<li>Brexit</li>
+<li>Euro crisis</li>
+<li>Monetary policy</li>
+<li>Refugees</li>
+<li>Germany’s trade surplus</li>
+<li>Greece’s debt crisis</li>
+<li>Real estate crisis</li>
+<li>Global financial crisis in 2009</li>
+<li>Economics of the Corona Crisis</li>
+<li>Oil price fluctuations</li>
+<li>U.S. Dollar strength</li>
+<li>Economics of climate change</li>
+</ul>
+</section>
+<section id="definitions" class="level3 page-columns page-full" data-number="1.1.4">
+<h3 data-number="1.1.4" class="anchored" data-anchor-id="definitions"><span class="header-section-number">1.1.4</span> Definitions</h3>
+<ul>
+<li>All economic questions arise because we want more than we can get.</li>
+<li>Our inability to satisfy all our wants is called <strong>scarcity</strong>.</li>
+<li>Because we face scarcity, we must make <strong>choices</strong>.</li>
+<li>The choices we make depend on the <strong>incentives</strong> we face. An incentive is a reward that encourages or a penalty that discourages an action.</li>
+</ul>
+<p>Economics is a social science, and like all social sciences, many of the terms used in it are poorly defined. For example, the term <em>economy</em> can be understood differently, as the following quotes from <a href="#fig-keynes" class="quarto-xref">Figure&nbsp;<span>1.1</span></a> to <a href="#fig-Jacob_Viner" class="quarto-xref">Figure&nbsp;<span>1.4</span></a> demonstrate:</p>
+<div id="fig-keynes" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-keynes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: John Maynard Keynes (1883-1946)
+</figcaption>
+<div aria-describedby="fig-keynes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<p><a href="fig/Keynes.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1.1: John Maynard Keynes (1883-1946)"><img src="fig/Keynes.jpg" class="img-fluid figure-img" style="width:30.0%"></a></p>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p><span class="citation" data-cites="Keynes1921Introduction">Keynes (<a href="references.html#ref-Keynes1921Introduction" role="doc-biblioref">1921</a>)</span>: The theory of economics does not furnish a body of settled conclusions immediately applicable to policy. It is a method rather than a doctrine, an apparatus of the mind, a technique of thinking, which helps its possessors to draw correct conclusions.</p>
+</blockquote><div class="no-row-height column-margin column-container"><div id="ref-Keynes1921Introduction" class="csl-entry" role="listitem">
+Keynes, J. M. (1921). Money. In D. H. Robertson, <em>Money</em> (Cambridge Economic Handbooks). Cambridge Economic Handbooks.
+</div></div></div>
+</div>
+</figure>
+</div>
+<div id="fig-Alfred_Marshall" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-Alfred_Marshall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: Alfred Marshall (1842-1924)
+</figcaption>
+<div aria-describedby="fig-Alfred_Marshall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<p><a href="fig/Alfred_Marshall.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;1.2: Alfred Marshall (1842-1924)"><img src="fig/Alfred_Marshall.jpg" class="img-fluid figure-img" style="width:30.0%"></a></p>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p><span class="citation" data-cites="Marshall2009Principles">Marshall (<a href="references.html#ref-Marshall2009Principles" role="doc-biblioref">2009</a>)</span>: “Economics is a study of mankind in the ordinary business of life; it examines that part of individual and social action which is most closely connected with the attainment and with the use of the material requisites of well-being.”</p>
+</blockquote><div class="no-row-height column-margin column-container"><div id="ref-Marshall2009Principles" class="csl-entry" role="listitem">
+Marshall, A. (2009). <em>Principles of economics: Unabridged eighth edition</em>. Cosimo, Inc.
+</div></div></div>
+</div>
+</figure>
+</div>
+<div id="fig-duesenberry" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-duesenberry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.3: James Duesenberry (1918-2009)
+</figcaption>
+<div aria-describedby="fig-duesenberry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<p><a href="fig/duesenberry.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;1.3: James Duesenberry (1918-2009)"><img src="fig/duesenberry.jpg" class="img-fluid figure-img" style="width:30.0%"></a></p>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p><span class="citation" data-cites="Duesenberry1960Comment">Duesenberry (<a href="references.html#ref-Duesenberry1960Comment" role="doc-biblioref">1960</a>)</span>: “Economics is all about how people make choices. Sociology is about why there isn’t any choice to be made.”</p>
+</blockquote><div class="no-row-height column-margin column-container"><div id="ref-Duesenberry1960Comment" class="csl-entry" role="listitem">
+Duesenberry, J. (1960). Comment on ’an economic analysis of fertility’. In <em>Demographic and economic change in developed countries</em> (<span>National Bureau Committee for Economic Research</span>, pp. 231–234). Princeton University Press.
+</div></div></div>
+</div>
+</figure>
+</div>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p><span class="citation" data-cites="Colander2006Economics">Colander (<a href="references.html#ref-Colander2006Economics" role="doc-biblioref">2006</a>)</span>: “Economics is the study of how human beings coordinate their wants and desires, given the decision-making mechanisms, social customs, and political realities of society.”</p>
+</blockquote><div class="no-row-height column-margin column-container"><div id="ref-Colander2006Economics" class="csl-entry" role="listitem">
+Colander, D. C. (2006). <em>Economics</em> (6th ed.). McGraw-Hill Irvin.
+</div></div></div>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p><span class="citation" data-cites="Parkin2012Economics">Parkin (<a href="references.html#ref-Parkin2012Economics" role="doc-biblioref">2012</a>)</span>: “Economics is the social science that studies the choices that individuals, businesses, governments, and entire societies make as they cope with scarcity and the incentives that influence and reconcile those choices.”</p>
+</blockquote><div class="no-row-height column-margin column-container"></div></div>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p><span class="citation" data-cites="Gwartney2006Microeconomics">Gwartney et al. (<a href="references.html#ref-Gwartney2006Microeconomics" role="doc-biblioref">2006</a>)</span>: “[E]conomics is the study of human behavior, with a particular focus on human decision making.”</p>
+</blockquote><div class="no-row-height column-margin column-container"><div id="ref-Gwartney2006Microeconomics" class="csl-entry" role="listitem">
+Gwartney, J. D., Stroup, R. L., Sobel, R. S., &amp; MacPherson, D. A. (2006). <em>Microeconomics: Private and public choice</em>. Mason.
+</div></div></div>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p><span class="citation" data-cites="Backhouse2009Retrospectives">Backhouse &amp; Medema (<a href="references.html#ref-Backhouse2009Retrospectives" role="doc-biblioref">2009</a>)</span>: “[E]conomics is apparently the study of the economy, the study of the coordination process, the study of the effects of scarcity, the science of choice, and the study of human behavior.”</p>
+</blockquote><div class="no-row-height column-margin column-container"></div></div>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p><span class="citation" data-cites="Greenlaw2018Principles">Greenlaw &amp; Shapiro (<a href="references.html#ref-Greenlaw2018Principles" role="doc-biblioref">2022</a>)</span>: “Economics seeks to solve the problem of scarcity, which is when human wants for goods and services exceed the available supply. A modern economy displays a division of labor, in which people earn income by specializing in what they produce and then use that income to purchase the products they need or want. The division of labor allows individuals and firms to specialize and to produce more for several reasons: a) It allows the agents to focus on areas of advantage due to natural factors and skill levels; b) It encourages the agents to learn and invent; c) It allows agents to take advantage of economies of scale. Division and specialization of labor only work when individuals can purchase what they do not produce in markets. Learning about economics helps you understand the major problems facing the world today, prepares you to be a good citizen, and helps you become a well-rounded thinker.</p>
+</blockquote><div class="no-row-height column-margin column-container"><div id="ref-Greenlaw2018Principles" class="csl-entry" role="listitem">
+Greenlaw, S. A., &amp; Shapiro, D. (2022). <em>Principles of economics</em> (2nd ed.). OpenStax.
+</div></div></div>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p><span class="citation" data-cites="Backhouse2009Retrospectives">Backhouse &amp; Medema (<a href="references.html#ref-Backhouse2009Retrospectives" role="doc-biblioref">2009</a>)</span>: “Perhaps the definition of economics is best viewed as a tool for the first day of principles classes but otherwise of little concern to practicing economists.”</p>
+</blockquote><div class="no-row-height column-margin column-container"></div></div>
+<div id="fig-Jacob_Viner" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-Jacob_Viner-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.4: Jacob Viner (1892-1970)
+</figcaption>
+<div aria-describedby="fig-Jacob_Viner-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<p><a href="fig/Jacob_Viner.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;1.4: Jacob Viner (1892-1970)"><img src="fig/Jacob_Viner.jpg" class="img-fluid figure-img" style="width:30.0%"></a></p>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p>Jacob Viner: “Economics is what economists do.” <span class="citation" data-cites="Backhouse2009Retrospectives">(see <a href="references.html#ref-Backhouse2009Retrospectives" role="doc-biblioref">Backhouse &amp; Medema, 2009</a>)</span></p>
+</blockquote><div class="no-row-height column-margin column-container"></div></div>
+</div>
+</figure>
+</div>
+<p>Although many textbook definitions are quite similar in many ways, the lack of agreement on a clear-cut definition of economics is not necessarily problematic, as <span class="citation" data-cites="Backhouse2009Retrospectives">Backhouse &amp; Medema (<a href="references.html#ref-Backhouse2009Retrospectives" role="doc-biblioref">2009</a>)</span> states:</p>
+<div class="no-row-height column-margin column-container"><div id="ref-Backhouse2009Retrospectives" class="csl-entry" role="listitem">
+Backhouse, R. E., &amp; Medema, S. G. (2009). Retrospectives: On the definition of economics. <em>Journal of Economic Perspectives</em>, <em>23</em>(1), 221–233.
+</div></div><blockquote class="blockquote">
+<p>“[E]conomists are generally guided by pragmatic considerations of what works or by methodological views emanating from various sources, not by formal definitions.”</p>
+</blockquote>
+</section>
+</section>
+<section id="microeconomics-vs.-macroeconomics" class="level2 page-columns page-full" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="microeconomics-vs.-macroeconomics"><span class="header-section-number">1.2</span> Microeconomics vs.&nbsp;Macroeconomics</h2>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p><span class="citation" data-cites="Parkin2012Economics">Parkin (<a href="references.html#ref-Parkin2012Economics" role="doc-biblioref">2012</a>)</span>: “<strong>Microeconomics</strong> is the study of the choices that individuals and businesses make, the way these choices interact in markets, and the influence of governments. […] <strong>Macroeconomics</strong> is the study of the performance of the national economy and the global economy.’’</p>
+</blockquote><div class="no-row-height column-margin column-container"><div id="ref-Parkin2012Economics" class="csl-entry" role="listitem">
+Parkin, M. (2012). <em>Economics</em> (10th ed.). Addison-Wesley.
+</div></div></div>
+<p>Microeconomics and macroeconomics are two different perspectives on the economy. The microeconomic perspective focuses on parts of the economy:</p>
+<ul>
+<li>Individuals</li>
+<li>Firms</li>
+<li>Industries</li>
+</ul>
+<p>Some examples of microeconomic questions are:</p>
+<ul>
+<li>Why are people downloading more movies?</li>
+<li>How would a tax on e-commerce affect eBay?</li>
+</ul>
+<p>The term macro comes from the Greek word <em>makros</em>, meaning large. Thus, it studies groups or the entire economy using aggregate measures related to welfare and standards of living such as:</p>
+<ul>
+<li>National income</li>
+<li>Money</li>
+<li>Total (un)employment</li>
+<li>Aggregate demand and supply</li>
+<li>Total savings</li>
+<li>Inflation</li>
+<li>General price level</li>
+<li>International trade</li>
+<li>Balance of trade,</li>
+<li>…</li>
+</ul>
+<p>Macroeconomics employs two key policy approaches to pursue these objectives:</p>
+<ul>
+<li>Fiscal policy pertains to the regulation of government revenue, expenditures, and debt to generate positive impacts while averting negative effects on income, output, and employment.</li>
+<li>Monetary policy involves controlling money supply and credit to stimulate business activities, foster economic growth, stabilize price levels, attain full employment, and achieve balance of payments equilibrium.</li>
+</ul>
+<p>Some examples of macroeconomic questions are:</p>
+<ul>
+<li>Why is the U.S. unemployment rate so high?</li>
+<li>Can the Federal Reserve make our economy expand by cutting interest rates?</li>
+</ul>
+<p><strong>Why separate micro and macroeconomics?</strong> Certainly, events occurring at the micro-level can provide insights into phenomena observed at the macro-level, and vice versa. Thus, there is an interdependence of these disciplines. Nevertheless, there remains value in distinguishing them because:</p>
+<ol type="1">
+<li>What is good at the micro level doesn’t have to be good for the economy as a whole.</li>
+<li>Macroeconomic problems can only be comprehended and solved through macro-level policy actions and programs.</li>
+</ol>
+</section>
+<section id="the-scope-of-economics-in-five-questions" class="level2 page-columns page-full" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="the-scope-of-economics-in-five-questions"><span class="header-section-number">1.3</span> The scope of economics in five questions</h2>
+<ul>
+<li>How do choices end up determining <strong>what</strong>, <strong>where</strong>, <strong>how</strong>, and <strong>for whom</strong> goods and services get produced?</li>
+<li>When do choices made in the pursuit of <strong>self-interest</strong> also promote the <strong>social interest</strong>?</li>
+</ul>
+<section id="what" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="what"><span class="header-section-number">1.3.1</span> What?</h3>
+<p>As demonstrated in <a href="#fig-econ_shift" class="quarto-xref">Figure&nbsp;<span>1.5</span></a>, what we produce changes over time.</p>
+<div id="fig-econ_shift" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-econ_shift-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.5: Clark’s Sector Model for US economy with current events highlighted.
+</figcaption>
+<div aria-describedby="fig-econ_shift-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="fig/clarksmodelwithcurrentevents.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;1.5: Clark’s Sector Model for US economy with current events highlighted."><img src="fig/clarksmodelwithcurrentevents.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<p><em>Source: <a href="https://www.63alfred.com/whomakesit/clarksmodelwithcurrentevents.png">www.63alfred.com</a></em></p>
+</div>
+</figure>
+</div>
+</section>
+<section id="how" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="how"><span class="header-section-number">1.3.2</span> How?</h3>
+<p>Goods and services are produced by using productive resources that economists call factors of production:</p>
+<ul>
+<li><strong>Land</strong> (aka <em>natural resources</em>): These are the <em>gifts of nature</em> that we use to produce goods and services.</li>
+<li><strong>Labor</strong>: This is the work time and effort that people devote to production. The quality of labor depends on <em>human capital</em>, which encompasses the knowledge and skill that people obtain from education, on-the-job training, and work experience.</li>
+<li><strong>Capital</strong>: Refers to the tools, instruments, machines, buildings, and other constructions employed in the production process.</li>
+<li><strong>Entrepreneurship</strong>: This is the human resource that organizes labor, land, and capital. Entrepreneurs come up with new ideas about what and how to produce, make business decisions, and bear the risks that arise from these decisions.</li>
+</ul>
+<p>What determines the quantities of factors of production used to produce goods and services is a typical economic question.</p>
+</section>
+<section id="for-whom" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="for-whom"><span class="header-section-number">1.3.3</span> For whom?</h3>
+<p>Who gets the goods and services depends on the incomes that people earn. People earn their incomes by selling the services of the factors of production they own:</p>
+<ul>
+<li>Land earns <strong>rent</strong>.</li>
+<li>Labor earns <strong>wages</strong>.</li>
+<li>Capital earns <strong>interest</strong>.</li>
+<li>Entrepreneurship earns <strong>profit</strong>.</li>
+</ul>
+<p>Why is the distribution of income so unequal? Why do women and minorities earn less than white males?</p>
+</section>
+<section id="where" class="level3 page-columns page-full" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="where"><span class="header-section-number">1.3.4</span> Where?</h3>
+<p>We all know <em>the World is not flat</em>: The placement of land, labor, capital, and entrepreneurs in space is important. In particular, <strong>Regional Science</strong> considers that importance.</p>
+<div class="page-columns page-full"><blockquote class="blockquote">
+<p>“No other discipline can claim such a wide scope of interest and relevance to today’s rapidly changing World. Thus, contrary to the claims of the ‘end of geography’, the process of globalization is making geography more important than ever.” <span class="citation" data-cites="Sokol2011Economic">Sokol (<a href="references.html#ref-Sokol2011Economic" role="doc-biblioref">2011</a>)</span></p>
+</blockquote><div class="no-row-height column-margin column-container"><div id="ref-Sokol2011Economic" class="csl-entry" role="listitem">
+Sokol, M. (2011). <em>Economic geographies of globalisation</em>. Edward Elgar Publishing.
+</div></div></div>
+<p>Unfortunately, the main microeconomic and macroeconomic textbooks usually refrain from discussing the question “<em>Where?</em>”. One reason for this could be that the introduction of space into the theory is not trivial. Ignoring the existence of regional differences and transport is accompanied by a lack of reality and may lead to wrong conclusions.</p>
+</section>
+</section>
+<section id="when-is-the-pursuit-of-self-interest-in-the-social-interest" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="when-is-the-pursuit-of-self-interest-in-the-social-interest"><span class="header-section-number">1.4</span> When is the pursuit of self-interest in the social interest?</h2>
+<p>7,800,000,000 people make economic choices every day that result in <em>What</em>, <em>How</em>, and <em>For Whom</em> goods and services get produced.</p>
+<ul>
+<li>Do we produce the right things in the right quantities?</li>
+<li>Do we use our factors of production in the best way?</li>
+<li>Do the goods and services go to those who benefit most from them?</li>
+</ul>
+<p>Well, it depends on whether we consider self-interest or social interest:</p>
+<ul>
+<li><strong>Self-interest</strong>: A choice is in your <em>self-interest</em> if you think that choice is the best one available for you. You use your time and other resources in the ways that make the most sense to you.</li>
+<li><strong>Social interest</strong>: A choice is in the social interest if it leads to an outcome that is the best for society as a whole. The social interest has two dimensions: efficiency and equity (or fairness). What is best for society is an efficient and fair use of resources.</li>
+</ul>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-selfinwho" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.3</strong></span> Do you act in self-interest and who decides?</p>
+<ul>
+<li>Are you acting in your own interest or are you acting in the interest of a third party? And, do you have freedom of choice?</li>
+<li>Who decides <em>what</em>, <em>how</em>, and <em>for whom</em>? Discuss.</li>
+<li>Is it possible that when each of us makes decisions that are in our own best interest, it also turns out that those decisions are also in society’s best interest?</li>
+<li>Do public ownership and central planning do a better job than private corporations and free markets?</li>
+<li>Don’t corporate scandals show that large corporations work against society’s interest?</li>
+<li>Should pharmaceutical companies be forced to provide HIV/AIDS drugs (or others) to poor people at low cost?</li>
+<li>Why are we destroying the environment?</li>
+<li>Why don’t all people have jobs?</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-economic-way-of-thinking" class="level2 page-columns page-full" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="the-economic-way-of-thinking"><span class="header-section-number">1.5</span> The economic way of thinking</h2>
+<p>The questions that economics attempts to answer tell us something about the scope of economics, but they do not tell us (1) how economists think and (2) how economists conduct research to find answers.</p>
+<div class="callout callout-style-simple callout-important no-icon page-columns page-full">
+<div class="callout-body d-flex page-columns page-full">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container page-columns page-full">
+<div id="exr-TANSTAAFL" class="theorem exercise page-columns page-full">
+<p><span class="theorem-title"><strong>Exercise 1.4</strong></span> TANSTAAFL</p>
+<div id="fig-tanstaafl" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-tanstaafl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.6: TANSTAAFL
+</figcaption>
+<div aria-describedby="fig-tanstaafl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/tanstaafl.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;1.6: TANSTAAFL"><img src="fig/tanstaafl.png" class="img-fluid figure-img" style="width:50.0%"></a>
+</div>
+</figure>
+</div>
+<p>A friend gifts you a shirt, as shown in <a href="#fig-tanstaafl" class="quarto-xref">Figure&nbsp;<span>1.6</span></a>. You like it; however, you want to learn what the acronym TANSTAAFL means before you wear it. Take a moment to discover the message associated with the shirt’s imprint. Do you think your friend’s gift was truly altruistic?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>See <span class="citation" data-cites="Wikipedia2025No">Wikipedia (<a href="references.html#ref-Wikipedia2025No" role="doc-biblioref">2025</a>)</span>.</p>
+</div>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Wikipedia2025No" class="csl-entry" role="listitem">
+Wikipedia. (2025). <em>No such thing as a free lunch</em>. <a href="https://en.wikipedia.org/wiki/No_such_thing_as_a_free_lunch">https://en.wikipedia.org/wiki/No_such_thing_as_a_free_lunch</a>
+</div></div></div>
+</div>
+</div>
+</div>
+<section id="a-choice-is-a-tradeoff" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="a-choice-is-a-tradeoff"><span class="header-section-number">1.5.1</span> A choice is a tradeoff</h3>
+<p>Before discussing how economists do research, let’s look at six key concepts that define the economic way of thinking:</p>
+<ol type="1">
+<li>A choice is a <strong>tradeoff</strong>.</li>
+<li>People make <strong>rational decisions</strong> by comparing benefits and costs.</li>
+<li><strong>Benefit</strong> is what you get out of something.</li>
+<li><strong>Cost</strong> is what you have to give up to get something.</li>
+<li>Most choices are <em>how-much</em> choices made <strong>at the margin</strong>.</li>
+<li>Choices respond to <strong>incentives</strong>.</li>
+</ol>
+<p>Due to scarcity, we are forced to make a choice. Whenever we make a decision, we choose from the available alternatives. It can be helpful to think of each choice as a trade-off - an exchange in which we give up one thing to get another.</p>
+<p>The questions of what, how and for whom become clearer when we consider trade-offs:</p>
+<ul>
+<li><strong>What?</strong> Trade-offs occur when individuals decide how to divide their income, when governments decide how to spend tax revenues, and when companies decide what products to make.</li>
+<li><strong>How?</strong> Trade-offs occur when companies evaluate different production technologies to maximise efficiency.</li>
+<li><strong>For whom?</strong> Trade-offs affect the distribution of purchasing power among citizens. Government redistribution of income from the wealthy to the less fortunate is an example of the great trade-off - the balance between equality and efficiency.</li>
+</ul>
+<p>The production of goods and services—what is produced, how it is produced, and for whom it is produced—changes over time, leading to improvements in the quality of our economic lives, provided we make wise decisions. The quality of those decisions hinges on the tradeoffs we face.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="Example">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Example
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We encounter three significant tradeoffs between enjoying current consumption and leisure time versus increasing future production, consumption, and leisure time:</p>
+<ul>
+<li>By saving more today, we can invest in productive capital, such as machinery, which will enhance our production capacity in the upcoming time.</li>
+<li>By reducing our leisure time, we can focus on education and training, ultimately becoming more productive in the long run.</li>
+<li>If businesses choose to decrease current production and allocate resources to research and development of new technologies, they can boost future output.</li>
+</ul>
+<p>The decisions we make in this area of conflict have a significant influence on the speed at which our economic conditions improve.</p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-Tradeoffs" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.5</strong></span> &nbsp;</p>
+<ul>
+<li>Name choices that involve tradeoffs.</li>
+<li>Give some examples for choices without tradeoffs.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rational-choices" class="level3 page-columns page-full" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="rational-choices"><span class="header-section-number">1.5.2</span> Rational choices</h3>
+<p>Economists view the choices that people make as <strong>rational</strong>. A rational choice is one that compares <strong>costs and benefits</strong> and achieves the greatest benefit over cost for the person making the choice.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-fisherman" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.6</strong></span> The businessman and the fisherman</p>
+<p>A classic tale that exists in different versions goes like this:</p>
+<blockquote class="blockquote">
+<p>One day a fisherman was lying on a beautiful beach, with his fishing pole propped up in the sand and his solitary line cast out into the sparkling blue surf. He was enjoying the warmth of the afternoon sun and the prospect of catching a fish.</p>
+<p>About that time, a businessman came walking down the beach, trying to relieve some of the stress of his workday. He noticed the fisherman sitting on the beach and decided to find out why this fisherman was fishing instead of working harder to make a living for himself and his family.</p>
+<p>“You aren’t going to catch many fish that way,” said the businessman to the fisherman.</p>
+<p>“You should be working rather than lying on the beach!”</p>
+<p>The fisherman looked up at the businessman, smiled, and replied, “And what will my reward be?”</p>
+<p>“Well, you can get bigger nets and catch more fish!” was the businessman’s answer. “And then what will my reward be?” asked the fisherman, still smiling.</p>
+<p>The businessman replied, “You will make money and you’ll be able to buy a boat, which will then result in larger catches of fish!”</p>
+<p>“And then what will my reward be?” asked the fisherman again.</p>
+<p>The businessman was beginning to get a little irritated with the fisherman’s questions. “You can buy a bigger boat, and hire some people to work for you!” he said.</p>
+<p>“And then what will my reward be?” repeated the fisherman.</p>
+<p>The businessman was getting angry. “Don’t you understand? You can build up a fleet of fishing boats, sail all over the world, and let all your employees catch fish for you!”</p>
+<p>Once again the fisherman asked, “And then what will my reward be?”</p>
+<p>The businessman was red with rage and shouted at the fisherman, “Don’t you understand that you can become so rich that you will never have to work for your living again! You can spend all the rest of your days sitting on this beach, looking at the sunset. You won’t have a care in the world!”</p>
+<p>The fisherman, still smiling, looked up and said, “And what do you think I’m doing right now?”</p>
+</blockquote>
+<p><em>Source: This version of the tale stems from <span class="citation" data-cites="theStorytellerscom2025businessman">theStorytellers.com (<a href="references.html#ref-theStorytellerscom2025businessman" role="doc-biblioref">2025</a>)</span>. </em></p>
+<p>Who is acting rationally here? The fisherman or the businessman? What are the costs and benefits of both?</p>
+</div>
+</div>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-theStorytellerscom2025businessman" class="csl-entry" role="listitem">
+theStorytellers.com. (2025). <em>The businessman and the fisherman</em>. <a href="https://thestorytellers.com/the-businessman-and-the-fisherman/">https://thestorytellers.com/the-businessman-and-the-fisherman/</a>
+</div></div></section>
+<section id="benefit-what-you-gain" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="benefit-what-you-gain"><span class="header-section-number">1.5.3</span> Benefit: What you gain</h3>
+<p>The utility of an item refers to the gain or pleasure it provides and is determined by <strong>preferences</strong>, that is, what a person likes or dislikes and the intensity of those feelings. Economists measure utility as the maximum amount a person <strong>is willing to give up to obtain something</strong>.</p>
+</section>
+<section id="cost-what-you-must-give-up" class="level3" data-number="1.5.4">
+<h3 data-number="1.5.4" class="anchored" data-anchor-id="cost-what-you-must-give-up"><span class="header-section-number">1.5.4</span> Cost: What you must give up</h3>
+<p>When considering a choice as a tradeoff, it is essential to emphasize cost as an opportunity foregone. The <strong>opportunity cost</strong> of something is the highest-valued alternative that must be sacrificed to get it.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Utility as a general measure">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Utility as a general measure
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="fig-utilpeople" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-utilpeople-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.7: The concept of utility
+</figcaption>
+<div aria-describedby="fig-utilpeople-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figcaption>Jeremy Bentham (1748–1832)</figcaption>
+<p><a href="fig/bentham.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Jeremy Bentham (1748–1832)"><img src="fig/bentham.jpg" class="img-fluid figure-img" style="width:95.0%"></a></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figcaption>John Stuart Mill (1806–1873)</figcaption>
+<p><a href="fig/mill.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="John Stuart Mill (1806–1873)"><img src="fig/mill.jpg" class="img-fluid figure-img" style="width:100.0%"></a></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figcaption>Léon Walras (1834–1910)</figcaption>
+<p><a href="fig/walras.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Léon Walras (1834–1910)"><img src="fig/walras.jpg" class="img-fluid figure-img" style="width:100.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<p>The concept of utility within economics is used to model worth or value, and its usage has evolved significantly over time by many significant people including those shown in <a href="#fig-utilpeople" class="quarto-xref">Figure&nbsp;<span>1.7</span></a>. Initially introduced as a measure of pleasure or happiness within the theory of utilitarianism by moral philosophers such as Jeremy Bentham and John Stuart Mill, the concept was later developed and popularized by Léon Walras. In microeconomics, it typically represents the satisfaction or pleasure that consumers derive from consuming a bundle of goods and services.</p>
+</div>
+</div>
+</section>
+<section id="choosing-at-the-margin" class="level3" data-number="1.5.5">
+<h3 data-number="1.5.5" class="anchored" data-anchor-id="choosing-at-the-margin"><span class="header-section-number">1.5.5</span> Choosing at the margin</h3>
+<p>Choosing between studying or watching Netflix is rarely an <strong>all-or-nothing</strong> decision. Instead, you consider how many minutes to allocate to each activity. In making this decision, you compare the benefit of a bit more study time against its cost, effectively making your choice <strong>at the margin</strong>.</p>
+<p>People often make choices at the margin, which means they evaluate the consequences of making incremental changes in the use of their resources.</p>
+<p>The benefit derived from pursuing a small increase in activity is known as its marginal benefit, while the opportunity cost of that incremental increase is referred to as its marginal cost.</p>
+<p>Our choices respond to <strong>incentives</strong>. For any activity, if the marginal benefit exceeds the marginal cost, people have an incentive to increase that activity. Conversely, if the marginal cost exceeds the marginal benefit, people have an incentive to reduce that activity.</p>
+<!-- Incentives are crucial for reconciling self-interest with social interest. -->
+<!-- Economists assume human nature is constant and view individuals as acting in their self-interest. It is important to note that self-interested actions are not necessarily selfish actions.  -->
+<!-- Given that human nature is fixed and individuals pursue self-interest, how can the social interest be served? Economists address this question by emphasizing the role of institutions in creating incentives that promote socially beneficial behavior. -->
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-maranal" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.7</strong></span> Marginal analysis</p>
+<p>Watch <a href="https://youtu.be/1exopHOl1jo">this video</a> and solve the associated problems.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1exopHOl1jo?si=oOzJnJ97m3qfFcJN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-ie-Introduction" class="level2 page-columns page-full" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="sec-ie-Introduction"><span class="header-section-number">1.6</span> International economics</h2>
+<p>International economics is covered in more detail in <a href="currencies.html" class="quarto-xref"><span>Chapter 29</span></a> to <a href="policy.html" class="quarto-xref"><span>Chapter 37</span></a>. However, let us briefly discuss the scope of this important area of economics.</p>
+<section id="what-is-international-trade" class="level3 page-columns page-full" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="what-is-international-trade"><span class="header-section-number">1.6.1</span> What is international trade?</h3>
+<p>International trade is the exchange of capital, goods, and services across international borders or territories. Questions of international trade include:</p>
+<ul>
+<li>Why do nations trade?</li>
+<li>What do they trade?</li>
+<li>What is the effect of trade policies on trade and welfare?</li>
+<li>Can trade in goods substitute for factor mobility?</li>
+<li>Is free trade better than autarky?</li>
+<li>What are the effects of trade on income distribution?</li>
+<li>If there are winners and losers from trade liberalization, can the former compensate the latter?</li>
+<li>If nations gain from trade, how are the gains distributed?</li>
+<li>What are the welfare effects of various trade policies?</li>
+</ul>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-tradeputin" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.8</strong></span> Trade and Putin</p>
+<p>Discuss the following quote in the context of the war between Russia and Ukraine.</p>
+<blockquote class="blockquote">
+<p>“International trade and international capital flows link national economies. Although such links are considered to be beneficial for the most part, they produce an interdependence that occasionally has harmful effects. In particular, shocks that emanate in one country may negatively impact trade partners.” <span class="citation" data-cites="Helpman2010a">(<a href="references.html#ref-Helpman2010a" role="doc-biblioref">Helpman &amp; Itskhoki, 2010</a>)</span></p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-Helpman2010a" class="csl-entry" role="listitem">
+Helpman, E., &amp; Itskhoki, O. (2010). <span class="nocase">Labour Market Rigidities, Trade and Unemployment</span>. <em>Review of Economic Studies</em>, <em>77</em>(3), 1100–1137.
+</div></div></section>
+<section id="covid-and-international-economics-stylized-facts" class="level3 page-columns page-full" data-number="1.6.2">
+<h3 data-number="1.6.2" class="anchored" data-anchor-id="covid-and-international-economics-stylized-facts"><span class="header-section-number">1.6.2</span> COVID and international economics: Stylized facts</h3>
+<p>See <a href="#fig-covid1" class="quarto-xref">Figure&nbsp;<span>1.8</span></a> to <a href="#fig-covid0" class="quarto-xref">Figure&nbsp;<span>1.10</span></a> and read <span class="citation" data-cites="Arriola2021impact">Arriola et al. (<a href="references.html#ref-Arriola2021impact" role="doc-biblioref">2021</a>)</span> for further information.</p>
+<div class="no-row-height column-margin column-container"></div><div id="fig-covid1" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-covid1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.8: Imports and exports in USD billion, OECD countries
+</figcaption>
+<div aria-describedby="fig-covid1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<p><a href="fig/t-covid1.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-10" title="Figure&nbsp;1.8: Imports and exports in USD billion, OECD countries"><img src="fig/t-covid1.jpg" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<div class="page-columns page-full"><p><em>Source: <span class="citation" data-cites="Arriola2021impact">Arriola et al. (<a href="references.html#ref-Arriola2021impact" role="doc-biblioref">2021</a>)</span> </em></p><div class="no-row-height column-margin column-container"></div></div>
+</div>
+</figure>
+</div>
+<div id="fig-covid2" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-covid2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.9: Year-on-year growth rates of export volumes
+</figcaption>
+<div aria-describedby="fig-covid2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<p><a href="fig/t-covid2.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-11" title="Figure&nbsp;1.9: Year-on-year growth rates of export volumes"><img src="fig/t-covid2.jpg" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<div class="page-columns page-full"><p><em>Source: <span class="citation" data-cites="Arriola2021impact">Arriola et al. (<a href="references.html#ref-Arriola2021impact" role="doc-biblioref">2021</a>)</span> </em></p><div class="no-row-height column-margin column-container"></div></div>
+</div>
+</figure>
+</div>
+<div id="fig-covid0" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-covid0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.10: World merchandise trade and industrial production volumes
+</figcaption>
+<div aria-describedby="fig-covid0-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<p><a href="fig/t-covid0.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-12" title="Figure&nbsp;1.10: World merchandise trade and industrial production volumes"><img src="fig/t-covid0.jpg" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<div class="page-columns page-full"><p><em>Source: <span class="citation" data-cites="Arriola2021impact">Arriola et al. (<a href="references.html#ref-Arriola2021impact" role="doc-biblioref">2021</a>)</span> </em></p><div class="no-row-height column-margin column-container"><div id="ref-Arriola2021impact" class="csl-entry" role="listitem">
+Arriola, C., Kowalski, P., &amp; Tongeren, F. van. (2021). <em>The impact of <span>COVID-19</span> on directions and structure of international trade</em> (OECD Trade Policy Paper 252). Organisation for Economic Co-Operation; Development (OECD).
+</div></div></div>
+</div>
+</figure>
+</div>
+</section>
+<section id="what-is-international-monetary-economics" class="level3" data-number="1.6.3">
+<h3 data-number="1.6.3" class="anchored" data-anchor-id="what-is-international-monetary-economics"><span class="header-section-number">1.6.3</span> What is international monetary economics?</h3>
+<p>International monetary economics focuses on the financial aspects of international trade. It studies the flows of money across countries and their effects on economies as a whole.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-erdogan" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.9</strong></span> Discuss the content of <a href="#fig-liracentral" class="quarto-xref">Figure&nbsp;<span>1.11</span></a> to <a href="#fig-erdoganhex" class="quarto-xref">Figure&nbsp;<span>1.13</span></a>.</p>
+<div id="fig-liracentral" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-liracentral-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.11: Lira tumbles
+</figcaption>
+<div aria-describedby="fig-liracentral-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="fig/lira-central.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-13" title="Figure&nbsp;1.11: Lira tumbles"><img src="fig/lira-central.jpg" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<p><em>Source: <a href="https://www.bloomberg.com/news/articles/2021-10-21/lira-tumbles-to-record-after-central-bank-cuts-rates-again">Bloomberg.com</a></em></p>
+</div>
+</figure>
+</div>
+<div id="fig-erdogan" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-erdogan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.12: Turkish lira hits record
+</figcaption>
+<div aria-describedby="fig-erdogan-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="fig/lira-erdogan.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-14" title="Figure&nbsp;1.12: Turkish lira hits record"><img src="fig/lira-erdogan.jpg" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<p><em>Source: <a href="https://www.cnbc.com/2021/10/25/turkish-lira-hits-record-low-as-erdogan-aims-to-expel-foreign-diplomats.html">CNBC.com</a></em></p>
+</div>
+</figure>
+</div>
+<div id="fig-erdoganhex" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-erdoganhex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.13: TRY to USD rate (₺/$)
+</figcaption>
+<div aria-describedby="fig-erdoganhex-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/erdogan-hex.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-15" title="Figure&nbsp;1.13: TRY to USD rate (₺/$)"><img src="fig/erdogan-hex.jpg" class="img-fluid figure-img" style="width:100.0%"></a>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="what-is-international-trade-policy" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="what-is-international-trade-policy"><span class="header-section-number">1.7</span> What is international trade policy?</h2>
+<p>International trade policy encompasses the interplay of national interests affecting trade across borders. It is based on the assumption that a country’s international trade policy serves its citizens’ and companies’ interests.</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-trumpjuncker" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.10</strong></span> Read <a href="https://www.euronews.com/embed/439899">euronews.com</a>, see <a href="#fig-juncker" class="quarto-xref">Figure&nbsp;<span>1.14</span></a>.</p>
+<div id="fig-juncker" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-juncker-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.14: Juncker responds on 03/03/2018
+</figcaption>
+<div aria-describedby="fig-juncker-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="fig/juncker.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-16" title="Figure&nbsp;1.14: Juncker responds on 03/03/2018"><img src="fig/juncker.jpg" class="img-fluid figure-img" style="width:70.0%"></a>
+</div>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>European Commission chief Jean-Claude Juncker has vowed to fight back against US President Donald Trump’s threat of a 25% tariff on steel and 10% on aluminium imports (see <a href="#fig-juncker" class="quarto-xref">Figure&nbsp;<span>1.14</span></a>).</p>
+<p>“So now we will also impose import tariffs. This is basically a stupid process, the fact that we have to do this. But we have to do it. We will now impose tariffs on motorcycles, Harley Davidson, on blue jeans, Levis, on Bourbon. We can also do stupid. We also have to be this stupid,” he said in Hamburg on Friday evening.</p>
+<p>While Trump may be comfortable with the idea of a trade war, it wasn’t just across the Atlantic where the leader’s plans ruffled feathers.</p>
+<p>“We are impressing upon the American administration the unacceptable nature of these proposals that are going to hurt them every bit as much as they will hurt us,” said Canadian Prime Minister Justin Trudeau.</p>
+<p>The warnings from leaders around the world mirrored those of the International Monetary Fund, which said Trump’s plan would cause damage both internationally and within America itself.</p>
+<p>Trump, however, remains defiant, insisting that trade wars are good and easy to win.</p>
+</blockquote>
+<p>Watch <a href="https://youtu.be/QXlxl7sLJjs?si=USXZpOFLRnwyXIU5">this video</a>. Also see <a href="#fig-djuncker" class="quarto-xref">Figure&nbsp;<span>1.15</span></a>.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QXlxl7sLJjs?si=6E4J-5WWF2fEQQN0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="">
+</iframe>
+<div id="fig-djuncker" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-djuncker-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.15: Trump and Juncker talk (7/25/2018)
+</figcaption>
+<div aria-describedby="fig-djuncker-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="fig/donald-jcj.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="Figure&nbsp;1.15: Trump and Juncker talk (7/25/2018)"><img src="fig/donald-jcj.jpg" class="img-fluid figure-img" style="width:80.0%"></a></p>
+<p><em>Source: <a href="https://www.dw.com/en/donald-trump-and-jean-claude-juncker-talk-trade-tariffs/a-44825737">dw.com</a></em></p>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exr-godorbad" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.11</strong></span> Free trade: Good or bad?</p>
+<p>Please consider the following subfigures of <a href="#fig-trade6" class="quarto-xref">Figure&nbsp;<span>1.16</span></a> and discuss whether trade is something ‘good’ or ‘bad’.</p>
+<div id="fig-trade6" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-trade6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.16
+</figcaption>
+<div aria-describedby="fig-trade6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figcaption><em>Source: <a href="https://cdn.shopify.com/s/files/1/0895/0864/products/42-26642856_1024x1024.jpeg?v=1451729228">Link</a></em></figcaption>
+<p><a href="fig/ftgood.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-18" title="Source: Link"><img src="fig/ftgood.jpeg" class="img-fluid figure-img" style="width:100.0%"></a></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figcaption><em>Source: <a href="https://i.redd.it/7ede6gxpos131.png">Link</a></em></figcaption>
+<p><a href="fig/tr_min.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="Source: Link"><img src="fig/tr_min.jpg" class="img-fluid figure-img" style="width:100.0%"></a></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figcaption><em>Source: <a href="https://www.cartoonstock.com/directory/f/free_trade.asp">Link</a></em></figcaption>
+<p><a href="fig/freetrade_png.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Source: Link"><img src="fig/freetrade_png.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figcaption><em>Source: Twitter</em></figcaption>
+<p><a href="fig/tradewar2_png.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Source: Twitter"><img src="fig/tradewar2_png.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figcaption><em>Source: <a href="https://otherwords.org/wp-content/uploads/2015/03/Free-trade-at-last.jpg">Link</a></em></figcaption>
+<p><a href="fig/freetradeatlast_min.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-22" title="Source: Link"><img src="fig/freetradeatlast_min.jpg" class="img-fluid figure-img" style="width:100.0%"></a></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<figcaption><em>Source: <a href="https://fee.org/media/30172/backfire.png">Link</a></em></figcaption>
+<p><a href="fig/tradewar1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23" title="Source: Link"><img src="fig/tradewar1.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Some comments on a solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Some comments on a solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The costs and benefits of international trade is a controversial topic in politics and academia. In academia, it is a widely shared belief that free trade can be (don’t have to be!) a positive-sum game. Outside of academia, however, many people fear international trade because they might loose their competitive advantage in business or their jobs to foreign competitors. Nevertheless, it has to be stated that consumers decide to buy a lot of items from foreign suppliers without being forced to do so. Politicians take advantage of the topic to make popular statements.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./rationality.html" class="pagination-link" aria-label="Rationality">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Rationality</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
